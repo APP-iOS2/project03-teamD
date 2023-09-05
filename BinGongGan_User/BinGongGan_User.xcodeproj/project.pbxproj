@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		691774A02AA6FF22001CB008 /* ReservationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6917749F2AA6FF22001CB008 /* ReservationView.swift */; };
+		691774A22AA70183001CB008 /* ReservationStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 691774A12AA70183001CB008 /* ReservationStore.swift */; };
+		691774A42AA701A7001CB008 /* Reservation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 691774A32AA701A7001CB008 /* Reservation.swift */; };
 		B12A84A52AA6F00D00BDF8CA /* BinGongGan_UserApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = B12A84A42AA6F00D00BDF8CA /* BinGongGan_UserApp.swift */; };
 		B12A84A72AA6F00D00BDF8CA /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B12A84A62AA6F00D00BDF8CA /* ContentView.swift */; };
 		B12A84A92AA6F01000BDF8CA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B12A84A82AA6F01000BDF8CA /* Assets.xcassets */; };
@@ -41,6 +44,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		6917749F2AA6FF22001CB008 /* ReservationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReservationView.swift; sourceTree = "<group>"; };
+		691774A12AA70183001CB008 /* ReservationStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReservationStore.swift; sourceTree = "<group>"; };
+		691774A32AA701A7001CB008 /* Reservation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reservation.swift; sourceTree = "<group>"; };
 		B12A84A12AA6F00D00BDF8CA /* BinGongGan_User.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BinGongGan_User.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B12A84A42AA6F00D00BDF8CA /* BinGongGan_UserApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BinGongGan_UserApp.swift; sourceTree = "<group>"; };
 		B12A84A62AA6F00D00BDF8CA /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -83,6 +89,33 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		6917749A2AA6FEC1001CB008 /* UserHome */ = {
+			isa = PBXGroup;
+			children = (
+				6917749C2AA6FED8001CB008 /* View */,
+				6917749B2AA6FECB001CB008 /* Model */,
+			);
+			path = UserHome;
+			sourceTree = "<group>";
+		};
+		6917749B2AA6FECB001CB008 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				691774A12AA70183001CB008 /* ReservationStore.swift */,
+				691774A32AA701A7001CB008 /* Reservation.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		6917749C2AA6FED8001CB008 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				B12A84A62AA6F00D00BDF8CA /* ContentView.swift */,
+				6917749F2AA6FF22001CB008 /* ReservationView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		B12A84982AA6F00D00BDF8CA = {
 			isa = PBXGroup;
 			children = (
@@ -107,9 +140,9 @@
 		B12A84A32AA6F00D00BDF8CA /* BinGongGan_User */ = {
 			isa = PBXGroup;
 			children = (
+				6917749A2AA6FEC1001CB008 /* UserHome */,
 				B12A84E92AA6F0CE00BDF8CA /* GoogleService-Info-User.plist */,
 				B12A84A42AA6F00D00BDF8CA /* BinGongGan_UserApp.swift */,
-				B12A84A62AA6F00D00BDF8CA /* ContentView.swift */,
 				B12A84A82AA6F01000BDF8CA /* Assets.xcassets */,
 				B12A84AA2AA6F01000BDF8CA /* Preview Content */,
 			);
@@ -290,7 +323,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				691774A22AA70183001CB008 /* ReservationStore.swift in Sources */,
 				B12A84A72AA6F00D00BDF8CA /* ContentView.swift in Sources */,
+				691774A42AA701A7001CB008 /* Reservation.swift in Sources */,
+				691774A02AA6FF22001CB008 /* ReservationView.swift in Sources */,
 				B12A84A52AA6F00D00BDF8CA /* BinGongGan_UserApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
