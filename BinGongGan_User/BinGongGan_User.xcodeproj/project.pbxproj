@@ -9,6 +9,17 @@
 /* Begin PBXBuildFile section */
 		3A72B6252AA7004D00AD99E2 /* Color+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A72B6242AA7004D00AD99E2 /* Color+Extension.swift */; };
 		3A72B6272AA704C400AD99E2 /* Font+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A72B6262AA704C400AD99E2 /* Font+Extension.swift */; };
+		53730E4B2AA719DD001ABF6B /* MyPageMainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53730E3D2AA719DD001ABF6B /* MyPageMainView.swift */; };
+		53730E4C2AA719DD001ABF6B /* AnnouncementView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53730E3F2AA719DD001ABF6B /* AnnouncementView.swift */; };
+		53730E4D2AA719DD001ABF6B /* FAQView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53730E402AA719DD001ABF6B /* FAQView.swift */; };
+		53730E4E2AA719DD001ABF6B /* MyReservationListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53730E422AA719DD001ABF6B /* MyReservationListView.swift */; };
+		53730E4F2AA719DD001ABF6B /* ReservationCancelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53730E432AA719DD001ABF6B /* ReservationCancelView.swift */; };
+		53730E502AA719DD001ABF6B /* ReservationDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53730E442AA719DD001ABF6B /* ReservationDetailView.swift */; };
+		53730E512AA719DD001ABF6B /* MyReviewListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53730E462AA719DD001ABF6B /* MyReviewListView.swift */; };
+		53730E522AA719DD001ABF6B /* AddReviewView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53730E472AA719DD001ABF6B /* AddReviewView.swift */; };
+		53730E532AA719DD001ABF6B /* MyInformationDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53730E492AA719DD001ABF6B /* MyInformationDetailView.swift */; };
+		53730E542AA719DD001ABF6B /* MyInformationEditView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53730E4A2AA719DD001ABF6B /* MyInformationEditView.swift */; };
+		53730E572AA71A31001ABF6B /* SettingListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53730E562AA71A31001ABF6B /* SettingListView.swift */; };
 		B12A84A52AA6F00D00BDF8CA /* BinGongGan_UserApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = B12A84A42AA6F00D00BDF8CA /* BinGongGan_UserApp.swift */; };
 		B12A84A72AA6F00D00BDF8CA /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B12A84A62AA6F00D00BDF8CA /* ContentView.swift */; };
 		B12A84A92AA6F01000BDF8CA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B12A84A82AA6F01000BDF8CA /* Assets.xcassets */; };
@@ -45,6 +56,17 @@
 /* Begin PBXFileReference section */
 		3A72B6242AA7004D00AD99E2 /* Color+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color+Extension.swift"; sourceTree = "<group>"; };
 		3A72B6262AA704C400AD99E2 /* Font+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Font+Extension.swift"; sourceTree = "<group>"; };
+		53730E3D2AA719DD001ABF6B /* MyPageMainView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyPageMainView.swift; sourceTree = "<group>"; };
+		53730E3F2AA719DD001ABF6B /* AnnouncementView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnnouncementView.swift; sourceTree = "<group>"; };
+		53730E402AA719DD001ABF6B /* FAQView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FAQView.swift; sourceTree = "<group>"; };
+		53730E422AA719DD001ABF6B /* MyReservationListView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyReservationListView.swift; sourceTree = "<group>"; };
+		53730E432AA719DD001ABF6B /* ReservationCancelView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReservationCancelView.swift; sourceTree = "<group>"; };
+		53730E442AA719DD001ABF6B /* ReservationDetailView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReservationDetailView.swift; sourceTree = "<group>"; };
+		53730E462AA719DD001ABF6B /* MyReviewListView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyReviewListView.swift; sourceTree = "<group>"; };
+		53730E472AA719DD001ABF6B /* AddReviewView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddReviewView.swift; sourceTree = "<group>"; };
+		53730E492AA719DD001ABF6B /* MyInformationDetailView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyInformationDetailView.swift; sourceTree = "<group>"; };
+		53730E4A2AA719DD001ABF6B /* MyInformationEditView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyInformationEditView.swift; sourceTree = "<group>"; };
+		53730E562AA71A31001ABF6B /* SettingListView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingListView.swift; sourceTree = "<group>"; };
 		B12A84A12AA6F00D00BDF8CA /* BinGongGan_User.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BinGongGan_User.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B12A84A42AA6F00D00BDF8CA /* BinGongGan_UserApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BinGongGan_UserApp.swift; sourceTree = "<group>"; };
 		B12A84A62AA6F00D00BDF8CA /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -104,6 +126,64 @@
 			path = Namespace;
 			sourceTree = "<group>";
 		};
+		53730E3C2AA719DD001ABF6B /* MyPage */ = {
+			isa = PBXGroup;
+			children = (
+				53730E3D2AA719DD001ABF6B /* MyPageMainView.swift */,
+				53730E3E2AA719DD001ABF6B /* CustomerService */,
+				53730E412AA719DD001ABF6B /* Reservation */,
+				53730E452AA719DD001ABF6B /* Review */,
+				53730E482AA719DD001ABF6B /* MyInformation */,
+				53730E552AA71A31001ABF6B /* Setting */,
+			);
+			path = MyPage;
+			sourceTree = "<group>";
+		};
+		53730E3E2AA719DD001ABF6B /* CustomerService */ = {
+			isa = PBXGroup;
+			children = (
+				53730E3F2AA719DD001ABF6B /* AnnouncementView.swift */,
+				53730E402AA719DD001ABF6B /* FAQView.swift */,
+			);
+			path = CustomerService;
+			sourceTree = "<group>";
+		};
+		53730E412AA719DD001ABF6B /* Reservation */ = {
+			isa = PBXGroup;
+			children = (
+				53730E422AA719DD001ABF6B /* MyReservationListView.swift */,
+				53730E432AA719DD001ABF6B /* ReservationCancelView.swift */,
+				53730E442AA719DD001ABF6B /* ReservationDetailView.swift */,
+			);
+			path = Reservation;
+			sourceTree = "<group>";
+		};
+		53730E452AA719DD001ABF6B /* Review */ = {
+			isa = PBXGroup;
+			children = (
+				53730E462AA719DD001ABF6B /* MyReviewListView.swift */,
+				53730E472AA719DD001ABF6B /* AddReviewView.swift */,
+			);
+			path = Review;
+			sourceTree = "<group>";
+		};
+		53730E482AA719DD001ABF6B /* MyInformation */ = {
+			isa = PBXGroup;
+			children = (
+				53730E492AA719DD001ABF6B /* MyInformationDetailView.swift */,
+				53730E4A2AA719DD001ABF6B /* MyInformationEditView.swift */,
+			);
+			path = MyInformation;
+			sourceTree = "<group>";
+		};
+		53730E552AA71A31001ABF6B /* Setting */ = {
+			isa = PBXGroup;
+			children = (
+				53730E562AA71A31001ABF6B /* SettingListView.swift */,
+			);
+			path = Setting;
+			sourceTree = "<group>";
+		};
 		B12A84982AA6F00D00BDF8CA = {
 			isa = PBXGroup;
 			children = (
@@ -128,6 +208,7 @@
 		B12A84A32AA6F00D00BDF8CA /* BinGongGan_User */ = {
 			isa = PBXGroup;
 			children = (
+				53730E3C2AA719DD001ABF6B /* MyPage */,
 				3A72B6222AA7003700AD99E2 /* Extension */,
 				B12A84E92AA6F0CE00BDF8CA /* GoogleService-Info-User.plist */,
 				B12A84A42AA6F00D00BDF8CA /* BinGongGan_UserApp.swift */,
@@ -313,9 +394,20 @@
 			buildActionMask = 2147483647;
 			files = (
 				3A72B6272AA704C400AD99E2 /* Font+Extension.swift in Sources */,
+				53730E4C2AA719DD001ABF6B /* AnnouncementView.swift in Sources */,
+				53730E512AA719DD001ABF6B /* MyReviewListView.swift in Sources */,
 				B12A84A72AA6F00D00BDF8CA /* ContentView.swift in Sources */,
 				3A72B6252AA7004D00AD99E2 /* Color+Extension.swift in Sources */,
+				53730E4D2AA719DD001ABF6B /* FAQView.swift in Sources */,
+				53730E4E2AA719DD001ABF6B /* MyReservationListView.swift in Sources */,
+				53730E542AA719DD001ABF6B /* MyInformationEditView.swift in Sources */,
 				B12A84A52AA6F00D00BDF8CA /* BinGongGan_UserApp.swift in Sources */,
+				53730E522AA719DD001ABF6B /* AddReviewView.swift in Sources */,
+				53730E572AA71A31001ABF6B /* SettingListView.swift in Sources */,
+				53730E532AA719DD001ABF6B /* MyInformationDetailView.swift in Sources */,
+				53730E4F2AA719DD001ABF6B /* ReservationCancelView.swift in Sources */,
+				53730E502AA719DD001ABF6B /* ReservationDetailView.swift in Sources */,
+				53730E4B2AA719DD001ABF6B /* MyPageMainView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
