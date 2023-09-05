@@ -8,7 +8,7 @@
 import SwiftUI
 
 enum HomePlaceListViewConstant {
-        static let cellsPadding = CGFloat(5)
+    static let cellsPadding = CGFloat(5)
     //    static let cellHeight = CGFloat(100)
     //    static let cellCorner = CGFloat(15)
 }
@@ -28,32 +28,27 @@ struct HomePlaceListView: View {
     
     var body: some View {
         
-        ScrollViewReader { reader in
-            ScrollView(.horizontal , showsIndicators: false ){
-                HStack {
-                    ForEach(dummyStore.PlaceDummys) { place in
-                        NavigationLink {
-                            PublicOfficeView()
-                        } label: {
-                            VStack {
-                                PlaceCell(cellImage: place.placeImage)
-                                    .cornerRadius(PlaceCellConstant.cellCorner)
-                                Text(place.placeName)
-                                    .font(.system(size: PlaceCellConstant.fontSize))
-                            }
-                        }// NAVIGATIONLINK
-                    }.padding(HomePlaceListViewConstant.cellsPadding)
-                }
-                .padding(.leading, 20)
-                .padding(.bottom, 20)
-            }// SCROLLVIEW
-            .frame(width: screenWidth, height: 50)
-        }// SCROLLVIEWREADER
+        HStack {
+            ForEach(dummyStore.PlaceDummys) { place in
+                NavigationLink {
+                    PublicOfficeView()
+                } label: {
+                    VStack {
+                        PlaceCell(cellImage: place.placeImage)
+                            .cornerRadius(PlaceCellConstant.cellCorner)
+                        Text(place.placeName)
+                            .font(.system(size: PlaceCellConstant.fontSize))
+                    }
+                }// NAVIGATIONLINK
+            }.padding(HomePlaceListViewConstant.cellsPadding)
+        }
     }
 }
 
 struct HomePlaceListView_Previews: PreviewProvider {
     static var previews: some View {
-        HomePlaceListView()
+        NavigationStack{
+            HomePlaceListView()
+        }
     }
 }

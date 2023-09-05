@@ -26,16 +26,34 @@ struct HomeView: View {
     var body: some View {
         NavigationStack{
             VStack {
+                NavigationLink {
+                    HomeSearchView()
+                } label: {
+                    RoundedRectangle(cornerRadius: HomeViewConstant.eventTapCornerRadius)
+                        .frame(width: screenWidth - HomeViewConstant.eventTapWidth , height: HomeViewConstant.eventTapHeight)
+                        .foregroundColor(.gray)
+                        .overlay {
+                            HStack {
+                                Spacer()
+                                Text("어떤 장소를 찾고 계신가요? ")
+                                    .foregroundColor(.black)
+                                Spacer()
+                                Image(systemName: "magnifyingglass")
+                                    .foregroundColor(.black)
+                                    .padding(.trailing, 10)
+                            }
+                        }
+                }
+                .padding(.all, HomeViewConstant.padding)
                 HomeEventTapView()
-                    .padding(.bottom, HomeViewConstant.padding )
+                    .padding(.bottom, HomeViewConstant.padding - 5)
                 
                 Text("어떤 공간이 필요하세요?")
                     .font(.title2)
                     .frame(width: .infinity , height: 50)
-                    .padding(.bottom , HomeViewConstant.padding + 15)
-                
+                    
                 HomePlaceListView()
-                
+                Spacer()
             }// VSTACK
             .toolbar {
                 ToolbarItem(placement: .navigationBarLeading) {
@@ -47,20 +65,6 @@ struct HomeView: View {
                         Spacer()
                     }// HSTACK
                     .padding(.all, HomeViewConstant.padding)
-                }
-                ToolbarItem {
-                    NavigationLink {
-                        HomeSearchView()
-                    } label: {
-                        RoundedRectangle(cornerRadius: HomeViewConstant.eventTapCornerRadius)
-                            .frame(width: screenWidth - HomeViewConstant.eventTapWidth , height: HomeViewConstant.eventTapHeight)
-                            .foregroundColor(.gray)
-                            .overlay {
-                                Text("어떤 장소를 찾고 계신가요? ")
-                                    .foregroundColor(.black)
-                            }
-                    }
-                    .padding(.bottom, HomeViewConstant.padding)
                 }
             }
         }// NAVIGATIONSTACK
