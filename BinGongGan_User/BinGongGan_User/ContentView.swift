@@ -6,19 +6,14 @@
 //
 
 import SwiftUI
-import BinGongGanCore
 
 struct ContentView: View {
-    var binGongGanCore: BinGongGanCore = BinGongGanCore()
-    
     var body: some View {
         VStack {
             Image(systemName: "globe")
                 .imageScale(.large)
                 .foregroundColor(.accentColor)
-            Text("Hello, 사용자world!")
-            
-            Text("\(binGongGanCore.text)")
+            Text("Hello, world!")
         }
         .padding()
     }
