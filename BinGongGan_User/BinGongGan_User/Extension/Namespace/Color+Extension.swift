@@ -25,19 +25,20 @@ extension Color {
         self.init(red: red, green: green, blue: blue)
     }
 
-    static let primary = Color(hex: "#655D55")
+    // MARK: 정의된 Color와 겹치지 않는 닉네임 선정
+    static let myPrimary = Color(hex: "#655D55")
     
-    static let secondary = Color(hex: "#8DB9C1")
+    static let mySecondary = Color(hex: "#8DB9C1")
     
-    static let background = Color(hex: "#F5F5F5")
+    static let myBackground = Color(hex: "#F5F5F5")
     
-    static let white = Color(hex: "#FFFFFF")
+    static let myWhite = Color(hex: "#FFFFFF")
     
-    static let black = Color(hex:"#000000")
+    static let myBlack = Color(hex:"#000000")
     
-    static let darkGray = Color(hex: "#666666")
+    static let myDarkGray = Color(hex: "#666666")
     
-    static let mediumGray = Color(hex: "#999999")
+    static let myMediumGray = Color(hex: "#999999")
     
-    static let lightGray = Color(hex: "#CCCCCC")
+    static let myLightGray = Color(hex: "#CCCCCC")
 }
