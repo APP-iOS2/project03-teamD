@@ -8,13 +8,25 @@
 import SwiftUI
 
 struct SettingListView: View {
+    @Binding var isShowingSetting: Bool
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        VStack {
+            Form {
+                Button {
+                    isShowingSetting = false
+                } label: {
+                    Text("로그아웃")
+                }
+
+            }
+        }
+        
     }
+    
 }
 
 struct SettingListView_Previews: PreviewProvider {
     static var previews: some View {
-        SettingListView()
+        SettingListView(isShowingSetting: .constant(false))
     }
 }

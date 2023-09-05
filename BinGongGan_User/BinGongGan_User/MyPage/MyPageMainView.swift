@@ -74,7 +74,7 @@ struct MyPageMainView: View {
                 }
             }
             .fullScreenCover(isPresented: $isShowingSetting) {
-                SettingListView()
+                SettingListView(isShowingSetting: $isShowingSetting)
             }
         }
     }
