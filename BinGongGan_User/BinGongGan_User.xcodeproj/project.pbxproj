@@ -11,6 +11,7 @@
 		691774A22AA70183001CB008 /* ReservationStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 691774A12AA70183001CB008 /* ReservationStore.swift */; };
 		691774A42AA701A7001CB008 /* Reservation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 691774A32AA701A7001CB008 /* Reservation.swift */; };
 		691774A92AA719AE001CB008 /* ReservationHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 691774A82AA719AE001CB008 /* ReservationHeaderView.swift */; };
+		691774AB2AA71A91001CB008 /* ReservationCalendarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 691774AA2AA71A91001CB008 /* ReservationCalendarView.swift */; };
 		B12A84A52AA6F00D00BDF8CA /* BinGongGan_UserApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = B12A84A42AA6F00D00BDF8CA /* BinGongGan_UserApp.swift */; };
 		B12A84A72AA6F00D00BDF8CA /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B12A84A62AA6F00D00BDF8CA /* ContentView.swift */; };
 		B12A84A92AA6F01000BDF8CA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B12A84A82AA6F01000BDF8CA /* Assets.xcassets */; };
@@ -49,6 +50,7 @@
 		691774A12AA70183001CB008 /* ReservationStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReservationStore.swift; sourceTree = "<group>"; };
 		691774A32AA701A7001CB008 /* Reservation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reservation.swift; sourceTree = "<group>"; };
 		691774A82AA719AE001CB008 /* ReservationHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReservationHeaderView.swift; sourceTree = "<group>"; };
+		691774AA2AA71A91001CB008 /* ReservationCalendarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReservationCalendarView.swift; sourceTree = "<group>"; };
 		B12A84A12AA6F00D00BDF8CA /* BinGongGan_User.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BinGongGan_User.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B12A84A42AA6F00D00BDF8CA /* BinGongGan_UserApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BinGongGan_UserApp.swift; sourceTree = "<group>"; };
 		B12A84A62AA6F00D00BDF8CA /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -121,8 +123,9 @@
 		691774A72AA71999001CB008 /* Reservation */ = {
 			isa = PBXGroup;
 			children = (
-				691774A82AA719AE001CB008 /* ReservationHeaderView.swift */,
 				6917749F2AA6FF22001CB008 /* ReservationView.swift */,
+				691774A82AA719AE001CB008 /* ReservationHeaderView.swift */,
+				691774AA2AA71A91001CB008 /* ReservationCalendarView.swift */,
 			);
 			path = Reservation;
 			sourceTree = "<group>";
@@ -340,6 +343,7 @@
 				691774A02AA6FF22001CB008 /* ReservationView.swift in Sources */,
 				691774A92AA719AE001CB008 /* ReservationHeaderView.swift in Sources */,
 				B12A84A52AA6F00D00BDF8CA /* BinGongGan_UserApp.swift in Sources */,
+				691774AB2AA71A91001CB008 /* ReservationCalendarView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
