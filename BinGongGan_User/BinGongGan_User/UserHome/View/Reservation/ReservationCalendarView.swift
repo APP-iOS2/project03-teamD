@@ -11,22 +11,31 @@ struct ReservationCalendarView: View {
     
     @EnvironmentObject var reservationStore: ReservationStore
     
-    @State var checkinDate : Date = Date()
+    @State var checkInDate : Date = Date()
+    @State var checkOutDate : Date = Date()
     
     var body: some View {
         VStack(alignment: .leading) {
             DatePicker(
                 "Start Date",
-                selection: $checkinDate,
+                selection: $checkInDate,
                 displayedComponents: [.date]
             )
             .datePickerStyle(.graphical)
             
-            Text("선택한 날짜")
-            
-            HStack {
+            VStack(alignment: .listRowSeparatorLeading, spacing: 20) {
+                Text("선택한 날짜")
+                    .font(.title2)
                 
+                HStack {
+                    Text("입실 날짜: ")
+                    
+                    Spacer()
+                    
+                    Text("퇴실 날짜: ")
+                }
             }
+            .padding(20)
         }
     }
 }
