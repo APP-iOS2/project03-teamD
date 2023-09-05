@@ -8,7 +8,8 @@
 import Foundation
 import SwiftUI
 
-extension Color {
+@available(iOS 13.0, *)
+public extension Color {
     // MARK: #FFFFFF와 같이 16진수 hexString color를 쓸 수 있음.
     init(hex: String) {
         var hexSanitized = hex.trimmingCharacters(in: .whitespacesAndNewlines)

@@ -8,7 +8,8 @@
 import Foundation
 import SwiftUI
 
-extension Font {
+@available(iOS 13.0, *)
+public extension Font {
     static var head1Regular: Font {
         return Font.custom("AppleSDGothicNeo-Regular", size: 22)
     }
