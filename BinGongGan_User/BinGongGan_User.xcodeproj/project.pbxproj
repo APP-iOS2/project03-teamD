@@ -7,15 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		3A1FAFD12AA71E5000E8D16C /* CustomTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A1FAFD02AA71E5000E8D16C /* CustomTextField.swift */; };
-		3A1FAFD52AA71FB300E8D16C /* SignUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A1FAFD42AA71FB300E8D16C /* SignUpView.swift */; };
-		3A72B6252AA7004D00AD99E2 /* Color+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A72B6242AA7004D00AD99E2 /* Color+Extension.swift */; };
-		3A72B6272AA704C400AD99E2 /* Font+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A72B6262AA704C400AD99E2 /* Font+Extension.swift */; };
-		27601CFD2AA6FE5F00AD4294 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27601CFC2AA6FE5F00AD4294 /* LoginView.swift */; };
-		27601D002AA6FE8100AD4294 /* MapSearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27601CFF2AA6FE8100AD4294 /* MapSearchView.swift */; };
-		27601D022AA6FE8D00AD4294 /* RegisterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27601D012AA6FE8D00AD4294 /* RegisterView.swift */; };
 		B12A84A52AA6F00D00BDF8CA /* BinGongGan_UserApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = B12A84A42AA6F00D00BDF8CA /* BinGongGan_UserApp.swift */; };
-		B12A84A72AA6F00D00BDF8CA /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B12A84A62AA6F00D00BDF8CA /* ContentView.swift */; };
 		B12A84A92AA6F01000BDF8CA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B12A84A82AA6F01000BDF8CA /* Assets.xcassets */; };
 		B12A84AC2AA6F01000BDF8CA /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B12A84AB2AA6F01000BDF8CA /* Preview Assets.xcassets */; };
 		B12A84B62AA6F01100BDF8CA /* BinGongGan_UserTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B12A84B52AA6F01100BDF8CA /* BinGongGan_UserTests.swift */; };
@@ -28,6 +20,22 @@
 		B12A84EA2AA6F0CE00BDF8CA /* GoogleService-Info-User.plist in Resources */ = {isa = PBXBuildFile; fileRef = B12A84E92AA6F0CE00BDF8CA /* GoogleService-Info-User.plist */; };
 		B12A84EB2AA6F0CE00BDF8CA /* GoogleService-Info-User.plist in Resources */ = {isa = PBXBuildFile; fileRef = B12A84E92AA6F0CE00BDF8CA /* GoogleService-Info-User.plist */; };
 		B12A84EC2AA6F0CE00BDF8CA /* GoogleService-Info-User.plist in Resources */ = {isa = PBXBuildFile; fileRef = B12A84E92AA6F0CE00BDF8CA /* GoogleService-Info-User.plist */; };
+		BC3907072AA7082B00EAD650 /* GongGanInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC3907062AA7082B00EAD650 /* GongGanInfo.swift */; };
+		BC3907112AA7121900EAD650 /* GongGanTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC3907102AA7121900EAD650 /* GongGanTabView.swift */; };
+		BC39071A2AA7293F00EAD650 /* HomeDummy.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC3907192AA7293F00EAD650 /* HomeDummy.swift */; };
+		BC3907222AA7294F00EAD650 /* HomeEventTapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC39071B2AA7294F00EAD650 /* HomeEventTapView.swift */; };
+		BC3907232AA7294F00EAD650 /* HomePlaceListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC39071C2AA7294F00EAD650 /* HomePlaceListView.swift */; };
+		BC3907242AA7294F00EAD650 /* PublicOfficeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC39071D2AA7294F00EAD650 /* PublicOfficeView.swift */; };
+		BC3907272AA7294F00EAD650 /* HomeSearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC3907202AA7294F00EAD650 /* HomeSearchView.swift */; };
+		BC3907282AA7294F00EAD650 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC3907212AA7294F00EAD650 /* HomeView.swift */; };
+		BC39072B2AA7295A00EAD650 /* ReservationStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC3907292AA7295A00EAD650 /* ReservationStore.swift */; };
+		BC39072C2AA7295A00EAD650 /* Reservation.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC39072A2AA7295A00EAD650 /* Reservation.swift */; };
+		BC3907372AA72BB100EAD650 /* PlaceCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC3907362AA72BB100EAD650 /* PlaceCell.swift */; };
+		BC39073E2AA72BCE00EAD650 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC39073A2AA72BCE00EAD650 /* ContentView.swift */; };
+		BC39073F2AA72BCE00EAD650 /* ReservationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC39073B2AA72BCE00EAD650 /* ReservationView.swift */; };
+		BC3907402AA72BCE00EAD650 /* ReservationCalendarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC39073C2AA72BCE00EAD650 /* ReservationCalendarView.swift */; };
+		BC3907412AA72BCE00EAD650 /* ReservationHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC39073D2AA72BCE00EAD650 /* ReservationHeaderView.swift */; };
+		BC3907452AA72C4400EAD650 /* GongGanDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC3907442AA72C4400EAD650 /* GongGanDetailView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -48,16 +56,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		3A1FAFD02AA71E5000E8D16C /* CustomTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTextField.swift; sourceTree = "<group>"; };
-		3A1FAFD42AA71FB300E8D16C /* SignUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpView.swift; sourceTree = "<group>"; };
-		3A72B6242AA7004D00AD99E2 /* Color+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color+Extension.swift"; sourceTree = "<group>"; };
-		3A72B6262AA704C400AD99E2 /* Font+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Font+Extension.swift"; sourceTree = "<group>"; };
-		27601CFC2AA6FE5F00AD4294 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
-		27601CFF2AA6FE8100AD4294 /* MapSearchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapSearchView.swift; sourceTree = "<group>"; };
-		27601D012AA6FE8D00AD4294 /* RegisterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterView.swift; sourceTree = "<group>"; };
 		B12A84A12AA6F00D00BDF8CA /* BinGongGan_User.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BinGongGan_User.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B12A84A42AA6F00D00BDF8CA /* BinGongGan_UserApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BinGongGan_UserApp.swift; sourceTree = "<group>"; };
-		B12A84A62AA6F00D00BDF8CA /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		B12A84A82AA6F01000BDF8CA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B12A84AB2AA6F01000BDF8CA /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		B12A84B12AA6F01100BDF8CA /* BinGongGan_UserTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BinGongGan_UserTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -66,6 +66,22 @@
 		B12A84BF2AA6F01100BDF8CA /* BinGongGan_UserUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BinGongGan_UserUITests.swift; sourceTree = "<group>"; };
 		B12A84C12AA6F01100BDF8CA /* BinGongGan_UserUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BinGongGan_UserUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		B12A84E92AA6F0CE00BDF8CA /* GoogleService-Info-User.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info-User.plist"; sourceTree = "<group>"; };
+		BC3907062AA7082B00EAD650 /* GongGanInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = GongGanInfo.swift; path = ../../../../../../../GongGanInfo.swift; sourceTree = "<group>"; };
+		BC3907102AA7121900EAD650 /* GongGanTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = GongGanTabView.swift; path = ../../../../../../../GongGanTabView.swift; sourceTree = "<group>"; };
+		BC3907192AA7293F00EAD650 /* HomeDummy.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeDummy.swift; sourceTree = "<group>"; };
+		BC39071B2AA7294F00EAD650 /* HomeEventTapView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeEventTapView.swift; sourceTree = "<group>"; };
+		BC39071C2AA7294F00EAD650 /* HomePlaceListView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomePlaceListView.swift; sourceTree = "<group>"; };
+		BC39071D2AA7294F00EAD650 /* PublicOfficeView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PublicOfficeView.swift; sourceTree = "<group>"; };
+		BC3907202AA7294F00EAD650 /* HomeSearchView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeSearchView.swift; sourceTree = "<group>"; };
+		BC3907212AA7294F00EAD650 /* HomeView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
+		BC3907292AA7295A00EAD650 /* ReservationStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReservationStore.swift; sourceTree = "<group>"; };
+		BC39072A2AA7295A00EAD650 /* Reservation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Reservation.swift; sourceTree = "<group>"; };
+		BC3907362AA72BB100EAD650 /* PlaceCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceCell.swift; sourceTree = "<group>"; };
+		BC39073A2AA72BCE00EAD650 /* ContentView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		BC39073B2AA72BCE00EAD650 /* ReservationView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReservationView.swift; sourceTree = "<group>"; };
+		BC39073C2AA72BCE00EAD650 /* ReservationCalendarView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReservationCalendarView.swift; sourceTree = "<group>"; };
+		BC39073D2AA72BCE00EAD650 /* ReservationHeaderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReservationHeaderView.swift; sourceTree = "<group>"; };
+		BC3907442AA72C4400EAD650 /* GongGanDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GongGanDetailView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -97,50 +113,10 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		3A1FAFCE2AA71E3E00E8D16C /* SignUp */ = {
-			isa = PBXGroup;
-			children = (
-				3A1FAFD42AA71FB300E8D16C /* SignUpView.swift */,
-			);
-			path = SignUp;
-			sourceTree = "<group>";
-		};
-		3A1FAFCF2AA71E4500E8D16C /* Common */ = {
-			isa = PBXGroup;
-			children = (
-				3A1FAFD02AA71E5000E8D16C /* CustomTextField.swift */,
-			);
-			path = Common;
-			sourceTree = "<group>";
-		};
-		3A72B6222AA7003700AD99E2 /* Extension */ = {
-			isa = PBXGroup;
-			children = (
-				3A72B6232AA7004300AD99E2 /* Namespace */,
-			);
-			path = Extension;
-			sourceTree = "<group>";
-		};
-		3A72B6232AA7004300AD99E2 /* Namespace */ = {
-			isa = PBXGroup;
-			children = (
-				3A72B6242AA7004D00AD99E2 /* Color+Extension.swift */,
-				3A72B6262AA704C400AD99E2 /* Font+Extension.swift */,
-			);
-			path = Namespace;
-		27601CFE2AA6FE6400AD4294 /* LoginMap */ = {
-			isa = PBXGroup;
-			children = (
-				27601CFC2AA6FE5F00AD4294 /* LoginView.swift */,
-				27601CFF2AA6FE8100AD4294 /* MapSearchView.swift */,
-				27601D012AA6FE8D00AD4294 /* RegisterView.swift */,
-			);
-			path = LoginMap;
-			sourceTree = "<group>";
-		};
 		B12A84982AA6F00D00BDF8CA = {
 			isa = PBXGroup;
 			children = (
+				B12A84A82AA6F01000BDF8CA /* Assets.xcassets */,
 				B12A84A32AA6F00D00BDF8CA /* BinGongGan_User */,
 				B12A84B42AA6F01100BDF8CA /* BinGongGan_UserTests */,
 				B12A84BE2AA6F01100BDF8CA /* BinGongGan_UserUITests */,
@@ -162,14 +138,10 @@
 		B12A84A32AA6F00D00BDF8CA /* BinGongGan_User */ = {
 			isa = PBXGroup;
 			children = (
-				3A1FAFCF2AA71E4500E8D16C /* Common */,
-				3A1FAFCE2AA71E3E00E8D16C /* SignUp */,
-				3A72B6222AA7003700AD99E2 /* Extension */,
-				B12A84E92AA6F0CE00BDF8CA /* GoogleService-Info-User.plist */,
-				B12A84A42AA6F00D00BDF8CA /* BinGongGan_UserApp.swift */,
-				B12A84A62AA6F00D00BDF8CA /* ContentView.swift */,
-				27601CFE2AA6FE6400AD4294 /* LoginMap */,
-				B12A84A82AA6F01000BDF8CA /* Assets.xcassets */,
+				BC3907082AA7103C00EAD650 /* App */,
+				BC3907092AA7110700EAD650 /* Document */,
+				BC39070B2AA7117A00EAD650 /* TabBar */,
+				BC3907012AA6FE5200EAD650 /* UserHome */,
 				B12A84AA2AA6F01000BDF8CA /* Preview Content */,
 			);
 			path = BinGongGan_User;
@@ -205,6 +177,109 @@
 			children = (
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		BC3907012AA6FE5200EAD650 /* UserHome */ = {
+			isa = PBXGroup;
+			children = (
+				BC3907032AA6FE7D00EAD650 /* Model */,
+				BC3907022AA6FE7200EAD650 /* View */,
+			);
+			path = UserHome;
+			sourceTree = "<group>";
+		};
+		BC3907022AA6FE7200EAD650 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				BC3907422AA72C0500EAD650 /* Detail */,
+				BC3907392AA72BC500EAD650 /* Reservation */,
+				BC3907312AA72B5500EAD650 /* Home */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		BC3907032AA6FE7D00EAD650 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				BC3907192AA7293F00EAD650 /* HomeDummy.swift */,
+				BC39072A2AA7295A00EAD650 /* Reservation.swift */,
+				BC3907292AA7295A00EAD650 /* ReservationStore.swift */,
+				BC3907062AA7082B00EAD650 /* GongGanInfo.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		BC3907082AA7103C00EAD650 /* App */ = {
+			isa = PBXGroup;
+			children = (
+				B12A84A42AA6F00D00BDF8CA /* BinGongGan_UserApp.swift */,
+			);
+			name = App;
+			path = "메ㅔ";
+			sourceTree = "<group>";
+		};
+		BC3907092AA7110700EAD650 /* Document */ = {
+			isa = PBXGroup;
+			children = (
+				B12A84E92AA6F0CE00BDF8CA /* GoogleService-Info-User.plist */,
+			);
+			path = Document;
+			sourceTree = "<group>";
+		};
+		BC39070B2AA7117A00EAD650 /* TabBar */ = {
+			isa = PBXGroup;
+			children = (
+				BC39070E2AA711F900EAD650 /* View */,
+			);
+			path = TabBar;
+			sourceTree = "<group>";
+		};
+		BC39070E2AA711F900EAD650 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				BC3907102AA7121900EAD650 /* GongGanTabView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		BC3907312AA72B5500EAD650 /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				BC3907382AA72BBA00EAD650 /* Cell */,
+				BC39071B2AA7294F00EAD650 /* HomeEventTapView.swift */,
+				BC39071C2AA7294F00EAD650 /* HomePlaceListView.swift */,
+				BC3907202AA7294F00EAD650 /* HomeSearchView.swift */,
+				BC3907212AA7294F00EAD650 /* HomeView.swift */,
+				BC39071D2AA7294F00EAD650 /* PublicOfficeView.swift */,
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
+		BC3907382AA72BBA00EAD650 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				BC3907362AA72BB100EAD650 /* PlaceCell.swift */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
+		BC3907392AA72BC500EAD650 /* Reservation */ = {
+			isa = PBXGroup;
+			children = (
+				BC39073A2AA72BCE00EAD650 /* ContentView.swift */,
+				BC39073C2AA72BCE00EAD650 /* ReservationCalendarView.swift */,
+				BC39073D2AA72BCE00EAD650 /* ReservationHeaderView.swift */,
+				BC39073B2AA72BCE00EAD650 /* ReservationView.swift */,
+			);
+			path = Reservation;
+			sourceTree = "<group>";
+		};
+		BC3907422AA72C0500EAD650 /* Detail */ = {
+			isa = PBXGroup;
+			children = (
+				BC3907442AA72C4400EAD650 /* GongGanDetailView.swift */,
+			);
+			path = Detail;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -349,16 +424,23 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3A72B6272AA704C400AD99E2 /* Font+Extension.swift in Sources */,
-				B12A84A72AA6F00D00BDF8CA /* ContentView.swift in Sources */,
-				3A72B6252AA7004D00AD99E2 /* Color+Extension.swift in Sources */,
-				27601CFD2AA6FE5F00AD4294 /* LoginView.swift in Sources */,
-				27601D022AA6FE8D00AD4294 /* RegisterView.swift in Sources */,
-				B12A84A72AA6F00D00BDF8CA /* ContentView.swift in Sources */,
-				27601D002AA6FE8100AD4294 /* MapSearchView.swift in Sources */,
+				BC3907402AA72BCE00EAD650 /* ReservationCalendarView.swift in Sources */,
+				BC3907222AA7294F00EAD650 /* HomeEventTapView.swift in Sources */,
+				BC3907272AA7294F00EAD650 /* HomeSearchView.swift in Sources */,
+				BC39072B2AA7295A00EAD650 /* ReservationStore.swift in Sources */,
+				BC39071A2AA7293F00EAD650 /* HomeDummy.swift in Sources */,
+				BC3907072AA7082B00EAD650 /* GongGanInfo.swift in Sources */,
+				BC3907242AA7294F00EAD650 /* PublicOfficeView.swift in Sources */,
+				BC3907112AA7121900EAD650 /* GongGanTabView.swift in Sources */,
+				BC3907282AA7294F00EAD650 /* HomeView.swift in Sources */,
 				B12A84A52AA6F00D00BDF8CA /* BinGongGan_UserApp.swift in Sources */,
-				3A1FAFD52AA71FB300E8D16C /* SignUpView.swift in Sources */,
-				3A1FAFD12AA71E5000E8D16C /* CustomTextField.swift in Sources */,
+				BC39073F2AA72BCE00EAD650 /* ReservationView.swift in Sources */,
+				BC39072C2AA7295A00EAD650 /* Reservation.swift in Sources */,
+				BC3907412AA72BCE00EAD650 /* ReservationHeaderView.swift in Sources */,
+				BC39073E2AA72BCE00EAD650 /* ContentView.swift in Sources */,
+				BC3907232AA7294F00EAD650 /* HomePlaceListView.swift in Sources */,
+				BC3907452AA72C4400EAD650 /* GongGanDetailView.swift in Sources */,
+				BC3907372AA72BB100EAD650 /* PlaceCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
