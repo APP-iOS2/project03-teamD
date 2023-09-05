@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Workspace
+   version = "1.0">
+   <FileRef
+      location = "group:BinGongGanCore">
+   </FileRef>
+   <FileRef
+      location = "group:BinGongGan_User/BinGongGan_User.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:BinGongGan_Seller/BinGongGan_Seller.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:BinGongGan_Admin/BinGongGan_Admin.xcodeproj">
+   </FileRef>
+</Workspace>
