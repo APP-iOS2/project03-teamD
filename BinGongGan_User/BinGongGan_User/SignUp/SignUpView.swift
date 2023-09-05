@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct SignUpView: View {
+    @State var text: String = ""
     var body: some View {
         CustomTextField(placeholder: "이메일", keyboardType: .emailAddress, text: $text)
             .frame(height: 47)
