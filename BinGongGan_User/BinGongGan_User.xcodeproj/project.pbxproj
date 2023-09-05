@@ -66,8 +66,8 @@
 		B12A84BF2AA6F01100BDF8CA /* BinGongGan_UserUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BinGongGan_UserUITests.swift; sourceTree = "<group>"; };
 		B12A84C12AA6F01100BDF8CA /* BinGongGan_UserUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BinGongGan_UserUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		B12A84E92AA6F0CE00BDF8CA /* GoogleService-Info-User.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info-User.plist"; sourceTree = "<group>"; };
-		BC3907062AA7082B00EAD650 /* GongGanInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = GongGanInfo.swift; path = ../../../../../../../GongGanInfo.swift; sourceTree = "<group>"; };
-		BC3907102AA7121900EAD650 /* GongGanTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = GongGanTabView.swift; path = ../../../../../../../GongGanTabView.swift; sourceTree = "<group>"; };
+		BC3907062AA7082B00EAD650 /* GongGanInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GongGanInfo.swift; sourceTree = "<group>"; };
+		BC3907102AA7121900EAD650 /* GongGanTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GongGanTabView.swift; sourceTree = "<group>"; };
 		BC3907192AA7293F00EAD650 /* HomeDummy.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeDummy.swift; sourceTree = "<group>"; };
 		BC39071B2AA7294F00EAD650 /* HomeEventTapView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeEventTapView.swift; sourceTree = "<group>"; };
 		BC39071C2AA7294F00EAD650 /* HomePlaceListView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomePlaceListView.swift; sourceTree = "<group>"; };
