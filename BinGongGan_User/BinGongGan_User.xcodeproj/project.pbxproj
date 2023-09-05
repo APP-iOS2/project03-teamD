@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		B12A84A52AA6F00D00BDF8CA /* BinGongGan_UserApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = B12A84A42AA6F00D00BDF8CA /* BinGongGan_UserApp.swift */; };
-		B12A84A72AA6F00D00BDF8CA /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B12A84A62AA6F00D00BDF8CA /* ContentView.swift */; };
 		B12A84A92AA6F01000BDF8CA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B12A84A82AA6F01000BDF8CA /* Assets.xcassets */; };
 		B12A84AC2AA6F01000BDF8CA /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B12A84AB2AA6F01000BDF8CA /* Preview Assets.xcassets */; };
 		B12A84B62AA6F01100BDF8CA /* BinGongGan_UserTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B12A84B52AA6F01100BDF8CA /* BinGongGan_UserTests.swift */; };
@@ -22,6 +21,9 @@
 		B12A84EB2AA6F0CE00BDF8CA /* GoogleService-Info-User.plist in Resources */ = {isa = PBXBuildFile; fileRef = B12A84E92AA6F0CE00BDF8CA /* GoogleService-Info-User.plist */; };
 		B12A84EC2AA6F0CE00BDF8CA /* GoogleService-Info-User.plist in Resources */ = {isa = PBXBuildFile; fileRef = B12A84E92AA6F0CE00BDF8CA /* GoogleService-Info-User.plist */; };
 		BC3907052AA6FF6100EAD650 /* GongGanDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC3907042AA6FF6100EAD650 /* GongGanDetailView.swift */; };
+		BC3907072AA7082B00EAD650 /* GongGanInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC3907062AA7082B00EAD650 /* GongGanInfo.swift */; };
+		BC3907112AA7121900EAD650 /* GongGanTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC3907102AA7121900EAD650 /* GongGanTabView.swift */; };
+		BC3907162AA7140E00EAD650 /* SwiftUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC3907152AA7140E00EAD650 /* SwiftUIView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -44,7 +46,6 @@
 /* Begin PBXFileReference section */
 		B12A84A12AA6F00D00BDF8CA /* BinGongGan_User.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BinGongGan_User.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B12A84A42AA6F00D00BDF8CA /* BinGongGan_UserApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BinGongGan_UserApp.swift; sourceTree = "<group>"; };
-		B12A84A62AA6F00D00BDF8CA /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		B12A84A82AA6F01000BDF8CA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B12A84AB2AA6F01000BDF8CA /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		B12A84B12AA6F01100BDF8CA /* BinGongGan_UserTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BinGongGan_UserTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -54,6 +55,9 @@
 		B12A84C12AA6F01100BDF8CA /* BinGongGan_UserUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BinGongGan_UserUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		B12A84E92AA6F0CE00BDF8CA /* GoogleService-Info-User.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info-User.plist"; sourceTree = "<group>"; };
 		BC3907042AA6FF6100EAD650 /* GongGanDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = GongGanDetailView.swift; path = ../../../../../../../GongGanDetailView.swift; sourceTree = "<group>"; };
+		BC3907062AA7082B00EAD650 /* GongGanInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = GongGanInfo.swift; path = ../../../../../../../GongGanInfo.swift; sourceTree = "<group>"; };
+		BC3907102AA7121900EAD650 /* GongGanTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = GongGanTabView.swift; path = ../../../../../../../GongGanTabView.swift; sourceTree = "<group>"; };
+		BC3907152AA7140E00EAD650 /* SwiftUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SwiftUIView.swift; path = ../../../../../../../SwiftUIView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -88,6 +92,7 @@
 		B12A84982AA6F00D00BDF8CA = {
 			isa = PBXGroup;
 			children = (
+				B12A84A82AA6F01000BDF8CA /* Assets.xcassets */,
 				B12A84A32AA6F00D00BDF8CA /* BinGongGan_User */,
 				B12A84B42AA6F01100BDF8CA /* BinGongGan_UserTests */,
 				B12A84BE2AA6F01100BDF8CA /* BinGongGan_UserUITests */,
@@ -109,11 +114,10 @@
 		B12A84A32AA6F00D00BDF8CA /* BinGongGan_User */ = {
 			isa = PBXGroup;
 			children = (
+				BC3907082AA7103C00EAD650 /* App */,
+				BC3907092AA7110700EAD650 /* Document */,
+				BC39070B2AA7117A00EAD650 /* TabBar */,
 				BC3907012AA6FE5200EAD650 /* UserHome */,
-				B12A84E92AA6F0CE00BDF8CA /* GoogleService-Info-User.plist */,
-				B12A84A42AA6F00D00BDF8CA /* BinGongGan_UserApp.swift */,
-				B12A84A62AA6F00D00BDF8CA /* ContentView.swift */,
-				B12A84A82AA6F01000BDF8CA /* Assets.xcassets */,
 				B12A84AA2AA6F01000BDF8CA /* Preview Content */,
 			);
 			path = BinGongGan_User;
@@ -171,8 +175,43 @@
 		BC3907032AA6FE7D00EAD650 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				BC3907062AA7082B00EAD650 /* GongGanInfo.swift */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		BC3907082AA7103C00EAD650 /* App */ = {
+			isa = PBXGroup;
+			children = (
+				B12A84A42AA6F00D00BDF8CA /* BinGongGan_UserApp.swift */,
+			);
+			name = App;
+			path = "메ㅔ";
+			sourceTree = "<group>";
+		};
+		BC3907092AA7110700EAD650 /* Document */ = {
+			isa = PBXGroup;
+			children = (
+				B12A84E92AA6F0CE00BDF8CA /* GoogleService-Info-User.plist */,
+			);
+			path = Document;
+			sourceTree = "<group>";
+		};
+		BC39070B2AA7117A00EAD650 /* TabBar */ = {
+			isa = PBXGroup;
+			children = (
+				BC39070E2AA711F900EAD650 /* View */,
+			);
+			path = TabBar;
+			sourceTree = "<group>";
+		};
+		BC39070E2AA711F900EAD650 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				BC3907102AA7121900EAD650 /* GongGanTabView.swift */,
+				BC3907152AA7140E00EAD650 /* SwiftUIView.swift */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -318,7 +357,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				BC3907052AA6FF6100EAD650 /* GongGanDetailView.swift in Sources */,
-				B12A84A72AA6F00D00BDF8CA /* ContentView.swift in Sources */,
+				BC3907072AA7082B00EAD650 /* GongGanInfo.swift in Sources */,
+				BC3907162AA7140E00EAD650 /* SwiftUIView.swift in Sources */,
+				BC3907112AA7121900EAD650 /* GongGanTabView.swift in Sources */,
 				B12A84A52AA6F00D00BDF8CA /* BinGongGan_UserApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
