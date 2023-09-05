@@ -7,6 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		369BC76C2AA7021000D1970E /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 369BC76B2AA7021000D1970E /* HomeView.swift */; };
+		369BC76E2AA7057E00D1970E /* HomeEventTapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 369BC76D2AA7057E00D1970E /* HomeEventTapView.swift */; };
+		369BC7702AA705B900D1970E /* HomeDummy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 369BC76F2AA705B900D1970E /* HomeDummy.swift */; };
+		369BC7722AA7087D00D1970E /* HomeSearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 369BC7712AA7087D00D1970E /* HomeSearchView.swift */; };
+		369BC7742AA712F000D1970E /* HomePlaceListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 369BC7732AA712F000D1970E /* HomePlaceListView.swift */; };
+		369BC7762AA71D0B00D1970E /* PublicOfficeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 369BC7752AA71D0B00D1970E /* PublicOfficeView.swift */; };
+		369BC7792AA71D5F00D1970E /* PlaceCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 369BC7782AA71D5F00D1970E /* PlaceCell.swift */; };
 		B12A84A52AA6F00D00BDF8CA /* BinGongGan_UserApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = B12A84A42AA6F00D00BDF8CA /* BinGongGan_UserApp.swift */; };
 		B12A84A72AA6F00D00BDF8CA /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B12A84A62AA6F00D00BDF8CA /* ContentView.swift */; };
 		B12A84A92AA6F01000BDF8CA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B12A84A82AA6F01000BDF8CA /* Assets.xcassets */; };
@@ -21,7 +28,6 @@
 		B12A84EA2AA6F0CE00BDF8CA /* GoogleService-Info-User.plist in Resources */ = {isa = PBXBuildFile; fileRef = B12A84E92AA6F0CE00BDF8CA /* GoogleService-Info-User.plist */; };
 		B12A84EB2AA6F0CE00BDF8CA /* GoogleService-Info-User.plist in Resources */ = {isa = PBXBuildFile; fileRef = B12A84E92AA6F0CE00BDF8CA /* GoogleService-Info-User.plist */; };
 		B12A84EC2AA6F0CE00BDF8CA /* GoogleService-Info-User.plist in Resources */ = {isa = PBXBuildFile; fileRef = B12A84E92AA6F0CE00BDF8CA /* GoogleService-Info-User.plist */; };
-		BC3907052AA6FF6100EAD650 /* GongGanDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC3907042AA6FF6100EAD650 /* GongGanDetailView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -42,6 +48,13 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		369BC76B2AA7021000D1970E /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
+		369BC76D2AA7057E00D1970E /* HomeEventTapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeEventTapView.swift; sourceTree = "<group>"; };
+		369BC76F2AA705B900D1970E /* HomeDummy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeDummy.swift; sourceTree = "<group>"; };
+		369BC7712AA7087D00D1970E /* HomeSearchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeSearchView.swift; sourceTree = "<group>"; };
+		369BC7732AA712F000D1970E /* HomePlaceListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePlaceListView.swift; sourceTree = "<group>"; };
+		369BC7752AA71D0B00D1970E /* PublicOfficeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PublicOfficeView.swift; sourceTree = "<group>"; };
+		369BC7782AA71D5F00D1970E /* PlaceCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceCell.swift; sourceTree = "<group>"; };
 		B12A84A12AA6F00D00BDF8CA /* BinGongGan_User.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BinGongGan_User.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B12A84A42AA6F00D00BDF8CA /* BinGongGan_UserApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BinGongGan_UserApp.swift; sourceTree = "<group>"; };
 		B12A84A62AA6F00D00BDF8CA /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -53,7 +66,6 @@
 		B12A84BF2AA6F01100BDF8CA /* BinGongGan_UserUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BinGongGan_UserUITests.swift; sourceTree = "<group>"; };
 		B12A84C12AA6F01100BDF8CA /* BinGongGan_UserUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BinGongGan_UserUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		B12A84E92AA6F0CE00BDF8CA /* GoogleService-Info-User.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info-User.plist"; sourceTree = "<group>"; };
-		BC3907042AA6FF6100EAD650 /* GongGanDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = GongGanDetailView.swift; path = ../../../../../../../GongGanDetailView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -85,6 +97,44 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		369BC7652AA7017700D1970E /* UserHome */ = {
+			isa = PBXGroup;
+			children = (
+				369BC7662AA7018600D1970E /* Model */,
+				369BC7672AA7018D00D1970E /* View */,
+			);
+			path = UserHome;
+			sourceTree = "<group>";
+		};
+		369BC7662AA7018600D1970E /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				369BC76F2AA705B900D1970E /* HomeDummy.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		369BC7672AA7018D00D1970E /* View */ = {
+			isa = PBXGroup;
+			children = (
+				369BC76B2AA7021000D1970E /* HomeView.swift */,
+				369BC76D2AA7057E00D1970E /* HomeEventTapView.swift */,
+				369BC7712AA7087D00D1970E /* HomeSearchView.swift */,
+				369BC7732AA712F000D1970E /* HomePlaceListView.swift */,
+				369BC7752AA71D0B00D1970E /* PublicOfficeView.swift */,
+				369BC7772AA71D2A00D1970E /* Cell */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		369BC7772AA71D2A00D1970E /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				369BC7782AA71D5F00D1970E /* PlaceCell.swift */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
 		B12A84982AA6F00D00BDF8CA = {
 			isa = PBXGroup;
 			children = (
@@ -109,7 +159,7 @@
 		B12A84A32AA6F00D00BDF8CA /* BinGongGan_User */ = {
 			isa = PBXGroup;
 			children = (
-				BC3907012AA6FE5200EAD650 /* UserHome */,
+				369BC7652AA7017700D1970E /* UserHome */,
 				B12A84E92AA6F0CE00BDF8CA /* GoogleService-Info-User.plist */,
 				B12A84A42AA6F00D00BDF8CA /* BinGongGan_UserApp.swift */,
 				B12A84A62AA6F00D00BDF8CA /* ContentView.swift */,
@@ -151,30 +201,6 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		BC3907012AA6FE5200EAD650 /* UserHome */ = {
-			isa = PBXGroup;
-			children = (
-				BC3907032AA6FE7D00EAD650 /* Model */,
-				BC3907022AA6FE7200EAD650 /* View */,
-			);
-			path = UserHome;
-			sourceTree = "<group>";
-		};
-		BC3907022AA6FE7200EAD650 /* View */ = {
-			isa = PBXGroup;
-			children = (
-				BC3907042AA6FF6100EAD650 /* GongGanDetailView.swift */,
-			);
-			path = View;
-			sourceTree = "<group>";
-		};
-		BC3907032AA6FE7D00EAD650 /* Model */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Model;
-			sourceTree = "<group>";
-		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -185,6 +211,7 @@
 				B12A849D2AA6F00D00BDF8CA /* Sources */,
 				B12A849E2AA6F00D00BDF8CA /* Frameworks */,
 				B12A849F2AA6F00D00BDF8CA /* Resources */,
+				369BC7682AA701C500D1970E /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -312,14 +339,41 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		369BC7682AA701C500D1970E /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			alwaysOutOfDate = 1;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\n";
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		B12A849D2AA6F00D00BDF8CA /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BC3907052AA6FF6100EAD650 /* GongGanDetailView.swift in Sources */,
+				369BC76E2AA7057E00D1970E /* HomeEventTapView.swift in Sources */,
+				369BC76C2AA7021000D1970E /* HomeView.swift in Sources */,
+				369BC7702AA705B900D1970E /* HomeDummy.swift in Sources */,
 				B12A84A72AA6F00D00BDF8CA /* ContentView.swift in Sources */,
 				B12A84A52AA6F00D00BDF8CA /* BinGongGan_UserApp.swift in Sources */,
+				369BC7722AA7087D00D1970E /* HomeSearchView.swift in Sources */,
+				369BC7742AA712F000D1970E /* HomePlaceListView.swift in Sources */,
+				369BC7762AA71D0B00D1970E /* PublicOfficeView.swift in Sources */,
+				369BC7792AA71D5F00D1970E /* PlaceCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
