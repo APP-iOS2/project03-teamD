@@ -9,6 +9,9 @@
 /* Begin PBXBuildFile section */
 		3A72B6252AA7004D00AD99E2 /* Color+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A72B6242AA7004D00AD99E2 /* Color+Extension.swift */; };
 		3A72B6272AA704C400AD99E2 /* Font+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A72B6262AA704C400AD99E2 /* Font+Extension.swift */; };
+		27601CFD2AA6FE5F00AD4294 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27601CFC2AA6FE5F00AD4294 /* LoginView.swift */; };
+		27601D002AA6FE8100AD4294 /* MapSearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27601CFF2AA6FE8100AD4294 /* MapSearchView.swift */; };
+		27601D022AA6FE8D00AD4294 /* RegisterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27601D012AA6FE8D00AD4294 /* RegisterView.swift */; };
 		B12A84A52AA6F00D00BDF8CA /* BinGongGan_UserApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = B12A84A42AA6F00D00BDF8CA /* BinGongGan_UserApp.swift */; };
 		B12A84A72AA6F00D00BDF8CA /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B12A84A62AA6F00D00BDF8CA /* ContentView.swift */; };
 		B12A84A92AA6F01000BDF8CA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B12A84A82AA6F01000BDF8CA /* Assets.xcassets */; };
@@ -45,6 +48,9 @@
 /* Begin PBXFileReference section */
 		3A72B6242AA7004D00AD99E2 /* Color+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color+Extension.swift"; sourceTree = "<group>"; };
 		3A72B6262AA704C400AD99E2 /* Font+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Font+Extension.swift"; sourceTree = "<group>"; };
+		27601CFC2AA6FE5F00AD4294 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
+		27601CFF2AA6FE8100AD4294 /* MapSearchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapSearchView.swift; sourceTree = "<group>"; };
+		27601D012AA6FE8D00AD4294 /* RegisterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterView.swift; sourceTree = "<group>"; };
 		B12A84A12AA6F00D00BDF8CA /* BinGongGan_User.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BinGongGan_User.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B12A84A42AA6F00D00BDF8CA /* BinGongGan_UserApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BinGongGan_UserApp.swift; sourceTree = "<group>"; };
 		B12A84A62AA6F00D00BDF8CA /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -102,6 +108,14 @@
 				3A72B6262AA704C400AD99E2 /* Font+Extension.swift */,
 			);
 			path = Namespace;
+		27601CFE2AA6FE6400AD4294 /* LoginMap */ = {
+			isa = PBXGroup;
+			children = (
+				27601CFC2AA6FE5F00AD4294 /* LoginView.swift */,
+				27601CFF2AA6FE8100AD4294 /* MapSearchView.swift */,
+				27601D012AA6FE8D00AD4294 /* RegisterView.swift */,
+			);
+			path = LoginMap;
 			sourceTree = "<group>";
 		};
 		B12A84982AA6F00D00BDF8CA = {
@@ -132,6 +146,7 @@
 				B12A84E92AA6F0CE00BDF8CA /* GoogleService-Info-User.plist */,
 				B12A84A42AA6F00D00BDF8CA /* BinGongGan_UserApp.swift */,
 				B12A84A62AA6F00D00BDF8CA /* ContentView.swift */,
+				27601CFE2AA6FE6400AD4294 /* LoginMap */,
 				B12A84A82AA6F01000BDF8CA /* Assets.xcassets */,
 				B12A84AA2AA6F01000BDF8CA /* Preview Content */,
 			);
@@ -315,6 +330,10 @@
 				3A72B6272AA704C400AD99E2 /* Font+Extension.swift in Sources */,
 				B12A84A72AA6F00D00BDF8CA /* ContentView.swift in Sources */,
 				3A72B6252AA7004D00AD99E2 /* Color+Extension.swift in Sources */,
+				27601CFD2AA6FE5F00AD4294 /* LoginView.swift in Sources */,
+				27601D022AA6FE8D00AD4294 /* RegisterView.swift in Sources */,
+				B12A84A72AA6F00D00BDF8CA /* ContentView.swift in Sources */,
+				27601D002AA6FE8100AD4294 /* MapSearchView.swift in Sources */,
 				B12A84A52AA6F00D00BDF8CA /* BinGongGan_UserApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
