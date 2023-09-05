@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0C628CD92AA716CD00D55F0C /* MyPlaceManagementView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C628CD82AA716CD00D55F0C /* MyPlaceManagementView.swift */; };
+		0C628CDB2AA716DE00D55F0C /* MyInfoVIew.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C628CDA2AA716DE00D55F0C /* MyInfoVIew.swift */; };
 		B12A846F2AA6EFE700BDF8CA /* BinGongGan_SellerApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = B12A846E2AA6EFE700BDF8CA /* BinGongGan_SellerApp.swift */; };
 		B12A84712AA6EFE700BDF8CA /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B12A84702AA6EFE700BDF8CA /* ContentView.swift */; };
 		B12A84732AA6EFE900BDF8CA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B12A84722AA6EFE900BDF8CA /* Assets.xcassets */; };
@@ -17,7 +19,6 @@
 		B12A84D72AA6F06900BDF8CA /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = B12A84D62AA6F06900BDF8CA /* FirebaseAuth */; };
 		B12A84D92AA6F06900BDF8CA /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = B12A84D82AA6F06900BDF8CA /* FirebaseFirestore */; };
 		B12A84DB2AA6F06900BDF8CA /* FirebaseFirestoreSwift in Frameworks */ = {isa = PBXBuildFile; productRef = B12A84DA2AA6F06900BDF8CA /* FirebaseFirestoreSwift */; };
-		B12A84E82AA6F09900BDF8CA /* BinGongGanCore in Frameworks */ = {isa = PBXBuildFile; productRef = B12A84E72AA6F09900BDF8CA /* BinGongGanCore */; };
 		B12A84EE2AA6F0E800BDF8CA /* GoogleService-Info-Seller.plist in Resources */ = {isa = PBXBuildFile; fileRef = B12A84ED2AA6F0E800BDF8CA /* GoogleService-Info-Seller.plist */; };
 		B12A84EF2AA6F0E800BDF8CA /* GoogleService-Info-Seller.plist in Resources */ = {isa = PBXBuildFile; fileRef = B12A84ED2AA6F0E800BDF8CA /* GoogleService-Info-Seller.plist */; };
 		B12A84F02AA6F0E800BDF8CA /* GoogleService-Info-Seller.plist in Resources */ = {isa = PBXBuildFile; fileRef = B12A84ED2AA6F0E800BDF8CA /* GoogleService-Info-Seller.plist */; };
@@ -41,14 +42,16 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		B12A846B2AA6EFE700BDF8CA /* BinGongGan_Seller.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BinGongGan_Seller.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		0C628CD82AA716CD00D55F0C /* MyPlaceManagementView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPlaceManagementView.swift; sourceTree = "<group>"; };
+		0C628CDA2AA716DE00D55F0C /* MyInfoVIew.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyInfoVIew.swift; sourceTree = "<group>"; };
+		B12A846B2AA6EFE700BDF8CA /* BinGongGan_Seller.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; name = BinGongGan_Seller.app; path = "/Users/kempt/Desktop/GitHub/project03-teamD/BinGongGan_Seller/build/Debug-iphoneos/BinGongGan_Seller.app"; sourceTree = "<absolute>"; };
 		B12A846E2AA6EFE700BDF8CA /* BinGongGan_SellerApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BinGongGan_SellerApp.swift; sourceTree = "<group>"; };
 		B12A84702AA6EFE700BDF8CA /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		B12A84722AA6EFE900BDF8CA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B12A84752AA6EFE900BDF8CA /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
-		B12A847B2AA6EFEA00BDF8CA /* BinGongGan_SellerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BinGongGan_SellerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		B12A847B2AA6EFEA00BDF8CA /* BinGongGan_SellerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; name = BinGongGan_SellerTests.xctest; path = "/Users/kempt/Desktop/GitHub/project03-teamD/BinGongGan_Seller/build/Debug-iphoneos/BinGongGan_SellerTests.xctest"; sourceTree = "<absolute>"; };
 		B12A847F2AA6EFEA00BDF8CA /* BinGongGan_SellerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BinGongGan_SellerTests.swift; sourceTree = "<group>"; };
-		B12A84852AA6EFEA00BDF8CA /* BinGongGan_SellerUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BinGongGan_SellerUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		B12A84852AA6EFEA00BDF8CA /* BinGongGan_SellerUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; name = BinGongGan_SellerUITests.xctest; path = "/Users/kempt/Desktop/GitHub/project03-teamD/BinGongGan_Seller/build/Debug-iphoneos/BinGongGan_SellerUITests.xctest"; sourceTree = "<absolute>"; };
 		B12A84892AA6EFEA00BDF8CA /* BinGongGan_SellerUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BinGongGan_SellerUITests.swift; sourceTree = "<group>"; };
 		B12A848B2AA6EFEA00BDF8CA /* BinGongGan_SellerUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BinGongGan_SellerUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		B12A84ED2AA6F0E800BDF8CA /* GoogleService-Info-Seller.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info-Seller.plist"; sourceTree = "<group>"; };
@@ -60,7 +63,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				B12A84D72AA6F06900BDF8CA /* FirebaseAuth in Frameworks */,
-				B12A84E82AA6F09900BDF8CA /* BinGongGanCore in Frameworks */,
 				B12A84D92AA6F06900BDF8CA /* FirebaseFirestore in Frameworks */,
 				B12A84DB2AA6F06900BDF8CA /* FirebaseFirestoreSwift in Frameworks */,
 			);
@@ -89,19 +91,8 @@
 				B12A846D2AA6EFE700BDF8CA /* BinGongGan_Seller */,
 				B12A847E2AA6EFEA00BDF8CA /* BinGongGan_SellerTests */,
 				B12A84882AA6EFEA00BDF8CA /* BinGongGan_SellerUITests */,
-				B12A846C2AA6EFE700BDF8CA /* Products */,
 				B12A84E62AA6F09900BDF8CA /* Frameworks */,
 			);
-			sourceTree = "<group>";
-		};
-		B12A846C2AA6EFE700BDF8CA /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				B12A846B2AA6EFE700BDF8CA /* BinGongGan_Seller.app */,
-				B12A847B2AA6EFEA00BDF8CA /* BinGongGan_SellerTests.xctest */,
-				B12A84852AA6EFEA00BDF8CA /* BinGongGan_SellerUITests.xctest */,
-			);
-			name = Products;
 			sourceTree = "<group>";
 		};
 		B12A846D2AA6EFE700BDF8CA /* BinGongGan_Seller */ = {
@@ -110,6 +101,8 @@
 				B12A84ED2AA6F0E800BDF8CA /* GoogleService-Info-Seller.plist */,
 				B12A846E2AA6EFE700BDF8CA /* BinGongGan_SellerApp.swift */,
 				B12A84702AA6EFE700BDF8CA /* ContentView.swift */,
+				0C628CD82AA716CD00D55F0C /* MyPlaceManagementView.swift */,
+				0C628CDA2AA716DE00D55F0C /* MyInfoVIew.swift */,
 				B12A84722AA6EFE900BDF8CA /* Assets.xcassets */,
 				B12A84742AA6EFE900BDF8CA /* Preview Content */,
 			);
@@ -168,7 +161,6 @@
 				B12A84D62AA6F06900BDF8CA /* FirebaseAuth */,
 				B12A84D82AA6F06900BDF8CA /* FirebaseFirestore */,
 				B12A84DA2AA6F06900BDF8CA /* FirebaseFirestoreSwift */,
-				B12A84E72AA6F09900BDF8CA /* BinGongGanCore */,
 			);
 			productName = BinGongGan_Seller;
 			productReference = B12A846B2AA6EFE700BDF8CA /* BinGongGan_Seller.app */;
@@ -245,7 +237,7 @@
 			packageReferences = (
 				B12A84D52AA6F06900BDF8CA /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
 			);
-			productRefGroup = B12A846C2AA6EFE700BDF8CA /* Products */;
+			productRefGroup = B12A84622AA6EFE700BDF8CA;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
@@ -290,6 +282,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0C628CDB2AA716DE00D55F0C /* MyInfoVIew.swift in Sources */,
+				0C628CD92AA716CD00D55F0C /* MyPlaceManagementView.swift in Sources */,
 				B12A84712AA6EFE700BDF8CA /* ContentView.swift in Sources */,
 				B12A846F2AA6EFE700BDF8CA /* BinGongGan_SellerApp.swift in Sources */,
 			);
@@ -639,10 +633,6 @@
 			isa = XCSwiftPackageProductDependency;
 			package = B12A84D52AA6F06900BDF8CA /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
 			productName = FirebaseFirestoreSwift;
-		};
-		B12A84E72AA6F09900BDF8CA /* BinGongGanCore */ = {
-			isa = XCSwiftPackageProductDependency;
-			productName = BinGongGanCore;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
