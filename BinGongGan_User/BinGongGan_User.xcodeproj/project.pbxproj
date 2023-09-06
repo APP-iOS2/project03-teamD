@@ -7,8 +7,21 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3AE911652AA7FDCC005E4F71 /* CustomTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AE911642AA7FDCC005E4F71 /* CustomTextField.swift */; };
+		538D7ADB2AA802CB00D0B21A /* MyPageMainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 538D7AC92AA802CB00D0B21A /* MyPageMainView.swift */; };
+		538D7ADC2AA802CB00D0B21A /* AnnouncementView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 538D7ACB2AA802CB00D0B21A /* AnnouncementView.swift */; };
+		538D7ADD2AA802CB00D0B21A /* FAQView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 538D7ACC2AA802CB00D0B21A /* FAQView.swift */; };
+		538D7ADE2AA802CB00D0B21A /* MyReservationListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 538D7ACE2AA802CB00D0B21A /* MyReservationListView.swift */; };
+		538D7ADF2AA802CB00D0B21A /* ReservationCancelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 538D7ACF2AA802CB00D0B21A /* ReservationCancelView.swift */; };
+		538D7AE02AA802CB00D0B21A /* ReservationDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 538D7AD02AA802CB00D0B21A /* ReservationDetailView.swift */; };
+		538D7AE12AA802CB00D0B21A /* MyReviewListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 538D7AD22AA802CB00D0B21A /* MyReviewListView.swift */; };
+		538D7AE22AA802CB00D0B21A /* AddReviewView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 538D7AD32AA802CB00D0B21A /* AddReviewView.swift */; };
+		538D7AE32AA802CB00D0B21A /* MyReviewRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 538D7AD42AA802CB00D0B21A /* MyReviewRowView.swift */; };
+		538D7AE42AA802CB00D0B21A /* SettingListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 538D7AD62AA802CB00D0B21A /* SettingListView.swift */; };
+		538D7AE52AA802CB00D0B21A /* PasswordEditView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 538D7AD72AA802CB00D0B21A /* PasswordEditView.swift */; };
+		538D7AE62AA802CB00D0B21A /* MyInformationDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 538D7AD92AA802CB00D0B21A /* MyInformationDetailView.swift */; };
+		538D7AE72AA802CB00D0B21A /* MyInformationEditView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 538D7ADA2AA802CB00D0B21A /* MyInformationEditView.swift */; };
 		B12A84A52AA6F00D00BDF8CA /* BinGongGan_UserApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = B12A84A42AA6F00D00BDF8CA /* BinGongGan_UserApp.swift */; };
-		B12A84A72AA6F00D00BDF8CA /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B12A84A62AA6F00D00BDF8CA /* ContentView.swift */; };
 		B12A84A92AA6F01000BDF8CA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B12A84A82AA6F01000BDF8CA /* Assets.xcassets */; };
 		B12A84AC2AA6F01000BDF8CA /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B12A84AB2AA6F01000BDF8CA /* Preview Assets.xcassets */; };
 		B12A84B62AA6F01100BDF8CA /* BinGongGan_UserTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B12A84B52AA6F01100BDF8CA /* BinGongGan_UserTests.swift */; };
@@ -17,10 +30,33 @@
 		B12A84D02AA6F04400BDF8CA /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = B12A84CF2AA6F04400BDF8CA /* FirebaseAuth */; };
 		B12A84D22AA6F04400BDF8CA /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = B12A84D12AA6F04400BDF8CA /* FirebaseFirestore */; };
 		B12A84D42AA6F04400BDF8CA /* FirebaseFirestoreSwift in Frameworks */ = {isa = PBXBuildFile; productRef = B12A84D32AA6F04400BDF8CA /* FirebaseFirestoreSwift */; };
-		B12A84EA2AA6F0CE00BDF8CA /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = B12A84E92AA6F0CE00BDF8CA /* GoogleService-Info.plist */; };
-		B12A84EB2AA6F0CE00BDF8CA /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = B12A84E92AA6F0CE00BDF8CA /* GoogleService-Info.plist */; };
-		B12A84EC2AA6F0CE00BDF8CA /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = B12A84E92AA6F0CE00BDF8CA /* GoogleService-Info.plist */; };
 		B12A84FC2AA7A65900BDF8CA /* BinGongGanCore in Frameworks */ = {isa = PBXBuildFile; productRef = B12A84FB2AA7A65900BDF8CA /* BinGongGanCore */; };
+		B15806372AA83D12006C772B /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = B15806362AA83D12006C772B /* GoogleService-Info.plist */; };
+		BC344EC02AA806FF00F8CEB3 /* GongGanTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC344EBF2AA806FE00F8CEB3 /* GongGanTabView.swift */; };
+		BC344EC92AA8072000F8CEB3 /* GongGanInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC344EC52AA8072000F8CEB3 /* GongGanInfo.swift */; };
+		BC344ED12AA8073700F8CEB3 /* GongGanDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC344ECF2AA8073600F8CEB3 /* GongGanDetailView.swift */; };
+		BC344ED22AA8073700F8CEB3 /* SubGongGanDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC344ED02AA8073700F8CEB3 /* SubGongGanDetailView.swift */; };
+		BC344EED2AA808DB00F8CEB3 /* ReservationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC344EE82AA808DA00F8CEB3 /* ReservationView.swift */; };
+		BC344EEE2AA808DB00F8CEB3 /* ReservationCalendarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC344EE92AA808DA00F8CEB3 /* ReservationCalendarView.swift */; };
+		BC344EEF2AA808DB00F8CEB3 /* ReservationHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC344EEA2AA808DA00F8CEB3 /* ReservationHeaderView.swift */; };
+		BC344EF02AA808DB00F8CEB3 /* Reservation.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC344EEB2AA808DA00F8CEB3 /* Reservation.swift */; };
+		BC344EF12AA808DB00F8CEB3 /* ReservationStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC344EEC2AA808DB00F8CEB3 /* ReservationStore.swift */; };
+		BC344EF42AA808E700F8CEB3 /* MultiDatePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC344EF32AA808E700F8CEB3 /* MultiDatePicker.swift */; };
+		BC344EFD2AA808FC00F8CEB3 /* MDPDayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC344EF62AA808FC00F8CEB3 /* MDPDayView.swift */; };
+		BC344EFE2AA808FC00F8CEB3 /* MDPDayOfMonth.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC344EF72AA808FC00F8CEB3 /* MDPDayOfMonth.swift */; };
+		BC344EFF2AA808FC00F8CEB3 /* MDPMonthView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC344EF82AA808FC00F8CEB3 /* MDPMonthView.swift */; };
+		BC344F002AA808FC00F8CEB3 /* MDPMonthYearPickerButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC344EF92AA808FC00F8CEB3 /* MDPMonthYearPickerButton.swift */; };
+		BC344F012AA808FC00F8CEB3 /* MDPMonthYearPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC344EFA2AA808FC00F8CEB3 /* MDPMonthYearPicker.swift */; };
+		BC344F022AA808FC00F8CEB3 /* MDPModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC344EFB2AA808FC00F8CEB3 /* MDPModel.swift */; };
+		BC344F032AA808FC00F8CEB3 /* MDPContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC344EFC2AA808FC00F8CEB3 /* MDPContentView.swift */; };
+		BC344F092AA8092E00F8CEB3 /* PublicPlaceListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC344F042AA8092E00F8CEB3 /* PublicPlaceListView.swift */; };
+		BC344F0A2AA8092E00F8CEB3 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC344F052AA8092E00F8CEB3 /* HomeView.swift */; };
+		BC344F0B2AA8092E00F8CEB3 /* HomeSearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC344F062AA8092E00F8CEB3 /* HomeSearchView.swift */; };
+		BC344F0C2AA8092E00F8CEB3 /* HomeEventTapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC344F072AA8092E00F8CEB3 /* HomeEventTapView.swift */; };
+		BC344F0D2AA8092E00F8CEB3 /* PlaceListButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC344F082AA8092E00F8CEB3 /* PlaceListButtonView.swift */; };
+		BC344F102AA8093800F8CEB3 /* HomePlaceListRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC344F0E2AA8093800F8CEB3 /* HomePlaceListRow.swift */; };
+		BC344F112AA8093800F8CEB3 /* PublicPlaceListRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC344F0F2AA8093800F8CEB3 /* PublicPlaceListRow.swift */; };
+		BC344F152AA80BF300F8CEB3 /* HomeDummy.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC344F142AA80BF300F8CEB3 /* HomeDummy.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -41,9 +77,22 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		3AE911642AA7FDCC005E4F71 /* CustomTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomTextField.swift; sourceTree = "<group>"; };
+		538D7AC92AA802CB00D0B21A /* MyPageMainView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyPageMainView.swift; sourceTree = "<group>"; };
+		538D7ACB2AA802CB00D0B21A /* AnnouncementView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnnouncementView.swift; sourceTree = "<group>"; };
+		538D7ACC2AA802CB00D0B21A /* FAQView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FAQView.swift; sourceTree = "<group>"; };
+		538D7ACE2AA802CB00D0B21A /* MyReservationListView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyReservationListView.swift; sourceTree = "<group>"; };
+		538D7ACF2AA802CB00D0B21A /* ReservationCancelView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReservationCancelView.swift; sourceTree = "<group>"; };
+		538D7AD02AA802CB00D0B21A /* ReservationDetailView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReservationDetailView.swift; sourceTree = "<group>"; };
+		538D7AD22AA802CB00D0B21A /* MyReviewListView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyReviewListView.swift; sourceTree = "<group>"; };
+		538D7AD32AA802CB00D0B21A /* AddReviewView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddReviewView.swift; sourceTree = "<group>"; };
+		538D7AD42AA802CB00D0B21A /* MyReviewRowView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyReviewRowView.swift; sourceTree = "<group>"; };
+		538D7AD62AA802CB00D0B21A /* SettingListView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingListView.swift; sourceTree = "<group>"; };
+		538D7AD72AA802CB00D0B21A /* PasswordEditView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PasswordEditView.swift; sourceTree = "<group>"; };
+		538D7AD92AA802CB00D0B21A /* MyInformationDetailView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyInformationDetailView.swift; sourceTree = "<group>"; };
+		538D7ADA2AA802CB00D0B21A /* MyInformationEditView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyInformationEditView.swift; sourceTree = "<group>"; };
 		B12A84A12AA6F00D00BDF8CA /* BinGongGan_User.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BinGongGan_User.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B12A84A42AA6F00D00BDF8CA /* BinGongGan_UserApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BinGongGan_UserApp.swift; sourceTree = "<group>"; };
-		B12A84A62AA6F00D00BDF8CA /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		B12A84A82AA6F01000BDF8CA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B12A84AB2AA6F01000BDF8CA /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		B12A84B12AA6F01100BDF8CA /* BinGongGan_UserTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BinGongGan_UserTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -51,7 +100,32 @@
 		B12A84BB2AA6F01100BDF8CA /* BinGongGan_UserUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BinGongGan_UserUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		B12A84BF2AA6F01100BDF8CA /* BinGongGan_UserUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BinGongGan_UserUITests.swift; sourceTree = "<group>"; };
 		B12A84C12AA6F01100BDF8CA /* BinGongGan_UserUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BinGongGan_UserUITestsLaunchTests.swift; sourceTree = "<group>"; };
-		B12A84E92AA6F0CE00BDF8CA /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		B15806362AA83D12006C772B /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		BC344EBF2AA806FE00F8CEB3 /* GongGanTabView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GongGanTabView.swift; sourceTree = "<group>"; };
+		BC344EC52AA8072000F8CEB3 /* GongGanInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GongGanInfo.swift; sourceTree = "<group>"; };
+		BC344ECF2AA8073600F8CEB3 /* GongGanDetailView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GongGanDetailView.swift; sourceTree = "<group>"; };
+		BC344ED02AA8073700F8CEB3 /* SubGongGanDetailView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SubGongGanDetailView.swift; sourceTree = "<group>"; };
+		BC344EE82AA808DA00F8CEB3 /* ReservationView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReservationView.swift; sourceTree = "<group>"; };
+		BC344EE92AA808DA00F8CEB3 /* ReservationCalendarView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReservationCalendarView.swift; sourceTree = "<group>"; };
+		BC344EEA2AA808DA00F8CEB3 /* ReservationHeaderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReservationHeaderView.swift; sourceTree = "<group>"; };
+		BC344EEB2AA808DA00F8CEB3 /* Reservation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Reservation.swift; sourceTree = "<group>"; };
+		BC344EEC2AA808DB00F8CEB3 /* ReservationStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReservationStore.swift; sourceTree = "<group>"; };
+		BC344EF32AA808E700F8CEB3 /* MultiDatePicker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MultiDatePicker.swift; sourceTree = "<group>"; };
+		BC344EF62AA808FC00F8CEB3 /* MDPDayView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MDPDayView.swift; sourceTree = "<group>"; };
+		BC344EF72AA808FC00F8CEB3 /* MDPDayOfMonth.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MDPDayOfMonth.swift; sourceTree = "<group>"; };
+		BC344EF82AA808FC00F8CEB3 /* MDPMonthView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MDPMonthView.swift; sourceTree = "<group>"; };
+		BC344EF92AA808FC00F8CEB3 /* MDPMonthYearPickerButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MDPMonthYearPickerButton.swift; sourceTree = "<group>"; };
+		BC344EFA2AA808FC00F8CEB3 /* MDPMonthYearPicker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MDPMonthYearPicker.swift; sourceTree = "<group>"; };
+		BC344EFB2AA808FC00F8CEB3 /* MDPModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MDPModel.swift; sourceTree = "<group>"; };
+		BC344EFC2AA808FC00F8CEB3 /* MDPContentView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MDPContentView.swift; sourceTree = "<group>"; };
+		BC344F042AA8092E00F8CEB3 /* PublicPlaceListView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PublicPlaceListView.swift; sourceTree = "<group>"; };
+		BC344F052AA8092E00F8CEB3 /* HomeView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
+		BC344F062AA8092E00F8CEB3 /* HomeSearchView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeSearchView.swift; sourceTree = "<group>"; };
+		BC344F072AA8092E00F8CEB3 /* HomeEventTapView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeEventTapView.swift; sourceTree = "<group>"; };
+		BC344F082AA8092E00F8CEB3 /* PlaceListButtonView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlaceListButtonView.swift; sourceTree = "<group>"; };
+		BC344F0E2AA8093800F8CEB3 /* HomePlaceListRow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomePlaceListRow.swift; sourceTree = "<group>"; };
+		BC344F0F2AA8093800F8CEB3 /* PublicPlaceListRow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PublicPlaceListRow.swift; sourceTree = "<group>"; };
+		BC344F142AA80BF300F8CEB3 /* HomeDummy.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeDummy.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -83,6 +157,74 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3AE911632AA7FDBF005E4F71 /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				3AE911642AA7FDCC005E4F71 /* CustomTextField.swift */,
+			);
+			path = Common;
+			sourceTree = "<group>";
+		};
+		538D7AC82AA802CB00D0B21A /* MyPage */ = {
+			isa = PBXGroup;
+			children = (
+				538D7AC92AA802CB00D0B21A /* MyPageMainView.swift */,
+				538D7ACA2AA802CB00D0B21A /* CustomerService */,
+				538D7ACD2AA802CB00D0B21A /* Reservation */,
+				538D7AD12AA802CB00D0B21A /* Review */,
+				538D7AD52AA802CB00D0B21A /* Setting */,
+				538D7AD82AA802CB00D0B21A /* MyInformation */,
+			);
+			path = MyPage;
+			sourceTree = "<group>";
+		};
+		538D7ACA2AA802CB00D0B21A /* CustomerService */ = {
+			isa = PBXGroup;
+			children = (
+				538D7ACB2AA802CB00D0B21A /* AnnouncementView.swift */,
+				538D7ACC2AA802CB00D0B21A /* FAQView.swift */,
+			);
+			path = CustomerService;
+			sourceTree = "<group>";
+		};
+		538D7ACD2AA802CB00D0B21A /* Reservation */ = {
+			isa = PBXGroup;
+			children = (
+				538D7ACE2AA802CB00D0B21A /* MyReservationListView.swift */,
+				538D7ACF2AA802CB00D0B21A /* ReservationCancelView.swift */,
+				538D7AD02AA802CB00D0B21A /* ReservationDetailView.swift */,
+			);
+			path = Reservation;
+			sourceTree = "<group>";
+		};
+		538D7AD12AA802CB00D0B21A /* Review */ = {
+			isa = PBXGroup;
+			children = (
+				538D7AD22AA802CB00D0B21A /* MyReviewListView.swift */,
+				538D7AD32AA802CB00D0B21A /* AddReviewView.swift */,
+				538D7AD42AA802CB00D0B21A /* MyReviewRowView.swift */,
+			);
+			path = Review;
+			sourceTree = "<group>";
+		};
+		538D7AD52AA802CB00D0B21A /* Setting */ = {
+			isa = PBXGroup;
+			children = (
+				538D7AD62AA802CB00D0B21A /* SettingListView.swift */,
+				538D7AD72AA802CB00D0B21A /* PasswordEditView.swift */,
+			);
+			path = Setting;
+			sourceTree = "<group>";
+		};
+		538D7AD82AA802CB00D0B21A /* MyInformation */ = {
+			isa = PBXGroup;
+			children = (
+				538D7AD92AA802CB00D0B21A /* MyInformationDetailView.swift */,
+				538D7ADA2AA802CB00D0B21A /* MyInformationEditView.swift */,
+			);
+			path = MyInformation;
+			sourceTree = "<group>";
+		};
 		B12A84982AA6F00D00BDF8CA = {
 			isa = PBXGroup;
 			children = (
@@ -107,10 +249,13 @@
 		B12A84A32AA6F00D00BDF8CA /* BinGongGan_User */ = {
 			isa = PBXGroup;
 			children = (
-				B12A84E92AA6F0CE00BDF8CA /* GoogleService-Info.plist */,
-				B12A84A42AA6F00D00BDF8CA /* BinGongGan_UserApp.swift */,
-				B12A84A62AA6F00D00BDF8CA /* ContentView.swift */,
+				B15806352AA83CEB006C772B /* Document */,
+				538D7AC82AA802CB00D0B21A /* MyPage */,
 				B12A84A82AA6F01000BDF8CA /* Assets.xcassets */,
+				BC344EBA2AA806C200F8CEB3 /* App */,
+				BC344EBD2AA806EC00F8CEB3 /* TapBar */,
+				BC344EC12AA8070800F8CEB3 /* UserHome */,
+				3AE911632AA7FDBF005E4F71 /* Common */,
 				B12A84AA2AA6F01000BDF8CA /* Preview Content */,
 			);
 			path = BinGongGan_User;
@@ -146,6 +291,133 @@
 			children = (
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		B15806352AA83CEB006C772B /* Document */ = {
+			isa = PBXGroup;
+			children = (
+				B15806362AA83D12006C772B /* GoogleService-Info.plist */,
+			);
+			path = Document;
+			sourceTree = "<group>";
+		};
+		BC344EBA2AA806C200F8CEB3 /* App */ = {
+			isa = PBXGroup;
+			children = (
+				B12A84A42AA6F00D00BDF8CA /* BinGongGan_UserApp.swift */,
+			);
+			path = App;
+			sourceTree = "<group>";
+		};
+		BC344EBD2AA806EC00F8CEB3 /* TapBar */ = {
+			isa = PBXGroup;
+			children = (
+				BC344EBE2AA806F900F8CEB3 /* View */,
+			);
+			path = TapBar;
+			sourceTree = "<group>";
+		};
+		BC344EBE2AA806F900F8CEB3 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				BC344EBF2AA806FE00F8CEB3 /* GongGanTabView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		BC344EC12AA8070800F8CEB3 /* UserHome */ = {
+			isa = PBXGroup;
+			children = (
+				BC344EC32AA8071800F8CEB3 /* View */,
+				BC344EC22AA8071400F8CEB3 /* Model */,
+			);
+			path = UserHome;
+			sourceTree = "<group>";
+		};
+		BC344EC22AA8071400F8CEB3 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				BC344F142AA80BF300F8CEB3 /* HomeDummy.swift */,
+				BC344EC52AA8072000F8CEB3 /* GongGanInfo.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		BC344EC32AA8071800F8CEB3 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				BC344ECE2AA8072F00F8CEB3 /* Reservation */,
+				BC344ECD2AA8072A00F8CEB3 /* Home */,
+				BC344ECC2AA8072400F8CEB3 /* Detail */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		BC344ECC2AA8072400F8CEB3 /* Detail */ = {
+			isa = PBXGroup;
+			children = (
+				BC344ECF2AA8073600F8CEB3 /* GongGanDetailView.swift */,
+				BC344ED02AA8073700F8CEB3 /* SubGongGanDetailView.swift */,
+			);
+			path = Detail;
+			sourceTree = "<group>";
+		};
+		BC344ECD2AA8072A00F8CEB3 /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				BC344F052AA8092E00F8CEB3 /* HomeView.swift */,
+				BC344F072AA8092E00F8CEB3 /* HomeEventTapView.swift */,
+				BC344F062AA8092E00F8CEB3 /* HomeSearchView.swift */,
+				BC344F082AA8092E00F8CEB3 /* PlaceListButtonView.swift */,
+				BC344F042AA8092E00F8CEB3 /* PublicPlaceListView.swift */,
+				BC344ED32AA8074000F8CEB3 /* Cell */,
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
+		BC344ECE2AA8072F00F8CEB3 /* Reservation */ = {
+			isa = PBXGroup;
+			children = (
+				BC344EF22AA808DD00F8CEB3 /* MultiDatePicker */,
+				BC344EEB2AA808DA00F8CEB3 /* Reservation.swift */,
+				BC344EE92AA808DA00F8CEB3 /* ReservationCalendarView.swift */,
+				BC344EEA2AA808DA00F8CEB3 /* ReservationHeaderView.swift */,
+				BC344EEC2AA808DB00F8CEB3 /* ReservationStore.swift */,
+				BC344EE82AA808DA00F8CEB3 /* ReservationView.swift */,
+			);
+			path = Reservation;
+			sourceTree = "<group>";
+		};
+		BC344ED32AA8074000F8CEB3 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				BC344F0E2AA8093800F8CEB3 /* HomePlaceListRow.swift */,
+				BC344F0F2AA8093800F8CEB3 /* PublicPlaceListRow.swift */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
+		BC344EF22AA808DD00F8CEB3 /* MultiDatePicker */ = {
+			isa = PBXGroup;
+			children = (
+				BC344EF52AA808EA00F8CEB3 /* MultiDatePickerSoure */,
+				BC344EF32AA808E700F8CEB3 /* MultiDatePicker.swift */,
+			);
+			path = MultiDatePicker;
+			sourceTree = "<group>";
+		};
+		BC344EF52AA808EA00F8CEB3 /* MultiDatePickerSoure */ = {
+			isa = PBXGroup;
+			children = (
+				BC344EFC2AA808FC00F8CEB3 /* MDPContentView.swift */,
+				BC344EF72AA808FC00F8CEB3 /* MDPDayOfMonth.swift */,
+				BC344EF62AA808FC00F8CEB3 /* MDPDayView.swift */,
+				BC344EFB2AA808FC00F8CEB3 /* MDPModel.swift */,
+				BC344EF82AA808FC00F8CEB3 /* MDPMonthView.swift */,
+				BC344EFA2AA808FC00F8CEB3 /* MDPMonthYearPicker.swift */,
+				BC344EF92AA808FC00F8CEB3 /* MDPMonthYearPickerButton.swift */,
+			);
+			path = MultiDatePickerSoure;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -261,7 +533,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B12A84EA2AA6F0CE00BDF8CA /* GoogleService-Info.plist in Resources */,
+				B15806372AA83D12006C772B /* GoogleService-Info.plist in Resources */,
 				B12A84AC2AA6F01000BDF8CA /* Preview Assets.xcassets in Resources */,
 				B12A84A92AA6F01000BDF8CA /* Assets.xcassets in Resources */,
 			);
@@ -271,7 +543,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B12A84EB2AA6F0CE00BDF8CA /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -279,7 +550,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B12A84EC2AA6F0CE00BDF8CA /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -290,8 +560,48 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B12A84A72AA6F00D00BDF8CA /* ContentView.swift in Sources */,
+				538D7ADE2AA802CB00D0B21A /* MyReservationListView.swift in Sources */,
+				538D7ADF2AA802CB00D0B21A /* ReservationCancelView.swift in Sources */,
+				538D7ADC2AA802CB00D0B21A /* AnnouncementView.swift in Sources */,
+				538D7AE72AA802CB00D0B21A /* MyInformationEditView.swift in Sources */,
+				538D7ADD2AA802CB00D0B21A /* FAQView.swift in Sources */,
+				538D7AE62AA802CB00D0B21A /* MyInformationDetailView.swift in Sources */,
+				538D7AE42AA802CB00D0B21A /* SettingListView.swift in Sources */,
+				538D7AE22AA802CB00D0B21A /* AddReviewView.swift in Sources */,
 				B12A84A52AA6F00D00BDF8CA /* BinGongGan_UserApp.swift in Sources */,
+				538D7AE32AA802CB00D0B21A /* MyReviewRowView.swift in Sources */,
+				538D7AE12AA802CB00D0B21A /* MyReviewListView.swift in Sources */,
+				538D7AE02AA802CB00D0B21A /* ReservationDetailView.swift in Sources */,
+				538D7ADB2AA802CB00D0B21A /* MyPageMainView.swift in Sources */,
+				3AE911652AA7FDCC005E4F71 /* CustomTextField.swift in Sources */,
+				538D7AE52AA802CB00D0B21A /* PasswordEditView.swift in Sources */,
+				BC344F0C2AA8092E00F8CEB3 /* HomeEventTapView.swift in Sources */,
+				BC344F0D2AA8092E00F8CEB3 /* PlaceListButtonView.swift in Sources */,
+				BC344F012AA808FC00F8CEB3 /* MDPMonthYearPicker.swift in Sources */,
+				BC344EF02AA808DB00F8CEB3 /* Reservation.swift in Sources */,
+				BC344F032AA808FC00F8CEB3 /* MDPContentView.swift in Sources */,
+				BC344EEE2AA808DB00F8CEB3 /* ReservationCalendarView.swift in Sources */,
+				BC344F022AA808FC00F8CEB3 /* MDPModel.swift in Sources */,
+				BC344F112AA8093800F8CEB3 /* PublicPlaceListRow.swift in Sources */,
+				BC344ED22AA8073700F8CEB3 /* SubGongGanDetailView.swift in Sources */,
+				B12A84A52AA6F00D00BDF8CA /* BinGongGan_UserApp.swift in Sources */,
+				BC344F102AA8093800F8CEB3 /* HomePlaceListRow.swift in Sources */,
+				BC344EFE2AA808FC00F8CEB3 /* MDPDayOfMonth.swift in Sources */,
+				BC344EF42AA808E700F8CEB3 /* MultiDatePicker.swift in Sources */,
+				BC344F152AA80BF300F8CEB3 /* HomeDummy.swift in Sources */,
+				BC344EED2AA808DB00F8CEB3 /* ReservationView.swift in Sources */,
+				BC344ED12AA8073700F8CEB3 /* GongGanDetailView.swift in Sources */,
+				BC344F002AA808FC00F8CEB3 /* MDPMonthYearPickerButton.swift in Sources */,
+				BC344EEF2AA808DB00F8CEB3 /* ReservationHeaderView.swift in Sources */,
+				BC344F0A2AA8092E00F8CEB3 /* HomeView.swift in Sources */,
+				BC344EFF2AA808FC00F8CEB3 /* MDPMonthView.swift in Sources */,
+				BC344F092AA8092E00F8CEB3 /* PublicPlaceListView.swift in Sources */,
+				BC344EFD2AA808FC00F8CEB3 /* MDPDayView.swift in Sources */,
+				BC344EC02AA806FF00F8CEB3 /* GongGanTabView.swift in Sources */,
+				BC344EF12AA808DB00F8CEB3 /* ReservationStore.swift in Sources */,
+				3AE911652AA7FDCC005E4F71 /* CustomTextField.swift in Sources */,
+				BC344F0B2AA8092E00F8CEB3 /* HomeSearchView.swift in Sources */,
+				BC344EC92AA8072000F8CEB3 /* GongGanInfo.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

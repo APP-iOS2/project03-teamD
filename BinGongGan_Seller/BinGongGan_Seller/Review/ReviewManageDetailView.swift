@@ -8,20 +8,33 @@
 import SwiftUI
 
 struct ReviewManageDetailView: View {
+    @State var isShowingReviewReportSheet: Bool = false
+    
     var body: some View {
-        ScrollView {
-            ReservationCell()
-                .padding()
+        ZStack {
+            Color.myBackground
+                .ignoresSafeArea(.all)
             
-            ReviewCell()
-            
-            Spacer()
-            
-            Button("리뷰 신고하기", role: .destructive) {
+            VStack {
+                ScrollView {
+                    ReservationCell()
+                    
+                    ReviewWithCommentCell()
+                        .padding(EdgeInsets(top: 0, leading: 20, bottom: 0, trailing: 20))
+                    
+                }
                 
+                Button("리뷰 신고하기", role: .destructive) {
+                    isShowingReviewReportSheet.toggle()
+                }
             }
+            .navigationTitle("리뷰 상세")
+            .navigationBarTitleDisplayMode(.inline)
         }
-        .navigationTitle("리뷰 관리")
+        .sheet(isPresented: $isShowingReviewReportSheet) {
+            ReviewReportSheet(isShowingReviewReportSheet: $isShowingReviewReportSheet)
+                .presentationDetents([.medium, .large])
+        }
     }
 }
 
