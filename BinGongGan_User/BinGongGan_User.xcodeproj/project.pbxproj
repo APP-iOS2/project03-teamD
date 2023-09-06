@@ -22,7 +22,6 @@
 		538D7AE62AA802CB00D0B21A /* MyInformationDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 538D7AD92AA802CB00D0B21A /* MyInformationDetailView.swift */; };
 		538D7AE72AA802CB00D0B21A /* MyInformationEditView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 538D7ADA2AA802CB00D0B21A /* MyInformationEditView.swift */; };
 		B12A84A52AA6F00D00BDF8CA /* BinGongGan_UserApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = B12A84A42AA6F00D00BDF8CA /* BinGongGan_UserApp.swift */; };
-		B12A84A72AA6F00D00BDF8CA /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B12A84A62AA6F00D00BDF8CA /* ContentView.swift */; };
 		B12A84A92AA6F01000BDF8CA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B12A84A82AA6F01000BDF8CA /* Assets.xcassets */; };
 		B12A84AC2AA6F01000BDF8CA /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B12A84AB2AA6F01000BDF8CA /* Preview Assets.xcassets */; };
 		B12A84B62AA6F01100BDF8CA /* BinGongGan_UserTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B12A84B52AA6F01100BDF8CA /* BinGongGan_UserTests.swift */; };
@@ -88,7 +87,6 @@
 		538D7ADA2AA802CB00D0B21A /* MyInformationEditView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyInformationEditView.swift; sourceTree = "<group>"; };
 		B12A84A12AA6F00D00BDF8CA /* BinGongGan_User.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BinGongGan_User.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B12A84A42AA6F00D00BDF8CA /* BinGongGan_UserApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BinGongGan_UserApp.swift; sourceTree = "<group>"; };
-		B12A84A62AA6F00D00BDF8CA /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		B12A84A82AA6F01000BDF8CA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B12A84AB2AA6F01000BDF8CA /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		B12A84B12AA6F01100BDF8CA /* BinGongGan_UserTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BinGongGan_UserTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -238,9 +236,7 @@
 			isa = PBXGroup;
 			children = (
 				538D7AC82AA802CB00D0B21A /* MyPage */,
-				3AE911632AA7FDBF005E4F71 /* Common */,
 				B12A84E92AA6F0CE00BDF8CA /* GoogleService-Info.plist */,
-				B12A84A62AA6F00D00BDF8CA /* ContentView.swift */,
 				B12A84A82AA6F01000BDF8CA /* Assets.xcassets */,
 				BC344EBA2AA806C200F8CEB3 /* App */,
 				BC344EBD2AA806EC00F8CEB3 /* TapBar */,
@@ -525,7 +521,6 @@
 				538D7ADC2AA802CB00D0B21A /* AnnouncementView.swift in Sources */,
 				538D7AE72AA802CB00D0B21A /* MyInformationEditView.swift in Sources */,
 				538D7ADD2AA802CB00D0B21A /* FAQView.swift in Sources */,
-				B12A84A72AA6F00D00BDF8CA /* ContentView.swift in Sources */,
 				538D7AE62AA802CB00D0B21A /* MyInformationDetailView.swift in Sources */,
 				538D7AE42AA802CB00D0B21A /* SettingListView.swift in Sources */,
 				538D7AE22AA802CB00D0B21A /* AddReviewView.swift in Sources */,
@@ -541,7 +536,6 @@
 				BC344EE62AA8075300F8CEB3 /* ReservationView.swift in Sources */,
 				BC344EDD2AA8074500F8CEB3 /* HomePlaceListView.swift in Sources */,
 				BC344EE52AA8075300F8CEB3 /* ReservationCalendarView.swift in Sources */,
-				B12A84A72AA6F00D00BDF8CA /* ContentView.swift in Sources */,
 				BC344EE72AA8075300F8CEB3 /* ContentView.swift in Sources */,
 				BC344ED22AA8073700F8CEB3 /* SubGongGanDetailView.swift in Sources */,
 				B12A84A52AA6F00D00BDF8CA /* BinGongGan_UserApp.swift in Sources */,
