@@ -12,7 +12,6 @@
 		274A7DB02AA843F600A7A256 /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 274A7DAF2AA843F600A7A256 /* LocationManager.swift */; };
 		274A7DB22AA843FE00A7A256 /* MapSearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 274A7DB12AA843FE00A7A256 /* MapSearchView.swift */; };
 		274A7DB42AA855B800A7A256 /* View+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 274A7DB32AA855B800A7A256 /* View+Extension.swift */; };
-		3AE911652AA7FDCC005E4F71 /* CustomTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AE911642AA7FDCC005E4F71 /* CustomTextField.swift */; };
 		3AE911682AA802AF005E4F71 /* SignUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AE911672AA802AF005E4F71 /* SignUpView.swift */; };
 		3AE9116B2AA805FE005E4F71 /* SignUpStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AE9116A2AA805FE005E4F71 /* SignUpStore.swift */; };
 		3AE9116D2AA811D6005E4F71 /* PrimaryButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AE9116C2AA811D6005E4F71 /* PrimaryButton.swift */; };
@@ -34,7 +33,6 @@
 		538D7AE72AA802CB00D0B21A /* MyInformationEditView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 538D7ADA2AA802CB00D0B21A /* MyInformationEditView.swift */; };
 		538D7AE92AA81F0D00D0B21A /* EnquiryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 538D7AE82AA81F0D00D0B21A /* EnquiryView.swift */; };
 		538D7AEB2AA83DF100D0B21A /* AppInformationList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 538D7AEA2AA83DF100D0B21A /* AppInformationList.swift */; };
-		B12A84A52AA6F00D00BDF8CA /* BinGongGan_UserApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = B12A84A42AA6F00D00BDF8CA /* BinGongGan_UserApp.swift */; };
 		B12A84A92AA6F01000BDF8CA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B12A84A82AA6F01000BDF8CA /* Assets.xcassets */; };
 		B12A84AC2AA6F01000BDF8CA /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B12A84AB2AA6F01000BDF8CA /* Preview Assets.xcassets */; };
 		B12A84B62AA6F01100BDF8CA /* BinGongGan_UserTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B12A84B52AA6F01100BDF8CA /* BinGongGan_UserTests.swift */; };
@@ -72,6 +70,9 @@
 		BC344F152AA80BF300F8CEB3 /* HomeDummy.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC344F142AA80BF300F8CEB3 /* HomeDummy.swift */; };
 		D2EA1D5C2AA84608004484C4 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2EA1D5B2AA84608004484C4 /* LoginView.swift */; };
 		D2EA1D5E2AA8460C004484C4 /* LoginStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2EA1D5D2AA8460C004484C4 /* LoginStore.swift */; };
+		D8DDD0752AA858E700013B9A /* FAQCategoryItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8DDD0742AA858E700013B9A /* FAQCategoryItemView.swift */; };
+		D8DDD0762AA874C700013B9A /* BinGongGan_UserApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = B12A84A42AA6F00D00BDF8CA /* BinGongGan_UserApp.swift */; };
+		D8DDD0772AA874CB00013B9A /* CustomTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AE911642AA7FDCC005E4F71 /* CustomTextField.swift */; };
 		D2F5AE4B2AA86F00001D5B91 /* LoginPasswordTextFieldView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2F5AE4A2AA86F00001D5B91 /* LoginPasswordTextFieldView.swift */; };
 /* End PBXBuildFile section */
 
@@ -157,6 +158,7 @@
 		BC344F142AA80BF300F8CEB3 /* HomeDummy.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeDummy.swift; sourceTree = "<group>"; };
 		D2EA1D5B2AA84608004484C4 /* LoginView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		D2EA1D5D2AA8460C004484C4 /* LoginStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginStore.swift; sourceTree = "<group>"; };
+		D8DDD0742AA858E700013B9A /* FAQCategoryItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FAQCategoryItemView.swift; sourceTree = "<group>"; };
 		D2F5AE4A2AA86F00001D5B91 /* LoginPasswordTextFieldView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginPasswordTextFieldView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -265,6 +267,7 @@
 			children = (
 				538D7ACB2AA802CB00D0B21A /* AnnouncementView.swift */,
 				538D7ACC2AA802CB00D0B21A /* FAQView.swift */,
+				D8DDD0742AA858E700013B9A /* FAQCategoryItemView.swift */,
 				538D7AE82AA81F0D00D0B21A /* EnquiryView.swift */,
 			);
 			path = CustomerService;
@@ -664,6 +667,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D8DDD0772AA874CB00013B9A /* CustomTextField.swift in Sources */,
+				D8DDD0762AA874C700013B9A /* BinGongGan_UserApp.swift in Sources */,
 				3AE9116F2AA81F3A005E4F71 /* FirstStepSignUpView.swift in Sources */,
 				3AE911682AA802AF005E4F71 /* SignUpView.swift in Sources */,
 				3AE911742AA845F7005E4F71 /* ThirdStepSignUpView.swift in Sources */,
@@ -677,12 +682,10 @@
 				538D7AE22AA802CB00D0B21A /* AddReviewView.swift in Sources */,
 				538D7AE92AA81F0D00D0B21A /* EnquiryView.swift in Sources */,
 				D2EA1D5C2AA84608004484C4 /* LoginView.swift in Sources */,
-				B12A84A52AA6F00D00BDF8CA /* BinGongGan_UserApp.swift in Sources */,
 				538D7AE32AA802CB00D0B21A /* MyReviewRowView.swift in Sources */,
 				538D7AE12AA802CB00D0B21A /* MyReviewListView.swift in Sources */,
 				538D7AE02AA802CB00D0B21A /* ReservationDetailView.swift in Sources */,
 				538D7ADB2AA802CB00D0B21A /* MyPageMainView.swift in Sources */,
-				3AE911652AA7FDCC005E4F71 /* CustomTextField.swift in Sources */,
 				3AE9116D2AA811D6005E4F71 /* PrimaryButton.swift in Sources */,
 				3AE911712AA83A8B005E4F71 /* SecondStepSignUpView.swift in Sources */,
 				3AE9116B2AA805FE005E4F71 /* SignUpStore.swift in Sources */,
@@ -702,7 +705,6 @@
 				BC344F112AA8093800F8CEB3 /* PublicPlaceListRow.swift in Sources */,
 				BC344ED22AA8073700F8CEB3 /* SubGongGanDetailView.swift in Sources */,
 				D2EA1D5E2AA8460C004484C4 /* LoginStore.swift in Sources */,
-				B12A84A52AA6F00D00BDF8CA /* BinGongGan_UserApp.swift in Sources */,
 				BC344F102AA8093800F8CEB3 /* HomePlaceListRow.swift in Sources */,
 				BC344EFE2AA808FC00F8CEB3 /* MDPDayOfMonth.swift in Sources */,
 				BC344EF42AA808E700F8CEB3 /* MultiDatePicker.swift in Sources */,
@@ -713,13 +715,13 @@
 				BC344EEF2AA808DB00F8CEB3 /* ReservationHeaderView.swift in Sources */,
 				BC344F0A2AA8092E00F8CEB3 /* HomeView.swift in Sources */,
 				BC344EFF2AA808FC00F8CEB3 /* MDPMonthView.swift in Sources */,
+				D8DDD0752AA858E700013B9A /* FAQCategoryItemView.swift in Sources */,
 				BC344F092AA8092E00F8CEB3 /* PublicPlaceListView.swift in Sources */,
 				BC344EFD2AA808FC00F8CEB3 /* MDPDayView.swift in Sources */,
 				538D7AEB2AA83DF100D0B21A /* AppInformationList.swift in Sources */,
 				BC344EC02AA806FF00F8CEB3 /* GongGanTabView.swift in Sources */,
 				BC344EF12AA808DB00F8CEB3 /* ReservationStore.swift in Sources */,
 				274A7DAD2AA843EF00A7A256 /* SummaryPlaceView.swift in Sources */,
-				3AE911652AA7FDCC005E4F71 /* CustomTextField.swift in Sources */,
 				BC344F0B2AA8092E00F8CEB3 /* HomeSearchView.swift in Sources */,
 				BC344EC92AA8072000F8CEB3 /* GongGanInfo.swift in Sources */,
 			);
