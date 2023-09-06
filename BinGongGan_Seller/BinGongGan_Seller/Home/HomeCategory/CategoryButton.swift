@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct CategoryButton: View {
+    var buttonText: String
     
     var body: some View {
         Button( action: {},
@@ -18,10 +19,10 @@ struct CategoryButton: View {
                     .aspectRatio(contentMode: .fit)
                     .frame(width: 50, height: 30)
                 
-                Text("예약관리")
+                Text(buttonText)
                     .font(.title3)
                     .bold()
-                    .padding()
+                    .padding(.top, 20)
                     .fixedSize()
             }
         }).buttonStyle(.plain)
@@ -31,8 +32,8 @@ struct CategoryButton: View {
 }
 
 
-struct CategoryButton_Previews: PreviewProvider {
-    static var previews: some View {
-        CategoryButton()
-    }
-}
+//struct CategoryButton_Previews: PreviewProvider {
+//    static var previews: some View {
+//        CategoryButton()
+//    }
+//}

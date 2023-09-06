@@ -8,6 +8,8 @@
 import SwiftUI
 
 struct HomeView: View {
+    @State private var showModal: Bool = false
+    
     var body: some View {
         ScrollView {
             VStack {
@@ -18,7 +20,7 @@ struct HomeView: View {
                         .padding([.top, .leading], 20)
                     Spacer()
                 }
-                CategoryButtonsView()
+                CategoryButtonsView(categoryModel: CategoryModel())
                     .frame(maxWidth: .infinity, maxHeight: .infinity)
                     .padding([.leading, .trailing, .bottom], 20)
                 HStack{
@@ -29,15 +31,42 @@ struct HomeView: View {
                     Spacer()
                 }
                 ForEach(0..<5) { _ in
-                    ReservationCell()
+                    Button(action: {
+                        self.showModal = true
+                    },
+                           label: {
+                        ReservationCell()
+                            .sheet(isPresented: self.$showModal) {
+                                ReservationListModalView()
+                                    .presentationDetents([.medium])
+                                    .cornerRadius(15)
+                            }
+                    })
+                    .buttonStyle(.plain)
+                    .overlay(
+                        Button(action: {
+                        }) {
+                            Text("예약확정")
+                                .font(.subheadline)
+                                .padding(.horizontal)
+                                .padding(.vertical, 8)
+                                .background(Color.white)
+                                .foregroundColor(.black)
+                                .cornerRadius(10)
+                        }
+                            .buttonStyle(.plain)
+                            .frame(maxWidth: .infinity, alignment: .trailing)
+                            .padding(.trailing, 40)
+                    )
                 }
+                
             }
         }
     }
 }
-
 struct HomeView_Previews: PreviewProvider {
     static var previews: some View {
         HomeView()
     }
 }
+
