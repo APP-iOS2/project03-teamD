@@ -35,10 +35,14 @@ struct MDPMonthView: View {
                 MDPMonthYearPickerButton(isPresented: self.$showMonthYearPicker)
                 Spacer()
                 Button( action: {showPrevMonth()} ) {
-                    Image(systemName: "chevron.left").font(.title2)
+                    Image(systemName: "chevron.left")
+                        .foregroundColor(.myPrimary)
+                        .font(.title2)
                 }.padding()
                 Button( action: {showNextMonth()} ) {
-                    Image(systemName: "chevron.right").font(.title2)
+                    Image(systemName: "chevron.right")
+                        .foregroundColor(.myPrimary)
+                        .font(.title2)
                 }.padding()
             }
             .padding(.leading, 20)
@@ -60,7 +64,7 @@ struct MDPMonthView: View {
         )
         .overlay(
             RoundedRectangle(cornerRadius: 10)
-                .stroke(Color.accentColor, lineWidth: 1)
+                .stroke(Color.myPrimary, lineWidth: 1)
         )
         .padding()
         .frame(width: screenWidth, height: 300)

@@ -9,18 +9,22 @@ import SwiftUI
 
 struct GongGanTabView: View {
     @State private var selectedTab = 0
-    
+    init() {
+        UITabBar.appearance().backgroundColor = UIColor.white
+    }
     var body: some View {
         TabView(selection: $selectedTab) {
-            Text("Home")
-                .tabItem {
-                    Image(systemName: selectedTab == 0 ? "house.fill" : "house")
-                        .environment(\.symbolVariants, selectedTab == 0 ? .fill : .none)
-                    Text("홈")
-                }
-                .tag(0)
+            NavigationStack {
+                HomeView()
+            }
+            .tabItem {
+                Image(systemName: selectedTab == 0 ? "house.fill" : "house")
+                    .environment(\.symbolVariants, selectedTab == 0 ? .fill : .none)
+                Text("홈")
+            }
+            .tag(0)
             
-            Text("내 주변")
+            MapSearchView(selectedTab: $selectedTab)
                 .tabItem {
                     Image(systemName: selectedTab == 1 ? "location.circle.fill" : "location.circle")
                         .environment(\.symbolVariants, selectedTab == 1 ? .fill : .none)
@@ -36,18 +40,18 @@ struct GongGanTabView: View {
                 }
                 .tag(2)
             
-            MyPageMainView()
-                .tabItem {
-                    Image(systemName: selectedTab == 3 ? "book.fill" : "book")
-                        .environment(\.symbolVariants, selectedTab == 3 ? .fill : .none)
-                    Text("마이페이지")
-                }
-                .tag(3)
+            NavigationStack {
+                MyPageMainView()
+            }
+            .tabItem {
+                Image(systemName: selectedTab == 3 ? "book.fill" : "book")
+                    .environment(\.symbolVariants, selectedTab == 3 ? .fill : .none)
+                Text("마이페이지")
+            }
+            .tag(3)
         }
-        .onAppear {
-            selectedTab = 0
-        }
-        .tint(.black)
+        .tint(.myPrimary)
+        .navigationBarBackButtonHidden()
     }
 }
 
