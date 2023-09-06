@@ -11,28 +11,39 @@ struct ReservationCalendarView: View {
     
     @EnvironmentObject var reservationStore: ReservationStore
     
-    @State var checkInDate : Date = Date()
-    @State var checkOutDate : Date = Date()
+    //  @State private var checkInDate : Double = Date.timeIntervalSinceReferenceDate
+    //  @State private var checkOutDate : Double = Date.timeIntervalSinceReferenceDate
+    
+    @State private var dateRange: ClosedRange<Date>? = nil
     
     var body: some View {
         VStack(alignment: .leading) {
-            DatePicker(
-                "Start Date",
-                selection: $checkInDate,
-                displayedComponents: [.date]
-            )
-            .datePickerStyle(.graphical)
+            MultiDatePicker(dateRange:$dateRange, minDate: Date.now)
             
             VStack(alignment: .listRowSeparatorLeading, spacing: 20) {
-                Text("선택한 날짜")
-                    .font(.title2)
                 
-                HStack {
-                    Text("입실 날짜: ")
+                Text("선택한 날짜")
+                    .font(.title3)
+                
+                if let range = dateRange {
+                    HStack {
+                        Text("입실 날짜: ")
+                        Text(reservationStore.changeDateString(range.lowerBound))
+                            .bold()
+                    }
+                    .font(.subheadline)
                     
-                    Spacer()
+                    HStack{
+                        Text("퇴실 날짜: ")
+                        Text(reservationStore.changeDateString(range.upperBound))
+                            .bold()
+                    }
+                    .font(.subheadline)
                     
-                    Text("퇴실 날짜: ")
+                } else {
+                    Text("날짜를 선택해주세요")
+                        .font(.footnote)
+                        .foregroundColor(.gray)
                 }
             }
             .padding(20)
