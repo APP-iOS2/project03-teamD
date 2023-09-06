@@ -10,18 +10,20 @@ import BinGongGanCore
 
 struct MyInformationDetailView: View {
     @Environment(\.dismiss) private var dismiss
+    @State private var name: String = "손윤호"
+    @State private var phoneNumber: String = "010-1234-5678"
     
     var body: some View {
         Form {
             VStack(alignment: .leading) {
                 NavigationLink {
-                    MyInformationEditView()
+                    MyInformationEditView(editType: .name, name: $name, phoneNumber: $phoneNumber)
                 } label: {
-                    VStack(alignment: .leading) {
+                    HStack {
                         Text("이름")
                             .font(.body1Regular)
-                        Text("손윤호")
-                            .font(.body1Bold)
+                        Spacer()
+                        Text("\(name)")
                             .foregroundColor(.myDarkGray)
                     }
                 }
@@ -29,31 +31,31 @@ struct MyInformationDetailView: View {
             
             VStack(alignment: .leading) {
                 NavigationLink {
-                    MyInformationEditView()
+                    MyInformationEditView(editType: .phoneNumber, name: $name, phoneNumber: $phoneNumber)
                 } label: {
-                    VStack(alignment: .leading) {
+                    HStack {
                         Text("연락처")
                             .font(.body1Regular)
-                        Text("010-1234-5678")
-                            .font(.body1Bold)
+                        Spacer()
+                        Text("\(phoneNumber)")
                             .foregroundColor(.myDarkGray)
                     }
                 }
             }
             
-            VStack(alignment: .leading) {
+            HStack {
                 Text("아이디")
                     .font(.body1Regular)
+                Spacer()
                 Text("test@test.com")
-                    .font(.body1Bold)
                     .tint(.myDarkGray)
             }
             
-            VStack(alignment: .leading) {
+            HStack {
                 Text("생년월일")
                     .font(.body1Regular)
+                Spacer()
                 Text("2000-01-01")
-                    .font(.body1Bold)
                     .foregroundColor(.myDarkGray)
             }
             
