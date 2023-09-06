@@ -45,6 +45,12 @@ struct HomeListRow: View {
                             )
                     }) {
                         ProgressView()
+                            .frame(
+                                minWidth:ImageFrame.width,
+                                maxWidth: ImageFrame.width,
+                                minHeight: ImageFrame.height,
+                                maxHeight: ImageFrame.height
+                            )
                     }
                     .cornerRadius(15)
                     .padding(EdgeInsets(top: 0, leading: 20, bottom: 0, trailing: 10))
