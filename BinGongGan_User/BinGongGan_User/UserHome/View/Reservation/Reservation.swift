@@ -11,12 +11,15 @@ struct SampleSpace {
     
     let spaceName: String
     let roomName: String
-    let imageString: String
+    let image: String
     
     var imageUrl: URL {
-        return URL(string: imageString) ?? URL(string: "https://health.chosun.com/site/data/img_dir/2023/07/17/2023071701753_0.jpg")!
+        if let url = URL(string: image) {
+            return url
+        } else {
+            return URL(string: "https://health.chosun.com/site/data/img_dir/2023/07/17/2023071701753_0.jpg")!
+        }
     }
-    
 }
 
 struct Reservation {
@@ -26,7 +29,7 @@ struct Reservation {
     let hour: Int
     let personnel: Int
     
-    let reservationName: String
-    let reservationPhoneNumber: String
+    let reservationPersonName: String
+    let reservationPersonPhoneNumbere: String
     let reservationRequest: String
 }

@@ -8,80 +8,68 @@
 import SwiftUI
 import BinGongGanCore
 
-enum HomeListRowConstant {
+enum PlaceListRowConstant {
     //    static let showPlaceListWidth = CGFloat(50)
-    static let showPlaceListHeight = CGFloat(100)
-}
-enum ImageFrame {
-    static let width = CGFloat(100)
-    static let height = CGFloat(70)
-    
+    static let showPlaceListHeight = CGFloat(120)
 }
 
-struct HomeListRow: View {
+struct HomePlaceListRow: View {
     
     private let screenWidth = UIScreen.main.bounds.width
-    @State var place: Place
+    @State var place: PublicPlaceListDummy
     
     var body: some View {
         NavigationLink {
-            GongGanDetailView()
+            // 공간 디테일뷰로 가야함 (대진님이랑 말해야함)
         } label: {
-            ZStack {
+            ZStack{
                 RoundedRectangle(cornerRadius: 15)
                     .foregroundColor(Color.myPrimary)
                     .frame(width: screenWidth - HomeViewConstant.searchButtonHeight ,
-                           height: HomeListRowConstant.showPlaceListHeight)
+                           height: PlaceListRowConstant.showPlaceListHeight)
+                    .opacity(0.8)
                 HStack {
                     AsyncImage(url: place.imageURL, content: { image in
                         image
                             .resizable()
                             .aspectRatio(contentMode: .fit)
-                            .frame(
-                                minWidth:ImageFrame.width,
-                                maxWidth: ImageFrame.width,
-                                minHeight: ImageFrame.height,
-                                maxHeight: ImageFrame.height
-                            )
+                            .frame(maxWidth: 100 , maxHeight: 120)
+                            .padding(20)
                     }) {
                         ProgressView()
                     }
-                    .cornerRadius(15)
-                    .padding(EdgeInsets(top: 0, leading: 20, bottom: 0, trailing: 10))
-                    
+                        
                     VStack(alignment: .leading) {
                         
                         Text("\(place.placeName)")
                             .padding(.top , 17)
-                            .foregroundColor(.white)
+                            .foregroundColor(.black)
                             .font(.body1Bold)
                         Text("\(place.placeLocation)")
                             .padding(.bottom , 3)
-                            .foregroundColor(.white)
+                            .foregroundColor(.black)
                             .font(.captionRegular)
                         Text("\(place.placePrice) / 시간당")
                             .padding(.bottom , 17)
-                            .foregroundColor(.white)
-                            .font(.captionRegular)
+                            .foregroundColor(.black)
+                            .font(.body1Bold)
                     }// VSTACK
-                    Spacer()
                     Button {
                         place.isFavorite.toggle()
                     } label: {
                         Image(systemName: place.isFavorite ? "heart.fill" : "heart")
-                            .foregroundColor(place.isFavorite ? .red : .myBackground)
-                    }.padding(.trailing, 20)
-                    
+                            .foregroundColor(.red)
+                            .padding()
+                    }
                 }// HSTACK
-                .frame(width: screenWidth - HomeViewConstant.searchButtonHeight ,
-                       height: HomeListRowConstant.showPlaceListHeight)
             }// ZSTACK
+            
         }
     }
 }
 
 struct HomeShowPlaceListCellView_Previews: PreviewProvider {
     static var previews: some View {
-        HomeListRow(place: HomeStore().places[3])
+        HomePlaceListRow(place: DummyStore().publicPlaceList[1])
     }
 }

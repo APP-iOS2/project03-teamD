@@ -29,7 +29,7 @@ struct MDPContentView: View {
             ForEach(0..<monthDataModel.dayNames.count, id: \.self) { index in
                 Text(monthDataModel.dayNames[index].uppercased())
                     .font(.caption)
-                    .foregroundColor(.myDarkGray)
+                    .foregroundColor(.gray)
             }
             .padding(.bottom, 20)
             
