@@ -59,6 +59,7 @@
 		BC344F102AA8093800F8CEB3 /* HomePlaceListRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC344F0E2AA8093800F8CEB3 /* HomePlaceListRow.swift */; };
 		BC344F112AA8093800F8CEB3 /* PublicPlaceListRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC344F0F2AA8093800F8CEB3 /* PublicPlaceListRow.swift */; };
 		BC344F152AA80BF300F8CEB3 /* HomeDummy.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC344F142AA80BF300F8CEB3 /* HomeDummy.swift */; };
+		D8DDD0752AA858E700013B9A /* FAQCategoryItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8DDD0742AA858E700013B9A /* FAQCategoryItemView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -128,6 +129,7 @@
 		BC344F0E2AA8093800F8CEB3 /* HomePlaceListRow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomePlaceListRow.swift; sourceTree = "<group>"; };
 		BC344F0F2AA8093800F8CEB3 /* PublicPlaceListRow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PublicPlaceListRow.swift; sourceTree = "<group>"; };
 		BC344F142AA80BF300F8CEB3 /* HomeDummy.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeDummy.swift; sourceTree = "<group>"; };
+		D8DDD0742AA858E700013B9A /* FAQCategoryItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FAQCategoryItemView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -185,6 +187,7 @@
 			children = (
 				538D7ACB2AA802CB00D0B21A /* AnnouncementView.swift */,
 				538D7ACC2AA802CB00D0B21A /* FAQView.swift */,
+				D8DDD0742AA858E700013B9A /* FAQCategoryItemView.swift */,
 			);
 			path = CustomerService;
 			sourceTree = "<group>";
@@ -571,20 +574,12 @@
 				538D7ADB2AA802CB00D0B21A /* MyPageMainView.swift in Sources */,
 				3AE911652AA7FDCC005E4F71 /* CustomTextField.swift in Sources */,
 				538D7AE52AA802CB00D0B21A /* PasswordEditView.swift in Sources */,
-				BC344ECB2AA8072000F8CEB3 /* ReservationStore.swift in Sources */,
-				BC344EDC2AA8074500F8CEB3 /* HomeView.swift in Sources */,
-				BC344EE62AA8075300F8CEB3 /* ReservationView.swift in Sources */,
-				BC344EDD2AA8074500F8CEB3 /* HomePlaceListView.swift in Sources */,
-				BC344EE52AA8075300F8CEB3 /* ReservationCalendarView.swift in Sources */,
-				BC344EE72AA8075300F8CEB3 /* ContentView.swift in Sources */,
-				BC344F132AA8095200F8CEB3 /* HomeDummy.swift in Sources */,
 				BC344F0C2AA8092E00F8CEB3 /* HomeEventTapView.swift in Sources */,
 				BC344F0D2AA8092E00F8CEB3 /* PlaceListButtonView.swift in Sources */,
 				BC344F012AA808FC00F8CEB3 /* MDPMonthYearPicker.swift in Sources */,
 				BC344EF02AA808DB00F8CEB3 /* Reservation.swift in Sources */,
 				BC344F032AA808FC00F8CEB3 /* MDPContentView.swift in Sources */,
 				BC344EEE2AA808DB00F8CEB3 /* ReservationCalendarView.swift in Sources */,
-				B12A84A72AA6F00D00BDF8CA /* ContentView.swift in Sources */,
 				BC344F022AA808FC00F8CEB3 /* MDPModel.swift in Sources */,
 				BC344F112AA8093800F8CEB3 /* PublicPlaceListRow.swift in Sources */,
 				BC344ED22AA8073700F8CEB3 /* SubGongGanDetailView.swift in Sources */,
@@ -599,6 +594,7 @@
 				BC344EEF2AA808DB00F8CEB3 /* ReservationHeaderView.swift in Sources */,
 				BC344F0A2AA8092E00F8CEB3 /* HomeView.swift in Sources */,
 				BC344EFF2AA808FC00F8CEB3 /* MDPMonthView.swift in Sources */,
+				D8DDD0752AA858E700013B9A /* FAQCategoryItemView.swift in Sources */,
 				BC344F092AA8092E00F8CEB3 /* PublicPlaceListView.swift in Sources */,
 				BC344EFD2AA808FC00F8CEB3 /* MDPDayView.swift in Sources */,
 				BC344EC02AA806FF00F8CEB3 /* GongGanTabView.swift in Sources */,
