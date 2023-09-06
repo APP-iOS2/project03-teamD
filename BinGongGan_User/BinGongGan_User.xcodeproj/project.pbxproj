@@ -11,6 +11,7 @@
 		274A7DAE2AA843EF00A7A256 /* MapViewCoordinater.swift in Sources */ = {isa = PBXBuildFile; fileRef = 274A7DAC2AA843EF00A7A256 /* MapViewCoordinater.swift */; };
 		274A7DB02AA843F600A7A256 /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 274A7DAF2AA843F600A7A256 /* LocationManager.swift */; };
 		274A7DB22AA843FE00A7A256 /* MapSearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 274A7DB12AA843FE00A7A256 /* MapSearchView.swift */; };
+		274A7DB42AA855B800A7A256 /* View+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 274A7DB32AA855B800A7A256 /* View+Extension.swift */; };
 		3AE911652AA7FDCC005E4F71 /* CustomTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AE911642AA7FDCC005E4F71 /* CustomTextField.swift */; };
 		3AE911682AA802AF005E4F71 /* SignUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AE911672AA802AF005E4F71 /* SignUpView.swift */; };
 		3AE9116B2AA805FE005E4F71 /* SignUpStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AE9116A2AA805FE005E4F71 /* SignUpStore.swift */; };
@@ -95,6 +96,7 @@
 		274A7DAC2AA843EF00A7A256 /* MapViewCoordinater.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapViewCoordinater.swift; sourceTree = "<group>"; };
 		274A7DAF2AA843F600A7A256 /* LocationManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
 		274A7DB12AA843FE00A7A256 /* MapSearchView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapSearchView.swift; sourceTree = "<group>"; };
+		274A7DB32AA855B800A7A256 /* View+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+Extension.swift"; sourceTree = "<group>"; };
 		3AE911642AA7FDCC005E4F71 /* CustomTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomTextField.swift; sourceTree = "<group>"; };
 		3AE911672AA802AF005E4F71 /* SignUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpView.swift; sourceTree = "<group>"; };
 		3AE9116A2AA805FE005E4F71 /* SignUpStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpStore.swift; sourceTree = "<group>"; };
@@ -216,6 +218,7 @@
 			isa = PBXGroup;
 			children = (
 				3AE911642AA7FDCC005E4F71 /* CustomTextField.swift */,
+				274A7DB32AA855B800A7A256 /* View+Extension.swift */,
 				3AE9116C2AA811D6005E4F71 /* PrimaryButton.swift */,
 			);
 			path = Common;
@@ -691,6 +694,7 @@
 				BC344F032AA808FC00F8CEB3 /* MDPContentView.swift in Sources */,
 				BC344EEE2AA808DB00F8CEB3 /* ReservationCalendarView.swift in Sources */,
 				BC344F022AA808FC00F8CEB3 /* MDPModel.swift in Sources */,
+				274A7DB42AA855B800A7A256 /* View+Extension.swift in Sources */,
 				BC344F112AA8093800F8CEB3 /* PublicPlaceListRow.swift in Sources */,
 				BC344ED22AA8073700F8CEB3 /* SubGongGanDetailView.swift in Sources */,
 				D2EA1D5E2AA8460C004484C4 /* LoginStore.swift in Sources */,
@@ -875,6 +879,9 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_CFBundleDisplayName = "빈공간";
+				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "";
+				INFOPLIST_KEY_NSLocationUsageDescription = "";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -904,6 +911,9 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_CFBundleDisplayName = "빈공간";
+				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "";
+				INFOPLIST_KEY_NSLocationUsageDescription = "";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
