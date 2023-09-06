@@ -21,8 +21,17 @@ struct MyReviewRowView: View {
     @State private var isFolded: Bool = true
     var body: some View {
         VStack(alignment: .leading){
+            ZStack {
+                NavigationLink {
+                    GongGanDetailView()
+                } label: {
+
+                }
+            }
+            .opacity(0)
             Text("공간 이름")
                 .font(.body1Bold)
+                .foregroundColor(.myBlack)
             HStack(alignment: .lastTextBaseline) {
                 ForEach(0..<5, id: \.self) { index in
                     Image(systemName: "star.fill")
