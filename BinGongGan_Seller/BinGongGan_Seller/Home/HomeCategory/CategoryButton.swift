@@ -6,7 +6,7 @@
 //
 
 import SwiftUI
-
+import BinGongGanCore
 struct CategoryButton: View {
     var buttonText: String
     
@@ -25,7 +25,9 @@ struct CategoryButton: View {
                     .padding(.top, 20)
                     .fixedSize()
             }
-        }).buttonStyle(.plain)
+        })
+        .buttonStyle(.plain)
+        .foregroundColor(Color.myPrimary)
         .background(Color.clear)
         .padding()
     }

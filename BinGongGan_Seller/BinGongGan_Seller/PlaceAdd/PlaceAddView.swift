@@ -12,12 +12,15 @@
  */
 import SwiftUI
 import MapKit
+import BinGongGanCore
+
+enum Place: String, CaseIterable, Identifiable {
+    case 쉐어오피스, 밴드룸, 스튜디오, 키친룸
+    var id: Self { self }
+}
 
 struct PlaceAddView: View {
-    enum Place: String, CaseIterable, Identifiable {
-        case 쉐어오피스, 밴드룸, 스튜디오, 키친룸
-        var id: Self { self }
-    }
+    
 
     @State private var selectedPlace: Place = .쉐어오피스
     @State var placeNameText: String = ""
@@ -36,72 +39,75 @@ struct PlaceAddView: View {
     }
     
     var body: some View {
-        ScrollView {
-            VStack(alignment: .leading, spacing: 10) {
-                Group {
-                    Text("공간 이름")
-                    TextField("공간 이름을 입력하세요", text: $placeNameText)
-                        .textFieldStyle(TextFieldStyles())
-                    
-                    Text("공간 카테고리")
-                    Picker("Place", selection: $selectedPlace) {
-                        Text("쉐어오피스").tag(Place.쉐어오피스)
-                        Text("밴드룸").tag(Place.밴드룸)
-                        Text("스튜디오").tag(Place.스튜디오)
-                        Text("키친룸").tag(Place.키친룸)
-                    }.pickerStyle(.segmented)
-                }
-                
-                Group {
-                    Text("공간 주소")
-                    PlaceMapView(address: placeNameText)
-
-                    Text("공간 대여 가격")
-                    TextField("공간 이름을 입력하세요", text: $placeNameText)
-                        .textFieldStyle(TextFieldStyles())
-                    
-                    Text("공간 사진 등록")
-                    PhotoSelectedView()
-                    
-                    Text("공간 정보")
-                    
-                    
-                    LazyVGrid(columns: columns, spacing: 8) {
-                        ForEach($placeInfomations) { $infomation in
-                            PlaceInfomationButtonView(buttonName: infomation.name, buttonImageString: infomation.image, isClicked: infomation.isSelected)
-                            
-                        }
+        ZStack {
+            Color.myBackground
+                .ignoresSafeArea()
+            ScrollView {
+                VStack(alignment: .leading, spacing: 10) {
+                    Group {
+                        Text("공간 이름")
+                        TextField("공간 이름을 입력하세요", text: $placeNameText)
+                            .textFieldStyle(TextFieldStyles())
+                        
+                        Text("공간 카테고리")
+                        Picker("Place", selection: $selectedPlace) {
+                            Text("쉐어오피스").tag(Place.쉐어오피스)
+                            Text("밴드룸").tag(Place.밴드룸)
+                            Text("스튜디오").tag(Place.스튜디오)
+                            Text("키친룸").tag(Place.키친룸)
+                        }.pickerStyle(.segmented)
                     }
-                    .padding()
-                    .background(Color.blue)
-                    .cornerRadius(15)
-                    .frame(maxHeight: .infinity)
-                }
-                
-                Group {
-                    Text("예약 확정시 전달할 정보")
-                    TextEditor(text: $informationToPassText)
-                        .frame(height: 150)
-                        .background(.gray)
-                        .buttonBorderShape(.roundedRectangle)
-                        .border(Color.secondary)
-                }
-                
-                Button {
-                    //Code
-                } label: {
-                    Text("등록하기")
-                        .frame(maxWidth: .infinity)
+                    
+                    Group {
+                        Text("공간 주소")
+                        PlaceMapView(address: placeNameText)
+
+                        Text("공간 대여 가격")
+                        TextField("공간 이름을 입력하세요", text: $placeNameText)
+                            .textFieldStyle(TextFieldStyles())
+                        
+                        Text("공간 사진 등록")
+                        PhotoSelectedView()
+                        
+                        Text("공간 정보")
+                        LazyVGrid(columns: columns, spacing: 8) {
+                            ForEach($placeInfomations) { $infomation in
+                                PlaceInfomationButtonView(buttonName: infomation.name, buttonImageString: infomation.image, isClicked: infomation.isSelected)
+                                
+                            }
+                        }
                         .padding()
-                        .foregroundColor(.black)
-                        .bold()
-                        .background(.yellow)
+                        .background(Color.myLightGray)
                         .cornerRadius(15)
+                        .frame(maxHeight: .infinity)
+                    }
+                    
+                    Group {
+                        Text("예약 확정시 전달할 정보")
+                        TextEditor(text: $informationToPassText)
+                            .frame(height: 150)
+                            .background(.gray)
+                            .border(Color.myPrimary)
+                            
+                            
+                    }
+                    
+                    Button {
+                        //Code
+                    } label: {
+                        Text("등록하기")
+                            .frame(maxWidth: .infinity)
+                            .padding()
+                            .foregroundColor(.black)
+                            .bold()
+                            .background(Color.myPrimary)
+                            .cornerRadius(15)
+                    }
                 }
             }
-        }
-        .padding(20)
+            .padding(20)
         .navigationTitle("내 공간 등록")
+        }
     }
 }
 
@@ -117,7 +123,7 @@ struct TextFieldStyles: TextFieldStyle {
     func _body(configuration: TextField<Self._Label>) -> some View {
         ZStack {
             Rectangle()
-                .foregroundColor(Color.gray)
+                .foregroundColor(Color.myLightGray)
                 .cornerRadius(12)
                 .frame(height: 46)
             
