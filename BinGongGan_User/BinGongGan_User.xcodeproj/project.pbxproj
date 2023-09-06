@@ -52,19 +52,15 @@
 		BC344F012AA808FC00F8CEB3 /* MDPMonthYearPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC344EFA2AA808FC00F8CEB3 /* MDPMonthYearPicker.swift */; };
 		BC344F022AA808FC00F8CEB3 /* MDPModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC344EFB2AA808FC00F8CEB3 /* MDPModel.swift */; };
 		BC344F032AA808FC00F8CEB3 /* MDPContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC344EFC2AA808FC00F8CEB3 /* MDPContentView.swift */; };
-		BC344F092AA8092E00F8CEB3 /* PlaceListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC344F042AA8092E00F8CEB3 /* PlaceListView.swift */; };
 		BC344F0A2AA8092E00F8CEB3 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC344F052AA8092E00F8CEB3 /* HomeView.swift */; };
 		BC344F0B2AA8092E00F8CEB3 /* HomeSearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC344F062AA8092E00F8CEB3 /* HomeSearchView.swift */; };
 		BC344F0C2AA8092E00F8CEB3 /* HomeEventTapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC344F072AA8092E00F8CEB3 /* HomeEventTapView.swift */; };
-		BC344F0D2AA8092E00F8CEB3 /* HomeCategoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC344F082AA8092E00F8CEB3 /* HomeCategoryView.swift */; };
-		BC344F102AA8093800F8CEB3 /* HomeListRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC344F0E2AA8093800F8CEB3 /* HomeListRow.swift */; };
-		BC344F112AA8093800F8CEB3 /* PlaceListRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC344F0F2AA8093800F8CEB3 /* PlaceListRow.swift */; };
-		BC344F152AA80BF300F8CEB3 /* Home.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC344F142AA80BF300F8CEB3 /* Home.swift */; };
-		BC344F0D2AA8092E00F8CEB3 /* PlaceListButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC344F082AA8092E00F8CEB3 /* PlaceListButtonView.swift */; };
-		BC344F102AA8093800F8CEB3 /* HomePlaceListRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC344F0E2AA8093800F8CEB3 /* HomePlaceListRow.swift */; };
-		BC344F112AA8093800F8CEB3 /* PublicPlaceListRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC344F0F2AA8093800F8CEB3 /* PublicPlaceListRow.swift */; };
-		BC344F152AA80BF300F8CEB3 /* HomeDummy.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC344F142AA80BF300F8CEB3 /* HomeDummy.swift */; };
 		BC344F182AA81EFF00F8CEB3 /* SubGongGanSelectView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC344F172AA81EFF00F8CEB3 /* SubGongGanSelectView.swift */; };
+		BC344F1B2AA86A5F00F8CEB3 /* PlaceListRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC344F1A2AA86A5F00F8CEB3 /* PlaceListRow.swift */; };
+		BC344F1F2AA86A8E00F8CEB3 /* Home.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC344F1E2AA86A8E00F8CEB3 /* Home.swift */; };
+		BC344F212AA86AB900F8CEB3 /* HomeListRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC344F202AA86AB900F8CEB3 /* HomeListRow.swift */; };
+		BC344F232AA86AD500F8CEB3 /* HomeCategoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC344F222AA86AD500F8CEB3 /* HomeCategoryView.swift */; };
+		BC344F252AA86B3E00F8CEB3 /* PlaceListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC344F242AA86B3E00F8CEB3 /* PlaceListView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -127,20 +123,16 @@
 		BC344EFA2AA808FC00F8CEB3 /* MDPMonthYearPicker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MDPMonthYearPicker.swift; sourceTree = "<group>"; };
 		BC344EFB2AA808FC00F8CEB3 /* MDPModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MDPModel.swift; sourceTree = "<group>"; };
 		BC344EFC2AA808FC00F8CEB3 /* MDPContentView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MDPContentView.swift; sourceTree = "<group>"; };
-		BC344F042AA8092E00F8CEB3 /* PlaceListView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlaceListView.swift; sourceTree = "<group>"; };
 		BC344F052AA8092E00F8CEB3 /* HomeView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		BC344F062AA8092E00F8CEB3 /* HomeSearchView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeSearchView.swift; sourceTree = "<group>"; };
 		BC344F072AA8092E00F8CEB3 /* HomeEventTapView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeEventTapView.swift; sourceTree = "<group>"; };
-		BC344F082AA8092E00F8CEB3 /* HomeCategoryView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeCategoryView.swift; sourceTree = "<group>"; };
-		BC344F0E2AA8093800F8CEB3 /* HomeListRow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeListRow.swift; sourceTree = "<group>"; };
-		BC344F0F2AA8093800F8CEB3 /* PlaceListRow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlaceListRow.swift; sourceTree = "<group>"; };
-		BC344F142AA80BF300F8CEB3 /* Home.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Home.swift; sourceTree = "<group>"; };
-		BC344F082AA8092E00F8CEB3 /* PlaceListButtonView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlaceListButtonView.swift; sourceTree = "<group>"; };
-		BC344F0E2AA8093800F8CEB3 /* HomePlaceListRow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomePlaceListRow.swift; sourceTree = "<group>"; };
-		BC344F0F2AA8093800F8CEB3 /* PublicPlaceListRow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PublicPlaceListRow.swift; sourceTree = "<group>"; };
-		BC344F142AA80BF300F8CEB3 /* HomeDummy.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeDummy.swift; sourceTree = "<group>"; };
 		BC344F172AA81EFF00F8CEB3 /* SubGongGanSelectView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubGongGanSelectView.swift; sourceTree = "<group>"; };
 		BC344F192AA83C4000F8CEB3 /* BinGongGan-User-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "BinGongGan-User-Info.plist"; sourceTree = SOURCE_ROOT; };
+		BC344F1A2AA86A5F00F8CEB3 /* PlaceListRow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlaceListRow.swift; sourceTree = "<group>"; };
+		BC344F1E2AA86A8E00F8CEB3 /* Home.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Home.swift; sourceTree = "<group>"; };
+		BC344F202AA86AB900F8CEB3 /* HomeListRow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeListRow.swift; sourceTree = "<group>"; };
+		BC344F222AA86AD500F8CEB3 /* HomeCategoryView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeCategoryView.swift; sourceTree = "<group>"; };
+		BC344F242AA86B3E00F8CEB3 /* PlaceListView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlaceListView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -345,10 +337,9 @@
 		BC344EC22AA8071400F8CEB3 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				BC344F142AA80BF300F8CEB3 /* Home.swift */,
+				BC344F1E2AA86A8E00F8CEB3 /* Home.swift */,
 				368394DC2AA84732004A3AC3 /* HomeStore.swift */,
 				BC344EC52AA8072000F8CEB3 /* GongGanInfo.swift */,
-				BC344F142AA80BF300F8CEB3 /* HomeDummy.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -376,12 +367,12 @@
 		BC344ECD2AA8072A00F8CEB3 /* Home */ = {
 			isa = PBXGroup;
 			children = (
+				BC344F1A2AA86A5F00F8CEB3 /* PlaceListRow.swift */,
+				BC344F242AA86B3E00F8CEB3 /* PlaceListView.swift */,
+				BC344F222AA86AD500F8CEB3 /* HomeCategoryView.swift */,
 				BC344F052AA8092E00F8CEB3 /* HomeView.swift */,
 				BC344F072AA8092E00F8CEB3 /* HomeEventTapView.swift */,
 				BC344F062AA8092E00F8CEB3 /* HomeSearchView.swift */,
-				BC344F082AA8092E00F8CEB3 /* HomeCategoryView.swift */,
-				BC344F042AA8092E00F8CEB3 /* PlaceListView.swift */,
-				BC344F0F2AA8093800F8CEB3 /* PlaceListRow.swift */,
 				BC344ED32AA8074000F8CEB3 /* Cell */,
 			);
 			path = Home;
@@ -403,7 +394,7 @@
 		BC344ED32AA8074000F8CEB3 /* Cell */ = {
 			isa = PBXGroup;
 			children = (
-				BC344F0E2AA8093800F8CEB3 /* HomeListRow.swift */,
+				BC344F202AA86AB900F8CEB3 /* HomeListRow.swift */,
 			);
 			path = Cell;
 			sourceTree = "<group>";
@@ -589,31 +580,31 @@
 				3AE911652AA7FDCC005E4F71 /* CustomTextField.swift in Sources */,
 				538D7AE52AA802CB00D0B21A /* PasswordEditView.swift in Sources */,
 				BC344F0C2AA8092E00F8CEB3 /* HomeEventTapView.swift in Sources */,
-				BC344F0D2AA8092E00F8CEB3 /* HomeCategoryView.swift in Sources */,
 				BC344F012AA808FC00F8CEB3 /* MDPMonthYearPicker.swift in Sources */,
+				BC344F212AA86AB900F8CEB3 /* HomeListRow.swift in Sources */,
 				368394DD2AA84732004A3AC3 /* HomeStore.swift in Sources */,
 				BC344EF02AA808DB00F8CEB3 /* Reservation.swift in Sources */,
+				BC344F232AA86AD500F8CEB3 /* HomeCategoryView.swift in Sources */,
+				BC344F1B2AA86A5F00F8CEB3 /* PlaceListRow.swift in Sources */,
 				BC344F032AA808FC00F8CEB3 /* MDPContentView.swift in Sources */,
 				BC344EEE2AA808DB00F8CEB3 /* ReservationCalendarView.swift in Sources */,
 				BC344F022AA808FC00F8CEB3 /* MDPModel.swift in Sources */,
-				BC344F112AA8093800F8CEB3 /* PlaceListRow.swift in Sources */,
 				BC344ED22AA8073700F8CEB3 /* SubGongGanDetailView.swift in Sources */,
 				B12A84A52AA6F00D00BDF8CA /* BinGongGan_UserApp.swift in Sources */,
-				BC344F102AA8093800F8CEB3 /* HomeListRow.swift in Sources */,
 				BC344EFE2AA808FC00F8CEB3 /* MDPDayOfMonth.swift in Sources */,
 				BC344EF42AA808E700F8CEB3 /* MultiDatePicker.swift in Sources */,
-				BC344F152AA80BF300F8CEB3 /* Home.swift in Sources */,
 				BC344EED2AA808DB00F8CEB3 /* ReservationView.swift in Sources */,
 				BC344ED12AA8073700F8CEB3 /* GongGanDetailView.swift in Sources */,
 				BC344F002AA808FC00F8CEB3 /* MDPMonthYearPickerButton.swift in Sources */,
 				BC344EEF2AA808DB00F8CEB3 /* ReservationHeaderView.swift in Sources */,
 				BC344F0A2AA8092E00F8CEB3 /* HomeView.swift in Sources */,
 				BC344EFF2AA808FC00F8CEB3 /* MDPMonthView.swift in Sources */,
-				BC344F092AA8092E00F8CEB3 /* PlaceListView.swift in Sources */,
 				BC344EFD2AA808FC00F8CEB3 /* MDPDayView.swift in Sources */,
 				BC344EC02AA806FF00F8CEB3 /* GongGanTabView.swift in Sources */,
 				BC344F182AA81EFF00F8CEB3 /* SubGongGanSelectView.swift in Sources */,
+				BC344F252AA86B3E00F8CEB3 /* PlaceListView.swift in Sources */,
 				BC344EF12AA808DB00F8CEB3 /* ReservationStore.swift in Sources */,
+				BC344F1F2AA86A8E00F8CEB3 /* Home.swift in Sources */,
 				3AE911652AA7FDCC005E4F71 /* CustomTextField.swift in Sources */,
 				BC344F0B2AA8092E00F8CEB3 /* HomeSearchView.swift in Sources */,
 				BC344EC92AA8072000F8CEB3 /* GongGanInfo.swift in Sources */,
