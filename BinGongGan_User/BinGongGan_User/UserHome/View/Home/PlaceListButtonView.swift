@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import BinGongGanCore
 
 enum PlaceListButtonConstant {
     static let hstackPadding = CGFloat(5)
@@ -29,15 +30,19 @@ struct PlaceListButtonView: View {
                     PublicPlaceListView()
                 } label: {
                     VStack {
-                        place.placeImage
-                            .resizable()
-                            .aspectRatio(contentMode: .fill)
-                            .frame(width: PlaceListButtonConstant.cellWidth , height: PlaceListButtonConstant.cellHeight)
-                            .background(TestColor.brown)
-                            .cornerRadius(15)
+                        AsyncImage(url: place.imageURL) { image in
+                            image
+                                .resizable()
+                                .aspectRatio(contentMode: .fill)
+                                .frame(width: PlaceListButtonConstant.cellWidth , height: PlaceListButtonConstant.cellHeight)
+                                .background(Color.myPrimary)
+                                .cornerRadius(15)
+                        } placeholder: {
+                            ProgressView()
+                        }   
                         
                         Text(place.placeName)
-                            .font(.system(size: PlaceListButtonConstant.fontSize))
+                            .font(.body1Bold)
                             .foregroundColor(.black)
                     }
                 }// NAVIGATIONLINK

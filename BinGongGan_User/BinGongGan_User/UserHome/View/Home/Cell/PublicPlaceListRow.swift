@@ -18,12 +18,17 @@ struct PublicPlaceListRow: View {
     
     var body: some View {
         VStack{
-            place.placeImage
-                .resizable()
-                .aspectRatio(contentMode: .fit)
-                .frame(width: screenWidth , height: PublicPlaceRowConstant.cellHeight)
-                .foregroundColor(.gray)
-                .padding(.bottom , -10)
+            AsyncImage(url: place.imageURL, content: { image in
+                image
+                    .resizable()
+                    .aspectRatio(contentMode: .fit)
+                    .frame(width: screenWidth , height: PublicPlaceRowConstant.cellHeight)
+                    .foregroundColor(.gray)
+                    .padding(.bottom , -10)
+            }) {
+                ProgressView()
+            }
+                
             
             Rectangle()
                 .frame(width: screenWidth , height: PublicPlaceRowConstant.cellHeight - 100)

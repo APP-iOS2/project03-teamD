@@ -41,11 +41,7 @@ struct PublicPlaceListView: View {
                 } label: {
 //                    Image(systemName: "chevron.left")
 //                        .foregroundColor(.brown)
-                    Image("멈무로고")
-                        .resizable()
-                        .aspectRatio(contentMode: .fill)
-                        .frame(width: ImageLogoConstant.width , height: ImageLogoConstant.height)
-                        .cornerRadius(15)
+                    DummyStore.backButton("https://item.kakaocdn.net/do/a1ccece94b4ba1b47f0e5dbe05ce65687e6f47a71c79378b48860ead6a12bf11")
                 }
             }
         }

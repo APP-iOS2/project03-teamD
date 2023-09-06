@@ -6,12 +6,8 @@
 //
 
 import SwiftUI
+import BinGongGanCore
 
-enum TestColor {
-    static let brown = Color(CGColor(red: 0.40, green: 0.36, blue: 0.33, alpha: 1.00))
-    static let green = Color(CGColor(red: 0.55, green: 0.73, blue: 0.76, alpha: 1.00))
-    static let white = Color("dummyWhite")
-}
 enum ImageLogoConstant {
     static let width = CGFloat(50)
     static let height = CGFloat(50)
@@ -26,6 +22,7 @@ enum HomeViewConstant {
 
 struct HomeView: View {
     
+    @ObservedObject var dummyStore: DummyStore = DummyStore()
     private let screenWidth = UIScreen.main.bounds.width
     
     var body: some View {
@@ -37,13 +34,13 @@ struct HomeView: View {
                     RoundedRectangle(cornerRadius: HomeViewConstant.cornerRadius)
                         .frame(width: screenWidth - HomeViewConstant.searchButtonWidth , height: HomeViewConstant.searchButtonHeight)
                         .opacity(0.2)
-                        .foregroundColor(TestColor.brown)
+                        .foregroundColor(Color.myPrimary)
                         .overlay {
                             HStack {
                                 Spacer()
                                 Text("어떤 장소를 찾고 계신가요? ")
                                     .foregroundColor(.black)
-                                    .bold()
+                                    .font(.body1Bold)
                                 Spacer()
                                 Image(systemName: "magnifyingglass")
                                     .foregroundColor(.black)
@@ -59,15 +56,13 @@ struct HomeView: View {
                             .padding(.bottom, HomeViewConstant.padding + 10)
                         
                         Text("어떤 공간이 필요하세요?")
-                            .font(.title2)
-                            .bold()
+                            .font(.head1Bold)
                             .padding(.top, 5)
                         PlaceListButtonView()
                             .padding(.bottom, HomeViewConstant.padding + 10)
                         
                         Text("이런 공간은 어떠세요?")
-                            .font(.title2)
-                            .bold()
+                            .font(.head1Bold)
                         
                         ForEach(DummyStore().publicPlaceList) { place in
                             HomePlaceListRow(place: place)
@@ -80,18 +75,15 @@ struct HomeView: View {
             .toolbar {
                 ToolbarItem(placement: .navigationBarLeading) {
                     HStack{
-                        Image("멈무로고")
-                            .resizable()
-                            .aspectRatio(contentMode: .fill)
-                            .frame(width: ImageLogoConstant.width , height: ImageLogoConstant.height)
-                            .cornerRadius(15)
+                        DummyStore.backButton("https://item.kakaocdn.net/do/a1ccece94b4ba1b47f0e5dbe05ce65687e6f47a71c79378b48860ead6a12bf11")
+                            
                         Spacer()
                     }// HSTACK
                     .padding(.all, HomeViewConstant.padding)
                 }
             }
         }// NAVIGATIONSTACK
-        .background(TestColor.white)
+        .background(Color.myBackground)
     }// BODY
 }
 

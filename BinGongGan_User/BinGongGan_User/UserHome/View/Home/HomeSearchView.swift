@@ -26,6 +26,7 @@ struct HomeSearchView: View {
                     Color.gray
                     HStack {
                         TextField("장소를 입력해주세요.", text: $placeSearchTextField)
+                            .font(.body1Bold)
                             .padding()
                     }
                 }// ZStack
@@ -37,6 +38,7 @@ struct HomeSearchView: View {
                     // 검색내용 하는 기능 필요
                 } label: {
                     Text("검색")
+                        .font(.body1Bold)
                 }
                 Spacer()
             }// HStack
@@ -52,11 +54,7 @@ struct HomeSearchView: View {
 //                    Image(systemName: "chevron.left")
 //                        .foregroundColor(.brown)
                     HStack {
-                        Image("멈무로고")
-                            .resizable()
-                            .aspectRatio(contentMode: .fill)
-                            .frame(width: ImageLogoConstant.width , height: ImageLogoConstant.height)
-                        .cornerRadius(15)
+                        DummyStore.backButton("https://item.kakaocdn.net/do/a1ccece94b4ba1b47f0e5dbe05ce65687e6f47a71c79378b48860ead6a12bf11")
                         Spacer()
                     }// HSTACK
                 }
