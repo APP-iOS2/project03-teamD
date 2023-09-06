@@ -359,9 +359,9 @@
 		BC344ECD2AA8072A00F8CEB3 /* Home */ = {
 			isa = PBXGroup;
 			children = (
+				BC344F052AA8092E00F8CEB3 /* HomeView.swift */,
 				BC344F072AA8092E00F8CEB3 /* HomeEventTapView.swift */,
 				BC344F062AA8092E00F8CEB3 /* HomeSearchView.swift */,
-				BC344F052AA8092E00F8CEB3 /* HomeView.swift */,
 				BC344F082AA8092E00F8CEB3 /* PlaceListButtonView.swift */,
 				BC344F042AA8092E00F8CEB3 /* PublicPlaceListView.swift */,
 				BC344ED32AA8074000F8CEB3 /* Cell */,
