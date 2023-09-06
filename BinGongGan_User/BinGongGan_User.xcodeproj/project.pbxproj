@@ -81,6 +81,7 @@
 		D84824AD2AA8A41D0067A065 /* MyReservationRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D84824A92AA8A41D0067A065 /* MyReservationRowView.swift */; };
 		D84824AE2AA8A41D0067A065 /* ReservationDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D84824AA2AA8A41D0067A065 /* ReservationDetailView.swift */; };
 		D84824B12AA8A4450067A065 /* ReservationModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D84824B02AA8A4450067A065 /* ReservationModel.swift */; };
+		D84824B32AA8F5970067A065 /* FAQItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = D84824B22AA8F5970067A065 /* FAQItem.swift */; };
 		EC6F7F552AA8886900C0B094 /* CustomTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC6F7F542AA8886900C0B094 /* CustomTextField.swift */; };
 		EC6F7F572AA8896700C0B094 /* BinGongGan_UserApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC6F7F562AA8896700C0B094 /* BinGongGan_UserApp.swift */; };
 /* End PBXBuildFile section */
@@ -174,6 +175,7 @@
 		D84824A92AA8A41D0067A065 /* MyReservationRowView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyReservationRowView.swift; sourceTree = "<group>"; };
 		D84824AA2AA8A41D0067A065 /* ReservationDetailView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReservationDetailView.swift; sourceTree = "<group>"; };
 		D84824B02AA8A4450067A065 /* ReservationModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReservationModel.swift; sourceTree = "<group>"; };
+		D84824B22AA8F5970067A065 /* FAQItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FAQItem.swift; sourceTree = "<group>"; };
 		EC6F7F542AA8886900C0B094 /* CustomTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTextField.swift; sourceTree = "<group>"; };
 		EC6F7F562AA8896700C0B094 /* BinGongGan_UserApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BinGongGan_UserApp.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -562,6 +564,7 @@
 			isa = PBXGroup;
 			children = (
 				D84824B02AA8A4450067A065 /* ReservationModel.swift */,
+				D84824B22AA8F5970067A065 /* FAQItem.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -772,6 +775,7 @@
 				D84824A42AA8A3710067A065 /* MyInformationDetailView.swift in Sources */,
 				D84824972AA8A3700067A065 /* AppInformationList.swift in Sources */,
 				BC344EC92AA8072000F8CEB3 /* GongGanInfo.swift in Sources */,
+				D84824B32AA8F5970067A065 /* FAQItem.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
