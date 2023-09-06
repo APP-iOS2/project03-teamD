@@ -8,7 +8,7 @@
 import SwiftUI
 import BinGongGanCore
 
-enum HomeCategoryConstant {
+enum PlaceListButtonConstant {
     static let hstackPadding = CGFloat(5)
     static let cellWidth = CGFloat(75)
     static let cellHeight = CGFloat(75)
@@ -16,37 +16,37 @@ enum HomeCategoryConstant {
     static let fontSize = CGFloat(12)
 }
 
-struct HomeCategoryView: View {
+struct PlaceListButtonView: View {
     
     private let screenWidth = UIScreen.main.bounds.width
     
-    @ObservedObject var dummyStore: HomeStore = HomeStore()
+    @ObservedObject var dummyStore: DummyStore = DummyStore()
     
     var body: some View {
         
         HStack {
-            ForEach(dummyStore.categories) { place in
+            ForEach(dummyStore.homePlaceList) { place in
                 NavigationLink {
-                    PlaceListView(category: place.category.rawValue)
+                    PublicPlaceListView()
                 } label: {
                     VStack {
                         AsyncImage(url: place.imageURL) { image in
                             image
                                 .resizable()
                                 .aspectRatio(contentMode: .fill)
-                                .frame(width: HomeCategoryConstant.cellWidth , height: HomeCategoryConstant.cellHeight)
+                                .frame(width: PlaceListButtonConstant.cellWidth , height: PlaceListButtonConstant.cellHeight)
                                 .background(Color.myPrimary)
                                 .cornerRadius(15)
                         } placeholder: {
                             ProgressView()
                         }   
                         
-                        Text(place.category.rawValue)
+                        Text(place.placeName)
                             .font(.body1Bold)
                             .foregroundColor(.black)
                     }
                 }// NAVIGATIONLINK
-            }.padding(HomeCategoryConstant.hstackPadding)
+            }.padding(PlaceListButtonConstant.hstackPadding)
             
         }.padding([.leading, .trailing], 5)
     }
@@ -55,7 +55,7 @@ struct HomeCategoryView: View {
 struct HomePlaceListView_Previews: PreviewProvider {
     static var previews: some View {
         NavigationStack{
-            HomeCategoryView()
+            PlaceListButtonView()
         }
     }
 }

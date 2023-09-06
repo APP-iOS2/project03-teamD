@@ -20,7 +20,7 @@ struct ReservationHeaderView: View {
                 content: { image in
                     image.resizable()
                         .aspectRatio(contentMode: .fill)
-                        .frame(width: screenWidth, height: 110)
+                        .frame(width: screenWidth, height: 130)
                         .blur(radius: 3)
                         .clipped()
                 },
@@ -29,7 +29,7 @@ struct ReservationHeaderView: View {
                 })
             
             Rectangle()
-                .frame(width: screenWidth, height: 110)
+                .frame(width: screenWidth,height: 130)
                 .background(.black)
                 .opacity(0.2)
             

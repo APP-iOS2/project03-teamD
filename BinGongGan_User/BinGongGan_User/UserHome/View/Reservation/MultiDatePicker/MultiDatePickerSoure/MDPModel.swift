@@ -182,7 +182,7 @@ extension MDPModel {
         }
         
         self.numDays = numDays
-        self.title = "\(year). \(calendar.monthSymbols[month-1])"
+        self.title = "\(calendar.monthSymbols[month-1]) \(year)"
         self.days = daysArray
     }
 }
