@@ -17,15 +17,13 @@ struct SellerInformationCell: View {
                     .foregroundColor(.white)
                 Spacer()
                 
-                NavigationLink(destination: MyInfoView()) {
+                NavigationLink(destination: MyInfoVIew()) {
                     Text("수정")
                         .foregroundColor(.white)
                         .bold()
                 }
             } //: HStack
             
-            Divider()
-                .background(.white)
             HStack {
                 Image(systemName: "phone.fill")
                     .foregroundColor(.white)
@@ -34,8 +32,6 @@ struct SellerInformationCell: View {
                     .bold()
             } //: HStack
             
-            Divider()
-                .background(.white)
             VStack {
                 HStack {
                     Image(systemName: "creditcard.fill")
@@ -47,9 +43,9 @@ struct SellerInformationCell: View {
             } //: HStack
         }
         .padding(20)
-        .background(Color.myPrimary)
+        .background(Color.brown)
         .cornerRadius(15)
-        .padding([.leading, .trailing, .bottom])
+        .padding()
     }
 }
 
