@@ -21,6 +21,8 @@
 		538D7AE52AA802CB00D0B21A /* PasswordEditView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 538D7AD72AA802CB00D0B21A /* PasswordEditView.swift */; };
 		538D7AE62AA802CB00D0B21A /* MyInformationDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 538D7AD92AA802CB00D0B21A /* MyInformationDetailView.swift */; };
 		538D7AE72AA802CB00D0B21A /* MyInformationEditView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 538D7ADA2AA802CB00D0B21A /* MyInformationEditView.swift */; };
+		692725592AA81E5300A2441E /* RefundPolicySheetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 692725582AA81E5300A2441E /* RefundPolicySheetView.swift */; };
+		6927255B2AA83ABD00A2441E /* ReservationPlusMinusButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6927255A2AA83ABD00A2441E /* ReservationPlusMinusButton.swift */; };
 		B12A84A52AA6F00D00BDF8CA /* BinGongGan_UserApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = B12A84A42AA6F00D00BDF8CA /* BinGongGan_UserApp.swift */; };
 		B12A84A92AA6F01000BDF8CA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B12A84A82AA6F01000BDF8CA /* Assets.xcassets */; };
 		B12A84AC2AA6F01000BDF8CA /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B12A84AB2AA6F01000BDF8CA /* Preview Assets.xcassets */; };
@@ -93,6 +95,8 @@
 		538D7AD72AA802CB00D0B21A /* PasswordEditView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PasswordEditView.swift; sourceTree = "<group>"; };
 		538D7AD92AA802CB00D0B21A /* MyInformationDetailView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyInformationDetailView.swift; sourceTree = "<group>"; };
 		538D7ADA2AA802CB00D0B21A /* MyInformationEditView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyInformationEditView.swift; sourceTree = "<group>"; };
+		692725582AA81E5300A2441E /* RefundPolicySheetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RefundPolicySheetView.swift; sourceTree = "<group>"; };
+		6927255A2AA83ABD00A2441E /* ReservationPlusMinusButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReservationPlusMinusButton.swift; sourceTree = "<group>"; };
 		B12A84A12AA6F00D00BDF8CA /* BinGongGan_User.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BinGongGan_User.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B12A84A42AA6F00D00BDF8CA /* BinGongGan_UserApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BinGongGan_UserApp.swift; sourceTree = "<group>"; };
 		B12A84A82AA6F01000BDF8CA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -374,9 +378,11 @@
 			children = (
 				BC344EF22AA808DD00F8CEB3 /* MultiDatePicker */,
 				BC344EEB2AA808DA00F8CEB3 /* Reservation.swift */,
-				BC344EE92AA808DA00F8CEB3 /* ReservationCalendarView.swift */,
-				BC344EEA2AA808DA00F8CEB3 /* ReservationHeaderView.swift */,
 				BC344EEC2AA808DB00F8CEB3 /* ReservationStore.swift */,
+				BC344EEA2AA808DA00F8CEB3 /* ReservationHeaderView.swift */,
+				BC344EE92AA808DA00F8CEB3 /* ReservationCalendarView.swift */,
+				692725582AA81E5300A2441E /* RefundPolicySheetView.swift */,
+				6927255A2AA83ABD00A2441E /* ReservationPlusMinusButton.swift */,
 				BC344EE82AA808DA00F8CEB3 /* ReservationView.swift */,
 			);
 			path = Reservation;
@@ -571,20 +577,13 @@
 				538D7ADB2AA802CB00D0B21A /* MyPageMainView.swift in Sources */,
 				3AE911652AA7FDCC005E4F71 /* CustomTextField.swift in Sources */,
 				538D7AE52AA802CB00D0B21A /* PasswordEditView.swift in Sources */,
-				BC344ECB2AA8072000F8CEB3 /* ReservationStore.swift in Sources */,
-				BC344EDC2AA8074500F8CEB3 /* HomeView.swift in Sources */,
-				BC344EE62AA8075300F8CEB3 /* ReservationView.swift in Sources */,
-				BC344EDD2AA8074500F8CEB3 /* HomePlaceListView.swift in Sources */,
-				BC344EE52AA8075300F8CEB3 /* ReservationCalendarView.swift in Sources */,
-				BC344EE72AA8075300F8CEB3 /* ContentView.swift in Sources */,
-				BC344F132AA8095200F8CEB3 /* HomeDummy.swift in Sources */,
 				BC344F0C2AA8092E00F8CEB3 /* HomeEventTapView.swift in Sources */,
 				BC344F0D2AA8092E00F8CEB3 /* PlaceListButtonView.swift in Sources */,
 				BC344F012AA808FC00F8CEB3 /* MDPMonthYearPicker.swift in Sources */,
+				6927255B2AA83ABD00A2441E /* ReservationPlusMinusButton.swift in Sources */,
 				BC344EF02AA808DB00F8CEB3 /* Reservation.swift in Sources */,
 				BC344F032AA808FC00F8CEB3 /* MDPContentView.swift in Sources */,
 				BC344EEE2AA808DB00F8CEB3 /* ReservationCalendarView.swift in Sources */,
-				B12A84A72AA6F00D00BDF8CA /* ContentView.swift in Sources */,
 				BC344F022AA808FC00F8CEB3 /* MDPModel.swift in Sources */,
 				BC344F112AA8093800F8CEB3 /* PublicPlaceListRow.swift in Sources */,
 				BC344ED22AA8073700F8CEB3 /* SubGongGanDetailView.swift in Sources */,
@@ -598,6 +597,7 @@
 				BC344F002AA808FC00F8CEB3 /* MDPMonthYearPickerButton.swift in Sources */,
 				BC344EEF2AA808DB00F8CEB3 /* ReservationHeaderView.swift in Sources */,
 				BC344F0A2AA8092E00F8CEB3 /* HomeView.swift in Sources */,
+				692725592AA81E5300A2441E /* RefundPolicySheetView.swift in Sources */,
 				BC344EFF2AA808FC00F8CEB3 /* MDPMonthView.swift in Sources */,
 				BC344F092AA8092E00F8CEB3 /* PublicPlaceListView.swift in Sources */,
 				BC344EFD2AA808FC00F8CEB3 /* MDPDayView.swift in Sources */,
