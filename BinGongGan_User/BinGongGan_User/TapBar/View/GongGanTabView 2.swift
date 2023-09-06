@@ -9,12 +9,10 @@ import SwiftUI
 
 struct GongGanTabView: View {
     @State private var selectedTab = 0
-    init() {
-        UITabBar.appearance().backgroundColor = UIColor.white
-    }
+    
     var body: some View {
         TabView(selection: $selectedTab) {
-            HomeView()
+            Text("Home")
                 .tabItem {
                     Image(systemName: selectedTab == 0 ? "house.fill" : "house")
                         .environment(\.symbolVariants, selectedTab == 0 ? .fill : .none)
@@ -22,15 +20,13 @@ struct GongGanTabView: View {
                 }
                 .tag(0)
             
-            NavigationStack {
-                MapSearchView(selectedTab: $selectedTab)
-            }
-            .tabItem {
-                Image(systemName: selectedTab == 1 ? "location.circle.fill" : "location.circle")
-                    .environment(\.symbolVariants, selectedTab == 1 ? .fill : .none)
-                Text("내 주변")
-            }
-            .tag(1)
+            Text("내 주변")
+                .tabItem {
+                    Image(systemName: selectedTab == 1 ? "location.circle.fill" : "location.circle")
+                        .environment(\.symbolVariants, selectedTab == 1 ? .fill : .none)
+                    Text("내 주변")
+                }
+                .tag(1)
             
             Text("찜")
                 .tabItem {
@@ -40,7 +36,7 @@ struct GongGanTabView: View {
                 }
                 .tag(2)
             
-            MyPageMainView()
+            Text("마이페이지")
                 .tabItem {
                     Image(systemName: selectedTab == 3 ? "book.fill" : "book")
                         .environment(\.symbolVariants, selectedTab == 3 ? .fill : .none)
@@ -51,7 +47,7 @@ struct GongGanTabView: View {
         .onAppear {
             selectedTab = 0
         }
-        .tint(.myPrimary)
+        .tint(.black)
     }
 }
 
