@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import BinGongGanCore
 import MapKit
 
 struct MapSearchView: View {
@@ -13,6 +14,7 @@ struct MapSearchView: View {
     
     @State var searchText: String = ""
     
+    @Binding var selectedTab: Int
     
     var body: some View {
         GeometryReader { geometry in
@@ -22,7 +24,7 @@ struct MapSearchView: View {
                 HStack(alignment: .center) {
                     Spacer()
                     Button {
-                        print("hi")
+                        selectedTab = 0
                     } label: {
                         Image(systemName: "chevron.backward.circle.fill")
                             .resizable()
@@ -40,6 +42,10 @@ struct MapSearchView: View {
                                 Image(systemName: "magnifyingglass")
                                     .padding(.leading)
                                 TextField("주소 혹은 장소명을 검색해주세요", text: $searchText)
+                                    .font(Font.body1Regular)
+                                    .onSubmit {
+                                        locationManager.isShowingList = true
+                                    }
                             }
                         }
                         .padding()
@@ -60,8 +66,13 @@ struct MapSearchView: View {
             if locationManager.isShowingList {
                 ScrollView(.horizontal) {
                     HStack {
-                        ForEach(0..<4, id: \.self) { _ in
-                            SummaryPlaceView()
+                        ForEach(0..<4, id: \.self) { idx in
+                            NavigationLink {
+                                GongGanDetailView()
+                            } label: {
+                                SummaryPlaceView()
+                            }
+
                         }
                         .padding([.leading], 30)
                     }
@@ -74,8 +85,8 @@ struct MapSearchView: View {
                     } label: {
                         Image(systemName: "paperplane.circle.fill")
                             .resizable()
-                            .frame(width: 50, height: 50)
-                            .foregroundColor(.brown)
+                            .frame(width: 45, height: 45)
+                            .foregroundColor(Color.mySecondary)
                             .shadow(radius: 4, y: 4)
                     }
                     Spacer()
@@ -84,7 +95,7 @@ struct MapSearchView: View {
                     } label: {
                         Label("목록", systemImage: "list.dash")
                             .frame(width: 100, height: 40)
-                            .background(.brown)
+                            .background(Color.mySecondary)
                             .cornerRadius(20)
                             .foregroundColor(.white)
                             .shadow(radius: 4, y: 4)
@@ -92,8 +103,7 @@ struct MapSearchView: View {
                     
                 }
                 .padding([.leading, .trailing], 25)
-                .offset(CGSize(width: 0, height: geometry.size.height - 90))
-                
+                .offset(CGSize(width: 0, height: geometry.size.height - 50))
             }
         }
     }
@@ -101,6 +111,6 @@ struct MapSearchView: View {
 
 struct MapSearch_Previews: PreviewProvider {
     static var previews: some View {
-        MapSearchView()
+        MapSearchView(selectedTab: .constant(1))
     }
 }
