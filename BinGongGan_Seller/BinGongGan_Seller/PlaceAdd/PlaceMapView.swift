@@ -6,6 +6,7 @@
 //
 import SwiftUI
 import MapKit
+import BinGongGanCore
 
 struct PlaceMapView: View {
     @State var address: String
@@ -13,19 +14,22 @@ struct PlaceMapView: View {
     @State private var addressSuggestions: [String] = []
     var body: some View {
         VStack{
-            ZStack(alignment: .trailing) {
+      
                 TextField("공간 주소를 입력하세요", text: $address)
                     .textFieldStyle(TextFieldStyles())
-                Button {
-                    searchAddress()
-                    updateAddressSuggestions()
-                } label: {
-                    Image(systemName: "magnifyingglass")
-                        .foregroundColor(.black)
-                }
-                .padding(5)
-                .background(.gray)
-            }
+                    .overlay(alignment: .trailing) {
+                        Button {
+                            searchAddress()
+                            updateAddressSuggestions()
+                        } label: {
+                            Image(systemName: "magnifyingglass")
+                                .foregroundColor(.black)
+                        }
+                        .padding(.trailing, 15)
+                    }
+                
+              
+     
             
             List(addressSuggestions, id: \.self) { suggestion in
                 Button {
