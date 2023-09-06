@@ -8,13 +8,35 @@
 import SwiftUI
 
 struct EnquiryView: View {
+    @Environment(\.dismiss) private var dismiss
+    
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        VStack {
+            Image(systemName: "exclamationmark.circle.fill")
+            Text("공사중~")
+        }
+        .foregroundColor(.myPrimary)
+        .font(.largeTitle)
+        .navigationTitle("1 : 1 문의")
+        .navigationBarTitleDisplayMode(.inline)
+        .navigationBarBackButtonHidden(true)
+        .toolbar {
+            ToolbarItem(placement:.navigationBarLeading) {
+                Button {
+                    dismiss()
+                } label: {
+                    Image(systemName: "chevron.left")
+                        .foregroundColor(.myPrimary)
+                }
+            }
+        }
     }
 }
 
 struct EnquiryView_Previews: PreviewProvider {
     static var previews: some View {
-        EnquiryView()
+        NavigationStack {
+            EnquiryView()
+        }
     }
 }
