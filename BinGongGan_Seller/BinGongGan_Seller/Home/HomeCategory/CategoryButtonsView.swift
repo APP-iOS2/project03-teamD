@@ -11,7 +11,7 @@ import BinGongGanCore
 struct CategoryButtonsView: View {
     let columns: [GridItem] = Array(repeating: .init(.flexible()), count: 4)
     let categoryList = CategoryModel.data
-    
+ 
     var body: some View {
         LazyVGrid(columns: columns, spacing: 8) {
             ForEach(categoryList) { category in

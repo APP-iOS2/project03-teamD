@@ -15,12 +15,15 @@ struct CategoryButton: View {
                 Image(systemName: category.imageString)
                     .resizable()
                     .aspectRatio(contentMode: .fit)
-                    .frame(width: 50, height: 30)
+                    .frame(width: 30, height: 30)
                 
                 Text(category.categories)
                     .font(.title3)
                     .bold()
                     .padding(.top, 5)
+                Text(buttonText)
+                    .font(.subheadline)
+                    .bold()
                     .fixedSize()
             }
 
