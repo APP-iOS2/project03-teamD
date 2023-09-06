@@ -12,6 +12,7 @@ struct ReservationDetailsCalendarView: View {
     @State private var selectedDate = Date()
     @State private var isShowingWeekCalendar = false
     @State private var showModal: Bool = false
+    
     var body: some View {
         DatePicker(
             "Start Date",
@@ -19,12 +20,10 @@ struct ReservationDetailsCalendarView: View {
             displayedComponents: [.date]
         )
         .datePickerStyle(.graphical)
-        .frame(maxWidth: .infinity)
-        let _ = print(selectedDate)
+        .padding(EdgeInsets(top: 10, leading: 20, bottom: 0, trailing: 20))
         HStack{
             Text("확정대기")
                 .font(.title3)
-//                    .bold()
                 .padding(EdgeInsets(top: 20, leading: 20, bottom: 0, trailing: 20))
             Spacer()
         }

@@ -25,7 +25,7 @@ struct ReservationDetailsView: View {
             ForEach(ReservationTapType.allCases, id: \.self) { item in
                 VStack {
                     Text(item.rawValue)
-                        .font(.title3)
+                        .font(.body)
                         .frame(maxWidth: .infinity/2, minHeight: 10)
                         .foregroundColor(selectedPicker == item ? .black : .gray)
 
@@ -33,7 +33,7 @@ struct ReservationDetailsView: View {
                         Capsule()
                             .foregroundColor(.black)
                             .frame(height: 1.5)
-                            .matchedGeometryEffect(id: "info", in: animation)
+                            .matchedGeometryEffect(id: "ReservationTap", in: animation)
                     }
                     
                 }
