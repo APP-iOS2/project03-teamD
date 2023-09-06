@@ -24,12 +24,14 @@ struct SubGongGanSelectView: View {
                             } // 하나의 버튼만 클릭 이미지 표시
                             space.isSelected.toggle()
                         }
-                        
                     } label: {
                         VStack(alignment: .leading) {
-                            Text(" ◦ \(space.title)")
-                                .font(.subheadline)
+                            HStack {
+                                Text(space.isSelected ? " ◉ " : " ◎ ")
+                                Text("\(space.title)")
+                                    .font(.subheadline)
                                 .foregroundColor(.myDarkGray)
+                            }
                             if space.isSelected {
                                 SubGongGanDetailView()
                             }
