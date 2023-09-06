@@ -52,7 +52,7 @@ struct HomeSearchView: View {
 //                    Image(systemName: "chevron.left")
 //                        .foregroundColor(.brown)
                     HStack {
-                        Image("멈무로고")
+                        Image("dogLogo")
                             .resizable()
                             .aspectRatio(contentMode: .fill)
                             .frame(width: ImageLogoConstant.width , height: ImageLogoConstant.height)
