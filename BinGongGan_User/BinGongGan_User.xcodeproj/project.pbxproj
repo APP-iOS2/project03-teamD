@@ -49,6 +49,18 @@
 		BC344F212AA86AB900F8CEB3 /* HomeListRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC344F202AA86AB900F8CEB3 /* HomeListRow.swift */; };
 		BC344F232AA86AD500F8CEB3 /* HomeCategoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC344F222AA86AD500F8CEB3 /* HomeCategoryView.swift */; };
 		BC344F252AA86B3E00F8CEB3 /* PlaceListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC344F242AA86B3E00F8CEB3 /* PlaceListView.swift */; };
+		BCE6580E2AA8AB670009ECD1 /* PrimaryButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCE6580D2AA8AB670009ECD1 /* PrimaryButton.swift */; };
+		BCE658492AA8AD380009ECD1 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCE658472AA8AD380009ECD1 /* LoginView.swift */; };
+		BCE6584A2AA8AD380009ECD1 /* LoginStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCE658482AA8AD380009ECD1 /* LoginStore.swift */; };
+		BCE658522AA8AD420009ECD1 /* MapSearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCE6584D2AA8AD420009ECD1 /* MapSearchView.swift */; };
+		BCE658532AA8AD420009ECD1 /* SummaryPlaceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCE6584F2AA8AD420009ECD1 /* SummaryPlaceView.swift */; };
+		BCE658542AA8AD420009ECD1 /* MapViewCoordinater.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCE658502AA8AD420009ECD1 /* MapViewCoordinater.swift */; };
+		BCE658552AA8AD420009ECD1 /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCE658512AA8AD420009ECD1 /* LocationManager.swift */; };
+		BCE6585D2AA8AD4D0009ECD1 /* SignUpStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCE658572AA8AD4D0009ECD1 /* SignUpStore.swift */; };
+		BCE6585E2AA8AD4D0009ECD1 /* SecondStepSignUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCE658592AA8AD4D0009ECD1 /* SecondStepSignUpView.swift */; };
+		BCE6585F2AA8AD4D0009ECD1 /* ThirdStepSignUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCE6585A2AA8AD4D0009ECD1 /* ThirdStepSignUpView.swift */; };
+		BCE658602AA8AD4D0009ECD1 /* FirstStepSignUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCE6585B2AA8AD4D0009ECD1 /* FirstStepSignUpView.swift */; };
+		BCE658612AA8AD4D0009ECD1 /* SignUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCE6585C2AA8AD4D0009ECD1 /* SignUpView.swift */; };
 		D84824962AA8A3700067A065 /* MyPageMainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D84824802AA8A3700067A065 /* MyPageMainView.swift */; };
 		D84824972AA8A3700067A065 /* AppInformationList.swift in Sources */ = {isa = PBXBuildFile; fileRef = D84824822AA8A3700067A065 /* AppInformationList.swift */; };
 		D84824982AA8A3700067A065 /* AnnouncementView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D84824842AA8A3700067A065 /* AnnouncementView.swift */; };
@@ -128,6 +140,18 @@
 		BC344F202AA86AB900F8CEB3 /* HomeListRow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeListRow.swift; sourceTree = "<group>"; };
 		BC344F222AA86AD500F8CEB3 /* HomeCategoryView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeCategoryView.swift; sourceTree = "<group>"; };
 		BC344F242AA86B3E00F8CEB3 /* PlaceListView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlaceListView.swift; sourceTree = "<group>"; };
+		BCE6580D2AA8AB670009ECD1 /* PrimaryButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PrimaryButton.swift; sourceTree = "<group>"; };
+		BCE658472AA8AD380009ECD1 /* LoginView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
+		BCE658482AA8AD380009ECD1 /* LoginStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginStore.swift; sourceTree = "<group>"; };
+		BCE6584D2AA8AD420009ECD1 /* MapSearchView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapSearchView.swift; sourceTree = "<group>"; };
+		BCE6584F2AA8AD420009ECD1 /* SummaryPlaceView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SummaryPlaceView.swift; sourceTree = "<group>"; };
+		BCE658502AA8AD420009ECD1 /* MapViewCoordinater.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapViewCoordinater.swift; sourceTree = "<group>"; };
+		BCE658512AA8AD420009ECD1 /* LocationManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
+		BCE658572AA8AD4D0009ECD1 /* SignUpStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignUpStore.swift; sourceTree = "<group>"; };
+		BCE658592AA8AD4D0009ECD1 /* SecondStepSignUpView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SecondStepSignUpView.swift; sourceTree = "<group>"; };
+		BCE6585A2AA8AD4D0009ECD1 /* ThirdStepSignUpView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ThirdStepSignUpView.swift; sourceTree = "<group>"; };
+		BCE6585B2AA8AD4D0009ECD1 /* FirstStepSignUpView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FirstStepSignUpView.swift; sourceTree = "<group>"; };
+		BCE6585C2AA8AD4D0009ECD1 /* SignUpView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignUpView.swift; sourceTree = "<group>"; };
 		D84824802AA8A3700067A065 /* MyPageMainView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyPageMainView.swift; sourceTree = "<group>"; };
 		D84824822AA8A3700067A065 /* AppInformationList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppInformationList.swift; sourceTree = "<group>"; };
 		D84824842AA8A3700067A065 /* AnnouncementView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnnouncementView.swift; sourceTree = "<group>"; };
@@ -183,6 +207,7 @@
 			isa = PBXGroup;
 			children = (
 				EC6F7F542AA8886900C0B094 /* CustomTextField.swift */,
+				BCE6580D2AA8AB670009ECD1 /* PrimaryButton.swift */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -213,6 +238,9 @@
 			children = (
 				B15806402AA89795006C772B /* Document */,
 				B12A84A82AA6F01000BDF8CA /* Assets.xcassets */,
+				BCE658562AA8AD4D0009ECD1 /* SignUp */,
+				BCE6584B2AA8AD420009ECD1 /* MapSearch */,
+				BCE658462AA8AD380009ECD1 /* Login */,
 				D848247F2AA8A3700067A065 /* MyPage */,
 				BC344EBA2AA806C200F8CEB3 /* App */,
 				BC344EBD2AA806EC00F8CEB3 /* TapBar */,
@@ -385,6 +413,62 @@
 				BC344EF92AA808FC00F8CEB3 /* MDPMonthYearPickerButton.swift */,
 			);
 			path = MultiDatePickerSoure;
+			sourceTree = "<group>";
+		};
+		BCE658462AA8AD380009ECD1 /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				BCE658472AA8AD380009ECD1 /* LoginView.swift */,
+				BCE658482AA8AD380009ECD1 /* LoginStore.swift */,
+			);
+			path = Login;
+			sourceTree = "<group>";
+		};
+		BCE6584B2AA8AD420009ECD1 /* MapSearch */ = {
+			isa = PBXGroup;
+			children = (
+				BCE6584C2AA8AD420009ECD1 /* View */,
+			);
+			path = MapSearch;
+			sourceTree = "<group>";
+		};
+		BCE6584C2AA8AD420009ECD1 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				BCE6584D2AA8AD420009ECD1 /* MapSearchView.swift */,
+				BCE6584E2AA8AD420009ECD1 /* MapSearchSubView */,
+				BCE658512AA8AD420009ECD1 /* LocationManager.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		BCE6584E2AA8AD420009ECD1 /* MapSearchSubView */ = {
+			isa = PBXGroup;
+			children = (
+				BCE6584F2AA8AD420009ECD1 /* SummaryPlaceView.swift */,
+				BCE658502AA8AD420009ECD1 /* MapViewCoordinater.swift */,
+			);
+			path = MapSearchSubView;
+			sourceTree = "<group>";
+		};
+		BCE658562AA8AD4D0009ECD1 /* SignUp */ = {
+			isa = PBXGroup;
+			children = (
+				BCE658572AA8AD4D0009ECD1 /* SignUpStore.swift */,
+				BCE658582AA8AD4D0009ECD1 /* Views */,
+				BCE6585C2AA8AD4D0009ECD1 /* SignUpView.swift */,
+			);
+			path = SignUp;
+			sourceTree = "<group>";
+		};
+		BCE658582AA8AD4D0009ECD1 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				BCE658592AA8AD4D0009ECD1 /* SecondStepSignUpView.swift */,
+				BCE6585A2AA8AD4D0009ECD1 /* ThirdStepSignUpView.swift */,
+				BCE6585B2AA8AD4D0009ECD1 /* FirstStepSignUpView.swift */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 		D848247F2AA8A3700067A065 /* MyPage */ = {
@@ -620,23 +704,35 @@
 				368394DD2AA84732004A3AC3 /* HomeStore.swift in Sources */,
 				D84824A12AA8A3710067A065 /* MyReviewRowView.swift in Sources */,
 				D84824AE2AA8A41D0067A065 /* ReservationDetailView.swift in Sources */,
+				BCE658492AA8AD380009ECD1 /* LoginView.swift in Sources */,
+				BCE658522AA8AD420009ECD1 /* MapSearchView.swift in Sources */,
 				BC344EF02AA808DB00F8CEB3 /* Reservation.swift in Sources */,
 				D84824A32AA8A3710067A065 /* PasswordEditView.swift in Sources */,
+				BCE658542AA8AD420009ECD1 /* MapViewCoordinater.swift in Sources */,
 				BC344F232AA86AD500F8CEB3 /* HomeCategoryView.swift in Sources */,
+				BCE658612AA8AD4D0009ECD1 /* SignUpView.swift in Sources */,
 				BC344F1B2AA86A5F00F8CEB3 /* PlaceListRow.swift in Sources */,
+				BCE658552AA8AD420009ECD1 /* LocationManager.swift in Sources */,
 				D848249A2AA8A3700067A065 /* EnquiryView.swift in Sources */,
 				BC344F032AA808FC00F8CEB3 /* MDPContentView.swift in Sources */,
+				BCE658532AA8AD420009ECD1 /* SummaryPlaceView.swift in Sources */,
 				BC344EEE2AA808DB00F8CEB3 /* ReservationCalendarView.swift in Sources */,
 				BC344F022AA808FC00F8CEB3 /* MDPModel.swift in Sources */,
+				BCE6585D2AA8AD4D0009ECD1 /* SignUpStore.swift in Sources */,
+				BCE658602AA8AD4D0009ECD1 /* FirstStepSignUpView.swift in Sources */,
 				BC344ED22AA8073700F8CEB3 /* SubGongGanDetailView.swift in Sources */,
 				BC344EFE2AA808FC00F8CEB3 /* MDPDayOfMonth.swift in Sources */,
 				6927255D2AA85A0600A2441E /* PaymentView.swift in Sources */,
 				BC344EF42AA808E700F8CEB3 /* MultiDatePicker.swift in Sources */,
+				BCE6584A2AA8AD380009ECD1 /* LoginStore.swift in Sources */,
 				D84824A02AA8A3710067A065 /* AddReviewView.swift in Sources */,
+				BCE6585E2AA8AD4D0009ECD1 /* SecondStepSignUpView.swift in Sources */,
 				BC344EED2AA808DB00F8CEB3 /* ReservationView.swift in Sources */,
+				BCE6580E2AA8AB670009ECD1 /* PrimaryButton.swift in Sources */,
 				BC344ED12AA8073700F8CEB3 /* GongGanDetailView.swift in Sources */,
 				BC344F002AA808FC00F8CEB3 /* MDPMonthYearPickerButton.swift in Sources */,
 				D84824B12AA8A4450067A065 /* ReservationModel.swift in Sources */,
+				BCE6585F2AA8AD4D0009ECD1 /* ThirdStepSignUpView.swift in Sources */,
 				D84824AC2AA8A41D0067A065 /* ReservationCancelView.swift in Sources */,
 				BC344EEF2AA808DB00F8CEB3 /* ReservationHeaderView.swift in Sources */,
 				BC344F0A2AA8092E00F8CEB3 /* HomeView.swift in Sources */,
