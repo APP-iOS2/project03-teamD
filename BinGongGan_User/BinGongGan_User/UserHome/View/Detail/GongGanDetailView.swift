@@ -86,19 +86,26 @@ struct GongGanDetailView: View {
                         
                         Group {
                             gongGan.customSection("시설 안내")
-                            VStack {
-                                Label("와이파이", systemImage: "wifi")
-                                Label("주차 가능", systemImage: "car")
-                                Label("TV/프로젝터", systemImage: "tv.and.mediabox")
+                            HStack(spacing: 40) {
+                                ForEach(gongGan.tempLabel) { label in
+                                    VStack {
+                                        Image(systemName: label.systemImage)
+                                            .resizable()
+                                            .frame(width: 40,height: 30)
+                                            
+                                        Text(label.text)
+                                    }
+                                }
                             }
                         }
+                        .padding(.bottom, 20)
                     }
                     .padding(.horizontal, 15)
                     
                     
                 }
             }
-            .padding(EdgeInsets(top: 1, leading: 0, bottom: -10, trailing: 0))
+            .padding(EdgeInsets(top: 1, leading: 0, bottom: -5, trailing: 0))
         
             HStack {
                 Button {
