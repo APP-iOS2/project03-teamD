@@ -13,7 +13,7 @@ struct FAQCategoryItemView: View {
     
     var body: some View {
         HStack {
-            ForEach(faqCategories, id: \.self) { category in
+            ForEach(FAQCategory.allCases, id: \.self) { category in
                 Button {
                     selectedItem = category.rawValue
                     withAnimation {
@@ -28,6 +28,7 @@ struct FAQCategoryItemView: View {
                         .background(selectedItem == category.rawValue ? Color.myPrimary : Color.myWhite)
                         .cornerRadius(10)
                 }
+                .buttonStyle(.automatic)
                 .padding(.horizontal, 5)
             }
         }
