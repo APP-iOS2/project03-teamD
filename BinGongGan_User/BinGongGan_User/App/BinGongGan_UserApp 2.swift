@@ -21,11 +21,7 @@ class AppDelegate: NSObject, UIApplicationDelegate {
 struct BinGongGan_UserApp: App {
     var body: some Scene {
         WindowGroup {
-            //GongGanTabView()
-            NavigationStack{
-                ReservationView()
-                    .environmentObject(ReservationStore())
-            }
+            ContentView()
         }
     }
 }

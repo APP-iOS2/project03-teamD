@@ -9,7 +9,7 @@ import SwiftUI
 
 struct MDPMonthYearPicker: View {
     let months = (0...11).map {$0}
-    let years = (2010...2099).map {$0}
+    let years = (2020...2030).map {$0}
     
     var date: Date
     var action: (Int, Int) -> Void
@@ -34,6 +34,7 @@ struct MDPMonthYearPicker: View {
             Picker("", selection: self.$selectedMonth) {
                 ForEach(months, id: \.self) { month in
                     Text("\(Calendar.current.monthSymbols[month])").tag(month)
+                        .foregroundColor(.myPrimary)
                 }
             }
             .onChange(of: selectedMonth, perform: { value in
@@ -45,6 +46,7 @@ struct MDPMonthYearPicker: View {
             Picker("", selection: self.$selectedYear) {
                 ForEach(years, id: \.self) { year in
                     Text(String(format: "%d", year)).tag(year)
+                        .foregroundColor(.myPrimary)
                 }
             }
             .onChange(of: selectedYear, perform: { value in
@@ -53,6 +55,7 @@ struct MDPMonthYearPicker: View {
             .frame(width: 100)
             .clipped()
         }
+        .foregroundColor(.myPrimary)
     }
 }
 
