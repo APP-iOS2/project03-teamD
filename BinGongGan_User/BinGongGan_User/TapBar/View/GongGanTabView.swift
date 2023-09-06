@@ -20,7 +20,7 @@ struct GongGanTabView: View {
                         .environment(\.symbolVariants, selectedTab == 0 ? .fill : .none)
                     Text("홈")
                 }
-                .tag(PaymentView)
+                .tag(0)
             
             Text("내 주변")
                 .tabItem {
