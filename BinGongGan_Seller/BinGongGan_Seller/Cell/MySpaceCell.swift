@@ -18,8 +18,7 @@ struct MySpaceCell: View {
                 Text("서울특별시 강남구 논현로 30 뉴진스")
                 
                 CarouselCell()
-                    .frame(width: 300, height: 200)
-//                    .cornerRadius(15)
+                    .frame(width: 320, height: 200)
             }
             .foregroundColor(.white)
             .bold()

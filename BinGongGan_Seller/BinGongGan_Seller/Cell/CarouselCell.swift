@@ -14,7 +14,7 @@ struct CarouselCell: View {
                 Image("image1")
                     .resizable()
                     .aspectRatio(contentMode: .fill)
-                    .frame(width: 200, height: 200)
+                    .frame(width: 250, height: 200)
                     .cornerRadius(15)
                     .padding(EdgeInsets(top: 5, leading: 20, bottom: 5, trailing: 20))
                     .padding(.horizontal, 15)
