@@ -17,11 +17,12 @@ struct CategoryButton: View {
                 Image(systemName: "filemenu.and.cursorarrow")
                     .resizable()
                     .aspectRatio(contentMode: .fit)
-                    .frame(width: 30, height: 30)
+                    .frame(width: 50, height: 30)
                 
                 Text(buttonText)
-                    .font(.subheadline)
+                    .font(.title3)
                     .bold()
+                    .padding(.top, 20)
                     .fixedSize()
             }
         })
