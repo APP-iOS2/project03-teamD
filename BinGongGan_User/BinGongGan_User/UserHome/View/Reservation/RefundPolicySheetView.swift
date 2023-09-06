@@ -22,7 +22,6 @@ struct RefundPolicySheetView: View {
             Section("주의 사항") {
                 Text("이용딩일(첫 날) 이후에 환불 관련 사항은 호스트에게 직접 문의하셔야 합니다.")
                     .font(.body1Regular)
-                    .foregroundColor(.red)
                 Text("결제 후 2시간 이내에는 100% 환불이 가능합니다.(단, 이용시간 전까지만 가능)")
                     .font(.body1Regular)
             }
@@ -41,17 +40,19 @@ struct RefundPolicySheetView: View {
                 }
             }
             
+            Button {
+                checkRefundPolicy.toggle()
+                print(checkRefundPolicy)
+                dismiss()
+            } label: {
+                Text("확인 완료")
+                    .font(.body1Regular)
+                    .foregroundColor(.red)
+                    .frame(width: screenWidth)
+            }
+            .buttonStyle(.plain)
+            
         }
-        
-        Button {
-            checkRefundPolicy = true
-            dismiss()
-        } label: {
-            Text("확인 완료")
-                .font(.body1Regular)
-                .frame(width: screenWidth)
-        }
-        .buttonStyle(.plain)
         .navigationTitle("환불 규정 안내")
         .navigationBarTitleDisplayMode(.inline)
     }

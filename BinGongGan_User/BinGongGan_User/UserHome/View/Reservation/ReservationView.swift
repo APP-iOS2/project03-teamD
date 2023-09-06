@@ -14,12 +14,14 @@ struct ReservationView: View {
     @EnvironmentObject var reservationStore: ReservationStore
     
     @State var openRefundPolicySheet: Bool = false
-    @State var checkRefundPolicy: Bool = false
+    @State var checkRefundPolicy: Bool = true
     
     @State private var reservationName: String = ""
     @State private var reservationPhoneNumber: String = ""
     
     @State private var reservationRequest: String = ""
+    
+    @FocusState private var isTextMasterFocused: Bool
     
     private let screenWidth = UIScreen.main.bounds.width
     
@@ -70,44 +72,87 @@ struct ReservationView: View {
                     
                     Text("요청사항")
                         .font(.body1Regular)
+                    ZStack(alignment: .topLeading) {
+                        
+                        TextMaster(
+                            text: $reservationRequest,
+                            isFocused: $isTextMasterFocused,
+                            minLine: 3,
+                            maxLine: 5,
+                            fontSize: 14)
+                        .background(.white)
+                        .cornerRadius(8)
+                        .padding(.bottom, 10)
+                        
+                        
+                        if reservationRequest.isEmpty {
+                            Text("요청사항을 작성해주세요")
+                                .font(.captionRegular)
+                                .foregroundColor(.myLightGray)
+                                .padding([.top,.leading], 10)
+                        }
+                    }
                     
                     // 이용 시 주의 사항, 환불규정
                     
                     Group {
                         Text("이용 시 주의 사항")
-                        
                             .font(.body1Regular)
-                        Text("판매자 형식 반영 제작")
+                        ZStack {
+                            
+                            RoundedRectangle(cornerRadius: 8)
+                                .fill(.white)
+                                .frame(maxWidth: screenWidth * 0.9, minHeight: 40)
+                            
+                            Text("판매자 형식 반영 제작")
+                                .font(.captionRegular)
+                        }
+                        .padding(.bottom, 10)
                         
                         
                         Text("환불 규정")
                             .font(.body1Regular)
-                        HStack {
-                            Text("환불 규정 확인하기")
-                            // Spacer()
-                            Button {
-                                // sheet 올리기 -> sheet 속 버튼 누르면 활성화되도록
-                                openRefundPolicySheet.toggle()
-                                
-                            } label: {
-                                Text("확인")
-                                    .foregroundColor(.mySecondary)
-                                    .padding(.leading, 20)
+                        
+                        ZStack {
+                            RoundedRectangle(cornerRadius: 8)
+                                .fill(.white)
+                                .frame(maxWidth: screenWidth * 0.9, minHeight: 40)
+                            HStack {
+                                Text("환불 규정 확인하기")
+                                    .font(.captionRegular)
+                                // Spacer()
+                                Button {
+                                    // sheet 올리기 -> sheet 속 버튼 누르면 활성화되도록
+                                    openRefundPolicySheet.toggle()
+                                    
+                                } label: {
+                                    Text("확인")
+                                        .foregroundColor(.mySecondary)
+                                        .padding(.leading, 20)
+                                }
                             }
                         }
+                        .padding(.bottom, 10)
                     }
                     
-                    NavigationLink {
+                    Button {
                         if checkRefundPolicy {
-                            PaymentView()
+                            //PaymentView()
+                            
+                            print("true 일경우 \(checkRefundPolicy)")
                         }
                     } label: {
                         Text("무통장으로 입금")
-                            .foregroundColor(.myPrimary)
                             .frame(width: screenWidth - 40, height: 50)
+                            .foregroundColor(checkRefundPolicy ? Color.white : Color.myMediumGray)
+                            .background(checkRefundPolicy ? Color.myPrimary : Color.myLightGray )
+                        
+                            .cornerRadius(8)
                     }
                     .buttonStyle(.plain)
+                    .padding([.top, .bottom], 10)
                 }
+                .padding([.leading, .trailing], 20)
             }
         }
         .toolbar {
