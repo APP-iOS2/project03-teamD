@@ -11,42 +11,51 @@ struct ReservationCalendarView: View {
     
     @EnvironmentObject var reservationStore: ReservationStore
     
-    //  @State private var checkInDate : Double = Date.timeIntervalSinceReferenceDate
-    //  @State private var checkOutDate : Double = Date.timeIntervalSinceReferenceDate
+    @State private var dateRange: ClosedRange<Date>?
     
-    @State private var dateRange: ClosedRange<Date>? = nil
+    private let screenWidth = UIScreen.main.bounds.width
     
     var body: some View {
+        
         VStack(alignment: .leading) {
+            
             MultiDatePicker(dateRange:$dateRange, minDate: Date.now)
             
-            VStack(alignment: .listRowSeparatorLeading, spacing: 20) {
-                
+            VStack(alignment: .leading) {
                 Text("선택한 날짜")
-                    .font(.title3)
-                
-                if let range = dateRange {
-                    HStack {
-                        Text("입실 날짜: ")
-                        Text(reservationStore.changeDateString(range.lowerBound))
-                            .bold()
-                    }
-                    .font(.subheadline)
+                    .font(.body1Regular)
+                ZStack {
                     
-                    HStack{
-                        Text("퇴실 날짜: ")
-                        Text(reservationStore.changeDateString(range.upperBound))
-                            .bold()
-                    }
-                    .font(.subheadline)
+                    RoundedRectangle(cornerRadius: 8)
+                        .fill(.white)
+                        .frame(maxWidth: screenWidth * 0.9, minHeight: 40)
                     
-                } else {
-                    Text("날짜를 선택해주세요")
-                        .font(.footnote)
-                        .foregroundColor(.gray)
+                    if let range = dateRange {
+                        HStack {
+                            Text("입실 날짜: ")
+                                .font(.captionRegular)
+                            Text(reservationStore.changeDateString(range.lowerBound))
+                                .font(.captionBold)
+                            
+                            Spacer(minLength: 20)
+                            
+                            Text("퇴실 날짜: ")
+                                .font(.captionRegular)
+                            Text(reservationStore.changeDateString(range.upperBound))
+                                .font(.captionBold)
+                        }
+                        .padding([.leading,.trailing], 20)
+                        
+                    } else {
+                        Text("날짜를 선택해주세요")
+                            .font(.captionRegular)
+                            .foregroundColor(.gray)
+                    }
                 }
             }
-            .padding(20)
+            
+            .padding(.top, 10)
+            .padding(.leading, 20)
         }
     }
 }

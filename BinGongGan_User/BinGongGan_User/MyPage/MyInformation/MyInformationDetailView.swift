@@ -66,11 +66,10 @@ struct MyInformationDetailView: View {
                 }
             }
         }
+        .navigationTitle("내 정보")
         .scrollContentBackground(.hidden)
         .background(Color.myBackground)
-        .navigationTitle("내 정보")
         .navigationBarTitleDisplayMode(.inline)
-        .navigationBarBackButtonHidden(true)
         .toolbar {
             ToolbarItem(placement:.navigationBarLeading) {
                 Button {

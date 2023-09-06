@@ -14,8 +14,8 @@ enum HomeEventTapConstant {
 
 struct HomeEventTapView: View {
     
-    @ObservedObject var dummyStore: DummyStore = DummyStore()
-    
+    @ObservedObject var dummyStore: HomeStore = HomeStore()
+    private let screenWidth = UIScreen.main.bounds.width
     var body: some View {
         VStack {
             TabView{
@@ -23,7 +23,7 @@ struct HomeEventTapView: View {
                     AsyncImage(url: dummy.imageURL, content: { image in
                         image
                             .resizable()
-                            .aspectRatio(contentMode: .fit)
+                            .aspectRatio(contentMode: .fill)
                     }) {
                         ProgressView()
                     }
@@ -31,7 +31,7 @@ struct HomeEventTapView: View {
                 }
             }
             .tabViewStyle(PageTabViewStyle())
-            .frame(width:.infinity, height: HomeEventTapConstant.eventListHeight)
+            .frame(width:screenWidth, height: HomeEventTapConstant.eventListHeight)
             .foregroundColor(.black)
             .background(Color.myPrimary)
 //
