@@ -22,7 +22,7 @@ struct GongGanTabView: View {
                 }
                 .tag(0)
             
-            Text("내 주변")
+            MapSearchView(selectedTab: $selectedTab)
                 .tabItem {
                     Image(systemName: selectedTab == 1 ? "location.circle.fill" : "location.circle")
                         .environment(\.symbolVariants, selectedTab == 1 ? .fill : .none)
@@ -47,6 +47,7 @@ struct GongGanTabView: View {
                 .tag(3)
         }
         .tint(.myPrimary)
+        .navigationBarBackButtonHidden()
     }
 }
 

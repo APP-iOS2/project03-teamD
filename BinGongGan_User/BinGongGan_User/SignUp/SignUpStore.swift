@@ -23,7 +23,7 @@ enum SignUpStep {
     case third
 }
 
-class SignUpStore: ObservableObject {
+final class SignUpStore: ObservableObject {
     @Published var signUpData = SignUpData()
     @State var certificateNumber: String = ""
     @Published var currentStep: SignUpStep = .first

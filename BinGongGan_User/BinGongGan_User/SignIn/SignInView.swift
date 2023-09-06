@@ -1,5 +1,5 @@
 //
-//  LoginView.swift
+//  SignInView.swift
 //  BinGongGan_User
 //
 //  Created by 박지현 on 2023/09/05.
@@ -7,18 +7,18 @@
 
 import SwiftUI
 
-struct LoginView: View {
-    
+struct SignInView: View {
+    @StateObject private var signUpStore = SignUpStore()
     @State private var emailText: String = ""
     @State private var passwordText: String = ""
     @State private var isShowingAlert: Bool = false
     
-    @ObservedObject var loginStore: LoginStore = LoginStore()
-    var login: Login
-    
+    @EnvironmentObject private var signInStore: SignInStore
+
+    var signIn: SignIn = SignIn()
     
     var body: some View {
-        ZStack{
+        ZStack {
             
             Spacer().background(Color.myBackground).edgesIgnoringSafeArea(.all)
             
@@ -26,7 +26,7 @@ struct LoginView: View {
                 
                 Spacer()
                 
-                Image("LoginLogo")
+                Image("SignInLogo")
                     .resizable()
                     .frame(width: 250, height: 250)
                 
@@ -41,7 +41,7 @@ struct LoginView: View {
                 
                 
                 Button {
-                    isShowingAlert = loginStore.checkLogin(email: emailText, password: passwordText)
+                    isShowingAlert = signInStore.checkSignIn(email: emailText, password: passwordText)
                 } label: {
                     Text("로그인")
                 }
@@ -53,8 +53,9 @@ struct LoginView: View {
                 
                 Spacer()
                 
-                Button {
-                    //
+                NavigationLink {
+                    SignUpView()
+                        .environmentObject(signUpStore)
                 } label: {
                     Text("회원가입")
                 }
@@ -64,7 +65,7 @@ struct LoginView: View {
                 .background(Color.mySecondary)
                 .cornerRadius(50)
                 
-                Text("@hanelCOMPANY")
+                Text("@ZDCOMPANY")
                     .font(.caption)
                 
                 Spacer()
@@ -78,11 +79,15 @@ struct LoginView: View {
             }
         }
         .ignoresSafeArea()
+        .onAppear {
+            signUpStore.currentStep = .first
+        }
     }
 }
 
-struct LoginView_Previews: PreviewProvider {
+struct SignInView_Previews: PreviewProvider {
     static var previews: some View {
-        LoginView(loginStore: LoginStore(), login: LoginStore().sampleLogin)
+        SignInView()
+            .environmentObject(SignInStore())
     }
 }

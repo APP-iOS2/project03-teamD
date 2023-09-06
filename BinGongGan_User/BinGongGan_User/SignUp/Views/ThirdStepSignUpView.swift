@@ -9,6 +9,7 @@ import SwiftUI
 
 struct ThirdStepSignUpView: View {
     @EnvironmentObject var store: SignUpStore
+    @Environment(\.presentationMode) var presentationMode
     
     var body: some View {
         VStack(alignment: .leading) {
@@ -33,7 +34,7 @@ struct ThirdStepSignUpView: View {
             Spacer()
             CheckButton
             PrimaryButton(action: {
-                
+                presentationMode.wrappedValue.dismiss()
             }, title: "회원가입")
             Spacer(minLength: 80)
         }
