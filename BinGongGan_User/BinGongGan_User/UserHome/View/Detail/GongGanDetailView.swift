@@ -20,81 +20,86 @@ struct GongGanDetailView: View {
     @StateObject var reservationStore: ReservationStore = ReservationStore()
     var body: some View {
         NavigationStack {
-            ScrollView(showsIndicators: false) {
-                
-                TabView{
-                    ForEach(gongGan.tempImage, id: \.self) { image in
-                        AsyncImage(url: URL(string: image)) { image in
-                            image
-                                .resizable()
-                                .scaledToFill()
-                        } placeholder: {
-                            ProgressView()
+            ZStack {
+                Spacer().background(Color.myBackground).edgesIgnoringSafeArea(.all)
+                ScrollView(showsIndicators: false) {
+                    
+                    DtaileTabImageView()
+                    
+                    Group {
+                        VStack(alignment: .leading, spacing: 10) {
+                            Text("서울역 공유키친, 파티룸")
+                                .font(.title2)
+                            Text("서울 송파구 송파대로 28길 13 (가락동, 거북이빌딩)")
+                                .foregroundColor(Color.myDarkGray)
                         }
                     }
-                }
-                .tabViewStyle(PageTabViewStyle())
-                .frame(width: screenWidth , height: 250)
-                
-                VStack(alignment: .leading, spacing: 10) {
-                    Text("서울역 15번 출구 도보 5분")
-                        .foregroundColor(.white)
-                        .font(.subheadline)
-                        .padding(5)
-                        .background(Color.myPrimary)
-                        .cornerRadius(5)
+                    .padding(EdgeInsets(top: 10, leading: 10, bottom: 0, trailing: 10))
                     
-                    HStack {
-                        Text("[서울역] 갬성 파티룸")
-                            .font(.title2)
-                            .bold()
-                        Spacer()
-                        Button {
-                            heartButton.toggle()
-                        } label: {
-                            Image(systemName: heartButton ? "heart.fill" : "heart")
-                                .font(.title3)
-                                .foregroundColor(.red)
+                    
+                    Divider()
+                        .frame(width: screenWidth * 0.95)
+                    
+                    Group {
+                        HStack {
+                            Spacer()
+                            RoundedRectangle(cornerRadius: 10)
+                                .fill(Color.myLightGray)
+                                .opacity(0.5)
+                                .frame(width: screenWidth * 0.95, height: 50)
+                                .overlay(
+                                    RoundedRectangle(cornerRadius: 10)
+                                        .stroke(Color.clear, lineWidth: 1)
+                                        .overlay(
+                                            Label("본 매장은 결제 후 승인시 확정 됩니다.", systemImage: "info.circle")
+                                                .font(.subheadline)
+                                                .foregroundColor(.myMediumGray)
+                                        )
+                                )
+                            Spacer()
                         }
                     }
-                    Text("공유주방/ 파티룸/ 블루투스 스피커")
-                        .foregroundColor(Color.myDarkGray)
-                    SubGongGanSelectView()
-                        .environmentObject(gongGan)
+                    .padding(.vertical, 10)
                     
-                    HStack {
-                        Spacer()
-                        RoundedRectangle(cornerRadius: 10)
-                            .fill(Color.myLightGray)
-                            .frame(width: screenWidth * 0.8, height: 50)
-                            .shadow(radius: 2)
-                            .overlay(
-                                RoundedRectangle(cornerRadius: 10)
-                                    .stroke(Color.gray, lineWidth: 1)
-                                    .overlay(
-                                        Text("결제 후 바로 예약 확정")
-                                            .font(.headline)
-                                            .foregroundColor(.black)
-                                    )
-                            )
-                            .padding()
-                        Spacer()
+                    Rectangle()
+                        .fill(Color.myLightGray)
+                        .frame(height: 5)
+                    
+                    VStack(spacing: 20) {
+                        Group {
+                            SubGongGanSelectView()
+                                .environmentObject(gongGan)
+                        }
+                        .frame(width: screenWidth * 0.95)
+                        
+                        Group {
+                            VStack(alignment: .leading, spacing: 10) {
+                                gongGan.customSection("공간 소개")
+                                ForEach(gongGan.tempSummary, id: \.self) { summary in
+                                    Text("◦ \(summary)")
+                                        .font(.subheadline)
+                                        .foregroundColor(.myDarkGray)
+                                }
+                                
+                            }
+                        }
+                        
+                        Group {
+                            gongGan.customSection("시설 안내")
+                            VStack {
+                                Label("와이파이", systemImage: "wifi")
+                                Label("주차 가능", systemImage: "car")
+                                Label("TV/프로젝터", systemImage: "tv.and.mediabox")
+                            }
+                        }
                     }
-                    gongGan.customSection("공간 소개")
-                    ForEach(1..<5, id: \.self) { i in
-                        Text("\(i)")
-                    }
-                    .padding(.horizontal, 5)
-                    gongGan.customSection("시설 안내")
-                    ForEach(1..<5, id: \.self) { i in
-                        Text("\(i)")
-                    }
-                    .padding(.horizontal, 5)
+                    .padding(.horizontal, 15)
+                    
+                    
                 }
-                .padding(EdgeInsets(top: 1, leading: 10, bottom: 1, trailing: 10))
-                
             }
-            
+            .padding(EdgeInsets(top: 1, leading: 0, bottom: -10, trailing: 0))
+        
             HStack {
                 Button {
                     isActionSheetPresented = true
@@ -140,6 +145,18 @@ struct GongGanDetailView: View {
                     ]
                 )
             }
+            .toolbar{
+                ToolbarItem(placement: .navigationBarTrailing) {
+                    Button {
+                        heartButton.toggle()
+                    } label: {
+                        Image(systemName: heartButton ? "heart.fill" : "heart")
+                            .foregroundColor(.red)
+                    }
+                }
+            }
+            
+            .background(Color.myBackground).ignoresSafeArea()
         }
     }
 }

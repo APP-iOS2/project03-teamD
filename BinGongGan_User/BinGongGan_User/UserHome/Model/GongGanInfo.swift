@@ -50,11 +50,19 @@ final class GongGanStore: ObservableObject {
         "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSl78G1gSU5SWWFWadyjHfIEhz_yPmVqjIGmA&usqp=CAU"
         
     ]
+    var tempSummary: [String] = [
+        "송파공유오피스",
+        "가락시장역 3, 8호선 더블 초역세권 도보 1분거리",
+        "다양한 업종 사업자등록가능 (근린생활시설 가능)",
+        "비상주 서비스",
+        "다양한 크기의 회의실 구비 (4인~10인) *1인실 ~ 4인실 구비"
+    ]
+    
+    
     
     func customSection(_ text: String) -> some View {
         VStack(alignment: .leading) {
             Text(text)
-                .bold()
             Rectangle()
                 .fill(Color.myLightGray)
                 .frame(height: 2)

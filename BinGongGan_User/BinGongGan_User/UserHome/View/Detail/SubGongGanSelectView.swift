@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import BinGongGanCore
 
 struct SubGongGanSelectView: View {
     @EnvironmentObject var gongGan: GongGanStore
@@ -26,8 +27,9 @@ struct SubGongGanSelectView: View {
                         
                     } label: {
                         VStack(alignment: .leading) {
-                            Label(space.title, systemImage: space.isSelected ? "circlebadge.fill" : "circlebadge")
-                                .foregroundColor(.black)
+                            Text(" ◦ \(space.title)")
+                                .font(.subheadline)
+                                .foregroundColor(.myDarkGray)
                             if space.isSelected {
                                 SubGongGanDetailView()
                             }
