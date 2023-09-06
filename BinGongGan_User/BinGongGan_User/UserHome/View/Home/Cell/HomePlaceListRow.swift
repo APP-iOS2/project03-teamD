@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import BinGongGanCore
 
 enum PlaceListRowConstant {
     //    static let showPlaceListWidth = CGFloat(50)
@@ -23,29 +24,35 @@ struct HomePlaceListRow: View {
         } label: {
             ZStack{
                 RoundedRectangle(cornerRadius: 15)
-                    .foregroundColor(TestColor.brown)
+                    .foregroundColor(Color.myPrimary)
                     .frame(width: screenWidth - HomeViewConstant.searchButtonHeight ,
                            height: PlaceListRowConstant.showPlaceListHeight)
                     .opacity(0.8)
                 HStack {
-                    place.placeImage
-                        .resizable()
-                        .aspectRatio(contentMode: .fit)
-                        .frame(maxWidth: 100 , maxHeight: 120)
-                        .padding(20)
+                    AsyncImage(url: place.imageURL, content: { image in
+                        image
+                            .resizable()
+                            .aspectRatio(contentMode: .fit)
+                            .frame(maxWidth: 100 , maxHeight: 120)
+                            .padding(20)
+                    }) {
+                        ProgressView()
+                    }
+                        
                     VStack(alignment: .leading) {
                         
                         Text("\(place.placeName)")
                             .padding(.top , 17)
                             .foregroundColor(.black)
-                            .bold()
+                            .font(.body1Bold)
                         Text("\(place.placeLocation)")
                             .padding(.bottom , 3)
                             .foregroundColor(.black)
-                            .font(.footnote)
+                            .font(.captionRegular)
                         Text("\(place.placePrice) / 시간당")
                             .padding(.bottom , 17)
                             .foregroundColor(.black)
+                            .font(.body1Bold)
                     }// VSTACK
                     Button {
                         place.isFavorite.toggle()
