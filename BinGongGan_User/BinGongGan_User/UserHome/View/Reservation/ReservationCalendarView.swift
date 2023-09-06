@@ -21,37 +21,38 @@ struct ReservationCalendarView: View {
             
             MultiDatePicker(dateRange:$dateRange, minDate: Date.now)
             
-            Section("선택한 날짜") {
-                
+            VStack(alignment: .leading) {
+                Text("선택한 날짜")
+                    .font(.body1Regular)
                 ZStack {
                     
                     RoundedRectangle(cornerRadius: 8)
                         .fill(.white)
-                        .frame(width: screenWidth - 30, height: 40)                    
+                        .frame(maxWidth: screenWidth * 0.9, minHeight: 40)
+                    
                     if let range = dateRange {
                         HStack {
                             Text("입실 날짜: ")
-                                .font(.footnote)
+                                .font(.captionRegular)
                             Text(reservationStore.changeDateString(range.lowerBound))
-                                .bold()
+                                .font(.captionBold)
                             
                             Spacer(minLength: 20)
                             
                             Text("퇴실 날짜: ")
-                                .font(.footnote)
+                                .font(.captionRegular)
                             Text(reservationStore.changeDateString(range.upperBound))
-                                .bold()
+                                .font(.captionBold)
                         }
                         .padding([.leading,.trailing], 20)
                         
                     } else {
                         Text("날짜를 선택해주세요")
-                            .font(.footnote)
+                            .font(.captionRegular)
                             .foregroundColor(.gray)
                     }
-                    
                 }
-            } // Section
+            }
             
             .padding(.top, 10)
             .padding(.leading, 20)

@@ -22,8 +22,10 @@ struct BinGongGan_UserApp: App {
     var body: some Scene {
         WindowGroup {
             //GongGanTabView()
-            ReservationView()
-                .environmentObject(ReservationStore())
+            NavigationStack{
+                ReservationView()
+                    .environmentObject(ReservationStore())
+            }
         }
     }
 }

@@ -9,7 +9,7 @@ import SwiftUI
 
 struct ReservationPlusMinusButton: View {
     
-    @Binding var content: Int
+    @State var content: Int = 1
     var contentLabel: String
     
     private let screenWidth = UIScreen.main.bounds.width
@@ -19,8 +19,7 @@ struct ReservationPlusMinusButton: View {
         HStack {
             Button {
                 if content > 1 {
-                    content = content - 1
-                    print("\(content)")
+                    content -= 1
                 }
             } label: {
                 Image(systemName: "minus")
@@ -30,13 +29,13 @@ struct ReservationPlusMinusButton: View {
             .buttonStyle(.plain)
             
             Text("\(content) \(contentLabel)")
+                .font(.captionRegular)
                 .frame(width: screenWidth - 110, height: 40)
                 .background(.white)
                 .cornerRadius(8)
             
             Button {
-                content = content + 1
-                print("\(content)")
+                content += 1
             } label: {
                 Image(systemName: "plus")
                     .foregroundColor(.myPrimary)
@@ -49,6 +48,6 @@ struct ReservationPlusMinusButton: View {
 
 struct ReservationPlusMinusButton_Previews: PreviewProvider {
     static var previews: some View {
-        ReservationPlusMinusButton(content: .constant(1), contentLabel: "시간")
+        ReservationPlusMinusButton(content: 1, contentLabel: "시간")
     }
 }
