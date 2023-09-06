@@ -9,12 +9,10 @@ import SwiftUI
 
 struct GongGanTabView: View {
     @State private var selectedTab = 0
-    init() {
-        UITabBar.appearance().backgroundColor = UIColor.white
-    }
+    
     var body: some View {
         TabView(selection: $selectedTab) {
-            HomeView()
+            Text("Home")
                 .tabItem {
                     Image(systemName: selectedTab == 0 ? "house.fill" : "house")
                         .environment(\.symbolVariants, selectedTab == 0 ? .fill : .none)
@@ -38,7 +36,7 @@ struct GongGanTabView: View {
                 }
                 .tag(2)
             
-            MyPageMainView()
+            Text("마이페이지")
                 .tabItem {
                     Image(systemName: selectedTab == 3 ? "book.fill" : "book")
                         .environment(\.symbolVariants, selectedTab == 3 ? .fill : .none)
@@ -49,7 +47,7 @@ struct GongGanTabView: View {
         .onAppear {
             selectedTab = 0
         }
-        .tint(.myPrimary)
+        .tint(.black)
     }
 }
 
