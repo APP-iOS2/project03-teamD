@@ -45,7 +45,9 @@ struct PlaceAddView: View {
                         Text(category.rawValue)
                     }
                 }
+                .pickerStyle(.segmented)
             }
+            .listRowSeparator(.hidden)
             
             Section {
                 Text("공간 주소")
