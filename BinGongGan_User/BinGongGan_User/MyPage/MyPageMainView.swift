@@ -44,7 +44,7 @@ struct MyPageMainView: View {
                 
                 Section("고객센터") {
                     NavigationLink("1 : 1 문의하기") {
-                        
+                        EnquiryView()
                     }
                     
                     NavigationLink("자주 묻는 질문 FAQ") {
@@ -58,7 +58,7 @@ struct MyPageMainView: View {
                     }
                     
                     NavigationLink("빈공간 정보") {
-                        
+                        AppInformationList()
                     }
                 } // Section - 기타
             } //Form
@@ -75,7 +75,9 @@ struct MyPageMainView: View {
                 }
             }
             .fullScreenCover(isPresented: $isShowingSetting) {
-                SettingListView()
+                NavigationStack {
+                    SettingListView()
+                }
             }
         }
     }
