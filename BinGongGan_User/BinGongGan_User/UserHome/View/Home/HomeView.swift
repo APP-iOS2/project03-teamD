@@ -25,6 +25,7 @@ struct HomeView: View {
     private var isTapSearchButton: Bool = false
     
     var body: some View {
+
         ZStack {
             Spacer().background(Color.myBackground).edgesIgnoringSafeArea(.all)
             VStack {
@@ -46,6 +47,7 @@ struct HomeView: View {
                                     Spacer()
                                     Image(systemName: "magnifyingglass")
                                         .foregroundColor(.mySecondary)
+                                        .font(.head1Bold)
                                         .padding(.trailing, 10)
                                 }
                             }

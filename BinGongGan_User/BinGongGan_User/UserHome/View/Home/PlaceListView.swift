@@ -34,9 +34,9 @@ struct PlaceListView: View {
                     Button {
                         dismiss()
                     } label: {
-    //                    Image(systemName: "chevron.left")
-    //                        .foregroundColor(.brown)
-                        HomeStore.backButton("https://item.kakaocdn.net/do/a1ccece94b4ba1b47f0e5dbe05ce65687e6f47a71c79378b48860ead6a12bf11")
+                        Image(systemName: "chevron.left")
+                            .foregroundColor(.myPrimary)
+                            .padding(.leading, 10)
                     }
                 }
             }
@@ -47,11 +47,11 @@ struct PlaceListView: View {
                     } label: {
                         Image(systemName: "slider.horizontal.3")
                             .foregroundColor(.mySecondary)
-                        
+                            .font(.body1Bold)
                     }
                 }
-        }
-        }
+            }
+        }// ZSTACK
     }// BODY
 }
 
