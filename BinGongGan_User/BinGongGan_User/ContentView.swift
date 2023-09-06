@@ -8,11 +8,13 @@
 import SwiftUI
 
 struct ContentView: View {
+    @StateObject var store = SignUpStore()
     var body: some View {
         VStack {
-            Text("Hello, world! 윤호님 브랜치 테스트")
+            SignUpView()
+                .environmentObject(store)
         }
-        .padding()
+//        .padding()
     }
 }
 
