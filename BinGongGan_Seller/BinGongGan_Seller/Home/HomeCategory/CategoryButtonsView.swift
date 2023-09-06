@@ -9,7 +9,7 @@ import SwiftUI
 import BinGongGanCore
 
 struct CategoryButtonsView: View {
-    let columns: [GridItem] = Array(repeating: .init(.flexible()), count: 4)
+    let columns: [GridItem] = Array(repeating: .init(), count: 4)
     let categoryModel: CategoryModel
     
     var body: some View {

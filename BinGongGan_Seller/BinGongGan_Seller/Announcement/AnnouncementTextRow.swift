@@ -6,10 +6,20 @@
 //
 
 import SwiftUI
+import BinGongGanCore
 
 struct AnnouncementTextRow: View {
+    
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        HStack{
+            Text("1")
+                .padding(.trailing, 10)
+            Text("이것은 제목입니다.")
+            Spacer()
+            Text("2023. 09. 05")
+                .foregroundColor(Color.myMediumGray)
+        }
+        .foregroundColor(Color.myBlack)
     }
 }
 

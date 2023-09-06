@@ -9,34 +9,47 @@ import SwiftUI
 import BinGongGanCore
 
 struct AnnouncementView: View {
-    @State private var announcementText: String = ""
     
     var body: some View {
-        ScrollView {
-            VStack {
-                HStack{
+        NavigationView{
+            VStack{
+                HStack {
                     Text("공지 관리")
                         .font(.title)
                         .bold()
                         .foregroundColor(Color.myPrimary)
-                        .padding([.top, .leading], 20)
+                        .padding(.leading, 20)
                     Spacer()
                 }
-                AnnouncementCell()
-                Spacer()
-                TextField("공지사항 입력", text: $announcementText)
-                    .padding(20)
-                    .background(Color.myWhite)
-                    .cornerRadius(15)
-                    .overlay(
-                        RoundedRectangle(cornerRadius: 15)
-                            .stroke(Color.myPrimary, lineWidth: 1)
-                    )
-                    .padding(.horizontal)
+                Form {
+                    Section(header: Text("공간1")
+                        .foregroundColor(Color.myPrimary)
+                    ) {
+                        ForEach(0..<5) { _ in
+                            AnnouncementTextRow()
+                                .background(Color.clear)
+                        }
+                    }
+                    Section(header: Text("공간2")
+                        .foregroundColor(Color.myPrimary)) {
+                            ForEach(0..<5) { _ in
+                                AnnouncementTextRow()
+                                    .background(Color.clear)
+                            }
+                        }
+                    Section(header: Text("공간3")
+                        .foregroundColor(Color.myPrimary)) {
+                            ForEach(0..<5) { _ in
+                                AnnouncementTextRow()
+                                    .background(Color.clear)
+                            }
+                        }
+                }
             }
+            .background(Color.myBackground)
         }
-        .background(Color.myBackground)
     }
+    
 }
 
 struct AnnouncementView_Previews: PreviewProvider {
