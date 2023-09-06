@@ -58,7 +58,7 @@ struct MyPageMainView: View {
                     }
                     
                     NavigationLink("빈공간 정보") {
-                        
+                        AppInformationList()
                     }
                 } // Section - 기타
             } //Form
