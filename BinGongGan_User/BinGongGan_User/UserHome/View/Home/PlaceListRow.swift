@@ -6,64 +6,71 @@
 //
 
 import SwiftUI
-enum PublicPlaceRowConstant {
+enum PlaceRowConstant {
     static let cellHeight = CGFloat(200)
 }
 
-struct PublicPlaceListRow: View {
+struct PlaceListRow: View {
     
     private let screenWidth = UIScreen.main.bounds.width
     
-    var place: PublicPlaceListDummy
+    @State var place: Place
     
     var body: some View {
         VStack{
-            place.placeImage
-                .resizable()
-                .aspectRatio(contentMode: .fit)
-                .frame(width: screenWidth , height: PublicPlaceRowConstant.cellHeight)
-                .foregroundColor(.gray)
-                .padding(.bottom , -10)
-            
+            AsyncImage(url: place.imageURL, content: { image in
+                image
+                    .resizable()
+                    .aspectRatio(contentMode: .fit)
+                    .frame(width: screenWidth - 20 , height: PlaceRowConstant.cellHeight)
+                    .foregroundColor(.gray)
+            }) {
+                ProgressView()
+            }
+
             Rectangle()
-                .frame(width: screenWidth , height: PublicPlaceRowConstant.cellHeight - 100)
+                .frame(width: screenWidth - 20 , height: PlaceRowConstant.cellHeight - 100)
                 .foregroundColor(.white)
                 .border(.black)
                 .overlay(alignment: .topLeading){
                     Text("\(place.placeName)")
+                        .font(.body1Bold)
                         .padding()
+                    
                 }
                 .overlay(alignment: .leading){
                     Text("\(place.placeLocation)")
                         .padding()
-                        .font(.footnote)
+                        .font(.captionRegular)
+
                 }
                 .overlay(alignment: .bottomLeading){
                     Text("\(place.placePrice)")
+                        .font(.body1Regular)
                         .padding()
                 }
                 .overlay(alignment: .bottomTrailing){
                     Text("최대 인원 00명")
                         .padding()
-                        .font(.footnote)
+                        .font(.captionRegular)
                 }
                 .overlay(alignment: .topTrailing) {
                     Button {
-//                        dummyStore.homeShowPlaceListDummy[index].isFavorite.toggle()
+                        place.isFavorite.toggle()
                     } label: {
-                        Image(systemName: "heart.fill" )
+                        Image(systemName: place.isFavorite ? "heart.fill" : "heart")
                             .foregroundColor(.red)
                             .padding()
                     }
                 }
                 
         }// VSTACK
-        .padding(20)
+        
     }
 }
 
 struct PublicPlaceListCellView_Previews: PreviewProvider {
     static var previews: some View {
-        PublicPlaceListRow(place: DummyStore().publicPlaceList[0])
+        PlaceListRow(place: HomeStore().places[0])
     }
 }

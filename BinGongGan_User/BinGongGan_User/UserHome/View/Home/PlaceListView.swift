@@ -7,11 +7,11 @@
 
 import SwiftUI
 
-struct PublicPlaceListView: View {
+struct PlaceListView: View {
     
     @Environment(\.dismiss) private var dismiss
-    @ObservedObject var dummyStore: DummyStore = DummyStore()
-    
+    @ObservedObject var dummyStore: HomeStore = HomeStore()
+    @State var category: String
     var body: some View {
         VStack {
             HStack {
@@ -26,8 +26,10 @@ struct PublicPlaceListView: View {
             }// HSTACK
             
             ScrollView(showsIndicators: false){
-                ForEach(dummyStore.publicPlaceList){ place in
-                    PublicPlaceListRow(place: place)
+                ForEach(dummyStore.places){ place in
+                    if category == place.category.rawValue{
+                        PlaceListRow(place: place)
+                    }
                 }
             }// SCROLLVIEW
         }// VSTACK
@@ -41,21 +43,17 @@ struct PublicPlaceListView: View {
                 } label: {
 //                    Image(systemName: "chevron.left")
 //                        .foregroundColor(.brown)
-                    Image("dogLogo")
-                        .resizable()
-                        .aspectRatio(contentMode: .fill)
-                        .frame(width: ImageLogoConstant.width , height: ImageLogoConstant.height)
-                        .cornerRadius(15)
+                    HomeStore.backButton("https://item.kakaocdn.net/do/a1ccece94b4ba1b47f0e5dbe05ce65687e6f47a71c79378b48860ead6a12bf11")
                 }
             }
         }
     }// BODY
 }
 
-struct PublicOfficeView_Previews: PreviewProvider {
+struct PlaceListView_Previews: PreviewProvider {
     static var previews: some View {
         NavigationStack{
-            PublicPlaceListView()
+            PlaceListView( category: "공용 주방")
         }
     }
 }
