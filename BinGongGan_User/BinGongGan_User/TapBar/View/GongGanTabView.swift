@@ -14,13 +14,15 @@ struct GongGanTabView: View {
     }
     var body: some View {
         TabView(selection: $selectedTab) {
-            HomeView()
-                .tabItem {
-                    Image(systemName: selectedTab == 0 ? "house.fill" : "house")
-                        .environment(\.symbolVariants, selectedTab == 0 ? .fill : .none)
-                    Text("홈")
-                }
-                .tag(0)
+            NavigationStack {
+                HomeView()
+            }
+            .tabItem {
+                Image(systemName: selectedTab == 0 ? "house.fill" : "house")
+                    .environment(\.symbolVariants, selectedTab == 0 ? .fill : .none)
+                Text("홈")
+            }
+            .tag(0)
             
             MapSearchView(selectedTab: $selectedTab)
                 .tabItem {
@@ -38,13 +40,15 @@ struct GongGanTabView: View {
                 }
                 .tag(2)
             
-            MyPageMainView()
-                .tabItem {
-                    Image(systemName: selectedTab == 3 ? "book.fill" : "book")
-                        .environment(\.symbolVariants, selectedTab == 3 ? .fill : .none)
-                    Text("마이페이지")
-                }
-                .tag(3)
+            NavigationStack {
+                MyPageMainView()
+            }
+            .tabItem {
+                Image(systemName: selectedTab == 3 ? "book.fill" : "book")
+                    .environment(\.symbolVariants, selectedTab == 3 ? .fill : .none)
+                Text("마이페이지")
+            }
+            .tag(3)
         }
         .tint(.myPrimary)
         .navigationBarBackButtonHidden()

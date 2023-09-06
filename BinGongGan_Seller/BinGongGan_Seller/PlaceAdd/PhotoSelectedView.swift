@@ -1,6 +1,7 @@
 import SwiftUI
 import UIKit
 
+// MARK: - 수정중
 struct MultiPhotoPickerView: UIViewControllerRepresentable {
     @Binding var selectedImages: [UIImage]
     @Environment(\.presentationMode) private var presentationMode
@@ -55,7 +56,7 @@ struct PhotoSelectedView: View {
                             ZStack {
                                 Rectangle()
                                     .fill(.gray)
-                                    .frame(width: 150, height: 150)
+                                    .frame(width: 100, height: 100)
                                 Image(systemName: "plus")
                                     .resizable()
                                     .frame(width: 30, height: 30)
@@ -68,7 +69,7 @@ struct PhotoSelectedView: View {
                         Image(uiImage: image)
                             .resizable()
                             .aspectRatio(contentMode: .fit)
-                            .frame(width: 150, height: 150)
+                            .frame(width: 100, height: 100)
                     }
                 }
             }

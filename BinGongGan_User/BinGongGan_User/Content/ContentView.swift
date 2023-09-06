@@ -17,8 +17,10 @@ struct ContentView: View {
             GongGanTabView()
                 .environmentObject(reservationStore)
         } else {
-            SignInView()
-                .environmentObject(signInStore)
+            NavigationStack {
+                SignInView()
+                    .environmentObject(signInStore)
+            }
         }
     }
 }

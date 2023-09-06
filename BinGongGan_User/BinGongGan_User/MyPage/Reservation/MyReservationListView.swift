@@ -17,6 +17,8 @@ struct MyReservationListView: View {
     @Environment(\.dismiss) private var dismiss
     @State private var selectedPicker: ReservationHistoryType = .all
     @Namespace private var animation
+    @State private var isShowingReservationDetailView: Bool = false
+    @State var reservation: ReservationModel = ReservationModel(placeName: "", reservationNumber: "", reservationDate: "", reservationPersonal: 0, placeAddress: "", isReservation: false)
     
     var body: some View {
         VStack {
@@ -25,45 +27,51 @@ struct MyReservationListView: View {
                 ForEach(reservates) { reservate in
                     switch selectedPicker {
                     case .all:
-                            NavigationLink {
-                                ReservationDetailView(reservate: reservate)
-                            } label: {
-                                MyReservationRowView(reservate: reservate)
-                            }
-                            
-                            .background(
-                                RoundedRectangle(cornerRadius: 15)
-                                    .foregroundColor(reservate.isReservation ? .myPrimary : .white)
-                                    .shadow(color: .gray, radius: 5, x: 3, y: 3)
-                            )
-                            
-                    case .expect:
-                        if !reservate.isReservation {
-                                NavigationLink {
-                                    ReservationDetailView(reservate: reservate)
-                                } label: {
-                                    MyReservationRowView(reservate: reservate)
-                                }
+                        Button {
+                            isShowingReservationDetailView = true
+                            reservation = reservate
+                        } label: {
+                            MyReservationRowView(reservate: reservate)
                                 .background(
                                     RoundedRectangle(cornerRadius: 15)
-                                        .foregroundColor(.white)
+                                        .foregroundColor(reservate.isReservation ? .myPrimary : .white)
                                         .shadow(color: .gray, radius: 5, x: 3, y: 3)
+                                        
                                 )
+                        }
+
+                    case .expect:
+                        if !reservate.isReservation {
+                            Button {
+                                isShowingReservationDetailView = true
+                                reservation = reservate
+                            } label: {
+                                    MyReservationRowView(reservate: reservate)
+                                        .background(
+                                            RoundedRectangle(cornerRadius: 15)
+                                                .foregroundColor(.white)
+                                                .shadow(color: .gray, radius: 5, x: 3, y: 3)
+                                        )
+                                }
+                                
+                                
                            
                         }
                     case .success:
                         if reservate.isReservation {
                            
-                                NavigationLink {
-                                    ReservationDetailView(reservate: reservate)
-                                } label: {
+                            Button {
+                                isShowingReservationDetailView = true
+                                reservation = reservate
+                            } label: {
                                     MyReservationRowView(reservate: reservate)
+                                        .background(
+                                            RoundedRectangle(cornerRadius: 15)
+                                                .foregroundColor(.myPrimary)
+                                                .shadow(color: .gray, radius: 5, x: 3, y: 3)
+                                        )
                                 }
-                                .background(
-                                    RoundedRectangle(cornerRadius: 15)
-                                        .foregroundColor(.myPrimary)
-                                        .shadow(color: .gray, radius: 5, x: 3, y: 3)
-                                )
+                               
                         }
                     }
                 }
@@ -85,6 +93,9 @@ struct MyReservationListView: View {
                         .foregroundColor(.myPrimary)
                 }
             }
+        }
+        .navigationDestination(isPresented: $isShowingReservationDetailView) {
+            ReservationDetailView(reservate: reservation)
         }
     }
     
