@@ -46,9 +46,6 @@ struct GongGanTabView: View {
                 }
                 .tag(3)
         }
-        .onAppear {
-            selectedTab = 0
-        }
         .tint(.myPrimary)
     }
 }
