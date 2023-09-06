@@ -25,7 +25,7 @@ struct HomeListRow: View {
     
     var body: some View {
         NavigationLink {
-            // 공간 디테일뷰로 가야함 (대진님이랑 말해야함)
+            GongGanDetailView()
         } label: {
             ZStack {
                 RoundedRectangle(cornerRadius: 15)

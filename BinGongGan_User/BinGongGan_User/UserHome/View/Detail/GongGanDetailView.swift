@@ -17,7 +17,7 @@ struct GongGanDetailView: View {
         static let haltWidth = (UIScreen.main.bounds.width / 2)
         static let buttonHeight = CGFloat(60)
     }
-    
+    @StateObject var reservationStore: ReservationStore = ReservationStore()
     var body: some View {
         NavigationStack {
             ScrollView(showsIndicators: false) {
@@ -108,7 +108,9 @@ struct GongGanDetailView: View {
                     .frame(width: 1)
                     .padding(.vertical, 5)
                 NavigationLink {
-                    Text("예약 화면")
+                    ReservationView()
+                        .environmentObject(reservationStore)
+                        .navigationBarBackButtonHidden()
                 } label: {
                     Text("예약 신청")
                         .frame(width: viewFrame.haltWidth)

@@ -12,7 +12,7 @@ struct ReservationView: View {
     @Environment(\.dismiss) private var dismiss
     
     @EnvironmentObject var reservationStore: ReservationStore
-    
+    @Environment(\.presentationMode) var presentationMode
     @State var openRefundPolicySheet: Bool = false
     @State var checkRefundPolicy: Bool = false
     
@@ -28,6 +28,7 @@ struct ReservationView: View {
         VStack {
             // 상단 바
             ReservationHeaderView()
+                .padding(.top, 1)
             
             ScrollView {
                 // 달력
@@ -94,10 +95,12 @@ struct ReservationView: View {
                 }
             }
             
-            NavigationLink {
-                if checkRefundPolicy {
-                    PaymentView()
-                }
+            //            NavigationLink {
+            //                if checkRefundPolicy {
+            //                    PaymentView()
+            //                }
+            Button {
+                openRefundPolicySheet.toggle()
             } label: {
                 Text("무통장으로 입금")
                     .foregroundColor(.myPrimary)
@@ -116,9 +119,16 @@ struct ReservationView: View {
                 }
             }
         }
-        .sheet(isPresented: $openRefundPolicySheet, content: {
-            RefundPolicySheetView()
-        })
+//        .sheet(isPresented: $openRefundPolicySheet, content: {
+//            RefundPolicySheetView()
+//        })
+        .alert(isPresented: $openRefundPolicySheet) {
+                    Alert(title: Text("무통장 입금"),
+                          message: Text("계좌번호 : 1010101010110"),
+                          dismissButton: .default(Text("확인"),action: {
+                        presentationMode.wrappedValue.dismiss()
+                    }))
+                }
         .background(Color.myBackground)
         .navigationTitle("예약화면")
         .navigationBarTitleDisplayMode(.inline)

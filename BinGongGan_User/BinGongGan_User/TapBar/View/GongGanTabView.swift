@@ -49,7 +49,7 @@ struct GongGanTabView: View {
         .onAppear {
             selectedTab = 0
         }
-        .tint(.black)
+        .tint(.myPrimary)
     }
 }
 

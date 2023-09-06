@@ -23,7 +23,7 @@ struct BinGongGan_UserApp: App {
         WindowGroup {
             //GongGanTabView()
             NavigationStack{
-                ReservationView()
+                GongGanTabView()
                     .environmentObject(ReservationStore())
             }
         }
