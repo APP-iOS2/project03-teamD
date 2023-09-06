@@ -111,7 +111,7 @@
 		B12A84BB2AA6F01100BDF8CA /* BinGongGan_UserUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BinGongGan_UserUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		B12A84BF2AA6F01100BDF8CA /* BinGongGan_UserUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BinGongGan_UserUITests.swift; sourceTree = "<group>"; };
 		B12A84C12AA6F01100BDF8CA /* BinGongGan_UserUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BinGongGan_UserUITestsLaunchTests.swift; sourceTree = "<group>"; };
-		B12A84E92AA6F0CE00BDF8CA /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		B12A84E92AA6F0CE00BDF8CA /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist; name = "GoogleService-Info.plist"; path = "../GoogleService-Info.plist"; sourceTree = "<group>"; };
 		BC344EBF2AA806FE00F8CEB3 /* GongGanTabView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GongGanTabView.swift; sourceTree = "<group>"; };
 		BC344EC52AA8072000F8CEB3 /* GongGanInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GongGanInfo.swift; sourceTree = "<group>"; };
 		BC344ECF2AA8073600F8CEB3 /* GongGanDetailView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GongGanDetailView.swift; sourceTree = "<group>"; };
@@ -133,7 +133,6 @@
 		BC344F062AA8092E00F8CEB3 /* HomeSearchView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeSearchView.swift; sourceTree = "<group>"; };
 		BC344F072AA8092E00F8CEB3 /* HomeEventTapView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeEventTapView.swift; sourceTree = "<group>"; };
 		BC344F172AA81EFF00F8CEB3 /* SubGongGanSelectView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubGongGanSelectView.swift; sourceTree = "<group>"; };
-		BC344F192AA83C4000F8CEB3 /* BinGongGan-User-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "BinGongGan-User-Info.plist"; sourceTree = SOURCE_ROOT; };
 		BC344F1A2AA86A5F00F8CEB3 /* PlaceListRow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlaceListRow.swift; sourceTree = "<group>"; };
 		BC344F1E2AA86A8E00F8CEB3 /* Home.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Home.swift; sourceTree = "<group>"; };
 		BC344F202AA86AB900F8CEB3 /* HomeListRow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeListRow.swift; sourceTree = "<group>"; };
@@ -262,9 +261,8 @@
 		B12A84A32AA6F00D00BDF8CA /* BinGongGan_User */ = {
 			isa = PBXGroup;
 			children = (
-				BC344F192AA83C4000F8CEB3 /* BinGongGan-User-Info.plist */,
+				BCE657FC2AA880B70009ECD1 /* Document */,
 				538D7AC82AA802CB00D0B21A /* MyPage */,
-				B12A84E92AA6F0CE00BDF8CA /* GoogleService-Info.plist */,
 				B12A84A82AA6F01000BDF8CA /* Assets.xcassets */,
 				BC344EBA2AA806C200F8CEB3 /* App */,
 				BC344EBD2AA806EC00F8CEB3 /* TapBar */,
@@ -429,6 +427,14 @@
 				BC344EF92AA808FC00F8CEB3 /* MDPMonthYearPickerButton.swift */,
 			);
 			path = MultiDatePickerSoure;
+			sourceTree = "<group>";
+		};
+		BCE657FC2AA880B70009ECD1 /* Document */ = {
+			isa = PBXGroup;
+			children = (
+				B12A84E92AA6F0CE00BDF8CA /* GoogleService-Info.plist */,
+			);
+			path = Document;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
