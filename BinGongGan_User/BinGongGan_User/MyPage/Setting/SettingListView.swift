@@ -9,6 +9,8 @@ import SwiftUI
 import BinGongGanCore
 
 struct SettingListView: View {
+    @Environment(\.dismiss) private var dismiss
+    
     @State private var isNotificationSettingToggle: Bool = false
     @State private var isLocationPemissionToggle: Bool = false
     
@@ -25,6 +27,19 @@ struct SettingListView: View {
                     .tint(.myPrimary)
                 Toggle("위치 권한", isOn: $isLocationPemissionToggle)
                     .tint(.myPrimary)
+            }
+        }
+        .navigationTitle("Setting")
+        .navigationBarTitleDisplayMode(.inline)
+        .navigationBarBackButtonHidden(true)
+        .toolbar {
+            ToolbarItem(placement:.navigationBarLeading) {
+                Button {
+                    dismiss()
+                } label: {
+                    Image(systemName: "chevron.left")
+                        .foregroundColor(.myPrimary)
+                }
             }
         }
     }
