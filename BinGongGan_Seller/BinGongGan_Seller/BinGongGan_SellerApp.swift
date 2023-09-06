@@ -21,7 +21,7 @@ class AppDelegate: NSObject, UIApplicationDelegate {
 struct BinGongGan_SellerApp: App {
     var body: some Scene {
         WindowGroup {
-            MainTabView()
+            HomeView()
         }
     }
 }

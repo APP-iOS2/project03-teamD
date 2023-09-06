@@ -45,7 +45,6 @@
 		B12A84D92AA6F06900BDF8CA /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = B12A84D82AA6F06900BDF8CA /* FirebaseFirestore */; };
 		B12A84DB2AA6F06900BDF8CA /* FirebaseFirestoreSwift in Frameworks */ = {isa = PBXBuildFile; productRef = B12A84DA2AA6F06900BDF8CA /* FirebaseFirestoreSwift */; };
 		B12A84FE2AA7A66000BDF8CA /* BinGongGanCore in Frameworks */ = {isa = PBXBuildFile; productRef = B12A84FD2AA7A66000BDF8CA /* BinGongGanCore */; };
-		B12A85072AA7AA7500BDF8CA /* MainTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B12A85062AA7AA7500BDF8CA /* MainTabView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -103,7 +102,6 @@
 		B12A84852AA6EFEA00BDF8CA /* BinGongGan_SellerUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BinGongGan_SellerUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		B12A84892AA6EFEA00BDF8CA /* BinGongGan_SellerUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BinGongGan_SellerUITests.swift; sourceTree = "<group>"; };
 		B12A848B2AA6EFEA00BDF8CA /* BinGongGan_SellerUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BinGongGan_SellerUITestsLaunchTests.swift; sourceTree = "<group>"; };
-		B12A85062AA7AA7500BDF8CA /* MainTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -284,7 +282,6 @@
 			children = (
 				4B7420492AA80F2C00818257 /* Document */,
 				B12A85002AA7A8CA00BDF8CA /* App */,
-				B12A85042AA7A98900BDF8CA /* TabBar */,
 				2FAB805E2AA7FFD20091D8CC /* Cell */,
 				4B7420392AA80A9000818257 /* Home */,
 				6A3B44362AA82F83008CC944 /* ReservationDetails */,
@@ -337,14 +334,6 @@
 				B12A846E2AA6EFE700BDF8CA /* BinGongGan_SellerApp.swift */,
 			);
 			name = App;
-			sourceTree = "<group>";
-		};
-		B12A85042AA7A98900BDF8CA /* TabBar */ = {
-			isa = PBXGroup;
-			children = (
-				B12A85062AA7AA7500BDF8CA /* MainTabView.swift */,
-			);
-			path = TabBar;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -503,7 +492,6 @@
 				4B7420402AA80AF500818257 /* CategoryButton.swift in Sources */,
 				2FAB80532AA7FF6D0091D8CC /* ReviewCell.swift in Sources */,
 				4B74203D2AA80ACC00818257 /* AnnouncementView.swift in Sources */,
-				B12A85072AA7AA7500BDF8CA /* MainTabView.swift in Sources */,
 				4B7420422AA80B1B00818257 /* CategoryButtonsView.swift in Sources */,
 				4B7420462AA80BA400818257 /* CategoryModel.swift in Sources */,
 				6A3B44442AA830C3008CC944 /* ReservationTapBarView.swift in Sources */,
