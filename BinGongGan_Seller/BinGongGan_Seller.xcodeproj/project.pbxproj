@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2F36A56B2AA81EEC00578AEB /* ReviewWithCommentCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F36A56A2AA81EEC00578AEB /* ReviewWithCommentCell.swift */; };
 		2FAB80512AA7FF6D0091D8CC /* ReservationCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FAB804D2AA7FF6C0091D8CC /* ReservationCell.swift */; };
 		2FAB80522AA7FF6D0091D8CC /* ReviewManageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FAB804E2AA7FF6C0091D8CC /* ReviewManageView.swift */; };
 		2FAB80532AA7FF6D0091D8CC /* ReviewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FAB804F2AA7FF6C0091D8CC /* ReviewCell.swift */; };
@@ -25,7 +26,7 @@
 		4B7420402AA80AF500818257 /* CategoryButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B74203F2AA80AF500818257 /* CategoryButton.swift */; };
 		4B7420422AA80B1B00818257 /* CategoryButtonsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B7420412AA80B1B00818257 /* CategoryButtonsView.swift */; };
 		4B7420462AA80BA400818257 /* CategoryModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B7420452AA80BA400818257 /* CategoryModel.swift */; };
-		54D1F7D02AA80F780025312B /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 54D1F7CF2AA80F780025312B /* GoogleService-Info.plist */; };
+		4B74204B2AA80F2C00818257 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4B74204A2AA80F2C00818257 /* GoogleService-Info.plist */; };
 		B12A846F2AA6EFE700BDF8CA /* BinGongGan_SellerApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = B12A846E2AA6EFE700BDF8CA /* BinGongGan_SellerApp.swift */; };
 		B12A84732AA6EFE900BDF8CA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B12A84722AA6EFE900BDF8CA /* Assets.xcassets */; };
 		B12A84762AA6EFE900BDF8CA /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B12A84752AA6EFE900BDF8CA /* Preview Assets.xcassets */; };
@@ -57,6 +58,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		2F36A56A2AA81EEC00578AEB /* ReviewWithCommentCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewWithCommentCell.swift; sourceTree = "<group>"; };
 		2FAB804D2AA7FF6C0091D8CC /* ReservationCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReservationCell.swift; sourceTree = "<group>"; };
 		2FAB804E2AA7FF6C0091D8CC /* ReviewManageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReviewManageView.swift; sourceTree = "<group>"; };
 		2FAB804F2AA7FF6C0091D8CC /* ReviewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReviewCell.swift; sourceTree = "<group>"; };
@@ -75,7 +77,7 @@
 		4B74203F2AA80AF500818257 /* CategoryButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryButton.swift; sourceTree = "<group>"; };
 		4B7420412AA80B1B00818257 /* CategoryButtonsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryButtonsView.swift; sourceTree = "<group>"; };
 		4B7420452AA80BA400818257 /* CategoryModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryModel.swift; sourceTree = "<group>"; };
-		54D1F7CF2AA80F780025312B /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../../../GoogleService-Info.plist"; sourceTree = "<group>"; };
+		4B74204A2AA80F2C00818257 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		B12A846B2AA6EFE700BDF8CA /* BinGongGan_Seller.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BinGongGan_Seller.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B12A846E2AA6EFE700BDF8CA /* BinGongGan_SellerApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BinGongGan_SellerApp.swift; sourceTree = "<group>"; };
 		B12A84722AA6EFE900BDF8CA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -135,6 +137,7 @@
 				2FAB80622AA8029A0091D8CC /* SellerInformationCell.swift */,
 				2FAB804D2AA7FF6C0091D8CC /* ReservationCell.swift */,
 				2FAB804F2AA7FF6C0091D8CC /* ReviewCell.swift */,
+				2F36A56A2AA81EEC00578AEB /* ReviewWithCommentCell.swift */,
 			);
 			path = Cell;
 			sourceTree = "<group>";
@@ -184,10 +187,10 @@
 			path = HomeModels;
 			sourceTree = "<group>";
 		};
-		54D1F7CE2AA80F5B0025312B /* Document */ = {
+		4B7420492AA80F2C00818257 /* Document */ = {
 			isa = PBXGroup;
 			children = (
-				54D1F7CF2AA80F780025312B /* GoogleService-Info.plist */,
+				4B74204A2AA80F2C00818257 /* GoogleService-Info.plist */,
 			);
 			path = Document;
 			sourceTree = "<group>";
@@ -216,8 +219,8 @@
 		B12A846D2AA6EFE700BDF8CA /* BinGongGan_Seller */ = {
 			isa = PBXGroup;
 			children = (
+				4B7420492AA80F2C00818257 /* Document */,
 				B12A85002AA7A8CA00BDF8CA /* App */,
-				54D1F7CE2AA80F5B0025312B /* Document */,
 				B12A85042AA7A98900BDF8CA /* TabBar */,
 				2FAB805E2AA7FFD20091D8CC /* Cell */,
 				4B7420392AA80A9000818257 /* Home */,
@@ -395,7 +398,7 @@
 			files = (
 				B12A84762AA6EFE900BDF8CA /* Preview Assets.xcassets in Resources */,
 				B12A84732AA6EFE900BDF8CA /* Assets.xcassets in Resources */,
-				54D1F7D02AA80F780025312B /* GoogleService-Info.plist in Resources */,
+				4B74204B2AA80F2C00818257 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -426,6 +429,7 @@
 				2FAB80542AA7FF6D0091D8CC /* ReviewManageDetailView.swift in Sources */,
 				2FAB80512AA7FF6D0091D8CC /* ReservationCell.swift in Sources */,
 				2FAB806A2AA807140091D8CC /* PlaceAddView.swift in Sources */,
+				2F36A56B2AA81EEC00578AEB /* ReviewWithCommentCell.swift in Sources */,
 				4B7420382AA80A5800818257 /* ReservationListModalView.swift in Sources */,
 				2FAB806D2AA807140091D8CC /* PlaceInfomationButtonView.swift in Sources */,
 				4B7420402AA80AF500818257 /* CategoryButton.swift in Sources */,

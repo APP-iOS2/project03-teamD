@@ -6,15 +6,19 @@
 //
 
 import SwiftUI
+import BinGongGanCore
 
 struct ReservationListModalView: View {
+    static let uiViewWidth = UIScreen.main.bounds.width
+    
     var body: some View {
         VStack {
             HStack{
                 Text("예약 내역 확인")
-                    .font(.title)
+                    .font(.title2)
                     .bold()
                     .padding([.top, .leading], 20)
+                    .foregroundColor(Color.myDarkGray)
                 Spacer()
             }
             ReservationCell()
@@ -31,12 +35,13 @@ struct ReservationListModalView: View {
                         Text("예약확정")
                             .font(.title3)
                             .bold()
-                            .foregroundColor(.white)
+                            .foregroundColor(.myWhite)
                         Spacer()
                     }
-                }).buttonStyle(.plain)
-                    .frame(width: UIScreen.main.bounds.width / 2, height: 50)
-                    .background(Color.green)
+                })
+                .buttonStyle(.plain)
+                .frame(width: ReservationListModalView.uiViewWidth / 2, height: 50)
+                .background(Color.myPrimary)
                 Spacer(minLength: 1)
                 Button(action: {},
                        label: {
@@ -45,14 +50,16 @@ struct ReservationListModalView: View {
                         Text("예약거절")
                             .font(.title3)
                             .bold()
-                            .foregroundColor(.white)
+                            .foregroundColor(.myWhite)
                         Spacer()
                     }
-                }).buttonStyle(.plain)
-                    .frame(width: UIScreen.main.bounds.width / 2, height: 50)
-                    .background(Color.green)
+                })
+                .buttonStyle(.plain)
+                .frame(width: ReservationListModalView.uiViewWidth / 2, height: 50)
+                .background(Color.myPrimary)
             }
         }
+        .background(Color.myBackground)
     }
 }
 
