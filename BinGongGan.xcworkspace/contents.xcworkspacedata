@@ -5,7 +5,7 @@
       location = "group:BinGongGanCore">
    </FileRef>
    <FileRef
-      location = "group:BinGongGan_User/BinGongGan_User.xcodeproj">
+      location = "container:BinGongGan_User/BinGongGan_User.xcodeproj">
    </FileRef>
    <FileRef
       location = "group:BinGongGan_Seller/BinGongGan_Seller.xcodeproj">
