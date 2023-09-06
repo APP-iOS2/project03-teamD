@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2F36A56B2AA81EEC00578AEB /* ReviewWithCommentCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F36A56A2AA81EEC00578AEB /* ReviewWithCommentCell.swift */; };
 		2FAB80512AA7FF6D0091D8CC /* ReservationCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FAB804D2AA7FF6C0091D8CC /* ReservationCell.swift */; };
 		2FAB80522AA7FF6D0091D8CC /* ReviewManageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FAB804E2AA7FF6C0091D8CC /* ReviewManageView.swift */; };
 		2FAB80532AA7FF6D0091D8CC /* ReviewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FAB804F2AA7FF6C0091D8CC /* ReviewCell.swift */; };
@@ -57,6 +58,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		2F36A56A2AA81EEC00578AEB /* ReviewWithCommentCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewWithCommentCell.swift; sourceTree = "<group>"; };
 		2FAB804D2AA7FF6C0091D8CC /* ReservationCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReservationCell.swift; sourceTree = "<group>"; };
 		2FAB804E2AA7FF6C0091D8CC /* ReviewManageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReviewManageView.swift; sourceTree = "<group>"; };
 		2FAB804F2AA7FF6C0091D8CC /* ReviewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReviewCell.swift; sourceTree = "<group>"; };
@@ -135,6 +137,7 @@
 				2FAB80622AA8029A0091D8CC /* SellerInformationCell.swift */,
 				2FAB804D2AA7FF6C0091D8CC /* ReservationCell.swift */,
 				2FAB804F2AA7FF6C0091D8CC /* ReviewCell.swift */,
+				2F36A56A2AA81EEC00578AEB /* ReviewWithCommentCell.swift */,
 			);
 			path = Cell;
 			sourceTree = "<group>";
@@ -218,7 +221,6 @@
 				2FAB805A2AA7FFC10091D8CC /* MyInfoVIew.swift */,
 				2FAB805B2AA7FFC10091D8CC /* MyPlaceManagementView.swift */,
 				B12A84722AA6EFE900BDF8CA /* Assets.xcassets */,
-				4B74203C2AA80ACC00818257 /* AnnouncementView.swift */,
 				B12A84742AA6EFE900BDF8CA /* Preview Content */,
 				4B74203C2AA80ACC00818257 /* AnnouncementView.swift */,
 			);
@@ -427,6 +429,7 @@
 				2FAB80542AA7FF6D0091D8CC /* ReviewManageDetailView.swift in Sources */,
 				2FAB80512AA7FF6D0091D8CC /* ReservationCell.swift in Sources */,
 				2FAB806A2AA807140091D8CC /* PlaceAddView.swift in Sources */,
+				2F36A56B2AA81EEC00578AEB /* ReviewWithCommentCell.swift in Sources */,
 				4B7420382AA80A5800818257 /* ReservationListModalView.swift in Sources */,
 				2FAB806D2AA807140091D8CC /* PlaceInfomationButtonView.swift in Sources */,
 				4B7420402AA80AF500818257 /* CategoryButton.swift in Sources */,

@@ -9,19 +9,24 @@ import SwiftUI
 
 struct ReviewManageDetailView: View {
     var body: some View {
-        ScrollView {
-            ReservationCell()
-                .padding()
+        ZStack {
+            Color.myBackground
+                .ignoresSafeArea(.all)
             
-            ReviewCell()
-            
-            Spacer()
-            
-            Button("리뷰 신고하기", role: .destructive) {
+            ScrollView {
+                ReservationCell()
                 
+                ReviewCell()
+                    .padding()
+                
+                Spacer()
+                
+                Button("리뷰 신고하기", role: .destructive) {
+                    
+                }
             }
+            .navigationTitle("리뷰 관리")
         }
-        .navigationTitle("리뷰 관리")
     }
 }
 
