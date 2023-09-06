@@ -7,6 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2FAB804C2AA7FF330091D8CC /* Home in Resources */ = {isa = PBXBuildFile; fileRef = 2FAB804B2AA7FF330091D8CC /* Home */; };
+		2FAB80512AA7FF6D0091D8CC /* ReservationCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FAB804D2AA7FF6C0091D8CC /* ReservationCell.swift */; };
+		2FAB80522AA7FF6D0091D8CC /* ReviewManageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FAB804E2AA7FF6C0091D8CC /* ReviewManageView.swift */; };
+		2FAB80532AA7FF6D0091D8CC /* ReviewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FAB804F2AA7FF6C0091D8CC /* ReviewCell.swift */; };
+		2FAB80542AA7FF6D0091D8CC /* ReviewManageDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FAB80502AA7FF6D0091D8CC /* ReviewManageDetailView.swift */; };
+		2FAB805C2AA7FFC10091D8CC /* MyPlaceManagementView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FAB805B2AA7FFC10091D8CC /* MyPlaceManagementView.swift */; };
+		2FAB805D2AA7FFC10091D8CC /* MyInfoVIew.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FAB805A2AA7FFC10091D8CC /* MyInfoVIew.swift */; };
 		B12A846F2AA6EFE700BDF8CA /* BinGongGan_SellerApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = B12A846E2AA6EFE700BDF8CA /* BinGongGan_SellerApp.swift */; };
 		B12A84732AA6EFE900BDF8CA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B12A84722AA6EFE900BDF8CA /* Assets.xcassets */; };
 		B12A84762AA6EFE900BDF8CA /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B12A84752AA6EFE900BDF8CA /* Preview Assets.xcassets */; };
@@ -41,6 +48,17 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		2FAB804B2AA7FF330091D8CC /* Home */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Home; sourceTree = "<group>"; };
+		2FAB804D2AA7FF6C0091D8CC /* ReservationCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReservationCell.swift; sourceTree = "<group>"; };
+		2FAB804E2AA7FF6C0091D8CC /* ReviewManageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReviewManageView.swift; sourceTree = "<group>"; };
+		2FAB804F2AA7FF6C0091D8CC /* ReviewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReviewCell.swift; sourceTree = "<group>"; };
+		2FAB80502AA7FF6D0091D8CC /* ReviewManageDetailView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReviewManageDetailView.swift; sourceTree = "<group>"; };
+		2FAB80562AA7FF960091D8CC /* PhotoSelectedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoSelectedView.swift; sourceTree = "<group>"; };
+		2FAB80572AA7FF960091D8CC /* PlaceMapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceMapView.swift; sourceTree = "<group>"; };
+		2FAB80582AA7FF960091D8CC /* PlaceInfomationButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceInfomationButtonView.swift; sourceTree = "<group>"; };
+		2FAB80592AA7FF960091D8CC /* PlaceAddView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceAddView.swift; sourceTree = "<group>"; };
+		2FAB805A2AA7FFC10091D8CC /* MyInfoVIew.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyInfoVIew.swift; sourceTree = "<group>"; };
+		2FAB805B2AA7FFC10091D8CC /* MyPlaceManagementView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPlaceManagementView.swift; sourceTree = "<group>"; };
 		B12A846B2AA6EFE700BDF8CA /* BinGongGan_Seller.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BinGongGan_Seller.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B12A846E2AA6EFE700BDF8CA /* BinGongGan_SellerApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BinGongGan_SellerApp.swift; sourceTree = "<group>"; };
 		B12A84722AA6EFE900BDF8CA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -83,6 +101,35 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2FAB80552AA7FF960091D8CC /* PlaceAdd */ = {
+			isa = PBXGroup;
+			children = (
+				2FAB80562AA7FF960091D8CC /* PhotoSelectedView.swift */,
+				2FAB80572AA7FF960091D8CC /* PlaceMapView.swift */,
+				2FAB80582AA7FF960091D8CC /* PlaceInfomationButtonView.swift */,
+				2FAB80592AA7FF960091D8CC /* PlaceAddView.swift */,
+			);
+			path = PlaceAdd;
+			sourceTree = "<group>";
+		};
+		2FAB805E2AA7FFD20091D8CC /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				2FAB804D2AA7FF6C0091D8CC /* ReservationCell.swift */,
+				2FAB804F2AA7FF6C0091D8CC /* ReviewCell.swift */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
+		2FAB805F2AA7FFF30091D8CC /* Review */ = {
+			isa = PBXGroup;
+			children = (
+				2FAB804E2AA7FF6C0091D8CC /* ReviewManageView.swift */,
+				2FAB80502AA7FF6D0091D8CC /* ReviewManageDetailView.swift */,
+			);
+			path = Review;
+			sourceTree = "<group>";
+		};
 		B12A84622AA6EFE700BDF8CA = {
 			isa = PBXGroup;
 			children = (
@@ -107,10 +154,16 @@
 		B12A846D2AA6EFE700BDF8CA /* BinGongGan_Seller */ = {
 			isa = PBXGroup;
 			children = (
-				B12A84722AA6EFE900BDF8CA /* Assets.xcassets */,
-				B12A85012AA7A8DE00BDF8CA /* Document */,
 				B12A85002AA7A8CA00BDF8CA /* App */,
+				B12A85012AA7A8DE00BDF8CA /* Document */,
 				B12A85042AA7A98900BDF8CA /* TabBar */,
+				2FAB805E2AA7FFD20091D8CC /* Cell */,
+				2FAB804B2AA7FF330091D8CC /* Home */,
+				2FAB80552AA7FF960091D8CC /* PlaceAdd */,
+				2FAB805F2AA7FFF30091D8CC /* Review */,
+				2FAB805A2AA7FFC10091D8CC /* MyInfoVIew.swift */,
+				2FAB805B2AA7FFC10091D8CC /* MyPlaceManagementView.swift */,
+				B12A84722AA6EFE900BDF8CA /* Assets.xcassets */,
 				B12A84742AA6EFE900BDF8CA /* Preview Content */,
 			);
 			path = BinGongGan_Seller;
@@ -286,6 +339,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B12A84EE2AA6F0E800BDF8CA /* GoogleService-Info.plist in Resources */,
+				2FAB804C2AA7FF330091D8CC /* Home in Resources */,
 				B12A84762AA6EFE900BDF8CA /* Preview Assets.xcassets in Resources */,
 				B12A84732AA6EFE900BDF8CA /* Assets.xcassets in Resources */,
 			);
@@ -314,8 +368,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2FAB805D2AA7FFC10091D8CC /* MyInfoVIew.swift in Sources */,
+				2FAB80542AA7FF6D0091D8CC /* ReviewManageDetailView.swift in Sources */,
+				2FAB80512AA7FF6D0091D8CC /* ReservationCell.swift in Sources */,
+				2FAB80532AA7FF6D0091D8CC /* ReviewCell.swift in Sources */,
 				B12A85072AA7AA7500BDF8CA /* MainTabView.swift in Sources */,
 				B12A846F2AA6EFE700BDF8CA /* BinGongGan_SellerApp.swift in Sources */,
+				2FAB80522AA7FF6D0091D8CC /* ReviewManageView.swift in Sources */,
+				2FAB805C2AA7FFC10091D8CC /* MyPlaceManagementView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
