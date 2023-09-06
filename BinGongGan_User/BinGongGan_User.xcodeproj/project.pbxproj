@@ -59,6 +59,7 @@
 		BC344F102AA8093800F8CEB3 /* HomePlaceListRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC344F0E2AA8093800F8CEB3 /* HomePlaceListRow.swift */; };
 		BC344F112AA8093800F8CEB3 /* PublicPlaceListRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC344F0F2AA8093800F8CEB3 /* PublicPlaceListRow.swift */; };
 		BC344F152AA80BF300F8CEB3 /* HomeDummy.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC344F142AA80BF300F8CEB3 /* HomeDummy.swift */; };
+		BC344F182AA81EFF00F8CEB3 /* SubGongGanSelectView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC344F172AA81EFF00F8CEB3 /* SubGongGanSelectView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -128,6 +129,8 @@
 		BC344F0E2AA8093800F8CEB3 /* HomePlaceListRow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomePlaceListRow.swift; sourceTree = "<group>"; };
 		BC344F0F2AA8093800F8CEB3 /* PublicPlaceListRow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PublicPlaceListRow.swift; sourceTree = "<group>"; };
 		BC344F142AA80BF300F8CEB3 /* HomeDummy.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeDummy.swift; sourceTree = "<group>"; };
+		BC344F172AA81EFF00F8CEB3 /* SubGongGanSelectView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubGongGanSelectView.swift; sourceTree = "<group>"; };
+		BC344F192AA83C4000F8CEB3 /* BinGongGan-User-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "BinGongGan-User-Info.plist"; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -251,6 +254,7 @@
 		B12A84A32AA6F00D00BDF8CA /* BinGongGan_User */ = {
 			isa = PBXGroup;
 			children = (
+				BC344F192AA83C4000F8CEB3 /* BinGongGan-User-Info.plist */,
 				538D7AC82AA802CB00D0B21A /* MyPage */,
 				B12A84E92AA6F0CE00BDF8CA /* GoogleService-Info.plist */,
 				B12A84A82AA6F01000BDF8CA /* Assets.xcassets */,
@@ -331,8 +335,8 @@
 		BC344EC22AA8071400F8CEB3 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				BC344F142AA80BF300F8CEB3 /* HomeDummy.swift */,
 				BC344EC52AA8072000F8CEB3 /* GongGanInfo.swift */,
+				BC344F142AA80BF300F8CEB3 /* HomeDummy.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -351,6 +355,7 @@
 			isa = PBXGroup;
 			children = (
 				BC344ECF2AA8073600F8CEB3 /* GongGanDetailView.swift */,
+				BC344F172AA81EFF00F8CEB3 /* SubGongGanSelectView.swift */,
 				BC344ED02AA8073700F8CEB3 /* SubGongGanDetailView.swift */,
 			);
 			path = Detail;
@@ -571,20 +576,12 @@
 				538D7ADB2AA802CB00D0B21A /* MyPageMainView.swift in Sources */,
 				3AE911652AA7FDCC005E4F71 /* CustomTextField.swift in Sources */,
 				538D7AE52AA802CB00D0B21A /* PasswordEditView.swift in Sources */,
-				BC344ECB2AA8072000F8CEB3 /* ReservationStore.swift in Sources */,
-				BC344EDC2AA8074500F8CEB3 /* HomeView.swift in Sources */,
-				BC344EE62AA8075300F8CEB3 /* ReservationView.swift in Sources */,
-				BC344EDD2AA8074500F8CEB3 /* HomePlaceListView.swift in Sources */,
-				BC344EE52AA8075300F8CEB3 /* ReservationCalendarView.swift in Sources */,
-				BC344EE72AA8075300F8CEB3 /* ContentView.swift in Sources */,
-				BC344F132AA8095200F8CEB3 /* HomeDummy.swift in Sources */,
 				BC344F0C2AA8092E00F8CEB3 /* HomeEventTapView.swift in Sources */,
 				BC344F0D2AA8092E00F8CEB3 /* PlaceListButtonView.swift in Sources */,
 				BC344F012AA808FC00F8CEB3 /* MDPMonthYearPicker.swift in Sources */,
 				BC344EF02AA808DB00F8CEB3 /* Reservation.swift in Sources */,
 				BC344F032AA808FC00F8CEB3 /* MDPContentView.swift in Sources */,
 				BC344EEE2AA808DB00F8CEB3 /* ReservationCalendarView.swift in Sources */,
-				B12A84A72AA6F00D00BDF8CA /* ContentView.swift in Sources */,
 				BC344F022AA808FC00F8CEB3 /* MDPModel.swift in Sources */,
 				BC344F112AA8093800F8CEB3 /* PublicPlaceListRow.swift in Sources */,
 				BC344ED22AA8073700F8CEB3 /* SubGongGanDetailView.swift in Sources */,
@@ -602,6 +599,7 @@
 				BC344F092AA8092E00F8CEB3 /* PublicPlaceListView.swift in Sources */,
 				BC344EFD2AA808FC00F8CEB3 /* MDPDayView.swift in Sources */,
 				BC344EC02AA806FF00F8CEB3 /* GongGanTabView.swift in Sources */,
+				BC344F182AA81EFF00F8CEB3 /* SubGongGanSelectView.swift in Sources */,
 				BC344EF12AA808DB00F8CEB3 /* ReservationStore.swift in Sources */,
 				3AE911652AA7FDCC005E4F71 /* CustomTextField.swift in Sources */,
 				BC344F0B2AA8092E00F8CEB3 /* HomeSearchView.swift in Sources */,
@@ -764,8 +762,10 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"BinGongGan_User/Preview Content\"";
+				DEVELOPMENT_TEAM = 6R3M7VGRP2;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "BinGongGan-User-Info.plist";
 				INFOPLIST_KEY_CFBundleDisplayName = "빈공간";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -793,8 +793,10 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"BinGongGan_User/Preview Content\"";
+				DEVELOPMENT_TEAM = 6R3M7VGRP2;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "BinGongGan-User-Info.plist";
 				INFOPLIST_KEY_CFBundleDisplayName = "빈공간";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
