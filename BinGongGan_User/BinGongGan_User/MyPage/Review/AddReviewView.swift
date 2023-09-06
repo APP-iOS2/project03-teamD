@@ -28,7 +28,7 @@ struct AddReviewView: View {
                         Button {
                             starRating = index + 1
                             print(index)
-                        }label: {
+                        } label: {
                             Image(systemName: "star.fill")
                         }
                         .foregroundColor(index < self.starRating ? .yellow : .myLightGray)

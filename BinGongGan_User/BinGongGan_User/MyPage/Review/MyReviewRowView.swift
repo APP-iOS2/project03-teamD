@@ -21,10 +21,10 @@ struct MyReviewRowView: View {
     @State private var isFolded: Bool = true
     var body: some View {
         VStack(alignment: .leading){
-            ZStack{
-                NavigationLink{
+            ZStack {
+                NavigationLink {
                     GongGanDetailView()
-                }label: {
+                } label: {
 
                 }
             }
