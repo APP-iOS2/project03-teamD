@@ -28,6 +28,9 @@
 		4B7420402AA80AF500818257 /* CategoryButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B74203F2AA80AF500818257 /* CategoryButton.swift */; };
 		4B7420422AA80B1B00818257 /* CategoryButtonsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B7420412AA80B1B00818257 /* CategoryButtonsView.swift */; };
 		4B7420462AA80BA400818257 /* CategoryModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B7420452AA80BA400818257 /* CategoryModel.swift */; };
+		4B74204B2AA80F2C00818257 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4B74204A2AA80F2C00818257 /* GoogleService-Info.plist */; };
+		4BC0BD692AA834F000B792B8 /* AnnouncementTextRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BC0BD682AA834F000B792B8 /* AnnouncementTextRow.swift */; };
+		4BC0BD6B2AA83E3700B792B8 /* AnnouncementDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BC0BD6A2AA83E3700B792B8 /* AnnouncementDetailView.swift */; };
 		545AA9C02AA8380000A281D0 /* PlaceModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 545AA9BF2AA8380000A281D0 /* PlaceModel.swift */; };
 		545AA9C22AA83A8A00A281D0 /* PlaceInfomationModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 545AA9C12AA83A8A00A281D0 /* PlaceInfomationModel.swift */; };
 		6A3B443C2AA83058008CC944 /* ReservationTapType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A3B443B2AA83058008CC944 /* ReservationTapType.swift */; };
@@ -90,6 +93,9 @@
 		4B74203F2AA80AF500818257 /* CategoryButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryButton.swift; sourceTree = "<group>"; };
 		4B7420412AA80B1B00818257 /* CategoryButtonsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryButtonsView.swift; sourceTree = "<group>"; };
 		4B7420452AA80BA400818257 /* CategoryModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryModel.swift; sourceTree = "<group>"; };
+		4B74204A2AA80F2C00818257 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		4BC0BD682AA834F000B792B8 /* AnnouncementTextRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnnouncementTextRow.swift; sourceTree = "<group>"; };
+		4BC0BD6A2AA83E3700B792B8 /* AnnouncementDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnnouncementDetailView.swift; sourceTree = "<group>"; };
 		545AA9BF2AA8380000A281D0 /* PlaceModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceModel.swift; sourceTree = "<group>"; };
 		545AA9C12AA83A8A00A281D0 /* PlaceInfomationModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceInfomationModel.swift; sourceTree = "<group>"; };
 		6A3B443B2AA83058008CC944 /* ReservationTapType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReservationTapType.swift; sourceTree = "<group>"; };
@@ -237,6 +243,14 @@
 			path = Document;
 			sourceTree = "<group>";
 		};
+		4BC0BD672AA834D400B792B8 /* Announcement */ = {
+			isa = PBXGroup;
+			children = (
+				4B74203C2AA80ACC00818257 /* AnnouncementView.swift */,
+				4BC0BD682AA834F000B792B8 /* AnnouncementTextRow.swift */,
+				4BC0BD6A2AA83E3700B792B8 /* AnnouncementDetailView.swift */,
+			);
+			path = Announcement;
 		6A3B44362AA82F83008CC944 /* ReservationDetails */ = {
 			isa = PBXGroup;
 			children = (
@@ -319,7 +333,7 @@
 				2FAB805B2AA7FFC10091D8CC /* MyPlaceManagementView.swift */,
 				B12A84722AA6EFE900BDF8CA /* Assets.xcassets */,
 				B12A84742AA6EFE900BDF8CA /* Preview Content */,
-				4B74203C2AA80ACC00818257 /* AnnouncementView.swift */,
+				4BC0BD672AA834D400B792B8 /* Announcement */,
 			);
 			path = BinGongGan_Seller;
 			sourceTree = "<group>";
@@ -505,6 +519,7 @@
 			files = (
 				6A3B444A2AA830F4008CC944 /* ReservationDetailsCalendarView.swift in Sources */,
 				2FAB806B2AA807140091D8CC /* PhotoSelectedView.swift in Sources */,
+				4BC0BD692AA834F000B792B8 /* AnnouncementTextRow.swift in Sources */,
 				2FAB805D2AA7FFC10091D8CC /* MyInfoVIew.swift in Sources */,
 				6A3B44462AA830D4008CC944 /* ReservationDetailsListView.swift in Sources */,
 				6A3B44422AA83099008CC944 /* ReservationDetailsView.swift in Sources */,
@@ -517,6 +532,7 @@
 				2FAB806A2AA807140091D8CC /* PlaceAddView.swift in Sources */,
 				2F36A56B2AA81EEC00578AEB /* ReviewWithCommentCell.swift in Sources */,
 				4B7420382AA80A5800818257 /* ReservationListModalView.swift in Sources */,
+				4BC0BD6B2AA83E3700B792B8 /* AnnouncementDetailView.swift in Sources */,
 				2FAB806D2AA807140091D8CC /* PlaceInfomationButtonView.swift in Sources */,
 				4B7420402AA80AF500818257 /* CategoryButton.swift in Sources */,
 				2FAB80532AA7FF6D0091D8CC /* ReviewCell.swift in Sources */,

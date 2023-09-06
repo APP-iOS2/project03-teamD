@@ -22,6 +22,7 @@ struct ReservationListModalView: View {
                 Spacer()
             }
             ReservationCell()
+            Spacer()
             Text("반드시 사용자 입금 확인 후 예약확정 버튼을 누르세요 ")
                 .foregroundColor(.red)
                 .bold()
