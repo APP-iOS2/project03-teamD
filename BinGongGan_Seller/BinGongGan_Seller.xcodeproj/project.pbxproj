@@ -46,14 +46,32 @@
 		6A3B444C2AA83119008CC944 /* ReservationConfirmedCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A3B444B2AA83119008CC944 /* ReservationConfirmedCell.swift */; };
 		B12A846F2AA6EFE700BDF8CA /* BinGongGan_SellerApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = B12A846E2AA6EFE700BDF8CA /* BinGongGan_SellerApp.swift */; };
 		B12A84732AA6EFE900BDF8CA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B12A84722AA6EFE900BDF8CA /* Assets.xcassets */; };
-		B12A84762AA6EFE900BDF8CA /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B12A84752AA6EFE900BDF8CA /* Preview Assets.xcassets */; };
 		B12A84802AA6EFEA00BDF8CA /* BinGongGan_SellerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B12A847F2AA6EFEA00BDF8CA /* BinGongGan_SellerTests.swift */; };
 		B12A848A2AA6EFEA00BDF8CA /* BinGongGan_SellerUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B12A84892AA6EFEA00BDF8CA /* BinGongGan_SellerUITests.swift */; };
 		B12A848C2AA6EFEA00BDF8CA /* BinGongGan_SellerUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B12A848B2AA6EFEA00BDF8CA /* BinGongGan_SellerUITestsLaunchTests.swift */; };
 		B12A84D72AA6F06900BDF8CA /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = B12A84D62AA6F06900BDF8CA /* FirebaseAuth */; };
 		B12A84D92AA6F06900BDF8CA /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = B12A84D82AA6F06900BDF8CA /* FirebaseFirestore */; };
 		B12A84DB2AA6F06900BDF8CA /* FirebaseFirestoreSwift in Frameworks */ = {isa = PBXBuildFile; productRef = B12A84DA2AA6F06900BDF8CA /* FirebaseFirestoreSwift */; };
+		B12A84EE2AA6F0E800BDF8CA /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = B12A84ED2AA6F0E800BDF8CA /* GoogleService-Info.plist */; };
+		B12A84EF2AA6F0E800BDF8CA /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = B12A84ED2AA6F0E800BDF8CA /* GoogleService-Info.plist */; };
+		B12A84F02AA6F0E800BDF8CA /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = B12A84ED2AA6F0E800BDF8CA /* GoogleService-Info.plist */; };
 		B12A84FE2AA7A66000BDF8CA /* BinGongGanCore in Frameworks */ = {isa = PBXBuildFile; productRef = B12A84FD2AA7A66000BDF8CA /* BinGongGanCore */; };
+		BCE658222AA8AC420009ECD1 /* MySpaceCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCE6581E2AA8AC420009ECD1 /* MySpaceCell.swift */; };
+		BCE658232AA8AC420009ECD1 /* ReviewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCE6581F2AA8AC420009ECD1 /* ReviewCell.swift */; };
+		BCE658242AA8AC420009ECD1 /* ReservationCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCE658202AA8AC420009ECD1 /* ReservationCell.swift */; };
+		BCE658252AA8AC420009ECD1 /* SellerInformationCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCE658212AA8AC420009ECD1 /* SellerInformationCell.swift */; };
+		BCE6582F2AA8AC530009ECD1 /* CategoryButtonsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCE658282AA8AC530009ECD1 /* CategoryButtonsView.swift */; };
+		BCE658302AA8AC530009ECD1 /* CategoryButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCE658292AA8AC530009ECD1 /* CategoryButton.swift */; };
+		BCE658312AA8AC530009ECD1 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCE6582A2AA8AC530009ECD1 /* HomeView.swift */; };
+		BCE658322AA8AC530009ECD1 /* ReservationListModalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCE6582C2AA8AC530009ECD1 /* ReservationListModalView.swift */; };
+		BCE658332AA8AC530009ECD1 /* CategoryModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCE6582E2AA8AC530009ECD1 /* CategoryModel.swift */; };
+		BCE658392AA8AC5A0009ECD1 /* PhotoSelectedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCE658352AA8AC5A0009ECD1 /* PhotoSelectedView.swift */; };
+		BCE6583A2AA8AC5A0009ECD1 /* PlaceMapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCE658362AA8AC5A0009ECD1 /* PlaceMapView.swift */; };
+		BCE6583B2AA8AC5A0009ECD1 /* PlaceInfomationButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCE658372AA8AC5A0009ECD1 /* PlaceInfomationButtonView.swift */; };
+		BCE6583C2AA8AC5A0009ECD1 /* PlaceAddView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCE658382AA8AC5A0009ECD1 /* PlaceAddView.swift */; };
+		BCE658402AA8AC620009ECD1 /* ReviewManageDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCE6583E2AA8AC620009ECD1 /* ReviewManageDetailView.swift */; };
+		BCE658412AA8AC620009ECD1 /* ReviewManageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCE6583F2AA8AC620009ECD1 /* ReviewManageView.swift */; };
+		BCE658452AA8AD0E0009ECD1 /* MyPlaceManagementView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCE658432AA8AD0E0009ECD1 /* MyPlaceManagementView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -114,12 +132,28 @@
 		B12A846B2AA6EFE700BDF8CA /* BinGongGan_Seller.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BinGongGan_Seller.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B12A846E2AA6EFE700BDF8CA /* BinGongGan_SellerApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BinGongGan_SellerApp.swift; sourceTree = "<group>"; };
 		B12A84722AA6EFE900BDF8CA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		B12A84752AA6EFE900BDF8CA /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		B12A847B2AA6EFEA00BDF8CA /* BinGongGan_SellerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BinGongGan_SellerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		B12A847F2AA6EFEA00BDF8CA /* BinGongGan_SellerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BinGongGan_SellerTests.swift; sourceTree = "<group>"; };
 		B12A84852AA6EFEA00BDF8CA /* BinGongGan_SellerUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BinGongGan_SellerUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		B12A84892AA6EFEA00BDF8CA /* BinGongGan_SellerUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BinGongGan_SellerUITests.swift; sourceTree = "<group>"; };
 		B12A848B2AA6EFEA00BDF8CA /* BinGongGan_SellerUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BinGongGan_SellerUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		B12A84ED2AA6F0E800BDF8CA /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		BCE6581E2AA8AC420009ECD1 /* MySpaceCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MySpaceCell.swift; sourceTree = "<group>"; };
+		BCE6581F2AA8AC420009ECD1 /* ReviewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReviewCell.swift; sourceTree = "<group>"; };
+		BCE658202AA8AC420009ECD1 /* ReservationCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReservationCell.swift; sourceTree = "<group>"; };
+		BCE658212AA8AC420009ECD1 /* SellerInformationCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SellerInformationCell.swift; sourceTree = "<group>"; };
+		BCE658282AA8AC530009ECD1 /* CategoryButtonsView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CategoryButtonsView.swift; sourceTree = "<group>"; };
+		BCE658292AA8AC530009ECD1 /* CategoryButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CategoryButton.swift; sourceTree = "<group>"; };
+		BCE6582A2AA8AC530009ECD1 /* HomeView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
+		BCE6582C2AA8AC530009ECD1 /* ReservationListModalView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReservationListModalView.swift; sourceTree = "<group>"; };
+		BCE6582E2AA8AC530009ECD1 /* CategoryModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CategoryModel.swift; sourceTree = "<group>"; };
+		BCE658352AA8AC5A0009ECD1 /* PhotoSelectedView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoSelectedView.swift; sourceTree = "<group>"; };
+		BCE658362AA8AC5A0009ECD1 /* PlaceMapView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlaceMapView.swift; sourceTree = "<group>"; };
+		BCE658372AA8AC5A0009ECD1 /* PlaceInfomationButtonView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlaceInfomationButtonView.swift; sourceTree = "<group>"; };
+		BCE658382AA8AC5A0009ECD1 /* PlaceAddView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlaceAddView.swift; sourceTree = "<group>"; };
+		BCE6583E2AA8AC620009ECD1 /* ReviewManageDetailView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReviewManageDetailView.swift; sourceTree = "<group>"; };
+		BCE6583F2AA8AC620009ECD1 /* ReviewManageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReviewManageView.swift; sourceTree = "<group>"; };
+		BCE658432AA8AD0E0009ECD1 /* MyPlaceManagementView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyPlaceManagementView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -241,13 +275,6 @@
 			path = HomeModels;
 			sourceTree = "<group>";
 		};
-		4B7420492AA80F2C00818257 /* Document */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Document;
-			sourceTree = "<group>";
-		};
 		4BC0BD702AA8607F00B792B8 /* Announcement */ = {
 			isa = PBXGroup;
 			children = (
@@ -338,9 +365,14 @@
 		B12A846D2AA6EFE700BDF8CA /* BinGongGan_Seller */ = {
 			isa = PBXGroup;
 			children = (
+				BCE658432AA8AD0E0009ECD1 /* MyPlaceManagementView.swift */,
+				BCE6583D2AA8AC620009ECD1 /* Review */,
+				BCE658342AA8AC5A0009ECD1 /* PlaceAdd */,
+				BCE658262AA8AC530009ECD1 /* Home */,
+				BCE6581D2AA8AC420009ECD1 /* Cell */,
+				B12A85012AA7A8DE00BDF8CA /* Document */,
 				54D467782AA8A8F900054F12 /* Chart */,
 				4BC0BD702AA8607F00B792B8 /* Announcement */,
-				4B7420492AA80F2C00818257 /* Document */,
 				B12A85002AA7A8CA00BDF8CA /* App */,
 				2FAB805E2AA7FFD20091D8CC /* Cell */,
 				4B7420392AA80A9000818257 /* Home */,
@@ -350,17 +382,8 @@
 				2FAF0ABF2AA8A90E00113F94 /* MyInfoView.swift */,
 				2FAB805B2AA7FFC10091D8CC /* MyPlaceManagementView.swift */,
 				B12A84722AA6EFE900BDF8CA /* Assets.xcassets */,
-				B12A84742AA6EFE900BDF8CA /* Preview Content */,
 			);
 			path = BinGongGan_Seller;
-			sourceTree = "<group>";
-		};
-		B12A84742AA6EFE900BDF8CA /* Preview Content */ = {
-			isa = PBXGroup;
-			children = (
-				B12A84752AA6EFE900BDF8CA /* Preview Assets.xcassets */,
-			);
-			path = "Preview Content";
 			sourceTree = "<group>";
 		};
 		B12A847E2AA6EFEA00BDF8CA /* BinGongGan_SellerTests */ = {
@@ -393,6 +416,81 @@
 				B12A846E2AA6EFE700BDF8CA /* BinGongGan_SellerApp.swift */,
 			);
 			name = App;
+			sourceTree = "<group>";
+		};
+		B12A85012AA7A8DE00BDF8CA /* Document */ = {
+			isa = PBXGroup;
+			children = (
+				B12A84ED2AA6F0E800BDF8CA /* GoogleService-Info.plist */,
+			);
+			path = Document;
+			sourceTree = "<group>";
+		};
+		BCE6581D2AA8AC420009ECD1 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				BCE6581E2AA8AC420009ECD1 /* MySpaceCell.swift */,
+				BCE6581F2AA8AC420009ECD1 /* ReviewCell.swift */,
+				BCE658202AA8AC420009ECD1 /* ReservationCell.swift */,
+				BCE658212AA8AC420009ECD1 /* SellerInformationCell.swift */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
+		BCE658262AA8AC530009ECD1 /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				BCE658272AA8AC530009ECD1 /* HomeCategory */,
+				BCE6582A2AA8AC530009ECD1 /* HomeView.swift */,
+				BCE6582B2AA8AC530009ECD1 /* Reservation */,
+				BCE6582D2AA8AC530009ECD1 /* HomeModels */,
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
+		BCE658272AA8AC530009ECD1 /* HomeCategory */ = {
+			isa = PBXGroup;
+			children = (
+				BCE658282AA8AC530009ECD1 /* CategoryButtonsView.swift */,
+				BCE658292AA8AC530009ECD1 /* CategoryButton.swift */,
+			);
+			path = HomeCategory;
+			sourceTree = "<group>";
+		};
+		BCE6582B2AA8AC530009ECD1 /* Reservation */ = {
+			isa = PBXGroup;
+			children = (
+				BCE6582C2AA8AC530009ECD1 /* ReservationListModalView.swift */,
+			);
+			path = Reservation;
+			sourceTree = "<group>";
+		};
+		BCE6582D2AA8AC530009ECD1 /* HomeModels */ = {
+			isa = PBXGroup;
+			children = (
+				BCE6582E2AA8AC530009ECD1 /* CategoryModel.swift */,
+			);
+			path = HomeModels;
+			sourceTree = "<group>";
+		};
+		BCE658342AA8AC5A0009ECD1 /* PlaceAdd */ = {
+			isa = PBXGroup;
+			children = (
+				BCE658352AA8AC5A0009ECD1 /* PhotoSelectedView.swift */,
+				BCE658362AA8AC5A0009ECD1 /* PlaceMapView.swift */,
+				BCE658372AA8AC5A0009ECD1 /* PlaceInfomationButtonView.swift */,
+				BCE658382AA8AC5A0009ECD1 /* PlaceAddView.swift */,
+			);
+			path = PlaceAdd;
+			sourceTree = "<group>";
+		};
+		BCE6583D2AA8AC620009ECD1 /* Review */ = {
+			isa = PBXGroup;
+			children = (
+				BCE6583E2AA8AC620009ECD1 /* ReviewManageDetailView.swift */,
+				BCE6583F2AA8AC620009ECD1 /* ReviewManageView.swift */,
+			);
+			path = Review;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -508,7 +606,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B12A84762AA6EFE900BDF8CA /* Preview Assets.xcassets in Resources */,
+				B12A84EE2AA6F0E800BDF8CA /* GoogleService-Info.plist in Resources */,
 				B12A84732AA6EFE900BDF8CA /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -517,6 +615,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B12A84EF2AA6F0E800BDF8CA /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -524,6 +623,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B12A84F02AA6F0E800BDF8CA /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -534,6 +634,23 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BCE658302AA8AC530009ECD1 /* CategoryButton.swift in Sources */,
+				BCE6583A2AA8AC5A0009ECD1 /* PlaceMapView.swift in Sources */,
+				BCE658332AA8AC530009ECD1 /* CategoryModel.swift in Sources */,
+				BCE658402AA8AC620009ECD1 /* ReviewManageDetailView.swift in Sources */,
+				BCE658242AA8AC420009ECD1 /* ReservationCell.swift in Sources */,
+				BCE658392AA8AC5A0009ECD1 /* PhotoSelectedView.swift in Sources */,
+				BCE6583C2AA8AC5A0009ECD1 /* PlaceAddView.swift in Sources */,
+				BCE658312AA8AC530009ECD1 /* HomeView.swift in Sources */,
+				BCE658412AA8AC620009ECD1 /* ReviewManageView.swift in Sources */,
+				BCE658232AA8AC420009ECD1 /* ReviewCell.swift in Sources */,
+				BCE6583B2AA8AC5A0009ECD1 /* PlaceInfomationButtonView.swift in Sources */,
+				BCE658252AA8AC420009ECD1 /* SellerInformationCell.swift in Sources */,
+				BCE6582F2AA8AC530009ECD1 /* CategoryButtonsView.swift in Sources */,
+				BCE658322AA8AC530009ECD1 /* ReservationListModalView.swift in Sources */,
+				BCE658452AA8AD0E0009ECD1 /* MyPlaceManagementView.swift in Sources */,
+				BCE658222AA8AC420009ECD1 /* MySpaceCell.swift in Sources */,
+				B12A846F2AA6EFE700BDF8CA /* BinGongGan_SellerApp.swift in Sources */,
 				6A3B444A2AA830F4008CC944 /* ReservationDetailsCalendarView.swift in Sources */,
 				2FAB806B2AA807140091D8CC /* PhotoSelectedView.swift in Sources */,
 				6A3B44462AA830D4008CC944 /* ReservationDetailsListView.swift in Sources */,
