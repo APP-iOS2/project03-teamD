@@ -33,16 +33,17 @@ struct ReviewWithCommentCell: View {
                 Spacer()
             }
             
-            Spacer()
+            Spacer(minLength: 50)
             
             Divider()
             
             HStack {
-                TextField("댓글을 작성하세요.", text: $sellerComment)
+                TextField("댓글을 작성하세요.", text: $sellerComment, axis: .vertical)
                 Button {
                     // TODO: 댓글 업로드 로직 작성하기
                 } label: {
                     Text("게시")
+                        .foregroundColor(sellerComment.isEmpty ? .gray : .blue)
                 }
                 .disabled(sellerComment.isEmpty)
             }
