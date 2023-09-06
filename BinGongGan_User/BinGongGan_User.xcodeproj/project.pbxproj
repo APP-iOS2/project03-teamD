@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		274A7DAD2AA843EF00A7A256 /* SummaryPlaceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 274A7DAB2AA843EF00A7A256 /* SummaryPlaceView.swift */; };
+		274A7DAE2AA843EF00A7A256 /* MapViewCoordinater.swift in Sources */ = {isa = PBXBuildFile; fileRef = 274A7DAC2AA843EF00A7A256 /* MapViewCoordinater.swift */; };
+		274A7DB02AA843F600A7A256 /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 274A7DAF2AA843F600A7A256 /* LocationManager.swift */; };
+		274A7DB22AA843FE00A7A256 /* MapSearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 274A7DB12AA843FE00A7A256 /* MapSearchView.swift */; };
 		3AE911652AA7FDCC005E4F71 /* CustomTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AE911642AA7FDCC005E4F71 /* CustomTextField.swift */; };
 		538D7ADB2AA802CB00D0B21A /* MyPageMainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 538D7AC92AA802CB00D0B21A /* MyPageMainView.swift */; };
 		538D7ADC2AA802CB00D0B21A /* AnnouncementView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 538D7ACB2AA802CB00D0B21A /* AnnouncementView.swift */; };
@@ -77,6 +81,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		274A7DAB2AA843EF00A7A256 /* SummaryPlaceView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SummaryPlaceView.swift; sourceTree = "<group>"; };
+		274A7DAC2AA843EF00A7A256 /* MapViewCoordinater.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapViewCoordinater.swift; sourceTree = "<group>"; };
+		274A7DAF2AA843F600A7A256 /* LocationManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
+		274A7DB12AA843FE00A7A256 /* MapSearchView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapSearchView.swift; sourceTree = "<group>"; };
 		3AE911642AA7FDCC005E4F71 /* CustomTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomTextField.swift; sourceTree = "<group>"; };
 		538D7AC92AA802CB00D0B21A /* MyPageMainView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyPageMainView.swift; sourceTree = "<group>"; };
 		538D7ACB2AA802CB00D0B21A /* AnnouncementView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnnouncementView.swift; sourceTree = "<group>"; };
@@ -157,6 +165,33 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		274A7DA82AA8437F00A7A256 /* MapSearch */ = {
+			isa = PBXGroup;
+			children = (
+				274A7DA92AA8439600A7A256 /* View */,
+			);
+			path = MapSearch;
+			sourceTree = "<group>";
+		};
+		274A7DA92AA8439600A7A256 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				274A7DAA2AA843EF00A7A256 /* MapSearchSubView */,
+				274A7DB12AA843FE00A7A256 /* MapSearchView.swift */,
+				274A7DAF2AA843F600A7A256 /* LocationManager.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		274A7DAA2AA843EF00A7A256 /* MapSearchSubView */ = {
+			isa = PBXGroup;
+			children = (
+				274A7DAB2AA843EF00A7A256 /* SummaryPlaceView.swift */,
+				274A7DAC2AA843EF00A7A256 /* MapViewCoordinater.swift */,
+			);
+			path = MapSearchSubView;
+			sourceTree = "<group>";
+		};
 		3AE911632AA7FDBF005E4F71 /* Common */ = {
 			isa = PBXGroup;
 			children = (
@@ -255,6 +290,7 @@
 				BC344EBA2AA806C200F8CEB3 /* App */,
 				BC344EBD2AA806EC00F8CEB3 /* TapBar */,
 				BC344EC12AA8070800F8CEB3 /* UserHome */,
+				274A7DA82AA8437F00A7A256 /* MapSearch */,
 				3AE911632AA7FDBF005E4F71 /* Common */,
 				B12A84AA2AA6F01000BDF8CA /* Preview Content */,
 			);
@@ -574,8 +610,11 @@
 				538D7AE02AA802CB00D0B21A /* ReservationDetailView.swift in Sources */,
 				538D7ADB2AA802CB00D0B21A /* MyPageMainView.swift in Sources */,
 				3AE911652AA7FDCC005E4F71 /* CustomTextField.swift in Sources */,
+				274A7DAE2AA843EF00A7A256 /* MapViewCoordinater.swift in Sources */,
 				538D7AE52AA802CB00D0B21A /* PasswordEditView.swift in Sources */,
 				BC344F0C2AA8092E00F8CEB3 /* HomeEventTapView.swift in Sources */,
+				274A7DB22AA843FE00A7A256 /* MapSearchView.swift in Sources */,
+				274A7DB02AA843F600A7A256 /* LocationManager.swift in Sources */,
 				BC344F0D2AA8092E00F8CEB3 /* PlaceListButtonView.swift in Sources */,
 				BC344F012AA808FC00F8CEB3 /* MDPMonthYearPicker.swift in Sources */,
 				BC344EF02AA808DB00F8CEB3 /* Reservation.swift in Sources */,
@@ -599,6 +638,7 @@
 				BC344EFD2AA808FC00F8CEB3 /* MDPDayView.swift in Sources */,
 				BC344EC02AA806FF00F8CEB3 /* GongGanTabView.swift in Sources */,
 				BC344EF12AA808DB00F8CEB3 /* ReservationStore.swift in Sources */,
+				274A7DAD2AA843EF00A7A256 /* SummaryPlaceView.swift in Sources */,
 				3AE911652AA7FDCC005E4F71 /* CustomTextField.swift in Sources */,
 				BC344F0B2AA8092E00F8CEB3 /* HomeSearchView.swift in Sources */,
 				BC344EC92AA8072000F8CEB3 /* GongGanInfo.swift in Sources */,
