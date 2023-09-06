@@ -1,13 +1,15 @@
 //
-//  ReviewCell.swift
+//  ReviewWithCommentCell.swift
 //  BinGongGan_Seller
 //
-//  Created by 박채영 on 2023/09/05.
+//  Created by 박채영 on 2023/09/06.
 //
 
 import SwiftUI
 
-struct ReviewCell: View {
+struct ReviewWithCommentCell: View {
+    @State private var sellerComment: String = ""
+    
     var body: some View {
         VStack {
             HStack {
@@ -30,6 +32,21 @@ struct ReviewCell: View {
                 Text("리뷰 내용")
                 Spacer()
             }
+            
+            Spacer(minLength: 50)
+            
+            Divider()
+            
+            HStack {
+                TextField("댓글을 작성하세요.", text: $sellerComment, axis: .vertical)
+                Button {
+                    // TODO: 댓글 업로드 로직 작성하기
+                } label: {
+                    Text("게시")
+                        .foregroundColor(sellerComment.isEmpty ? .gray : .blue)
+                }
+                .disabled(sellerComment.isEmpty)
+            }
         }
         .padding()
         .background(.white)
@@ -38,8 +55,8 @@ struct ReviewCell: View {
     }
 }
 
-struct ReviewCell_Previews: PreviewProvider {
+struct ReviewWithCommentCell_Previews: PreviewProvider {
     static var previews: some View {
-        ReviewCell()
+        ReviewWithCommentCell()
     }
 }
