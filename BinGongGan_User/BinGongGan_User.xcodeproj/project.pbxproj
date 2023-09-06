@@ -251,6 +251,7 @@
 				B12A84A82AA6F01000BDF8CA /* Assets.xcassets */,
 				B15806402AA89795006C772B /* Document */,
 				BC344EBA2AA806C200F8CEB3 /* App */,
+				5398C2142AA8D9F8000BD361 /* Content */,
 				BCE658462AA8AD380009ECD1 /* SignIn */,
 				BCE658562AA8AD4D0009ECD1 /* SignUp */,
 				BC344EBD2AA806EC00F8CEB3 /* TapBar */,
@@ -259,7 +260,6 @@
 				D848247F2AA8A3700067A065 /* MyPage */,
 				3AE911632AA7FDBF005E4F71 /* Common */,
 				B12A84AA2AA6F01000BDF8CA /* Preview Content */,
-				5398C2142AA8D9F8000BD361 /* Content */,
 			);
 			path = BinGongGan_User;
 			sourceTree = "<group>";
