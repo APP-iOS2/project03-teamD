@@ -25,7 +25,7 @@ struct HomeView: View {
     private var isTapSearchButton: Bool = false
     
     var body: some View {
-        NavigationStack {
+        
             ZStack {
                 Spacer().background(Color.myBackground).edgesIgnoringSafeArea(.all)
                 VStack {
@@ -79,10 +79,8 @@ struct HomeView: View {
                     
                 }// VSTACK
                 .edgesIgnoringSafeArea(.all)
-                
-            }
-        }// NAVIGATIONSTACK
-        .background(Color.myWhite)
+            }// ZSTACK
+        
     }// BODY
 }
 

@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		368394DD2AA84732004A3AC3 /* HomeStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 368394DC2AA84732004A3AC3 /* HomeStore.swift */; };
+		36ABB3642AA8C43A00E26C52 /* SwiftUiView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36ABB3632AA8C43A00E26C52 /* SwiftUiView.swift */; };
 		692725592AA81E5300A2441E /* RefundPolicySheetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 692725582AA81E5300A2441E /* RefundPolicySheetView.swift */; };
 		6927255B2AA83ABD00A2441E /* ReservationPlusMinusButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6927255A2AA83ABD00A2441E /* ReservationPlusMinusButton.swift */; };
 		6927255D2AA85A0600A2441E /* PaymentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6927255C2AA85A0600A2441E /* PaymentView.swift */; };
@@ -90,6 +91,7 @@
 
 /* Begin PBXFileReference section */
 		368394DC2AA84732004A3AC3 /* HomeStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeStore.swift; sourceTree = "<group>"; };
+		36ABB3632AA8C43A00E26C52 /* SwiftUiView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftUiView.swift; sourceTree = "<group>"; };
 		692725582AA81E5300A2441E /* RefundPolicySheetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RefundPolicySheetView.swift; sourceTree = "<group>"; };
 		6927255A2AA83ABD00A2441E /* ReservationPlusMinusButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReservationPlusMinusButton.swift; sourceTree = "<group>"; };
 		6927255C2AA85A0600A2441E /* PaymentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentView.swift; sourceTree = "<group>"; };
@@ -302,6 +304,7 @@
 				BC344F1E2AA86A8E00F8CEB3 /* Home.swift */,
 				368394DC2AA84732004A3AC3 /* HomeStore.swift */,
 				BC344EC52AA8072000F8CEB3 /* GongGanInfo.swift */,
+				36ABB3632AA8C43A00E26C52 /* SwiftUiView.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -629,6 +632,7 @@
 				BC344EEE2AA808DB00F8CEB3 /* ReservationCalendarView.swift in Sources */,
 				BC344F022AA808FC00F8CEB3 /* MDPModel.swift in Sources */,
 				BC344ED22AA8073700F8CEB3 /* SubGongGanDetailView.swift in Sources */,
+				36ABB3642AA8C43A00E26C52 /* SwiftUiView.swift in Sources */,
 				BC344EFE2AA808FC00F8CEB3 /* MDPDayOfMonth.swift in Sources */,
 				6927255D2AA85A0600A2441E /* PaymentView.swift in Sources */,
 				BC344EF42AA808E700F8CEB3 /* MultiDatePicker.swift in Sources */,

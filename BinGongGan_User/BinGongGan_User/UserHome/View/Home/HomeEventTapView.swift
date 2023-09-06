@@ -16,9 +16,8 @@ struct HomeEventTapView: View {
     
     @ObservedObject var dummyStore: HomeStore = HomeStore()
     private let screenWidth = UIScreen.main.bounds.width
-    
+    private let timer = Timer.publish(every: 4, on: .main, in: .common).autoconnect()
     @State private var currentPage: Int = 0
-    @State private var num: Int = 0
     
     var body: some View {
         GeometryReader { geometry in
@@ -36,17 +35,11 @@ struct HomeEventTapView: View {
                 }
             }// ScrollView
             .content.offset(x: CGFloat(currentPage) * -geometry.size.width)
-            .onAppear {
-                let timer = Timer.scheduledTimer(withTimeInterval: 3, repeats: true) { timer in
-                    num += 1
-                    if num == 2 {
-                        withAnimation {
-                            currentPage = (currentPage + 1) % dummyStore.EventList.count
-                        }
-                        num = 0
-                    }
+            .onReceive(timer) { _ in
+                // Automatically switch to the next tab
+                withAnimation {
+                    currentPage = (currentPage + 1) % dummyStore.EventList.count
                 }
-                RunLoop.current.add(timer, forMode: .common)
             }
         }// GeometryReader
         .tabViewStyle(PageTabViewStyle())
