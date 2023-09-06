@@ -14,12 +14,7 @@ struct SignUpData {
     var emailId: String = ""
     var password: String = ""
     var passwordCheck: String = ""
-    // 이용약관 동의
-    var termOfUse: Bool = false
-    // 개인정보 수집 동의
-    var privacyAgreement: Bool = false
-    // 위치 동의
-    var locationAgreement: Bool = false
+    var agreement: Bool = false
 }
 
 enum SignUpStep {
@@ -31,5 +26,5 @@ enum SignUpStep {
 class SignUpStore: ObservableObject {
     @Published var signUpData = SignUpData()
     @State var certificateNumber: String = ""
-    @State var third: SignUpStep = .first
+    @Published var currentStep: SignUpStep = .first
 }

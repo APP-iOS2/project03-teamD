@@ -43,7 +43,7 @@ struct CustomTextField: View {
                     }).padding(.trailing, 20)
                 }
             }
-        }
+        }.frame(minHeight: 47, maxHeight: 57)
     }
 }
 struct CustomTextField_Previews: PreviewProvider {

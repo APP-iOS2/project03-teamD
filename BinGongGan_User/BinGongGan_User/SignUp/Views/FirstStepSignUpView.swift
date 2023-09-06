@@ -6,9 +6,11 @@
 //
 
 import SwiftUI
+import BinGongGanCore
 
 struct FirstStepSignUpView: View {
     @EnvironmentObject var store: SignUpStore
+
     var body: some View {
         VStack(alignment: .leading) {
             Group {
@@ -23,15 +25,22 @@ struct FirstStepSignUpView: View {
                     CustomTextField(placeholder: "휴대폰 번호", text: $store.signUpData.phoneNumber)
                     CertificationButton
                 }
-                Spacer(minLength: 25)
             }
+            Spacer(minLength: 25)
             Group {
                 Text("인증 번호")
                     .font(.body1Regular)
-                Spacer(minLength: 25)
+//                Spacer(minLength: 25)
                 CustomTextField(backgroundColor: .myLightGray, placeholder: "인증번호 4자리", text: $store.certificateNumber)
                     .disabled(true)
             }
+            Spacer(minLength: 80)
+            PrimaryButton(action: {
+                withAnimation {
+                    store.currentStep = .second
+                }
+            }, title: "다음")
+            Spacer(minLength: 80)
         }
     }
     
@@ -51,5 +60,6 @@ struct FirstStepSignUpView: View {
 struct FirstStepSignUpView_Previews: PreviewProvider {
     static var previews: some View {
         FirstStepSignUpView()
+            .environmentObject(SignUpStore())
     }
 }

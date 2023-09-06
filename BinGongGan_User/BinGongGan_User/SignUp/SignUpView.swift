@@ -14,21 +14,27 @@ struct SignUpView: View {
         ZStack {
             Color.myBackground
             VStack {
-                Spacer(minLength: 120)
-                Text("회원가입")
-                    .font(.head1Regular)
-                Spacer(minLength: 32)
-                SignUpProgressView
-                Spacer(minLength: 60)
-                FirstStepSignUpView()
-                    .environmentObject(store)
-                Spacer(minLength: 80)
-                PrimaryButton(action: {
-                    
-                }, title: "다음")
-                Spacer(minLength: 90)
+                VStack {
+                    Spacer(minLength: 90)
+                    Text("회원가입")
+                        .font(.head1Regular)
+                    Spacer(minLength: 32)
+                    SignUpProgressView
+                    Spacer()
+                }.frame(height: 190)
+                if store.currentStep == .first {
+                    FirstStepSignUpView()
+                        .environmentObject(store)
+                } else if store.currentStep == .second {
+                    SecondStepSignUpView()
+                        .environmentObject(store)
+                } else {
+                    ThirdStepSignUpView()
+                        .environmentObject(store)
+                }
             }.padding(.horizontal, 20)
         }.edgesIgnoringSafeArea(.all)
+        
     }
     
     var SignUpProgressView: some View {
@@ -39,18 +45,34 @@ struct SignUpView: View {
             Rectangle()
                 .foregroundColor(.clear)
                 .frame(height: 1)
-                .background(Color.myLightGray)
-            Circle()
-                .stroke(Color.mySecondary, lineWidth: 1.3)
-                .frame(width: 12, height: 12)
+                .background(store.currentStep == .first ?  Color.myLightGray : Color.mySecondary)
+            if store.currentStep == .first {
+                ProgressStrokeCircleView
+            } else {
+                ProgressCircleView
+            }
             Rectangle()
                 .foregroundColor(.clear)
                 .frame(height: 1)
-                .background(Color.myLightGray)
-            Circle()
-                .stroke(Color.mySecondary, lineWidth: 1.3)
-                .frame(width: 12, height: 12)
-        }
+                .background(store.currentStep == .third ?  Color.mySecondary : Color.myLightGray)
+            if store.currentStep == .third {
+                ProgressCircleView
+            } else {
+                ProgressStrokeCircleView
+            }
+        }.frame(height: 12)
+    }
+    
+    var ProgressCircleView: some View {
+        Circle()
+            .foregroundColor(.mySecondary)
+            .frame(width: 12, height: 12)
+    }
+    
+    var ProgressStrokeCircleView: some View {
+        Circle()
+            .stroke(Color.mySecondary, lineWidth: 1.3)
+            .frame(width: 12, height: 12)
     }
 }
 
