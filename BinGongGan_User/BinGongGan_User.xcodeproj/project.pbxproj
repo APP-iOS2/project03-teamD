@@ -252,7 +252,7 @@
 			isa = PBXGroup;
 			children = (
 				538D7AC82AA802CB00D0B21A /* MyPage */,
-				B12A84E92AA6F0CE00BDF8CA /* GoogleService-Info.plist */,
+				BC344F162AA81C4A00F8CEB3 /* Document */,
 				B12A84A82AA6F01000BDF8CA /* Assets.xcassets */,
 				BC344EBA2AA806C200F8CEB3 /* App */,
 				BC344EBD2AA806EC00F8CEB3 /* TapBar */,
@@ -414,6 +414,14 @@
 			path = MultiDatePickerSoure;
 			sourceTree = "<group>";
 		};
+		BC344F162AA81C4A00F8CEB3 /* Document */ = {
+			isa = PBXGroup;
+			children = (
+				B12A84E92AA6F0CE00BDF8CA /* GoogleService-Info.plist */,
+			);
+			path = Document;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -571,20 +579,12 @@
 				538D7ADB2AA802CB00D0B21A /* MyPageMainView.swift in Sources */,
 				3AE911652AA7FDCC005E4F71 /* CustomTextField.swift in Sources */,
 				538D7AE52AA802CB00D0B21A /* PasswordEditView.swift in Sources */,
-				BC344ECB2AA8072000F8CEB3 /* ReservationStore.swift in Sources */,
-				BC344EDC2AA8074500F8CEB3 /* HomeView.swift in Sources */,
-				BC344EE62AA8075300F8CEB3 /* ReservationView.swift in Sources */,
-				BC344EDD2AA8074500F8CEB3 /* HomePlaceListView.swift in Sources */,
-				BC344EE52AA8075300F8CEB3 /* ReservationCalendarView.swift in Sources */,
-				BC344EE72AA8075300F8CEB3 /* ContentView.swift in Sources */,
-				BC344F132AA8095200F8CEB3 /* HomeDummy.swift in Sources */,
 				BC344F0C2AA8092E00F8CEB3 /* HomeEventTapView.swift in Sources */,
 				BC344F0D2AA8092E00F8CEB3 /* PlaceListButtonView.swift in Sources */,
 				BC344F012AA808FC00F8CEB3 /* MDPMonthYearPicker.swift in Sources */,
 				BC344EF02AA808DB00F8CEB3 /* Reservation.swift in Sources */,
 				BC344F032AA808FC00F8CEB3 /* MDPContentView.swift in Sources */,
 				BC344EEE2AA808DB00F8CEB3 /* ReservationCalendarView.swift in Sources */,
-				B12A84A72AA6F00D00BDF8CA /* ContentView.swift in Sources */,
 				BC344F022AA808FC00F8CEB3 /* MDPModel.swift in Sources */,
 				BC344F112AA8093800F8CEB3 /* PublicPlaceListRow.swift in Sources */,
 				BC344ED22AA8073700F8CEB3 /* SubGongGanDetailView.swift in Sources */,
