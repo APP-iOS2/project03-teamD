@@ -14,7 +14,6 @@ struct PasswordEditView: View {
     @State private var currentPassword: String = ""
     @State private var newPassword: String = ""
     @State private var newPasswordCheck: String = ""
-    @State private var isShowingAlert: Bool = false
     
     var body: some View {
         VStack {
@@ -55,7 +54,7 @@ struct PasswordEditView: View {
             }
             Spacer()
             Button{
-                isShowingAlert.toggle()
+                
             }label: {
                 Text("변경")
                     .bold()
@@ -77,13 +76,6 @@ struct PasswordEditView: View {
                     Image(systemName: "chevron.left")
                         .foregroundColor(.myPrimary)
                 }
-            }
-        }
-        .alert("비밀번호 변경", isPresented: $isShowingAlert) {
-            Button("취소", role: .cancel) {}
-            Button("변경", role: .destructive) {
-                //TODO: 비밀번호 변경 로직
-                dismiss()
             }
         }
     }
