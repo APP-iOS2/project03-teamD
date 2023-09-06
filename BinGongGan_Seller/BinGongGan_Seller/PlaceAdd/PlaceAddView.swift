@@ -14,23 +14,15 @@ import SwiftUI
 import MapKit
 import BinGongGanCore
 
-enum Place: String, CaseIterable, Identifiable {
-    case 쉐어오피스, 밴드룸, 스튜디오, 키친룸
-    var id: Self { self }
-}
-
 struct PlaceAddView: View {
-    
-
-    @State private var selectedPlace: Place = .쉐어오피스
-    @State var placeNameText: String = ""
-    @State var informationToPassText: String = ""
-    @State var placePriceText: String = ""
-    @State private var region = MKCoordinateRegion(center: CLLocationCoordinate2D(latitude: 37.5666791, longitude: 126.9782914), span: MKCoordinateSpan(latitudeDelta: 0.5, longitudeDelta: 0.5))
-    let columns: [GridItem] = Array(repeating: .init(.flexible()), count: 4)
-    @State var placeInfomations = PlaceInfomationModel.data
-    
-    var selectedInfomations:[String] {
+    @State private var selectedPlace: PlaceCategory = .쉐어오피스
+    @State private var placeNameText: String = ""
+    @State private var informationToPassText: String = ""
+    @State private var placePriceText: String = ""
+    @State private var placeAdress: String = ""
+    @State private var placeInfomations = PlaceInfomationModel.data
+    private let columns: [GridItem] = Array(repeating: .init(.flexible()), count: 4)
+    private var placeInfomationString: [String] {
         placeInfomations.filter {
             $0.isSelected
         }.map {
@@ -39,75 +31,75 @@ struct PlaceAddView: View {
     }
     
     var body: some View {
-        ZStack {
-            Color.myBackground
-                .ignoresSafeArea()
-            ScrollView {
-                VStack(alignment: .leading, spacing: 10) {
-                    Group {
-                        Text("공간 이름")
-                        TextField("공간 이름을 입력하세요", text: $placeNameText)
-                            .textFieldStyle(TextFieldStyles())
-                        
-                        Text("공간 카테고리")
-                        Picker("Place", selection: $selectedPlace) {
-                            Text("쉐어오피스").tag(Place.쉐어오피스)
-                            Text("밴드룸").tag(Place.밴드룸)
-                            Text("스튜디오").tag(Place.스튜디오)
-                            Text("키친룸").tag(Place.키친룸)
-                        }.pickerStyle(.segmented)
-                    }
-                    
-                    Group {
-                        Text("공간 주소")
-                        PlaceMapView(address: placeNameText)
-
-                        Text("공간 대여 가격")
-                        TextField("공간 이름을 입력하세요", text: $placeNameText)
-                            .textFieldStyle(TextFieldStyles())
-                        
-                        Text("공간 사진 등록")
-                        PhotoSelectedView()
-                        
-                        Text("공간 정보")
-                        LazyVGrid(columns: columns, spacing: 8) {
-                            ForEach($placeInfomations) { $infomation in
-                                PlaceInfomationButtonView(buttonName: infomation.name, buttonImageString: infomation.image, isClicked: infomation.isSelected)
-                                
-                            }
-                        }
-                        .padding()
-                        .background(Color.myLightGray)
-                        .cornerRadius(15)
-                        .frame(maxHeight: .infinity)
-                    }
-                    
-                    Group {
-                        Text("예약 확정시 전달할 정보")
-                        TextEditor(text: $informationToPassText)
-                            .frame(height: 150)
-                            .background(.gray)
-                            .border(Color.myPrimary)
-                            
-                            
-                    }
-                    
-                    Button {
-                        //Code
-                    } label: {
-                        Text("등록하기")
-                            .frame(maxWidth: .infinity)
-                            .padding()
-                            .foregroundColor(.black)
-                            .bold()
-                            .background(Color.myPrimary)
-                            .cornerRadius(15)
+        Form {
+            Section {
+                Text("공간 이름")
+                TextField("공간 이름을 입력하세요", text: $placeNameText)
+                    .textFieldStyle(TextFieldStyles())
+            }
+            
+            Section{
+                Text("공간 카테고리")
+                Picker("Place", selection: $selectedPlace) {
+                    ForEach(PlaceCategory.allCases) { category in
+                        Text(category.rawValue)
                     }
                 }
+                .pickerStyle(.segmented)
             }
-            .padding(20)
+            .listRowSeparator(.hidden)
+            
+            Section {
+                Text("공간 주소")
+                PlaceMapView(address: placeNameText)
+            }
+            .listRowSeparator(.hidden)
+            
+            Section {
+                Text("공간 대여 가격")
+                TextField("공간 이름을 입력하세요", text: $placePriceText)
+                    .textFieldStyle(TextFieldStyles())
+            }
+            
+            Section {
+                Text("공간 사진 등록")
+                PhotoSelectedView()
+            }
+            
+            Section {
+                Text("공간 정보 선택")
+                LazyVGrid(columns: columns, spacing: 8) {
+                    ForEach($placeInfomations) { $infomation in
+                        PlaceInfomationButtonView(infomation: $infomation)
+                    }
+                }
+                .padding()
+                .background(Color.myLightGray)
+                .cornerRadius(15)
+                .frame(maxHeight: .infinity)
+            }
+            
+            Section {
+                Text("예약 확정시 전달할 정보")
+                TextEditor(text: $informationToPassText)
+                    .frame(height: 150)
+                    .background(Color.myLightGray)
+                    .border(Color.myPrimary)
+                
+                Button {
+                    //Code
+                } label: {
+                    Text("등록하기")
+                        .frame(maxWidth: .infinity)
+                        .padding()
+                        .foregroundColor(.black)
+                        .bold()
+                        .background(Color.myPrimary)
+                        .cornerRadius(15)
+                }
+            }
+        }//Form
         .navigationTitle("내 공간 등록")
-        }
     }
 }
 
@@ -126,7 +118,6 @@ struct TextFieldStyles: TextFieldStyle {
                 .foregroundColor(Color.myLightGray)
                 .cornerRadius(12)
                 .frame(height: 46)
-            
             // 텍스트필드
             configuration
                 .font(.system(size: 13))
@@ -134,22 +125,4 @@ struct TextFieldStyles: TextFieldStyle {
                 .padding()
         }
     }
-}
-
-struct PlaceInfomationModel: Identifiable {
-    var id = UUID()
-    var name: String
-    var image: String
-    var isSelected: Bool
-    
-    static let data = [
-        PlaceInfomationModel(name: "와이파이", image: "wifi", isSelected: false),
-        PlaceInfomationModel(name: "주차장", image: "parkingsign", isSelected: false),
-        PlaceInfomationModel(name: "반려동물", image: "pawprint.fill", isSelected: false),
-        PlaceInfomationModel(name: "냉난방시설", image: "air.conditioner.horizontal", isSelected: false),
-        PlaceInfomationModel(name: "화재경보기", image: "flame.fill", isSelected: false),
-        PlaceInfomationModel(name: "소화기", image: "person", isSelected: false),
-        PlaceInfomationModel(name: "엘리베이터", image: "door.sliding.left.hand.closed", isSelected: false),
-        PlaceInfomationModel(name: "흡연실", image: "smoke", isSelected: false),
-    ]
 }
