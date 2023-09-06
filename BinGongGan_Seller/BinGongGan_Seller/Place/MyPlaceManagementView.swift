@@ -26,18 +26,16 @@ struct MyPlaceManagementView: View {
                         .padding(.horizontal, 20)
                     Spacer()
                 }
-                ScrollView(.horizontal) {
-                    HStack {
-                        ForEach(1...5, id: \.self) { _ in
+                TabView { // TabView 작동안해서 수정 필요
+                        ForEach(1...3, id: \.self) { _ in
                             MySpaceCell()
-                            
                         }
                     }
                 }
             }
         }
     }
-}
+
 
 
 struct MyPlaceManagementView_Previews: PreviewProvider {
