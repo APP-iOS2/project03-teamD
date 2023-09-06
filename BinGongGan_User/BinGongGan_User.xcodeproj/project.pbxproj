@@ -70,6 +70,7 @@
 		BC344F152AA80BF300F8CEB3 /* HomeDummy.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC344F142AA80BF300F8CEB3 /* HomeDummy.swift */; };
 		D2EA1D5C2AA84608004484C4 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2EA1D5B2AA84608004484C4 /* LoginView.swift */; };
 		D2EA1D5E2AA8460C004484C4 /* LoginStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2EA1D5D2AA8460C004484C4 /* LoginStore.swift */; };
+		D2F5AE4B2AA86F00001D5B91 /* LoginPasswordTextFieldView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2F5AE4A2AA86F00001D5B91 /* LoginPasswordTextFieldView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -152,6 +153,7 @@
 		BC344F142AA80BF300F8CEB3 /* HomeDummy.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeDummy.swift; sourceTree = "<group>"; };
 		D2EA1D5B2AA84608004484C4 /* LoginView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		D2EA1D5D2AA8460C004484C4 /* LoginStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginStore.swift; sourceTree = "<group>"; };
+		D2F5AE4A2AA86F00001D5B91 /* LoginPasswordTextFieldView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginPasswordTextFieldView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -325,13 +327,13 @@
 			isa = PBXGroup;
 			children = (
 				3AE911662AA8024E005E4F71 /* SignUp */,
-				D2EA1D5A2AA845C3004484C4 /* Login */,
 				B15806352AA83CEB006C772B /* Document */,
 				538D7AC82AA802CB00D0B21A /* MyPage */,
 				B12A84A82AA6F01000BDF8CA /* Assets.xcassets */,
 				BC344EBA2AA806C200F8CEB3 /* App */,
 				BC344EBD2AA806EC00F8CEB3 /* TapBar */,
 				BC344EC12AA8070800F8CEB3 /* UserHome */,
+				D2EA1D5A2AA845C3004484C4 /* Login */,
 				274A7DA82AA8437F00A7A256 /* MapSearch */,
 				3AE911632AA7FDBF005E4F71 /* Common */,
 				B12A84AA2AA6F01000BDF8CA /* Preview Content */,
@@ -503,6 +505,7 @@
 			children = (
 				D2EA1D5B2AA84608004484C4 /* LoginView.swift */,
 				D2EA1D5D2AA8460C004484C4 /* LoginStore.swift */,
+				D2F5AE4A2AA86F00001D5B91 /* LoginPasswordTextFieldView.swift */,
 			);
 			path = Login;
 			sourceTree = "<group>";
@@ -677,6 +680,7 @@
 				BC344F012AA808FC00F8CEB3 /* MDPMonthYearPicker.swift in Sources */,
 				BC344EF02AA808DB00F8CEB3 /* Reservation.swift in Sources */,
 				BC344F032AA808FC00F8CEB3 /* MDPContentView.swift in Sources */,
+				D2F5AE4B2AA86F00001D5B91 /* LoginPasswordTextFieldView.swift in Sources */,
 				BC344EEE2AA808DB00F8CEB3 /* ReservationCalendarView.swift in Sources */,
 				BC344F022AA808FC00F8CEB3 /* MDPModel.swift in Sources */,
 				274A7DB42AA855B800A7A256 /* View+Extension.swift in Sources */,
