@@ -218,6 +218,7 @@
 				2FAB805A2AA7FFC10091D8CC /* MyInfoVIew.swift */,
 				2FAB805B2AA7FFC10091D8CC /* MyPlaceManagementView.swift */,
 				B12A84722AA6EFE900BDF8CA /* Assets.xcassets */,
+				4B74203C2AA80ACC00818257 /* AnnouncementView.swift */,
 				B12A84742AA6EFE900BDF8CA /* Preview Content */,
 				4B74203C2AA80ACC00818257 /* AnnouncementView.swift */,
 			);
