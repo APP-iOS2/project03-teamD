@@ -12,25 +12,35 @@ import MapKit
 struct MapSearchView: View {
     @StateObject var locationManager = LocationManager()
     
-    @State var searchText: String = ""
+    @ScaledMetric(wrappedValue: 12, relativeTo: .caption) var paddingWidth
+    @State private var categorys: [CategoryCase] = [.shareOffice, .studio, .shareKitchen, .bandRoom]
+    @State private var searchText: String = ""
+    @State private var selectedCategoty = ""
     
     @Binding var selectedTab: Int
+    @Binding var tabBarVisivility: Visibility
     
     var body: some View {
         GeometryReader { geometry in
             MapViewCoordinater(locationManager: locationManager)
                 .ignoresSafeArea(.all)
-                
+            
+            VStack {
                 HStack(alignment: .center) {
                     Spacer()
                     Button {
                         selectedTab = 0
                     } label: {
-                        Image(systemName: "chevron.backward.circle.fill")
-                            .resizable()
+                        Circle()
+                            .fill(Color.myLightGray)
                             .frame(width: 45, height: 45)
-                            .foregroundColor(.white)
                             .shadow(radius: 4, y: 4)
+                            .overlay {
+                                Image(systemName: "chevron.backward.circle.fill")
+                                    .resizable()
+                                    .foregroundColor(.white)
+                            }
+                        
                     }
                     
                     RoundedRectangle(cornerRadius: 10)
@@ -40,31 +50,49 @@ struct MapSearchView: View {
                         .overlay(alignment: .leading) {
                             HStack {
                                 Image(systemName: "magnifyingglass")
+                                    .foregroundColor(.myDarkGray)
                                     .padding(.leading)
                                 TextField("주소 혹은 장소명을 검색해주세요", text: $searchText)
                                     .font(Font.body1Regular)
+                                    .foregroundColor(.gray)
                                     .onSubmit {
                                         locationManager.isShowingList = true
                                     }
                             }
                         }
                         .padding()
-                        
+                    
                     Spacer()
                 }
                 .padding([.top, .leading, .trailing])
-                
-                HStack {
-                    ForEach(0..<3, id: \.self) { idx in
-                        Button("idx \(idx)") {
-
+                VStack(alignment: .leading) {
+                    HStack {
+                        ForEach(categorys, id: \.self) { category in
+                            
+                            Button(category.rawValue) {
+                                selectedCategoty = category.rawValue
+                            }
+                            .padding([.trailing, .leading], paddingWidth)
+                            .padding([.top, .bottom], 7)
+                            .foregroundColor(selectedCategoty == category.rawValue ? .white : .myDarkGray)
+                            .font(.captionRegular)
+                            .background {
+                                RoundedRectangle(cornerRadius: 13)
+                                    .strokeBorder(selectedCategoty == category.rawValue ? Color.white : Color.myDarkGray, lineWidth: 0.5)
+                                    .background(selectedCategoty == category.rawValue ? Color.mySecondary : Color.white)
+                            }
+                            .cornerRadius(13)
+                            .shadow(radius: 4, y: 2)
                         }
+                        Spacer()
                     }
                 }
-                
+                .padding(.leading)
+            }
            
             if locationManager.isShowingList {
-                ScrollView(.horizontal) {
+                
+                ScrollView(.horizontal, showsIndicators: false) {
                     HStack {
                         ForEach(0..<4, id: \.self) { idx in
                             NavigationLink {
@@ -74,8 +102,9 @@ struct MapSearchView: View {
                             }
 
                         }
-                        .padding([.leading], 30)
+                        .padding(.leading, 25)
                     }
+                    .padding(.trailing, 30)
                 }
                 .offset(CGSize(width: 0, height: geometry.size.height - 200))
             } else {
@@ -83,11 +112,16 @@ struct MapSearchView: View {
                     Button {
                         locationManager.moveFocusOnUserLocation()
                     } label: {
-                        Image(systemName: "paperplane.circle.fill")
-                            .resizable()
+                        Circle()
+                            .fill(Color.white)
                             .frame(width: 45, height: 45)
-                            .foregroundColor(Color.mySecondary)
                             .shadow(radius: 4, y: 4)
+                            .overlay {
+                                Image(systemName: "paperplane.circle.fill")
+                                    .resizable()
+                                    .foregroundColor(Color.mySecondary)
+                            }
+
                     }
                     Spacer()
                     Button {
@@ -106,11 +140,17 @@ struct MapSearchView: View {
                 .offset(CGSize(width: 0, height: geometry.size.height - 50))
             }
         }
+        .onAppear {
+            tabBarVisivility = .hidden
+        }
+        .onDisappear {
+            tabBarVisivility = .visible
+        }
     }
 }
 
 struct MapSearch_Previews: PreviewProvider {
     static var previews: some View {
-        MapSearchView(selectedTab: .constant(1))
+        MapSearchView(selectedTab: .constant(1), tabBarVisivility: .constant(.hidden))
     }
 }
