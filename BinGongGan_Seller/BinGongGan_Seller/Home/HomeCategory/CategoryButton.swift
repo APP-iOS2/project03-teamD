@@ -18,13 +18,11 @@ struct CategoryButton: View {
                     .frame(width: 30, height: 30)
                 
                 Text(category.categories)
-                    .font(.title3)
+                    .font(.body1Regular)
                     .bold()
                     .padding(.top, 5)
-                Text(buttonText)
-                    .font(.subheadline)
-                    .bold()
                     .fixedSize()
+                  
             }
 
         .foregroundColor(Color.myPrimary)
