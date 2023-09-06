@@ -19,12 +19,13 @@ class AppDelegate: NSObject, UIApplicationDelegate {
 
 @main
 struct BinGongGan_UserApp: App {
+    @StateObject var signInStore: SignInStore = SignInStore()
+    
     var body: some Scene {
         WindowGroup {
-            //GongGanTabView()
-            NavigationStack{
-                GongGanTabView()
-                    .environmentObject(ReservationStore())
+            NavigationStack {
+                SignInView()
+                    .environmentObject(signInStore)
             }
         }
     }
