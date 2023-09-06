@@ -25,9 +25,7 @@ struct MyReviewRowView: View {
                 NavigationLink{
                     GongGanDetailView()
                 }label: {
-                    Text("공간 이름")
-                        .font(.body1Bold)
-                        .foregroundColor(.myBlack)
+
                 }
             }
             .opacity(0)
