@@ -32,12 +32,11 @@ struct LoginView: View {
                 
                 Group {
                     CustomTextField(placeholder: "이메일을 입력하세요", text: $emailText)
-                    CustomTextField(placeholder: "비밀번호를 입력하세요", text: $passwordText)
+                    LoginPasswordTextFieldView(placeholder: "비밀번호를 입력하세요", text: $passwordText)
                 }
-                .padding()
                 .frame(width: 353, height: 47)
                 .background(Color.white)
-                .cornerRadius(15)
+                .cornerRadius(8)
                 
                 
                 Button {
