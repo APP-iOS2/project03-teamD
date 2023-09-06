@@ -8,32 +8,37 @@
 import SwiftUI
 
 struct MyPlaceManagementView: View {
-    // MARK: - PROPERTY
-    
-    
-    // MARK: - BODY
     var body: some View {
-        VStack {
-            HStack {
-                Section {
-                    Text("차은우")
-                        .foregroundColor(.white)
-                        .font(.system(size: 20))
+        NavigationStack {
+            VStack {
+                HStack {
+                    Text("판매자 정보")
+                        .font(.title)
+                        .bold()
+                        .padding(.horizontal, 20)
+                    Spacer()
                 }
-                Image(systemName: "phone")
-                    .foregroundColor(.white)
-                VStack(alignment: .leading) {
-                    Text("010-1234-5678")
-                        .foregroundColor(.white)
-                        .font(.system(size: 15))
+                SellerInformationCell()
+                HStack {
+                    Text("내 정보")
+                        .font(.title)
+                        .bold()
+                        .padding(.horizontal, 20)
+                    Spacer()
+                }
+                ScrollView(.horizontal) {
+                    HStack {
+                        ForEach(1...5, id: \.self) { _ in
+                            MySpaceCell()
+                            
+                        }
+                    }
                 }
             }
-            .padding()
-            .background(Color.gray)
-            .frame(width: 500, height: 500, alignment: .center)
         }
     }
 }
+
 
 struct MyPlaceManagementView_Previews: PreviewProvider {
     static var previews: some View {

@@ -1,4 +1,3 @@
-//
 //  PlaceAddView.swift
 //  BinGongGan_Seller
 //
@@ -77,7 +76,6 @@ struct PlaceAddView: View {
                     .background(Color.blue)
                     .cornerRadius(15)
                     .frame(maxHeight: .infinity)
-                    
                 }
                 
                 Group {
@@ -132,31 +130,6 @@ struct TextFieldStyles: TextFieldStyle {
     }
 }
 
-struct PlacePhotoView: View {
-    var body: some View {
-        ScrollView(.horizontal, showsIndicators: false) {
-            HStack {
-                ForEach(1...4, id:\.self) { i in
-                    Button  {
-                        //Code
-                    } label: {
-                        ZStack {
-                            Rectangle()
-                                .fill(.gray)
-                                .frame(width: 150, height: 150)
-                            if i == 1 {
-                                Image(systemName: "plus")
-                                    .resizable()
-                                    .frame(width: 30, height: 30)
-                            }
-                        }
-                    }
-                }
-            }//공간사진 HStack
-        }
-    }
-}
-
 struct PlaceInfomationModel: Identifiable {
     var id = UUID()
     var name: String
@@ -174,5 +147,3 @@ struct PlaceInfomationModel: Identifiable {
         PlaceInfomationModel(name: "흡연실", image: "smoke", isSelected: false),
     ]
 }
-
-
