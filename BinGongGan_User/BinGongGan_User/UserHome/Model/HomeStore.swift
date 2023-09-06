@@ -10,10 +10,9 @@ import SwiftUI
 final class HomeStore: ObservableObject {
     
     @Published var EventList: [Event] = [
-        Event(eventImage: imageArray[0] ),
-        Event(eventImage: imageArray[1] ),
-        Event(eventImage: imageArray[2] ),
-        Event(eventImage: imageArray[3] ),
+        Event(eventImage: eventImageArray[0] ),
+        Event(eventImage: eventImageArray[1] ),
+        Event(eventImage: eventImageArray[2] ),
     ]
     
     var categories: [Category] = [
@@ -71,4 +70,10 @@ let imageArray: [String] = [
     "https://054soundville.or.kr/wp-content/uploads/2021/08/001-2.jpg",
     "https://m-img.cafe24.com/images/soho/head/studio3.jpg",
     "https://publy.imgix.net/images/2019/07/24/1563948016_tVB4pADV5hoENmj6E5Tx3VhBQPtdqjk3BNLMM4NO.jpeg?fm=pjpg",
+]
+
+let eventImageArray: [String] = [
+    "https://file.bodnara.co.kr/logo/insidelogo.php?image=%2Fhttp%3A%2F%2Ffile.bodnara.co.kr%2Fwebedit%2Fnews%2F2015%2F1480474047-13.jpg",
+    "https://www.vtimes.kr/news/photo/202206/44710_20771_416.jpg",
+    "https://www.dailypop.kr/news/photo/202210/63780_121830_4158.png"
 ]

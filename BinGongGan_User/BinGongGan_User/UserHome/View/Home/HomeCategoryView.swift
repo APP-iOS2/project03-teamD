@@ -39,6 +39,7 @@ struct HomeCategoryView: View {
                                 .cornerRadius(15)
                         } placeholder: {
                             ProgressView()
+                                .frame(width: HomeCategoryConstant.cellWidth , height: HomeCategoryConstant.cellHeight)
                         }   
                         
                         Text(place.category.rawValue)
