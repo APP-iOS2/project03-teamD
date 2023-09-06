@@ -17,8 +17,7 @@ struct MySpaceCell: View {
                 Text("010-1234-1234")
                 Text("서울특별시 강남구 논현로 30 뉴진스")
                 
-                Image("SpaceDetailedPhotos")
-                    .resizable()
+                CarouselCell()
                     .frame(width: 320, height: 200)
                     .cornerRadius(15)
             }
@@ -26,9 +25,9 @@ struct MySpaceCell: View {
             .bold()
         } //: HStack
         .padding(20)
-        .background(Color.brown)
+        .background(Color.myPrimary)
         .cornerRadius(15)
-        .padding()
+        .padding([.leading, .trailing])
     }
 }
 
