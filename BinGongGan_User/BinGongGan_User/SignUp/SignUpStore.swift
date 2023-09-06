@@ -22,7 +22,14 @@ struct SignUpData {
     var locationAgreement: Bool = false
 }
 
+enum SignUpStep {
+    case first
+    case second
+    case third
+}
+
 class SignUpStore: ObservableObject {
     @Published var signUpData = SignUpData()
     @State var certificateNumber: String = ""
+    @State var third: SignUpStep = .first
 }
