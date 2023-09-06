@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct GongGanTabView: View {
-    @State private var selectedTab = 0
+    @State var selectedTab = 0
     
     var body: some View {
         TabView(selection: $selectedTab) {
@@ -20,13 +20,15 @@ struct GongGanTabView: View {
                 }
                 .tag(0)
             
-            Text("내 주변")
-                .tabItem {
-                    Image(systemName: selectedTab == 1 ? "location.circle.fill" : "location.circle")
-                        .environment(\.symbolVariants, selectedTab == 1 ? .fill : .none)
-                    Text("내 주변")
-                }
-                .tag(1)
+            NavigationStack {
+                MapSearchView(selectedTab: $selectedTab)
+            }
+            .tabItem {
+                Image(systemName: selectedTab == 1 ? "location.circle.fill" : "location.circle")
+                    .environment(\.symbolVariants, selectedTab == 1 ? .fill : .none)
+                Text("내 주변")
+            }
+            .tag(1)
             
             Text("찜")
                 .tabItem {
