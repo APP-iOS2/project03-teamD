@@ -74,10 +74,8 @@ struct MyPageMainView: View {
                     }
                 }
             }
-            .fullScreenCover(isPresented: $isShowingSetting) {
-                NavigationStack {
-                    SettingListView()
-                }
+            .navigationDestination(isPresented: $isShowingSetting) {
+                SettingListView()
             }
         }
     }

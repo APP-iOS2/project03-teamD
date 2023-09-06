@@ -10,7 +10,8 @@ import SwiftUI
 struct MyReservationRowView: View {
     
     var reservate: ReservationModel
-    
+    @State private var isShowingAddReview: Bool = false
+    @State private var isShowingReservationCancelView: Bool = false
     var body: some View {
         
         HStack {
@@ -39,7 +40,11 @@ struct MyReservationRowView: View {
             Spacer()
             
             Button {
-                
+                if reservate.isReservation {
+                    isShowingAddReview = true
+                } else {
+                    isShowingReservationCancelView = true
+                }
             } label: {
                 Text(reservate.isReservation ? "리뷰작성" : "예약취소")
                     .font(.captionRegular)
@@ -53,6 +58,14 @@ struct MyReservationRowView: View {
             )
         }
         .padding()
+        .fullScreenCover(isPresented: $isShowingAddReview) {
+            NavigationStack {
+                AddReviewView(reservate: reservate)
+            }
+        }
+        .navigationDestination(isPresented: $isShowingReservationCancelView) {
+                ReservationCancelView()
+        }
   
     }
 }
