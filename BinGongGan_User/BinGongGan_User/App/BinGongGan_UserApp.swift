@@ -1,6 +1,6 @@
 //
-//  BinGongGan_SellerApp.swift
-//  BinGongGan_Seller
+//  BinGongGan_UserApp.swift
+//  BinGongGan_User
 //
 //  Created by 최하늘 on 2023/09/05.
 //
@@ -18,10 +18,10 @@ class AppDelegate: NSObject, UIApplicationDelegate {
 }
 
 @main
-struct BinGongGan_SellerApp: App {
+struct BinGongGan_UserApp: App {
     var body: some Scene {
         WindowGroup {
-             HomeView()
+            ContentView()
         }
     }
 }
