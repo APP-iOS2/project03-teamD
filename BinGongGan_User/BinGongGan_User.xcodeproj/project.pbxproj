@@ -20,6 +20,7 @@
 		B12A84D22AA6F04400BDF8CA /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = B12A84D12AA6F04400BDF8CA /* FirebaseFirestore */; };
 		B12A84D42AA6F04400BDF8CA /* FirebaseFirestoreSwift in Frameworks */ = {isa = PBXBuildFile; productRef = B12A84D32AA6F04400BDF8CA /* FirebaseFirestoreSwift */; };
 		B12A84FC2AA7A65900BDF8CA /* BinGongGanCore in Frameworks */ = {isa = PBXBuildFile; productRef = B12A84FB2AA7A65900BDF8CA /* BinGongGanCore */; };
+		B13EBD6B2AA8D05900AAEA3F /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B13EBD6A2AA8D05900AAEA3F /* ContentView.swift */; };
 		B15806422AA897A5006C772B /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = B15806412AA897A5006C772B /* GoogleService-Info.plist */; };
 		B15806432AA897A5006C772B /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = B15806412AA897A5006C772B /* GoogleService-Info.plist */; };
 		B15806442AA897A5006C772B /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = B15806412AA897A5006C772B /* GoogleService-Info.plist */; };
@@ -113,6 +114,7 @@
 		B12A84BB2AA6F01100BDF8CA /* BinGongGan_UserUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BinGongGan_UserUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		B12A84BF2AA6F01100BDF8CA /* BinGongGan_UserUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BinGongGan_UserUITests.swift; sourceTree = "<group>"; };
 		B12A84C12AA6F01100BDF8CA /* BinGongGan_UserUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BinGongGan_UserUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		B13EBD6A2AA8D05900AAEA3F /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ContentView.swift; path = "../../../../../../../../.Trash/project03-teamD 오후 10.30.11/BinGongGan_Admin/BinGongGan_Admin/TabBar/ContentView.swift"; sourceTree = "<group>"; };
 		B15806412AA897A5006C772B /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		BC344EBF2AA806FE00F8CEB3 /* GongGanTabView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GongGanTabView.swift; sourceTree = "<group>"; };
 		BC344EC52AA8072000F8CEB3 /* GongGanInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GongGanInfo.swift; sourceTree = "<group>"; };
@@ -239,6 +241,7 @@
 				B12A84A82AA6F01000BDF8CA /* Assets.xcassets */,
 				B15806402AA89795006C772B /* Document */,
 				BC344EBA2AA806C200F8CEB3 /* App */,
+				B13EBD692AA8D03600AAEA3F /* Content */,
 				BCE658462AA8AD380009ECD1 /* SignIn */,
 				BCE658562AA8AD4D0009ECD1 /* SignUp */,
 				BC344EBD2AA806EC00F8CEB3 /* TapBar */,
@@ -281,6 +284,14 @@
 			children = (
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		B13EBD692AA8D03600AAEA3F /* Content */ = {
+			isa = PBXGroup;
+			children = (
+				B13EBD6A2AA8D05900AAEA3F /* ContentView.swift */,
+			);
+			path = Content;
 			sourceTree = "<group>";
 		};
 		B15806402AA89795006C772B /* Document */ = {
@@ -717,6 +728,7 @@
 				BC344F032AA808FC00F8CEB3 /* MDPContentView.swift in Sources */,
 				BCE658532AA8AD420009ECD1 /* SummaryPlaceView.swift in Sources */,
 				BC344EEE2AA808DB00F8CEB3 /* ReservationCalendarView.swift in Sources */,
+				B13EBD6B2AA8D05900AAEA3F /* ContentView.swift in Sources */,
 				BC344F022AA808FC00F8CEB3 /* MDPModel.swift in Sources */,
 				BCE6585D2AA8AD4D0009ECD1 /* SignUpStore.swift in Sources */,
 				BCE658602AA8AD4D0009ECD1 /* FirstStepSignUpView.swift in Sources */,

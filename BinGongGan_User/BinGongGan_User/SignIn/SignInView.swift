@@ -9,7 +9,6 @@ import SwiftUI
 
 struct SignInView: View {
     @StateObject private var signUpStore = SignUpStore()
-    @StateObject private var reservationStore = ReservationStore()
     @State private var emailText: String = ""
     @State private var passwordText: String = ""
     @State private var isShowingAlert: Bool = false
@@ -51,10 +50,6 @@ struct SignInView: View {
                 .foregroundColor(.white)
                 .background(Color.myPrimary)
                 .cornerRadius(15)
-                .navigationDestination(isPresented: $signInStore.isSuccessSignIn) {
-                    GongGanTabView()
-                        .environmentObject(reservationStore)
-                }
                 
                 Spacer()
                 

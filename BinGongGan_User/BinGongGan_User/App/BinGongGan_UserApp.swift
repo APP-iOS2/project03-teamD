@@ -19,14 +19,9 @@ class AppDelegate: NSObject, UIApplicationDelegate {
 
 @main
 struct BinGongGan_UserApp: App {
-    @StateObject var signInStore: SignInStore = SignInStore()
-    
     var body: some Scene {
         WindowGroup {
-            NavigationStack {
-                SignInView()
-                    .environmentObject(signInStore)
-            }
+            ContentView()
         }
     }
 }
