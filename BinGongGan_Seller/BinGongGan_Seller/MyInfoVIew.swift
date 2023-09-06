@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct MyInfoVIew: View {
+struct ReviewManageDetailView: View {
     @State var name: String = ""
     @State var phoneNumber: String = ""
     @State var companyRegistrationNumber: String = ""

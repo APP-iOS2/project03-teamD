@@ -17,21 +17,21 @@ struct SecondStepSignUpView: View {
                 Text("아이디(이메일)")
                     .font(.body1Regular)
                 Spacer()
-                CustomTextField(placeholder: "이메일 주소", text: $store.signUpData.name)
+                CustomTextField(placeholder: "이메일 주소", text: $store.signUpData.emailId)
                 Spacer()
             }
             Group {
                 Text("비밀번호")
                     .font(.body1Regular)
                 Spacer()
-                CustomTextField(placeholder: "영문 8자리 이상", text: $store.signUpData.name)
+                CustomTextField(placeholder: "영문 8자리 이상", text: $store.signUpData.password)
                 Spacer()
             }
             Group {
                 Text("비밀번호 확인")
                     .font(.body1Regular)
                 Spacer()
-                CustomTextField(placeholder: "", text: $store.signUpData.birthDate)
+                CustomTextField(placeholder: "", text: $store.signUpData.passwordCheck)
             }
             Spacer(minLength: 120)
             PrimaryButton(action: {

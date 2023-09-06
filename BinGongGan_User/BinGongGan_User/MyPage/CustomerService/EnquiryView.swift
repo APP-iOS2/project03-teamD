@@ -1,21 +1,23 @@
 //
-//  PublicOfficeView.swift
+//  EnquiryView.swift
 //  BinGongGan_User
 //
-//  Created by LJh on 2023/09/05.
+//  Created by 방유빈 on 2023/09/06.
 //
 
 import SwiftUI
 
-struct PublicOfficeView: View {
-    
+struct EnquiryView: View {
     @Environment(\.dismiss) private var dismiss
     
     var body: some View {
         VStack {
-            Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+            Image(systemName: "exclamationmark.circle.fill")
+            Text("공사중~")
         }
-        .navigationTitle("공용 오피스")
+        .foregroundColor(.myPrimary)
+        .font(.largeTitle)
+        .navigationTitle("1 : 1 문의")
         .navigationBarTitleDisplayMode(.inline)
         .navigationBarBackButtonHidden(true)
         .toolbar {
@@ -24,17 +26,17 @@ struct PublicOfficeView: View {
                     dismiss()
                 } label: {
                     Image(systemName: "chevron.left")
-                        .foregroundColor(.brown)
+                        .foregroundColor(.myPrimary)
                 }
             }
         }
     }
 }
 
-struct PublicOfficeView_Previews: PreviewProvider {
+struct EnquiryView_Previews: PreviewProvider {
     static var previews: some View {
-        NavigationStack{
-            PublicOfficeView()
+        NavigationStack {
+            EnquiryView()
         }
     }
 }

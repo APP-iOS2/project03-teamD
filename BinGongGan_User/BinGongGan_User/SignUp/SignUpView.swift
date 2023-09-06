@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct SignUpView: View {
-    @EnvironmentObject var store: SignUpStore
+    @EnvironmentObject private var store: SignUpStore
     
     var body: some View {
         ZStack {
@@ -21,7 +21,8 @@ struct SignUpView: View {
                     Spacer(minLength: 32)
                     SignUpProgressView
                     Spacer()
-                }.frame(height: 190)
+                }
+                .frame(height: 190)
                 if store.currentStep == .first {
                     FirstStepSignUpView()
                         .environmentObject(store)
@@ -32,9 +33,10 @@ struct SignUpView: View {
                     ThirdStepSignUpView()
                         .environmentObject(store)
                 }
-            }.padding(.horizontal, 20)
-        }.edgesIgnoringSafeArea(.all)
-        
+            }
+            .padding(.horizontal, 20)
+        }
+        .edgesIgnoringSafeArea(.all)
     }
     
     var SignUpProgressView: some View {
@@ -60,7 +62,8 @@ struct SignUpView: View {
             } else {
                 ProgressStrokeCircleView
             }
-        }.frame(height: 12)
+        }
+        .frame(height: 12)
     }
     
     var ProgressCircleView: some View {
@@ -77,7 +80,6 @@ struct SignUpView: View {
 }
 
 struct SignUpView_Previews: PreviewProvider {
-    //    @StateObject var store = SignUpStore()
     static var previews: some View {
         SignUpView()
             .environmentObject(SignUpStore())
