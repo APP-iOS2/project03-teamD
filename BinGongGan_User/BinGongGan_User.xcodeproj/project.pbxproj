@@ -787,7 +787,7 @@
 				DEVELOPMENT_TEAM = 6R3M7VGRP2;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = "BinGongGan-User-Info.plist";
+				INFOPLIST_FILE = "GoogleService-Info";
 				INFOPLIST_KEY_CFBundleDisplayName = "빈공간";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -818,7 +818,7 @@
 				DEVELOPMENT_TEAM = 6R3M7VGRP2;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = "BinGongGan-User-Info.plist";
+				INFOPLIST_FILE = "GoogleService-Info";
 				INFOPLIST_KEY_CFBundleDisplayName = "빈공간";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
