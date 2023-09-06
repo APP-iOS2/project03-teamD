@@ -6,9 +6,10 @@
 //
 
 import SwiftUI
+import BinGongGanCore
 
 enum HomeEventTapConstant {
-    static let eventListHeight = CGFloat(100)
+    static let eventListHeight = CGFloat(120)
 }
 
 struct HomeEventTapView: View {
@@ -19,15 +20,20 @@ struct HomeEventTapView: View {
         VStack {
             TabView{
                 ForEach(dummyStore.EventList) { dummy in
-                    dummy.eventImage
-                        .resizable()
-                        .aspectRatio(contentMode: .fit)
+                    AsyncImage(url: dummy.imageURL, content: { image in
+                        image
+                            .resizable()
+                            .aspectRatio(contentMode: .fit)
+                    }) {
+                        ProgressView()
+                    }
+                        
                 }
             }
             .tabViewStyle(PageTabViewStyle())
             .frame(width:.infinity, height: HomeEventTapConstant.eventListHeight)
             .foregroundColor(.black)
-            .background(TestColor.brown)
+            .background(Color.myPrimary)
 //
         }// VStack
     }// Body
