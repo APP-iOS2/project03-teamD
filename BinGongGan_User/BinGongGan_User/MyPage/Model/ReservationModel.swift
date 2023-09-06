@@ -21,7 +21,7 @@ let reservates: [ReservationModel] = [
     
     ReservationModel(placeName: "하늘이네", reservationNumber: "A103120185", reservationDate: "9/7 (목) 13:00 ~ 17:00", reservationPersonal: 5, placeAddress: "서울특별시 하늘구", isReservation: false) ,
     
-    ReservationModel(placeName: "희권이네 설빙", reservationNumber: "A103120235", reservationDate: "9/7 (목) 17:00 ~ 21:00", reservationPersonal: 5, placeAddress: "서울특별시 희권구", isReservation: false),
+    ReservationModel(placeName: "희권이네 설빙", reservationNumber: "A103120235", reservationDate: "9/7 (목) 17:00 ~ 21:00", reservationPersonal: 5, placeAddress: "서울특별시 희권구", isReservation: true),
     
     ReservationModel(placeName: "유빈이네", reservationNumber: "A103120123", reservationDate: "9/5 (화) 12:00 ~ 18:00", reservationPersonal: 3, placeAddress: "충청북도 예산군 유빈읍", isReservation: true) ,
     
