@@ -174,8 +174,8 @@
 		538D7AC82AA802CB00D0B21A /* MyPage */ = {
 			isa = PBXGroup;
 			children = (
-				538D7AEC2AA83DF900D0B21A /* AppInformation */,
 				538D7AC92AA802CB00D0B21A /* MyPageMainView.swift */,
+				538D7AEC2AA83DF900D0B21A /* AppInformation */,
 				538D7ACA2AA802CB00D0B21A /* CustomerService */,
 				538D7ACD2AA802CB00D0B21A /* Reservation */,
 				538D7AD12AA802CB00D0B21A /* Review */,
