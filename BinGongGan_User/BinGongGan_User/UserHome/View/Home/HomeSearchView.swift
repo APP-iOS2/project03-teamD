@@ -8,11 +8,9 @@
 import SwiftUI
 
 enum HomeSearchViewConstant {
-    
-    static let zStackWidth = CGFloat(100)
-    static let zStackHeight = CGFloat(50)
-    static let zStackCornerRadius = CGFloat(15)
-    
+    static let searchTextFieldWidth = CGFloat(100)
+    static let searchTextFieldHeight = CGFloat(50)
+    static let searchTextFieldRadius = CGFloat(15)
 }
 
 struct HomeSearchView: View {
@@ -25,26 +23,25 @@ struct HomeSearchView: View {
         VStack {
             HStack {
                 ZStack {
-                    Color.gray // 나중에 앱 컬러로 바꿔야함
+                    Color.gray
                     HStack {
                         TextField("장소를 입력해주세요.", text: $placeSearchTextField)
                             .padding()
                     }
                 }// ZStack
-                .frame(width: screenWidth - HomeSearchViewConstant.zStackWidth ,
-                       height: HomeSearchViewConstant.zStackHeight)
-                .cornerRadius(HomeSearchViewConstant.zStackCornerRadius)
+                .frame(width: screenWidth - HomeSearchViewConstant.searchTextFieldWidth ,
+                       height: HomeSearchViewConstant.searchTextFieldHeight)
+                .cornerRadius(HomeSearchViewConstant.searchTextFieldRadius)
                 .padding()
                 Button {
-                    
+                    // 검색내용 하는 기능 필요
                 } label: {
                     Text("검색")
                 }
                 Spacer()
             }// HStack
-            
         }// VStack
-        .navigationTitle("검색")
+        .navigationTitle("장소 검색")
         .navigationBarTitleDisplayMode(.inline)
         .navigationBarBackButtonHidden(true)
         .toolbar {
@@ -52,8 +49,16 @@ struct HomeSearchView: View {
                 Button {
                     dismiss()
                 } label: {
-                    Image(systemName: "chevron.left")
-                        .foregroundColor(.brown)
+//                    Image(systemName: "chevron.left")
+//                        .foregroundColor(.brown)
+                    HStack {
+                        Image("멈무로고")
+                            .resizable()
+                            .aspectRatio(contentMode: .fill)
+                            .frame(width: ImageLogoConstant.width , height: ImageLogoConstant.height)
+                        .cornerRadius(15)
+                        Spacer()
+                    }// HSTACK
                 }
             }
         }

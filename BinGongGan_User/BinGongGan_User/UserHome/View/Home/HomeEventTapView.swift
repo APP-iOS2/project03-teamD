@@ -8,8 +8,7 @@
 import SwiftUI
 
 enum HomeEventTapConstant {
-    static let frameHeight = CGFloat(120)
-    static let framePadding = CGFloat(20)
+    static let eventListHeight = CGFloat(100)
 }
 
 struct HomeEventTapView: View {
@@ -19,14 +18,17 @@ struct HomeEventTapView: View {
     var body: some View {
         VStack {
             TabView{
-                ForEach(dummyStore.EventDummys) { dummy in
+                ForEach(dummyStore.EventList) { dummy in
                     dummy.eventImage
+                        .resizable()
+                        .aspectRatio(contentMode: .fit)
                 }
             }
             .tabViewStyle(PageTabViewStyle())
-            .frame(width:.infinity, height: HomeEventTapConstant.frameHeight)
+            .frame(width:.infinity, height: HomeEventTapConstant.eventListHeight)
             .foregroundColor(.black)
-            .background(.black)
+            .background(TestColor.brown)
+//
         }// VStack
     }// Body
 }
