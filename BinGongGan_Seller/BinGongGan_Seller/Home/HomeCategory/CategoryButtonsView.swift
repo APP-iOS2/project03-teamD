@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import BinGongGanCore
 
 struct CategoryButtonsView: View {
     let columns: [GridItem] = Array(repeating: .init(.flexible()), count: 4)
@@ -18,7 +19,7 @@ struct CategoryButtonsView: View {
             }
         }
         .padding()
-        .background(Color.green)
+        .background(Color.myWhite)
         .cornerRadius(15)
         .frame(maxHeight: .infinity)
     }
