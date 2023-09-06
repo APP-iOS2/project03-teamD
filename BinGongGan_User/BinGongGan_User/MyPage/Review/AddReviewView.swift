@@ -100,12 +100,9 @@ struct AddPhotoView: View {
         ScrollViewReader { proxy in
             HStack{
                 Button {
-                    //TODO: - 이미지 불러오기 로직 추가, 스크롤뷰 리더 고치기
+                    //TODO: - 이미지 불러오기 로직 추가
                     if reviewPhotoList.count < 5 {
                         reviewPhotoList.append("\(reviewPhotoList.count + 1)")
-                        withAnimation {
-                            proxy.scrollTo(reviewPhotoList.count - 1, anchor: .center)
-                        }
                     }
                 }label: {
                     ZStack {
@@ -132,6 +129,12 @@ struct AddPhotoView: View {
                         }
                     }
                 }// ScrollView
+                .onChange(of: reviewPhotoList.count) { _ in
+                    // 메시지 목록이 변경되면 스크롤을 아래로 이동
+                    withAnimation {
+                        proxy.scrollTo(reviewPhotoList.count - 1, anchor: .center)
+                    }
+                }
             }// HStack
         }// ScrollViewReder
     }
