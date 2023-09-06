@@ -34,6 +34,7 @@ struct MDPMonthYearPicker: View {
             Picker("", selection: self.$selectedMonth) {
                 ForEach(months, id: \.self) { month in
                     Text("\(Calendar.current.monthSymbols[month])").tag(month)
+                        .foregroundColor(.myPrimary)
                 }
             }
             .onChange(of: selectedMonth, perform: { value in
@@ -45,6 +46,7 @@ struct MDPMonthYearPicker: View {
             Picker("", selection: self.$selectedYear) {
                 ForEach(years, id: \.self) { year in
                     Text(String(format: "%d", year)).tag(year)
+                        .foregroundColor(.myPrimary)
                 }
             }
             .onChange(of: selectedYear, perform: { value in

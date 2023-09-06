@@ -31,11 +31,10 @@ struct ReservationView: View {
                     dismiss()
                 } label: {
                     Image(systemName: "chevron.left")
-                        .foregroundColor(.myPrimary)
+                        .foregroundColor(.brown)
                 }
             }
         }
-        .background(Color.myBackground)
         .navigationTitle("예약화면")
         .navigationBarTitleDisplayMode(.inline)
         
