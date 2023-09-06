@@ -1,6 +1,7 @@
 import SwiftUI
 import UIKit
 
+// MARK: - 수정중
 struct MultiPhotoPickerView: UIViewControllerRepresentable {
     @Binding var selectedImages: [UIImage]
     @Environment(\.presentationMode) private var presentationMode
