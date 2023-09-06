@@ -10,21 +10,21 @@ import SwiftUI
 struct ReservationConfirmedCell: View {
     @Binding var showModal : Bool
     var body: some View {
-        Button(action: {
+        Button {
             self.showModal = true
-        },
-               label: {
+        } label: {
             ReservationCell()
                 .sheet(isPresented: self.$showModal) {
                     ReservationListModalView()
                         .presentationDetents([.medium])
                         .cornerRadius(15)
                 }
-        })
+        }
         .buttonStyle(.plain)
         .overlay(
-            Button(action: {
-            }) {
+            Button{
+                
+            } label: {
                 Text("예약확정")
                     .font(.subheadline)
                     .padding(.horizontal)

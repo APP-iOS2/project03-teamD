@@ -10,12 +10,16 @@ import BinGongGanCore
 
 struct CategoryButtonsView: View {
     let columns: [GridItem] = Array(repeating: .init(.flexible()), count: 4)
-    let categoryModel: CategoryModel
-    
+    let categoryList = CategoryModel.data
+ 
     var body: some View {
         LazyVGrid(columns: columns, spacing: 8) {
-            ForEach(0..<8) { index in
-                CategoryButton(buttonText: categoryModel.categories[index])
+            ForEach(categoryList) { category in
+                NavigationLink {
+                    category.anyView
+                } label: {
+                    CategoryButton(category: category)
+                }
             }
         }
         .padding()
@@ -27,6 +31,8 @@ struct CategoryButtonsView: View {
 
 struct CategoryButtonsViewPreviews: PreviewProvider {
     static var previews: some View {
-        CategoryButtonsView(categoryModel: CategoryModel())
+        NavigationStack {
+            CategoryButtonsView()
+        }
     }
 }
