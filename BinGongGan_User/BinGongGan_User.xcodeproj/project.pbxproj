@@ -61,6 +61,8 @@
 		BC344F102AA8093800F8CEB3 /* HomePlaceListRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC344F0E2AA8093800F8CEB3 /* HomePlaceListRow.swift */; };
 		BC344F112AA8093800F8CEB3 /* PublicPlaceListRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC344F0F2AA8093800F8CEB3 /* PublicPlaceListRow.swift */; };
 		BC344F152AA80BF300F8CEB3 /* HomeDummy.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC344F142AA80BF300F8CEB3 /* HomeDummy.swift */; };
+		D2EA1D5C2AA84608004484C4 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2EA1D5B2AA84608004484C4 /* LoginView.swift */; };
+		D2EA1D5E2AA8460C004484C4 /* LoginStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2EA1D5D2AA8460C004484C4 /* LoginStore.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -134,6 +136,8 @@
 		BC344F0E2AA8093800F8CEB3 /* HomePlaceListRow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomePlaceListRow.swift; sourceTree = "<group>"; };
 		BC344F0F2AA8093800F8CEB3 /* PublicPlaceListRow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PublicPlaceListRow.swift; sourceTree = "<group>"; };
 		BC344F142AA80BF300F8CEB3 /* HomeDummy.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeDummy.swift; sourceTree = "<group>"; };
+		D2EA1D5B2AA84608004484C4 /* LoginView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
+		D2EA1D5D2AA8460C004484C4 /* LoginStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginStore.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -284,6 +288,7 @@
 		B12A84A32AA6F00D00BDF8CA /* BinGongGan_User */ = {
 			isa = PBXGroup;
 			children = (
+				D2EA1D5A2AA845C3004484C4 /* Login */,
 				B15806352AA83CEB006C772B /* Document */,
 				538D7AC82AA802CB00D0B21A /* MyPage */,
 				B12A84A82AA6F01000BDF8CA /* Assets.xcassets */,
@@ -456,6 +461,15 @@
 			path = MultiDatePickerSoure;
 			sourceTree = "<group>";
 		};
+		D2EA1D5A2AA845C3004484C4 /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				D2EA1D5B2AA84608004484C4 /* LoginView.swift */,
+				D2EA1D5D2AA8460C004484C4 /* LoginStore.swift */,
+			);
+			path = Login;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -604,6 +618,7 @@
 				538D7AE62AA802CB00D0B21A /* MyInformationDetailView.swift in Sources */,
 				538D7AE42AA802CB00D0B21A /* SettingListView.swift in Sources */,
 				538D7AE22AA802CB00D0B21A /* AddReviewView.swift in Sources */,
+				D2EA1D5C2AA84608004484C4 /* LoginView.swift in Sources */,
 				B12A84A52AA6F00D00BDF8CA /* BinGongGan_UserApp.swift in Sources */,
 				538D7AE32AA802CB00D0B21A /* MyReviewRowView.swift in Sources */,
 				538D7AE12AA802CB00D0B21A /* MyReviewListView.swift in Sources */,
@@ -623,6 +638,7 @@
 				BC344F022AA808FC00F8CEB3 /* MDPModel.swift in Sources */,
 				BC344F112AA8093800F8CEB3 /* PublicPlaceListRow.swift in Sources */,
 				BC344ED22AA8073700F8CEB3 /* SubGongGanDetailView.swift in Sources */,
+				D2EA1D5E2AA8460C004484C4 /* LoginStore.swift in Sources */,
 				B12A84A52AA6F00D00BDF8CA /* BinGongGan_UserApp.swift in Sources */,
 				BC344F102AA8093800F8CEB3 /* HomePlaceListRow.swift in Sources */,
 				BC344EFE2AA808FC00F8CEB3 /* MDPDayOfMonth.swift in Sources */,
