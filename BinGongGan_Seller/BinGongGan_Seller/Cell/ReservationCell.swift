@@ -31,24 +31,10 @@ struct ReservationCell: View {
         }
         .padding(20)
         .frame(maxWidth: .infinity, alignment: .leading)
-        .overlay(
-            Button(action: {
-            }) {
-                Text("예약확정")
-                    .font(.subheadline)
-                    .padding(.horizontal)
-                    .padding(.vertical, 8)
-                    .background(Color.white)
-                    .foregroundColor(.black)
-                    .cornerRadius(10)
-            }
-                .buttonStyle(.plain)
-                .frame(maxWidth: .infinity, alignment: .trailing)
-                .padding(.trailing, 20)
-        )
         .background(Color.green)
         .cornerRadius(15)
-        .padding()
+        .padding([.leading, .trailing], 20)
+        .padding(.bottom, 10)
     }
 }
 
