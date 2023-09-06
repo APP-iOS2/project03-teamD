@@ -80,7 +80,7 @@ struct HomeView: View {
             .toolbar {
                 ToolbarItem(placement: .navigationBarLeading) {
                     HStack{
-                        Image("멈무로고")
+                        Image("dogLogo")
                             .resizable()
                             .aspectRatio(contentMode: .fill)
                             .frame(width: ImageLogoConstant.width , height: ImageLogoConstant.height)
