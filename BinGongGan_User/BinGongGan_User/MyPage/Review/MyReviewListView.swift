@@ -32,7 +32,6 @@ struct MyReviewListView: View {
                 }
             }
         }
-        .navigationBarBackButtonHidden(true)
     }
 }
 

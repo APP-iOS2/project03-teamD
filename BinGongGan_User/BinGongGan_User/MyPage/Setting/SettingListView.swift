@@ -9,10 +9,8 @@ import SwiftUI
 import BinGongGanCore
 
 struct SettingListView: View {
-    @Environment(\.dismiss) private var dismiss
-    
-    @State private var isNotificationToggle: Bool = false
-    @State private var isLocationToggle: Bool = false
+    @State private var isNotificationSettingToggle: Bool = false
+    @State private var isLocationPemissionToggle: Bool = false
     
     var body: some View {
         Form {
@@ -23,23 +21,10 @@ struct SettingListView: View {
             }
             
             Section("일반") {
-                Toggle("알림", isOn: $isNotificationToggle)
+                Toggle("알림", isOn: $isNotificationSettingToggle)
                     .tint(.myPrimary)
-                Toggle("위치 권한", isOn: $isLocationToggle)
+                Toggle("위치 권한", isOn: $isLocationPemissionToggle)
                     .tint(.myPrimary)
-            }
-        }
-        .navigationTitle("Setting")
-        .navigationBarTitleDisplayMode(.inline)
-        .navigationBarBackButtonHidden(true)
-        .toolbar {
-            ToolbarItem(placement:.navigationBarLeading) {
-                Button {
-                    dismiss()
-                } label: {
-                    Image(systemName: "chevron.left")
-                        .foregroundColor(.myPrimary)
-                }
             }
         }
     }

@@ -13,7 +13,6 @@ import BinGongGanCore
 // 키보드타입은 default가 기본으로, 특정 타입이 있다면 슈퍼뷰에서 넘겨준다.
 // 자동대문자화 false, 자동 수정 false 처리
 struct CustomTextField: View {
-    var backgroundColor: Color = .white
     var placeholder: String
     var keyboardType: UIKeyboardType = .default
     @Binding var text: String
@@ -23,7 +22,7 @@ struct CustomTextField: View {
         ZStack {
             RoundedRectangle(cornerRadius: 8)
                 .stroke(isFocused ? Color.myPrimary : Color.clear, lineWidth: 1)
-                .background(RoundedRectangle(cornerRadius: 8).foregroundColor(backgroundColor))
+                .background(RoundedRectangle(cornerRadius: 8).foregroundColor(.white))
             TextField(placeholder, text: $text)
                 .padding(EdgeInsets(top: 0, leading: 20, bottom: 0, trailing: 20))
                 .font(.captionRegular)
@@ -43,7 +42,7 @@ struct CustomTextField: View {
                     }).padding(.trailing, 20)
                 }
             }
-        }.frame(minHeight: 47, maxHeight: 57)
+        }
     }
 }
 struct CustomTextField_Previews: PreviewProvider {
