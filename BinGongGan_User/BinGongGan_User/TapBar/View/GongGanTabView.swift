@@ -36,7 +36,7 @@ struct GongGanTabView: View {
                 }
                 .tag(2)
             
-            Text("마이페이지")
+            MyPageMainView()
                 .tabItem {
                     Image(systemName: selectedTab == 3 ? "book.fill" : "book")
                         .environment(\.symbolVariants, selectedTab == 3 ? .fill : .none)
