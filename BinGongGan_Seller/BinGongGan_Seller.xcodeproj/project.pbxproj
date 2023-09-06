@@ -120,7 +120,7 @@
 		B13464F52AA90E8800098E9B /* CategoryButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryButton.swift; sourceTree = "<group>"; };
 		B13464F72AA90EA700098E9B /* CategoryButtonsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryButtonsView.swift; sourceTree = "<group>"; };
 		B13464F92AA90ED400098E9B /* ReservationListModalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReservationListModalView.swift; sourceTree = "<group>"; };
-		B13464FB2AA90EF700098E9B /* CategoryModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CategoryModel.swift; path = BinGongGan_Seller/Home/Reservation/CategoryModel.swift; sourceTree = SOURCE_ROOT; };
+		B13464FB2AA90EF700098E9B /* CategoryModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CategoryModel.swift; path = BinGongGan_Seller/Home/HomeModels/CategoryModel.swift; sourceTree = SOURCE_ROOT; };
 		B13464FD2AA9100A00098E9B /* ReviewManageDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewManageDetailView.swift; sourceTree = "<group>"; };
 		B13464FF2AA9102D00098E9B /* ReviewManageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewManageView.swift; sourceTree = "<group>"; };
 		B13465012AA910B900098E9B /* BinGongGan_SellerApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BinGongGan_SellerApp.swift; sourceTree = "<group>"; };
@@ -212,7 +212,7 @@
 		4B7420392AA80A9000818257 /* Home */ = {
 			isa = PBXGroup;
 			children = (
-				4B7420442AA80B6500818257 /* HomeModels */,
+				B13465032AA9190900098E9B /* HomeModels */,
 				4B7420432AA80B3A00818257 /* Reservation */,
 				4B74203E2AA80AD800818257 /* HomeCategory */,
 				B13464F32AA90E6200098E9B /* HomeView.swift */,
@@ -235,14 +235,6 @@
 				B13464F92AA90ED400098E9B /* ReservationListModalView.swift */,
 			);
 			path = Reservation;
-			sourceTree = "<group>";
-		};
-		4B7420442AA80B6500818257 /* HomeModels */ = {
-			isa = PBXGroup;
-			children = (
-				B13464FB2AA90EF700098E9B /* CategoryModel.swift */,
-			);
-			path = HomeModels;
 			sourceTree = "<group>";
 		};
 		4BC0BD702AA8607F00B792B8 /* Announcement */ = {
@@ -335,8 +327,6 @@
 		B12A846D2AA6EFE700BDF8CA /* BinGongGan_Seller */ = {
 			isa = PBXGroup;
 			children = (
-				BCE6583D2AA8AC620009ECD1 /* Review */,
-				BCE6581D2AA8AC420009ECD1 /* Cell */,
 				B12A85012AA7A8DE00BDF8CA /* Document */,
 				54D467782AA8A8F900054F12 /* Chart */,
 				4BC0BD702AA8607F00B792B8 /* Announcement */,
@@ -402,18 +392,12 @@
 			path = "Preview Content";
 			sourceTree = "<group>";
 		};
-		BCE6581D2AA8AC420009ECD1 /* Cell */ = {
+		B13465032AA9190900098E9B /* HomeModels */ = {
 			isa = PBXGroup;
 			children = (
+				B13464FB2AA90EF700098E9B /* CategoryModel.swift */,
 			);
-			path = Cell;
-			sourceTree = "<group>";
-		};
-		BCE6583D2AA8AC620009ECD1 /* Review */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Review;
+			path = HomeModels;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
