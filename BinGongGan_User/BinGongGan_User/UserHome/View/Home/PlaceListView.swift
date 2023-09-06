@@ -13,39 +13,44 @@ struct PlaceListView: View {
     @ObservedObject var dummyStore: HomeStore = HomeStore()
     @State var category: String
     var body: some View {
-        VStack {
-            HStack {
-                Spacer()
-                Button {
-                    // 필터기능추가
-                } label: {
-                    Image(systemName: "slider.horizontal.3")
-                        .foregroundColor(.black)
-                }
-                .padding()
-            }// HSTACK
-            
-            ScrollView(showsIndicators: false){
-                ForEach(dummyStore.places){ place in
-                    if category == place.category.rawValue{
-                        PlaceListRow(place: place)
+        ZStack {
+            Spacer().background(Color.myBackground).edgesIgnoringSafeArea(.all)
+            VStack {
+                
+                ScrollView(showsIndicators: false){
+                    ForEach(dummyStore.places){ place in
+                        if category == place.category.rawValue{
+                            HomeListRow(place: place)
+                        }
+                    }
+                }// SCROLLVIEW
+                .padding(.top, 20)
+            }// VSTACK
+            .navigationTitle("공용 오피스")
+            .navigationBarTitleDisplayMode(.inline)
+            .navigationBarBackButtonHidden(true)
+            .toolbar {
+                ToolbarItem(placement:.navigationBarLeading) {
+                    Button {
+                        dismiss()
+                    } label: {
+    //                    Image(systemName: "chevron.left")
+    //                        .foregroundColor(.brown)
+                        HomeStore.backButton("https://item.kakaocdn.net/do/a1ccece94b4ba1b47f0e5dbe05ce65687e6f47a71c79378b48860ead6a12bf11")
                     }
                 }
-            }// SCROLLVIEW
-        }// VSTACK
-        .navigationTitle("공용 오피스")
-        .navigationBarTitleDisplayMode(.inline)
-        .navigationBarBackButtonHidden(true)
-        .toolbar {
-            ToolbarItem(placement:.navigationBarLeading) {
-                Button {
-                    dismiss()
-                } label: {
-//                    Image(systemName: "chevron.left")
-//                        .foregroundColor(.brown)
-                    HomeStore.backButton("https://item.kakaocdn.net/do/a1ccece94b4ba1b47f0e5dbe05ce65687e6f47a71c79378b48860ead6a12bf11")
-                }
             }
+            .toolbar {
+                ToolbarItem(placement: .navigationBarTrailing) {
+                    Button {
+                        // 필터 모달
+                    } label: {
+                        Image(systemName: "slider.horizontal.3")
+                            .foregroundColor(.mySecondary)
+                        
+                    }
+                }
+        }
         }
     }// BODY
 }
