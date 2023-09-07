@@ -36,7 +36,7 @@ struct GongGanTabView: View {
             }
             .tag(1)
             
-            Text("찜")
+            FavoriteView()
                 .tabItem {
                     Image(systemName: selectedTab == 2 ? "heart.fill" : "heart")
                         .environment(\.symbolVariants, selectedTab == 2 ? .fill : .none)

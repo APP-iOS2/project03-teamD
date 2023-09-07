@@ -26,12 +26,23 @@ struct SubGongGanSelectView: View {
                         }
                     } label: {
                         VStack(alignment: .leading) {
-                            HStack {
-                                Text(space.isSelected ? " ◉ " : " ◎ ")
-                                Text("\(space.title)")
-                                    .font(.subheadline)
-                                .foregroundColor(.myDarkGray)
-                            }
+                            HStack(alignment: .center) {
+                                    
+                                    Image(systemName: "checkmark")
+                                        .opacity(space.isSelected ? 1 : 0.6)
+    //                                    .font(.captionRegular)
+                                        .foregroundColor(space.isSelected ? .white : .myPrimary)
+                                        .background(
+                                            RoundedRectangle(cornerRadius: 15)
+                                                .foregroundColor(space.isSelected ? .myPrimary : .white)
+                                                .shadow(color: .gray, radius: 1, x: 1, y: 1)
+                                        )
+                                    
+                                        Text("\(space.title)")
+                                        .font(.body1Regular)
+                                        .foregroundColor(.myDarkGray)
+                                }
+                            .frame(height: 30)
                             if space.isSelected {
                                 SubGongGanDetailView()
                             }

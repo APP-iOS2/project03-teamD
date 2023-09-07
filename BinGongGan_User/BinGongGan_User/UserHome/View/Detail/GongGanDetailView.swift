@@ -24,7 +24,7 @@ struct GongGanDetailView: View {
                 Spacer().background(Color.myBackground).edgesIgnoringSafeArea(.all)
                 ScrollView(showsIndicators: false) {
                     
-                    DtaileTabImageView()
+                    DetailTabImageView()
                     
                     Group {
                         VStack(alignment: .leading, spacing: 10) {
@@ -92,7 +92,7 @@ struct GongGanDetailView: View {
                                         Image(systemName: label.systemImage)
                                             .resizable()
                                             .frame(width: 40,height: 30)
-                                            
+                                        
                                         Text(label.text)
                                     }
                                 }
@@ -101,39 +101,43 @@ struct GongGanDetailView: View {
                         .padding(.bottom, 20)
                     }
                     .padding(.horizontal, 15)
-                    
-                    
-                }
-            }
-            .padding(EdgeInsets(top: 1, leading: 0, bottom: -5, trailing: 0))
-        
-            HStack {
-                Button {
-                    isActionSheetPresented = true
-                } label: {
-                    Label("전화", systemImage: "phone.fill")
-                        .frame(width: viewFrame.haltWidth)
-                        .foregroundColor(.white)
-                }
-                Rectangle()
-                    .foregroundColor(.gray)
-                    .frame(width: 1)
-                    .padding(.vertical, 5)
-                NavigationLink {
-                    ReservationView()
-                        .environmentObject(reservationStore)
-                        .navigationBarBackButtonHidden()
-                } label: {
-                    Text("예약 신청")
-                        .frame(width: viewFrame.haltWidth)
-                        .foregroundColor(.yellow)
+                    .padding(.bottom, 60)
                 }
                 
+                VStack{
+                    Spacer()
+                    HStack {
+                        Button {
+                            isActionSheetPresented = true
+                        } label: {
+                            Label("전화", systemImage: "phone.fill")
+                                .frame(width: viewFrame.haltWidth)
+                                .foregroundColor(.white)
+                        }
+                        Rectangle()
+                            .foregroundColor(.gray)
+                            .frame(width: 1)
+                            .padding(.vertical, 5)
+                        NavigationLink {
+                            ReservationView()
+                                .environmentObject(reservationStore)
+                                .navigationBarBackButtonHidden()
+                        } label: {
+                            Text("예약 신청")
+                                .frame(width: viewFrame.haltWidth)
+                                .foregroundColor(.yellow)
+                        }
+                    }
+                    .frame(height: 50)
+                    .font(.body1Regular)
+                    .background(Color.myPrimary)
+                    .padding(.bottom, 0.1)
+                }
             }
-            .frame(height: 50)
-            .font(.body1Regular)
-            .background(Color.myPrimary)
-            .padding(.bottom, 10)
+            
+            
+            
+            
             .navigationTitle("BinGongGan")
             .navigationBarTitleDisplayMode(.inline)
             .actionSheet(isPresented: $isActionSheetPresented) {
@@ -141,13 +145,11 @@ struct GongGanDetailView: View {
                     title: Text("전화 문의"),
                     buttons: [
                         .default(Text("전화 1011111111")) {
-                            // 전화 걸기 버튼을 눌렀을 때 실행할 작업
                             if let phoneURL = URL(string: "tel://01011111111") {
                                 UIApplication.shared.open(phoneURL, options: [:], completionHandler: nil)
                             }
                         },
                         .cancel() {
-                            // 취소 버튼을 눌렀을 때 실행할 작업
                         }
                     ]
                 )
@@ -158,18 +160,34 @@ struct GongGanDetailView: View {
                         heartButton.toggle()
                     } label: {
                         Image(systemName: heartButton ? "heart.fill" : "heart")
-                            .foregroundColor(.red)
+                            .foregroundColor(Color.myPrimary)
                     }
                 }
             }
-            
-            .background(Color.myBackground).ignoresSafeArea()
         }
     }
 }
 
 struct GongGanDetailView_Previews: PreviewProvider {
     static var previews: some View {
-        GongGanDetailView()
+        TabView {
+            GongGanDetailView()
+                .tabItem {
+                    Label("홈", systemImage: "house")
+                }
+            GongGanDetailView()
+                .tabItem {
+                    Label("내 주변", systemImage: "location.circle")
+                }
+            GongGanDetailView()
+                .tabItem {
+                    Label("찜", systemImage: "heart")
+                }
+            GongGanDetailView()
+                .tabItem {
+                    Label("마이페이지", systemImage: "book")
+                }
+        }
+        .tint(.myPrimary)
     }
 }

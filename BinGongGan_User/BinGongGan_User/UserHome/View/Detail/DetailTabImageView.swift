@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct DtaileTabImageView: View {
+struct DetailTabImageView: View {
     @StateObject var gongGan: GongGanStore = GongGanStore()
     private let screenWidth = UIScreen.main.bounds.width
     @State private var selectedTab = 0
@@ -43,8 +43,8 @@ struct DtaileTabImageView: View {
     }
 }
 
-struct DtaileTabImageView_Previews: PreviewProvider {
+struct DetailTabImageView_Previews: PreviewProvider {
     static var previews: some View {
-        DtaileTabImageView()
+        DetailTabImageView()
     }
 }

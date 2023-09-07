@@ -37,7 +37,7 @@ struct ReservationCalendarView: View {
                             Text(reservationStore.changeDateString(range.lowerBound))
                                 .font(.captionBold)
                             
-                            Spacer(minLength: 20)
+                            Spacer()
                             
                             Text("퇴실 날짜: ")
                                 .font(.captionRegular)

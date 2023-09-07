@@ -23,7 +23,7 @@ struct ReservationPlusMinusButton: View {
                 }
             } label: {
                 Image(systemName: "minus")
-                    .foregroundColor(.myPrimary)
+                    .foregroundColor(content == 1 ? Color.myLightGray : Color.myPrimary)
                     .frame(width: 20, height: 40)
             }
             .buttonStyle(.plain)
