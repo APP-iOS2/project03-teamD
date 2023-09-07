@@ -16,6 +16,7 @@ struct ContentView: View {
         if signInStore.isSuccessSignIn {
             GongGanTabView()
                 .environmentObject(reservationStore)
+                .environmentObject(signInStore)
         } else {
             NavigationStack {
                 SignInView()
