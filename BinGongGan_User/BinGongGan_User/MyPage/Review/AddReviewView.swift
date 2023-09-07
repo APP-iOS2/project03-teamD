@@ -15,11 +15,11 @@ struct AddReviewView: View {
     @State private var reviewText: String = ""
     @State private var reviewPhotoList: [String] = []
     @State private var isShowingAlert: Bool = false
-    
+    var reservate: ReservationModel
     var body: some View {
         Form {
             Section {
-                PlaceInfoView()
+                PlaceInfoView(reservate: reservate)
             }
             
             Section("별점") {
@@ -36,11 +36,18 @@ struct AddReviewView: View {
                     }
                 }
             }
-            
+        
             Section("리뷰 내용") {
-                TextEditor(text: $reviewText)
-                    .frame(height: UIScreen.main.bounds.height * 0.2)
-                    .border(.gray)
+                ZStack(alignment: .topLeading) {
+                    if reviewText.isEmpty {
+                        Text("리뷰를 작성해주세요.")
+                            .foregroundColor(Color(UIColor.placeholderText))
+                            .padding(EdgeInsets(top: 8, leading: 4, bottom: 0, trailing: 4))
+                    }
+                    TextEditor(text: $reviewText)
+                        .frame(height: UIScreen.main.bounds.height * 0.2)
+                }
+                
             }
             
             Section("사진 추가 (최대 5개)") {
@@ -49,6 +56,7 @@ struct AddReviewView: View {
         }
         .navigationTitle("리뷰 작성")
         .navigationBarTitleDisplayMode(.inline)
+        .navigationBarBackButtonHidden(true)
         .toolbar {
             ToolbarItem(placement: .navigationBarTrailing) {
                 Button("완료") {
@@ -57,9 +65,19 @@ struct AddReviewView: View {
                 .foregroundColor(.myPrimary)
             }
         }
+        .toolbar {
+            ToolbarItem(placement:.navigationBarLeading) {
+                Button {
+                    dismiss()
+                } label: {
+                    Image(systemName: "chevron.left")
+                        .foregroundColor(.myPrimary)
+                }
+            }
+        }
         .alert("리뷰 작성", isPresented: $isShowingAlert) {
             Button("취소", role: .cancel) {}
-            Button("저장", role: .destructive) {
+            Button("저장", role: .none) {
                 //TODO: 리뷰 저장 로직
                 dismiss()
             }
@@ -72,21 +90,24 @@ struct AddReviewView: View {
 struct AddReviewView_Previews: PreviewProvider {
     static var previews: some View {
         NavigationStack{
-            AddReviewView()
+            AddReviewView(reservate: ReservationModel(placeName: "희권이네 설빙", reservationNumber: "A103120235", reservationDate: "9/7 (목) 17:00 ~ 21:00", reservationPersonal: 5, placeAddress: "서울특별시 희권구", isReservation: false))
         }
     }
 }
 
 struct PlaceInfoView: View {
+    
+    var reservate: ReservationModel
+    
     var body: some View {
         VStack(alignment: .leading) {
-            Text("유빈이 네")
+            Text("\(reservate.placeName)")
                 .font(.head1Bold)
-            Text("예약 번호 : A10284901SG")
+            Text("예약번호: \(reservate.reservationNumber)")
                 .font(.body1Regular)
                 .foregroundColor(.myDarkGray)
                 .padding(.bottom, 15)
-            Text("9/4 (화) 12: 00 ~ 18:00 (5명)")
+            Text("\(reservate.reservationDate) (\(reservate.reservationPersonal)명)")
                 .font(.body1Regular)
                 .foregroundColor(.myDarkGray)
         }
@@ -100,12 +121,9 @@ struct AddPhotoView: View {
         ScrollViewReader { proxy in
             HStack{
                 Button {
-                    //TODO: - 이미지 불러오기 로직 추가, 스크롤뷰 리더 고치기
+                    //TODO: - 이미지 불러오기 로직 추가
                     if reviewPhotoList.count < 5 {
                         reviewPhotoList.append("\(reviewPhotoList.count + 1)")
-                        withAnimation {
-                            proxy.scrollTo(reviewPhotoList.count - 1, anchor: .center)
-                        }
                     }
                 }label: {
                     ZStack {
@@ -132,6 +150,12 @@ struct AddPhotoView: View {
                         }
                     }
                 }// ScrollView
+                .onChange(of: reviewPhotoList.count) { _ in
+                    // 메시지 목록이 변경되면 스크롤을 아래로 이동
+                    withAnimation {
+                        proxy.scrollTo(reviewPhotoList.count - 1, anchor: .center)
+                    }
+                }
             }// HStack
         }// ScrollViewReder
     }

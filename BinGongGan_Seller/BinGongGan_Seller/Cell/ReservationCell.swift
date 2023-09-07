@@ -6,6 +6,8 @@
 //
 
 import SwiftUI
+import BinGongGanCore
+
 
 struct ReservationCell: View {
     var body: some View {
@@ -31,7 +33,8 @@ struct ReservationCell: View {
         }
         .padding(20)
         .frame(maxWidth: .infinity, alignment: .leading)
-        .background(Color.green)
+        .foregroundColor(Color.myWhite)
+        .background(Color.myPrimary)
         .cornerRadius(15)
         .padding([.leading, .trailing], 20)
         .padding(.bottom, 10)

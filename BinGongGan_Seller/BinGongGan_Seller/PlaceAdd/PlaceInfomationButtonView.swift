@@ -8,29 +8,27 @@
 import SwiftUI
 
 struct PlaceInfomationButtonView: View {
-    var buttonName: String
-    var buttonImageString: String
-    @State var isClicked: Bool
+    @Binding var infomation: PlaceInfomationModel
     
     var body: some View {
-        
         Button {
             withAnimation {
-                isClicked.toggle()
+                infomation.isSelected.toggle()
             }
         } label: {
             VStack{
-                Image(systemName: buttonImageString)
+                Image(systemName: infomation.imageString)
                     .resizable()
                     .aspectRatio(contentMode: .fit)
                     .frame(width: 50, height: 30)
-                    .foregroundColor(isClicked ? .black : .gray)
+                    .foregroundColor(infomation.isSelected ? .red : .gray)
                 
-                Text(buttonName)
-                    .font(.title3)
+                Text(infomation.name)
+                    .font(.body1Regular)
                     .bold()
                     .padding()
                     .fixedSize()
+                    .foregroundColor(infomation.isSelected ? .red : .gray)
             }
         }
         .buttonStyle(.plain)
@@ -40,6 +38,6 @@ struct PlaceInfomationButtonView: View {
 
 struct PlaceInfomationButtonView_Previews: PreviewProvider {
     static var previews: some View {
-        PlaceInfomationButtonView(buttonName: "사람", buttonImageString: "person", isClicked: false)
+        PlaceInfomationButtonView(infomation: .constant(PlaceInfomationModel.data[0]))
     }
 }

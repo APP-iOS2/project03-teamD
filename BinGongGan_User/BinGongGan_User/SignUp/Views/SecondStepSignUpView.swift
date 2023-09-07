@@ -15,31 +15,31 @@ struct SecondStepSignUpView: View {
         VStack(alignment: .leading) {
             Group {
                 Text("아이디(이메일)")
-                    .font(.body1Regular)
-                Spacer()
-                CustomTextField(placeholder: "이메일 주소", text: $store.signUpData.name)
-                Spacer()
+                    .font(.body1Bold)
+                    .frame(height: 38)
+                CustomTextField(placeholder: "이메일 주소", keyboardType: .emailAddress,text: $store.signUpData.emailId)
             }
             Group {
                 Text("비밀번호")
-                    .font(.body1Regular)
-                Spacer()
-                CustomTextField(placeholder: "영문 8자리 이상", text: $store.signUpData.name)
-                Spacer()
+                    .font(.body1Bold)
+                    .frame(height: 38)
+                CustomSecureField(placeholder: "영문, 숫자 포함 4-8자리",text: $store.signUpData.password)
             }
             Group {
                 Text("비밀번호 확인")
-                    .font(.body1Regular)
-                Spacer()
-                CustomTextField(placeholder: "", text: $store.signUpData.birthDate)
+                    .font(.body1Bold)
+                    .frame(height: 38)
+                CustomSecureField(placeholder: "", text: $store.signUpData.passwordCheck)
             }
-            Spacer(minLength: 120)
+            Spacer()
             PrimaryButton(action: {
-                withAnimation {
-                    store.currentStep = .third
+                if store.isValidIdAndPassword() {
+                    withAnimation {
+                        store.currentStep = .third
+                    }
                 }
             }, title: "다음")
-            Spacer(minLength: 80)
+            Spacer()
         }
     }
 }

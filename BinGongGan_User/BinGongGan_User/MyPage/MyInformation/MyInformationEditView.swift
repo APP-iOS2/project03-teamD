@@ -8,34 +8,67 @@
 import SwiftUI
 import BinGongGanCore
 
+enum EditType {
+    case name
+    case phoneNumber
+}
+
 struct MyInformationEditView: View {
     @Environment(\.dismiss) private var dismiss
-    @State private var name: String = "손윤호"
+    private var isButtonDisabled: Bool {
+        if editType == .name {
+            return name.isEmpty || name == oldName
+        } else {
+            return phoneNumber.isEmpty || phoneNumber == oldPhoneNumber
+        }
+    }
+    var editType: EditType
+    
+    @Binding var name: String
+    @Binding var phoneNumber: String
+    
+    @State private var oldName: String = ""
+    @State private var oldPhoneNumber: String = ""
     
     var body: some View {
         VStack {
             HStack {
-                Text("이름 수정")
-                Spacer()
-            }
-            .font(.head1Bold)
-            .padding(.leading, 20)
-            
-            HStack {
-                Text("이름 정보는 호스트에게 보여지는 이름입니다.")
+                Text("\(editType == .name ? "이름 정보는 호스트에게 보여집니다." : "연락처 정보는 호스트에게 보여집니다.")")
                     .font(.captionRegular)
+                    .foregroundColor(.myMediumGray)
                 Spacer()
             }
             .padding(.leading, 20)
-            .padding(.bottom, 10)
+            .padding(.top, 10)
             
-            TextField("", text: $name)
-                .textFieldStyle(CommonTextfieldStyle(name: $name))
-                .padding(.horizontal, 20)
+            if editType == .name {
+                CustomTextField(placeholder: name, text: $name)
+                    .frame(height: 40)
+                    .padding(.horizontal, 20)
+            } else {
+                CustomTextField(placeholder: phoneNumber, text: $phoneNumber)
+                    .frame(height: 40)
+                    .padding(.horizontal, 20)
+            }
             
             Spacer()
+            
+            Button {
+                dismiss()
+            } label: {
+                Text("완료")
+                    .frame(maxWidth: .infinity, maxHeight: 50)
+                    .background(isButtonDisabled ? Color.myLightGray : Color.myPrimary)
+                    .cornerRadius(15)
+                    .padding(20)
+                    .foregroundColor(.myWhite)
+            }
+            .buttonStyle(.automatic)
+            .disabled(isButtonDisabled)
         }
         .background(Color.myBackground)
+        .navigationTitle("\(editType == .name ? "이름 수정": "연락처 수정")")
+        .navigationBarTitleDisplayMode(.inline)
         .navigationBarBackButtonHidden(true)
         .toolbar {
             ToolbarItem(placement: .navigationBarLeading) {
@@ -47,42 +80,9 @@ struct MyInformationEditView: View {
                 }
             }
         }
-    }
-}
-
-struct CommonTextfieldStyle: TextFieldStyle {
-    @Binding var name: String
-    
-    func _body(configuration: TextField<Self._Label>) -> some View {
-        
-        ZStack {
-            RoundedRectangle(cornerRadius: 10)
-                .stroke(Color.myPrimary, lineWidth: 1)
-                .frame(height: 50)
-            HStack {
-                Text("이름")
-                    .padding([.bottom, .leading])
-                    .font(.caption2)
-                    .foregroundColor(.myDarkGray)
-                Spacer()
-                
-                if !name.isEmpty {
-                    Button {
-                        name = ""
-                    } label: {
-                        Image(systemName: "xmark")
-                            .font(.head1Regular)
-                            .padding(.trailing)
-                            .foregroundColor(.myPrimary)
-                    }
-                }
-            }
-            
-            // 텍스트필드
-            configuration
-                .font(.body1Regular)
-                .padding(.leading)
-                .padding(.top)
+        .onAppear {
+            oldName = name
+            oldPhoneNumber = phoneNumber
         }
     }
 }
@@ -90,7 +90,7 @@ struct CommonTextfieldStyle: TextFieldStyle {
 struct MyInformationEditView_Previews: PreviewProvider {
     static var previews: some View {
         NavigationStack {
-            MyInformationEditView()
+            MyInformationEditView(editType: .name, name: .constant("손윤호"), phoneNumber: .constant("01012345678"))
                 .navigationBarTitleDisplayMode(.inline)
         }
     }
