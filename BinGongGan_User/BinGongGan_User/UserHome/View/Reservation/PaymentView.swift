@@ -9,10 +9,13 @@ import SwiftUI
 
 struct PaymentView: View {
     
+    @Environment(\.dismiss) private var dismiss
     @EnvironmentObject var reservationStore: ReservationStore
-    @Environment(\.presentationMode) var presentationMode
     
-    @State var checkAllPaymentInfo: Bool = false
+    @State private var checkAllPaymentInfo: Bool = false
+    @State private var checkPayment: Bool = false
+    
+    //@Binding var tabBarVisible: Visibility
     
     private let screenWidth = UIScreen.main.bounds.width
     
@@ -60,7 +63,7 @@ struct PaymentView: View {
             .listStyle(.plain)
             
             Button {
-                
+                checkAllPaymentInfo.toggle()
             } label: {
                 Text("확인")
                     .frame(width: screenWidth * 0.9, height: 50)
@@ -77,13 +80,36 @@ struct PaymentView: View {
             Alert(title: Text("결제 확인"),
                   message: Text("계좌번호 : 1010101010110로 입금부탁드립니다"),
                   dismissButton: .default(Text("확인"),action: {
-                presentationMode.wrappedValue.dismiss()
+                checkPayment.toggle()
             }))
         }
+        .navigationDestination(isPresented: $checkPayment) {
+            HomeView()
+                .navigationBarBackButtonHidden()
+        }
+        
+        .toolbar {
+            ToolbarItem(placement:.navigationBarLeading) {
+                Button {
+                    dismiss()
+                } label: {
+                    Image(systemName: "chevron.left")
+                        .foregroundColor(.myPrimary)
+                }
+            }
+        }
+        
         .background(Color.myBackground)
         .navigationTitle("결제 정보")
         .navigationBarTitleDisplayMode(.inline)
+        .onAppear {
+            //tabBarVisible = .hidden
+        }
+        .onDisappear {
+            //tabBarVisible = .visible
+        }
     }
+    
 }
 
 struct PaymentView_Previews: PreviewProvider {

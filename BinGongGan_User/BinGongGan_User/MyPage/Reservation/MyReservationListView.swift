@@ -34,7 +34,7 @@ struct MyReservationListView: View {
                             MyReservationRowView(reservate: reservate)
                                 .background(
                                     RoundedRectangle(cornerRadius: 15)
-                                        .foregroundColor(reservate.isReservation ? .myPrimary : .white)
+                                        .foregroundColor(reservate.isReservation ? .myLightGray : .white)
                                         .shadow(color: .gray, radius: 5, x: 3, y: 3)
                                         
                                 )
@@ -67,7 +67,7 @@ struct MyReservationListView: View {
                                     MyReservationRowView(reservate: reservate)
                                         .background(
                                             RoundedRectangle(cornerRadius: 15)
-                                                .foregroundColor(.myPrimary)
+                                                .foregroundColor(.myLightGray)
                                                 .shadow(color: .gray, radius: 5, x: 3, y: 3)
                                         )
                                 }

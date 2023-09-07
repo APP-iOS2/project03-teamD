@@ -20,17 +20,13 @@ struct MyPageMainView: View {
                 NavigationLink {
                     MyInformationDetailView()
                 } label: {
-                    HStack {
-                        Circle()
-                            .frame(width: min(80, UIScreen.main.bounds.width * 0.3), height: min(80, UIScreen.main.bounds.height * 0.3))
-                            .foregroundColor(.myPrimary)
-                            .padding(.trailing)
-                        VStack(alignment: .leading) {
-                            Text("손윤호")
-                            Text("test@test.com")
-                                .tint(.gray)
-                                .font(.caption)
-                        }
+                    VStack(alignment: .leading) {
+                        Spacer()
+                        Text("손윤호")
+                        Text("test@test.com")
+                            .tint(.gray)
+                            .font(.caption)
+                        Spacer()
                     }
                 }
             } //Section - 내정보
@@ -68,11 +64,13 @@ struct MyPageMainView: View {
                 Button {
                     isShowingLogoutAlert.toggle()
                 } label: {
-                    Text("로그 아웃")
+                    Text("로그아웃")
                         .foregroundColor(.red)
                 }
             }
         } //Form
+        .scrollContentBackground(.hidden)
+        .background(Color.myBackground)
         .navigationTitle("My 빈공간")
         .navigationBarTitleDisplayMode(.inline)
         .toolbar {
@@ -102,7 +100,9 @@ struct MyPageMainView: View {
 
 struct MyPageMainView_Previews: PreviewProvider {
     static var previews: some View {
-        MyPageMainView()
+        NavigationStack {
+            MyPageMainView()
+        }
     }
 }
 

@@ -9,9 +9,10 @@ import SwiftUI
 
 struct ReservationSellerInfoView: View {
     
-    @State var openRefundPolicySheet: Bool = false
-    @State var checkRefundPolicy: Bool = true
+    @State private var openRefundPolicySheet: Bool = false
+    @State private var checkRefundPolicy: Bool = false
     
+    @EnvironmentObject var reservationStore: ReservationStore
     private let screenWidth = UIScreen.main.bounds.width
     
     var body: some View {
@@ -48,7 +49,7 @@ struct ReservationSellerInfoView: View {
                         
                     } label: {
                         Text("확인")
-                            .foregroundColor(.mySecondary)
+                            .foregroundColor(.blue)
                             .padding(.leading, 20)
                     }
                 }
@@ -57,8 +58,8 @@ struct ReservationSellerInfoView: View {
         }
         .sheet(isPresented: $openRefundPolicySheet, content: {
             NavigationStack {
-                RefundPolicySheetView(checkRefundPolicy: .constant(checkRefundPolicy))
-                    .environmentObject(ReservationStore())
+                RefundPolicySheetView()
+                    .environmentObject(reservationStore)
             }
         })
     }
@@ -67,5 +68,6 @@ struct ReservationSellerInfoView: View {
 struct ReservationSellerInfoView_Previews: PreviewProvider {
     static var previews: some View {
         ReservationSellerInfoView()
+            .environmentObject(ReservationStore())
     }
 }

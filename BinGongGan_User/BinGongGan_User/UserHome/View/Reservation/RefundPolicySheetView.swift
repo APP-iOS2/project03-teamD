@@ -12,8 +12,6 @@ struct RefundPolicySheetView: View {
     @Environment(\.dismiss) private var dismiss
     @EnvironmentObject var reservationStore: ReservationStore
     
-    @Binding var checkRefundPolicy: Bool
-    
     private let screenWidth = UIScreen.main.bounds.width
     
     var body: some View {
@@ -41,13 +39,13 @@ struct RefundPolicySheetView: View {
             }
             
             Button {
-                checkRefundPolicy.toggle()
-                print(checkRefundPolicy)
+                reservationStore.checkPolicy.toggle()
+                print(reservationStore.checkPolicy)
                 dismiss()
             } label: {
                 Text("확인 완료")
                     .font(.body1Regular)
-                    .foregroundColor(.red)
+                    .foregroundColor(.blue)
                     .frame(width: screenWidth)
             }
             .buttonStyle(.plain)
@@ -61,7 +59,7 @@ struct RefundPolicySheetView: View {
 struct ReservationInfoView_Previews: PreviewProvider {
     static var previews: some View {
         NavigationStack {
-            RefundPolicySheetView(checkRefundPolicy: .constant(false))
+            RefundPolicySheetView()
                 .environmentObject(ReservationStore())
         }
     }
