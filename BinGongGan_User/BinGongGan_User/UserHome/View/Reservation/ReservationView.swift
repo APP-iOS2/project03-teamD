@@ -13,15 +13,7 @@ struct ReservationView: View {
     
     @EnvironmentObject var reservationStore: ReservationStore
     
-    @State var openRefundPolicySheet: Bool = false
     @State var checkRefundPolicy: Bool = true
-    
-    @State private var reservationName: String = ""
-    @State private var reservationPhoneNumber: String = ""
-    
-    @State private var reservationRequest: String = ""
-    
-    @FocusState private var isTextMasterFocused: Bool
     
     private let screenWidth = UIScreen.main.bounds.width
     
@@ -38,108 +30,20 @@ struct ReservationView: View {
                     .padding(.bottom, 10)
                 
                 VStack(alignment: .leading) {
+                    
                     // 시간, 인원, 입금자명, 연락처, 요청사항
+                    ReservationUserInfoView()
                     
-                    Group {
-                        Text("시간")
-                            .font(.body1Regular)
-                        
-                        ReservationPlusMinusButton(contentLabel: "시간")
-                            .padding(.bottom, 10)
-                        
-                        Text("인원")
-                            .font(.body1Regular)
-                        
-                        ReservationPlusMinusButton(contentLabel: "명")
-                            .padding(.bottom, 10)
-                        
-                        
-                        Text("입금자명")
-                            .font(.body1Regular)
-                        CustomTextField(placeholder: "입금자명을 입력하세요", text: .constant(reservationName))
-                            .keyboardType(.numberPad)
-                            .frame(width: screenWidth - 50, height: 50)
-                            .padding(.bottom, 10)
-                        
-                        
-                        Text("연락처")
-                            .font(.body1Regular)
-                        CustomTextField(placeholder: "연락처를 입력하세요", text: .constant(reservationPhoneNumber))
-                            .keyboardType(.numberPad)
-                            .frame(width: screenWidth - 50, height: 50)
-                            .padding(.bottom, 10)
-                    }
-                    
-                    Text("요청사항")
-                        .font(.body1Regular)
-                    ZStack(alignment: .topLeading) {
-                        
-                        TextMaster(
-                            text: $reservationRequest,
-                            isFocused: $isTextMasterFocused,
-                            minLine: 3,
-                            maxLine: 5,
-                            fontSize: 14)
-                        .background(.white)
-                        .cornerRadius(8)
-                        .padding(.bottom, 10)
-                        
-                        
-                        if reservationRequest.isEmpty {
-                            Text("요청사항을 작성해주세요")
-                                .font(.captionRegular)
-                                .foregroundColor(.myLightGray)
-                                .padding([.top,.leading], 10)
-                        }
-                    }
-                    
-                    // 이용 시 주의 사항, 환불규정
-                    
-                    Group {
-                        Text("이용 시 주의 사항")
-                            .font(.body1Regular)
-                        ZStack {
-                            
-                            RoundedRectangle(cornerRadius: 8)
-                                .fill(.white)
-                                .frame(maxWidth: screenWidth * 0.9, minHeight: 40)
-                            
-                            Text("판매자 형식 반영 제작")
-                                .font(.captionRegular)
-                        }
-                        .padding(.bottom, 10)
-                        
-                        
-                        Text("환불 규정")
-                            .font(.body1Regular)
-                        
-                        ZStack {
-                            RoundedRectangle(cornerRadius: 8)
-                                .fill(.white)
-                                .frame(maxWidth: screenWidth * 0.9, minHeight: 40)
-                            HStack {
-                                Text("환불 규정 확인하기")
-                                    .font(.captionRegular)
-                                // Spacer()
-                                Button {
-                                    // sheet 올리기 -> sheet 속 버튼 누르면 활성화되도록
-                                    openRefundPolicySheet.toggle()
-                                    
-                                } label: {
-                                    Text("확인")
-                                        .foregroundColor(.mySecondary)
-                                        .padding(.leading, 20)
-                                }
-                            }
-                        }
-                        .padding(.bottom, 10)
-                    }
+                    // 이용 시 주의 사항, 환불 규정
+                    ReservationSellerInfoView()
                     
                     Button {
-                        if checkRefundPolicy {
-                            //PaymentView()
-                            
-                            print("true 일경우 \(checkRefundPolicy)")
+                        if let reservation = reservationStore.reservation {
+                            if reservation.checkPolicy {
+                                //PaymentView()
+                                
+                                print("true 일경우 \(checkRefundPolicy)")
+                            }
                         }
                     } label: {
                         Text("무통장으로 입금")
@@ -165,9 +69,6 @@ struct ReservationView: View {
                 }
             }
         }
-        .sheet(isPresented: $openRefundPolicySheet, content: {
-            RefundPolicySheetView(checkRefundPolicy: .constant(checkRefundPolicy))
-        })
         /*
          .alert(isPresented: $openRefundPolicySheet) {
          Alert(title: Text("무통장 입금"),
