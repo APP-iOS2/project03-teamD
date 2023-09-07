@@ -9,8 +9,7 @@ import SwiftUI
 import BinGongGanCore
 
 struct HomeListRow: View {
-    private let screenWidth = UIScreen.main.bounds.width
-    private let screenHeight = UIScreen.main.bounds.height
+    
     @State var place: Place
     
     var body: some View {
@@ -61,7 +60,7 @@ struct HomeListRow: View {
                         place.isFavorite.toggle()
                     } label: {
                         Image(systemName: place.isFavorite ? "heart.fill" : "heart")
-                            .foregroundColor(.myPrimary)
+                            .foregroundColor(.mySecondary)
                     }.padding(.trailing, 20)
                     
                 }// HSTACK

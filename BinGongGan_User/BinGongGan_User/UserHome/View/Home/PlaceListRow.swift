@@ -8,8 +8,7 @@
 import SwiftUI
 
 struct PlaceListRow: View {
-    private let screenWidth = UIScreen.main.bounds.width
-    private let screenHeight = UIScreen.main.bounds.width
+    
     @State var place: Place
     
     var body: some View {
@@ -23,12 +22,12 @@ struct PlaceListRow: View {
                         .renderingMode(.original)
                         .resizable()
                         .aspectRatio(contentMode: .fill)
-                        .frame(width: screenWidth * 0.89,
-                               height: (screenHeight * 0.8) * 0.6)
+                        .frame(width: HomeNameSpace.screenWidth * 0.89,
+                               height: (HomeNameSpace.screenHeight * 0.8) * 0.6)
                 } placeholder: {
                     ProgressView()
-                        .frame(width: screenWidth * 0.89,
-                               height: (screenHeight * 0.8) * 0.6)
+                        .frame(width: HomeNameSpace.screenWidth * 0.89,
+                               height: (HomeNameSpace.screenHeight * 0.8) * 0.6)
                 }
                 .cornerRadius(3)
                 VStack(alignment: .leading){
@@ -47,13 +46,13 @@ struct PlaceListRow: View {
                         .font(.body1Regular)
                         .foregroundColor(.myBlack)
                 }
-                .frame(height: (screenHeight * 0.8) * 0.4)
+                .frame(height: (HomeNameSpace.screenHeight * 0.8) * 0.4)
                 .padding([.leading, .trailing], 20)
             }
             .background(
                 RoundedRectangle(cornerRadius: 0)
                     .frame(
-                        width: screenWidth * 0.89, height: screenHeight * 0.8
+                        width: HomeNameSpace.screenWidth * 0.89, height: HomeNameSpace.screenHeight * 0.8
                     )
                     .foregroundColor(.myWhite)
                     .cornerRadius(3)

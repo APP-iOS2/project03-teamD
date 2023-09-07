@@ -23,10 +23,11 @@ struct HomeEventTapView: View {
                         AsyncImage(url: dummy.imageURL, content: { image in
                             image
                                 .resizable()
-                                .frame(width: screenWidth)
+                                .frame(width: HomeNameSpace.screenWidth)
                                 .clipped()
                         }) {
                             ProgressView()
+                                .frame(width: HomeNameSpace.screenWidth)
                         }
                     }
                 }
@@ -40,7 +41,7 @@ struct HomeEventTapView: View {
             }
         }// GeometryReader
         .tabViewStyle(PageTabViewStyle())
-        .frame(width: screenWidth, height: screenHeight * 0.13)
+        .frame(width: HomeNameSpace.screenWidth, height: HomeNameSpace.screenHeight * 0.3)
         .foregroundColor(.black)
         
     }// Body

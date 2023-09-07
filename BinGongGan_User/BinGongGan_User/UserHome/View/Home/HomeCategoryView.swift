@@ -9,8 +9,6 @@ import SwiftUI
 import BinGongGanCore
 
 struct HomeCategoryView: View {
-    private let screenWidth = UIScreen.main.bounds.width
-    private let screenHeight = UIScreen.main.bounds.height
     
     @ObservedObject var homeStore: HomeStore = HomeStore()
     

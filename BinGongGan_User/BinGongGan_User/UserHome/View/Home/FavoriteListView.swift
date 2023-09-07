@@ -7,28 +7,23 @@
 
 import SwiftUI
 
+
 struct FavoriteListView: View {
-    private let screenWidth = UIScreen.main.bounds.width
-    private let screenHeight = UIScreen.main.bounds.height
     
     @ObservedObject var homeStore: HomeStore = HomeStore()
     
     var body: some View {
-        
         TabView {
-            ForEach(homeStore.places) { place in
+            ForEach(homeStore.hotPlace) { place in
                 ZStack {
                     AsyncImage(url: place.imageURL ) { image in
                         image
                             .renderingMode(.original)
                             .resizable()
-                        
                     } placeholder: {
                         ProgressView()
-                        
                     }
                     .cornerRadius(8)
-                    
                     VStack {
                         Spacer()
                         Rectangle()
@@ -50,15 +45,11 @@ struct FavoriteListView: View {
                     }
                     .cornerRadius(8, corners: .bottomLeft)
                     .cornerRadius(8, corners: .bottomRight)
-                    
-                }
-                    
+                }// ZSTACK
             }
-            
-        }
+        }// TABVIEW
         .tabViewStyle(PageTabViewStyle())
-        .frame( height: screenHeight * 0.5)
-        
+        .frame( height: HomeNameSpace.screenWidth * 0.5)
     }
 }
 

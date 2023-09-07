@@ -8,6 +8,11 @@
 import SwiftUI
 import BinGongGanCore
 
+enum HomeNameSpace {
+    static let screenWidth = UIScreen.main.bounds.width
+    static let screenHeight = UIScreen.main.bounds.width
+}
+
 extension View {
     func cornerRadius(_ radius: CGFloat, corners: UIRectCorner) -> some View {
         clipShape( RoundedCorner(radius: radius, corners: corners) )
@@ -26,8 +31,7 @@ struct RoundedCorner: Shape {
 }
 
 struct HomeView: View {
-    private let screenWidth = UIScreen.main.bounds.width
-    private let screenHeight = UIScreen.main.bounds.height
+    
     @ObservedObject var homeStore: HomeStore = HomeStore()
     @Binding var tabBarVisivility: Visibility
     
@@ -59,7 +63,6 @@ struct HomeView: View {
                             .padding()
                     }
                     Group {
-                        
                         HomeCategoryView()
                             .padding([.leading, .trailing], 20)
                         
@@ -80,19 +83,30 @@ struct HomeView: View {
                                 .font(.head1Bold)
                                 .foregroundColor(.myPrimary)
                             Spacer()
-                        }.padding(.leading, 20)
+                            Button {
+                                homeStore.settingRecommendPlace()
+                            } label: {
+                                Image(systemName: "goforward")
+                                    .font(.body1Bold)
+                                    .foregroundColor(.mySecondary)
+                            }
+
+                        }.padding([.leading, .trailing], 20)
                         
-                        ForEach(homeStore.places) { place in
-                             
+                        ForEach(homeStore.recommendPlace) { place in
                             HomeListRow(place: place)
                         }
                         .padding(.bottom, 10)
+                        
                         HomeEventTapView()
                             .padding(.bottom, 10)
                     }// GROUP
                 }// LazyVStack
                 .padding(.bottom, 10)
             }// SCROLLVIEW
+            .onAppear{
+                homeStore.settingRecommendPlace()
+            }
             .toolbar {
                 ToolbarItem(placement: .navigationBarLeading) {
                     Image("HomeLogo")
@@ -102,9 +116,7 @@ struct HomeView: View {
                         .padding(.leading, 10)
                 }
             }
-            
         }// ZSTACK
-        
     }// BODY
 }
 

@@ -8,8 +8,7 @@
 import SwiftUI
 
 struct PlaceListView: View {
-    private let screenWidth = UIScreen.main.bounds.width
-    private let screenHeight = UIScreen.main.bounds.height
+    
     @Environment(\.dismiss) private var dismiss
     @ObservedObject var homeStore: HomeStore = HomeStore()
     @State var category: String
