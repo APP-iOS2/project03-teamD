@@ -64,6 +64,7 @@ struct HomeListRow: View {
                     }.padding(.trailing, 20)
                     
                 }// HSTACK
+                .foregroundColor(.myBackground)
                 Rectangle()
                     .frame(height: 1)
                     .foregroundColor(.myLightGray)
