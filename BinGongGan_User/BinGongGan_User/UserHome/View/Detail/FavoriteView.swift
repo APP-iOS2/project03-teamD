@@ -9,17 +9,18 @@ import SwiftUI
 
 struct FavoriteView: View {
     @StateObject var gongGan: GongGanStore = GongGanStore()
+    @State var navigationLink: Bool = false
     private let screenWidth = UIScreen.main.bounds.width
     private let screenheight = UIScreen.main.bounds.height
     var body: some View {
         NavigationStack {
             List {
                 ForEach(gongGan.tempFavorit) { place in
-                    NavigationLink {
-                        GongGanDetailView()
+                    Button {
+                        navigationLink.toggle()
                     } label: {
                         HStack {
-                            VStack( alignment: .leading, spacing: 5) {
+                            VStack(alignment: .leading, spacing: 5) {
                                 Text(place.title)
                                     .font(.body1Bold)
                                 Text(place.category)
@@ -30,7 +31,7 @@ struct FavoriteView: View {
                                 
                             }
                             Spacer()
-
+                            
                         }
                         .frame(width: screenWidth * 0.8)
                         .padding()
@@ -44,11 +45,22 @@ struct FavoriteView: View {
                     }
                     
                 }
+                .onDelete { indices in
+                    gongGan.tempFavorit.remove(atOffsets: indices)
+                }
                 .listRowSeparator(.hidden)
             }
             .listStyle(.plain)
             .navigationTitle("나의 찜")
             .navigationBarTitleDisplayMode(.inline)
+            .navigationDestination(isPresented: $navigationLink) {
+                GongGanDetailView()
+            }
+            .toolbar {
+                ToolbarItem(placement: .navigationBarTrailing) {
+                    EditButton()
+                }
+            }
         }
     }
 }
