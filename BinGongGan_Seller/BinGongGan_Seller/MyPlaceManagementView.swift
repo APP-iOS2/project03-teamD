@@ -32,6 +32,8 @@ struct MyPlaceManagementView: View {
                     } label: {
                         Text("내 공간 추가")
                             .padding(.trailing, 20)
+                            .bold()
+                            .foregroundColor(.myBlack)
                     }
 
                 }
