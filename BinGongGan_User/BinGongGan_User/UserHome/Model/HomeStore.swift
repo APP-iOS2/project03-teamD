@@ -9,40 +9,19 @@ import SwiftUI
 
 final class HomeStore: ObservableObject {
     
-    @Published var EventList: [Event] = [
-        Event(eventImage: eventImageArray[0] ),
-        Event(eventImage: eventImageArray[1] ),
-        Event(eventImage: eventImageArray[2] ),
-        Event(eventImage: eventImageArray[3] ),
-        Event(eventImage: eventImageArray[4] ),
-        Event(eventImage: eventImageArray[5] ),
-        Event(eventImage: eventImageArray[6] ),
-        Event(eventImage: eventImageArray[7] ),
-    ]
-    
-    var categories: [Category] = [
-        Category(category: .shareOffice,   categoryImageString: categoryImageArray[0] ),
-        Category(category: .bandRoom,      categoryImageString: categoryImageArray[1] ),
-        Category(category: .studio,        categoryImageString: categoryImageArray[2] ),
-        Category(category: .shareKitchen,  categoryImageString: categoryImageArray[3] ),
-    ]
-    
-    @Published var places: [Place] = [
-        Place(
-            placeName: "강남 햇님공용오피스", category: .shareOffice, placeLocation: "강남구",
-            placePrice: 12000, placeString: imageArray[0] , isFavorite: false),
-        Place(
-            placeName: "강서 달님합주실", category: .bandRoom, placeLocation: "강서구",
-            placePrice: 12000, placeString: imageArray[1] , isFavorite: false),
-        Place(
-            placeName: "강동 하늘공유주방", category: .shareKitchen, placeLocation: "강동구",
-            placePrice: 12000, placeString: imageArray[2] , isFavorite: false),
-        Place(
-            placeName: "강북 땅스튜디오", category: .studio, placeLocation: "강북구",
-            placePrice: 12000, placeString: imageArray[3] , isFavorite: false),
-    ]
-    
+    @Published var EventList: [Event] = []
+    @Published var places: [Place] = []
     @Published var filteredArray:[Place] = []
+    var categories: [Category] = [
+        Category(category: .shareOffice, categoryImageString:  "building.2"),
+        Category(category: .bandRoom, categoryImageString:  "music.mic"),
+        Category(category: .studio, categoryImageString:  "camera"),
+        Category(category: .shareKitchen, categoryImageString:  "fork.knife"),
+    ]
+    
+    init(){
+        settingDemo()
+    }
     
     func searchPlaceName(placess: [Place] , keyWord: String) {
 
@@ -68,6 +47,29 @@ final class HomeStore: ObservableObject {
             ProgressView()
         }
     }
+    
+    func settingDemo(){
+      
+        for i in eventImageArray {
+            EventList.append(Event(eventImage: i))
+        }
+        
+        places = [
+            Place(
+                placeName: "강남 햇님공용오피스", category: .shareOffice, placeLocation: "강남구",
+                placePrice: 12000, placeString: imageArray[0] , isFavorite: false),
+            Place(
+                placeName: "강서 달님합주실", category: .bandRoom, placeLocation: "강서구",
+                placePrice: 12000, placeString: imageArray[1] , isFavorite: false),
+            Place(
+                placeName: "강동 하늘공유주방", category: .shareKitchen, placeLocation: "강동구",
+                placePrice: 12000, placeString: imageArray[2] , isFavorite: false),
+            Place(
+                placeName: "강북 땅스튜디오", category: .studio, placeLocation: "강북구",
+                placePrice: 12000, placeString: imageArray[3] , isFavorite: false),
+        ]
+        
+    }
 }
 
 let imageArray: [String] = [
@@ -86,11 +88,4 @@ let eventImageArray: [String] = [
     "https://media.discordapp.net/attachments/1148158635667632149/1149282573881724979/canva----------mp-LcAtJ4yQ.jpg?width=1410&height=528",
     "https://media.discordapp.net/attachments/1148158635667632149/1149282573550362666/canva--------BGJr497I-OM.jpg?width=1410&height=352",
     "https://media.discordapp.net/attachments/1148158635667632149/1149282575689469993/canva--------zIbSUFxMP-c.jpg?width=1410&height=470",
-]
-
-let categoryImageArray: [String] = [
-  "building.2",
-  "music.mic",
-  "camera",
-  "fork.knife",
 ]

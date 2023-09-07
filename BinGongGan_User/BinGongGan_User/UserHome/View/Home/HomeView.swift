@@ -8,11 +8,27 @@
 import SwiftUI
 import BinGongGanCore
 
+extension View {
+    func cornerRadius(_ radius: CGFloat, corners: UIRectCorner) -> some View {
+        clipShape( RoundedCorner(radius: radius, corners: corners) )
+    }
+}
+
+struct RoundedCorner: Shape {
+    
+    var radius: CGFloat = .infinity
+    var corners: UIRectCorner = .allCorners
+    
+    func path(in rect: CGRect) -> Path {
+        let path = UIBezierPath(roundedRect: rect, byRoundingCorners: corners, cornerRadii: CGSize(width: radius, height: radius))
+        return Path(path.cgPath)
+    }
+}
 
 struct HomeView: View {
-    
-    @ObservedObject var dummyStore: HomeStore = HomeStore()
     private let screenWidth = UIScreen.main.bounds.width
+    private let screenHeight = UIScreen.main.bounds.height
+    @ObservedObject var homeStore: HomeStore = HomeStore()
     @Binding var tabBarVisivility: Visibility
     
     var body: some View {
@@ -49,7 +65,8 @@ struct HomeView: View {
                         
                         HStack {
                             Text("인기 플레이스")
-                                .font(.body1Regular)
+                                .font(.head1Bold)
+                                .foregroundColor(.myPrimary)
                                 .padding([.leading, .top], 20)
                             Spacer()
                         }
@@ -60,11 +77,13 @@ struct HomeView: View {
                         
                         HStack {
                             Text("이런 공간은 어떠세요?")
-                                .font(.body1Regular)
+                                .font(.head1Bold)
+                                .foregroundColor(.myPrimary)
                             Spacer()
                         }.padding(.leading, 20)
                         
-                        ForEach(dummyStore.places) { place in
+                        ForEach(homeStore.places) { place in
+                             
                             HomeListRow(place: place)
                         }
                         .padding(.bottom, 10)
@@ -73,7 +92,6 @@ struct HomeView: View {
                     }// GROUP
                 }// LazyVStack
                 .padding(.bottom, 10)
-               
             }// SCROLLVIEW
             .toolbar {
                 ToolbarItem(placement: .navigationBarLeading) {

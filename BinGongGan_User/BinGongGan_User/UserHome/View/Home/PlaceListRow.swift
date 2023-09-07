@@ -7,9 +7,7 @@
 
 import SwiftUI
 
-
 struct PlaceListRow: View {
-    
     private let screenWidth = UIScreen.main.bounds.width
     private let screenHeight = UIScreen.main.bounds.width
     @State var place: Place

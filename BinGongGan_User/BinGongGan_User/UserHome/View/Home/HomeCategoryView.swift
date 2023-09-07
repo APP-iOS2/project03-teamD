@@ -8,20 +8,18 @@
 import SwiftUI
 import BinGongGanCore
 
-
 struct HomeCategoryView: View {
-    
     private let screenWidth = UIScreen.main.bounds.width
     private let screenHeight = UIScreen.main.bounds.height
     
-    @ObservedObject var dummyStore: HomeStore = HomeStore()
+    @ObservedObject var homeStore: HomeStore = HomeStore()
     
     var body: some View {
         
         HStack(spacing: 10) {
             Grid(horizontalSpacing: 20) {
                 GridRow {
-                    ForEach(dummyStore.categories) { place in
+                    ForEach(homeStore.categories) { place in
                         NavigationLink {
                             PlaceListView(category: place.category.rawValue)
                         } label: {

@@ -8,21 +8,18 @@
 import SwiftUI
 import BinGongGanCore
 
-
 struct HomeEventTapView: View {
-    
-    @ObservedObject var dummyStore: HomeStore = HomeStore()
     private let screenWidth = UIScreen.main.bounds.width
     private let screenHeight = UIScreen.main.bounds.height
-    
     private let timer = Timer.publish(every: 4, on: .main, in: .common).autoconnect()
+    @ObservedObject var homeStore: HomeStore = HomeStore()
     @State private var currentPage: Int = 0
     
     var body: some View {
         GeometryReader { geometry in
             ScrollView(.horizontal, showsIndicators: false){
                 HStack(spacing: 0) {
-                    ForEach(dummyStore.EventList) { dummy in
+                    ForEach(homeStore.EventList) { dummy in
                         AsyncImage(url: dummy.imageURL, content: { image in
                             image
                                 .resizable()
@@ -38,7 +35,7 @@ struct HomeEventTapView: View {
             .onReceive(timer) { _ in
                 // Automatically switch to the next tab
                 withAnimation {
-                    currentPage = (currentPage + 1) % dummyStore.EventList.count
+                    currentPage = (currentPage + 1) % homeStore.EventList.count
                 }
             }
         }// GeometryReader

@@ -7,12 +7,10 @@
 
 import SwiftUI
 
-
-
 struct HomeSearchView: View {
-    
-    @Environment(\.dismiss) private var dismiss
     private let screenWidth = UIScreen.main.bounds.width
+    private let screenHeight = UIScreen.main.bounds.height
+    
     @State private var placeSearchTextField: String = ""
     @ObservedObject var homeStore: HomeStore = HomeStore()
     
