@@ -21,14 +21,13 @@
 		54D4677A2AA8A90C00054F12 /* ChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54D467792AA8A90C00054F12 /* ChartView.swift */; };
 		54D4677C2AA8AA6200054F12 /* ChartModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54D4677B2AA8AA6200054F12 /* ChartModel.swift */; };
 		6A3B443C2AA83058008CC944 /* ReservationTapType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A3B443B2AA83058008CC944 /* ReservationTapType.swift */; };
-		6A3B443E2AA83067008CC944 /* DatePickerContent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A3B443D2AA83067008CC944 /* DatePickerContent.swift */; };
 		6A3B44402AA83081008CC944 /* RervationDetailsStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A3B443F2AA83081008CC944 /* RervationDetailsStore.swift */; };
 		6A3B44422AA83099008CC944 /* ReservationDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A3B44412AA83099008CC944 /* ReservationDetailsView.swift */; };
 		6A3B44442AA830C3008CC944 /* ReservationTapBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A3B44432AA830C3008CC944 /* ReservationTapBarView.swift */; };
 		6A3B44462AA830D4008CC944 /* ReservationDetailsListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A3B44452AA830D4008CC944 /* ReservationDetailsListView.swift */; };
-		6A3B44482AA830E2008CC944 /* ReservationDetailsPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A3B44472AA830E2008CC944 /* ReservationDetailsPickerView.swift */; };
 		6A3B444A2AA830F4008CC944 /* ReservationDetailsCalendarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A3B44492AA830F4008CC944 /* ReservationDetailsCalendarView.swift */; };
 		6A3B444C2AA83119008CC944 /* ReservationConfirmedCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A3B444B2AA83119008CC944 /* ReservationConfirmedCell.swift */; };
+		6A70AE8A2AA9A3BE00EF6AAE /* ReservationDetailsSegmentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A70AE892AA9A3BE00EF6AAE /* ReservationDetailsSegmentView.swift */; };
 		B10A042E2AA9014B00ACF757 /* MyPlaceManagementView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B10A042D2AA9014A00ACF757 /* MyPlaceManagementView.swift */; };
 		B12A84732AA6EFE900BDF8CA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B12A84722AA6EFE900BDF8CA /* Assets.xcassets */; };
 		B12A84802AA6EFEA00BDF8CA /* BinGongGan_SellerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B12A847F2AA6EFEA00BDF8CA /* BinGongGan_SellerTests.swift */; };
@@ -92,14 +91,13 @@
 		54D467792AA8A90C00054F12 /* ChartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartView.swift; sourceTree = "<group>"; };
 		54D4677B2AA8AA6200054F12 /* ChartModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartModel.swift; sourceTree = "<group>"; };
 		6A3B443B2AA83058008CC944 /* ReservationTapType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReservationTapType.swift; sourceTree = "<group>"; };
-		6A3B443D2AA83067008CC944 /* DatePickerContent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatePickerContent.swift; sourceTree = "<group>"; };
 		6A3B443F2AA83081008CC944 /* RervationDetailsStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RervationDetailsStore.swift; sourceTree = "<group>"; };
 		6A3B44412AA83099008CC944 /* ReservationDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReservationDetailsView.swift; sourceTree = "<group>"; };
 		6A3B44432AA830C3008CC944 /* ReservationTapBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReservationTapBarView.swift; sourceTree = "<group>"; };
 		6A3B44452AA830D4008CC944 /* ReservationDetailsListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReservationDetailsListView.swift; sourceTree = "<group>"; };
-		6A3B44472AA830E2008CC944 /* ReservationDetailsPickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReservationDetailsPickerView.swift; sourceTree = "<group>"; };
 		6A3B44492AA830F4008CC944 /* ReservationDetailsCalendarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReservationDetailsCalendarView.swift; sourceTree = "<group>"; };
 		6A3B444B2AA83119008CC944 /* ReservationConfirmedCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReservationConfirmedCell.swift; sourceTree = "<group>"; };
+		6A70AE892AA9A3BE00EF6AAE /* ReservationDetailsSegmentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReservationDetailsSegmentView.swift; sourceTree = "<group>"; };
 		B10A042D2AA9014A00ACF757 /* MyPlaceManagementView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPlaceManagementView.swift; sourceTree = "<group>"; };
 		B12A846B2AA6EFE700BDF8CA /* BinGongGan_Seller.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BinGongGan_Seller.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B12A84722AA6EFE900BDF8CA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -282,7 +280,7 @@
 				6A3B44412AA83099008CC944 /* ReservationDetailsView.swift */,
 				6A3B44432AA830C3008CC944 /* ReservationTapBarView.swift */,
 				6A3B44452AA830D4008CC944 /* ReservationDetailsListView.swift */,
-				6A3B44472AA830E2008CC944 /* ReservationDetailsPickerView.swift */,
+				6A70AE892AA9A3BE00EF6AAE /* ReservationDetailsSegmentView.swift */,
 				6A3B44492AA830F4008CC944 /* ReservationDetailsCalendarView.swift */,
 			);
 			path = ReservationDetailsViews;
@@ -308,7 +306,6 @@
 			isa = PBXGroup;
 			children = (
 				6A3B443B2AA83058008CC944 /* ReservationTapType.swift */,
-				6A3B443D2AA83067008CC944 /* DatePickerContent.swift */,
 			);
 			path = Enums;
 			sourceTree = "<group>";
@@ -587,10 +584,9 @@
 				2F36A5722AA83E9200578AEB /* ReportCase.swift in Sources */,
 				B13464EA2AA90D5700098E9B /* PlaceAddView.swift in Sources */,
 				B13465002AA9102D00098E9B /* ReviewManageView.swift in Sources */,
-				6A3B443E2AA83067008CC944 /* DatePickerContent.swift in Sources */,
 				545AA9C22AA83A8A00A281D0 /* PlaceInfomationModel.swift in Sources */,
+				6A70AE8A2AA9A3BE00EF6AAE /* ReservationDetailsSegmentView.swift in Sources */,
 				B13464F62AA90E8800098E9B /* CategoryButton.swift in Sources */,
-				6A3B44482AA830E2008CC944 /* ReservationDetailsPickerView.swift in Sources */,
 				B13464E82AA90D2A00098E9B /* PlaceInfomationButtonView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
