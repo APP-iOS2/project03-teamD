@@ -12,8 +12,6 @@ struct MyPlaceManagementView: View {
     @Environment(\.dismiss) private var dismiss
     
     var body: some View {
-        //^^
-//        NavigationStack {
             VStack {
                 HStack {
                     Text("판매자 정보")
@@ -24,11 +22,18 @@ struct MyPlaceManagementView: View {
                 }
                 SellerInformationCell()
                 HStack {
-                    Text("내 정보")
+                    Text("내 공간")
                         .font(.title)
                         .bold()
                         .padding(.horizontal, 20)
                     Spacer()
+                    NavigationLink {
+                        PlaceAddView()
+                    } label: {
+                        Text("내 공간 추가")
+                            .padding(.trailing, 20)
+                    }
+
                 }
                 TabView {
                     // TODO: TabView 작동 안돼서 수정 필요
@@ -51,13 +56,14 @@ struct MyPlaceManagementView: View {
                     }
                 }
             }
-//        }
     }
 }
 
 
 struct MyPlaceManagementView_Previews: PreviewProvider {
     static var previews: some View {
-        MyPlaceManagementView()
+        NavigationStack {
+            MyPlaceManagementView()
+        }
     }
 }
