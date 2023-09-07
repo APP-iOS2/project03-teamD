@@ -10,6 +10,8 @@ import SwiftUI
 struct ReviewReportSheet: View {
     @Binding var isShowingReviewReportSheet: Bool
     
+    @State var isShowingReportAlert: Bool
+    
     var body: some View {
         VStack {
             HStack {
@@ -25,23 +27,16 @@ struct ReviewReportSheet: View {
                 }
             }
             .listStyle(.plain)
+            
+            Button(role: .destructive) {
+                // TODO: 신고 처리 로직 구현하기
+            } label: {
+                Text("신고 제출하기")
+            }
+            .buttonStyle(.borderedProminent)
         }
         .navigationTitle("리뷰 신고")
         .navigationBarTitleDisplayMode(.inline)
-        .toolbar {
-            ToolbarItem(placement: .navigationBarLeading) {
-                Button("닫기", role: .cancel) {
-                    isShowingReviewReportSheet.toggle()
-                }
-            }
-            
-            ToolbarItem(placement: .navigationBarTrailing) {
-                Button("신고", role: .destructive) {
-                    // TODO: 신고 처리하는 로직 작성하기
-                    isShowingReviewReportSheet.toggle()
-                }
-            }
-        }
     }
 }
 
