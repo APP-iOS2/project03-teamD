@@ -1,3 +1,6 @@
+
+
+
 //
 //  MyInformationDetail.swift
 //  BinGongGan_User
@@ -10,8 +13,11 @@ import BinGongGanCore
 
 struct MyInformationDetailView: View {
     @Environment(\.dismiss) private var dismiss
+    private var formattedPhoneNumber: String {
+        phoneNumber.formatPhoneNumber()
+    }
     @State private var name: String = "손윤호"
-    @State private var phoneNumber: String = "010-1234-5678"
+    @State private var phoneNumber: String = "01012345678"
     @State private var isPresentedAlert: Bool = false
     
     var body: some View {
@@ -38,7 +44,7 @@ struct MyInformationDetailView: View {
                         Text("연락처")
                             .font(.body1Regular)
                         Spacer()
-                        Text("\(phoneNumber)")
+                        Text("\(formattedPhoneNumber)")
                             .foregroundColor(.myDarkGray)
                     }
                 }

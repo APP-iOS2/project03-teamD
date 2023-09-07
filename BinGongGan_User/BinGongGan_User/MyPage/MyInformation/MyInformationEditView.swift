@@ -17,18 +17,17 @@ struct MyInformationEditView: View {
     @Environment(\.dismiss) private var dismiss
     private var isButtonDisabled: Bool {
         if editType == .name {
-            return name.isEmpty || name == oldName
+            return newName.isEmpty || name == newName
         } else {
-            return phoneNumber.isEmpty || phoneNumber == oldPhoneNumber
+            return newPhoneNumber.isEmpty || phoneNumber == newPhoneNumber
         }
     }
     var editType: EditType
     
     @Binding var name: String
     @Binding var phoneNumber: String
-    
-    @State private var oldName: String = ""
-    @State private var oldPhoneNumber: String = ""
+    @State private var newName: String = ""
+    @State private var newPhoneNumber: String = ""
     
     var body: some View {
         VStack {
@@ -42,11 +41,12 @@ struct MyInformationEditView: View {
             .padding(.top, 10)
             
             if editType == .name {
-                CustomTextField(placeholder: name, text: $name)
+                CustomTextField(placeholder: name, text: $newName)
                     .frame(height: 40)
                     .padding(.horizontal, 20)
             } else {
-                CustomTextField(placeholder: phoneNumber, text: $phoneNumber)
+                CustomTextField(placeholder: phoneNumber, text: $newPhoneNumber)
+                    .keyboardType(.numberPad)
                     .frame(height: 40)
                     .padding(.horizontal, 20)
             }
@@ -54,6 +54,11 @@ struct MyInformationEditView: View {
             Spacer()
             
             Button {
+                if editType == .name {
+                    name = newName
+                } else {
+                    phoneNumber = newPhoneNumber
+                }
                 dismiss()
             } label: {
                 Text("완료")
@@ -81,8 +86,8 @@ struct MyInformationEditView: View {
             }
         }
         .onAppear {
-            oldName = name
-            oldPhoneNumber = phoneNumber
+            newName = name
+            newPhoneNumber = phoneNumber
         }
     }
 }
@@ -90,7 +95,7 @@ struct MyInformationEditView: View {
 struct MyInformationEditView_Previews: PreviewProvider {
     static var previews: some View {
         NavigationStack {
-            MyInformationEditView(editType: .name, name: .constant("손윤호"), phoneNumber: .constant("01012345678"))
+            MyInformationEditView(editType: .phoneNumber, name: .constant("손윤호"), phoneNumber: .constant("01012345678"))
                 .navigationBarTitleDisplayMode(.inline)
         }
     }
