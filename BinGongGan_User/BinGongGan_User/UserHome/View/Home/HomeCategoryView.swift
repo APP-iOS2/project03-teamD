@@ -31,7 +31,7 @@ struct HomeCategoryView: View {
                                         .foregroundColor(Color.myWhite)
                                     Image(systemName: "\(place.categoryImageString)")
                                         .aspectRatio(contentMode: .fit)
-                                        .foregroundColor(Color.myPrimary)
+                                        .foregroundColor(Color.mySecondary)
                                         .font(.system(size: 27))
                                 }
                                 Text(place.category.rawValue)
