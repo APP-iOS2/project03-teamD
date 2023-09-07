@@ -6,34 +6,34 @@
 //
 
 import SwiftUI
-
+import BinGongGanCore
 struct CategoryButton: View {
-    var buttonText: String
+    var category: CategoryModel
     
     var body: some View {
-        Button( action: {},
-                label: {
             VStack{
-                Image(systemName: "filemenu.and.cursorarrow")
+                Image(systemName: category.imageString)
                     .resizable()
                     .aspectRatio(contentMode: .fit)
-                    .frame(width: 50, height: 30)
+                    .frame(width: 30, height: 30)
                 
-                Text(buttonText)
-                    .font(.title3)
+                Text(category.categories)
+                    .font(.body1Regular)
                     .bold()
-                    .padding(.top, 20)
+                    .padding(.top, 5)
                     .fixedSize()
+                  
             }
-        }).buttonStyle(.plain)
+
+        .foregroundColor(Color.myPrimary)
         .background(Color.clear)
         .padding()
     }
 }
 
 
-//struct CategoryButton_Previews: PreviewProvider {
-//    static var previews: some View {
-//        CategoryButton()
-//    }
-//}
+struct CategoryButton_Previews: PreviewProvider {
+    static var previews: some View {
+        CategoryButton(category: CategoryModel.data[0])
+    }
+}

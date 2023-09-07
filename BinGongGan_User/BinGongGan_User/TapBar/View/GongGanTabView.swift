@@ -9,6 +9,7 @@ import SwiftUI
 
 struct GongGanTabView: View {
     @State private var selectedTab = 0
+    @State var tabBarVisivility: Visibility = .visible
     init() {
         UITabBar.appearance().backgroundColor = UIColor.white
     }
@@ -24,13 +25,16 @@ struct GongGanTabView: View {
             }
             .tag(0)
             
-            MapSearchView(selectedTab: $selectedTab)
-                .tabItem {
-                    Image(systemName: selectedTab == 1 ? "location.circle.fill" : "location.circle")
-                        .environment(\.symbolVariants, selectedTab == 1 ? .fill : .none)
-                    Text("내 주변")
-                }
-                .tag(1)
+            NavigationStack {
+                MapSearchView(selectedTab: $selectedTab, tabBarVisivility: $tabBarVisivility)
+                    .toolbar(tabBarVisivility, for: .tabBar)
+            }
+            .tabItem {
+                Image(systemName: selectedTab == 1 ? "location.circle.fill" : "location.circle")
+                    .environment(\.symbolVariants, selectedTab == 1 ? .fill : .none)
+                Text("내 주변")
+            }
+            .tag(1)
             
             FavoriteView()
                 .tabItem {

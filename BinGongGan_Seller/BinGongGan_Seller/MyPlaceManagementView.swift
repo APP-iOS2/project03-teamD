@@ -6,10 +6,14 @@
 //
 
 import SwiftUI
+import BinGongGanCore
 
 struct MyPlaceManagementView: View {
+    @Environment(\.dismiss) private var dismiss
+    
     var body: some View {
-        NavigationStack {
+        //^^
+//        NavigationStack {
             VStack {
                 HStack {
                     Text("판매자 정보")
@@ -26,16 +30,28 @@ struct MyPlaceManagementView: View {
                         .padding(.horizontal, 20)
                     Spacer()
                 }
-                ScrollView(.horizontal) {
-                    HStack {
-                        ForEach(1...5, id: \.self) { _ in
-                            MySpaceCell()
-                            
-                        }
+                TabView {
+                    // TODO: TabView 작동 안돼서 수정 필요
+                    ForEach(1...3, id: \.self) { _ in
+                        MySpaceCell()
                     }
                 }
             }
-        }
+            .navigationBarBackButtonHidden(true)
+            .scrollContentBackground(.hidden)
+            .background(Color.myBackground)
+            .navigationBarTitleDisplayMode(.inline)
+            .toolbar {
+                ToolbarItem(placement:.navigationBarLeading) {
+                    Button {
+                        dismiss()
+                    } label: {
+                        Image(systemName: "chevron.left")
+                            .foregroundColor(.myPrimary)
+                    }
+                }
+            }
+//        }
     }
 }
 

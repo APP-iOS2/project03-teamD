@@ -25,6 +25,7 @@ struct HomeView: View {
     private var isTapSearchButton: Bool = false
     
     var body: some View {
+
         ZStack {
             Spacer().background(Color.myBackground).edgesIgnoringSafeArea(.all)
             VStack {
@@ -46,6 +47,7 @@ struct HomeView: View {
                                     Spacer()
                                     Image(systemName: "magnifyingglass")
                                         .foregroundColor(.mySecondary)
+                                        .font(.head1Bold)
                                         .padding(.trailing, 10)
                                 }
                             }
@@ -64,14 +66,7 @@ struct HomeView: View {
                                 .padding(.top, 5)
                             HomeCategoryView()
                                 .padding(.bottom, 20)
-                            
-                            Text("이런 공간은 어떠세요?")
-                                .font(.head1Bold)
-                            
-                            ForEach(HomeStore().places) { place in
-                                HomeListRow(place: place)
-                                    .padding([.bottom, .leading, .trailing], 10)
-                            }
+                            FavoriteListView()
                         }
                     }// LazyVStack
                 }// SCROLLVIEW

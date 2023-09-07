@@ -11,7 +11,7 @@ import SwiftUI
 @available(iOS 13.0, *)
 public extension Color {
     // MARK: #FFFFFF와 같이 16진수 hexString color를 쓸 수 있음.
-    init(hex: String) {
+    init(hex: String, opacity: Double = 1.0) {
         var hexSanitized = hex.trimmingCharacters(in: .whitespacesAndNewlines)
         hexSanitized = hexSanitized.replacingOccurrences(of: "#", with: "")
 
@@ -23,7 +23,7 @@ public extension Color {
         let green = Double((rgb & 0x00FF00) >> 8) / 255.0
         let blue = Double(rgb & 0x0000FF) / 255.0
 
-        self.init(red: red, green: green, blue: blue)
+        self.init(red: red, green: green, blue: blue, opacity: opacity)
     }
 
     // MARK: 정의된 Color와 겹치지 않는 닉네임 선정
@@ -42,4 +42,6 @@ public extension Color {
     static let myMediumGray = Color(hex: "#999999")
     
     static let myLightGray = Color(hex: "#CCCCCC")
+    
+    static let myErrorColor = Color(hex: "#FFCDD2", opacity: 0.5)
 }
