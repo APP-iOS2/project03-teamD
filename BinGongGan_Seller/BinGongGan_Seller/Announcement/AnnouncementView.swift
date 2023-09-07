@@ -82,6 +82,20 @@ struct AnnouncementView: View {
                         Image(systemName: "chevron.left")
                             .foregroundColor(.myPrimary)
                     }
+            }
+        }
+        .background(Color.myBackground)
+        .navigationBarBackButtonHidden(true)
+        .scrollContentBackground(.hidden)
+        .background(Color.myBackground)
+        .navigationBarTitleDisplayMode(.inline)
+        .toolbar {
+            ToolbarItem(placement:.navigationBarLeading) {
+                Button {
+                    dismiss()
+                } label: {
+                    Image(systemName: "chevron.left")
+                        .foregroundColor(.myPrimary)
                 }
             }
         }

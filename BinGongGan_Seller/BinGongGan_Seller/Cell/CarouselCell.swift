@@ -15,9 +15,9 @@ struct CarouselCell: View {
                     image
                         .resizable()
                         .aspectRatio(contentMode: .fill)
-                        .frame(width: 250, height: 200)
+                        .frame(width: 250, height: 160)
                         .cornerRadius(15)
-                        .padding(EdgeInsets(top: 5, leading: 20, bottom: 5, trailing: 20))
+                        .padding(EdgeInsets(top: 0, leading: 20, bottom: 0, trailing: 20))
                         .padding(.horizontal, 15)
                 } placeholder: {
                     ProgressView()
