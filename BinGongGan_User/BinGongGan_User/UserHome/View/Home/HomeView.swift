@@ -115,7 +115,7 @@ struct HomeView: View {
                         .resizable()
                         .aspectRatio(contentMode: .fit)
                         .frame(width: 40, height: 40)
-                        .padding(.leading, 10)
+                        .padding([.bottom, .leading], 10)
                 }
             }
         }// ZSTACK
