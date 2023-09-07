@@ -26,17 +26,18 @@ struct PlaceListView: View {
             .navigationTitle("공용 오피스")
             .navigationBarTitleDisplayMode(.inline)
             .navigationBarBackButtonHidden(true)
-            .toolbar {
-                ToolbarItem(placement:.navigationBarLeading) {
-                    Button {
-                        dismiss()
-                    } label: {
-                        Image(systemName: "chevron.left")
-                            .foregroundColor(.myPrimary)
-                            .padding(.leading, 10)
-                    }
-                }
-            }
+//            .toolbar {
+//                ToolbarItem(placement:.navigationBarLeading) {
+//                    Button {
+//                        dismiss()
+//                    } label: {
+//                        Image(systemName: "chevron.left")
+//                            .foregroundColor(.myPrimary)
+//
+//                    }
+//                }
+//            }
+            .customBackbutton()
             .toolbar {
                 ToolbarItem(placement: .navigationBarTrailing) {
                     Button {

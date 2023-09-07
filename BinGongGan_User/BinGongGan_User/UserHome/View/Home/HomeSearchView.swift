@@ -52,20 +52,7 @@ struct HomeSearchView: View {
             .navigationTitle("장소 검색")
             .navigationBarTitleDisplayMode(.inline)
             .navigationBarBackButtonHidden(true)
-            .toolbar {
-                ToolbarItem(placement:.navigationBarLeading) {
-                    Button {
-                        dismiss()
-                    } label: {
-                        HStack {
-                            Image(systemName: "chevron.left")
-                                .foregroundColor(.myPrimary)
-                            
-                        }// HSTACK
-                        .padding(.leading, 10)
-                    }
-                }
-            }
+            .customBackbutton()
         }
     }// Body
 }
