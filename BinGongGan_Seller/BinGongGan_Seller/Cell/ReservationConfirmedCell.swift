@@ -8,13 +8,13 @@
 import SwiftUI
 
 struct ReservationConfirmedCell: View {
-    @Binding var showModal : Bool
+    @Binding var isShowingModal : Bool
     var body: some View {
         Button {
-            self.showModal = true
+            self.isShowingModal = true
         } label: {
             ReservationCell()
-                .sheet(isPresented: self.$showModal) {
+                .sheet(isPresented: self.$isShowingModal) {
                     ReservationListModalView()
                         .presentationDetents([.medium])
                         .cornerRadius(15)
@@ -42,6 +42,6 @@ struct ReservationConfirmedCell: View {
 
 struct ReservationConfirmedCell_Previews: PreviewProvider {
     static var previews: some View {
-        ReservationConfirmedCell(showModal: .constant(false))
+        ReservationConfirmedCell(isShowingModal: .constant(false))
     }
 }
