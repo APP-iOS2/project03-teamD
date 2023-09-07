@@ -9,7 +9,7 @@ import SwiftUI
 
 struct ReservationPlusMinusButton: View {
     
-    @State var content: Int = 1
+    @State private var content: Int = 1
     
     var contentLabel: String
     var type: String
@@ -60,6 +60,6 @@ struct ReservationPlusMinusButton: View {
 
 struct ReservationPlusMinusButton_Previews: PreviewProvider {
     static var previews: some View {
-        ReservationPlusMinusButton(content: 1, contentLabel: "시간", type: "time")
+        ReservationPlusMinusButton(contentLabel: "시간", type: "time")
     }
 }

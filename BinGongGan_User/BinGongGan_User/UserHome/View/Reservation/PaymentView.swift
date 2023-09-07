@@ -9,11 +9,13 @@ import SwiftUI
 
 struct PaymentView: View {
     
+    @Environment(\.dismiss) private var dismiss
     @EnvironmentObject var reservationStore: ReservationStore
-    @Environment(\.presentationMode) var presentationMode
     
-    @State var checkAllPaymentInfo: Bool = false
-    @State var checkPayment: Bool = false
+    @State private var checkAllPaymentInfo: Bool = false
+    @State private var checkPayment: Bool = false
+    
+    //@Binding var tabBarVisible: Visibility
     
     private let screenWidth = UIScreen.main.bounds.width
     
@@ -85,9 +87,27 @@ struct PaymentView: View {
             HomeView()
                 .navigationBarBackButtonHidden()
         }
+        
+        .toolbar {
+            ToolbarItem(placement:.navigationBarLeading) {
+                Button {
+                    dismiss()
+                } label: {
+                    Image(systemName: "chevron.left")
+                        .foregroundColor(.myPrimary)
+                }
+            }
+        }
+        
         .background(Color.myBackground)
         .navigationTitle("결제 정보")
         .navigationBarTitleDisplayMode(.inline)
+        .onAppear {
+            //tabBarVisible = .hidden
+        }
+        .onDisappear {
+            //tabBarVisible = .visible
+        }
     }
     
 }

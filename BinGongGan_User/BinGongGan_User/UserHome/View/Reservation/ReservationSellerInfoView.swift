@@ -9,8 +9,8 @@ import SwiftUI
 
 struct ReservationSellerInfoView: View {
     
-    @State var openRefundPolicySheet: Bool = false
-    @State var checkRefundPolicy: Bool = false
+    @State private var openRefundPolicySheet: Bool = false
+    @State private var checkRefundPolicy: Bool = false
     
     @EnvironmentObject var reservationStore: ReservationStore
     private let screenWidth = UIScreen.main.bounds.width
