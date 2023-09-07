@@ -8,9 +8,6 @@
 import SwiftUI
 import BinGongGanCore
 
-enum HomeEventTapConstant {
-    static let eventListHeight = CGFloat(200)
-}
 
 struct HomeEventTapView: View {
     

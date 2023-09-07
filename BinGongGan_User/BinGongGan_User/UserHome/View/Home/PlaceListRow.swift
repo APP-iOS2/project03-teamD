@@ -6,9 +6,7 @@
 //
 
 import SwiftUI
-enum PlaceRowConstant {
-    static let cellHeight = CGFloat(200)
-}
+
 
 struct PlaceListRow: View {
     
@@ -17,7 +15,7 @@ struct PlaceListRow: View {
     @State var place: Place
     
     var body: some View {
-        
+
         NavigationLink {
             GongGanDetailView()
         } label: {

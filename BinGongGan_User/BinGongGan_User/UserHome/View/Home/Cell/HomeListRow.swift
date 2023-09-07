@@ -8,10 +8,6 @@
 import SwiftUI
 import BinGongGanCore
 
-enum HomeListRowConstant {
-    //    static let showPlaceListWidth = CGFloat(50)
-    static let showPlaceListHeight = CGFloat(100)
-}
 enum ImageFrame {
     static let width = CGFloat(100)
     static let height = CGFloat(70)

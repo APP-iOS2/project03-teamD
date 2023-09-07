@@ -7,13 +7,6 @@
 
 import SwiftUI
 
-enum FavoriteListConstant {
-    static let rectangleWidth =     CGFloat(150)
-    static let rectangleHeight =    CGFloat(200)
-    static let tabViewWidth =       CGFloat(10)
-    static let tabViewHeight =      CGFloat(200)
-}
-
 extension View {
     func cornerRadius(_ radius: CGFloat, corners: UIRectCorner) -> some View {
         clipShape( RoundedCorner(radius: radius, corners: corners) )
@@ -91,70 +84,4 @@ struct FavoriteListView_Previews: PreviewProvider {
         }
     }
 }
-/*
- 
- 
- 
- ForEach(homeStore.places) { place in
-//                    AsyncImage(url: place.imageURL ) { image in
-//                        image
-//
-//                            .renderingMode(.original)
-//                            .resizable()
-//                            .frame(
-//                                minWidth: screenWidth * 0.89,
-//                                maxWidth: screenWidth * 0.8,
-//                                minHeight: FavoriteListConstant.rectangleWidth,
-//                                maxHeight: FavoriteListConstant.rectangleHeight
-//
-//                                ,alignment: .center
-//                            )
-//                    } placeholder: {
-//                        ProgressView()
-//                            .frame(
-//                                minWidth: FavoriteListConstant.rectangleWidth,
-//                                maxWidth: FavoriteListConstant.rectangleHeight,
-//                                minHeight: FavoriteListConstant.rectangleWidth,
-//                                maxHeight: FavoriteListConstant.rectangleHeight
-//                            )
-//                    }
-//                    .cornerRadius(15, corners: .topLeft)
-//                    .cornerRadius(15, corners: .topRight)
-     VStack {
-         VStack(alignment: .leading) {
-             HStack {
-                 Spacer()
-                 Text("\(place.placeName)")
-                     .font(.head1Bold)
-                     .foregroundColor(.myWhite)
-                 Spacer()
-             }
-             HStack {
-                 Spacer()
-                 Text("\(place.placeLocation)")
-                     .font(.body1Regular)
-                     .foregroundColor(.myWhite)
-                 Spacer()
-             }
-             
-             HStack {
-                 Spacer()
-                 Text("\(place.placePrice)")
-                     .font(.body1Regular)
-                     .foregroundColor(.myWhite)
-                 Spacer()
-             }
-             
-         }.padding([.leading, .trailing], 20)
-         Spacer()
-     }
-     .background(
-         RoundedRectangle(cornerRadius: 15)
-         .frame(
-             width: screenWidth * 0.89, height: 80
-         )
-         .foregroundColor(.myPrimary)
-//                        .opacity(0.7)
-     )
- }
- */
+

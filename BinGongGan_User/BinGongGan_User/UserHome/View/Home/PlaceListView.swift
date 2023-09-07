@@ -16,12 +16,9 @@ struct PlaceListView: View {
         ZStack {
             Spacer().background(Color.myBackground).edgesIgnoringSafeArea(.all)
             VStack {
-                
                 ScrollView(showsIndicators: false){
                     ForEach(dummyStore.places){ place in
-                        
                             PlaceListRow(place: place)
-                        
                     }
                 }// SCROLLVIEW
                 .padding(.top, 20)

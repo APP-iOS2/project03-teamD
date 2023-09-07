@@ -84,8 +84,8 @@ struct PaymentView: View {
             }))
         }
         .navigationDestination(isPresented: $checkPayment) {
-            HomeView()
-                .navigationBarBackButtonHidden()
+//            HomeView()
+//                .navigationBarBackButtonHidden()
         }
         
         .toolbar {

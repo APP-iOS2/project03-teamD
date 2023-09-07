@@ -7,11 +7,7 @@
 
 import SwiftUI
 
-enum HomeSearchViewConstant {
-    static let searchTextFieldWidth = CGFloat(100)
-    static let searchTextFieldHeight = CGFloat(50)
-    static let searchTextFieldRadius = CGFloat(15)
-}
+
 
 struct HomeSearchView: View {
     

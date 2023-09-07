@@ -62,7 +62,7 @@ final class HomeStore: ObservableObject {
             image
                 .resizable()
                 .aspectRatio(contentMode: .fill)
-                .frame(width: ImageLogoConstant.width , height: ImageLogoConstant.height)
+                .frame(width: 50 , height: 50)
                 .cornerRadius(15)
         }) {
             ProgressView()

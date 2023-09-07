@@ -8,17 +8,8 @@
 import SwiftUI
 import BinGongGanCore
 
-enum HomeCategoryConstant {
-    static let padding = CGFloat(20)
-    static let cellWidth =  CGFloat(50)
-    static let cellHeight = CGFloat(50)
-    static let cellCorner = CGFloat(15)
-    static let fontSize = CGFloat(12)
-}
 
 struct HomeCategoryView: View {
-    
-    private let layout = [60, 60, 60]
     
     private let screenWidth = UIScreen.main.bounds.width
     private let screenHeight = UIScreen.main.bounds.height
@@ -38,9 +29,7 @@ struct HomeCategoryView: View {
                                 ZStack {
                                     Circle()
                                         .foregroundColor(Color.myWhite)
-                                        
                                     Image(systemName: "\(place.categoryImageString)")
-                                        
                                         .aspectRatio(contentMode: .fit)
                                         .foregroundColor(Color.myPrimary)
                                         .font(.system(size: 27))
@@ -49,17 +38,12 @@ struct HomeCategoryView: View {
                                     .font(.captionBold)
                                     .foregroundColor(.myPrimary)
                                     .lineLimit(1)
-                            }
-                            
+                            }// VSTACK
                         }// NAVIGATIONLINK
                     }
-                }
-            }
-            
-            
+                }// GRIDROW
+            }// GRID
         }// HSTACK
-        
-        
     }
 }
 

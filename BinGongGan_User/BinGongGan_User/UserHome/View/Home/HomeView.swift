@@ -8,15 +8,6 @@
 import SwiftUI
 import BinGongGanCore
 
-enum ImageLogoConstant {
-    static let width = CGFloat(50)
-    static let height = CGFloat(50)
-}
-
-enum HomeViewConstant {
-    static let searchButtonWidth = CGFloat(50)
-    static let searchButtonHeight = CGFloat(40)
-}
 
 struct HomeView: View {
     
@@ -53,7 +44,6 @@ struct HomeView: View {
                         
                     }
                     Group {
-                        // 지호님꺼 넣기
                         
                         HomeCategoryView()
                             .padding([.leading, .trailing], 20)
@@ -81,7 +71,7 @@ struct HomeView: View {
                         .padding(.bottom, 10)
                         HomeEventTapView()
                             .padding(.bottom, 10)
-                    }
+                    }// GROUP
                 }// LazyVStack
                 .padding(.bottom, 10)
                
