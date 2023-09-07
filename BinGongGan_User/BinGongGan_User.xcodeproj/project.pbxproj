@@ -57,7 +57,6 @@
 		BC344F252AA86B3E00F8CEB3 /* PlaceListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC344F242AA86B3E00F8CEB3 /* PlaceListView.swift */; };
 		BC8CFE6A2AA8C38C00E8D8F2 /* DetailTabImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC8CFE692AA8C38C00E8D8F2 /* DetailTabImageView.swift */; };
 		BC8CFE6C2AA9510A00E8D8F2 /* FavoriteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC8CFE6B2AA9510A00E8D8F2 /* FavoriteView.swift */; };
-		BC8CFE6E2AA9887E00E8D8F2 /* TextMaster.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC8CFE6D2AA9887E00E8D8F2 /* TextMaster.swift */; };
 		BC8CFE702AA988E300E8D8F2 /* PaymentListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC8CFE6F2AA988E300E8D8F2 /* PaymentListCell.swift */; };
 		BC8CFE722AA9896300E8D8F2 /* ReservationSellerInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC8CFE712AA9896300E8D8F2 /* ReservationSellerInfoView.swift */; };
 		BC8CFE742AA9897E00E8D8F2 /* ReservationUserInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC8CFE732AA9897E00E8D8F2 /* ReservationUserInfoView.swift */; };
@@ -161,7 +160,6 @@
 		BC344F242AA86B3E00F8CEB3 /* PlaceListView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlaceListView.swift; sourceTree = "<group>"; };
 		BC8CFE692AA8C38C00E8D8F2 /* DetailTabImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailTabImageView.swift; sourceTree = "<group>"; };
 		BC8CFE6B2AA9510A00E8D8F2 /* FavoriteView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteView.swift; sourceTree = "<group>"; };
-		BC8CFE6D2AA9887E00E8D8F2 /* TextMaster.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextMaster.swift; sourceTree = "<group>"; };
 		BC8CFE6F2AA988E300E8D8F2 /* PaymentListCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PaymentListCell.swift; sourceTree = "<group>"; };
 		BC8CFE712AA9896300E8D8F2 /* ReservationSellerInfoView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReservationSellerInfoView.swift; sourceTree = "<group>"; };
 		BC8CFE732AA9897E00E8D8F2 /* ReservationUserInfoView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReservationUserInfoView.swift; sourceTree = "<group>"; };
@@ -449,7 +447,6 @@
 			children = (
 				BC344EF52AA808EA00F8CEB3 /* MultiDatePickerSoure */,
 				BC344EF32AA808E700F8CEB3 /* MultiDatePicker.swift */,
-				BC8CFE6D2AA9887E00E8D8F2 /* TextMaster.swift */,
 			);
 			path = MultiDatePicker;
 			sourceTree = "<group>";
@@ -812,7 +809,6 @@
 				D84824962AA8A3700067A065 /* MyPageMainView.swift in Sources */,
 				D848249B2AA8A3700067A065 /* FAQView.swift in Sources */,
 				BC344F252AA86B3E00F8CEB3 /* PlaceListView.swift in Sources */,
-				BC8CFE6E2AA9887E00E8D8F2 /* TextMaster.swift in Sources */,
 				BC344EF12AA808DB00F8CEB3 /* ReservationStore.swift in Sources */,
 				D84824982AA8A3700067A065 /* AnnouncementView.swift in Sources */,
 				D848249F2AA8A3710067A065 /* MyReviewListView.swift in Sources */,

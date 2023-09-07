@@ -49,7 +49,7 @@ struct ReservationSellerInfoView: View {
                         
                     } label: {
                         Text("확인")
-                            .foregroundColor(.mySecondary)
+                            .foregroundColor(.blue)
                             .padding(.leading, 20)
                     }
                 }

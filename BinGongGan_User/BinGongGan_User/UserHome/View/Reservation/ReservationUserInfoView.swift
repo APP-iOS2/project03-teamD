@@ -23,11 +23,11 @@ struct ReservationUserInfoView: View {
         VStack(alignment: .leading) {
             Text("시간")
                 .font(.body1Regular)
-            Text("하루 이용시간")
+            Text("하루 이용시간 / 24시간 기준")
                 .font(.captionRegular)
         }
         
-        ReservationPlusMinusButton(contentLabel: "시간")
+        ReservationPlusMinusButton(contentLabel: "시간", type: "time")
             .padding(.bottom, 10)
         
         
@@ -38,50 +38,50 @@ struct ReservationUserInfoView: View {
                 .font(.captionRegular)
         }
         
-        ReservationPlusMinusButton(contentLabel: "명")
+        ReservationPlusMinusButton(contentLabel: "명", type: "person")
             .padding(.bottom, 10)
         
         
         Text("입금자명")
             .font(.body1Regular)
+        
         CustomTextField(placeholder: "입금자명을 입력하세요", text: $reservationName)
-            .keyboardType(.numberPad)
-            .frame(width: screenWidth - 50, height: 50)
+            .frame(width: screenWidth * 0.9, height: 50)
             .padding(.bottom, 10)
         
         
-        VStack(alignment: .leading) {
-            Text("연락처")
-                .font(.body1Regular)
-            Text("-를 제외하고 작성해주세요")
-                .font(.captionRegular)
-        }
+        Text("연락처")
+            .font(.body1Regular)
+        
         CustomTextField(placeholder: "연락처를 입력하세요", text: $reservationPhoneNumber)
             .keyboardType(.numberPad)
-            .frame(width: screenWidth - 50, height: 50)
+            .frame(width: screenWidth * 0.9, height: 50)
             .padding(.bottom, 10)
         
         
         Text("요청사항")
             .font(.body1Regular)
+        
         ZStack(alignment: .topLeading) {
             
-            TextMaster(
-                text: $reservationRequest,
-                isFocused: $isTextMasterFocused,
-                minLine: 3,
-                maxLine: 5,
-                fontSize: 14)
-            .background(.white)
-            .cornerRadius(8)
-            .padding(.bottom, 10)
+            RoundedRectangle(cornerRadius: 8)
+                .fill(.white)
+                .frame(maxWidth: screenWidth * 0.9, minHeight: 120)
+                .padding(.bottom, 10)
             
+            TextField("", text: $reservationRequest, axis: .vertical)
+                .lineLimit(4)
+                .frame(width: screenWidth * 0.8)
+                .padding([.top,.leading], 20)
+                .onTapGesture {
+                    UIApplication.shared.sendAction(#selector(UIResponder.resignFirstResponder), to: nil, from: nil, for: nil)
+                }
             
             if reservationRequest.isEmpty {
                 Text("요청사항을 작성해주세요")
                     .font(.captionRegular)
                     .foregroundColor(.myLightGray)
-                    .padding([.top,.leading], 10)
+                    .padding([.top,.leading], 20)
             }
         }
         .onTapGesture {
