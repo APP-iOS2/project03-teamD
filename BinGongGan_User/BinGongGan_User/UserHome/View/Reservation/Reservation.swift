@@ -20,12 +20,6 @@ struct SampleSpace {
 }
 
 struct Reservation {
-
-    let reservationDate = Date().timeIntervalSince1970
-
-    let spaceName: String
-    let roomName: String
-    let imageString: String
     
     let checkInDate = Date().timeIntervalSince1970
     let checkOutDate = Date().timeIntervalSince1970
@@ -35,6 +29,4 @@ struct Reservation {
     let reservationName: String
     let reservationPhoneNumber: String
     let reservationRequest: String
-    
-    let checkPolicy: Bool
 }
