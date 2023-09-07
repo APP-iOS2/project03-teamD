@@ -9,8 +9,7 @@ import SwiftUI
 import BinGongGanCore
 
 struct HomeEventTapView: View {
-    private let screenWidth = UIScreen.main.bounds.width
-    private let screenHeight = UIScreen.main.bounds.height
+    
     private let timer = Timer.publish(every: 4, on: .main, in: .common).autoconnect()
     @EnvironmentObject var homeStore: HomeStore
     @State private var currentPage: Int = 0

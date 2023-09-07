@@ -15,37 +15,41 @@ struct FavoriteListView: View {
     var body: some View {
         TabView {
             ForEach(homeStore.hotPlace) { place in
-                ZStack {
-                    AsyncImage(url: place.imageURL ) { image in
-                        image
-                            .renderingMode(.original)
-                            .resizable()
-                    } placeholder: {
-                        ProgressView()
-                    }
-                    .cornerRadius(8)
-                    VStack {
-                        Spacer()
-                        Rectangle()
-                            .frame( height: 92)
-                            .foregroundColor(.myBlack)
-                        .opacity(0.5)
-                        .overlay(alignment: .topLeading) {
-                            VStack(alignment: .leading) {
-                                
-                                Text("\(place.placeName)")
-                                    .font(.head1Bold)
-                                    .padding(.bottom, 0.5)
-                                Text("\(place.placeLocation)")
-                                    .font(.body1Regular)
-                            }
-                            .foregroundColor(.myWhite)
-                            .padding()
+                NavigationLink {
+                    GongGanDetailView()
+                } label: {
+                    ZStack {
+                        AsyncImage(url: place.imageURL ) { image in
+                            image
+                                .renderingMode(.original)
+                                .resizable()
+                        } placeholder: {
+                            ProgressView()
                         }
-                    }
-                    .cornerRadius(8, corners: .bottomLeft)
-                    .cornerRadius(8, corners: .bottomRight)
-                }// ZSTACK
+                        .cornerRadius(8)
+                        VStack {
+                            Spacer()
+                            Rectangle()
+                                .frame( height: 92)
+                                .foregroundColor(.myBlack)
+                            .opacity(0.5)
+                            .overlay(alignment: .topLeading) {
+                                VStack(alignment: .leading) {
+                                    
+                                    Text("\(place.placeName)")
+                                        .font(.head1Bold)
+                                        .padding(.bottom, 0.5)
+                                    Text("\(place.placeLocation)")
+                                        .font(.body1Regular)
+                                }
+                                .foregroundColor(.myWhite)
+                                .padding()
+                            }
+                        }
+                        .cornerRadius(8, corners: .bottomLeft)
+                        .cornerRadius(8, corners: .bottomRight)
+                    }// ZSTACK
+                }
             }
         }// TABVIEW
         .tabViewStyle(PageTabViewStyle())

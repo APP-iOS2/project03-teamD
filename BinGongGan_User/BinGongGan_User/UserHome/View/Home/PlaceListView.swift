@@ -9,7 +9,6 @@ import SwiftUI
 
 struct PlaceListView: View {
     
-    @Environment(\.dismiss) private var dismiss
     @EnvironmentObject var homeStore: HomeStore 
     @State var category: String
     var body: some View {
@@ -18,14 +17,16 @@ struct PlaceListView: View {
             VStack {
                 ScrollView(showsIndicators: false){
                     ForEach(homeStore.places){ place in
+                        if category == place.category.rawValue {
                             PlaceListRow(place: place)
+                                .padding(.top, 20)
+                        }
                     }
                 }// SCROLLVIEW
                 .padding(.top, 20)
             }// VSTACK
-            .navigationTitle("공용 오피스")
+            .navigationTitle("\(category)")
             .navigationBarTitleDisplayMode(.inline)
-            .navigationBarBackButtonHidden(true)
             .customBackbutton()
             .toolbar {
                 ToolbarItem(placement: .navigationBarTrailing) {
@@ -39,13 +40,14 @@ struct PlaceListView: View {
                 }
             }
         }// ZSTACK
+        .background(Color.myBackground)
     }// BODY
 }
 
 struct PlaceListView_Previews: PreviewProvider {
     static var previews: some View {
         NavigationStack{
-            PlaceListView( category: "공용 주방")
+            PlaceListView(category: "공유오피스")
                 .environmentObject(HomeStore())
         }
     }
