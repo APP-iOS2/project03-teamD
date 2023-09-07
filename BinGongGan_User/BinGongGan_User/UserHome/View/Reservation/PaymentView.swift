@@ -25,28 +25,38 @@ struct PaymentView: View {
                     content: { image in
                         image.resizable()
                             .aspectRatio(contentMode: .fill)
-                            .frame(width: screenWidth, height: 160)
-                            .blur(radius: 1)
+                            .frame(width: screenWidth, height: 180)
                             .clipped()
                     },
                     placeholder: {
                         ProgressView()
                     })
-                
-                PaymentListCell(title: "신청일", data: "reservationDate")
-                
-                PaymentListCell(title: "예약공간", data: "spaceName / roomName")
-                
-                PaymentListCell(title: "예약내용", data: "checkInDate / checkOutDate/ hour")
-                
-                PaymentListCell(title: "예약인원", data: "personal")
-                
-                PaymentListCell(title: "예약자정보", data: "reservationName / reservationPhoneNumber")
-                
-                PaymentListCell(title: "요청사항", data: "reservationRequest")
+                .listRowBackground(Color.clear)
                 
                 PaymentListCell(title: "방식", data: "무통장 입금 seller/ 통장번호")
+                    .foregroundColor(.red)
+                    .listRowBackground(Color.clear)
+                
+                PaymentListCell(title: "신청일", data: "reservationDate")
+                    .listRowBackground(Color.clear)
+                
+                PaymentListCell(title: "예약공간", data: "spaceName / roomName")
+                    .listRowBackground(Color.clear)
+                
+                PaymentListCell(title: "예약내용", data: "checkInDate / checkOutDate/ hour")
+                    .listRowBackground(Color.clear)
+                
+                PaymentListCell(title: "예약인원", data: "personal")
+                    .listRowBackground(Color.clear)
+                
+                PaymentListCell(title: "예약자정보", data: "reservationName / reservationPhoneNumber")
+                    .listRowBackground(Color.clear)
+                
+                PaymentListCell(title: "요청사항", data: "reservationRequest")
+                    .listRowBackground(Color.clear)
+                
             }
+            //.padding([.leading, .trailing], 10)
             .listStyle(.plain)
             
             Button {
@@ -70,6 +80,7 @@ struct PaymentView: View {
                 presentationMode.wrappedValue.dismiss()
             }))
         }
+        .background(Color.myBackground)
         .navigationTitle("결제 정보")
         .navigationBarTitleDisplayMode(.inline)
     }
