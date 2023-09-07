@@ -9,8 +9,12 @@ import BinGongGanCore
 
 struct AnnouncementView: View {
     
+    @Environment(\.dismiss) private var dismiss
+    
     var body: some View {
-        NavigationView{
+        //영석님 이거를 왜쓰셨을까용~? ㅎㅎ어차피 네비게이션인뎅~
+        //이거 지우고 정렬 다시 해주세요 ^^
+//        NavigationView{
             VStack{
                 HStack {
                     Text("공지 관리")
@@ -46,7 +50,21 @@ struct AnnouncementView: View {
                 }
             }
             .background(Color.myBackground)
-        }
+            .navigationBarBackButtonHidden(true)
+            .scrollContentBackground(.hidden)
+            .background(Color.myBackground)
+            .navigationBarTitleDisplayMode(.inline)
+            .toolbar {
+                ToolbarItem(placement:.navigationBarLeading) {
+                    Button {
+                        dismiss()
+                    } label: {
+                        Image(systemName: "chevron.left")
+                            .foregroundColor(.myPrimary)
+                    }
+                }
+            }
+//        }
     }
     
 }

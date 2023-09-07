@@ -6,8 +6,10 @@
 //
 
 import SwiftUI
+import BinGongGanCore
 
 struct ReviewManageDetailView: View {
+    @Environment(\.dismiss) private var dismiss
     @State var isShowingReviewReportSheet: Bool = false
     
     var body: some View {
@@ -34,6 +36,20 @@ struct ReviewManageDetailView: View {
         .sheet(isPresented: $isShowingReviewReportSheet) {
             ReviewReportSheet(isShowingReviewReportSheet: $isShowingReviewReportSheet)
                 .presentationDetents([.medium, .large])
+        }
+        .navigationBarBackButtonHidden(true)
+        .scrollContentBackground(.hidden)
+        .background(Color.myBackground)
+        .navigationBarTitleDisplayMode(.inline)
+        .toolbar {
+            ToolbarItem(placement:.navigationBarLeading) {
+                Button {
+                    dismiss()
+                } label: {
+                    Image(systemName: "chevron.left")
+                        .foregroundColor(.myPrimary)
+                }
+            }
         }
     }
 }

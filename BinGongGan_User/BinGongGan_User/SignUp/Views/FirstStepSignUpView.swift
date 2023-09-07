@@ -15,32 +15,31 @@ struct FirstStepSignUpView: View {
         VStack(alignment: .leading) {
             Group {
                 Text("본인인증")
-                    .font(.body1Regular)
-                Spacer(minLength: 25)
-                CustomTextField(placeholder: "이름", text: $store.signUpData.name)
-                Spacer(minLength: 25)
-                CustomTextField(placeholder: "생년월일 6자리", text: $store.signUpData.birthDate)
-                Spacer(minLength: 25)
+                    .font(.body1Bold)
+                    .frame(height: 38)
+                CustomTextField(maxLength: 5, placeholder: "이름", text: $store.signUpData.name)
+                CustomTextField(maxLength: 6, placeholder: "생년월일 6자리", keyboardType: .numberPad, text: $store.signUpData.birthDate)
                 HStack {
-                    CustomTextField(placeholder: "휴대폰 번호", text: $store.signUpData.phoneNumber)
+                    CustomTextField(maxLength: 11, placeholder: "휴대폰 번호", keyboardType: .phonePad, text: $store.signUpData.phoneNumber)
                     CertificationButton
                 }
             }
-            Spacer(minLength: 25)
             Group {
                 Text("인증 번호")
-                    .font(.body1Regular)
-//                Spacer(minLength: 25)
-                CustomTextField(backgroundColor: .myLightGray, placeholder: "인증번호 4자리", text: $store.certificateNumber)
+                    .font(.body1Bold)
+                    .frame(height: 38)
+                CustomTextField(maxLength: 4, backgroundColor: .myLightGray, placeholder: "인증번호 4자리", text: $store.certificateNumber)
                     .disabled(true)
             }
-            Spacer(minLength: 80)
+            Spacer()
             PrimaryButton(action: {
-                withAnimation {
-                    store.currentStep = .second
+                if store.isValidAuthentication() {
+                    withAnimation {
+                        store.currentStep = .second
+                    }
                 }
             }, title: "다음")
-            Spacer(minLength: 80)
+            Spacer()
         }
     }
     

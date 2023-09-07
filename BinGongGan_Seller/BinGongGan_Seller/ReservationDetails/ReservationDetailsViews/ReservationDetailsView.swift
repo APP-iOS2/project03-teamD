@@ -6,8 +6,10 @@
 //
 
 import SwiftUI
+import BinGongGanCore
 
 struct ReservationDetailsView: View {
+    @Environment(\.dismiss) private var dismiss
 
     @State private var selectedPicker: ReservationTapType = .list
     @Namespace private var animation
@@ -16,6 +18,20 @@ struct ReservationDetailsView: View {
         VStack {
             animate()
             ReservationTapBarView(reservationTapType: selectedPicker)
+        }
+        .navigationBarBackButtonHidden(true)
+        .scrollContentBackground(.hidden)
+        .background(Color.myBackground)
+        .navigationBarTitleDisplayMode(.inline)
+        .toolbar {
+            ToolbarItem(placement:.navigationBarLeading) {
+                Button {
+                    dismiss()
+                } label: {
+                    Image(systemName: "chevron.left")
+                        .foregroundColor(.myPrimary)
+                }
+            }
         }
     }
     
@@ -48,7 +64,9 @@ struct ReservationDetailsView: View {
 }
 struct ReservationDetailsView_Previews: PreviewProvider {
     static var previews: some View {
-        ReservationDetailsView()
+        NavigationStack {
+            ReservationDetailsView()
+        }
     }
 }
 

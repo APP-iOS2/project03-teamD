@@ -67,7 +67,7 @@ struct HomeView: View {
             }
             .background(Color.myBackground)
         }
-     
+        
     }
 }
 
