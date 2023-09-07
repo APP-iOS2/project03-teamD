@@ -8,20 +8,31 @@
 import SwiftUI
 import BinGongGanCore
 
-enum ImageLogoConstant {
-    static let width = CGFloat(50)
-    static let height = CGFloat(50)
+enum HomeNameSpace {
+    static let screenWidth = UIScreen.main.bounds.width
+    static let screenHeight = UIScreen.main.bounds.width
 }
 
-enum HomeViewConstant {
-    static let searchButtonWidth = CGFloat(50)
-    static let searchButtonHeight = CGFloat(40)
+extension View {
+    func cornerRadius(_ radius: CGFloat, corners: UIRectCorner) -> some View {
+        clipShape( RoundedCorner(radius: radius, corners: corners) )
+    }
+}
+
+struct RoundedCorner: Shape {
+    
+    var radius: CGFloat = .infinity
+    var corners: UIRectCorner = .allCorners
+    
+    func path(in rect: CGRect) -> Path {
+        let path = UIBezierPath(roundedRect: rect, byRoundingCorners: corners, cornerRadii: CGSize(width: radius, height: radius))
+        return Path(path.cgPath)
+    }
 }
 
 struct HomeView: View {
     
-    @ObservedObject var dummyStore: HomeStore = HomeStore()
-    private let screenWidth = UIScreen.main.bounds.width
+    @EnvironmentObject var homeStore: HomeStore
     @Binding var tabBarVisivility: Visibility
     
     var body: some View {
@@ -50,42 +61,54 @@ struct HomeView: View {
                                 }
                             }
                             .padding()
-                        
                     }
                     Group {
-                        // 지호님꺼 넣기
-                        
                         HomeCategoryView()
                             .padding([.leading, .trailing], 20)
-                        
+                            .environmentObject(homeStore)
                         HStack {
                             Text("인기 플레이스")
-                                .font(.body1Regular)
+                                .font(.head1Bold)
+                                .foregroundColor(.myPrimary)
                                 .padding([.leading, .top], 20)
                             Spacer()
                         }
                         
                         FavoriteListView()
+                            .environmentObject(homeStore)
                             .padding(.horizontal)
                             .padding(.bottom, 20)
                         
                         HStack {
                             Text("이런 공간은 어떠세요?")
-                                .font(.body1Regular)
+                                .font(.head1Bold)
+                                .foregroundColor(.myPrimary)
                             Spacer()
-                        }.padding(.leading, 20)
+                            Button {
+                                homeStore.settingRecommendPlace()
+                            } label: {
+                                Image(systemName: "goforward")
+                                    .font(.body1Bold)
+                                    .foregroundColor(.mySecondary)
+                            }
+
+                        }.padding([.leading, .trailing], 20)
                         
-                        ForEach(dummyStore.places) { place in
+                        ForEach(homeStore.recommendPlace) { place in
                             HomeListRow(place: place)
                         }
                         .padding(.bottom, 10)
+                        
                         HomeEventTapView()
                             .padding(.bottom, 10)
-                    }
+                            .environmentObject(homeStore)
+                    }// GROUP
                 }// LazyVStack
                 .padding(.bottom, 10)
-               
             }// SCROLLVIEW
+            .onAppear{
+                homeStore.settingRecommendPlace()
+            }
             .toolbar {
                 ToolbarItem(placement: .navigationBarLeading) {
                     Image("HomeLogo")
@@ -95,9 +118,7 @@ struct HomeView: View {
                         .padding(.leading, 10)
                 }
             }
-            
         }// ZSTACK
-        
     }// BODY
 }
 
@@ -105,6 +126,7 @@ struct HomeView_Previews: PreviewProvider {
     static var previews: some View {
         NavigationStack{
             HomeView(tabBarVisivility: .constant(.visible))
+                .environmentObject(HomeStore())
         }
     }
 }

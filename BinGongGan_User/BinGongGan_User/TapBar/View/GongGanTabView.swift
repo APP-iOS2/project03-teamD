@@ -8,6 +8,8 @@
 import SwiftUI
 
 struct GongGanTabView: View {
+    
+    @StateObject var homeStore: HomeStore = HomeStore()
     @State private var selectedTab = 0
     @State var tabBarVisivility: Visibility = .visible
     init() {
@@ -17,6 +19,7 @@ struct GongGanTabView: View {
         TabView(selection: $selectedTab) {
             NavigationStack {
                 HomeView(tabBarVisivility: $tabBarVisivility)
+                    .environmentObject(homeStore)
             }
             .tabItem {
                 Image(systemName: selectedTab == 0 ? "house.fill" : "house")
@@ -27,6 +30,7 @@ struct GongGanTabView: View {
             
             NavigationStack {
                 HomeSearchView()
+                    .environmentObject(homeStore)
             }
             .tabItem {
                 Image(systemName: selectedTab == 1 ? "location.circle.fill" : "location.circle")

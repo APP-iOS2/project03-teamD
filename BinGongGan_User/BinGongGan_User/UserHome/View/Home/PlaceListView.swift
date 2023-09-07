@@ -10,18 +10,15 @@ import SwiftUI
 struct PlaceListView: View {
     
     @Environment(\.dismiss) private var dismiss
-    @ObservedObject var dummyStore: HomeStore = HomeStore()
+    @EnvironmentObject var homeStore: HomeStore 
     @State var category: String
     var body: some View {
         ZStack {
             Spacer().background(Color.myBackground).edgesIgnoringSafeArea(.all)
             VStack {
-                
                 ScrollView(showsIndicators: false){
-                    ForEach(dummyStore.places){ place in
-                        
+                    ForEach(homeStore.places){ place in
                             PlaceListRow(place: place)
-                        
                     }
                 }// SCROLLVIEW
                 .padding(.top, 20)
@@ -29,17 +26,7 @@ struct PlaceListView: View {
             .navigationTitle("공용 오피스")
             .navigationBarTitleDisplayMode(.inline)
             .navigationBarBackButtonHidden(true)
-            .toolbar {
-                ToolbarItem(placement:.navigationBarLeading) {
-                    Button {
-                        dismiss()
-                    } label: {
-                        Image(systemName: "chevron.left")
-                            .foregroundColor(.myPrimary)
-                            .padding(.leading, 10)
-                    }
-                }
-            }
+            .customBackbutton()
             .toolbar {
                 ToolbarItem(placement: .navigationBarTrailing) {
                     Button {
@@ -59,6 +46,7 @@ struct PlaceListView_Previews: PreviewProvider {
     static var previews: some View {
         NavigationStack{
             PlaceListView( category: "공용 주방")
+                .environmentObject(HomeStore())
         }
     }
 }

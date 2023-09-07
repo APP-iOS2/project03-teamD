@@ -8,19 +8,8 @@
 import SwiftUI
 import BinGongGanCore
 
-enum HomeListRowConstant {
-    //    static let showPlaceListWidth = CGFloat(50)
-    static let showPlaceListHeight = CGFloat(100)
-}
-enum ImageFrame {
-    static let width = CGFloat(100)
-    static let height = CGFloat(70)
-    
-}
-
 struct HomeListRow: View {
     
-    private let screenWidth = UIScreen.main.bounds.width
     @State var place: Place
     
     var body: some View {
@@ -34,18 +23,18 @@ struct HomeListRow: View {
                             .resizable()
                             .aspectRatio(contentMode: .fill)
                             .frame(
-                                minWidth:ImageFrame.width,
-                                maxWidth: ImageFrame.width,
-                                minHeight: ImageFrame.height,
-                                maxHeight: ImageFrame.height
+                                minWidth: 100,
+                                maxWidth: 100,
+                                minHeight: 70,
+                                maxHeight: 70
                             )
                     }) {
                         ProgressView()
                             .frame(
-                                minWidth:ImageFrame.width,
-                                maxWidth: ImageFrame.width,
-                                minHeight: ImageFrame.height,
-                                maxHeight: ImageFrame.height
+                                minWidth: 100,
+                                maxWidth: 100,
+                                minHeight: 70,
+                                maxHeight: 70
                             )
                     }
                     .cornerRadius(4)
@@ -71,7 +60,7 @@ struct HomeListRow: View {
                         place.isFavorite.toggle()
                     } label: {
                         Image(systemName: place.isFavorite ? "heart.fill" : "heart")
-                            .foregroundColor(.myPrimary)
+                            .foregroundColor(.mySecondary)
                     }.padding(.trailing, 20)
                     
                 }// HSTACK
