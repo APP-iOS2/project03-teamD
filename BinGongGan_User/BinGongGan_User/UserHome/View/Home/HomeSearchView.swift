@@ -7,18 +7,10 @@
 
 import SwiftUI
 
-enum HomeSearchViewConstant {
-    static let searchTextFieldWidth = CGFloat(100)
-    static let searchTextFieldHeight = CGFloat(50)
-    static let searchTextFieldRadius = CGFloat(15)
-}
-
 struct HomeSearchView: View {
-    
-    @Environment(\.dismiss) private var dismiss
-    private let screenWidth = UIScreen.main.bounds.width
+   
     @State private var placeSearchTextField: String = ""
-    @ObservedObject var homeStore: HomeStore = HomeStore()
+    @EnvironmentObject var homeStore: HomeStore
     
     var body: some View {
         ZStack {
@@ -56,20 +48,7 @@ struct HomeSearchView: View {
             .navigationTitle("장소 검색")
             .navigationBarTitleDisplayMode(.inline)
             .navigationBarBackButtonHidden(true)
-            .toolbar {
-                ToolbarItem(placement:.navigationBarLeading) {
-                    Button {
-                        dismiss()
-                    } label: {
-                        HStack {
-                            Image(systemName: "chevron.left")
-                                .foregroundColor(.myPrimary)
-                            
-                        }// HSTACK
-                        .padding(.leading, 10)
-                    }
-                }
-            }
+            .customBackbutton()
         }
     }// Body
 }
@@ -78,6 +57,7 @@ struct HomeSearchView_Previews: PreviewProvider {
     static var previews: some View {
         NavigationStack {
             HomeSearchView()
+                .environmentObject(HomeStore())
         }
     }
 }
