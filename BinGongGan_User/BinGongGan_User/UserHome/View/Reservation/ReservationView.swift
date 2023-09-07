@@ -10,10 +10,7 @@ import SwiftUI
 struct ReservationView: View {
     
     @Environment(\.dismiss) private var dismiss
-    
-    @EnvironmentObject var reservationStore: ReservationStore
-    
-    @State var checkRefundPolicy: Bool = true
+    @StateObject var reservationStore: ReservationStore = ReservationStore()
     
     private let screenWidth = UIScreen.main.bounds.width
     
@@ -22,37 +19,38 @@ struct ReservationView: View {
         VStack {
             // 상단 바
             ReservationHeaderView()
+                .environmentObject(reservationStore)
                 .padding(.top, 1)
             
             ScrollView {
                 // 달력
                 ReservationCalendarView()
+                    .environmentObject(reservationStore)
                     .padding(.bottom, 10)
                 
                 VStack(alignment: .leading) {
                     
                     // 시간, 인원, 입금자명, 연락처, 요청사항
                     ReservationUserInfoView()
+                        .environmentObject(reservationStore)
                     
                     // 이용 시 주의 사항, 환불 규정
                     ReservationSellerInfoView()
+                        .environmentObject(reservationStore)
                     
-                    Button {
-                        if let reservation = reservationStore.reservation {
-                            if reservation.checkPolicy {
-                                //PaymentView()
-                                
-                                print("true 일경우 \(checkRefundPolicy)")
-                            }
-                        }
+                    NavigationLink {
+                        PaymentView()
+                            .environmentObject(reservationStore)
+                            .navigationBarBackButtonHidden()
                     } label: {
                         Text("무통장으로 입금")
                             .frame(width: screenWidth * 0.9, height: 50)
-                            .foregroundColor(checkRefundPolicy ? Color.white : Color.myMediumGray)
-                            .background(checkRefundPolicy ? Color.myPrimary : Color.myLightGray )
+                            .foregroundColor(reservationStore.checkPolicy ? Color.white : Color.myMediumGray)
+                            .background(reservationStore.checkPolicy ? Color.myPrimary : Color.myLightGray )
                         
                             .cornerRadius(8)
                     }
+                    .disabled(!reservationStore.checkPolicy)
                     .buttonStyle(.plain)
                     .padding([.top, .bottom], 10)
                 }
@@ -69,6 +67,7 @@ struct ReservationView: View {
                 }
             }
         }
+        
         .background(Color.myBackground)
         .navigationTitle("예약화면")
         .navigationBarTitleDisplayMode(.inline)
@@ -80,7 +79,6 @@ struct ReservationView_Previews: PreviewProvider {
     static var previews: some View {
         NavigationStack {
             ReservationView()
-                .environmentObject(ReservationStore())
         }
     }
 }

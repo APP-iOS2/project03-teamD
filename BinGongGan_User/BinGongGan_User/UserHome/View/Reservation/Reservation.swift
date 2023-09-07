@@ -36,5 +36,4 @@ struct Reservation {
     let reservationPhoneNumber: String
     let reservationRequest: String
     
-    let checkPolicy: Bool
 }
