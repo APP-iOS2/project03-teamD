@@ -27,6 +27,7 @@
 		692725612AA8BF5E00A2441E /* TextMaster.swift in Sources */ = {isa = PBXBuildFile; fileRef = 692725602AA8BF5E00A2441E /* TextMaster.swift */; };
 		69C8EFDB2AA957A0004F5953 /* ReservationUserInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69C8EFDA2AA957A0004F5953 /* ReservationUserInfoView.swift */; };
 		69C8EFDD2AA957BD004F5953 /* ReservationSellerInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69C8EFDC2AA957BD004F5953 /* ReservationSellerInfoView.swift */; };
+		69C8EFDF2AA95E99004F5953 /* PaymentListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69C8EFDE2AA95E99004F5953 /* PaymentListCell.swift */; };
 		B12A84A92AA6F01000BDF8CA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B12A84A82AA6F01000BDF8CA /* Assets.xcassets */; };
 		B12A84AC2AA6F01000BDF8CA /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B12A84AB2AA6F01000BDF8CA /* Preview Assets.xcassets */; };
 		B12A84B62AA6F01100BDF8CA /* BinGongGan_UserTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B12A84B52AA6F01100BDF8CA /* BinGongGan_UserTests.swift */; };
@@ -107,6 +108,7 @@
 		692725602AA8BF5E00A2441E /* TextMaster.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextMaster.swift; sourceTree = "<group>"; };
 		69C8EFDA2AA957A0004F5953 /* ReservationUserInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReservationUserInfoView.swift; sourceTree = "<group>"; };
 		69C8EFDC2AA957BD004F5953 /* ReservationSellerInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReservationSellerInfoView.swift; sourceTree = "<group>"; };
+		69C8EFDE2AA95E99004F5953 /* PaymentListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentListCell.swift; sourceTree = "<group>"; };
 		B12A84A12AA6F00D00BDF8CA /* BinGongGan_User.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BinGongGan_User.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B12A84A82AA6F01000BDF8CA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B12A84AB2AA6F01000BDF8CA /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
@@ -406,10 +408,11 @@
 				BC344EE92AA808DA00F8CEB3 /* ReservationCalendarView.swift */,
 				6927255A2AA83ABD00A2441E /* ReservationPlusMinusButton.swift */,
 				BC344EE82AA808DA00F8CEB3 /* ReservationView.swift */,
-				692725582AA81E5300A2441E /* RefundPolicySheetView.swift */,
-				6927255C2AA85A0600A2441E /* PaymentView.swift */,
 				69C8EFDA2AA957A0004F5953 /* ReservationUserInfoView.swift */,
 				69C8EFDC2AA957BD004F5953 /* ReservationSellerInfoView.swift */,
+				692725582AA81E5300A2441E /* RefundPolicySheetView.swift */,
+				6927255C2AA85A0600A2441E /* PaymentView.swift */,
+				69C8EFDE2AA95E99004F5953 /* PaymentListCell.swift */,
 			);
 			path = Reservation;
 			sourceTree = "<group>";
@@ -621,6 +624,7 @@
 				6927255D2AA85A0600A2441E /* PaymentView.swift in Sources */,
 				BC344EF42AA808E700F8CEB3 /* MultiDatePicker.swift in Sources */,
 				BC344EED2AA808DB00F8CEB3 /* ReservationView.swift in Sources */,
+				69C8EFDF2AA95E99004F5953 /* PaymentListCell.swift in Sources */,
 				BC344ED12AA8073700F8CEB3 /* GongGanDetailView.swift in Sources */,
 				BC344F002AA808FC00F8CEB3 /* MDPMonthYearPickerButton.swift in Sources */,
 				BC344EEF2AA808DB00F8CEB3 /* ReservationHeaderView.swift in Sources */,

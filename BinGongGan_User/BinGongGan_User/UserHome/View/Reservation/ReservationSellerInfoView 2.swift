@@ -10,7 +10,6 @@ import SwiftUI
 struct ReservationSellerInfoView: View {
     
     @State var openRefundPolicySheet: Bool = false
-    @State var checkRefundPolicy: Bool = true
     
     private let screenWidth = UIScreen.main.bounds.width
     
@@ -55,12 +54,6 @@ struct ReservationSellerInfoView: View {
             }
             .padding(.bottom, 10)
         }
-        .sheet(isPresented: $openRefundPolicySheet, content: {
-            NavigationStack {
-                RefundPolicySheetView(checkRefundPolicy: .constant(checkRefundPolicy))
-                    .environmentObject(ReservationStore())
-            }
-        })
     }
 }
 
