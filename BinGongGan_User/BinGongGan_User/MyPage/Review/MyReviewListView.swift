@@ -21,17 +21,9 @@ struct MyReviewListView: View {
             }
         }
         .navigationTitle("내가 작성한 리뷰")
-        .navigationBarTitleDisplayMode(.inline)
-        .toolbar {
-            ToolbarItem(placement:.navigationBarLeading) {
-                Button {
-                    dismiss()
-                } label: {
-                    Image(systemName: "chevron.left")
-                        .foregroundColor(.myPrimary)
-                }
-            }
-        }
+        .customBackbutton()
+        .scrollContentBackground(.hidden)
+        .background(Color.myBackground, ignoresSafeAreaEdges: .all)
         .navigationBarBackButtonHidden(true)
     }
 }
