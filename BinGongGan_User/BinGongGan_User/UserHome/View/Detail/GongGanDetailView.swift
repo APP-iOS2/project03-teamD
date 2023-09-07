@@ -18,6 +18,7 @@ struct GongGanDetailView: View {
         static let haltWidth = (UIScreen.main.bounds.width / 2)
         static let buttonHeight = CGFloat(60)
     }
+    
     @StateObject var reservationStore: ReservationStore = ReservationStore()
     var body: some View {
         NavigationStack {
@@ -75,7 +76,7 @@ struct GongGanDetailView: View {
                         
                         Group {
                             VStack(alignment: .leading, spacing: 10) {
-                                gongGan.customSection("공간 소개")
+                                gongGan.customSection("건물 정보")
                                 ForEach(gongGan.tempSummary, id: \.self) { summary in
                                     Text("◦ \(summary)")
                                         .font(.subheadline)
@@ -84,6 +85,7 @@ struct GongGanDetailView: View {
                                 
                             }
                         }
+                        .padding(EdgeInsets(top: 5, leading: 5, bottom: 0, trailing: 0))
                         
                         Group {
                             gongGan.customSection("시설 안내")
@@ -99,7 +101,8 @@ struct GongGanDetailView: View {
                                 }
                             }
                         }
-                        .padding(.bottom, 20)
+                        .padding(EdgeInsets(top: 0, leading: 5, bottom: 20, trailing: 0))
+                        
                     }
                     .padding(.horizontal, 15)
                     .padding(.bottom, 60)
@@ -147,8 +150,8 @@ struct GongGanDetailView: View {
                 ActionSheet(
                     title: Text("전화 문의"),
                     buttons: [
-                        .default(Text("전화 1011111111")) {
-                            if let phoneURL = URL(string: "tel://01011111111") {
+                        .default(Text("전화 010 3939 3838")) {
+                            if let phoneURL = URL(string: "tel://01039393838") {
                                 UIApplication.shared.open(phoneURL, options: [:], completionHandler: nil)
                             }
                         },

@@ -15,29 +15,45 @@ struct DetailTabImageView: View {
     
     var body: some View {
         NavigationStack {
-            ScrollView(showsIndicators: false) {
-                TabView(selection: $selectedTab) {
-                    ForEach(gongGan.tempImage.indices, id: \.self) { index in
-                        AsyncImage(url: URL(string: gongGan.tempImage[index])) { image in
-                            image
-                                .resizable()
-                                .scaledToFill()
-                        } placeholder: {
-                            ProgressView()
-                        }
-                        .tag(index) // Tag each tab with its index
+            
+            TabView {
+                ForEach(gongGan.tempImage.indices, id: \.self) { index in
+                    AsyncImage(url: URL(string: gongGan.tempImage[index])) { image in
+                        image
+                            .resizable()
+                            .scaledToFill()
+                    } placeholder: {
+                        ProgressView()
                     }
+                    .tag(index)
                 }
-                .tabViewStyle(PageTabViewStyle())
-                .frame(width: screenWidth, height: 250)
-                .onReceive(timer) { _ in
-                    // Automatically switch to the next tab
-                    withAnimation {
-                        selectedTab = (selectedTab + 1) % gongGan.tempImage.count
-                    }
-                }
-                
             }
+            .tabViewStyle(PageTabViewStyle())
+            .frame(width: screenWidth, height: 200)
+            
+            
+//                TabView(selection: $selectedTab) {
+//                    ForEach(gongGan.tempImage.indices, id: \.self) { index in
+//                        AsyncImage(url: URL(string: gongGan.tempImage[index])) { image in
+//                            image
+//                                .resizable()
+//                                .scaledToFill()
+//                        } placeholder: {
+//                            ProgressView()
+//                        }
+//                        .tag(index) // Tag each tab with its index
+//                    }
+//                }
+//                .tabViewStyle(PageTabViewStyle())
+//                .frame(width: screenWidth, height: 250)
+//                .onReceive(timer) { _ in
+//                    // Automatically switch to the next tab
+//                    withAnimation {
+//                        selectedTab = (selectedTab + 1) % gongGan.tempImage.count
+//                    }
+//                }
+            
+            
             
         }
     }
