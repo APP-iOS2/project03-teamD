@@ -12,7 +12,7 @@ struct HomeEventTapView: View {
     private let screenWidth = UIScreen.main.bounds.width
     private let screenHeight = UIScreen.main.bounds.height
     private let timer = Timer.publish(every: 4, on: .main, in: .common).autoconnect()
-    @ObservedObject var homeStore: HomeStore = HomeStore()
+    @EnvironmentObject var homeStore: HomeStore
     @State private var currentPage: Int = 0
     
     var body: some View {
@@ -50,5 +50,6 @@ struct HomeEventTapView: View {
 struct HomeEventTapView_Previews: PreviewProvider {
     static var previews: some View {
         HomeEventTapView()
+            .environmentObject(HomeStore())
     }
 }

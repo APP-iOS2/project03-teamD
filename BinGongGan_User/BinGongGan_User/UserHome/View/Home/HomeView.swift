@@ -32,7 +32,7 @@ struct RoundedCorner: Shape {
 
 struct HomeView: View {
     
-    @ObservedObject var homeStore: HomeStore = HomeStore()
+    @EnvironmentObject var homeStore: HomeStore
     @Binding var tabBarVisivility: Visibility
     
     var body: some View {
@@ -65,7 +65,7 @@ struct HomeView: View {
                     Group {
                         HomeCategoryView()
                             .padding([.leading, .trailing], 20)
-                        
+                            .environmentObject(homeStore)
                         HStack {
                             Text("인기 플레이스")
                                 .font(.head1Bold)
@@ -75,6 +75,7 @@ struct HomeView: View {
                         }
                         
                         FavoriteListView()
+                            .environmentObject(homeStore)
                             .padding(.horizontal)
                             .padding(.bottom, 20)
                         
@@ -100,6 +101,7 @@ struct HomeView: View {
                         
                         HomeEventTapView()
                             .padding(.bottom, 10)
+                            .environmentObject(homeStore)
                     }// GROUP
                 }// LazyVStack
                 .padding(.bottom, 10)
@@ -124,6 +126,7 @@ struct HomeView_Previews: PreviewProvider {
     static var previews: some View {
         NavigationStack{
             HomeView(tabBarVisivility: .constant(.visible))
+                .environmentObject(HomeStore())
         }
     }
 }

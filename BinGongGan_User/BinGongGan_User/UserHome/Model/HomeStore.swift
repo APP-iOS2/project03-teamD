@@ -9,8 +9,8 @@ import SwiftUI
 
 final class HomeStore: ObservableObject {
     
-    @Published var EventList: [Event] = []
     @Published var places: [Place] = []
+    @Published var EventList: [Event] = []
     @Published var hotPlace: [Place] = []
     @Published var recommendPlace: [Place] = []
     @Published var filteredArray:[Place] = []
@@ -22,8 +22,8 @@ final class HomeStore: ObservableObject {
     ]
     
     init(){
+        fetchPlace()
         settingEventBanner()
-        places = placeArray
         settingHotPlace()
         settingRecommendPlace()
     }
@@ -51,6 +51,9 @@ final class HomeStore: ObservableObject {
         }) {
             ProgressView()
         }
+    }
+    func fetchPlace(){
+        places = placeArray
     }
     
     func settingEventBanner(){

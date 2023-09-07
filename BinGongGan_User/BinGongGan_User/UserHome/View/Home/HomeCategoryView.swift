@@ -10,7 +10,7 @@ import BinGongGanCore
 
 struct HomeCategoryView: View {
     
-    @ObservedObject var homeStore: HomeStore = HomeStore()
+    @EnvironmentObject var homeStore: HomeStore
     
     var body: some View {
         
@@ -20,6 +20,7 @@ struct HomeCategoryView: View {
                     ForEach(homeStore.categories) { place in
                         NavigationLink {
                             PlaceListView(category: place.category.rawValue)
+                                .environmentObject(homeStore)
                         } label: {
                             VStack {
                                 ZStack {
@@ -47,6 +48,7 @@ struct HomePlaceListView_Previews: PreviewProvider {
     static var previews: some View {
         NavigationStack{
             HomeCategoryView()
+                .environmentObject(HomeStore())
         }
     }
 }

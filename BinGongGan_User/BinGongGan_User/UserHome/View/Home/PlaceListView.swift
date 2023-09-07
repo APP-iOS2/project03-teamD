@@ -10,7 +10,7 @@ import SwiftUI
 struct PlaceListView: View {
     
     @Environment(\.dismiss) private var dismiss
-    @ObservedObject var homeStore: HomeStore = HomeStore()
+    @EnvironmentObject var homeStore: HomeStore 
     @State var category: String
     var body: some View {
         ZStack {
@@ -46,6 +46,7 @@ struct PlaceListView_Previews: PreviewProvider {
     static var previews: some View {
         NavigationStack{
             PlaceListView( category: "공용 주방")
+                .environmentObject(HomeStore())
         }
     }
 }

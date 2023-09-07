@@ -10,7 +10,7 @@ import SwiftUI
 struct HomeSearchView: View {
    
     @State private var placeSearchTextField: String = ""
-    @ObservedObject var homeStore: HomeStore = HomeStore()
+    @EnvironmentObject var homeStore: HomeStore
     
     var body: some View {
         ZStack {
@@ -57,6 +57,7 @@ struct HomeSearchView_Previews: PreviewProvider {
     static var previews: some View {
         NavigationStack {
             HomeSearchView()
+                .environmentObject(HomeStore())
         }
     }
 }

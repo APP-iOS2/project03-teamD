@@ -10,7 +10,7 @@ import SwiftUI
 
 struct FavoriteListView: View {
     
-    @ObservedObject var homeStore: HomeStore = HomeStore()
+    @EnvironmentObject var homeStore: HomeStore
     
     var body: some View {
         TabView {
@@ -57,6 +57,7 @@ struct FavoriteListView_Previews: PreviewProvider {
     static var previews: some View {
         NavigationStack{
             FavoriteListView()
+                .environmentObject(HomeStore())
         }
     }
 }

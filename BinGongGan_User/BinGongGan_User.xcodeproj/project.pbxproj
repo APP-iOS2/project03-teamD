@@ -408,9 +408,9 @@
 			children = (
 				BC344F052AA8092E00F8CEB3 /* HomeView.swift */,
 				BC344F222AA86AD500F8CEB3 /* HomeCategoryView.swift */,
-				3661ED042AA956750055AC97 /* FavoriteListView.swift */,
 				BC344F242AA86B3E00F8CEB3 /* PlaceListView.swift */,
 				BC344F1A2AA86A5F00F8CEB3 /* PlaceListRow.swift */,
+				3661ED042AA956750055AC97 /* FavoriteListView.swift */,
 				BC344F072AA8092E00F8CEB3 /* HomeEventTapView.swift */,
 				BC344F062AA8092E00F8CEB3 /* HomeSearchView.swift */,
 				BC344ED32AA8074000F8CEB3 /* Cell */,
