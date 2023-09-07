@@ -25,29 +25,20 @@ struct HomeSearchView: View {
             Spacer().background(Color.myBackground).edgesIgnoringSafeArea(.all)
             VStack {
                 HStack {
-                    ZStack {
-                        Color.mySecondary
-                            .opacity(0.2)
-                        HStack {
-                            TextField("장소를 입력해주세요.", text: $placeSearchTextField)
-                                .font(.body1Bold)
-                                .padding()
-                                
-                        }
-                    }// ZStack
-                    .frame(maxWidth: screenWidth * 0.8 ,
-                           maxHeight: HomeSearchViewConstant.searchTextFieldHeight)
-                    .cornerRadius(HomeSearchViewConstant.searchTextFieldRadius)
-                    .padding()
+                    
+                    CustomTextField(placeholder: "장소를 입력해주세요.", text: $placeSearchTextField)
+                        .font(.body1Bold)
+                        .padding(EdgeInsets(top: 10, leading: 20, bottom: 10, trailing: 10))
                     
                     Button {
                         homeStore.searchPlaceName(placess: homeStore.places, keyWord: placeSearchTextField)
                     } label: {
-                        Text("검색")
-                            .font(.body1Bold)
+                        Image(systemName: "magnifyingglass")
+                            .font(.head1Bold)
                             .foregroundColor(.mySecondary)
                     }.buttonStyle(.plain)
-                    Spacer()
+                        .padding(.trailing, 20)
+                    
                 }// HStack
                 ScrollView(showsIndicators: false) {
                     LazyVStack{
@@ -71,12 +62,14 @@ struct HomeSearchView: View {
                         dismiss()
                     } label: {
                         HStack {
-                            HomeStore.backButton("https://item.kakaocdn.net/do/a1ccece94b4ba1b47f0e5dbe05ce65687e6f47a71c79378b48860ead6a12bf11")
-                            Spacer()
+                            Image(systemName: "chevron.left")
+                                .foregroundColor(.myPrimary)
+                            
                         }// HSTACK
+                        .padding(.leading, 10)
                     }
                 }
-        }
+            }
         }
     }// Body
 }

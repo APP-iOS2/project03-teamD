@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3661ED052AA956750055AC97 /* FavoriteListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3661ED042AA956750055AC97 /* FavoriteListView.swift */; };
 		368394DD2AA84732004A3AC3 /* HomeStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 368394DC2AA84732004A3AC3 /* HomeStore.swift */; };
 		36ABB3642AA8C43A00E26C52 /* SwiftUiView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36ABB3632AA8C43A00E26C52 /* SwiftUiView.swift */; };
 		3AC748092AA8FA410092B1EC /* View+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AC748082AA8FA410092B1EC /* View+Extension.swift */; };
@@ -109,6 +110,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		3661ED042AA956750055AC97 /* FavoriteListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteListView.swift; sourceTree = "<group>"; };
 		368394DC2AA84732004A3AC3 /* HomeStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeStore.swift; sourceTree = "<group>"; };
 		36ABB3632AA8C43A00E26C52 /* SwiftUiView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftUiView.swift; sourceTree = "<group>"; };
 		3AC748082AA8FA410092B1EC /* View+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+Extension.swift"; sourceTree = "<group>"; };
@@ -401,6 +403,7 @@
 				BC344F052AA8092E00F8CEB3 /* HomeView.swift */,
 				BC344F072AA8092E00F8CEB3 /* HomeEventTapView.swift */,
 				BC344F062AA8092E00F8CEB3 /* HomeSearchView.swift */,
+				3661ED042AA956750055AC97 /* FavoriteListView.swift */,
 				BC344ED32AA8074000F8CEB3 /* Cell */,
 			);
 			path = Home;
@@ -737,6 +740,7 @@
 				D84824AD2AA8A41D0067A065 /* MyReservationRowView.swift in Sources */,
 				EC6F7F552AA8886900C0B094 /* CustomTextField.swift in Sources */,
 				BC344F0C2AA8092E00F8CEB3 /* HomeEventTapView.swift in Sources */,
+				3661ED052AA956750055AC97 /* FavoriteListView.swift in Sources */,
 				D84824A52AA8A3710067A065 /* MyInformationEditView.swift in Sources */,
 				BC344F012AA808FC00F8CEB3 /* MDPMonthYearPicker.swift in Sources */,
 				6927255B2AA83ABD00A2441E /* ReservationPlusMinusButton.swift in Sources */,
