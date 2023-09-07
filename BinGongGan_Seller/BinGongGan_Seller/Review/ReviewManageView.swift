@@ -62,47 +62,47 @@ struct ReviewManageView: View {
                 }
             }
         }
-        .onAppear {
-            /// 임시 더미 데이터
-            placeStore.placeList = [
-                PlaceModel(
-                    placeName: "공간1",
-                    placePrice: "",
-                    placeCategory: "",
-                    placeAdress: "",
-                    placeImageStringList: [],
-                    informationToPass: "",
-                    placeInfomationList: [],
-                    reviews: [
-                        Review(date: "9/1", rating: 4.0, content: "공간1에 대한 리뷰인데요?")
-                    ]
-                ),
-                PlaceModel(
-                    placeName: "공간1",
-                    placePrice: "",
-                    placeCategory: "",
-                    placeAdress: "",
-                    placeImageStringList: [],
-                    informationToPass: "",
-                    placeInfomationList: [],
-                    reviews: [
-                        Review(date: "9/4", rating: 4.0, content: "공간1에 대한 리뷰인데요? 아닌데요? 맞는데요?")
-                    ]
-                ),
-                PlaceModel(
-                    placeName: "공간2",
-                    placePrice: "",
-                    placeCategory: "",
-                    placeAdress: "",
-                    placeImageStringList: [],
-                    informationToPass: "",
-                    placeInfomationList: [],
-                    reviews: [
-                        Review(date: "9/4", rating: 2.0, content: "공간2에 대한 리뷰인데요?")
-                    ]
-                )
-            ]
-        }
+//        .onAppear {
+//            /// 임시 더미 데이터
+//            placeStore.placeList = [
+//                PlaceModel(
+//                    placeName: "공간1",
+//                    placePrice: "",
+//                    placeCategory: "",
+//                    placeAdress: "",
+//                    placeImageStringList: [],
+//                    informationToPass: "",
+//                    placeInfomationList: [],
+//                    reviews: [
+//                        Review(date: "9/1", rating: 4.0, content: "공간1에 대한 리뷰인데요?")
+//                    ]
+//                ),
+//                PlaceModel(
+//                    placeName: "공간1",
+//                    placePrice: "",
+//                    placeCategory: "",
+//                    placeAdress: "",
+//                    placeImageStringList: [],
+//                    informationToPass: "",
+//                    placeInfomationList: [],
+//                    reviews: [
+//                        Review(date: "9/4", rating: 4.0, content: "공간1에 대한 리뷰인데요? 아닌데요? 맞는데요?")
+//                    ]
+//                ),
+//                PlaceModel(
+//                    placeName: "공간2",
+//                    placePrice: "",
+//                    placeCategory: "",
+//                    placeAdress: "",
+//                    placeImageStringList: [],
+//                    informationToPass: "",
+//                    placeInfomationList: [],
+//                    reviews: [
+//                        Review(date: "9/4", rating: 2.0, content: "공간2에 대한 리뷰인데요?")
+//                    ]
+//                )
+//            ]
+//        }
     }
 }
 

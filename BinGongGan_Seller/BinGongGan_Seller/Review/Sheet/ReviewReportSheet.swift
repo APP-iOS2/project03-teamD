@@ -10,7 +10,7 @@ import SwiftUI
 struct ReviewReportSheet: View {
     @Binding var isShowingReviewReportSheet: Bool
     
-    @State var isShowingReportAlert: Bool
+    @State var isShowingReportAlert: Bool = false
     
     var body: some View {
         VStack {
