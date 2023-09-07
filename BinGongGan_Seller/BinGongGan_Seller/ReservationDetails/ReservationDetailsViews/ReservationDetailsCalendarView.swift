@@ -11,7 +11,7 @@ struct ReservationDetailsCalendarView: View {
     
     @State private var selectedDate = Date()
     @State private var isShowingWeekCalendar = false
-    @State private var showModal: Bool = false
+    @State private var isShowingModal: Bool = false
     
     var body: some View {
         DatePicker(
@@ -28,7 +28,7 @@ struct ReservationDetailsCalendarView: View {
             Spacer()
         }
         ForEach(0..<5) { index in
-            ReservationConfirmedCell(showModal: $showModal)
+            ReservationConfirmedCell(isShowingModal: $isShowingModal)
         }
         Spacer()
     }

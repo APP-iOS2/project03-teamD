@@ -1,20 +1,19 @@
 //
-//  AnnouncementView.swift
+//  EventView.swift
 //  BinGongGan_Seller
 //
-//  Created by 오영석 on 2023/09/06.
+//  Created by 박채영 on 2023/09/07.
 //
-import SwiftUI
-import BinGongGanCore
 
-struct AnnouncementView: View {
-    
+import SwiftUI
+
+struct EventView: View {
     @Environment(\.dismiss) private var dismiss
     
     var body: some View {
         VStack{
             HStack {
-                Text("공지 관리")
+                Text("이벤트 관리")
                     .font(.title)
                     .bold()
                     .foregroundColor(Color.myPrimary)
@@ -62,11 +61,10 @@ struct AnnouncementView: View {
             }
         }
     }
-    
 }
 
-struct AnnouncementView_Previews: PreviewProvider {
+struct EventView_Previews: PreviewProvider {
     static var previews: some View {
-        AnnouncementView()
+        EventView()
     }
 }
