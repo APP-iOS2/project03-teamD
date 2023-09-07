@@ -19,9 +19,9 @@ struct PlaceListView: View {
                 
                 ScrollView(showsIndicators: false){
                     ForEach(dummyStore.places){ place in
-                        if category == place.category.rawValue{
-                            HomeListRow(place: place)
-                        }
+                        
+                            PlaceListRow(place: place)
+                        
                     }
                 }// SCROLLVIEW
                 .padding(.top, 20)

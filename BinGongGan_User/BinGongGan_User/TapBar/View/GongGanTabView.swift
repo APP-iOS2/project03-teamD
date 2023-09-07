@@ -16,7 +16,7 @@ struct GongGanTabView: View {
     var body: some View {
         TabView(selection: $selectedTab) {
             NavigationStack {
-                HomeView()
+                HomeView(tabBarVisivility: $tabBarVisivility)
             }
             .tabItem {
                 Image(systemName: selectedTab == 0 ? "house.fill" : "house")
@@ -26,13 +26,12 @@ struct GongGanTabView: View {
             .tag(0)
             
             NavigationStack {
-                MapSearchView(selectedTab: $selectedTab, tabBarVisivility: $tabBarVisivility)
-                    .toolbar(tabBarVisivility, for: .tabBar)
+                HomeSearchView()
             }
             .tabItem {
                 Image(systemName: selectedTab == 1 ? "location.circle.fill" : "location.circle")
                     .environment(\.symbolVariants, selectedTab == 1 ? .fill : .none)
-                Text("내 주변")
+                Text("검색")
             }
             .tag(1)
             

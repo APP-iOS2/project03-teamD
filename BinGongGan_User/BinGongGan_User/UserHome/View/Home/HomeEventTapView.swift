@@ -9,13 +9,15 @@ import SwiftUI
 import BinGongGanCore
 
 enum HomeEventTapConstant {
-    static let eventListHeight = CGFloat(120)
+    static let eventListHeight = CGFloat(200)
 }
 
 struct HomeEventTapView: View {
     
     @ObservedObject var dummyStore: HomeStore = HomeStore()
     private let screenWidth = UIScreen.main.bounds.width
+    private let screenHeight = UIScreen.main.bounds.height
+    
     private let timer = Timer.publish(every: 4, on: .main, in: .common).autoconnect()
     @State private var currentPage: Int = 0
     
@@ -28,6 +30,7 @@ struct HomeEventTapView: View {
                             image
                                 .resizable()
                                 .frame(width: screenWidth)
+                                .clipped()
                         }) {
                             ProgressView()
                         }
@@ -43,9 +46,9 @@ struct HomeEventTapView: View {
             }
         }// GeometryReader
         .tabViewStyle(PageTabViewStyle())
-        .frame(width: screenWidth, height: HomeEventTapConstant.eventListHeight)
+        .frame(width: screenWidth, height: screenHeight * 0.13)
         .foregroundColor(.black)
-        .background(Color.myPrimary)
+        
     }// Body
 }
 

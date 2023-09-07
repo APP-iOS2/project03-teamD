@@ -9,47 +9,57 @@ import SwiftUI
 import BinGongGanCore
 
 enum HomeCategoryConstant {
-    static let hstackPadding = CGFloat(5)
-    static let cellWidth = CGFloat(75)
-    static let cellHeight = CGFloat(75)
+    static let padding = CGFloat(20)
+    static let cellWidth =  CGFloat(50)
+    static let cellHeight = CGFloat(50)
     static let cellCorner = CGFloat(15)
     static let fontSize = CGFloat(12)
 }
 
 struct HomeCategoryView: View {
     
+    private let layout = [60, 60, 60]
+    
     private let screenWidth = UIScreen.main.bounds.width
+    private let screenHeight = UIScreen.main.bounds.height
     
     @ObservedObject var dummyStore: HomeStore = HomeStore()
     
     var body: some View {
         
-        HStack {
-            ForEach(dummyStore.categories) { place in
-                NavigationLink {
-                    PlaceListView(category: place.category.rawValue)
-                } label: {
-                    VStack {
-                        AsyncImage(url: place.imageURL) { image in
-                            image
-                                .resizable()
-                                .aspectRatio(contentMode: .fill)
-                                .frame(width: HomeCategoryConstant.cellWidth , height: HomeCategoryConstant.cellHeight)
-                                .background(Color.myPrimary)
-                                .cornerRadius(15)
-                        } placeholder: {
-                            ProgressView()
-                                .frame(width: HomeCategoryConstant.cellWidth , height: HomeCategoryConstant.cellHeight)
-                        }   
-                        
-                        Text(place.category.rawValue)
-                            .font(.body1Bold)
-                            .foregroundColor(.black)
+        HStack(spacing: 10) {
+            Grid(horizontalSpacing: 20) {
+                GridRow {
+                    ForEach(dummyStore.categories) { place in
+                        NavigationLink {
+                            PlaceListView(category: place.category.rawValue)
+                        } label: {
+                            VStack {
+                                ZStack {
+                                    Circle()
+                                        .foregroundColor(Color.myWhite)
+                                        
+                                    Image(systemName: "\(place.categoryImageString)")
+                                        
+                                        .aspectRatio(contentMode: .fit)
+                                        .foregroundColor(Color.myPrimary)
+                                        .font(.system(size: 27))
+                                }
+                                Text(place.category.rawValue)
+                                    .font(.captionBold)
+                                    .foregroundColor(.myPrimary)
+                                    .lineLimit(1)
+                            }
+                            
+                        }// NAVIGATIONLINK
                     }
-                }// NAVIGATIONLINK
-            }.padding(HomeCategoryConstant.hstackPadding)
+                }
+            }
             
-        }.padding([.leading, .trailing], 5)
+            
+        }// HSTACK
+        
+        
     }
 }
 
