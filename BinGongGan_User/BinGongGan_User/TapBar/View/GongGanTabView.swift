@@ -9,26 +9,32 @@ import SwiftUI
 
 struct GongGanTabView: View {
     @State private var selectedTab = 0
+    @State var tabBarVisivility: Visibility = .visible
     init() {
         UITabBar.appearance().backgroundColor = UIColor.white
     }
     var body: some View {
         TabView(selection: $selectedTab) {
-            HomeView()
-                .tabItem {
-                    Image(systemName: selectedTab == 0 ? "house.fill" : "house")
-                        .environment(\.symbolVariants, selectedTab == 0 ? .fill : .none)
-                    Text("홈")
-                }
-                .tag(0)
+            NavigationStack {
+                HomeView()
+            }
+            .tabItem {
+                Image(systemName: selectedTab == 0 ? "house.fill" : "house")
+                    .environment(\.symbolVariants, selectedTab == 0 ? .fill : .none)
+                Text("홈")
+            }
+            .tag(0)
             
-            Text("내 주변")
-                .tabItem {
-                    Image(systemName: selectedTab == 1 ? "location.circle.fill" : "location.circle")
-                        .environment(\.symbolVariants, selectedTab == 1 ? .fill : .none)
-                    Text("내 주변")
-                }
-                .tag(1)
+            NavigationStack {
+                MapSearchView(selectedTab: $selectedTab, tabBarVisivility: $tabBarVisivility)
+                    .toolbar(tabBarVisivility, for: .tabBar)
+            }
+            .tabItem {
+                Image(systemName: selectedTab == 1 ? "location.circle.fill" : "location.circle")
+                    .environment(\.symbolVariants, selectedTab == 1 ? .fill : .none)
+                Text("내 주변")
+            }
+            .tag(1)
             
             Text("찜")
                 .tabItem {
@@ -38,15 +44,18 @@ struct GongGanTabView: View {
                 }
                 .tag(2)
             
-            MyPageMainView()
-                .tabItem {
-                    Image(systemName: selectedTab == 3 ? "book.fill" : "book")
-                        .environment(\.symbolVariants, selectedTab == 3 ? .fill : .none)
-                    Text("마이페이지")
-                }
-                .tag(3)
+            NavigationStack {
+                MyPageMainView()
+            }
+            .tabItem {
+                Image(systemName: selectedTab == 3 ? "book.fill" : "book")
+                    .environment(\.symbolVariants, selectedTab == 3 ? .fill : .none)
+                Text("마이페이지")
+            }
+            .tag(3)
         }
         .tint(.myPrimary)
+        .navigationBarBackButtonHidden()
     }
 }
 

@@ -24,6 +24,12 @@ struct DetailGongGan: Identifiable {
     var pricePerTime: String
 }
 
+struct TempLabel: Identifiable {
+    var id: String = UUID().uuidString
+    var text: String
+    var systemImage: String
+}
+
 final class GongGanStore: ObservableObject {
     @Published var gongGanStore: GongGanInfo = 
         GongGanInfo(title: "[서울역] 갬성 파티룸",
@@ -50,11 +56,22 @@ final class GongGanStore: ObservableObject {
         "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSl78G1gSU5SWWFWadyjHfIEhz_yPmVqjIGmA&usqp=CAU"
         
     ]
+    var tempSummary: [String] = [
+        "송파공유오피스",
+        "가락시장역 3, 8호선 더블 초역세권 도보 1분거리",
+        "다양한 업종 사업자등록가능 (근린생활시설 가능)",
+        "비상주 서비스",
+        "다양한 크기의 회의실 구비 (4인~10인) *1인실 ~ 4인실 구비"
+    ]
     
+    var tempLabel: [TempLabel] = [
+        TempLabel(text: "와이파이", systemImage: "wifi"),
+        TempLabel(text: "주차 가능", systemImage: "car"),
+        TempLabel(text: "TV/프로젝터", systemImage: "tv.and.mediabox"),
+    ]
     func customSection(_ text: String) -> some View {
         VStack(alignment: .leading) {
             Text(text)
-                .bold()
             Rectangle()
                 .fill(Color.myLightGray)
                 .frame(height: 2)
