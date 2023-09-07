@@ -10,7 +10,7 @@ import BinGongGanCore
 struct AnnouncementView: View {
     
     @Environment(\.dismiss) private var dismiss
-    
+    @State var isPresentedAddView: Bool = false
     var body: some View {
         VStack{
             HStack {
@@ -20,6 +20,19 @@ struct AnnouncementView: View {
                     .foregroundColor(Color.myPrimary)
                     .padding(.leading, 20)
                 Spacer()
+                Button( action: {
+                    isPresentedAddView.toggle()
+                }, label: {
+                    Image(systemName: "plus")
+                        .foregroundColor(Color.myPrimary)
+                        .padding(.trailing, 20)
+                })
+                .buttonStyle(.plain)
+                .sheet(isPresented: $isPresentedAddView) {
+                    AnnouncementAddView()
+                        .presentationDetents([.large])
+                        .cornerRadius(15)
+                }
             }
             Form {
                 Section(header: Text("공간1")
