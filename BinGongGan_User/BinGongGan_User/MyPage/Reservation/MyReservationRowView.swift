@@ -18,23 +18,23 @@ struct MyReservationRowView: View {
             VStack(alignment: .leading) {
                 Text("\(reservate.placeName)")
                     .font(.body1Bold)
-                    .foregroundColor(reservate.isReservation ? .white : .myPrimary)
+                    .foregroundColor(.myPrimary)
                 
                 Text("예약 번호 : \(reservate.reservationNumber)")
                     .font(.captionRegular)
-                    .foregroundColor(reservate.isReservation ? .white : .myPrimary)
+                    .foregroundColor(.myPrimary)
                 
                 Spacer().frame(height: UIScreen.main.bounds.height * 0.01)
                 
                 Text("\(reservate.reservationDate) (\(reservate.reservationPersonal)명)")
                     .font(.captionRegular)
-                    .foregroundColor(reservate.isReservation ? .white : .myPrimary)
+                    .foregroundColor(.myPrimary)
                 
                 Spacer().frame(height: UIScreen.main.bounds.height * 0.01)
                 
                 Text("\(reservate.placeAddress)")
                     .font(.captionRegular)
-                    .foregroundColor(reservate.isReservation ? .white : .myPrimary)
+                    .foregroundColor(.myPrimary)
             }
             
             Spacer()

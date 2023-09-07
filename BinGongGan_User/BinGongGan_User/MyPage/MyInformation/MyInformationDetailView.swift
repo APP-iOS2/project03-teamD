@@ -1,3 +1,6 @@
+
+
+
 //
 //  MyInformationDetail.swift
 //  BinGongGan_User
@@ -10,8 +13,12 @@ import BinGongGanCore
 
 struct MyInformationDetailView: View {
     @Environment(\.dismiss) private var dismiss
+    private var formattedPhoneNumber: String {
+        phoneNumber.formatPhoneNumber()
+    }
     @State private var name: String = "손윤호"
-    @State private var phoneNumber: String = "010-1234-5678"
+    @State private var phoneNumber: String = "01012345678"
+    @State private var isPresentedAlert: Bool = false
     
     var body: some View {
         Form {
@@ -37,7 +44,7 @@ struct MyInformationDetailView: View {
                         Text("연락처")
                             .font(.body1Regular)
                         Spacer()
-                        Text("\(phoneNumber)")
+                        Text("\(formattedPhoneNumber)")
                             .foregroundColor(.myDarkGray)
                     }
                 }
@@ -61,10 +68,16 @@ struct MyInformationDetailView: View {
             
             Section {
                 Button {
-                    
+                    isPresentedAlert.toggle()
                 } label: {
-                    Text("회원 탈퇴")
+                    Text("회원탈퇴")
                         .foregroundColor(.red)
+                }
+                .alert("회원탈퇴", isPresented: $isPresentedAlert) {
+                    Button("돌아가기", role: .cancel) { }
+                    Button("탈퇴", role: .destructive) { }
+                } message: {
+                    Text("이 동작은 되돌릴 수 없습니다.")
                 }
             }
         }

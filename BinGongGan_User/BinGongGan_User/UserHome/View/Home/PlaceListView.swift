@@ -10,18 +10,15 @@ import SwiftUI
 struct PlaceListView: View {
     
     @Environment(\.dismiss) private var dismiss
-    @ObservedObject var dummyStore: HomeStore = HomeStore()
+    @EnvironmentObject var homeStore: HomeStore 
     @State var category: String
     var body: some View {
         ZStack {
             Spacer().background(Color.myBackground).edgesIgnoringSafeArea(.all)
             VStack {
-                
                 ScrollView(showsIndicators: false){
-                    ForEach(dummyStore.places){ place in
-                        if category == place.category.rawValue{
-                            HomeListRow(place: place)
-                        }
+                    ForEach(homeStore.places){ place in
+                            PlaceListRow(place: place)
                     }
                 }// SCROLLVIEW
                 .padding(.top, 20)
@@ -29,17 +26,7 @@ struct PlaceListView: View {
             .navigationTitle("공용 오피스")
             .navigationBarTitleDisplayMode(.inline)
             .navigationBarBackButtonHidden(true)
-            .toolbar {
-                ToolbarItem(placement:.navigationBarLeading) {
-                    Button {
-                        dismiss()
-                    } label: {
-    //                    Image(systemName: "chevron.left")
-    //                        .foregroundColor(.brown)
-                        HomeStore.backButton("https://item.kakaocdn.net/do/a1ccece94b4ba1b47f0e5dbe05ce65687e6f47a71c79378b48860ead6a12bf11")
-                    }
-                }
-            }
+            .customBackbutton()
             .toolbar {
                 ToolbarItem(placement: .navigationBarTrailing) {
                     Button {
@@ -47,11 +34,11 @@ struct PlaceListView: View {
                     } label: {
                         Image(systemName: "slider.horizontal.3")
                             .foregroundColor(.mySecondary)
-                        
+                            .font(.body1Bold)
                     }
                 }
-        }
-        }
+            }
+        }// ZSTACK
     }// BODY
 }
 
@@ -59,6 +46,7 @@ struct PlaceListView_Previews: PreviewProvider {
     static var previews: some View {
         NavigationStack{
             PlaceListView( category: "공용 주방")
+                .environmentObject(HomeStore())
         }
     }
 }
