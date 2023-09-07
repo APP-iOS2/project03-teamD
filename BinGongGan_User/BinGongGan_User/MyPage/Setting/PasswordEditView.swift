@@ -68,17 +68,9 @@ struct PasswordEditView: View {
         .padding(.horizontal, 20)
         .navigationTitle("비밀번호 변경")
         .navigationBarTitleDisplayMode(.inline)
-        .navigationBarBackButtonHidden(true)
-        .toolbar {
-            ToolbarItem(placement:.navigationBarLeading) {
-                Button {
-                    dismiss()
-                } label: {
-                    Image(systemName: "chevron.left")
-                        .foregroundColor(.myPrimary)
-                }
-            }
-        }
+        .customBackbutton()
+        .scrollContentBackground(.hidden)
+        .background(Color.myBackground, ignoresSafeAreaEdges: .all)
         .alert("비밀번호 변경", isPresented: $isShowingAlert) {
             Button("취소", role: .cancel) {}
             Button("변경", role: .destructive) {
