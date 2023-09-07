@@ -12,6 +12,7 @@ struct GongGanDetailView: View {
     @StateObject var gongGan: GongGanStore = GongGanStore()
     @State private var heartButton: Bool = false
     @State private var isActionSheetPresented = false
+    @State private var tabBarVisivility: Visibility = .visible
     private let screenWidth = UIScreen.main.bounds.width
     enum viewFrame {
         static let haltWidth = (UIScreen.main.bounds.width / 2)
@@ -119,9 +120,11 @@ struct GongGanDetailView: View {
                             .frame(width: 1)
                             .padding(.vertical, 5)
                         NavigationLink {
-                            ReservationView()
+                            ReservationView(tabBarVisivility: $tabBarVisivility)
                                 .environmentObject(reservationStore)
+                                .toolbar(tabBarVisivility, for: .tabBar)
                                 .navigationBarBackButtonHidden()
+                            
                         } label: {
                             Text("예약 신청")
                                 .frame(width: viewFrame.haltWidth)
