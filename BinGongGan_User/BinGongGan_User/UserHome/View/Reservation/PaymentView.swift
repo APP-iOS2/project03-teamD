@@ -13,6 +13,7 @@ struct PaymentView: View {
     @Environment(\.presentationMode) var presentationMode
     
     @State var checkAllPaymentInfo: Bool = false
+    @State var checkPayment: Bool = false
     
     private let screenWidth = UIScreen.main.bounds.width
     
@@ -60,7 +61,7 @@ struct PaymentView: View {
             .listStyle(.plain)
             
             Button {
-                
+                checkAllPaymentInfo.toggle()
             } label: {
                 Text("확인")
                     .frame(width: screenWidth * 0.9, height: 50)
@@ -77,13 +78,18 @@ struct PaymentView: View {
             Alert(title: Text("결제 확인"),
                   message: Text("계좌번호 : 1010101010110로 입금부탁드립니다"),
                   dismissButton: .default(Text("확인"),action: {
-                presentationMode.wrappedValue.dismiss()
+                checkPayment.toggle()
             }))
+        }
+        .navigationDestination(isPresented: $checkPayment) {
+            HomeView()
+                .navigationBarBackButtonHidden()
         }
         .background(Color.myBackground)
         .navigationTitle("결제 정보")
         .navigationBarTitleDisplayMode(.inline)
     }
+    
 }
 
 struct PaymentView_Previews: PreviewProvider {

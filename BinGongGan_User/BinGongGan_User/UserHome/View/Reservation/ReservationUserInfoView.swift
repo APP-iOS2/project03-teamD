@@ -19,14 +19,24 @@ struct ReservationUserInfoView: View {
     private let screenWidth = UIScreen.main.bounds.width
     
     var body: some View {
-        Text("시간")
-            .font(.body1Regular)
+        
+        VStack(alignment: .leading) {
+            Text("시간")
+                .font(.body1Regular)
+            Text("하루 이용시간")
+                .font(.captionRegular)
+        }
         
         ReservationPlusMinusButton(contentLabel: "시간")
             .padding(.bottom, 10)
         
-        Text("인원")
-            .font(.body1Regular)
+        
+        VStack(alignment: .leading) {
+            Text("인원")
+                .font(.body1Regular)
+            Text("최대 13명 / 초과시 10000원 추가비용 발생")
+                .font(.captionRegular)
+        }
         
         ReservationPlusMinusButton(contentLabel: "명")
             .padding(.bottom, 10)
@@ -34,15 +44,19 @@ struct ReservationUserInfoView: View {
         
         Text("입금자명")
             .font(.body1Regular)
-        CustomTextField(placeholder: "입금자명을 입력하세요", text: .constant(reservationName))
+        CustomTextField(placeholder: "입금자명을 입력하세요", text: $reservationName)
             .keyboardType(.numberPad)
             .frame(width: screenWidth - 50, height: 50)
             .padding(.bottom, 10)
         
         
-        Text("연락처")
-            .font(.body1Regular)
-        CustomTextField(placeholder: "연락처를 입력하세요", text: .constant(reservationPhoneNumber))
+        VStack(alignment: .leading) {
+            Text("연락처")
+                .font(.body1Regular)
+            Text("-를 제외하고 작성해주세요")
+                .font(.captionRegular)
+        }
+        CustomTextField(placeholder: "연락처를 입력하세요", text: $reservationPhoneNumber)
             .keyboardType(.numberPad)
             .frame(width: screenWidth - 50, height: 50)
             .padding(.bottom, 10)
@@ -69,6 +83,9 @@ struct ReservationUserInfoView: View {
                     .foregroundColor(.myLightGray)
                     .padding([.top,.leading], 10)
             }
+        }
+        .onTapGesture {
+            isTextMasterFocused.toggle()
         }
     }
 }

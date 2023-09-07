@@ -19,7 +19,7 @@ struct ReservationCalendarView: View {
         
         VStack(alignment: .leading) {
             
-            MultiDatePicker(dateRange:$dateRange, minDate: Date.now)
+            MultiDatePicker(dateRange: $dateRange, minDate: Date.now)
             
             VStack(alignment: .leading) {
                 Text("선택한 날짜")
