@@ -27,16 +27,12 @@ struct HomeListRow: View {
         NavigationLink {
             GongGanDetailView()
         } label: {
-            ZStack {
-                RoundedRectangle(cornerRadius: 15)
-                    .foregroundColor(Color.myPrimary)
-                    .frame(width: screenWidth - HomeViewConstant.searchButtonHeight ,
-                           height: HomeListRowConstant.showPlaceListHeight)
+            VStack {
                 HStack {
                     AsyncImage(url: place.imageURL, content: { image in
                         image
                             .resizable()
-                            .aspectRatio(contentMode: .fit)
+                            .aspectRatio(contentMode: .fill)
                             .frame(
                                 minWidth:ImageFrame.width,
                                 maxWidth: ImageFrame.width,
@@ -52,22 +48,22 @@ struct HomeListRow: View {
                                 maxHeight: ImageFrame.height
                             )
                     }
-                    .cornerRadius(15)
+                    .cornerRadius(4)
                     .padding(EdgeInsets(top: 0, leading: 20, bottom: 0, trailing: 10))
                     
                     VStack(alignment: .leading) {
                         
                         Text("\(place.placeName)")
                             .padding(.top , 17)
-                            .foregroundColor(.white)
+                            .foregroundColor(.myBlack)
                             .font(.body1Bold)
                         Text("\(place.placeLocation)")
                             .padding(.bottom , 3)
-                            .foregroundColor(.white)
+                            .foregroundColor(.myBlack)
                             .font(.captionRegular)
                         Text("\(place.placePrice) / 시간당")
                             .padding(.bottom , 17)
-                            .foregroundColor(.white)
+                            .foregroundColor(.myBlack)
                             .font(.captionRegular)
                     }// VSTACK
                     Spacer()
@@ -75,13 +71,15 @@ struct HomeListRow: View {
                         place.isFavorite.toggle()
                     } label: {
                         Image(systemName: place.isFavorite ? "heart.fill" : "heart")
-                            .foregroundColor(place.isFavorite ? .red : .myBackground)
+                            .foregroundColor(.myPrimary)
                     }.padding(.trailing, 20)
                     
                 }// HSTACK
-                .frame(width: screenWidth - HomeViewConstant.searchButtonHeight ,
-                       height: HomeListRowConstant.showPlaceListHeight)
-            }// ZSTACK
+                Rectangle()
+                    .frame(height: 1)
+                    .foregroundColor(.myLightGray)
+            }// VSTACK
+            
         }
     }
 }

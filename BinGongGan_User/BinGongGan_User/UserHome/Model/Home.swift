@@ -8,10 +8,10 @@
 import SwiftUI
 
 enum CategoryCase: String {
-    case shareOffice = "공유 오피스"
+    case shareOffice = "공유오피스"
     case bandRoom = "밴드룸"
     case studio = "스튜디오"
-    case shareKitchen = "공유 주방"
+    case shareKitchen = "공유주방"
 }
 
 struct Event: Identifiable {

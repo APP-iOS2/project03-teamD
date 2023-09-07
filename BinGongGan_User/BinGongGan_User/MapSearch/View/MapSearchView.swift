@@ -17,7 +17,6 @@ struct MapSearchView: View {
     @State private var searchText: String = ""
     @State private var selectedCategoty = ""
     
-    @Binding var selectedTab: Int
     @Binding var tabBarVisivility: Visibility
     
     var body: some View {
@@ -29,7 +28,7 @@ struct MapSearchView: View {
                 HStack(alignment: .center) {
                     Spacer()
                     Button {
-                        selectedTab = 0
+                        
                     } label: {
                         Circle()
                             .fill(Color.myLightGray)
@@ -151,6 +150,6 @@ struct MapSearchView: View {
 
 struct MapSearch_Previews: PreviewProvider {
     static var previews: some View {
-        MapSearchView(selectedTab: .constant(1), tabBarVisivility: .constant(.hidden))
+        MapSearchView( tabBarVisivility: .constant(.hidden))
     }
 }

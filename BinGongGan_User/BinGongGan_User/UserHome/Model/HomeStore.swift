@@ -13,13 +13,18 @@ final class HomeStore: ObservableObject {
         Event(eventImage: eventImageArray[0] ),
         Event(eventImage: eventImageArray[1] ),
         Event(eventImage: eventImageArray[2] ),
+        Event(eventImage: eventImageArray[3] ),
+        Event(eventImage: eventImageArray[4] ),
+        Event(eventImage: eventImageArray[5] ),
+        Event(eventImage: eventImageArray[6] ),
+        Event(eventImage: eventImageArray[7] ),
     ]
     
     var categories: [Category] = [
-        Category(category: .shareOffice,   categoryImageString: imageArray[0] ),
-        Category(category: .bandRoom,      categoryImageString: imageArray[1] ),
-        Category(category: .studio,        categoryImageString: imageArray[2] ),
-        Category(category: .shareKitchen,  categoryImageString: imageArray[3] ),
+        Category(category: .shareOffice,   categoryImageString: categoryImageArray[0] ),
+        Category(category: .bandRoom,      categoryImageString: categoryImageArray[1] ),
+        Category(category: .studio,        categoryImageString: categoryImageArray[2] ),
+        Category(category: .shareKitchen,  categoryImageString: categoryImageArray[3] ),
     ]
     
     @Published var places: [Place] = [
@@ -73,7 +78,19 @@ let imageArray: [String] = [
 ]
 
 let eventImageArray: [String] = [
-    "https://file.bodnara.co.kr/logo/insidelogo.php?image=%2Fhttp%3A%2F%2Ffile.bodnara.co.kr%2Fwebedit%2Fnews%2F2015%2F1480474047-13.jpg",
-    "https://www.vtimes.kr/news/photo/202206/44710_20771_416.jpg",
-    "https://www.dailypop.kr/news/photo/202210/63780_121830_4158.png"
+    "https://media.discordapp.net/attachments/1148158635667632149/1149282476380934234/2023-09-07_6.58.09.png?width=1410&height=408",
+    "https://media.discordapp.net/attachments/1148158635667632149/1149282166413459536/2023-09-07_6.56.57.png?width=1410&height=402",
+    "https://media.discordapp.net/attachments/1148158635667632149/1149282508807086171/2023-09-07_6.58.02.png?width=1410&height=410",
+    "https://media.discordapp.net/attachments/1148158635667632149/1149282573181276170/canva---------Gpco5qgYLmU.jpg?width=1410&height=352",
+    "https://media.discordapp.net/attachments/1148158635667632149/1149282573550362666/canva--------BGJr497I-OM.jpg?width=1410&height=352",
+    "https://media.discordapp.net/attachments/1148158635667632149/1149282573881724979/canva----------mp-LcAtJ4yQ.jpg?width=1410&height=528",
+    "https://media.discordapp.net/attachments/1148158635667632149/1149282573550362666/canva--------BGJr497I-OM.jpg?width=1410&height=352",
+    "https://media.discordapp.net/attachments/1148158635667632149/1149282575689469993/canva--------zIbSUFxMP-c.jpg?width=1410&height=470",
+]
+
+let categoryImageArray: [String] = [
+  "building.2",
+  "music.mic",
+  "camera",
+  "fork.knife",
 ]

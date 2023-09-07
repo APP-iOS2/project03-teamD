@@ -8,94 +8,79 @@
 import SwiftUI
 
 enum FavoriteListConstant {
-    static let imageWidth =  CGFloat(80)
-    static let imageHeight = CGFloat(80)
-    static let rectangleWidth =     CGFloat(50)
-    static let rectangleHeight =    CGFloat(160)
+    static let rectangleWidth =     CGFloat(150)
+    static let rectangleHeight =    CGFloat(200)
     static let tabViewWidth =       CGFloat(10)
-    static let tabViewHeight =      CGFloat(160)
+    static let tabViewHeight =      CGFloat(200)
+}
+
+extension View {
+    func cornerRadius(_ radius: CGFloat, corners: UIRectCorner) -> some View {
+        clipShape( RoundedCorner(radius: radius, corners: corners) )
+    }
+}
+
+struct RoundedCorner: Shape {
+    
+    var radius: CGFloat = .infinity
+    var corners: UIRectCorner = .allCorners
+    
+    func path(in rect: CGRect) -> Path {
+        let path = UIBezierPath(roundedRect: rect, byRoundingCorners: corners, cornerRadii: CGSize(width: radius, height: radius))
+        return Path(path.cgPath)
+    }
 }
 
 struct FavoriteListView: View {
     @ObservedObject var homeStore: HomeStore = HomeStore()
     let screenWidth = UIScreen.main.bounds.width
+    let screenHeight = UIScreen.main.bounds.width
     var body: some View {
-        VStack {
-            Text("이런 공간은 어떠세요?")
-                .font(.head1Bold)
-            TabView{
-                ForEach(homeStore.places) { place in
-                    ZStack {
-                        RoundedRectangle(cornerRadius: 15)
-                            .frame(
-                                width: screenWidth -  FavoriteListConstant.rectangleWidth,
-                                height: FavoriteListConstant.rectangleHeight)
-                            .foregroundColor(.myPrimary)
+        
+        TabView {
+            ForEach(homeStore.places) { place in
+                ZStack {
+                    AsyncImage(url: place.imageURL ) { image in
+                        image
+                            .renderingMode(.original)
+                            .resizable()
                         
-                        VStack {
-                            HStack(spacing: 10) {
-                                Spacer()
-                                AsyncImage(url: place.imageURL ) { image in
-                                    image
-                                        .renderingMode(.original)
-                                        .resizable()
-                                        .frame(
-                                            minWidth: FavoriteListConstant.imageWidth,
-                                            maxWidth: FavoriteListConstant.imageHeight,
-                                            minHeight: FavoriteListConstant.imageWidth,
-                                            maxHeight: FavoriteListConstant.imageHeight
-                                            ,alignment: .center
-                                        )
-                                } placeholder: {
-                                    ProgressView()
-                                        .frame(
-                                            minWidth: FavoriteListConstant.imageWidth,
-                                            maxWidth: FavoriteListConstant.imageHeight,
-                                            minHeight: FavoriteListConstant.imageWidth,
-                                            maxHeight: FavoriteListConstant.imageHeight
-                                        )
-                                }
+                    } placeholder: {
+                        ProgressView()
+                        
+                    }
+                    .cornerRadius(8)
+                    
+                    VStack {
+                        Spacer()
+                        Rectangle()
+                            .frame( height: 92)
+                            .foregroundColor(.myBlack)
+                        .opacity(0.5)
+                        .overlay(alignment: .topLeading) {
+                            VStack(alignment: .leading) {
                                 
-                                VStack(alignment: .leading) {
-                                    Text("\(place.placeName)")
-                                        .font(.head1Bold)
-                                        .foregroundColor(.myWhite)
-                                    Text("\(place.placeLocation)")
-                                        .font(.body1Regular)
-                                        .foregroundColor(.myWhite)
-                                    Text("\(place.placePrice)")
-                                        .font(.body1Regular)
-                                        .foregroundColor(.myWhite)
-                                    
-                                }.padding(.leading, 20)
-                                Spacer()
+                                Text("\(place.placeName)")
+                                    .font(.head1Bold)
+                                    .padding(.bottom, 0.5)
+                                Text("\(place.placeLocation)")
+                                    .font(.body1Regular)
                             }
-                            
-                            HStack {
-                                Spacer()
-                                NavigationLink {
-                                    GongGanDetailView()
-                                } label: {
-                                    HStack {
-                                        Text("더볼래?")
-                                            .font(.body1Bold)
-                                            .foregroundColor(.myBlack)
-                                            .padding(.all , 5)
-                                    }
-                                    .background(Color.myWhite)
-                                    .cornerRadius(12)
-                                }
-                                
-                            }
-                            .padding(.trailing, 90)
+                            .foregroundColor(.myWhite)
+                            .padding()
                         }
-                    }//: ZSTACK
+                    }
+                    .cornerRadius(8, corners: .bottomLeft)
+                    .cornerRadius(8, corners: .bottomRight)
                     
                 }
-            }// TabView
-            .tabViewStyle(PageTabViewStyle())
-            .frame(height: FavoriteListConstant.tabViewHeight)
+                    
+            }
+            
         }
+        .tabViewStyle(PageTabViewStyle())
+        .frame( height: screenHeight * 0.5)
+        
     }
 }
 
@@ -106,3 +91,70 @@ struct FavoriteListView_Previews: PreviewProvider {
         }
     }
 }
+/*
+ 
+ 
+ 
+ ForEach(homeStore.places) { place in
+//                    AsyncImage(url: place.imageURL ) { image in
+//                        image
+//
+//                            .renderingMode(.original)
+//                            .resizable()
+//                            .frame(
+//                                minWidth: screenWidth * 0.89,
+//                                maxWidth: screenWidth * 0.8,
+//                                minHeight: FavoriteListConstant.rectangleWidth,
+//                                maxHeight: FavoriteListConstant.rectangleHeight
+//
+//                                ,alignment: .center
+//                            )
+//                    } placeholder: {
+//                        ProgressView()
+//                            .frame(
+//                                minWidth: FavoriteListConstant.rectangleWidth,
+//                                maxWidth: FavoriteListConstant.rectangleHeight,
+//                                minHeight: FavoriteListConstant.rectangleWidth,
+//                                maxHeight: FavoriteListConstant.rectangleHeight
+//                            )
+//                    }
+//                    .cornerRadius(15, corners: .topLeft)
+//                    .cornerRadius(15, corners: .topRight)
+     VStack {
+         VStack(alignment: .leading) {
+             HStack {
+                 Spacer()
+                 Text("\(place.placeName)")
+                     .font(.head1Bold)
+                     .foregroundColor(.myWhite)
+                 Spacer()
+             }
+             HStack {
+                 Spacer()
+                 Text("\(place.placeLocation)")
+                     .font(.body1Regular)
+                     .foregroundColor(.myWhite)
+                 Spacer()
+             }
+             
+             HStack {
+                 Spacer()
+                 Text("\(place.placePrice)")
+                     .font(.body1Regular)
+                     .foregroundColor(.myWhite)
+                 Spacer()
+             }
+             
+         }.padding([.leading, .trailing], 20)
+         Spacer()
+     }
+     .background(
+         RoundedRectangle(cornerRadius: 15)
+         .frame(
+             width: screenWidth * 0.89, height: 80
+         )
+         .foregroundColor(.myPrimary)
+//                        .opacity(0.7)
+     )
+ }
+ */
