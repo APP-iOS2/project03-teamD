@@ -5,7 +5,6 @@
 //  Created by 임대진 on 2023/09/05.
 //
 
-import Foundation
 import SwiftUI
 
 struct GongGanInfo: Identifiable {
@@ -15,7 +14,6 @@ struct GongGanInfo: Identifiable {
     var simpleLocation: String
     var detailGongGan: [DetailGongGan]
 }
-
 struct DetailGongGan: Identifiable {
     var id: String = UUID().uuidString
     var isSelected: Bool = false
@@ -23,11 +21,16 @@ struct DetailGongGan: Identifiable {
     var price: Int
     var pricePerTime: String
 }
-
 struct TempLabel: Identifiable {
     var id: String = UUID().uuidString
     var text: String
     var systemImage: String
+}
+struct TempFavorit: Identifiable {
+    var id: String = UUID().uuidString
+    var title: String
+    var category: String
+    var location: String
 }
 
 final class GongGanStore: ObservableObject {
@@ -68,6 +71,13 @@ final class GongGanStore: ObservableObject {
         TempLabel(text: "와이파이", systemImage: "wifi"),
         TempLabel(text: "주차 가능", systemImage: "car"),
         TempLabel(text: "TV/프로젝터", systemImage: "tv.and.mediabox"),
+    ]
+    
+    var tempFavorit: [TempFavorit] = [
+        TempFavorit(title: "강남 햇님공용오피스", category: "공유오피스", location: "서울 송파구 송파대로 28길 13 (가락동, 거북이빌딩)"),
+        TempFavorit(title: "강서 달님합주실", category: "악기연습실", location: "서울 송파구 송파대로 28길 13 (가락동, 거북이빌딩)"),
+        TempFavorit(title: "강동 하늘공유주방", category: "공유키친", location: "서울 송파구 송파대로 28길 13 (가락동, 거북이빌딩)"),
+        TempFavorit(title: "강북 땅스튜디오", category: "스튜디오", location: "서울 송파구 송파대로 28길 13 (가락동, 거북이빌딩)"),
     ]
     func customSection(_ text: String) -> some View {
         VStack(alignment: .leading) {
