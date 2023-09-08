@@ -36,4 +36,9 @@ final class SignInStore: ObservableObject {
     var sampleSignIn: SignIn {
         SignIn(email: "user@naver.com", password: "123456")
     }
+    
+    //로그아웃
+    func logout() {
+        isSuccessSignIn = false
+    }
 }

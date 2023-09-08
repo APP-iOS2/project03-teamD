@@ -12,11 +12,13 @@ struct GongGanDetailView: View {
     @StateObject var gongGan: GongGanStore = GongGanStore()
     @State private var heartButton: Bool = false
     @State private var isActionSheetPresented = false
+    @State private var tabBarVisivility: Visibility = .visible
     private let screenWidth = UIScreen.main.bounds.width
     enum viewFrame {
         static let haltWidth = (UIScreen.main.bounds.width / 2)
         static let buttonHeight = CGFloat(60)
     }
+    
     @StateObject var reservationStore: ReservationStore = ReservationStore()
     var body: some View {
         NavigationStack {
@@ -24,7 +26,7 @@ struct GongGanDetailView: View {
                 Spacer().background(Color.myBackground).edgesIgnoringSafeArea(.all)
                 ScrollView(showsIndicators: false) {
                     
-                    DtaileTabImageView()
+                    DetailTabImageView()
                     
                     Group {
                         VStack(alignment: .leading, spacing: 10) {
@@ -74,7 +76,7 @@ struct GongGanDetailView: View {
                         
                         Group {
                             VStack(alignment: .leading, spacing: 10) {
-                                gongGan.customSection("공간 소개")
+                                gongGan.customSection("건물 정보")
                                 ForEach(gongGan.tempSummary, id: \.self) { summary in
                                     Text("◦ \(summary)")
                                         .font(.subheadline)
@@ -83,6 +85,7 @@ struct GongGanDetailView: View {
                                 
                             }
                         }
+                        .padding(EdgeInsets(top: 5, leading: 5, bottom: 0, trailing: 0))
                         
                         Group {
                             gongGan.customSection("시설 안내")
@@ -92,62 +95,67 @@ struct GongGanDetailView: View {
                                         Image(systemName: label.systemImage)
                                             .resizable()
                                             .frame(width: 40,height: 30)
-                                            
+                                        
                                         Text(label.text)
                                     }
                                 }
                             }
                         }
-                        .padding(.bottom, 20)
+                        .padding(EdgeInsets(top: 0, leading: 5, bottom: 20, trailing: 0))
+                        
                     }
                     .padding(.horizontal, 15)
-                    
-                    
-                }
-            }
-            .padding(EdgeInsets(top: 1, leading: 0, bottom: -5, trailing: 0))
-        
-            HStack {
-                Button {
-                    isActionSheetPresented = true
-                } label: {
-                    Label("전화", systemImage: "phone.fill")
-                        .frame(width: viewFrame.haltWidth)
-                        .foregroundColor(.white)
-                }
-                Rectangle()
-                    .foregroundColor(.gray)
-                    .frame(width: 1)
-                    .padding(.vertical, 5)
-                NavigationLink {
-                    ReservationView()
-                        .environmentObject(reservationStore)
-                        .navigationBarBackButtonHidden()
-                } label: {
-                    Text("예약 신청")
-                        .frame(width: viewFrame.haltWidth)
-                        .foregroundColor(.yellow)
+                    .padding(.bottom, 60)
                 }
                 
+                VStack{
+                    Spacer()
+                    HStack {
+                        Button {
+                            isActionSheetPresented = true
+                        } label: {
+                            Label("전화", systemImage: "phone.fill")
+                                .frame(width: viewFrame.haltWidth)
+                                .foregroundColor(.white)
+                        }
+                        Rectangle()
+                            .foregroundColor(.gray)
+                            .frame(width: 1)
+                            .padding(.vertical, 5)
+                        NavigationLink {
+                            ReservationView(tabBarVisivility: $tabBarVisivility)
+                                .environmentObject(reservationStore)
+                                .toolbar(tabBarVisivility, for: .tabBar)
+                                .navigationBarBackButtonHidden()
+                            
+                        } label: {
+                            Text("예약 신청")
+                                .frame(width: viewFrame.haltWidth)
+                                .foregroundColor(.yellow)
+                        }
+                    }
+                    .frame(height: 50)
+                    .font(.body1Regular)
+                    .background(Color.myPrimary)
+                    .padding(.bottom, 0.1)
+                }
             }
-            .frame(height: 50)
-            .font(.body1Regular)
-            .background(Color.myPrimary)
-            .padding(.bottom, 10)
+            
+            
+            
+            
             .navigationTitle("BinGongGan")
             .navigationBarTitleDisplayMode(.inline)
             .actionSheet(isPresented: $isActionSheetPresented) {
                 ActionSheet(
                     title: Text("전화 문의"),
                     buttons: [
-                        .default(Text("전화 1011111111")) {
-                            // 전화 걸기 버튼을 눌렀을 때 실행할 작업
-                            if let phoneURL = URL(string: "tel://01011111111") {
+                        .default(Text("전화 010 3939 3838")) {
+                            if let phoneURL = URL(string: "tel://01039393838") {
                                 UIApplication.shared.open(phoneURL, options: [:], completionHandler: nil)
                             }
                         },
                         .cancel() {
-                            // 취소 버튼을 눌렀을 때 실행할 작업
                         }
                     ]
                 )
@@ -158,18 +166,34 @@ struct GongGanDetailView: View {
                         heartButton.toggle()
                     } label: {
                         Image(systemName: heartButton ? "heart.fill" : "heart")
-                            .foregroundColor(.red)
+                            .foregroundColor(Color.myPrimary)
                     }
                 }
             }
-            
-            .background(Color.myBackground).ignoresSafeArea()
         }
     }
 }
 
 struct GongGanDetailView_Previews: PreviewProvider {
     static var previews: some View {
-        GongGanDetailView()
+        TabView {
+            GongGanDetailView()
+                .tabItem {
+                    Label("홈", systemImage: "house")
+                }
+            GongGanDetailView()
+                .tabItem {
+                    Label("내 주변", systemImage: "location.circle")
+                }
+            GongGanDetailView()
+                .tabItem {
+                    Label("찜", systemImage: "heart")
+                }
+            GongGanDetailView()
+                .tabItem {
+                    Label("마이페이지", systemImage: "book")
+                }
+        }
+        .tint(.myPrimary)
     }
 }

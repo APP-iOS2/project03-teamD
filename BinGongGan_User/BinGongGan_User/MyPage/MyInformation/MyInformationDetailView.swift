@@ -1,3 +1,6 @@
+
+
+
 //
 //  MyInformationDetail.swift
 //  BinGongGan_User
@@ -10,18 +13,24 @@ import BinGongGanCore
 
 struct MyInformationDetailView: View {
     @Environment(\.dismiss) private var dismiss
+    private var formattedPhoneNumber: String {
+        phoneNumber.formatPhoneNumber()
+    }
+    @State private var name: String = "손윤호"
+    @State private var phoneNumber: String = "01012345678"
+    @State private var isPresentedAlert: Bool = false
     
     var body: some View {
         Form {
             VStack(alignment: .leading) {
                 NavigationLink {
-                    MyInformationEditView()
+                    MyInformationEditView(editType: .name, name: $name, phoneNumber: $phoneNumber)
                 } label: {
-                    VStack(alignment: .leading) {
+                    HStack {
                         Text("이름")
                             .font(.body1Regular)
-                        Text("손윤호")
-                            .font(.body1Bold)
+                        Spacer()
+                        Text("\(name)")
                             .foregroundColor(.myDarkGray)
                     }
                 }
@@ -29,40 +38,46 @@ struct MyInformationDetailView: View {
             
             VStack(alignment: .leading) {
                 NavigationLink {
-                    MyInformationEditView()
+                    MyInformationEditView(editType: .phoneNumber, name: $name, phoneNumber: $phoneNumber)
                 } label: {
-                    VStack(alignment: .leading) {
+                    HStack {
                         Text("연락처")
                             .font(.body1Regular)
-                        Text("010-1234-5678")
-                            .font(.body1Bold)
+                        Spacer()
+                        Text("\(formattedPhoneNumber)")
                             .foregroundColor(.myDarkGray)
                     }
                 }
             }
             
-            VStack(alignment: .leading) {
+            HStack {
                 Text("아이디")
                     .font(.body1Regular)
+                Spacer()
                 Text("test@test.com")
-                    .font(.body1Bold)
                     .tint(.myDarkGray)
             }
             
-            VStack(alignment: .leading) {
+            HStack {
                 Text("생년월일")
                     .font(.body1Regular)
+                Spacer()
                 Text("2000-01-01")
-                    .font(.body1Bold)
                     .foregroundColor(.myDarkGray)
             }
             
             Section {
                 Button {
-                    
+                    isPresentedAlert.toggle()
                 } label: {
-                    Text("회원 탈퇴")
+                    Text("회원탈퇴")
                         .foregroundColor(.red)
+                }
+                .alert("회원탈퇴", isPresented: $isPresentedAlert) {
+                    Button("돌아가기", role: .cancel) { }
+                    Button("탈퇴", role: .destructive) { }
+                } message: {
+                    Text("이 동작은 되돌릴 수 없습니다.")
                 }
             }
         }
@@ -70,17 +85,7 @@ struct MyInformationDetailView: View {
         .background(Color.myBackground)
         .navigationTitle("내 정보")
         .navigationBarTitleDisplayMode(.inline)
-        .navigationBarBackButtonHidden(true)
-        .toolbar {
-            ToolbarItem(placement:.navigationBarLeading) {
-                Button {
-                    dismiss()
-                } label: {
-                    Image(systemName: "chevron.left")
-                        .foregroundColor(.myPrimary)
-                }
-            }
-        }
+        .customBackbutton()
     }
 }
 

@@ -24,17 +24,17 @@ struct ReviewCell: View {
                 }
                 Spacer()
             }
-            
-            Spacer()
+            .padding(.bottom, 10)
             
             HStack {
                 Text("리뷰 내용")
                 Spacer()
             }
         }
+        .padding()
         .background(.white)
         .foregroundColor(.black)
-        .padding()
+        .cornerRadius(15)
     }
 }
 

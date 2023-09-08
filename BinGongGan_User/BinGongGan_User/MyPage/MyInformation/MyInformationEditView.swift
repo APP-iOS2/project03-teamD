@@ -8,51 +8,76 @@
 import SwiftUI
 import BinGongGanCore
 
+enum EditType {
+    case name
+    case phoneNumber
+}
+
 struct MyInformationEditView: View {
     @Environment(\.dismiss) private var dismiss
-    @State private var name: String = "손윤호"
+    private var isButtonDisabled: Bool {
+        if editType == .name {
+            return newName.isEmpty || name == newName
+        } else {
+            return newPhoneNumber.isEmpty || phoneNumber == newPhoneNumber
+        }
+    }
+    var editType: EditType
+    
+    @Binding var name: String
+    @Binding var phoneNumber: String
+    @State private var newName: String = ""
+    @State private var newPhoneNumber: String = ""
     
     var body: some View {
         VStack {
             HStack {
-                Text("이름 정보는 호스트에게 보여지는 이름입니다.")
+                Text("\(editType == .name ? "이름 정보는 호스트에게 보여집니다." : "연락처 정보는 호스트에게 보여집니다.")")
                     .font(.captionRegular)
+                    .foregroundColor(.myMediumGray)
                 Spacer()
             }
             .padding(.leading, 20)
             .padding(.top, 10)
             
-            CustomTextField(placeholder: name, text: $name)
-                .frame(height: 40)
-                .padding(.horizontal, 20)
+            if editType == .name {
+                CustomTextField(placeholder: name, text: $newName)
+                    .frame(height: 40)
+                    .padding(.horizontal, 20)
+            } else {
+                CustomTextField(placeholder: phoneNumber, text: $newPhoneNumber)
+                    .keyboardType(.numberPad)
+                    .frame(height: 40)
+                    .padding(.horizontal, 20)
+            }
             
             Spacer()
             
             Button {
-                
+                if editType == .name {
+                    name = newName
+                } else {
+                    phoneNumber = newPhoneNumber
+                }
+                dismiss()
             } label: {
                 Text("완료")
                     .frame(maxWidth: .infinity, maxHeight: 50)
-                    .background(Color.myPrimary)
+                    .background(isButtonDisabled ? Color.myLightGray : Color.myPrimary)
                     .cornerRadius(15)
                     .padding(20)
                     .foregroundColor(.myWhite)
             }
             .buttonStyle(.automatic)
+            .disabled(isButtonDisabled)
         }
         .background(Color.myBackground)
-        .navigationTitle("이름 수정")
+        .navigationTitle("\(editType == .name ? "이름 수정": "연락처 수정")")
         .navigationBarTitleDisplayMode(.inline)
-        .navigationBarBackButtonHidden(true)
-        .toolbar {
-            ToolbarItem(placement: .navigationBarLeading) {
-                Button {
-                    dismiss()
-                } label: {
-                    Image(systemName: "chevron.backward")
-                        .foregroundColor(.myPrimary)
-                }
-            }
+        .customBackbutton()
+        .onAppear {
+            newName = name
+            newPhoneNumber = phoneNumber
         }
     }
 }
@@ -60,7 +85,7 @@ struct MyInformationEditView: View {
 struct MyInformationEditView_Previews: PreviewProvider {
     static var previews: some View {
         NavigationStack {
-            MyInformationEditView()
+            MyInformationEditView(editType: .phoneNumber, name: .constant("손윤호"), phoneNumber: .constant("01012345678"))
                 .navigationBarTitleDisplayMode(.inline)
         }
     }
