@@ -17,8 +17,8 @@ struct MyReservationListView: View {
     @Environment(\.dismiss) private var dismiss
     @State private var selectedPicker: ReservationHistoryType = .all
     @Namespace private var animation
-    @State private var isShowingReservationDetailView: Bool = false
-    @State var reservation: ReservationModel = ReservationModel(placeName: "", reservationNumber: "", reservationDate: "", reservationPersonal: 0, placeAddress: "", isReservation: false)
+    @State private var isShowingGongGanDetailView: Bool = false
+    @State private var reservation: ReservationModel = ReservationModel(placeName: "", reservationNumber: "", reservationDate: "", reservationTime: "" , reservationPersonal: 0, placeAddress: "", isReservation: false)
     
     var body: some View {
         VStack {
@@ -28,50 +28,50 @@ struct MyReservationListView: View {
                     switch selectedPicker {
                     case .all:
                         Button {
-                            isShowingReservationDetailView = true
+                            isShowingGongGanDetailView = true
                             reservation = reservate
                         } label: {
                             MyReservationRowView(reservate: reservate)
                                 .background(
                                     RoundedRectangle(cornerRadius: 15)
-                                        .foregroundColor(reservate.isReservation ? .myLightGray : .white)
+                                        .foregroundColor(reservate.isReservation ? .myBackground : .white)
                                         .shadow(color: .gray, radius: 5, x: 3, y: 3)
-                                        
+                                    
                                 )
                         }
-
+                        
                     case .expect:
                         if !reservate.isReservation {
                             Button {
-                                isShowingReservationDetailView = true
+                                isShowingGongGanDetailView = true
                                 reservation = reservate
                             } label: {
-                                    MyReservationRowView(reservate: reservate)
-                                        .background(
-                                            RoundedRectangle(cornerRadius: 15)
-                                                .foregroundColor(.white)
-                                                .shadow(color: .gray, radius: 5, x: 3, y: 3)
-                                        )
-                                }
-                                
-                                
-                           
+                                MyReservationRowView(reservate: reservate)
+                                    .background(
+                                        RoundedRectangle(cornerRadius: 15)
+                                            .foregroundColor(reservate.isReservation ? .myBackground : .white)
+                                            .shadow(color: .gray, radius: 5, x: 3, y: 3)
+                                    )
+                            }
+                            
+                            
+                            
                         }
                     case .success:
                         if reservate.isReservation {
-                           
+                            
                             Button {
-                                isShowingReservationDetailView = true
+                                isShowingGongGanDetailView = true
                                 reservation = reservate
                             } label: {
-                                    MyReservationRowView(reservate: reservate)
-                                        .background(
-                                            RoundedRectangle(cornerRadius: 15)
-                                                .foregroundColor(.myLightGray)
-                                                .shadow(color: .gray, radius: 5, x: 3, y: 3)
-                                        )
-                                }
-                               
+                                MyReservationRowView(reservate: reservate)
+                                    .background(
+                                        RoundedRectangle(cornerRadius: 15)
+                                            .foregroundColor(reservate.isReservation ? .myBackground : .white)
+                                            .shadow(color: .gray, radius: 5, x: 3, y: 3)
+                                    )
+                            }
+                            
                         }
                     }
                 }
@@ -83,19 +83,9 @@ struct MyReservationListView: View {
         }
         .navigationTitle("예약 내역")
         .navigationBarTitleDisplayMode(.inline)
-        .navigationBarBackButtonHidden(true)
-        .toolbar {
-            ToolbarItem(placement: .navigationBarLeading) {
-                Button {
-                    dismiss()
-                } label: {
-                    Image(systemName: "chevron.left")
-                        .foregroundColor(.myPrimary)
-                }
-            }
-        }
-        .navigationDestination(isPresented: $isShowingReservationDetailView) {
-            ReservationDetailView(reservate: reservation)
+        .customBackbutton()
+        .navigationDestination(isPresented: $isShowingGongGanDetailView) {
+            GongGanDetailView()
         }
     }
     
