@@ -10,7 +10,6 @@ import BinGongGanCore
 
 struct MyPageMainView: View {
     @EnvironmentObject var signInStore: SignInStore
-    
     @State var isShowingSetting: Bool = false
     @State var isShowingLogoutAlert: Bool = false
     
