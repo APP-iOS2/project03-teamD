@@ -95,6 +95,8 @@
 		D8F41E132AA9A289004C52BD /* String+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8F41E122AA9A289004C52BD /* String+Extension.swift */; };
 		EC6F7F552AA8886900C0B094 /* CustomTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC6F7F542AA8886900C0B094 /* CustomTextField.swift */; };
 		EC6F7F572AA8896700C0B094 /* BinGongGan_UserApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC6F7F562AA8896700C0B094 /* BinGongGan_UserApp.swift */; };
+		ECBD87712AAAFFF300ECEC7D /* AppInfomationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECBD87702AAAFFF300ECEC7D /* AppInfomationView.swift */; };
+		ECBD87752AAB09F600ECEC7D /* Information1.md in Resources */ = {isa = PBXBuildFile; fileRef = ECBD87742AAB09CD00ECEC7D /* Information1.md */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -200,6 +202,8 @@
 		D8F41E122AA9A289004C52BD /* String+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Extension.swift"; sourceTree = "<group>"; };
 		EC6F7F542AA8886900C0B094 /* CustomTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTextField.swift; sourceTree = "<group>"; };
 		EC6F7F562AA8896700C0B094 /* BinGongGan_UserApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BinGongGan_UserApp.swift; sourceTree = "<group>"; };
+		ECBD87702AAAFFF300ECEC7D /* AppInfomationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AppInfomationView.swift; path = "../../../../../../../.Trash/project03-teamD 오후 3.42.49/BinGongGan_User/BinGongGan_User/MyPage/AppInformation/AppInfomationView.swift"; sourceTree = "<group>"; };
+		ECBD87742AAB09CD00ECEC7D /* Information1.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = Information1.md; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -545,7 +549,9 @@
 		D84824812AA8A3700067A065 /* AppInformation */ = {
 			isa = PBXGroup;
 			children = (
+				ECBD87742AAB09CD00ECEC7D /* Information1.md */,
 				D84824822AA8A3700067A065 /* AppInformationList.swift */,
+				ECBD87702AAAFFF300ECEC7D /* AppInfomationView.swift */,
 			);
 			path = AppInformation;
 			sourceTree = "<group>";
@@ -723,6 +729,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				ECBD87752AAB09F600ECEC7D /* Information1.md in Resources */,
 				B15806422AA897A5006C772B /* GoogleService-Info.plist in Resources */,
 				B12A84AC2AA6F01000BDF8CA /* Preview Assets.xcassets in Resources */,
 				B12A84A92AA6F01000BDF8CA /* Assets.xcassets in Resources */,
@@ -823,6 +830,7 @@
 				BC344F1F2AA86A8E00F8CEB3 /* Home.swift in Sources */,
 				D84824992AA8A3700067A065 /* FAQCategoryItemView.swift in Sources */,
 				BC344F0B2AA8092E00F8CEB3 /* HomeSearchView.swift in Sources */,
+				ECBD87712AAAFFF300ECEC7D /* AppInfomationView.swift in Sources */,
 				D84824A42AA8A3710067A065 /* MyInformationDetailView.swift in Sources */,
 				BC8CFE702AA988E300E8D8F2 /* PaymentListCell.swift in Sources */,
 				D84824972AA8A3700067A065 /* AppInformationList.swift in Sources */,
