@@ -38,18 +38,8 @@ struct FAQView: View {
             .background(Color.myBackground)
             .navigationTitle("자주 묻는 FAQ")
             .navigationBarTitleDisplayMode(.inline)
-            .toolbar {
-                ToolbarItem(placement:.navigationBarLeading) {
-                    Button {
-                        dismiss()
-                    } label: {
-                        Image(systemName: "chevron.left")
-                            .foregroundColor(.myPrimary)
-                    }
-                }
-            }
+            .customBackbutton()
         }
-        .navigationBarBackButtonHidden(true)
     }
 }
 
