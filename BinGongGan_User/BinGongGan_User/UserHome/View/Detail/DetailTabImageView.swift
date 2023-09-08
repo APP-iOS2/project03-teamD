@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct DetailTabImageView: View {
-    @StateObject var gongGan: GongGanStore = GongGanStore()
+    @EnvironmentObject var gongGan: GongGanStore
     private let screenWidth = UIScreen.main.bounds.width
     @State private var selectedTab = 0
     private let timer = Timer.publish(every: 3, on: .main, in: .common).autoconnect()
@@ -62,5 +62,6 @@ struct DetailTabImageView: View {
 struct DetailTabImageView_Previews: PreviewProvider {
     static var previews: some View {
         DetailTabImageView()
+            .environmentObject(GongGanStore())
     }
 }

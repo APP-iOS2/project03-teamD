@@ -31,6 +31,11 @@ struct TempFavorit: Identifiable {
     var title: String
     var category: String
     var location: String
+    var imageUrl: String
+    
+    var image: URL? {
+        return URL(string: imageUrl)
+    }
 }
 
 final class GongGanStore: ObservableObject {
@@ -74,10 +79,10 @@ final class GongGanStore: ObservableObject {
     ]
     
     var tempFavorit: [TempFavorit] = [
-        TempFavorit(title: "강남 햇님공용오피스", category: "공유오피스", location: "서울 송파구 송파대로 28길 13 (가락동, 거북이빌딩)"),
-        TempFavorit(title: "강서 달님합주실", category: "악기연습실", location: "서울 송파구 송파대로 28길 13 (가락동, 거북이빌딩)"),
-        TempFavorit(title: "강동 하늘공유주방", category: "공유키친", location: "서울 송파구 송파대로 28길 13 (가락동, 거북이빌딩)"),
-        TempFavorit(title: "강북 땅스튜디오", category: "스튜디오", location: "서울 송파구 송파대로 28길 13 (가락동, 거북이빌딩)"),
+        TempFavorit(title: "강남 햇님공용오피스", category: "공유오피스", location: "서울 송파구 송파대로 28길 13 (가락동, 거북이빌딩)", imageUrl: "https://res.klook.com/images/fl_lossy.progressive,q_65/c_fill,w_1295,h_971/w_80,x_15,y_15,g_south_west,l_Klook_water_br_trans_yhcmh3/activities/kuafyq7td56gof1rxpih/[%EB%B6%80%EC%82%B0%EC%84%9C%EB%A9%B4]%EC%8F%98%ED%94%8C%EA%B7%B8%EB%A0%88%EC%9D%B4%EC%8A%A4%ED%86%A4%ED%8C%8C%ED%8B%B0%EB%A3%B8(%EC%95%BC%EC%99%B8%ED%85%8C%EB%9D%BC%EC%8A%A4%EB%B0%94%EB%B2%A0%ED%81%90).webp"),
+        TempFavorit(title: "강서 달님합주실", category: "악기연습실", location: "서울 송파구 송파대로 28길 13 (가락동, 거북이빌딩)", imageUrl: "https://res.klook.com/images/fl_lossy.progressive,q_65/c_fill,w_1295,h_971/w_80,x_15,y_15,g_south_west,l_Klook_water_br_trans_yhcmh3/activities/kuafyq7td56gof1rxpih/[%EB%B6%80%EC%82%B0%EC%84%9C%EB%A9%B4]%EC%8F%98%ED%94%8C%EA%B7%B8%EB%A0%88%EC%9D%B4%EC%8A%A4%ED%86%A4%ED%8C%8C%ED%8B%B0%EB%A3%B8(%EC%95%BC%EC%99%B8%ED%85%8C%EB%9D%BC%EC%8A%A4%EB%B0%94%EB%B2%A0%ED%81%90).webp"),
+        TempFavorit(title: "강동 하늘공유주방", category: "공유키친", location: "서울 송파구 송파대로 28길 13 (가락동, 거북이빌딩)", imageUrl: "https://res.klook.com/images/fl_lossy.progressive,q_65/c_fill,w_1295,h_971/w_80,x_15,y_15,g_south_west,l_Klook_water_br_trans_yhcmh3/activities/kuafyq7td56gof1rxpih/[%EB%B6%80%EC%82%B0%EC%84%9C%EB%A9%B4]%EC%8F%98%ED%94%8C%EA%B7%B8%EB%A0%88%EC%9D%B4%EC%8A%A4%ED%86%A4%ED%8C%8C%ED%8B%B0%EB%A3%B8(%EC%95%BC%EC%99%B8%ED%85%8C%EB%9D%BC%EC%8A%A4%EB%B0%94%EB%B2%A0%ED%81%90).webp"),
+        TempFavorit(title: "강북 땅스튜디오", category: "스튜디오", location: "서울 송파구 송파대로 28길 13 (가락동, 거북이빌딩)", imageUrl: "https://res.klook.com/images/fl_lossy.progressive,q_65/c_fill,w_1295,h_971/w_80,x_15,y_15,g_south_west,l_Klook_water_br_trans_yhcmh3/activities/kuafyq7td56gof1rxpih/[%EB%B6%80%EC%82%B0%EC%84%9C%EB%A9%B4]%EC%8F%98%ED%94%8C%EA%B7%B8%EB%A0%88%EC%9D%B4%EC%8A%A4%ED%86%A4%ED%8C%8C%ED%8B%B0%EB%A3%B8(%EC%95%BC%EC%99%B8%ED%85%8C%EB%9D%BC%EC%8A%A4%EB%B0%94%EB%B2%A0%ED%81%90).webp"),
     ]
     func customSection(_ text: String) -> some View {
         VStack(alignment: .leading) {

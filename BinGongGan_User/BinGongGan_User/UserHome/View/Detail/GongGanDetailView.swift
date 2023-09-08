@@ -27,6 +27,7 @@ struct GongGanDetailView: View {
                 ScrollView(showsIndicators: false) {
                     
                     DetailTabImageView()
+                        .environmentObject(gongGan)
                     
                     Group {
                         VStack(alignment: .leading, spacing: 10) {

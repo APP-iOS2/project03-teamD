@@ -53,6 +53,7 @@ struct SubGongGanSelectView: View {
                             //                            .frame(height: 30)
                             if space.isSelected {
                                 SubGongGanDetailView()
+                                    .environmentObject(gongGan)
                                     .transition(.offset(.zero))
                                     .padding(.top ,1)
                             }
