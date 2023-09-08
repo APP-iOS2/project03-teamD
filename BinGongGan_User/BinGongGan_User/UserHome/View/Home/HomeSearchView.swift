@@ -53,24 +53,28 @@ struct HomeSearchView: View {
                     ScrollView(.horizontal, showsIndicators: false) {
                         HStack(spacing: 5) {
                             ForEach(homeStore.recentlyWords, id: \.self){ word in
-                                ZStack {
-                                    RoundedRectangle(cornerRadius: 15)
-                                        .frame(minWidth: HomeNameSpace.screenWidth * 0.2, maxWidth: HomeNameSpace.screenWidth * 0.2, maxHeight: HomeNameSpace.screenHeight * 0.1)
-                                        .foregroundColor(.myLightGray)
-                                    Text("\(word)")
-                                        .foregroundColor(.myBlack)
-                                        .font(.body1Bold)
-                                        .frame(minWidth: HomeNameSpace.screenWidth * 0.18, maxWidth: HomeNameSpace.screenWidth * 0.18, maxHeight: HomeNameSpace.screenHeight * 0.08)
-                                        .padding([.leading, .trailing], 2)
+                                HStack {
+                                    ZStack {
+                                        RoundedRectangle(cornerRadius: 15)
+                                            .frame(minWidth: HomeNameSpace.screenWidth * 0.2, maxWidth: HomeNameSpace.screenWidth * 0.2, maxHeight: HomeNameSpace.screenHeight * 0.1)
+                                            .foregroundColor(.myLightGray)
+                                        Text("\(word)")
+                                            .foregroundColor(.myBlack)
+                                            .font(.body1Bold)
+                                            .frame(minWidth: HomeNameSpace.screenWidth * 0.18, maxWidth: HomeNameSpace.screenWidth * 0.18, maxHeight: HomeNameSpace.screenHeight * 0.08)
+                                            .padding([.leading, .trailing], 1)
+                                        
+                                        Button {
+                                            placeSearchTextField = word
+                                            homeStore.deleteRecentlyWordk(word: word)
+                                        } label: {
+                                            Image(systemName: "x.circle")
+                                                .font(.captionRegular)
+                                                .foregroundColor(.myBlack)
+                                        }
+                                    }
                                 }// ZSTACK
-                                Button {
-                                    placeSearchTextField = word
-                                    homeStore.deleteRecentlyWordk(word: word)
-                                } label: {
-                                    Image(systemName: "x.circle")
-                                        .font(.captionRegular)
-                                        .foregroundColor(.myBlack)
-                                }
+                               
                                
                             }
                         }// HSTACK
