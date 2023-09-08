@@ -10,6 +10,7 @@ import BinGongGanCore
 struct AnnouncementView: View {
     
     @Environment(\.dismiss) private var dismiss
+    @State var isPresentedAddView: Bool = false
     
     var body: some View {
         VStack{
@@ -20,28 +21,53 @@ struct AnnouncementView: View {
                     .foregroundColor(Color.myPrimary)
                     .padding(.leading, 20)
                 Spacer()
+                Button( action: {
+                    isPresentedAddView.toggle()
+                }, label: {
+                    Image(systemName: "plus")
+                        .foregroundColor(Color.myPrimary)
+                        .padding(.trailing, 20)
+                })
+                .buttonStyle(.plain)
+                .sheet(isPresented: $isPresentedAddView) {
+                    AnnouncementAddView()
+                        .presentationDetents([.large])
+                        .cornerRadius(15)
+                }
             }
             Form {
                 Section(header: Text("공간1")
                     .foregroundColor(Color.myPrimary)
                 ) {
                     ForEach(0..<5) { _ in
-                        AnnouncementTextRow()
-                            .background(Color.clear)
+                        NavigationLink {
+                            AnnouncementDetailView()
+                        } label: {
+                            AnnouncementTextRow()
+                                .background(Color.clear)
+                        }
                     }
                 }
                 Section(header: Text("공간2")
                     .foregroundColor(Color.myPrimary)) {
                         ForEach(0..<5) { _ in
-                            AnnouncementTextRow()
-                                .background(Color.clear)
+                            NavigationLink {
+                                AnnouncementDetailView()
+                            } label: {
+                                AnnouncementTextRow()
+                                    .background(Color.clear)
+                            }
                         }
                     }
                 Section(header: Text("공간3")
                     .foregroundColor(Color.myPrimary)) {
                         ForEach(0..<5) { _ in
-                            AnnouncementTextRow()
-                                .background(Color.clear)
+                            NavigationLink {
+                                AnnouncementDetailView()
+                            } label: {
+                                AnnouncementTextRow()
+                                    .background(Color.clear)
+                            }
                         }
                     }
             }
@@ -49,8 +75,6 @@ struct AnnouncementView: View {
         .background(Color.myBackground)
         .navigationBarBackButtonHidden(true)
         .scrollContentBackground(.hidden)
-        .background(Color.myBackground)
-        .navigationBarTitleDisplayMode(.inline)
         .toolbar {
             ToolbarItem(placement:.navigationBarLeading) {
                 Button {
