@@ -17,7 +17,7 @@ struct FAQView: View {
                 List {
                     ForEach(FAQCategory.allCases) { category in
                         Section {
-                            ForEach(FAQItem.filteredCategory(of: category)) { item in
+                            ForEach(FAQItem.filterFAQCategory(of: category)) { item in
                                 NavigationLink {
                                     Text("\(item.content)")
                                 } label: {
