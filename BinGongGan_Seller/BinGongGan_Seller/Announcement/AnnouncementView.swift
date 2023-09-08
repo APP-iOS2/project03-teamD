@@ -21,13 +21,13 @@ struct AnnouncementView: View {
                     .foregroundColor(Color.myPrimary)
                     .padding(.leading, 20)
                 Spacer()
-                Button( action: {
+                Button {
                     isPresentedAddView.toggle()
-                }, label: {
+                } label: {
                     Image(systemName: "plus")
                         .foregroundColor(Color.myPrimary)
                         .padding(.trailing, 20)
-                })
+                }
                 .buttonStyle(.plain)
                 .sheet(isPresented: $isPresentedAddView) {
                     AnnouncementAddView()

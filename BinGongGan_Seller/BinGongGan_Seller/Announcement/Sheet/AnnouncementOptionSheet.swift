@@ -22,10 +22,10 @@ struct AnnouncementOptionSheet: View {
                 .padding(.bottom, 10)
             List {
                 ForEach(AnnouncementOption.data[2..<4]) { announcementOption in
-                    Button( action: {
-                    }, label: {
+                    Button {
+                    } label: {
                         Text(announcementOption.option)
-                    })
+                    }
                 }
             }
             .listStyle(.plain)

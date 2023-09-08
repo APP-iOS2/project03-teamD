@@ -37,12 +37,12 @@ struct AnnouncementAddView: View {
                         .foregroundColor(Color.myPrimary)
                         .padding(EdgeInsets(top: 20, leading: 20, bottom: 0, trailing: 20))
                     Spacer()
-                    Button( action: {
+                    Button {
                         dismiss()
-                    }, label: {
+                    } label: {
                         Text("등록 취소")
                             .foregroundColor(Color.myPrimary)
-                    })
+                    }
                     .buttonStyle(.plain)
                     .padding(EdgeInsets(top: 20, leading: 20, bottom: 0, trailing: 20))
                 }

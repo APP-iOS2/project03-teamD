@@ -16,14 +16,13 @@ struct AnnouncemnetContentCell: View {
                 Text("이것은 제목입니다. 제목인데 제목이 길면 안되는데, 일단 길게 써보려고 해요.")
                     .fontWeight(.bold)
                 Spacer()
-                Button( action: {
+                Button {
                     isShowingAnnouncementOptionSheet.toggle()
-                },
-                        label: {
+                } label: {
                     Image(systemName: "ellipsis")
                         .rotationEffect(Angle(degrees: 90))
 
-                })
+                }
                 .buttonStyle(.plain)
             }
             Divider()

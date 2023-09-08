@@ -12,8 +12,8 @@ struct AnnouncementOptionButton: View {
     var announcementOption: AnnouncementOption
 
     var body: some View {
-        Button( action: {
-        }, label: {
+        Button {
+        } label: {
             Rectangle()
                 .fill(Color.myLightGray)
                 .frame(width: 80, height: 80)
@@ -34,7 +34,7 @@ struct AnnouncementOptionButton: View {
                     }
                     .foregroundColor(Color.myPrimary)
                 )
-        })
+        }
         .buttonStyle(.plain)
     }
 }

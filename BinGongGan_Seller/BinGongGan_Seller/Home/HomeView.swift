@@ -35,33 +35,17 @@ struct HomeView: View {
                         Spacer()
                     }
                     ForEach(0..<5) { _ in
-                        Button(action: {
+                        Button{
                             self.isPresentedModal = true
-                        },
-                               label: {
+                        } label: {
                             ReservationCell()
                                 .sheet(isPresented: self.$isPresentedModal) {
                                     ReservationListModalView()
                                         .presentationDetents([.medium])
                                         .cornerRadius(15)
                                 }
-                        })
+                        }
                         .buttonStyle(.plain)
-                        .overlay(
-                            Button(action: {
-                            }) {
-                                Text("예약확정")
-                                    .font(.subheadline)
-                                    .padding(.horizontal)
-                                    .padding(.vertical, 8)
-                                    .background(Color.myWhite)
-                                    .foregroundColor(.myPrimary)
-                                    .cornerRadius(10)
-                            }
-                                .buttonStyle(.plain)
-                                .frame(maxWidth: .infinity, alignment: .trailing)
-                                .padding(.trailing, 40)
-                        )
                     }
                 }
             }

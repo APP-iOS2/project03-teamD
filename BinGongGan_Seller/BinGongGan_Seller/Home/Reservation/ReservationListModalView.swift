@@ -28,7 +28,7 @@ struct ReservationListModalView: View {
             Spacer()
             
             HStack(spacing: 0){
-                Button(action: {},
+                Button{}
                        label: {
                     HStack {
                         Spacer()
@@ -38,13 +38,12 @@ struct ReservationListModalView: View {
                             .foregroundColor(.myWhite)
                         Spacer()
                     }
-                })
+                }
                 .buttonStyle(.plain)
                 .frame(width: ReservationListModalView.uiViewWidth / 2, height: 50)
                 .background(Color.myPrimary)
                 Spacer(minLength: 1)
-                Button(action: {},
-                       label: {
+                Button{} label: {
                     HStack {
                         Spacer()
                         Text("예약거절")
@@ -53,7 +52,7 @@ struct ReservationListModalView: View {
                             .foregroundColor(.myWhite)
                         Spacer()
                     }
-                })
+                }
                 .buttonStyle(.plain)
                 .frame(width: ReservationListModalView.uiViewWidth / 2, height: 50)
                 .background(Color.myPrimary)
