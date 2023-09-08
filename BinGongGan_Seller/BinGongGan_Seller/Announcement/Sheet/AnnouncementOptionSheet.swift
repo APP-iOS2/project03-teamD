@@ -18,17 +18,7 @@ struct AnnouncementOptionSheet: View {
                 AnnouncementOptionButton(announcementOption: AnnouncementOption.data[1])
                 Spacer()
             }
-            Divider()
-                .padding(.bottom, 10)
-            List {
-                ForEach(AnnouncementOption.data[2..<4]) { announcementOption in
-                    Button {
-                    } label: {
-                        Text(announcementOption.option)
-                    }
-                }
-            }
-            .listStyle(.plain)
+            AnnouncementOptionCell()
         }
     }
 }

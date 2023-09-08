@@ -10,21 +10,23 @@ import BinGongGanCore
 
 struct AnnouncementOptionButton: View {
     var announcementOption: AnnouncementOption
-
+    let grayColor = Color(red: 235/255, green: 238/255, blue: 242/255)
+    
     var body: some View {
         Button {
         } label: {
             Rectangle()
-                .fill(Color.myLightGray)
-                .frame(width: 80, height: 80)
+                .fill(grayColor)
+                .frame(width: AnnouncementOptionCell.screenWidth * 0.4, height: AnnouncementOptionCell.screenWidth * 0.2)
                 .cornerRadius(15)
-                .padding(20)
+                .padding(.top, 20)
                 .overlay(
                     VStack{
                         Image(systemName: announcementOption.optionIamge)
                             .resizable()
                             .aspectRatio(contentMode: .fit)
                             .frame(width: 30, height: 30)
+                            .padding(.top, 20)
 
                         Text(announcementOption.option)
                             .font(.body1Regular)

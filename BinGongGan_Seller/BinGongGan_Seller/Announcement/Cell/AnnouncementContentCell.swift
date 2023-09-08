@@ -41,7 +41,7 @@ struct AnnouncemnetContentCell: View {
         .cornerRadius(15)
         .sheet(isPresented: $isShowingAnnouncementOptionSheet) {
             AnnouncementOptionSheet()
-                .presentationDetents([.height(UIScreen.main.bounds.height / 3)])
+                .presentationDetents([.height(AnnouncementOptionCell.screenHeight * 0.37)])
                 .presentationDragIndicator(.hidden)
                 .cornerRadius(15)
         }
