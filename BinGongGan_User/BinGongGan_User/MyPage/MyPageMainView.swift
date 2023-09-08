@@ -10,10 +10,12 @@ import BinGongGanCore
 
 struct MyPageMainView: View {
     @EnvironmentObject var signInStore: SignInStore
+
     
     @State private var isShowingSetting: Bool = false
     @State private var isShowingLogoutAlert: Bool = false
     @State private var isShowingActionSheet: Bool = false
+
     
     var body: some View {
         Form {
