@@ -32,7 +32,7 @@ struct PlaceListRow: View {
                 .cornerRadius(15, corners: .topLeft)
                 .cornerRadius(15, corners: .topRight)
                 
-                VStack(alignment: .leading){
+                VStack(alignment: .leading) {
                     HStack {
                         Text("\(place.placeName)")
                             .font(.head1Bold)
@@ -41,15 +41,21 @@ struct PlaceListRow: View {
                     Text("\(place.placeLocation)")
                         .font(.body1Regular)
                         .foregroundColor(.myBlack)
-                    Text("\(place.placePrice) / 시간 당")
-                        .font(.body1Regular)
+                    
+                    HStack(spacing: 109) {
+                        Text("\(place.placePrice) / 시간 당")
+                            .font(.body1Regular)
+                            .foregroundColor(.myBlack)
+
+                        Text("최대 인원 00명")
+                            .font(.body1Regular)
                         .foregroundColor(.myBlack)
-                    Text("최대 인원 00명")
-                        .font(.body1Regular)
-                        .foregroundColor(.myBlack)
+                    }.padding(.top, 4)
+                    
                 }
                 .frame(height: backGroundHeight * 0.32)
                 .padding([.leading, .trailing], 20)
+               
             }
             .background(
                 RoundedRectangle(cornerRadius: 0)
@@ -58,7 +64,7 @@ struct PlaceListRow: View {
                     )
                     .foregroundColor(.myWhite)
                     .cornerRadius(15)
-                    .shadow(radius: 3)
+                    .shadow(radius: 1)
             )
             .overlay(alignment: .trailingFirstTextBaseline) {
                 Button {

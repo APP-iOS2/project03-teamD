@@ -11,6 +11,7 @@ import BinGongGanCore
 enum HomeNameSpace {
     static let screenWidth = UIScreen.main.bounds.width
     static let screenHeight = UIScreen.main.bounds.width
+    static let scrollViewBottomPadding = CGFloat(10)
 }
 
 extension View {
@@ -107,7 +108,7 @@ struct HomeView: View {
                         
                     }// GROUP
                 }// LazyVStack
-                .padding(.bottom, 10)
+                .padding(.bottom, HomeNameSpace.scrollViewBottomPadding)
             }// SCROLLVIEW
             .onAppear{
                 homeStore.settingRecommendPlace()

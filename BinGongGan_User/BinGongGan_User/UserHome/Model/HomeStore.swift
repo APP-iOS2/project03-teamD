@@ -14,6 +14,7 @@ final class HomeStore: ObservableObject {
     @Published var hotPlace: [Place] = []
     @Published var recommendPlace: [Place] = []
     @Published var filteredArray:[Place] = []
+    @Published var recentlyWords: [String] = []
     var categories: [Category] = [
         Category(category: .shareOffice, categoryImageString:  "building.2"),
         Category(category: .bandRoom, categoryImageString:  "music.mic"),
@@ -26,6 +27,15 @@ final class HomeStore: ObservableObject {
         settingEventBanner()
         settingHotPlace()
         settingRecommendPlace()
+    }
+    
+    func deleteRecentlyWordk(word: String) {
+        let index = recentlyWords.firstIndex {
+            $0 == word
+        }
+        if let index {
+            recentlyWords.remove(at: index)
+        }
     }
     
     func searchPlaceName(placess: [Place] , keyWord: String) {
@@ -93,6 +103,9 @@ final class HomeStore: ObservableObject {
         }
     }
     
+    func searchRecentlyWord(word: String) {
+        recentlyWords.append(word)
+    }
     
 }
 

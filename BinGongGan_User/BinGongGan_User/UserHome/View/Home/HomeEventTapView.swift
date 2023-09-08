@@ -17,12 +17,12 @@ struct HomeEventTapView: View {
     var body: some View {
         GeometryReader { geometry in
             ScrollView(.horizontal, showsIndicators: false){
-                HStack(spacing: 10) {
+                HStack(spacing: 0) {
                     ForEach(homeStore.EventList) { event in
                         AsyncImage(url: event.imageURL, content: { image in
                             image
                                 .resizable()
-                                .frame(width: HomeNameSpace.screenWidth - 10)
+                                .frame(width: HomeNameSpace.screenWidth )
                                 .clipped()
                         }) {
                             ProgressView()
@@ -31,7 +31,7 @@ struct HomeEventTapView: View {
                     }
                 }
             }// ScrollView
-            .content.offset(x: CGFloat(currentPage) * -geometry.size.width - 10)
+            .content.offset(x: CGFloat(currentPage) * -geometry.size.width)
             .onReceive(timer) { _ in
                 // Automatically switch to the next tab
                 withAnimation {

@@ -19,7 +19,7 @@ struct PlaceListView: View {
                     ForEach(homeStore.places){ place in
                         if category == place.category.rawValue {
                             PlaceListRow(place: place)
-                                .padding(.top, 20)
+                                .padding(.bottom, 20)
                         }
                     }
                 }// SCROLLVIEW
