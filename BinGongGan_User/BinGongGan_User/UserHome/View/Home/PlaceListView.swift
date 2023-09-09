@@ -15,6 +15,7 @@ struct PlaceListView: View {
         ZStack {
             Spacer().background(Color.myBackground).edgesIgnoringSafeArea(.all)
             VStack {
+                Text("sad")
                 ScrollView(showsIndicators: false){
                     ForEach(homeStore.places){ place in
                         if category == place.category.rawValue {
@@ -34,7 +35,7 @@ struct PlaceListView: View {
                         // 필터 모달
                     } label: {
                         Image(systemName: "slider.horizontal.3")
-                            .foregroundColor(.mySecondary)
+                            .foregroundColor(.myPrimary)
                             .font(.body1Bold)
                     }
                 }
@@ -42,6 +43,34 @@ struct PlaceListView: View {
         }// ZSTACK
         .background(Color.myBackground)
     }// BODY
+//    @ViewBuilder
+//    private func tabAnimate() -> some View {
+//        HStack {
+//            ForEach(ReservationHistoryType.allCases, id: \.self) { item in
+//                VStack {
+//                    Text(item.rawValue)
+//                        .font(.footnote)
+//                        .frame(maxWidth: .infinity/6, minHeight: 30)
+//                        .foregroundColor(selectedPicker == item ? .black : .gray)
+//
+//                    if selectedPicker == item {
+//                        Capsule()
+//                            .foregroundColor(.myPrimary)
+//                            .frame(height: 3)
+//                            .matchedGeometryEffect(id: "info", in: animation)
+//                    }
+//
+//                }
+//                .padding()
+//                .onTapGesture {
+//                    withAnimation(.easeInOut) {
+//                        self.selectedPicker = item
+//                    }
+//                }
+//            }
+//        }
+//    }
+    
 }
 
 struct PlaceListView_Previews: PreviewProvider {

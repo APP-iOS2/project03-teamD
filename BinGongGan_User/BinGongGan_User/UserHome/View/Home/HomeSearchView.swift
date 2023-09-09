@@ -31,9 +31,11 @@ struct HomeSearchView: View {
                         }
                     Button {
                         homeStore.searchPlaceName(placess: homeStore.places, keyWord: placeSearchTextField)
+                        
                         if !homeStore.recentlyWords.contains(placeSearchTextField){
                             homeStore.searchRecentlyWord(word: placeSearchTextField)
                         }
+                        placeSearchTextField = ""
                     } label: {
                         Image(systemName: "magnifyingglass")
                             .font(.head1Bold)
@@ -51,45 +53,40 @@ struct HomeSearchView: View {
                         Spacer()
                     }
                     ScrollView(.horizontal, showsIndicators: false) {
-                        HStack(spacing: 5) {
+                        HStack(spacing: 2.5) {
                             ForEach(homeStore.recentlyWords, id: \.self){ word in
-                                HStack {
                                     ZStack {
                                         RoundedRectangle(cornerRadius: 15)
-                                            .frame(minWidth: HomeNameSpace.screenWidth * 0.2, maxWidth: HomeNameSpace.screenWidth * 0.2, maxHeight: HomeNameSpace.screenHeight * 0.1)
-                                            .foregroundColor(.myLightGray)
-                                        Text("\(word)")
-                                            .foregroundColor(.myBlack)
-                                            .font(.body1Bold)
-                                            .frame(minWidth: HomeNameSpace.screenWidth * 0.18, maxWidth: HomeNameSpace.screenWidth * 0.18, maxHeight: HomeNameSpace.screenHeight * 0.08)
-                                            .padding([.leading, .trailing], 1)
-                                        
-                                        Button {
-                                            placeSearchTextField = word
-                                            homeStore.deleteRecentlyWordk(word: word)
-                                        } label: {
-                                            Image(systemName: "x.circle")
-                                                .font(.captionRegular)
+                                            .frame(width: HomeNameSpace.screenWidth * 0.2, height: HomeNameSpace.screenHeight * 0.1)
+                                            .foregroundColor(.myWhite)
+                                        HStack {
+                                            Text("\(word)")
                                                 .foregroundColor(.myBlack)
+                                                .font(.captionBold)
+                                                .frame(width: HomeNameSpace.screenWidth * 0.14, height: HomeNameSpace.screenHeight * 0.08)
+                                                .padding(.leading, 5)
+                                            Button {
+                                                placeSearchTextField = word
+                                                homeStore.deleteRecentlyWordk(word: word)
+                                            } label: {
+                                                Image(systemName: "x.circle")
+                                                    .font(.captionRegular)
+                                                    .foregroundColor(.myDarkGray)
+                                            }.padding(.trailing, 10)
                                         }
-                                    }
-                                }// ZSTACK
-                               
-                               
+                                    }// ZSTACK
                             }
                         }// HSTACK
                     }// SCROLLVIEW
                 }// VSTACK
                 .padding(.leading, 20)
                 ScrollView(showsIndicators: false) {
-                    
                     LazyVStack{
                         ForEach(homeStore.filteredArray) { place in
                             HomeListRow(place: place)
                                 .padding([.bottom], 10)
                         }
                     }// LazyVStack
-                    
                 }// SCROLLVIEW
                 .padding(.bottom, HomeNameSpace.scrollViewBottomPadding)
             }// VStack
