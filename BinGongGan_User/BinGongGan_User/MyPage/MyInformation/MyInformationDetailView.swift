@@ -16,38 +16,42 @@ struct MyInformationDetailView: View {
     private var formattedPhoneNumber: String {
         phoneNumber.formatPhoneNumber()
     }
-    @State private var name: String = "손윤호"
+    @State private var nickName: String = "유노"
     @State private var phoneNumber: String = "01012345678"
     @State private var isPresentedAlert: Bool = false
     
     var body: some View {
         Form {
-            VStack(alignment: .leading) {
-                NavigationLink {
-                    MyInformationEditView(editType: .name, name: $name, phoneNumber: $phoneNumber)
-                } label: {
-                    HStack {
-                        Text("이름")
-                            .font(.body1Regular)
-                        Spacer()
-                        Text("\(name)")
-                            .foregroundColor(.myDarkGray)
-                    }
+            NavigationLink {
+                MyInformationEditView(editType: .name, name: $nickName, phoneNumber: $phoneNumber)
+            } label: {
+                HStack {
+                    Text("닉네임")
+                        .font(.body1Regular)
+                    Spacer()
+                    Text("\(nickName)")
+                        .foregroundColor(.myDarkGray)
                 }
             }
             
-            VStack(alignment: .leading) {
-                NavigationLink {
-                    MyInformationEditView(editType: .phoneNumber, name: $name, phoneNumber: $phoneNumber)
-                } label: {
-                    HStack {
-                        Text("연락처")
-                            .font(.body1Regular)
-                        Spacer()
-                        Text("\(formattedPhoneNumber)")
-                            .foregroundColor(.myDarkGray)
-                    }
+            NavigationLink {
+                MyInformationEditView(editType: .phoneNumber, name: $nickName, phoneNumber: $phoneNumber)
+            } label: {
+                HStack {
+                    Text("연락처")
+                        .font(.body1Regular)
+                    Spacer()
+                    Text("\(formattedPhoneNumber)")
+                        .foregroundColor(.myDarkGray)
                 }
+            }
+            
+            HStack {
+                Text("이름")
+                    .font(.body1Regular)
+                Spacer()
+                Text("손윤호")
+                    .foregroundColor(.myDarkGray)
             }
             
             HStack {
@@ -67,18 +71,13 @@ struct MyInformationDetailView: View {
             }
             
             Section {
-                Button {
-                    isPresentedAlert.toggle()
+                NavigationLink {
+                    AccountSettingView()
                 } label: {
-                    Text("회원탈퇴")
-                        .foregroundColor(.red)
+                    Text("계정 관리")
                 }
-                .alert("회원탈퇴", isPresented: $isPresentedAlert) {
-                    Button("돌아가기", role: .cancel) { }
-                    Button("탈퇴", role: .destructive) { }
-                } message: {
-                    Text("이 동작은 되돌릴 수 없습니다.")
-                }
+            } header: {
+                Text("계정")
             }
         }
         .scrollContentBackground(.hidden)
