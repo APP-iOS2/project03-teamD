@@ -17,15 +17,6 @@ struct PlaceModel: Identifiable {
     var placeImageStringList: [String]
     var informationToPass: String
     var placeInfomationList: [String]
-    
-    var reviews: [Review]
-}
-
-struct Review: Identifiable {
-    let id: String = UUID().uuidString
-    let date: String
-    var rating: Double
-    var content: String
 }
 
 enum PlaceCategory: String, CaseIterable, Identifiable {

@@ -63,5 +63,6 @@ struct GongGanTabView: View {
 struct GongGanTabView_Previews: PreviewProvider {
     static var previews: some View {
         GongGanTabView()
+            .environmentObject(HomeStore())
     }
 }

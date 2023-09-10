@@ -10,9 +10,12 @@ import BinGongGanCore
 
 struct MyPageMainView: View {
     @EnvironmentObject var signInStore: SignInStore
+
     
-    @State var isShowingSetting: Bool = false
-    @State var isShowingLogoutAlert: Bool = false
+    @State private var isShowingSetting: Bool = false
+    @State private var isShowingLogoutAlert: Bool = false
+    @State private var isShowingActionSheet: Bool = false
+
     
     var body: some View {
         Form {
@@ -49,6 +52,14 @@ struct MyPageMainView: View {
                 NavigationLink("자주 묻는 질문 FAQ") {
                     FAQView()
                 }
+                
+                Button {
+                    isShowingActionSheet = true
+                } label: {
+                    Text("상담원 연결")
+                        .foregroundColor(.myBlack)
+                }
+
             } //Section - 고객센터
             
             Section("기타") {
@@ -95,6 +106,13 @@ struct MyPageMainView: View {
         } message: {
             Text("로그아웃을 합니다.")
         }
+        
+        .confirmationDialog("", isPresented: $isShowingActionSheet) {
+            
+            Button("통화 02-0000-0000", role: .none) {}
+            Button("취소", role: .cancel) {}
+            
+        }
     }
 }
 
@@ -105,5 +123,6 @@ struct MyPageMainView_Previews: PreviewProvider {
         }
     }
 }
+
 
 

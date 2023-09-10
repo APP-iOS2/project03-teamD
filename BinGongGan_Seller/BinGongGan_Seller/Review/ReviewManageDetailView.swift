@@ -10,6 +10,9 @@ import BinGongGanCore
 
 struct ReviewManageDetailView: View {
     @Environment(\.dismiss) private var dismiss
+    
+    @StateObject var reportStore: ReportStore = ReportStore()
+    
     @State var isShowingReviewReportSheet: Bool = false
     
     var body: some View {
@@ -35,6 +38,7 @@ struct ReviewManageDetailView: View {
         }
         .sheet(isPresented: $isShowingReviewReportSheet) {
             ReviewReportSheet(isShowingReviewReportSheet: $isShowingReviewReportSheet)
+                .environmentObject(reportStore)
                 .presentationDetents([.medium, .large])
         }
         .navigationBarBackButtonHidden(true)

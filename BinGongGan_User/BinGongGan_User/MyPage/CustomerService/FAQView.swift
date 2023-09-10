@@ -6,50 +6,38 @@ struct FAQView: View {
     @State private var selectedCategory: String = "계정/인증/로그인"
     
     var body: some View {
-        VStack {
-            ScrollViewReader { scrollViewProxy in
-                ScrollView(.horizontal) {
-                    FAQCategoryItemView(selectedItem: $selectedCategory, scrollViewProxy: scrollViewProxy)
-                        .padding([.horizontal, .top])
-                }
-                .scrollIndicators(.hidden)
-                
-                List {
-                    ForEach(FAQCategory.allCases) { category in
-                        Section {
-                            ForEach(FAQItem.filteredCategory(of: category)) { item in
-                                NavigationLink {
-                                    Text("\(item.content)")
-                                } label: {
-                                    Text("\(item.title)")
-                                }
+        ScrollViewReader { scrollViewProxy in
+            ScrollView(.horizontal) {
+                FAQCategoryItemView(selectedItem: $selectedCategory, scrollViewProxy: scrollViewProxy)
+                    .padding([.horizontal, .top])
+            }
+            .scrollIndicators(.hidden)
+            
+            List {
+                ForEach(FAQCategory.allCases) { category in
+                    Section {
+                        ForEach(FAQItem.filterFAQCategory(of: category)) { item in
+                            NavigationLink {
+                                Text("\(item.content)")
+                            } label: {
+                                Text("\(item.title)")
                             }
-                        } header: {
-                            Text(category.rawValue)
                         }
-                    }
-                }
-                .onChange(of: selectedCategory) { newCategory in
-                    withAnimation {
-                        scrollViewProxy.scrollTo(newCategory, anchor: .top)
+                    } header: {
+                        Text(category.rawValue)
                     }
                 }
             }
-            .background(Color.myBackground)
-            .navigationTitle("자주 묻는 FAQ")
-            .navigationBarTitleDisplayMode(.inline)
-            .toolbar {
-                ToolbarItem(placement:.navigationBarLeading) {
-                    Button {
-                        dismiss()
-                    } label: {
-                        Image(systemName: "chevron.left")
-                            .foregroundColor(.myPrimary)
-                    }
+            .onChange(of: selectedCategory) { newCategory in
+                withAnimation {
+                    scrollViewProxy.scrollTo(newCategory, anchor: .top)
                 }
             }
         }
-        .navigationBarBackButtonHidden(true)
+        .background(Color.myBackground)
+        .navigationTitle("자주 묻는 FAQ")
+        .navigationBarTitleDisplayMode(.inline)
+        .customBackbutton()
     }
 }
 
