@@ -15,9 +15,6 @@ struct ReservationCell: View {
             HStack {
                 ReservationDeadlineCell()
                 Spacer()
-                Button{} label: {
-                    Image(systemName: "chevron.right")
-                }
             }
             .padding(.bottom, 10)
             HStack {

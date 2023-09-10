@@ -20,7 +20,7 @@ struct HomeView: View {
                     VStack {
                         CategoryButtonsView()
                             .frame(maxWidth: .infinity, maxHeight: .infinity)
-                            .padding(20)
+                            .padding(10)
                         HStack{
                             Text("신규 예약")
                                 .font(.title2)
@@ -30,18 +30,28 @@ struct HomeView: View {
                             Spacer()
                         }
                         ForEach(0..<5) { _ in
-                            Button{
-                                self.isPresentedModal = true
-                            } label: {
-                                ReservationCell()
-                                    .padding(.horizontal, 20)
-                                    .sheet(isPresented: self.$isPresentedModal) {
-                                        ReservationListModalView()
-                                            .presentationDetents([.medium])
-                                            .cornerRadius(15)
+                            ReservationCell()
+                                .padding(.horizontal, 20)
+                                .overlay(
+                                    VStack {
+                                        Button(action: {
+                                            isPresentedModal.toggle()
+                                        }) {
+                                            Image(systemName: "chevron.right")
+                                                .background(Color.clear)
+                                                .foregroundColor(Color.myPrimary)
+                                        }
+                                        .buttonStyle(.plain)
+                                        .frame(maxWidth: .infinity, alignment: .trailing)
+                                        .padding(EdgeInsets(top: 20, leading: 0, bottom: 0, trailing: 40))
+                                        Spacer()
                                     }
-                            }
-                            .buttonStyle(.plain)
+                                        .sheet(isPresented: self.$isPresentedModal) {
+                                            ReservationListModalView()
+                                                .presentationDetents([.medium])
+                                                .cornerRadius(15)
+                                        }
+                                )
                         }
                     }
                 }
@@ -56,13 +66,13 @@ struct HomeView: View {
                                 .bold()
                                 .foregroundColor(Color.myPrimary)
                         }
-                        .padding(EdgeInsets(top: 0, leading: 10, bottom: 15, trailing: 0))
+                        .padding(EdgeInsets(top: 10, leading: 10, bottom: 15, trailing: 0))
                     }
                 }
                 .background(Color.myBackground)
             }
         }
-
+        
     }
 }
 
