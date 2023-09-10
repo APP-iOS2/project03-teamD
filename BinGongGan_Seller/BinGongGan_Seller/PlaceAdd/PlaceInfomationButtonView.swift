@@ -21,14 +21,14 @@ struct PlaceInfomationButtonView: View {
                     .resizable()
                     .aspectRatio(contentMode: .fit)
                     .frame(width: 50, height: 30)
-                    .foregroundColor(infomation.isSelected ? .red : .gray)
+                    .foregroundColor(infomation.isSelected ? .myBlack : .myLightGray)
                 
                 Text(infomation.name)
                     .font(.body1Regular)
                     .bold()
-                    .padding()
+                    .padding(5)
                     .fixedSize()
-                    .foregroundColor(infomation.isSelected ? .red : .gray)
+                    .foregroundColor(infomation.isSelected ? .myBlack : .myLightGray)
             }
         }
         .buttonStyle(.plain)

@@ -2,6 +2,45 @@ import SwiftUI
 import UIKit
 
 // MARK: - 수정중
+struct PhotoSelectedView: View {
+    @Binding var selectedImages: [UIImage]
+    @State private var isImagePickerPresented = false
+    
+    var body: some View {
+        VStack {
+            ScrollView(.horizontal, showsIndicators: false) {
+                HStack(spacing: 15) {
+                    if selectedImages.count < 4 {
+                        Button {
+                            isImagePickerPresented.toggle()
+                        } label: {
+                            ZStack {
+                                Rectangle()
+                                    .fill(.gray)
+                                    .frame(width: 100, height: 100)
+                                Image(systemName: "plus")
+                                    .resizable()
+                                    .frame(width: 30, height: 30)
+                                    .foregroundColor(.black)
+                            }
+                        }
+                    }
+                    ForEach(selectedImages, id: \.self) { image in
+                        Image(uiImage: image)
+                            .resizable()
+                            .aspectRatio(contentMode: .fit)
+                            .frame(width: 100, height: 100)
+                    }
+                }
+            }
+            .sheet(isPresented: $isImagePickerPresented) {
+                MultiPhotoPickerView(selectedImages: $selectedImages)
+            }
+        }
+        .padding()
+    }
+}
+
 struct MultiPhotoPickerView: UIViewControllerRepresentable {
     @Binding var selectedImages: [UIImage]
     @Environment(\.presentationMode) private var presentationMode
@@ -40,49 +79,8 @@ struct MultiPhotoPickerView: UIViewControllerRepresentable {
     }
 }
 
-struct PhotoSelectedView: View {
-    @State private var selectedImages: [UIImage] = []
-    @State private var isImagePickerPresented = false
-    
-    var body: some View {
-        VStack {
-            
-            ScrollView(.horizontal, showsIndicators: false) {
-                HStack(spacing: 15) {
-                    if selectedImages.count < 4 {
-                        Button {
-                            isImagePickerPresented.toggle()
-                        } label: {
-                            ZStack {
-                                Rectangle()
-                                    .fill(.gray)
-                                    .frame(width: 100, height: 100)
-                                Image(systemName: "plus")
-                                    .resizable()
-                                    .frame(width: 30, height: 30)
-                                    .foregroundColor(.black)
-                            }
-                        }
-                    }
-                    
-                    ForEach(selectedImages, id: \.self) { image in
-                        Image(uiImage: image)
-                            .resizable()
-                            .aspectRatio(contentMode: .fit)
-                            .frame(width: 100, height: 100)
-                    }
-                }
-            }
-            .sheet(isPresented: $isImagePickerPresented) {
-                MultiPhotoPickerView(selectedImages: $selectedImages)
-            }
-        }
-        .padding()
-    }
-}
-
 struct PhotoSelectedView_Previews: PreviewProvider {
     static var previews: some View {
-        PhotoSelectedView()
+        PhotoSelectedView(selectedImages: .constant([]))
     }
 }

@@ -40,7 +40,7 @@ struct PlaceMapView: View {
                 .frame(height: 300)
                 .cornerRadius(10)
         }
-        .onChange(of: address) { newValue in
+        .onChange(of: address) { _ in
             // 사용자 입력이 변경될 때마다 주소 제안 리스트 업데이트
             updateAddressSuggestions()
         }

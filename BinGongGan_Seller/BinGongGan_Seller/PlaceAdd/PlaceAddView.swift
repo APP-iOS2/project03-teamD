@@ -3,24 +3,22 @@
 //
 //  Created by 신희권 on 2023/09/05.
 //
-/* TODO: -
- 카테고리 피커 []
- 주소 검색 완성 []
- 맵뷰 핀 찍기 []
- 사진 등록 뷰 []
- 전달 정보 메시지 전송[]
- */
+
 import SwiftUI
 import MapKit
 import BinGongGanCore
+import Combine
 
 struct PlaceAddView: View {
-    @State private var selectedPlace: PlaceCategory = .쉐어오피스
+    @State private var selectedPlace: PlaceCategory = .Share
     @State private var placeNameText: String = ""
     @State private var informationToPassText: String = ""
     @State private var placePriceText: String = ""
     @State private var placeAdress: String = ""
     @State private var placeInfomations = PlaceInfomationModel.data
+    @State var selectedImage: [UIImage] = []
+    @State var address: String = ""
+    @State var isShwoingSearchSheet: Bool = false
     private let columns: [GridItem] = Array(repeating: .init(.flexible()), count: 4)
     private var placeInfomationString: [String] {
         placeInfomations.filter {
@@ -31,74 +29,115 @@ struct PlaceAddView: View {
     }
     
     var body: some View {
-        Form {
-            Section {
-                Text("공간 이름")
-                TextField("공간 이름을 입력하세요", text: $placeNameText)
-                    .textFieldStyle(TextFieldStyles())
-            }
-            
-            Section{
-                Text("공간 카테고리")
-                Picker("Place", selection: $selectedPlace) {
-                    ForEach(PlaceCategory.allCases) { category in
-                        Text(category.rawValue)
-                    }
+        List {
+            Group {
+                Section {
+                    Text("공간 이름")
+                    TextField("공간 이름을 입력하세요", text: $placeNameText)
+                        .textFieldStyle(TextFieldStyles())
                 }
-                .pickerStyle(.segmented)
-            }
-            .listRowSeparator(.hidden)
-            
-            Section {
-                Text("공간 주소")
-                PlaceMapView(address: placeNameText)
-            }
-            .listRowSeparator(.hidden)
-            
-            Section {
-                Text("공간 대여 가격")
-                TextField("공간 이름을 입력하세요", text: $placePriceText)
-                    .textFieldStyle(TextFieldStyles())
-            }
-            
-            Section {
-                Text("공간 사진 등록")
-                PhotoSelectedView()
-            }
-            
-            Section {
-                Text("공간 정보 선택")
-                LazyVGrid(columns: columns, spacing: 8) {
-                    ForEach($placeInfomations) { $infomation in
-                        PlaceInfomationButtonView(infomation: $infomation)
-                    }
-                }
-                .padding()
-                .background(Color.myLightGray)
-                .cornerRadius(15)
-                .frame(maxHeight: .infinity)
-            }
-            
-            Section {
-                Text("예약 확정시 전달할 정보")
-                TextEditor(text: $informationToPassText)
-                    .frame(height: 150)
-                    .background(Color.myLightGray)
-                    .border(Color.myPrimary)
                 
-                Button {
-                    //Code
-                } label: {
-                    Text("등록하기")
-                        .frame(maxWidth: .infinity)
-                        .padding()
-                        .foregroundColor(.black)
-                        .bold()
-                        .background(Color.myPrimary)
-                        .cornerRadius(15)
+                Section{
+                    Text("공간 카테고리")
+                    Picker("공간 카테고리", selection: $selectedPlace) {
+                        ForEach(PlaceCategory.allCases) { category in
+                            Text(category.rawValue)
+                        }
+                    }
+                    .frame(maxWidth: .infinity)
+                    .labelsHidden()
+                    .tint(.black)
+                }
+                
+                Section {
+                    Text("공간 주소")
+                    TextField("공간 주소를 입력하세요", text: $address)
+                        .textFieldStyle(TextFieldStyles())
+                        .overlay(alignment: .trailing) {
+                            Button {
+                                isShwoingSearchSheet = true
+                            } label: {
+                                Image(systemName: "magnifyingglass")
+                                    .foregroundColor(.black)
+                            }
+                            .padding(.trailing, 15)
+                        }
+                        
+                   // PlaceMapView(address: placeNameText)
+                }
+                
+                Section {
+                    Text("공간 대여 가격")
+                    TextField("가격을 입력하세요", text: $placePriceText)
+                        .keyboardType(.decimalPad)
+                        .textFieldStyle(TextFieldStyles())
+                        .onReceive(Just(placePriceText)) { newValue in
+                            let filtered = newValue.filter { "0123456789".contains($0) }
+                            if filtered != newValue {
+                                self.placePriceText = filtered
+                            }
+                        }
+                        .overlay(alignment:.trailing) {
+                            Text("￦")
+                                .padding(.trailing, 1)
+                        }
+                }
+                
+                Section {
+                    Text("공간 사진 등록")
+                    PhotoSelectedView(selectedImages: $selectedImage)
+                }
+                
+                Section {
+                    Text("공간 정보 선택")
+                    LazyVGrid(columns: columns, spacing: 8) {
+                        ForEach($placeInfomations) { $infomation in
+                            PlaceInfomationButtonView(infomation: $infomation)
+                        }
+                    }
+                    .padding()
+                    .background(Color.myBackground)
+                    .cornerRadius(15)
+                    .frame(maxHeight: .infinity)
+                }
+                
+                Section {
+                    Text("공간 이용시 주의사항")
+                    TextEditor(text: $informationToPassText)
+                        .frame(height: 150)
+                        .background(Color.myLightGray)
+                        .border(Color.myPrimary)
+                    
+                    Button {
+                        let place = PlaceModel(
+                            placeName: placeNameText,
+                            placePrice: placePriceText,
+                            placeCategory: selectedPlace.rawValue,
+                            placeAdress: placeAdress,
+                            placeImageStringList: ["nil"],
+                            informationToPass: informationToPassText,
+                            placeInfomationList: placeInfomationString
+                        )
+                        print(place)
+                    } label: {
+                        Text("등록하기")
+                            .frame(maxWidth: .infinity)
+                            .padding()
+                            .foregroundColor(.white)
+                            .bold()
+                            .background(Color.myPrimary)
+                            .cornerRadius(15)
+                    }
                 }
             }
-        }//Form
+            .listRowSeparator(.hidden)
+        }
+        .sheet(isPresented: $isShwoingSearchSheet) {
+            AddressSearchView(searchText: $address, isShwoingSearchSheet: $isShwoingSearchSheet)
+        }
+        .padding(10)
+        .listStyle(.plain)
+        //Form
         .navigationTitle("내 공간 등록")
     }
 }
@@ -113,16 +152,10 @@ struct PlaceAddView_Previews: PreviewProvider {
 
 struct TextFieldStyles: TextFieldStyle {
     func _body(configuration: TextField<Self._Label>) -> some View {
-        ZStack {
-            Rectangle()
-                .foregroundColor(Color.myLightGray)
-                .cornerRadius(12)
-                .frame(height: 46)
-            // 텍스트필드
-            configuration
-                .font(.system(size: 13))
-                .foregroundColor(.black)
-                .padding()
-        }
+        // 텍스트필드
+        configuration
+            .textFieldStyle(.roundedBorder)
+            .font(.system(size: 13))
+            .foregroundColor(.black)
     }
 }
