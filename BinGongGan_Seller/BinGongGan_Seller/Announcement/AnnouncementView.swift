@@ -75,16 +75,7 @@ struct AnnouncementView: View {
         .background(Color.myBackground)
         .navigationBarBackButtonHidden(true)
         .scrollContentBackground(.hidden)
-        .toolbar {
-            ToolbarItem(placement:.navigationBarLeading) {
-                Button {
-                    dismiss()
-                } label: {
-                    Image(systemName: "chevron.left")
-                        .foregroundColor(.myPrimary)
-                }
-            }
-        }
+        .customBackbutton()
     }
     
 }

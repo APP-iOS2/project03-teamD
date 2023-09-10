@@ -17,42 +17,40 @@ struct HomeView: View {
                 .ignoresSafeArea(.all)
             NavigationStack {
                 ScrollView {
-                    VStack {
-                        CategoryButtonsView()
-                            .frame(maxWidth: .infinity, maxHeight: .infinity)
-                            .padding(10)
-                        HStack{
-                            Text("신규 예약")
-                                .font(.title2)
-                                .bold()
-                                .padding(.leading, 20)
-                                .foregroundColor(Color.myDarkGray)
-                            Spacer()
-                        }
-                        ForEach(0..<5) { _ in
-                            ReservationCell()
-                                .padding(.horizontal, 20)
-                                .overlay(
-                                    VStack {
-                                        Button(action: {
-                                            isPresentedModal.toggle()
-                                        }) {
-                                            Image(systemName: "chevron.right")
-                                                .background(Color.clear)
-                                                .foregroundColor(Color.myPrimary)
-                                        }
-                                        .buttonStyle(.plain)
-                                        .frame(maxWidth: .infinity, alignment: .trailing)
-                                        .padding(EdgeInsets(top: 20, leading: 0, bottom: 0, trailing: 40))
-                                        Spacer()
+                    CategoryButtonsView()
+                        .frame(maxWidth: .infinity, maxHeight: .infinity)
+                        .padding(10)
+                    HStack{
+                        Text("신규 예약")
+                            .font(.title2)
+                            .bold()
+                            .padding(.leading, 20)
+                            .foregroundColor(Color.myDarkGray)
+                        Spacer()
+                    }
+                    ForEach(0..<5) { _ in
+                        ReservationCell()
+                            .padding(.horizontal, 20)
+                            .overlay(
+                                VStack {
+                                    Button(action: {
+                                        isPresentedModal.toggle()
+                                    }) {
+                                        Image(systemName: "chevron.right")
+                                            .background(Color.clear)
+                                            .foregroundColor(Color.myPrimary)
                                     }
-                                        .sheet(isPresented: self.$isPresentedModal) {
-                                            ReservationDetailSheet()
-                                                .presentationDetents([.medium])
-                                                .cornerRadius(15)
-                                        }
-                                )
-                        }
+                                    .buttonStyle(.plain)
+                                    .frame(maxWidth: .infinity, alignment: .trailing)
+                                    .padding(EdgeInsets(top: 20, leading: 0, bottom: 0, trailing: 40))
+                                    Spacer()
+                                }
+                                .sheet(isPresented: self.$isPresentedModal) {
+                                    ReservationDetailSheet()
+                                        .presentationDetents([.medium])
+                                        .cornerRadius(15)
+                                }
+                            )
                     }
                 }
                 .toolbar {
