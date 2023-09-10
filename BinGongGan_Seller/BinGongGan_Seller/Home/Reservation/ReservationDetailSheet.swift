@@ -24,6 +24,7 @@ struct ReservationDetailSheet: View {
                 Spacer()
             }
             ReservationCell()
+                .padding(.horizontal, 20)
             Text("반드시 사용자 입금 확인 후 예약확정 버튼을 누르세요 ")
                 .foregroundColor(.red)
                 .bold()
@@ -51,25 +52,25 @@ struct ReservationDetailSheet: View {
                 }), secondaryButton: .cancel(Text("승인")))
             }
                 
-                Spacer(minLength: 1)
+            Spacer(minLength: 1)
                 
-                Button{
-                    isSelectedRefusalButton.toggle()
-                } label: {
-                    HStack {
-                        Spacer()
-                        Text("예약거절")
-                            .font(.title3)
-                            .bold()
-                            .foregroundColor(.myWhite)
-                        Spacer()
-                    }
+            Button {
+                isSelectedRefusalButton.toggle()
+            } label: {
+                HStack {
+                    Spacer()
+                    Text("예약거절")
+                        .font(.title3)
+                        .bold()
+                        .foregroundColor(.myWhite)
+                    Spacer()
                 }
-                .buttonStyle(.plain)
-                .frame(width: ReservationDetailSheet.uiViewWidth / 2, height: 50)
-                .background(Color.myPrimary)
-                .alert(isPresented: $isSelectedRefusalButton) {
-                    Alert(title: Text("예약 거절"), message: Text("해당 예약 요청을 거절하시겠습니까?"), primaryButton: .destructive(Text("취소"), action: {
+            }
+            .buttonStyle(.plain)
+            .frame(width: ReservationDetailSheet.uiViewWidth / 2, height: 50)
+            .background(Color.myPrimary)
+            .alert(isPresented: $isSelectedRefusalButton) {
+                Alert(title: Text("예약 거절"), message: Text("해당 예약 요청을 거절하시겠습니까?"), primaryButton: .destructive(Text("취소"), action: {
                     }), secondaryButton: .cancel(Text("거절")))
                 }
             }

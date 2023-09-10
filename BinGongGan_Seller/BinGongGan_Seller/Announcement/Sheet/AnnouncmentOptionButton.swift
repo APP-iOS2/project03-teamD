@@ -10,13 +10,12 @@ import BinGongGanCore
 
 struct AnnouncementOptionButton: View {
     var announcementOption: AnnouncementOption
-    let grayColor = Color(red: 235/255, green: 238/255, blue: 242/255)
     
     var body: some View {
         Button {
         } label: {
             Rectangle()
-                .fill(grayColor)
+                .fill(Color.myVeryLightGrayColor)
                 .frame(width: AnnouncementOptionCell.screenWidth * 0.4, height: AnnouncementOptionCell.screenWidth * 0.2)
                 .cornerRadius(15)
                 .padding(.top, 20)
