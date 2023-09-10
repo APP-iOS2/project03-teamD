@@ -86,7 +86,7 @@ struct AddReviewView: View {
 struct AddReviewView_Previews: PreviewProvider {
     static var previews: some View {
         NavigationStack{
-            AddReviewView(reservate: ReservationModel(placeName: "희권이네 설빙", reservationNumber: "A103120235", reservationDate: "9/7 (목) 17:00 ~ 21:00", reservationPersonal: 5, placeAddress: "서울특별시 희권구", isReservation: false))
+            AddReviewView(reservate: ReservationModel(placeName: "희권이네 설빙", reservationNumber: "A103120235", reservationDate: "9/7 (목) 17:00 ~ 21:00", reservationTime: "", reservationPersonal: 5, placeAddress: "서울특별시 희권구", isReservation: false))
         }
     }
 }
@@ -165,3 +165,4 @@ struct AddPhotoView: View {
         }// ScrollViewReder
     }
 }
+
