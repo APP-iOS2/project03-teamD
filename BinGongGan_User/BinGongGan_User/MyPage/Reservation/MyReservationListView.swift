@@ -18,7 +18,7 @@ struct MyReservationListView: View {
     @State private var selectedPicker: ReservationHistoryType = .all
     @Namespace private var animation
     @State private var isShowingGongGanDetailView: Bool = false
-    @State private var reservation: ReservationModel = ReservationModel(placeName: "", reservationNumber: "", reservationDate: "", reservationTime: "" , reservationPersonal: 0, placeAddress: "", isReservation: false)
+    @State private var reservation: ReservationModel = ReservationModel(placeName: "", reservationNumber: "", reservationDate: "", reservationTime: "" , reservationPersonal: 1, placeAddress: "", isReservation: false)
     
     var body: some View {
         VStack {
