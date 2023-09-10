@@ -12,46 +12,57 @@ struct HomeView: View {
     @State private var isPresentedModal: Bool = false
     
     var body: some View {
-        NavigationStack {
-            ScrollView {
-                VStack {
-                    HStack{
-                        Text("전체 메뉴")
-                            .font(.title2)
-                            .bold()
-                            .padding([.top, .leading], 20)
-                            .foregroundColor(Color.myDarkGray)
-                        Spacer()
-                    }
-                    CategoryButtonsView()
-                        .frame(maxWidth: .infinity, maxHeight: .infinity)
-                        .padding([.leading, .trailing, .bottom], 20)
-                    HStack{
-                        Text("신규 예약")
-                            .font(.title2)
-                            .bold()
-                            .padding(.leading, 20)
-                            .foregroundColor(Color.myDarkGray)
-                        Spacer()
-                    }
-                    ForEach(0..<5) { _ in
-                        Button{
-                            self.isPresentedModal = true
-                        } label: {
-                            ReservationCell()
-                                .sheet(isPresented: self.$isPresentedModal) {
-                                    ReservationListModalView()
-                                        .presentationDetents([.medium])
-                                        .cornerRadius(15)
-                                }
+        ZStack {
+            Color.myBackground
+                .ignoresSafeArea(.all)
+            NavigationStack {
+                ScrollView {
+                    VStack {
+                        CategoryButtonsView()
+                            .frame(maxWidth: .infinity, maxHeight: .infinity)
+                            .padding(20)
+                        HStack{
+                            Text("신규 예약")
+                                .font(.title2)
+                                .bold()
+                                .padding(.leading, 20)
+                                .foregroundColor(Color.myDarkGray)
+                            Spacer()
                         }
-                        .buttonStyle(.plain)
+                        ForEach(0..<5) { _ in
+                            Button{
+                                self.isPresentedModal = true
+                            } label: {
+                                ReservationCell()
+                                    .padding(.horizontal, 20)
+                                    .sheet(isPresented: self.$isPresentedModal) {
+                                        ReservationListModalView()
+                                            .presentationDetents([.medium])
+                                            .cornerRadius(15)
+                                    }
+                            }
+                            .buttonStyle(.plain)
+                        }
                     }
                 }
+                .toolbar {
+                    ToolbarItem(placement: .navigationBarLeading) {
+                        HStack{
+                            Image("HomeLogo")
+                                .resizable()
+                                .aspectRatio(contentMode: .fit)
+                                .frame(width: 40, height: 40)
+                            Text("BinGongGan")
+                                .bold()
+                                .foregroundColor(Color.myPrimary)
+                        }
+                        .padding(EdgeInsets(top: 0, leading: 10, bottom: 15, trailing: 0))
+                    }
+                }
+                .background(Color.myBackground)
             }
-            .background(Color.myBackground)
         }
-        
+
     }
 }
 

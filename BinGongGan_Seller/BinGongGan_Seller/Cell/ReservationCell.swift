@@ -12,32 +12,55 @@ import BinGongGanCore
 struct ReservationCell: View {
     var body: some View {
         VStack(alignment: .leading) {
-            Text("#123456")
-                .font(.title2)
-                .bold()
+            HStack {
+                ReservationDeadlineCell()
+                Spacer()
+                Button{} label: {
+                    Image(systemName: "chevron.right")
+                }
+            }
+            .padding(.bottom, 10)
+            HStack {
+                Text("ABCD키친")
+                    .font(.title3)
+                    .bold()
+                
+                Text("#132")
+                    .font(.title3)
+                    .bold()
+            }
+            .padding(.bottom, 10)
             
-            Text("ABCD키친")
-                .font(.title3)
-                .bold()
-                .padding(.bottom, 4)
+            HStack {
+                Text("인원")
+                    .font(.subheadline)
+                Spacer()
+                Text("오영석 외 3명")
+            }
+            .padding(.bottom, 5)
             
-            Text("9월 13일 11:00 ~ 12:00")
-                .font(.subheadline)
-                .padding(.bottom, 20)
+            HStack{
+                Text("일정")
+                    .font(.subheadline)
+                Spacer()
+                Text("09월 13일 11:00 - 12:00")
+            }
+            .padding(.bottom, 5)
             
-            Text("오영석 외 3명")
-                .font(.subheadline)
-            
-            Text("30,000")
-                .font(.subheadline)
+            HStack{
+                Text("번호")
+                    .font(.subheadline)
+                Spacer()
+                Image(systemName: "phone.fill")
+                Text("010-7320-9330")
+            }
         }
-        .padding(20)
-        .frame(maxWidth: .infinity, alignment: .leading)
-        .foregroundColor(Color.myWhite)
-        .background(Color.myPrimary)
+        .padding(.horizontal, 20)
+        .padding(.vertical, 15)
+        .frame(maxWidth: .infinity)
+        .foregroundColor(Color.myPrimary)
+        .background(Color.myWhite)
         .cornerRadius(15)
-        .padding([.leading, .trailing], 20)
-        .padding(.bottom, 10)
     }
 }
 
