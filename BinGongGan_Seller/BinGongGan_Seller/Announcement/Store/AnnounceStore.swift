@@ -11,7 +11,6 @@ struct AnnouncementStore: Identifiable {
     var id: UUID = UUID()
     var title: String
     var content: String
-    var image: String
 }
 
 
