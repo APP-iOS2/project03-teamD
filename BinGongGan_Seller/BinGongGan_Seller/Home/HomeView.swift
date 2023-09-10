@@ -47,7 +47,7 @@ struct HomeView: View {
                                         Spacer()
                                     }
                                         .sheet(isPresented: self.$isPresentedModal) {
-                                            ReservationListModalView()
+                                            ReservationDetailSheet()
                                                 .presentationDetents([.medium])
                                                 .cornerRadius(15)
                                         }
