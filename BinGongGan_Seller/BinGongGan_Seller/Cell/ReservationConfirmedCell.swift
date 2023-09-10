@@ -15,7 +15,7 @@ struct ReservationConfirmedCell: View {
         } label: {
             ReservationCell()
                 .sheet(isPresented: self.$isShowingModal) {
-                    ReservationListModalView()
+                    ReservationDetailSheet()
                         .presentationDetents([.medium])
                         .cornerRadius(15)
                 }
