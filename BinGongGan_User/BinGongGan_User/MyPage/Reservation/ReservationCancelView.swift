@@ -71,23 +71,13 @@ struct ReservationCancelView: View {
                 
                 
             }
-           
+            
             
         }
         
         .navigationTitle("예약 취소")
         .navigationBarTitleDisplayMode(.inline)
-        .navigationBarBackButtonHidden(true)
-        .toolbar {
-            ToolbarItem(placement: .navigationBarLeading) {
-                Button {
-                    dismiss()
-                } label: {
-                    Image(systemName: "chevron.left")
-                        .foregroundColor(.myPrimary)
-                }
-            }
-        }
+        .customBackbutton()
         .alert("예약을 취소하시겠습니까?", isPresented: $isShowingAlert) {
             Button("돌아가기", role: .cancel) {}
             Button("예약취소", role: .destructive) {

@@ -20,10 +20,11 @@ struct AppInformationList: View {
         "OpenSource License"
     ]
     
+    
     var body: some View {
         List(informationList, id: \.self) { item in
             NavigationLink {
-                
+                AppInfomationView()
             } label: {
                 Text(item)
                     .foregroundColor(.myPrimary)

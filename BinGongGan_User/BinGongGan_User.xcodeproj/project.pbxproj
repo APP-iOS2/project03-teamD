@@ -91,9 +91,12 @@
 		D84824AE2AA8A41D0067A065 /* ReservationDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D84824AA2AA8A41D0067A065 /* ReservationDetailView.swift */; };
 		D84824B12AA8A4450067A065 /* ReservationModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D84824B02AA8A4450067A065 /* ReservationModel.swift */; };
 		D84824B32AA8F5970067A065 /* FAQItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = D84824B22AA8F5970067A065 /* FAQItem.swift */; };
+		D8E0FA272AAAFAAD00B8C092 /* Announcement.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8E0FA262AAAFAAD00B8C092 /* Announcement.swift */; };
 		D8F41E132AA9A289004C52BD /* String+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8F41E122AA9A289004C52BD /* String+Extension.swift */; };
 		EC6F7F552AA8886900C0B094 /* CustomTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC6F7F542AA8886900C0B094 /* CustomTextField.swift */; };
 		EC6F7F572AA8896700C0B094 /* BinGongGan_UserApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC6F7F562AA8896700C0B094 /* BinGongGan_UserApp.swift */; };
+		ECBD87752AAB09F600ECEC7D /* Information1.md in Resources */ = {isa = PBXBuildFile; fileRef = ECBD87742AAB09CD00ECEC7D /* Information1.md */; };
+		ECBD87772AAE097200ECEC7D /* AppInformationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECBD87762AAE097200ECEC7D /* AppInformationView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -195,9 +198,12 @@
 		D84824AA2AA8A41D0067A065 /* ReservationDetailView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReservationDetailView.swift; sourceTree = "<group>"; };
 		D84824B02AA8A4450067A065 /* ReservationModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReservationModel.swift; sourceTree = "<group>"; };
 		D84824B22AA8F5970067A065 /* FAQItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FAQItem.swift; sourceTree = "<group>"; };
+		D8E0FA262AAAFAAD00B8C092 /* Announcement.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Announcement.swift; sourceTree = "<group>"; };
 		D8F41E122AA9A289004C52BD /* String+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Extension.swift"; sourceTree = "<group>"; };
 		EC6F7F542AA8886900C0B094 /* CustomTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTextField.swift; sourceTree = "<group>"; };
 		EC6F7F562AA8896700C0B094 /* BinGongGan_UserApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BinGongGan_UserApp.swift; sourceTree = "<group>"; };
+		ECBD87742AAB09CD00ECEC7D /* Information1.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = Information1.md; sourceTree = "<group>"; };
+		ECBD87762AAE097200ECEC7D /* AppInformationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppInformationView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -543,7 +549,9 @@
 		D84824812AA8A3700067A065 /* AppInformation */ = {
 			isa = PBXGroup;
 			children = (
+				ECBD87742AAB09CD00ECEC7D /* Information1.md */,
 				D84824822AA8A3700067A065 /* AppInformationList.swift */,
+				ECBD87762AAE097200ECEC7D /* AppInformationView.swift */,
 			);
 			path = AppInformation;
 			sourceTree = "<group>";
@@ -603,6 +611,7 @@
 			children = (
 				D84824B02AA8A4450067A065 /* ReservationModel.swift */,
 				D84824B22AA8F5970067A065 /* FAQItem.swift */,
+				D8E0FA262AAAFAAD00B8C092 /* Announcement.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -720,6 +729,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				ECBD87752AAB09F600ECEC7D /* Information1.md in Resources */,
 				B15806422AA897A5006C772B /* GoogleService-Info.plist in Resources */,
 				B12A84AC2AA6F01000BDF8CA /* Preview Assets.xcassets in Resources */,
 				B12A84A92AA6F01000BDF8CA /* Assets.xcassets in Resources */,
@@ -753,6 +763,7 @@
 				EC6F7F552AA8886900C0B094 /* CustomTextField.swift in Sources */,
 				BC344F0C2AA8092E00F8CEB3 /* HomeEventTapView.swift in Sources */,
 				3661ED052AA956750055AC97 /* FavoriteListView.swift in Sources */,
+				D8E0FA272AAAFAAD00B8C092 /* Announcement.swift in Sources */,
 				D84824A52AA8A3710067A065 /* MyInformationEditView.swift in Sources */,
 				BC344F012AA808FC00F8CEB3 /* MDPMonthYearPicker.swift in Sources */,
 				6927255B2AA83ABD00A2441E /* ReservationPlusMinusButton.swift in Sources */,
@@ -824,6 +835,7 @@
 				D84824972AA8A3700067A065 /* AppInformationList.swift in Sources */,
 				BC344EC92AA8072000F8CEB3 /* GongGanInfo.swift in Sources */,
 				D84824B32AA8F5970067A065 /* FAQItem.swift in Sources */,
+				ECBD87772AAE097200ECEC7D /* AppInformationView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

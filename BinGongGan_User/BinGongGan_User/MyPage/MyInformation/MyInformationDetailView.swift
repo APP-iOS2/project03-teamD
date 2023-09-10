@@ -85,17 +85,7 @@ struct MyInformationDetailView: View {
         .background(Color.myBackground)
         .navigationTitle("내 정보")
         .navigationBarTitleDisplayMode(.inline)
-        .navigationBarBackButtonHidden(true)
-        .toolbar {
-            ToolbarItem(placement:.navigationBarLeading) {
-                Button {
-                    dismiss()
-                } label: {
-                    Image(systemName: "chevron.left")
-                        .foregroundColor(.myPrimary)
-                }
-            }
-        }
+        .customBackbutton()
     }
 }
 

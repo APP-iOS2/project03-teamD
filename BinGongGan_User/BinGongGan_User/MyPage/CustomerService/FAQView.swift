@@ -17,7 +17,7 @@ struct FAQView: View {
                 List {
                     ForEach(FAQCategory.allCases) { category in
                         Section {
-                            ForEach(FAQItem.filteredCategory(of: category)) { item in
+                            ForEach(FAQItem.filterFAQCategory(of: category)) { item in
                                 NavigationLink {
                                     Text("\(item.content)")
                                 } label: {
@@ -38,18 +38,8 @@ struct FAQView: View {
             .background(Color.myBackground)
             .navigationTitle("자주 묻는 FAQ")
             .navigationBarTitleDisplayMode(.inline)
-            .toolbar {
-                ToolbarItem(placement:.navigationBarLeading) {
-                    Button {
-                        dismiss()
-                    } label: {
-                        Image(systemName: "chevron.left")
-                            .foregroundColor(.myPrimary)
-                    }
-                }
-            }
+            .customBackbutton()
         }
-        .navigationBarBackButtonHidden(true)
     }
 }
 

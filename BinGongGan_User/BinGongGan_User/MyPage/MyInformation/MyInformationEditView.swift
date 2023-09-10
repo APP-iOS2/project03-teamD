@@ -74,17 +74,7 @@ struct MyInformationEditView: View {
         .background(Color.myBackground)
         .navigationTitle("\(editType == .name ? "이름 수정": "연락처 수정")")
         .navigationBarTitleDisplayMode(.inline)
-        .navigationBarBackButtonHidden(true)
-        .toolbar {
-            ToolbarItem(placement: .navigationBarLeading) {
-                Button {
-                    dismiss()
-                } label: {
-                    Image(systemName: "chevron.backward")
-                        .foregroundColor(.myPrimary)
-                }
-            }
-        }
+        .customBackbutton()
         .onAppear {
             newName = name
             newPhoneNumber = phoneNumber
