@@ -70,24 +70,6 @@ struct AnnouncementAddView: View {
                             .frame(height: 150)
                             .background(Color.myLightGray)
                             .border(Color.myPrimary)
-
-
-                    }
-
-                    Section {
-                        Text("공간 사진 등록")
-                        PhotoSelectedView()
-                        Button {
-                            //Code
-                        } label: {
-                            Text("등록하기")
-                                .frame(maxWidth: .infinity)
-                                .padding()
-                                .foregroundColor(.black)
-                                .bold()
-                                .background(Color.myPrimary)
-                                .cornerRadius(15)
-                        }
                     }
                 }//Form
                 

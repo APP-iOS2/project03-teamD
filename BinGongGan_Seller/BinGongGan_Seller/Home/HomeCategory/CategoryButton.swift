@@ -17,11 +17,12 @@ struct CategoryButton: View {
             .cornerRadius(15)
             .overlay(
                 VStack{
-                    Image(systemName: category.imageString)
+                    Image(category.imageString)
                         .aspectRatio(contentMode: .fit)
                         .frame(width: AnnouncementOptionCell.screenWidth * 0.08, height: AnnouncementOptionCell.screenHeight * 0.05)
+                        .scaleEffect(0.8)
                     Text(category.categories)
-                        .font(.body1Regular)
+                        .font(.footnote)
                         .bold()
                 }
             )
