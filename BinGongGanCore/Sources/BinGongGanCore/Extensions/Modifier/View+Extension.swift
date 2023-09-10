@@ -25,7 +25,7 @@ extension View {
         UIApplication.shared.sendAction(#selector(UIResponder.resignFirstResponder), to: nil, from: nil, for: nil)
     }
     
-    public func toastmessage(isShowing: Binding<Bool>, message: String) -> some View {
+    public func toast(isShowing: Binding<Bool>, message: String) -> some View {
         self.modifier(ToastMessageModifier(isShowing: isShowing, message: message))
     }
 }
