@@ -16,12 +16,11 @@ struct CategoryModel: Identifiable {
     
     static let data = [
        CategoryModel(imageString: "ManagementReservation", categories: "예약관리", anyView: AnyView(ReservationDetailsView())),
-//       CategoryModel(imageString: "ApprovalDetails", categories: "승인내역", anyView: AnyView(ApprovedPlaceListView())),
-       CategoryModel(imageString: "Statistics", categories: "통계", anyView: AnyView(ChartView())),
-       CategoryModel(imageString: "Announcement", categories: "공지사항", anyView: AnyView(AnnouncementView())),
-       CategoryModel(imageString: "MyPlace", categories: "내 공간", anyView: AnyView(MyPlaceManagementView())),
        CategoryModel(imageString: "ManagementReview", categories: "리뷰관리", anyView: AnyView(ReviewManageView())),
+       CategoryModel(imageString: "Announcement", categories: "공지사항", anyView: AnyView(AnnouncementView())),
        CategoryModel(imageString: "Event", categories: "이벤트", anyView: AnyView(EventView())),
+       CategoryModel(imageString: "MyPlace", categories: "내 공간", anyView: AnyView(MyPlaceManagementView())),
+       CategoryModel(imageString: "Statistics", categories: "통계", anyView: AnyView(ChartView())),
        CategoryModel(imageString: "MyInformation", categories: "내 정보", anyView: AnyView(MyInfoView())),
 ]
 }
