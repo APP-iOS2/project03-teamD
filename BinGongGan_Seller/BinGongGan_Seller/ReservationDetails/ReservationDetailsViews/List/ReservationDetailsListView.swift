@@ -19,6 +19,7 @@ struct ReservationDetailsListView: View {
 
             ForEach(0..<5) { index in
                ReservationCell()
+                    .padding(.horizontal, 20)
             }
 
         }.navigationTitle("예약관리")
