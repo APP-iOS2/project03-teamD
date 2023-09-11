@@ -9,6 +9,8 @@ import SwiftUI
 
 struct ReservationUserInfoView: View {
     
+    @EnvironmentObject var reservationStore: ReservationStore
+    
     @State private var reservationName: String = ""
     @State private var reservationPhoneNumber: String = ""
     
@@ -48,6 +50,9 @@ struct ReservationUserInfoView: View {
         CustomTextField(placeholder: "입금자명을 입력하세요", text: $reservationName)
             .frame(width: screenWidth * 0.9, height: 50)
             .padding(.bottom, 10)
+            .onChange(of: reservationName, perform: { newValue in
+               reservationStore.updateReservation(type: .reservationName, value: newValue)
+            })
         
         
         Text("연락처")
@@ -57,10 +62,26 @@ struct ReservationUserInfoView: View {
             .keyboardType(.numberPad)
             .frame(width: screenWidth * 0.9, height: 50)
             .padding(.bottom, 10)
+            .onChange(of: reservationPhoneNumber, perform: { newValue in
+               reservationStore.updateReservation(type: .reservationPhoneNumber, value: newValue)
+            })
         
-        
-        Text("요청사항")
-            .font(.body1Regular)
+        HStack {
+            
+            Text("요청사항")
+                .font(.body1Regular)
+            
+            Spacer()
+            
+            Button {
+                
+                reservationStore.updateReservation(type: .reservationRequest, value: reservationRequest)
+                self.endTextEditing()
+            } label: {
+                Text("완료")
+                    .padding(.trailing, 20)
+            }
+        }
         
         ZStack(alignment: .topLeading) {
             
@@ -69,20 +90,11 @@ struct ReservationUserInfoView: View {
                 .frame(maxWidth: screenWidth * 0.9, minHeight: 120)
                 .padding(.bottom, 10)
             
-            TextField("", text: $reservationRequest, axis: .vertical)
+            TextField("요청사항을 작성해주세요", text: $reservationRequest, axis: .vertical)
+                .font(.captionRegular)
                 .lineLimit(4)
                 .frame(width: screenWidth * 0.8)
                 .padding([.top,.leading], 20)
-                .onTapGesture {
-                    UIApplication.shared.sendAction(#selector(UIResponder.resignFirstResponder), to: nil, from: nil, for: nil)
-                }
-            
-            if reservationRequest.isEmpty {
-                Text("요청사항을 작성해주세요")
-                    .font(.captionRegular)
-                    .foregroundColor(.myLightGray)
-                    .padding([.top,.leading], 20)
-            }
         }
         .onTapGesture {
             isTextMasterFocused.toggle()
@@ -93,5 +105,6 @@ struct ReservationUserInfoView: View {
 struct ReservationUserInfoView_Previews: PreviewProvider {
     static var previews: some View {
         ReservationUserInfoView()
+            .environmentObject(ReservationStore())
     }
 }
