@@ -18,8 +18,17 @@ final class HomeStore: ObservableObject {
     @Published var filteredArray:[Place] = []
     @Published var recentlyWords: [String] = []
     @Published var cities: [City] = []
-//    let dbRef = Firestore.firestore().collection("Incruitments")
     
+    @Published var selectedCategory: CategoryCase = .bandRoom
+    @Published var selectSub: [String] = []
+    //    let dbRef = Firestore.firestore().collection("Incruitments")
+    
+    var filteredCategoryCity: [Place] {
+        return places.filter { place in
+            selectSub.isEmpty ?  place.category == selectedCategory : place.category == selectedCategory && selectSub.contains(place.placeLocation)
+        }
+    }
+    //
     var categories: [Category] = [
         Category(category: .shareOffice, categoryImageString:  "building.2"),
         Category(category: .bandRoom, categoryImageString:  "music.mic"),
@@ -34,14 +43,14 @@ final class HomeStore: ObservableObject {
         settingRecommendPlace()
     }
     
-//    @MainActor
-//    func fetchPlaces() async throws -> Void {
-//      let snapshot = try await dbRef.getDocuments()
-//
-//      let places = snapshot.documents.compactMap({try? $0.data(as: Place.self) })
-//      self.places = places
-//    }
-
+    //    @MainActor
+    //    func fetchPlaces() async throws -> Void {
+    //      let snapshot = try await dbRef.getDocuments()
+    //
+    //      let places = snapshot.documents.compactMap({try? $0.data(as: Place.self) })
+    //      self.places = places
+    //    }
+    
     func fetchPlace(){
         places = placeArray
         cities = cityArray
@@ -50,7 +59,7 @@ final class HomeStore: ObservableObject {
     
     
     func searchPlaceName(placess: [Place] , keyWord: String) {
-
+        
         filteredArray.removeAll()
         for place in placess {
             let key = keyWord.lowercased()
@@ -102,10 +111,10 @@ final class HomeStore: ObservableObject {
     }
     
     func changeFavorite(place: Place){
-       if let index = places.firstIndex(where:{
-           $0.id == place.id }) {
-           places[index].isFavorite.toggle()
-       }
+        if let index = places.firstIndex(where:{
+            $0.id == place.id }) {
+            places[index].isFavorite.toggle()
+        }
     }
     
     func deleteRecentlyWord(word: String) {
@@ -119,32 +128,6 @@ final class HomeStore: ObservableObject {
     
     func searchRecentlyWord(word: String) {
         recentlyWords.append(word)
-    }
-    
-    func filteredPlaceList(category: String, cities: [String]) {
-        
-        filteredArray.removeAll()
-        var tempFilteredArray: [Place] = []
-        let all = "전체"
-        if cities.contains(all){
-            for filteredPlace in places {
-                if filteredPlace.category.rawValue == category {
-                    tempFilteredArray.append(filteredPlace)
-                }
-            }
-            filteredArray = tempFilteredArray
-        } else {
-            for filteredPlace in places {
-                if filteredPlace.category.rawValue == category {
-                    for sub in cities {
-                        if filteredPlace.placeLocation.contains(sub){
-                            tempFilteredArray.append(filteredPlace)
-                        }
-                    }
-                }
-            }
-            filteredArray = tempFilteredArray
-        }
     }
     
 }

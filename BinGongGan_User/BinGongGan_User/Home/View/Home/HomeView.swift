@@ -110,6 +110,7 @@ struct HomeView: View {
                 }// LazyVStack
                 .padding(.bottom, HomeNameSpace.scrollViewBottomPadding)
             }// SCROLLVIEW
+            .navigationBarTitleDisplayMode(.inline)
             .onAppear{
                 homeStore.settingRecommendPlace()
             }
