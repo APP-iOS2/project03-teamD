@@ -11,45 +11,42 @@ struct SellerInformationCell: View {
     var body: some View {
         VStack(alignment: .leading, spacing: 15) {
             HStack {
-                Text("차은우")
-                    .font(.title)
-                    .bold()
-                    .foregroundColor(.white)
                 Spacer()
-                
-                NavigationLink(destination: MyInfoView()) {
-                    Text("수정")
-                        .foregroundColor(.white)
-                        .bold()
-                }
-            } //: HStack
-            
-            Divider()
-                .background(.white)
-            HStack {
-                Image(systemName: "phone.fill")
-                    .foregroundColor(.white)
-                Text("010 - 1111 - 1111")
-                    .foregroundColor(.white)
+                Text("대표")
+                Text("차은우")
                     .bold()
             } //: HStack
             
             Divider()
-                .background(.white)
-            VStack {
+                .frame(minHeight: 3)
+                .background(Color.myPrimary)
+            VStack(alignment: .leading) {
+                
                 HStack {
-                    Image(systemName: "creditcard.fill")
-                        .foregroundColor(.white)
-                    Text("국민 46390204174780 (빵유빈)")
-                        .foregroundColor(.white)
-                        .bold()
-                } //: VStack
-            } //: HStack
+                    Text("Mobile")
+                    Spacer()
+                    Text("010-1111-1111")
+                }
+                HStack {
+                    Text("E-mail")
+                    Spacer()
+                    Text("test@test.com")
+                }
+                HStack {
+                    Text("Acc No.")
+                    Spacer()
+                    Text("국민 46390204174780")
+                }
+                HStack {
+                    Text("EID")
+                    Spacer()
+                    Text("사업자 등록 번호")
+                }
+            }
         }
         .padding(20)
-        .background(Color.myPrimary)
+        .background(.white)
         .cornerRadius(15)
-        .padding([.bottom, .leading, .trailing])
     }
 }
 

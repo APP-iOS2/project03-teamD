@@ -16,7 +16,7 @@ struct MyInfo: Identifiable {
     var companyNumber: String
 }
 class MyStore: ObservableObject {
-    @Published var myStore: MyInfo = MyInfo(name: "윤경환", phoneNumber: "010-1234", accountNumber: "123456-02-123456", companyNumber: "111-11-12345")
+    @Published var myStore: MyInfo = MyInfo(name: "윤경환", phoneNumber: "010-1234-1234", accountNumber: "123456-02-123456", companyNumber: "111-11-12345")
 }
 
 
@@ -28,8 +28,9 @@ struct MyInfoView: View {
     
     @StateObject var info: MyStore = MyStore()
     var body: some View {
-        NavigationStack {
-            Form {
+        VStack {
+            Section {
+                Form {
                     VStack(alignment: .leading) {
                         Text("이름")
                             .font(.body1Regular)
@@ -37,75 +38,74 @@ struct MyInfoView: View {
                             .font(.body1Bold)
                             .foregroundColor(.myDarkGray)
                     }
-                
-                Group {
+                    
+                    Group {
+                        VStack(alignment: .leading) {
+                            Text("연락처")
+                                .font(.body1Regular)
+                            Text(info.myStore.phoneNumber)
+                                .font(.body1Bold)
+                                .foregroundColor(.myDarkGray)
+                        }
+                    }
+                    
                     VStack(alignment: .leading) {
-                        Text("연락처")
+                        Text("계좌번호")
                             .font(.body1Regular)
-                        Text(info.myStore.phoneNumber)
+                        Text(info.myStore.accountNumber)
                             .font(.body1Bold)
                             .foregroundColor(.myDarkGray)
                     }
-                }
-                
-                VStack(alignment: .leading) {
-                    Text("계좌번호")
-                        .font(.body1Regular)
-                    Text(info.myStore.accountNumber)
-                        .font(.body1Bold)
-                        .foregroundColor(.myDarkGray)
-                }
-                
-                VStack(alignment: .leading) {
-                    Text("사업자 등록번호")
-                        .font(.body1Regular)
-                    Text(info.myStore.companyNumber)
-                        .font(.body1Bold)
-                        .foregroundColor(.myDarkGray)
-                }
-                
-                Section {
-                    Button {
-                        isShowAlert.toggle()
-                        alertMessage = "로그아웃 하시겠습니까?"
-                    } label: {
-                        Text("로그아웃")
+                    
+                    VStack(alignment: .leading) {
+                        Text("사업자 등록번호")
+                            .font(.body1Regular)
+                        Text(info.myStore.companyNumber)
+                            .font(.body1Bold)
                             .foregroundColor(.myDarkGray)
                     }
-                    .buttonStyle(.plain)
                     
-                    Button {
-                        isShowAlert.toggle()
-                        alertMessage = "정말 탈퇴 하시겠습니까?"
-                    } label: {
-                        Text("회원 탈퇴")
-                            .foregroundColor(.red)
+                    Section {
+                        Button {
+                            isShowAlert.toggle()
+                            alertMessage = "로그아웃 하시겠습니까?"
+                        } label: {
+                            Text("로그아웃")
+                                .foregroundColor(.myDarkGray)
+                        }
+                        .buttonStyle(.plain)
+                        
+                        Button {
+                            isShowAlert.toggle()
+                            alertMessage = "정말 탈퇴 하시겠습니까?"
+                        } label: {
+                            Text("회원 탈퇴")
+                                .foregroundColor(.red)
+                        }
                     }
                 }
+            } header: {
+                Text("내 정보")
+                    .padding([.top, .leading], 20)
             }
         }
-        .navigationTitle("내 정보")
         .navigationBarBackButtonHidden(true)
         .scrollContentBackground(.hidden)
         .background(Color.myBackground)
         .navigationBarTitleDisplayMode(.inline)
+        //        .customBackbutton()
         .toolbar {
-            ToolbarItem(placement:.navigationBarLeading) {
-                Button {
-                    dismiss()
-                } label: {
-                    Image(systemName: "chevron.left")
-                        .foregroundColor(.myPrimary)
-                    
+            ToolbarItem(placement: .navigationBarLeading) {
+                HStack{
+                    Image("HomeLogo")
+                        .resizable()
+                        .aspectRatio(contentMode: .fit)
+                        .frame(width: 40, height: 40)
+                    Text("BinGongGan")
+                        .bold()
+                        .foregroundColor(Color.myPrimary)
                 }
-            }
-            ToolbarItem(placement: .navigationBarTrailing) {
-                NavigationLink {
-                    MyInfoEditView(myInfo: info)
-                } label: {
-                    Text("편집")
-                }
-                
+                .padding(EdgeInsets(top: 10, leading: 10, bottom: 15, trailing: 0))
             }
         }
         .alert(isPresented:$isShowAlert) {
