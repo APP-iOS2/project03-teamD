@@ -26,7 +26,7 @@ struct ReservationCell: View {
                     .font(.headline)
                     .bold()
             }
-            .foregroundColor(Color.myPrimary)
+            .foregroundColor(Color.myBlack)
             .padding(.bottom, 5)
             
             HStack {
