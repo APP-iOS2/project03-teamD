@@ -11,7 +11,7 @@ struct ReservationDetailsCalendarView: View {
     
     @State var currentDate: Date = Date()
     @State private var isShowingWeekCalendar = false
-    @State private var isShowingModal: Bool = false
+    @State private var isPresentedModal: Bool = false
     private var rervationCalendarStore = RervationCalendarStore()
     
     var body: some View {
@@ -21,8 +21,7 @@ struct ReservationDetailsCalendarView: View {
                 .padding(EdgeInsets(top: 20, leading: 20, bottom: 10, trailing: 20))
             
             ForEach(0..<5) { index in
-                ReservationCell()
-                    .padding(.horizontal, 20)
+                ReservationDetailsCell(isPresentedModal: $isPresentedModal)
             }
             Spacer()
         }.navigationTitle("예약관리")

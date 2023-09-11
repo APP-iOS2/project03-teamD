@@ -8,6 +8,6 @@
 import Foundation
 
 
-class  RervationDetailsStore :ObservableObject{
+class RervationDetailsStore :ObservableObject{
     
 }
