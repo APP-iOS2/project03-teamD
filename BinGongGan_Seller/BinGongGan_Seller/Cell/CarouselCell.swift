@@ -14,11 +14,8 @@ struct CarouselCell: View {
                 AsyncImage(url: URL(string: "https://i.namu.wiki/i/7ty5kfzWYjaQZwEnu1mw1MHoMwlon4idv56VJE0B6LmJq6t8udR2H7oMvIovAN4EUXhZmXaKiHgz86ajNO8tNg.webp")) { image in
                     image
                         .resizable()
-                        .aspectRatio(contentMode: .fill)
-                        .frame(width: 250, height: 160)
-                        .cornerRadius(15)
-                        .padding(EdgeInsets(top: 0, leading: 20, bottom: 0, trailing: 20))
-                        .padding(.horizontal, 15)
+                        .aspectRatio(contentMode: .fit)
+                        .frame(height: 300)
                 } placeholder: {
                     ProgressView()
                 }

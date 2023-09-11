@@ -15,6 +15,7 @@ struct MyPlaceManagementView: View {
         ZStack {
             Color.myBackground
                 .ignoresSafeArea(.all)
+            
             VStack {
                 Section {
                     SellerInformationCell()
@@ -37,7 +38,8 @@ struct MyPlaceManagementView: View {
                 }
                 
                 Section {
-                    
+                    MySpaceCell()
+                        .padding([.leading, .trailing], 20)
                 } header: {
                     HStack {
                         Text("내 공간")
