@@ -56,7 +56,9 @@ struct AddReviewView: View {
         }
         .navigationTitle("리뷰 작성")
         .navigationBarTitleDisplayMode(.inline)
-        .navigationBarBackButtonHidden(true)
+        .customBackbutton()
+        .scrollContentBackground(.hidden)
+        .background(Color.myBackground, ignoresSafeAreaEdges: .all)
         .toolbar {
             ToolbarItem(placement: .navigationBarTrailing) {
                 Button("완료") {
@@ -65,24 +67,18 @@ struct AddReviewView: View {
                 .foregroundColor(.myPrimary)
             }
         }
-        .toolbar {
-            ToolbarItem(placement:.navigationBarLeading) {
-                Button {
-                    dismiss()
-                } label: {
-                    Image(systemName: "chevron.left")
-                        .foregroundColor(.myPrimary)
-                }
-            }
-        }
+        
         .alert("리뷰 작성", isPresented: $isShowingAlert) {
-            Button("취소", role: .cancel) {}
-            Button("저장", role: .none) {
+            Button("취소", role: .none) {}
+            Button("제출", role: .none) {
                 //TODO: 리뷰 저장 로직
                 dismiss()
             }
         }message: {
-            Text("리뷰를 저장합니다.")
+            Text("작성한 리뷰를 저장합니다.")
+        }
+        .onTapGesture {
+            self.endTextEditing()
         }
     }
 }
@@ -90,7 +86,7 @@ struct AddReviewView: View {
 struct AddReviewView_Previews: PreviewProvider {
     static var previews: some View {
         NavigationStack{
-            AddReviewView(reservate: ReservationModel(placeName: "희권이네 설빙", reservationNumber: "A103120235", reservationDate: "9/7 (목) 17:00 ~ 21:00", reservationPersonal: 5, placeAddress: "서울특별시 희권구", isReservation: false))
+            AddReviewView(reservate: ReservationModel(placeName: "희권이네 설빙", reservationNumber: "A103120235", reservationDate: "9/7 (목) 17:00 ~ 21:00", reservationTime: "", reservationPersonal: 5, placeAddress: "서울특별시 희권구", isReservation: false))
         }
     }
 }
@@ -135,6 +131,7 @@ struct AddPhotoView: View {
                             .font(.largeTitle)
                     }
                 }// Button
+                .buttonStyle(.plain)
                 ScrollView(.horizontal, showsIndicators: false) {
                     HStack {
                         ForEach(reviewPhotoList.indices, id:\.self) { index in
@@ -146,7 +143,15 @@ struct AddPhotoView: View {
                                 Text("\(reviewPhotoList[index])번째 이미지")
                                     .foregroundColor(.white)
                             }
-                            
+                            .overlay(alignment: .topTrailing) {
+                                Button {
+                                    reviewPhotoList.remove(at: index)
+                                } label: {
+                                    Image(systemName: "xmark.circle.fill")
+                                        .foregroundColor(.white)
+                                        .offset(x: -4, y: 4)
+                                }
+                            }
                         }
                     }
                 }// ScrollView
@@ -160,3 +165,4 @@ struct AddPhotoView: View {
         }// ScrollViewReder
     }
 }
+

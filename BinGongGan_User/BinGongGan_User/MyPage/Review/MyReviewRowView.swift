@@ -18,6 +18,7 @@ struct MyReviewRowView: View {
             return "\(text[...endIndex]) ..."
         }
     }
+    var imageList: [String] = ["SignInLogo", "SignInLogo", "SignInLogo", "SignInLogo", "SignInLogo"]
     @State private var isFolded: Bool = true
     var body: some View {
         VStack(alignment: .leading){
@@ -29,21 +30,40 @@ struct MyReviewRowView: View {
                 }
             }
             .opacity(0)
-            Text("공간 이름")
-                .font(.body1Bold)
-                .foregroundColor(.myBlack)
-            HStack(alignment: .lastTextBaseline) {
-                ForEach(0..<5, id: \.self) { index in
-                    Image(systemName: "star.fill")
-                        .foregroundColor(.yellow)
-                        .padding(.horizontal, -3)
-                }
-                Text("9/1 작성")
-                    .foregroundColor(.myDarkGray)
-            }
-            .font(.captionRegular)
-            .padding(.bottom, 10)
+            HStack(alignment: .bottom) {
+                
 
+                VStack(alignment: .leading) {
+                    Text("공간 이름")
+                        .font(.body1Bold)
+                        .foregroundColor(.myBlack)
+                    HStack(alignment: .bottom) {
+                        ForEach(0..<5, id: \.self) { index in
+                            Image(systemName: "star.fill")
+                                .foregroundColor(.yellow)
+                                .padding(.horizontal, -3)
+                        }
+                        Text(" | ")
+                        Text("2023.01.01 작성")
+                    }
+                    .foregroundColor(.myDarkGray)
+                    .font(.captionRegular)
+                }
+            }
+            ScrollView(.horizontal) {
+                HStack {
+                    ForEach(imageList, id:\.self) { image in
+                        Image(image)
+                            .resizable()
+                            .scaledToFit()
+                            .frame(height: UIScreen.main.bounds.height * 0.2)
+                            .overlay {
+                                RoundedRectangle(cornerRadius: 15)
+                                    .stroke()
+                            }
+                    }
+                }
+            }
             Group{
                 Text(isFolded ? foldedText : text)
                 + Text(isFolded ? " 더보기" : " 접기")
@@ -54,6 +74,7 @@ struct MyReviewRowView: View {
                 isFolded.toggle()
             }
         }
+        .padding(.horizontal)
     }
 }
 

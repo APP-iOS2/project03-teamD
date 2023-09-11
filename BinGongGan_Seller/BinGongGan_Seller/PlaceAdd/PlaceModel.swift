@@ -8,7 +8,8 @@
 import Foundation
 
 struct PlaceModel: Identifiable {
-    var id: UUID = UUID()
+    let id: UUID = UUID()
+    
     var placeName: String
     var placePrice: String
     var placeCategory: String

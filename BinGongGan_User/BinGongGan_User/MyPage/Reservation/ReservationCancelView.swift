@@ -54,37 +54,33 @@ struct ReservationCancelView: View {
                         Text("12시간 전 : 취소 수수료 10%")
                         Text("6시간 전 : 취소 수수료 30%")
                         Text("2시간 전 : 취소 불가 (호스트 문의)")
+                            .foregroundColor(.black).bold()
                     }.font(.captionRegular)
+                        .foregroundColor(.myDarkGray)
                 }
                 Button {
                     isShowingAlert = true
                 } label: {
-                    Text("예약 취소")
-                        .foregroundColor(.red)
+                    HStack {
+                        Spacer()
+                        Text("예약 취소")
+                            .foregroundColor(.red)
+                        Spacer()
+                    }
                 }
                 
                 
             }
-           
+            
             
         }
         
         .navigationTitle("예약 취소")
         .navigationBarTitleDisplayMode(.inline)
-        .navigationBarBackButtonHidden(true)
-        .toolbar {
-            ToolbarItem(placement: .navigationBarLeading) {
-                Button {
-                    dismiss()
-                } label: {
-                    Image(systemName: "chevron.left")
-                        .foregroundColor(.myPrimary)
-                }
-            }
-        }
+        .customBackbutton()
         .alert("예약을 취소하시겠습니까?", isPresented: $isShowingAlert) {
-            Button("취소", role: .cancel) {}
-            Button("확인", role: .destructive) {
+            Button("돌아가기", role: .cancel) {}
+            Button("예약취소", role: .destructive) {
                 //TODO: 리뷰 저장 로직
                 dismiss()
             }

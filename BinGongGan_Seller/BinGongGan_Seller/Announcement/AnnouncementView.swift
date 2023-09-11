@@ -10,61 +10,72 @@ import BinGongGanCore
 struct AnnouncementView: View {
     
     @Environment(\.dismiss) private var dismiss
+    @State var isPresentedAddView: Bool = false
     
     var body: some View {
-        //영석님 이거를 왜쓰셨을까용~? ㅎㅎ어차피 네비게이션인뎅~
-        //이거 지우고 정렬 다시 해주세요 ^^
-//        NavigationView{
-            VStack{
-                HStack {
-                    Text("공지 관리")
-                        .font(.title)
-                        .bold()
+        VStack{
+            HStack {
+                Text("공지 관리")
+                    .font(.title)
+                    .bold()
+                    .foregroundColor(Color.myPrimary)
+                    .padding(.leading, 20)
+                Spacer()
+                Button {
+                    isPresentedAddView.toggle()
+                } label: {
+                    Image(systemName: "plus")
                         .foregroundColor(Color.myPrimary)
-                        .padding(.leading, 20)
-                    Spacer()
+                        .padding(.trailing, 20)
                 }
-                Form {
-                    Section(header: Text("공간1")
-                        .foregroundColor(Color.myPrimary)
-                    ) {
-                        ForEach(0..<5) { _ in
+                .buttonStyle(.plain)
+                .sheet(isPresented: $isPresentedAddView) {
+                    AnnouncementAddView()
+                        .presentationDetents([.large])
+                        .cornerRadius(15)
+                }
+            }
+            Form {
+                Section(header: Text("공간1")
+                    .foregroundColor(Color.myPrimary)
+                ) {
+                    ForEach(0..<5) { _ in
+                        NavigationLink {
+                            AnnouncementDetailView()
+                        } label: {
                             AnnouncementTextRow()
                                 .background(Color.clear)
                         }
                     }
-                    Section(header: Text("공간2")
-                        .foregroundColor(Color.myPrimary)) {
-                            ForEach(0..<5) { _ in
-                                AnnouncementTextRow()
-                                    .background(Color.clear)
-                            }
-                        }
-                    Section(header: Text("공간3")
-                        .foregroundColor(Color.myPrimary)) {
-                            ForEach(0..<5) { _ in
-                                AnnouncementTextRow()
-                                    .background(Color.clear)
-                            }
-                        }
                 }
-            }
-            .background(Color.myBackground)
-            .navigationBarBackButtonHidden(true)
-            .scrollContentBackground(.hidden)
-            .background(Color.myBackground)
-            .navigationBarTitleDisplayMode(.inline)
-            .toolbar {
-                ToolbarItem(placement:.navigationBarLeading) {
-                    Button {
-                        dismiss()
-                    } label: {
-                        Image(systemName: "chevron.left")
-                            .foregroundColor(.myPrimary)
+                Section(header: Text("공간2")
+                    .foregroundColor(Color.myPrimary)) {
+                        ForEach(0..<5) { _ in
+                            NavigationLink {
+                                AnnouncementDetailView()
+                            } label: {
+                                AnnouncementTextRow()
+                                    .background(Color.clear)
+                            }
+                        }
                     }
-                }
+                Section(header: Text("공간3")
+                    .foregroundColor(Color.myPrimary)) {
+                        ForEach(0..<5) { _ in
+                            NavigationLink {
+                                AnnouncementDetailView()
+                            } label: {
+                                AnnouncementTextRow()
+                                    .background(Color.clear)
+                            }
+                        }
+                    }
             }
-//        }
+        }
+        .background(Color.myBackground)
+        .navigationBarBackButtonHidden(true)
+        .scrollContentBackground(.hidden)
+        .customBackbutton()
     }
     
 }

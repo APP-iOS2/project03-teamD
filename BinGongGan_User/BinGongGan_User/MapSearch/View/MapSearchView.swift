@@ -17,8 +17,8 @@ struct MapSearchView: View {
     @State private var searchText: String = ""
     @State private var selectedCategoty = ""
     
-    @Binding var selectedTab: Int
     @Binding var tabBarVisivility: Visibility
+    @Environment(\.dismiss) var dismiss
     
     var body: some View {
         GeometryReader { geometry in
@@ -29,12 +29,12 @@ struct MapSearchView: View {
                 HStack(alignment: .center) {
                     Spacer()
                     Button {
-                        selectedTab = 0
+                        dismiss()
                     } label: {
                         Circle()
                             .fill(Color.myLightGray)
                             .frame(width: 45, height: 45)
-                            .shadow(radius: 4, y: 4)
+                            .shadow(radius: 2, y: 1)
                             .overlay {
                                 Image(systemName: "chevron.backward.circle.fill")
                                     .resizable()
@@ -46,11 +46,11 @@ struct MapSearchView: View {
                     RoundedRectangle(cornerRadius: 10)
                         .fill(Color.white)
                         .frame(width: geometry.size.width / 1.4, height: 40)
-                        .shadow(radius: 4, y: 4)
+                        .shadow(radius: 2, y: 1)
                         .overlay(alignment: .leading) {
                             HStack {
                                 Image(systemName: "magnifyingglass")
-                                    .foregroundColor(.myDarkGray)
+                                    .foregroundColor(.myMediumGray)
                                     .padding(.leading)
                                 TextField("주소 혹은 장소명을 검색해주세요", text: $searchText)
                                     .font(Font.body1Regular)
@@ -68,7 +68,6 @@ struct MapSearchView: View {
                 VStack(alignment: .leading) {
                     HStack {
                         ForEach(categorys, id: \.self) { category in
-                            
                             Button(category.rawValue) {
                                 selectedCategoty = category.rawValue
                             }
@@ -76,13 +75,9 @@ struct MapSearchView: View {
                             .padding([.top, .bottom], 7)
                             .foregroundColor(selectedCategoty == category.rawValue ? .white : .myDarkGray)
                             .font(.captionRegular)
-                            .background {
-                                RoundedRectangle(cornerRadius: 13)
-                                    .strokeBorder(selectedCategoty == category.rawValue ? Color.white : Color.myDarkGray, lineWidth: 0.5)
-                                    .background(selectedCategoty == category.rawValue ? Color.mySecondary : Color.white)
-                            }
+                            .background(selectedCategoty == category.rawValue ? Color.mySecondary : Color.white)
                             .cornerRadius(13)
-                            .shadow(radius: 4, y: 2)
+                            .shadow(radius: 2, y: 1)
                         }
                         Spacer()
                     }
@@ -99,8 +94,8 @@ struct MapSearchView: View {
                                 GongGanDetailView()
                             } label: {
                                 SummaryPlaceView()
+                                    .foregroundColor(.myDarkGray)
                             }
-
                         }
                         .padding(.leading, 25)
                     }
@@ -115,13 +110,12 @@ struct MapSearchView: View {
                         Circle()
                             .fill(Color.white)
                             .frame(width: 45, height: 45)
-                            .shadow(radius: 4, y: 4)
+                            .shadow(radius: 2, y: 1)
                             .overlay {
-                                Image(systemName: "paperplane.circle.fill")
-                                    .resizable()
-                                    .foregroundColor(Color.mySecondary)
+                                Image("SearchViewImage")
+                                    .renderingMode(.template)
+                                    .foregroundColor(.myBlack)
                             }
-
                     }
                     Spacer()
                     Button {
@@ -129,10 +123,10 @@ struct MapSearchView: View {
                     } label: {
                         Label("목록", systemImage: "list.dash")
                             .frame(width: 100, height: 40)
-                            .background(Color.mySecondary)
+                            .background(Color.white)
                             .cornerRadius(20)
-                            .foregroundColor(.white)
-                            .shadow(radius: 4, y: 4)
+                            .foregroundColor(.myBlack)
+                            .shadow(radius: 2, y: 1)
                     }
                     
                 }
@@ -140,6 +134,7 @@ struct MapSearchView: View {
                 .offset(CGSize(width: 0, height: geometry.size.height - 50))
             }
         }
+        .navigationBarHidden(true)
         .onAppear {
             tabBarVisivility = .hidden
         }
@@ -151,6 +146,6 @@ struct MapSearchView: View {
 
 struct MapSearch_Previews: PreviewProvider {
     static var previews: some View {
-        MapSearchView(selectedTab: .constant(1), tabBarVisivility: .constant(.hidden))
+        MapSearchView( tabBarVisivility: .constant(.hidden))
     }
 }

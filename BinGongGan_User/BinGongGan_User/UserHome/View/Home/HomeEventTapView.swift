@@ -8,28 +8,25 @@
 import SwiftUI
 import BinGongGanCore
 
-enum HomeEventTapConstant {
-    static let eventListHeight = CGFloat(120)
-}
-
 struct HomeEventTapView: View {
     
-    @ObservedObject var dummyStore: HomeStore = HomeStore()
-    private let screenWidth = UIScreen.main.bounds.width
     private let timer = Timer.publish(every: 4, on: .main, in: .common).autoconnect()
+    @EnvironmentObject var homeStore: HomeStore
     @State private var currentPage: Int = 0
     
     var body: some View {
         GeometryReader { geometry in
             ScrollView(.horizontal, showsIndicators: false){
                 HStack(spacing: 0) {
-                    ForEach(dummyStore.EventList) { dummy in
-                        AsyncImage(url: dummy.imageURL, content: { image in
+                    ForEach(homeStore.EventList) { event in
+                        AsyncImage(url: event.imageURL, content: { image in
                             image
                                 .resizable()
-                                .frame(width: screenWidth)
+                                .frame(width: HomeNameSpace.screenWidth )
+                                .clipped()
                         }) {
                             ProgressView()
+                                .frame(width: HomeNameSpace.screenWidth)
                         }
                     }
                 }
@@ -38,19 +35,62 @@ struct HomeEventTapView: View {
             .onReceive(timer) { _ in
                 // Automatically switch to the next tab
                 withAnimation {
-                    currentPage = (currentPage + 1) % dummyStore.EventList.count
+                    currentPage = (currentPage + 1) % homeStore.EventList.count
                 }
             }
         }// GeometryReader
         .tabViewStyle(PageTabViewStyle())
-        .frame(width: screenWidth, height: HomeEventTapConstant.eventListHeight)
-        .foregroundColor(.black)
-        .background(Color.myPrimary)
+        .frame(width: HomeNameSpace.screenWidth, height: HomeNameSpace.screenHeight * 0.3)
+        .overlay(alignment: .bottomTrailing) {
+            ZStack {
+                Rectangle()
+                    .frame(width: HomeNameSpace.screenWidth * 0.3, height: HomeNameSpace.screenHeight * 0.07)
+                .opacity(0.7)
+                .cornerRadius(3, corners: .topLeft)
+                HStack {
+                    Button {
+                        if currentPage == 0 {
+                            currentPage = homeStore.EventList.count - 1
+                        } else {
+                            currentPage -= 1
+                        }
+                    } label: {
+                        Text("-")
+                            .font(.body1Bold)
+                            .foregroundColor(.myWhite)
+                    }
+                    .padding(.trailing, 10)
+                    
+                    Text("\(currentPage + 1)")
+                        .font(.body1Bold)
+                        .foregroundColor(.myWhite)
+                    Text("|  \(homeStore.EventList.count)")
+                        .font(.body1Bold)
+                        .foregroundColor(.myWhite)
+                    
+                    Button {
+                        if currentPage == homeStore.EventList.count - 1 {
+                            currentPage = 0
+                        } else {
+                            currentPage += 1
+                        }
+                    } label: {
+                        Text("+")
+                            .font(.body1Bold)
+                            .foregroundColor(.myWhite)
+                    }
+                    .padding(.leading, 10)
+                    
+                }// HSTACK
+            }// ZSTACK
+        }
+        
     }// Body
 }
 
 struct HomeEventTapView_Previews: PreviewProvider {
     static var previews: some View {
         HomeEventTapView()
+            .environmentObject(HomeStore())
     }
 }

@@ -6,76 +6,83 @@
 //
 
 import SwiftUI
-enum PlaceRowConstant {
-    static let cellHeight = CGFloat(200)
-}
 
 struct PlaceListRow: View {
     
-    private let screenWidth = UIScreen.main.bounds.width
-    
     @State var place: Place
-    
+    @State private var backGroundWitdh: CGFloat = HomeNameSpace.screenWidth * 0.9
+    @State private var backGroundHeight: CGFloat = HomeNameSpace.screenHeight * 0.75
     var body: some View {
-        VStack{
-            AsyncImage(url: place.imageURL, content: { image in
-                image
-                    .resizable()
-                    .aspectRatio(contentMode: .fit)
-                    .frame(width: screenWidth - 20 , height: PlaceRowConstant.cellHeight)
-                    .foregroundColor(.gray)
-            }) {
-                ProgressView()
-            }
-            NavigationLink {
-                GongGanDetailView()
-            } label: {
-                Rectangle()
-                    .frame(width: screenWidth - 20 , height: PlaceRowConstant.cellHeight - 100)
-                    .foregroundColor(.white)
-                    .border(.black)
-                    .overlay(alignment: .topLeading){
-                        Text("\(place.placeName)")
-                            .font(.body1Bold)
-                            .padding()
-                        
-                    }
-                    .overlay(alignment: .leading){
-                        Text("\(place.placeLocation)")
-                            .padding()
-                            .font(.captionRegular)
 
-                    }
-                    .overlay(alignment: .bottomLeading){
-                        Text("\(place.placePrice)")
-                            .font(.body1Regular)
-                            .padding()
-                    }
-                    .overlay(alignment: .bottomTrailing){
-                        Text("최대 인원 00명")
-                            .padding()
-                            .font(.captionRegular)
-                    }
-                    .overlay(alignment: .topTrailing) {
-                        Button {
-                            place.isFavorite.toggle()
-                        } label: {
-                            Image(systemName: place.isFavorite ? "heart.fill" : "heart")
-                                .foregroundColor(.red)
-                                .padding()
-                        }
-                    }
-            }
-            .foregroundColor(.black)
-
-            
+        NavigationLink {
+            GongGanDetailView()
+        } label: {
+            VStack(alignment: .leading) {
+                AsyncImage(url: place.imageURL ) { image in
+                    image
+                        .resizable()
+                        .aspectRatio(contentMode: .fill)
+                        .frame(width: backGroundWitdh,
+                               height: backGroundHeight * 0.68)
+                } placeholder: {
+                    ProgressView()
+                        .frame(width: backGroundWitdh,
+                               height: backGroundHeight * 0.68)
+                }
+                .cornerRadius(15, corners: .topLeft)
+                .cornerRadius(15, corners: .topRight)
                 
-        }// VSTACK
+                VStack(alignment: .leading) {
+                    HStack {
+                        Text("\(place.placeName)")
+                            .font(.head1Bold)
+                            .foregroundColor(.myBlack)
+                    }
+                    Text("\(place.placeLocation)")
+                        .font(.body1Regular)
+                        .foregroundColor(.myBlack)
+                    
+                    HStack(spacing: 109) {
+                        Text("\(place.placePrice) / 시간 당")
+                            .font(.body1Regular)
+                            .foregroundColor(.myBlack)
+
+                        Text("최대 인원 00명")
+                            .font(.body1Regular)
+                        .foregroundColor(.myBlack)
+                    }.padding(.top, 4)
+                    
+                }
+                .frame(height: backGroundHeight * 0.32)
+                .padding([.leading, .trailing], 20)
+               
+            }
+            .background(
+                RoundedRectangle(cornerRadius: 0)
+                    .frame(
+                        width: backGroundWitdh, height: backGroundHeight
+                    )
+                    .foregroundColor(.myWhite)
+                    .cornerRadius(15)
+                    .shadow(radius: 1)
+            )
+            .overlay(alignment: .trailingFirstTextBaseline) {
+                Button {
+                    place.isFavorite.toggle()
+                } label: {
+                    Image(systemName: place.isFavorite ? "heart.fill" : "heart")
+                        .foregroundColor(.mySecondary)
+                        .font(.system(size: 30))
+                        .padding(20)
+                }
+            }
+        }
         
     }
 }
 
 struct PublicPlaceListCellView_Previews: PreviewProvider {
+    
     static var previews: some View {
         PlaceListRow(place: HomeStore().places[0])
     }

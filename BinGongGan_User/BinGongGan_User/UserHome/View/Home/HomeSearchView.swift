@@ -7,76 +7,93 @@
 
 import SwiftUI
 
-enum HomeSearchViewConstant {
-    static let searchTextFieldWidth = CGFloat(100)
-    static let searchTextFieldHeight = CGFloat(50)
-    static let searchTextFieldRadius = CGFloat(15)
-}
-
 struct HomeSearchView: View {
     
-    @Environment(\.dismiss) private var dismiss
-    private let screenWidth = UIScreen.main.bounds.width
     @State private var placeSearchTextField: String = ""
-    @ObservedObject var homeStore: HomeStore = HomeStore()
+    @EnvironmentObject var homeStore: HomeStore
+    @State private var isChangeTextField: Bool = true
     
     var body: some View {
         ZStack {
             Spacer().background(Color.myBackground).edgesIgnoringSafeArea(.all)
             VStack {
                 HStack {
-                    ZStack {
-                        Color.mySecondary
-                            .opacity(0.2)
-                        HStack {
-                            TextField("장소를 입력해주세요.", text: $placeSearchTextField)
-                                .font(.body1Bold)
-                                .padding()
-                                
+                    CustomTextField(placeholder: "장소를 입력해주세요.", text: $placeSearchTextField)
+                        .font(.body1Bold)
+                        .padding(EdgeInsets(top: 10, leading: 20, bottom: 10, trailing: 10))
+                        .frame(minHeight: 42, maxHeight: 52)
+                        .onChange(of: placeSearchTextField) { newValue in
+                            if placeSearchTextField == "" {
+                                isChangeTextField = true
+                            } else {
+                                isChangeTextField = false
+                            }
                         }
-                    }// ZStack
-                    .frame(maxWidth: screenWidth * 0.8 ,
-                           maxHeight: HomeSearchViewConstant.searchTextFieldHeight)
-                    .cornerRadius(HomeSearchViewConstant.searchTextFieldRadius)
-                    .padding()
-                    
                     Button {
                         homeStore.searchPlaceName(placess: homeStore.places, keyWord: placeSearchTextField)
+                        
+                        if !homeStore.recentlyWords.contains(placeSearchTextField){
+                            homeStore.searchRecentlyWord(word: placeSearchTextField)
+                        }
+                        placeSearchTextField = ""
                     } label: {
-                        Text("검색")
-                            .font(.body1Bold)
-                            .foregroundColor(.mySecondary)
+                        Image(systemName: "magnifyingglass")
+                            .font(.head1Bold)
+                            .foregroundColor(.myPrimary)
                     }.buttonStyle(.plain)
-                    Spacer()
+                        .padding(.trailing, 20)
+                    
                 }// HStack
+                .padding(.bottom, 3)
+                VStack {
+                    HStack {
+                        Text("최근검색어")
+                            .font(.head1Bold)
+                            .foregroundColor(.myPrimary)
+                        Spacer()
+                    }
+                    ScrollView(.horizontal, showsIndicators: false) {
+                        HStack(spacing: 2.5) {
+                            ForEach(homeStore.recentlyWords, id: \.self){ word in
+                                    ZStack {
+                                        RoundedRectangle(cornerRadius: 15)
+                                            .frame(width: HomeNameSpace.screenWidth * 0.2, height: HomeNameSpace.screenHeight * 0.1)
+                                            .foregroundColor(.myWhite)
+                                        HStack {
+                                            Text("\(word)")
+                                                .foregroundColor(.myBlack)
+                                                .font(.captionBold)
+                                                .frame(width: HomeNameSpace.screenWidth * 0.14, height: HomeNameSpace.screenHeight * 0.08)
+                                                .padding(.leading, 5)
+                                            Button {
+                                                placeSearchTextField = word
+                                                homeStore.deleteRecentlyWordk(word: word)
+                                            } label: {
+                                                Image(systemName: "x.circle")
+                                                    .font(.captionRegular)
+                                                    .foregroundColor(.myDarkGray)
+                                            }.padding(.trailing, 10)
+                                        }
+                                    }// ZSTACK
+                            }
+                        }// HSTACK
+                    }// SCROLLVIEW
+                }// VSTACK
+                .padding(.leading, 20)
                 ScrollView(showsIndicators: false) {
                     LazyVStack{
-                        if homeStore.filteredArray.isEmpty{
-                            Text("추천검색어")
-                        }else{
-                            ForEach(homeStore.filteredArray) { place in
-                                HomeListRow(place: place)
-                                    .padding([.bottom], 10)
-                            }
+                        ForEach(homeStore.filteredArray) { place in
+                            HomeListRow(place: place)
+                                .padding([.bottom], 10)
                         }
                     }// LazyVStack
                 }// SCROLLVIEW
+                .padding(.bottom, HomeNameSpace.scrollViewBottomPadding)
             }// VStack
             .navigationTitle("장소 검색")
             .navigationBarTitleDisplayMode(.inline)
             .navigationBarBackButtonHidden(true)
-            .toolbar {
-                ToolbarItem(placement:.navigationBarLeading) {
-                    Button {
-                        dismiss()
-                    } label: {
-                        HStack {
-                            HomeStore.backButton("https://item.kakaocdn.net/do/a1ccece94b4ba1b47f0e5dbe05ce65687e6f47a71c79378b48860ead6a12bf11")
-                            Spacer()
-                        }// HSTACK
-                    }
-                }
-        }
+            .customBackbutton()
         }
     }// Body
 }
@@ -85,6 +102,7 @@ struct HomeSearchView_Previews: PreviewProvider {
     static var previews: some View {
         NavigationStack {
             HomeSearchView()
+                .environmentObject(HomeStore())
         }
     }
 }

@@ -9,56 +9,75 @@ import SwiftUI
 
 struct PlaceListView: View {
     
-    @Environment(\.dismiss) private var dismiss
-    @ObservedObject var dummyStore: HomeStore = HomeStore()
+    @EnvironmentObject var homeStore: HomeStore 
     @State var category: String
     var body: some View {
         ZStack {
             Spacer().background(Color.myBackground).edgesIgnoringSafeArea(.all)
             VStack {
-                
+                Text("sad")
                 ScrollView(showsIndicators: false){
-                    ForEach(dummyStore.places){ place in
-                        if category == place.category.rawValue{
-                            HomeListRow(place: place)
+                    ForEach(homeStore.places){ place in
+                        if category == place.category.rawValue {
+                            PlaceListRow(place: place)
+                                .padding(.bottom, 20)
                         }
                     }
                 }// SCROLLVIEW
                 .padding(.top, 20)
             }// VSTACK
-            .navigationTitle("공용 오피스")
+            .navigationTitle("\(category)")
             .navigationBarTitleDisplayMode(.inline)
-            .navigationBarBackButtonHidden(true)
-            .toolbar {
-                ToolbarItem(placement:.navigationBarLeading) {
-                    Button {
-                        dismiss()
-                    } label: {
-    //                    Image(systemName: "chevron.left")
-    //                        .foregroundColor(.brown)
-                        HomeStore.backButton("https://item.kakaocdn.net/do/a1ccece94b4ba1b47f0e5dbe05ce65687e6f47a71c79378b48860ead6a12bf11")
-                    }
-                }
-            }
+            .customBackbutton()
             .toolbar {
                 ToolbarItem(placement: .navigationBarTrailing) {
                     Button {
                         // 필터 모달
                     } label: {
                         Image(systemName: "slider.horizontal.3")
-                            .foregroundColor(.mySecondary)
-                        
+                            .foregroundColor(.myPrimary)
+                            .font(.body1Bold)
                     }
                 }
-        }
-        }
+            }
+        }// ZSTACK
+        .background(Color.myBackground)
     }// BODY
+//    @ViewBuilder
+//    private func tabAnimate() -> some View {
+//        HStack {
+//            ForEach(ReservationHistoryType.allCases, id: \.self) { item in
+//                VStack {
+//                    Text(item.rawValue)
+//                        .font(.footnote)
+//                        .frame(maxWidth: .infinity/6, minHeight: 30)
+//                        .foregroundColor(selectedPicker == item ? .black : .gray)
+//
+//                    if selectedPicker == item {
+//                        Capsule()
+//                            .foregroundColor(.myPrimary)
+//                            .frame(height: 3)
+//                            .matchedGeometryEffect(id: "info", in: animation)
+//                    }
+//
+//                }
+//                .padding()
+//                .onTapGesture {
+//                    withAnimation(.easeInOut) {
+//                        self.selectedPicker = item
+//                    }
+//                }
+//            }
+//        }
+//    }
+    
 }
 
 struct PlaceListView_Previews: PreviewProvider {
     static var previews: some View {
         NavigationStack{
-            PlaceListView( category: "공용 주방")
+            PlaceListView(category: "공유오피스")
+                .environmentObject(HomeStore())
         }
     }
 }

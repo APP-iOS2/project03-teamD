@@ -15,13 +15,13 @@ struct CategoryModel: Identifiable {
     var anyView: AnyView
     
     static let data = [
-       CategoryModel(imageString: "list.bullet.clipboard.fill", categories: "예약관리", anyView: AnyView(ReservationDetailsView())),
-       CategoryModel(imageString: "checkmark.seal.fill", categories: "승인내역", anyView: AnyView(EmptyView())),
-       CategoryModel(imageString: "chart.xyaxis.line", categories: "통계", anyView: AnyView(ChartView())),
-       CategoryModel(imageString: "megaphone.fill", categories: "공지사항", anyView: AnyView(AnnouncementView())),
-       CategoryModel(imageString: "map.fill", categories: "내 공간", anyView: AnyView(MyPlaceManagementView())),
-       CategoryModel(imageString: "chart.bar.doc.horizontal.fill", categories: "리뷰관리", anyView: AnyView(ReviewManageView())),
-       CategoryModel(imageString: "sparkles", categories: "이벤트", anyView: AnyView(EmptyView())),
-       CategoryModel(imageString: "person", categories: "내 정보", anyView: AnyView(MyInfoView())),
+       CategoryModel(imageString: "ManagementReservation", categories: "예약관리", anyView: AnyView(ReservationDetailsView())),
+       CategoryModel(imageString: "ApprovalDetails", categories: "승인내역", anyView: AnyView(ApprovedPlaceListView())),
+       CategoryModel(imageString: "Statistics", categories: "통계", anyView: AnyView(ChartView())),
+       CategoryModel(imageString: "Announcement", categories: "공지사항", anyView: AnyView(AnnouncementView())),
+       CategoryModel(imageString: "MyPlace", categories: "내 공간", anyView: AnyView(MyPlaceManagementView())),
+       CategoryModel(imageString: "ManagementReview", categories: "리뷰관리", anyView: AnyView(ReviewManageView())),
+       CategoryModel(imageString: "Event", categories: "이벤트", anyView: AnyView(EventView())),
+       CategoryModel(imageString: "MyInformation", categories: "내 정보", anyView: AnyView(MyInfoView())),
 ]
 }

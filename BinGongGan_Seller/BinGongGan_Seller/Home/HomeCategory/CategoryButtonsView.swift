@@ -13,7 +13,7 @@ struct CategoryButtonsView: View {
     let categoryList = CategoryModel.data
  
     var body: some View {
-        LazyVGrid(columns: columns, spacing: 8) {
+        LazyVGrid(columns: columns, spacing: 16) {
             ForEach(categoryList) { category in
                 NavigationLink {
                     category.anyView
@@ -22,9 +22,7 @@ struct CategoryButtonsView: View {
                 }
             }
         }
-        .padding()
-        .background(Color.myWhite)
-        .cornerRadius(15)
+        .background(Color.clear)
         .frame(maxHeight: .infinity)
     }
 }
