@@ -39,7 +39,6 @@ struct MyInfoView: View {
                             .foregroundColor(.myDarkGray)
                     }
                     
-                    Group {
                         VStack(alignment: .leading) {
                             Text("연락처")
                                 .font(.body1Regular)
@@ -47,7 +46,6 @@ struct MyInfoView: View {
                                 .font(.body1Bold)
                                 .foregroundColor(.myDarkGray)
                         }
-                    }
                     
                     VStack(alignment: .leading) {
                         Text("계좌번호")
@@ -84,30 +82,24 @@ struct MyInfoView: View {
                         }
                     }
                 }
-            } header: {
-                Text("내 정보")
-                    .padding([.top, .leading], 20)
             }
+            .navigationTitle("내 정보")
         }
         .navigationBarBackButtonHidden(true)
         .scrollContentBackground(.hidden)
+        .customBackbutton()
         .background(Color.myBackground)
         .navigationBarTitleDisplayMode(.inline)
-        //        .customBackbutton()
         .toolbar {
-            ToolbarItem(placement: .navigationBarLeading) {
-                HStack{
-                    Image("HomeLogo")
-                        .resizable()
-                        .aspectRatio(contentMode: .fit)
-                        .frame(width: 40, height: 40)
-                    Text("BinGongGan")
-                        .bold()
-                        .foregroundColor(Color.myPrimary)
+            ToolbarItem {
+                NavigationLink {
+                    MyInfoEditView(myInfo: info)
+                    } label: {
+                        Text("수정")
+                            .accentColor(.black)
+                    }
                 }
-                .padding(EdgeInsets(top: 10, leading: 10, bottom: 15, trailing: 0))
             }
-        }
         .alert(isPresented:$isShowAlert) {
             Alert(title: Text(""), message: Text(alertMessage), primaryButton: .default(Text("확인"), action: {
                 if alertMessage == "로그아웃 하시겠습니까?" {

@@ -26,7 +26,7 @@ struct MyPlaceManagementView: View {
                             .font(.head1Bold)
                         Spacer()
                         NavigationLink {
-                            
+                            MyInfoView()
                         } label: {
                             Image(systemName: "square.and.pencil")
                                 .foregroundColor(Color.mySecondary)
@@ -37,7 +37,7 @@ struct MyPlaceManagementView: View {
                 }
                 
                 Section {
-                    
+                    MySpaceCell()
                 } header: {
                     HStack {
                         Text("내 공간")
