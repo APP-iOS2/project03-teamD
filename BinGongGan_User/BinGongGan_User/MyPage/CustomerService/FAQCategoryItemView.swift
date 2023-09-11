@@ -22,10 +22,10 @@ struct FAQCategoryItemView: View {
                 } label: {
                     Text("\(category.rawValue)")
                         .font(.body1Regular)
-                        .foregroundColor(selectedItem == category.rawValue ? .myWhite : .myPrimary)
+                        .foregroundColor(selectedItem == category.rawValue ? .white : .myBrown)
                         .padding(.horizontal, 16)
                         .padding(.vertical, 8)
-                        .background(selectedItem == category.rawValue ? Color.myPrimary : Color.myWhite)
+                        .background(selectedItem == category.rawValue ? Color.myBrown : Color.white)
                         .cornerRadius(10)
                 }
                 .buttonStyle(.automatic)

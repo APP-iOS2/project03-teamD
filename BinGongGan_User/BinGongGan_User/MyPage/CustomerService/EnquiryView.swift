@@ -15,7 +15,7 @@ struct EnquiryView: View {
             Image(systemName: "exclamationmark.circle.fill")
             Text("공사중~")
         }
-        .foregroundColor(.myPrimary)
+        .foregroundColor(.myBrown)
         .font(.largeTitle)
         .navigationTitle("1 : 1 문의")
         .navigationBarTitleDisplayMode(.inline)
@@ -26,7 +26,7 @@ struct EnquiryView: View {
                     dismiss()
                 } label: {
                     Image(systemName: "chevron.left")
-                        .foregroundColor(.myPrimary)
+                        .foregroundColor(.myBrown)
                 }
             }
         }

@@ -14,9 +14,9 @@ struct ReservationDeadlineCell: View {
             .bold()
             .font(.subheadline)
             .padding(.horizontal)
-            .padding(.vertical, 8)
-            .background(Color.myPrimary)
-            .foregroundColor(Color.myWhite)
+            .padding(.vertical, 6)
+            .background(Color.myBrown)
+            .foregroundColor(.white)
             .cornerRadius(15)
     }
 }
