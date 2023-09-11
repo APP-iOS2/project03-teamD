@@ -61,7 +61,7 @@ struct AnnouncementAddView: View {
                     Section {
                         Text("공지사항 제목")
                         TextField("제목을 입력하세요", text: $placeNameText)
-                            .textFieldStyle(TextFieldStyles())
+                            .textFieldStyle(RoundedBorderTextFieldStyle())
                     }
 
                     Section {

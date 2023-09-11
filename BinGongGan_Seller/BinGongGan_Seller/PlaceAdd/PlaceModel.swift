@@ -7,18 +7,41 @@
 
 import Foundation
 
-struct PlaceModel: Identifiable {
-    let id:String = UUID().uuidString
+//struct Store: Identifiable {
+//    let id: String = UUID().uuidString
+//    let place: [PlaceModel]
+//}
+//
+//struct PlaceModel: Identifiable {
+//    let id:String = UUID().uuidString
+//    let storeID: String
+//    var placeName: String
+//    var placePrice: String
+//    var placeCategory: PlaceCategory
+//    var placeAdress: String
+//    var placeImageStringList: [String]
+//    var note: String
+//    var placeInfomationList: [String]
+//    var date: [reservationDate?] //예약 날짜 EX) 07.29
+//   // var reservationUser: User?
+//    
+//    var reviews: [Review]?
+//}
+
+struct reservationDate: Identifiable {
+    let id: String = UUID().uuidString
+    let placeID: String // 공간ID
+    var hour: [reseravtionHour] //예약 시간 EX)1시 2시
     
-    var placeName: String
-    var placePrice: String
-    var placeCategory: String
-    var placeAdress: String
-    var placeImageStringList: [String]
-    var informationToPass: String
-    var placeInfomationList: [String]
-    var reviews: [Review]?
 }
+
+struct reseravtionHour {
+    let dateID: String // 시간ID
+    var hour: String //시간이름  EX) 1시 2시
+    var isReservation: Bool //예약여부 EX)예약 완료된 시간이묜 True
+}
+
+
 
 struct Review: Identifiable {
     let id: String = UUID().uuidString
@@ -26,12 +49,3 @@ struct Review: Identifiable {
     var rating: Double
     var content: String
 }
-
-enum PlaceCategory: String, CaseIterable, Identifiable {
-    case Share = "쉐어오피스"
-    case band = "밴드룸"
-    case studio = "스튜디오"
-    case kitchen = "키친룸"
-    var id: Self { self }
-}
-
