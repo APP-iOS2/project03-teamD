@@ -16,7 +16,7 @@ struct AnnouncementOptionButton: View {
         } label: {
             Rectangle()
                 .fill(Color.myVeryLightGrayColor)
-                .frame(width: AnnouncementOptionCell.screenWidth * 0.4, height: AnnouncementOptionCell.screenWidth * 0.2)
+                .frame(width: AnnouncementOptionCell.screenWidth * 0.4, height: AnnouncementOptionCell.screenHeight * 0.1)
                 .cornerRadius(15)
                 .padding(.top, 20)
                 .overlay(

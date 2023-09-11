@@ -22,7 +22,7 @@ struct BinGongGan_SellerApp: App {
     @UIApplicationDelegateAdaptor(AppDelegate.self) var delegate
     var body: some Scene {
         WindowGroup {
-            PlaceAddView()
+             ContentView()
         }
     }
 }

@@ -23,6 +23,7 @@ struct CategoryButton: View {
                         .scaleEffect(0.8)
                     Text(category.categories)
                         .font(.footnote)
+                        .foregroundColor(Color.myBlack)
                         .bold()
                 }
             )

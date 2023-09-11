@@ -16,13 +16,13 @@ struct AnnouncementDetailView: View {
             Color.myBackground
                 .ignoresSafeArea(.all)
             
-                ScrollView {
-                    AnnouncementTitleCell()
-                        .padding(EdgeInsets(top: 0, leading: 20, bottom: 10, trailing: 20))
-                    
-                    AnnouncemnetContentCell()
-                        .padding(EdgeInsets(top: 0, leading: 20, bottom: 0, trailing: 20))
-                }
+            ScrollView {
+                AnnouncementTitleCell()
+                    .padding(EdgeInsets(top: 0, leading: 20, bottom: 10, trailing: 20))
+                
+                AnnouncementContentCell()
+                    .padding(EdgeInsets(top: 0, leading: 20, bottom: 0, trailing: 20))
+            }
             .navigationTitle("공지사항")
             .navigationBarTitleDisplayMode(.inline)
         }
