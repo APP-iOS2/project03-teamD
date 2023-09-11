@@ -12,102 +12,117 @@ struct PlaceListFilterView: View {
     @EnvironmentObject var homeStore: HomeStore
     @Binding var isShowingFilterSheet: Bool
     
-    @State var filteredCity: City = City(name: "고르는중", subCity: SubCity(name: [""]))
+    @State var filteredCity: City = City(name: "이거어캐없앨까", subCity: SubCity(name: [""]))
     /// 서울특별시 등 (나중에 해야함)
     @State var selectCity: String = ""
-    @Binding var selectSub: [String]
-    @Binding var category: String
     
     
     var body: some View {
-        VStack {
-            HStack {
-                ScrollView(.horizontal, showsIndicators: false) {
-                    HStack {
-                        ForEach(selectSub, id: \.self) { sub in
-                            RoundedRectangle(cornerRadius: 15)
-                                .frame(width: HomeNameSpace.screenHeight * 0.15, height: HomeNameSpace.screenHeight * 0.07)
-                                .foregroundColor(.myBackground)
-                                .overlay {
-                                    Text("\(sub)")
-                                    
-                                }
-                        }
-                    }// HSTACK
-                }// SCROLLVIEW
-                .frame(height: HomeNameSpace.screenHeight * 0.1)
-                
-                Button {
-                    homeStore.filteredPlaceList(category: category, cities: selectSub)
-                    isShowingFilterSheet = false
-                } label: {
-                    Text("찾기")
+        
+            VStack {
+                HStack {
+                    Button {
+                        isShowingFilterSheet = false
+                    } label: {
+                        Text("취소")
+                            .font(.body1Bold)
+                            .foregroundColor(.myPrimary)
+                    }
+                    Spacer()
+                    Button {
+                        isShowingFilterSheet = false
+                    } label: {
+                        Text("찾기")
+                            .font(.body1Bold)
+                            .foregroundColor(.myPrimary)
+                    }
+                }// HSTACK
+                .padding(.horizontal, 20)
+                .padding(.top, 20)
+                if !homeStore.selectSub.isEmpty {
+                    ScrollView(.horizontal, showsIndicators: false) {
+                        HStack {
+                            ForEach(homeStore.selectSub, id: \.self) { sub in
+                                RoundedRectangle(cornerRadius: 13)
+                                    .frame(width: HomeNameSpace.screenHeight * 0.15, height: HomeNameSpace.screenHeight * 0.07)
+                                    .foregroundColor(.myWhite)
+                                    .shadow(radius: 2, y: 1)
+                                    .overlay {
+                                        Text("\(sub)")
+                                            .foregroundColor(.myDarkGray)
+                                            .font(.captionRegular)
+                                    }
+                            }
+                        }// HSTACK
+                        .padding()
+                    }// SCROLLVIEW
+                    .frame(height: HomeNameSpace.screenHeight * 0.1)
                 }
-            }// HSTACK
-            .padding(.horizontal, 10)
-            .padding(.vertical, 10)
-            
-            HStack {
-               
+                HStack {
                     List {
                         ForEach(homeStore.cities) { city in
                             Button {
                                 filteredCity = city
                                 selectCity = city.name
-                                selectSub.removeAll()
+                                homeStore.selectSub.removeAll()
                             } label: {
                                 Text("\(city.name)")
 
                                     .foregroundColor(city.name == selectCity ? . myBlack : .myDarkGray)
 
                                     .font(city.name == selectCity ? .body1Bold : .body1Regular)
-                                    
-                            }.listRowBackground(Color.myBackground)
-                               
+                                
+                            }
+                            .listRowBackground(Color.myBackground)
                         }
                     }
                     .listStyle(.plain)
-                    
-                PlaceListSubFilterView(selectedCity: $filteredCity, selectSub: $selectSub)
-            }// HSTACK
-            
-        }// VSTACK
-        .presentationDetents(
-            [.large,.large])
-        .presentationDragIndicator(
+                    .scrollIndicators(.hidden)
+                    PlaceListSubFilterView(selectedCity: $filteredCity)
+                }// HSTACK
+                
+               
+            }// VSTACK
+            .presentationDetents(
+                [.medium,.medium])
+            .presentationDragIndicator(
             .visible)
+            // 크게 작게
+        //
     }
 }
 struct PlaceListSubFilterView: View {
     
     @EnvironmentObject var homeStore: HomeStore
     @Binding var selectedCity: City
-    @Binding var selectSub: [String]
     @State var isPressed: Bool = false
     
     var body: some View {
         List {
             ForEach(selectedCity.subCity.name, id: \.self) { sub in
                 Button {
-                    if !selectSub.contains(sub){
-                        selectSub.append(sub)
+                    if !homeStore.selectSub.contains(sub){
+                        homeStore.selectSub.append(sub)
+                        print("\(homeStore.selectSub)")
                     }
                 } label: {
                     Text("\(sub)")
-                        .foregroundColor(selectSub.contains(sub) ? .black : .myLightGray)
-                        .font(selectSub.contains(sub) ? .body1Bold : .body1Regular)
+
+                        .foregroundColor(homeStore.selectSub.contains(sub) ? .myBlack : .myLightGray)
+                        .font(homeStore.selectSub.contains(sub) ? .body1Bold : .body1Regular)
                 }
+                .listRowBackground(Color.myWhite)
             }
         }
         .listStyle(.plain)
         .listRowSeparator(.hidden)
-        
+        .scrollIndicators(.hidden)
     }
 }
 
 struct PlaceListFilterView_Previews: PreviewProvider {
     static var previews: some View {
-        PlaceListFilterView(isShowingFilterSheet: .constant(true), selectSub: .constant([""]), category: .constant("공유주방"))
+        PlaceListFilterView(isShowingFilterSheet: .constant(true))
             .environmentObject(HomeStore())
     }
 }

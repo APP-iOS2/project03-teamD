@@ -19,7 +19,7 @@ struct HomeCategoryView: View {
                 GridRow {
                     ForEach(homeStore.categories) { category in
                         NavigationLink {
-                                PlaceListView(category: category.category.rawValue)
+                                PlaceListView()
                                     .environmentObject(homeStore)
                             // 질문 !
                         } label: {
@@ -38,6 +38,9 @@ struct HomeCategoryView: View {
                                     .lineLimit(1)
                             }// VSTACK
                         }// NAVIGATIONLINK
+                        .simultaneousGesture(TapGesture().onEnded({
+                            homeStore.selectedCategory = category.category
+                        }))
                     }
                 }// GRIDROW
             }// GRID
