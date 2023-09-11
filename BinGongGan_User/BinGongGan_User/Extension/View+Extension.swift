@@ -15,10 +15,6 @@ extension View {
         UIApplication.shared.sendAction(#selector(UIResponder.resignFirstResponder), to: nil, from: nil, for: nil)
     }
     
-    func toast(isShowing: Binding<Bool>, message: String) -> some View {
-        self.modifier(ToastMessageModifier(isShowing: isShowing, message: message))
-    }
-    
     func customSection(_ text: String) -> some View {
         VStack(alignment: .leading) {
             Text(text)

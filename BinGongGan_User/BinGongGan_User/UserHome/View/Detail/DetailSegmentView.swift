@@ -7,21 +7,18 @@
 
 import SwiftUI
 
-struct SegmentInfoView: View {
+struct DetailSegmentView: View {
     @State var gongGan: GongGan
+    @Binding var isReservationActive: Int?
     private let screenWidth = UIScreen.main.bounds.width
     private let screenheight = UIScreen.main.bounds.height
     
     var body: some View {
         NavigationStack {
             Group {
-                SubGongGanSelectView(gongGan: gongGan)
+                SubGongGanSelectView(gongGan: gongGan, isReservationActive: $isReservationActive)
             }
-            .frame(width: screenWidth * 0.95)
             
-            //                Rectangle()
-            //                    .fill(Color.myLightGray)
-            //                    .frame(height: 5)
             
             VStack(spacing: 20) {
                 
@@ -63,6 +60,6 @@ struct SegmentInfoView: View {
 
 struct SegmentInfoView_Previews: PreviewProvider {
     static var previews: some View {
-        SegmentInfoView(gongGan: GongGan.sampleGongGan)
+        DetailSegmentView(gongGan: GongGan.sampleGongGan, isReservationActive: .constant(nil))
     }
 }

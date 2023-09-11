@@ -14,6 +14,9 @@ struct GongGanDetailView: View {
     @State private var heartButton: Bool = false
     @State private var isActionSheetPresented = false
     @State private var tabBarVisivility: Visibility = .visible
+    @State private var isReservationActive: Int? = nil
+    @State private var isShowingReservationView = false
+    @State private var isShowingReservationAlert = false
     private let screenWidth = UIScreen.main.bounds.width
     private let screenheight = UIScreen.main.bounds.height
     
@@ -40,45 +43,7 @@ struct GongGanDetailView: View {
                     DetailTabImageView(imageUrl: gongGan.placeImageUrl)
                         .frame(height: screenheight * 0.25)
                     
-                    Group {
-                        VStack(alignment: .leading, spacing: 10) {
-                            Text(gongGan.placeName)
-                                .font(.title2)
-                            Text(gongGan.placeLocation)
-                                .foregroundColor(Color.myDarkGray)
-                        }
-                    }
-                    .padding(EdgeInsets(top: 10, leading: 10, bottom: 0, trailing: 10))
                     
-                    
-                    
-                    Divider()
-                        .frame(width: screenWidth * 0.95)
-                    
-                    Group {
-                        HStack {
-                            Spacer()
-                            RoundedRectangle(cornerRadius: 10)
-                                .fill(Color.myLightGray)
-                                .opacity(0.5)
-                                .frame(width: screenWidth * 0.95, height: 50)
-                                .overlay(
-                                    RoundedRectangle(cornerRadius: 10)
-                                        .stroke(Color.clear, lineWidth: 1)
-                                        .overlay(
-                                            Label("본 매장은 결제 후 승인시 확정 됩니다.", systemImage: "info.circle")
-                                                .font(.subheadline)
-                                                .foregroundColor(.myMediumGray)
-                                        )
-                                )
-                            Spacer()
-                        }
-                    }
-                    .padding(.vertical, 10)
-                    
-                    Rectangle()
-                        .fill(Color.myLightGray)
-                        .frame(height: 5)
                     Group { // 세그먼트
                         VStack {
                             HStack {
@@ -113,10 +78,11 @@ struct GongGanDetailView: View {
                             
                             switch selectedSegment {
                             case .info:
-                                SegmentInfoView(gongGan: gongGan)
+                                DetailSegmentView(gongGan: gongGan,isReservationActive: $isReservationActive)
                             case .review:
                                 //                                DetailReviewRowView(text: "맛있어요")
-                                Text("리뷰 뷰")
+                                DetailSegmentReviewListView()
+                                    .padding()
                             }
                         }
                     }
@@ -128,24 +94,28 @@ struct GongGanDetailView: View {
                         Button {
                             isActionSheetPresented = true
                         } label: {
-                            Label("전화", systemImage: "phone.fill")
+                            Label("전화 문의", systemImage: "phone.fill")
                                 .frame(width: viewFrame.haltWidth)
                                 .foregroundColor(.white)
                         }
+                        
                         Rectangle()
                             .foregroundColor(.gray)
                             .frame(width: 1)
                             .padding(.vertical, 5)
-                        NavigationLink {
-                            ReservationView(tabBarVisivility: $tabBarVisivility)
-                                .toolbar(tabBarVisivility, for: .tabBar)
-                                .navigationBarBackButtonHidden()
-                            
+                        Button {
+                            if isReservationActive != nil {
+                                isShowingReservationView.toggle()
+                            } else {
+                                isShowingReservationAlert.toggle()
+                            }
                         } label: {
                             Text("예약 신청")
                                 .frame(width: viewFrame.haltWidth)
                                 .foregroundColor(.yellow)
                         }
+                        
+                        
                     }
                     .frame(height: 50)
                     .font(.body1Regular)
@@ -156,6 +126,14 @@ struct GongGanDetailView: View {
             
             .navigationTitle("BinGongGan")
             .navigationBarTitleDisplayMode(.inline)
+            
+            .alert(isPresented: $isShowingReservationAlert) {
+                Alert(
+                    title: Text("예약 신청"),
+                    message: Text("세부 공간을 선택해 주세요."),
+                    dismissButton: .default(Text("돌아가기"))
+                )
+            }
             .actionSheet(isPresented: $isActionSheetPresented) {
                 ActionSheet(
                     title: Text("전화 문의"),
@@ -180,6 +158,13 @@ struct GongGanDetailView: View {
                     }
                 }
             }
+            .navigationDestination(isPresented: $isShowingReservationView) {
+                
+                    ReservationView(tabBarVisivility: $tabBarVisivility)
+                        .environmentObject(reservationStore)
+                        .toolbar(tabBarVisivility, for: .tabBar)
+                        .navigationBarBackButtonHidden()
+            }
         }
     }
     
@@ -191,21 +176,6 @@ struct GongGanDetailView_Previews: PreviewProvider {
             GongGanDetailView(gongGan: GongGan.sampleGongGan)
                 .tabItem {
                     Label("홈", systemImage: "house")
-                }
-            //            GongGanDetailView()
-                .environmentObject(GongGanStore())
-                .tabItem {
-                    Label("내 주변", systemImage: "location.circle")
-                }
-            //            GongGanDetailView()
-                .environmentObject(GongGanStore())
-                .tabItem {
-                    Label("찜", systemImage: "heart")
-                }
-            //            GongGanDetailView()
-                .environmentObject(GongGanStore())
-                .tabItem {
-                    Label("마이페이지", systemImage: "book")
                 }
         }
         .tint(.myPrimary)
