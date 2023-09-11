@@ -7,10 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0CDDF1C82AAB001E00834AA9 /* MyInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CDDF1C72AAB001E00834AA9 /* MyInfoView.swift */; };
+		0CDDF1CA2AAB140900834AA9 /* MyInfoEditView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CDDF1C92AAB140900834AA9 /* MyInfoEditView.swift */; };
 		2F36A56B2AA81EEC00578AEB /* ReviewWithCommentCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F36A56A2AA81EEC00578AEB /* ReviewWithCommentCell.swift */; };
 		2F36A56D2AA83E2100578AEB /* ReviewReportSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F36A56C2AA83E2100578AEB /* ReviewReportSheet.swift */; };
 		2F36A5722AA83E9200578AEB /* ReportCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F36A5712AA83E9200578AEB /* ReportCase.swift */; };
-		2FAF0AC02AA8A90E00113F94 /* MyInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FAF0ABF2AA8A90E00113F94 /* MyInfoView.swift */; };
 		2FAF0AC22AA8A9B500113F94 /* CarouselCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FAF0AC12AA8A9B500113F94 /* CarouselCell.swift */; };
 		2FD53AE92AA952D300183687 /* EventView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FD53AE82AA952D300183687 /* EventView.swift */; };
 		2FECE3C62AADECFA00F04CFC /* ReportStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FECE3C52AADECFA00F04CFC /* ReportStore.swift */; };
@@ -90,10 +91,11 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0CDDF1C72AAB001E00834AA9 /* MyInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyInfoView.swift; sourceTree = "<group>"; };
+		0CDDF1C92AAB140900834AA9 /* MyInfoEditView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyInfoEditView.swift; sourceTree = "<group>"; };
 		2F36A56A2AA81EEC00578AEB /* ReviewWithCommentCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewWithCommentCell.swift; sourceTree = "<group>"; };
 		2F36A56C2AA83E2100578AEB /* ReviewReportSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewReportSheet.swift; sourceTree = "<group>"; };
 		2F36A5712AA83E9200578AEB /* ReportCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportCase.swift; sourceTree = "<group>"; };
-		2FAF0ABF2AA8A90E00113F94 /* MyInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = MyInfoView.swift; path = Review/MyInfoView.swift; sourceTree = "<group>"; };
 		2FAF0AC12AA8A9B500113F94 /* CarouselCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarouselCell.swift; sourceTree = "<group>"; };
 		2FD53AE82AA952D300183687 /* EventView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventView.swift; sourceTree = "<group>"; };
 		2FECE3C52AADECFA00F04CFC /* ReportStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportStore.swift; sourceTree = "<group>"; };
@@ -415,8 +417,9 @@
 				2FAB80552AA7FF960091D8CC /* PlaceAdd */,
 				2FAB805F2AA7FFF30091D8CC /* Review */,
 				2FD53AE72AA952B700183687 /* Event */,
-				2FAF0ABF2AA8A90E00113F94 /* MyInfoView.swift */,
 				B10A042D2AA9014A00ACF757 /* MyPlaceManagementView.swift */,
+				0CDDF1C72AAB001E00834AA9 /* MyInfoView.swift */,
+				0CDDF1C92AAB140900834AA9 /* MyInfoEditView.swift */,
 				B12A84722AA6EFE900BDF8CA /* Assets.xcassets */,
 				B1343A6D2AA901E900DC20EE /* Preview Content */,
 			);
@@ -631,9 +634,9 @@
 				B13464EE2AA90DCA00098E9B /* ReviewCell.swift in Sources */,
 				B13464EC2AA90DAD00098E9B /* MySpaceCell.swift in Sources */,
 				2FAF0AC22AA8A9B500113F94 /* CarouselCell.swift in Sources */,
-				2FAF0AC02AA8A90E00113F94 /* MyInfoView.swift in Sources */,
 				B10A042E2AA9014B00ACF757 /* MyPlaceManagementView.swift in Sources */,
 				6A3B44422AA83099008CC944 /* ReservationDetailsView.swift in Sources */,
+				0CDDF1CA2AAB140900834AA9 /* MyInfoEditView.swift in Sources */,
 				6A3B44402AA83081008CC944 /* RervationDetailsStore.swift in Sources */,
 				B13464F42AA90E6200098E9B /* HomeView.swift in Sources */,
 				545AA9C02AA8380000A281D0 /* PlaceModel.swift in Sources */,
@@ -643,6 +646,8 @@
 				54D4677C2AA8AA6200054F12 /* ChartModel.swift in Sources */,
 				4BC0BD722AA860AC00B792B8 /* AnnouncementTextRow.swift in Sources */,
 				6A3B443C2AA83058008CC944 /* ReservationTapType.swift in Sources */,
+				B13464FA2AA90ED400098E9B /* ReservationListModalView.swift in Sources */,
+				0CDDF1C82AAB001E00834AA9 /* MyInfoView.swift in Sources */,
 				B13464FA2AA90ED400098E9B /* ReservationDetailSheet.swift in Sources */,
 				2F36A56B2AA81EEC00578AEB /* ReviewWithCommentCell.swift in Sources */,
 				4BC0BD742AA860B900B792B8 /* AnnouncementDetailView.swift in Sources */,
