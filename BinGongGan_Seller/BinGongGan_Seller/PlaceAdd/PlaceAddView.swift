@@ -3,24 +3,29 @@
 //
 //  Created by 신희권 on 2023/09/05.
 //
-/* TODO: -
- 카테고리 피커 []
- 주소 검색 완성 []
- 맵뷰 핀 찍기 []
- 사진 등록 뷰 []
- 전달 정보 메시지 전송[]
- */
+
 import SwiftUI
 import MapKit
 import BinGongGanCore
+import FirebaseFirestore
 
+//여기 뷰가 너무 너무너눔넘누너눈너눔 길어여..
 struct PlaceAddView: View {
-    @State private var selectedPlace: PlaceCategory = .쉐어오피스
-    @State private var placeNameText: String = ""
-    @State private var informationToPassText: String = ""
-    @State private var placePriceText: String = ""
-    @State private var placeAdress: String = ""
+    @EnvironmentObject var placeStore: PlaceStore
+    //희권님 혹시 여기 많은 @State 값들이 모델안에 있는 아이들이라면 이렇게 하는 거 보다 스토어에 넣어주는 것이 좋을 거 같다는 생각이 듭니다만 ..?
+    @State private var selectedPlace: PlaceCategory = .Share
     @State private var placeInfomations = PlaceInfomationModel.data
+    @State private var address: Address?
+    @State private var coordinates = CLLocationCoordinate2D(latitude: 0, longitude: 0)
+    @State private var placeNameText: String = ""
+    @State private var selectedImage: [UIImage] = []
+    @State private var selectedImageNames: [String] = []
+    @State private var noteText: String = ""
+    @State private var placeNotes: [String] = []
+    @State private var isShwoingSearchSheet: Bool = false
+    @State private var placeNoteText: String = ""
+    @State private var isShowingToast:Bool = false
+    @State private var toastMessage: String = ""
     private let columns: [GridItem] = Array(repeating: .init(.flexible()), count: 4)
     private var placeInfomationString: [String] {
         placeInfomations.filter {
@@ -31,75 +36,167 @@ struct PlaceAddView: View {
     }
     
     var body: some View {
-        Form {
-            Section {
-                Text("공간 이름")
-                TextField("공간 이름을 입력하세요", text: $placeNameText)
-                    .textFieldStyle(TextFieldStyles())
-            }
-            
-            Section{
-                Text("공간 카테고리")
-                Picker("Place", selection: $selectedPlace) {
-                    ForEach(PlaceCategory.allCases) { category in
-                        Text(category.rawValue)
+        ZStack {
+            Color.myBackground
+                .ignoresSafeArea()
+            ScrollView {
+                VStack(alignment: .leading) {
+                    Group {
+                        Text("공간 이름")
+                            .font(.body1Bold)
+                        CustomTextField(maxLength: 20, placeholder: "공간 이름을 입력하세요", text: $placeNameText)
                     }
-                }
-                .pickerStyle(.segmented)
-            }
-            .listRowSeparator(.hidden)
-            
-            Section {
-                Text("공간 주소")
-                PlaceMapView(address: placeNameText)
-            }
-            .listRowSeparator(.hidden)
-            
-            Section {
-                Text("공간 대여 가격")
-                TextField("공간 이름을 입력하세요", text: $placePriceText)
-                    .textFieldStyle(TextFieldStyles())
-            }
-            
-            Section {
-                Text("공간 사진 등록")
-                PhotoSelectedView()
-            }
-            
-            Section {
-                Text("공간 정보 선택")
-                LazyVGrid(columns: columns, spacing: 8) {
-                    ForEach($placeInfomations) { $infomation in
-                        PlaceInfomationButtonView(infomation: $infomation)
-                    }
-                }
-                .padding()
-                .background(Color.myLightGray)
-                .cornerRadius(15)
-                .frame(maxHeight: .infinity)
-            }
-            
-            Section {
-                Text("예약 확정시 전달할 정보")
-                TextEditor(text: $informationToPassText)
-                    .frame(height: 150)
-                    .background(Color.myLightGray)
-                    .border(Color.myBrown)
-                
-                Button {
-                    //Code
-                } label: {
-                    Text("등록하기")
+                    
+                    Group{
+                        Text("공간 카테고리")
+                            .font(.body1Bold)
+                        Picker("공간 카테고리", selection: $selectedPlace) {
+                            ForEach(PlaceCategory.allCases) { category in
+                                Text(category.rawValue)
+                            }
+                        }
                         .frame(maxWidth: .infinity)
+                        .labelsHidden()
+                        .tint(.black)
+                    }
+                    .padding(.top, 15)
+                    
+                    Group {
+                        Text("공간 주소")
+                            .font(.body1Bold)
+                        Button {
+                            isShwoingSearchSheet = true
+                        } label: {
+                            HStack {
+                                Image(systemName: "magnifyingglass")
+                                Text("주소검색")
+                                    .font(.body1Bold)
+                            }
+                            .padding(5)
+                            .frame(maxWidth: .infinity)
+                            .foregroundColor(.black)
+                            .background(Color.myBackground)
+                            .border(.white, width: 2)
+                            .cornerRadius(5)
+                        }
+                        if !(address == nil) {
+                            VStack(alignment: .leading) {
+                                Text("\(address?.placeName ?? "상호명")")
+                                Text("\(address?.address ?? "주소")")
+                            }
+                            MapView(coordinates: coordinates)
+                                .frame(height: 300)
+                                .cornerRadius(10)
+                        }
+                    }
+                    .padding(.top, 15)
+                    
+                    
+                    Group {
+                        Text("공간 사진 등록")
+                            .font(.body1Bold)
+                        PhotoSelectedView(selectedImages: $selectedImage,selectedImageNames: $selectedImageNames)
+                    }
+                    .padding(.top, 15)
+                    
+                    Group {
+                        Text("공간 정보 선택")
+                            .font(.body1Bold)
+                        LazyVGrid(columns: columns, spacing: 8) {
+                            ForEach($placeInfomations) { $infomation in
+                                PlaceInfomationButtonView(infomation: $infomation)
+                            }
+                        }
                         .padding()
-                        .foregroundColor(.black)
-                        .bold()
-                        .background(Color.myBrown)
+                        .background(Color.white)
                         .cornerRadius(15)
+                        .frame(maxHeight: .infinity)
+                    }
+                    .padding(.top, 15)
+                    
+                    Group {
+                        HStack {
+                            Text("공간 정보")
+                                .font(.body1Bold)
+                            Spacer()
+                            Button {
+                                if !(placeNoteText.isEmpty) {
+                                    withAnimation {
+                                        placeNotes.append(placeNoteText)
+                                        placeNoteText = ""
+                                    }
+                                } else {
+                                    toastMessage = "정보를 입력하세요"
+                                    isShowingToast = true
+                                }
+                            } label: {
+                                Image(systemName: "plus.app")
+                            }
+                        }
+                        TextField("정보를 입력하세요", text: $placeNoteText)
+                            .textFieldStyle(.roundedBorder)
+                        
+                        ForEach(Array(zip(placeNotes,placeNotes.indices)), id:\.1) { note, index in
+                            HStack {
+                                Text(note)
+                                Spacer()
+                                Button {
+                                    withAnimation {
+                                        if note == placeNotes[index] {
+                                            placeNotes.remove(at: index)
+                                        }
+                                    }
+                                } label: {
+                                    Image(systemName: "xmark.circle.fill")
+                                }
+                                .buttonStyle(.plain)
+                            }
+                        }
+                    }
+                    .padding(.top, 15)
+                    
+                    Group {
+                        PrimaryButton(title: "등록하기") {
+                            if let address,
+                               !placeNameText.isEmpty,
+                               !selectedImageNames.isEmpty{
+                                let place = Place(
+                                    sellerId: "판매자",
+                                    placeName: placeNameText,
+                                    placeCategory: selectedPlace,
+                                    placeImageStringList: selectedImageNames,
+                                    note: placeNotes,
+                                    placeInfomationList: placeInfomationString,
+                                    address: address
+                                )
+                                placeStore.addPlace(place: place)
+                                
+                            } else {
+                                toastMessage = "빈칸을 모두 입력해주세요"
+                                isShowingToast = true
+                            }
+                        }
+                    }
+                    .padding(.top, 15)
                 }
+                .padding(20)
+                .toast(isShowing: $isShowingToast, message: toastMessage)
+                .sheet(isPresented: $isShwoingSearchSheet, onDismiss: {
+                    if let address {
+                        coordinates =  CLLocationCoordinate2D(latitude: address.latitudeDouble, longitude: address.longitudeDouble)
+                    }
+                }, content: {
+                    NavigationStack {
+                        AddressSearchView(isShwoingSearchSheet: $isShwoingSearchSheet) { newAdress in
+                            address = newAdress
+                        }
+                    }
+                })
             }
-        }//Form
-        .navigationTitle("내 공간 등록")
+        }
+        .edgesIgnoringSafeArea(.all)
+        .customBackbutton()
+        .padding(10)
     }
 }
 
@@ -107,22 +204,7 @@ struct PlaceAddView_Previews: PreviewProvider {
     static var previews: some View {
         NavigationStack {
             PlaceAddView()
-        }
-    }
-}
-
-struct TextFieldStyles: TextFieldStyle {
-    func _body(configuration: TextField<Self._Label>) -> some View {
-        ZStack {
-            Rectangle()
-                .foregroundColor(Color.myLightGray)
-                .cornerRadius(12)
-                .frame(height: 46)
-            // 텍스트필드
-            configuration
-                .font(.system(size: 13))
-                .foregroundColor(.black)
-                .padding()
+                .environmentObject(PlaceStore())
         }
     }
 }

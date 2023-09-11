@@ -10,7 +10,7 @@ import BinGongGanCore
 
 struct ReservationDetailsView: View {
     @Environment(\.dismiss) private var dismiss
-
+    
     @State private var selectedPicker: ReservationTapType = .list
     @Namespace private var animation
     
@@ -23,16 +23,7 @@ struct ReservationDetailsView: View {
         .scrollContentBackground(.hidden)
         .background(Color.myBackground)
         .navigationBarTitleDisplayMode(.inline)
-        .toolbar {
-            ToolbarItem(placement:.navigationBarLeading) {
-                Button {
-                    dismiss()
-                } label: {
-                    Image(systemName: "chevron.left")
-                        .foregroundColor(.myBrown)
-                }
-            }
-        }
+        .customBackbutton()
     }
     
     @ViewBuilder
@@ -44,7 +35,7 @@ struct ReservationDetailsView: View {
                         .font(.body)
                         .frame(maxWidth: .infinity/2, minHeight: 10)
                         .foregroundColor(selectedPicker == item ? .black : .gray)
-
+                    
                     if selectedPicker == item {
                         Capsule()
                             .foregroundColor(.black)

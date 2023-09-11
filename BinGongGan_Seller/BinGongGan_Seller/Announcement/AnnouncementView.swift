@@ -10,29 +10,22 @@ import BinGongGanCore
 struct AnnouncementView: View {
     
     @Environment(\.dismiss) private var dismiss
-    @State var isPresentedAddView: Bool = false
     
     var body: some View {
         VStack{
             HStack {
                 Text("공지 관리")
-                    .font(.title)
+                    .font(.title2)
                     .bold()
                     .foregroundColor(Color.myBrown)
                     .padding(.leading, 20)
                 Spacer()
-                Button {
-                    isPresentedAddView.toggle()
+                NavigationLink {
+                    AnnouncementAddView()
                 } label: {
                     Image(systemName: "plus")
                         .foregroundColor(Color.myBrown)
                         .padding(.trailing, 20)
-                }
-                .buttonStyle(.plain)
-                .sheet(isPresented: $isPresentedAddView) {
-                    AnnouncementAddView()
-                        .presentationDetents([.large])
-                        .cornerRadius(15)
                 }
             }
             Form {
