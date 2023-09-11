@@ -1,12 +1,13 @@
 import SwiftUI
 import UIKit
+import BinGongGanCore
 
 // MARK: - 수정중
 struct PhotoSelectedView: View {
     @Binding var selectedImages: [UIImage]
     @Binding  var selectedImageNames: [String]
     @State private var isImagePickerPresented = false
- 
+    
     var body: some View {
         VStack {
             ScrollView(.horizontal, showsIndicators: false) {
@@ -15,22 +16,29 @@ struct PhotoSelectedView: View {
                         Button {
                             isImagePickerPresented.toggle()
                         } label: {
-                            ZStack {
-                                Rectangle()
-                                    .fill(.gray)
-                                    .frame(width: 100, height: 100)
-                                Image(systemName: "plus")
-                                    .resizable()
-                                    .frame(width: 30, height: 30)
-                                    .foregroundColor(.black)
-                            }
+                            Image(systemName: "camera")
+                                .resizable()
+                                .frame(width: 15, height: 15)
+                                .foregroundColor(.black)
+                                .padding(25)
+                                .overlay {
+                                    RoundedRectangle(cornerRadius: 10)
+                                        .stroke(Color.myLightGray, lineWidth: 1)
+                                }
+                            
                         }
+                        
                     }
                     ForEach(selectedImages, id: \.self) { image in
                         Image(uiImage: image)
                             .resizable()
-                            .aspectRatio(contentMode: .fit)
-                            .frame(width: 100, height: 100)
+                            .cornerRadius(10)
+                            .frame(width: 70, height: 70)
+                            .padding(.leading, 5)
+                            .aspectRatio(contentMode: .fill)
+                            .onTapGesture {
+                                
+                            }
                     }
                 }
             }
@@ -69,8 +77,10 @@ struct MultiPhotoPickerView: UIViewControllerRepresentable {
         }
         
         func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey: Any]) {
-            if let seletedImageName = info[.imageURL] as? String {
-                parent.selectedImageNames.append(seletedImageName)
+            if let imageURL = info[.imageURL] as? URL
+            {
+                let selectedImageNames = imageURL.lastPathComponent
+                parent.selectedImageNames.append(selectedImageNames)
             }
             if let selectedImage = info[.originalImage] as? UIImage {
                 parent.selectedImages.append(selectedImage)

@@ -11,41 +11,54 @@ import BinGongGanCore
 struct AddressSearchView: View {
     @State private var searchText:String = ""
     
-
+    
     @Binding var isShwoingSearchSheet:Bool
     @State private var searchResults: [Address] = []
     var addressClosure: (Address) -> ()
     
     var body: some View {
         NavigationStack {
-            TextField("주소를 검색하세요", text: $searchText, onCommit: {
-                // 검색 버튼을 누를 때 네트워크 요청을 수행합니다.
-                searchAddress()
-            })
-            .onChange(of: searchText) { _ in
-                // 사용자 입력이 변경될 때마다 주소 제안 리스트 업데이트
-                searchAddress()
-            }
             
-            .textFieldStyle(RoundedBorderTextFieldStyle())
-            .padding()
-            
-            List(searchResults, id: \.address) { result in
-                Button {
-                    searchText = result.address
-                    addressClosure(result)
-                    isShwoingSearchSheet = false
+            ZStack {
+                Color.myBackground
+                    .ignoresSafeArea()
+                List {
+                    CustomTextField(placeholder: "주소를 검색하세요", text: $searchText)
+                        .onChange(of: searchText) { _ in
+                            searchAddress()
+                        }
+                        .listRowSeparator(.hidden)
                     
-                } label: {
-                    Text("\(result.placeName)  \(result.address)")
-                        .font(.body1Bold)
-                        .foregroundColor(.black)
+                    ForEach(searchResults, id: \.address) { result in
+                        Button {
+                            searchText = result.address
+                            addressClosure(result)
+                            isShwoingSearchSheet = false
+                            
+                        } label: {
+                            Text("\(result.placeName)  \(result.address)")
+                                .font(.body1Bold)
+                                .foregroundColor(.black)
+                        }
+                        .listRowSeparator(.hidden)
+                    }
+                    
                 }
-                
-            }
+                .toolbar {
+                    ToolbarItem(placement: .navigationBarLeading) {
+                        Button {
+                            isShwoingSearchSheet = false
+                        } label: {
+                            Text("닫기")
+                        }
+
+                    }
+                }
+                .listStyle(.plain)
             .navigationTitle("주소 검색")
+            }
         }
-       
+        
     }
     
     func searchAddress() {
@@ -78,10 +91,10 @@ struct AddressSearchView: View {
 
 struct AddressSearchView_Previews: PreviewProvider {
     static var previews: some View {
-      
-            AddressSearchView(isShwoingSearchSheet: .constant(false)) { Address in
-                
-    
+        
+        AddressSearchView(isShwoingSearchSheet: .constant(false)) { Address in
+            
+            
         }
     }
 }

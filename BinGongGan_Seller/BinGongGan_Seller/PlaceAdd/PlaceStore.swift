@@ -11,6 +11,7 @@ import FirebaseFirestore
 
 class PlaceStore: ObservableObject {
     @Published var placeList: [Place] = []
+    
     let dataBase = Firestore.firestore().collection("Place")
     
     func addPlace(place: Place) {
