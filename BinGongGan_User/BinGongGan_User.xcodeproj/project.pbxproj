@@ -22,6 +22,7 @@
 		53254A232AAE2F18002E7542 /* AddPhotoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53254A222AAE2F18002E7542 /* AddPhotoView.swift */; };
 		5398C2132AA8D9A0000BD361 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5398C2122AA8D9A0000BD361 /* ContentView.swift */; };
 		53AC17792AAFDD2B0004D3E9 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 53AC17782AAFDD2B0004D3E9 /* GoogleService-Info.plist */; };
+		53AC17752AAEF6E10004D3E9 /* EnquiryFormView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53AC17742AAEF6E10004D3E9 /* EnquiryFormView.swift */; };
 		692725592AA81E5300A2441E /* RefundPolicySheetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 692725582AA81E5300A2441E /* RefundPolicySheetView.swift */; };
 		6927255B2AA83ABD00A2441E /* ReservationPlusMinusButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6927255A2AA83ABD00A2441E /* ReservationPlusMinusButton.swift */; };
 		6927255D2AA85A0600A2441E /* PaymentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6927255C2AA85A0600A2441E /* PaymentView.swift */; };
@@ -142,6 +143,7 @@
 		53254A222AAE2F18002E7542 /* AddPhotoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddPhotoView.swift; sourceTree = "<group>"; };
 		5398C2122AA8D9A0000BD361 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		53AC17782AAFDD2B0004D3E9 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		53AC17742AAEF6E10004D3E9 /* EnquiryFormView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnquiryFormView.swift; sourceTree = "<group>"; };
 		692725582AA81E5300A2441E /* RefundPolicySheetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RefundPolicySheetView.swift; sourceTree = "<group>"; };
 		6927255A2AA83ABD00A2441E /* ReservationPlusMinusButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReservationPlusMinusButton.swift; sourceTree = "<group>"; };
 		6927255C2AA85A0600A2441E /* PaymentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentView.swift; sourceTree = "<group>"; };
@@ -619,6 +621,7 @@
 				D84824852AA8A3700067A065 /* FAQCategoryItemView.swift */,
 				D84824862AA8A3700067A065 /* EnquiryView.swift */,
 				D84824872AA8A3700067A065 /* FAQView.swift */,
+				53AC17742AAEF6E10004D3E9 /* EnquiryFormView.swift */,
 			);
 			path = CustomerService;
 			sourceTree = "<group>";
@@ -844,6 +847,7 @@
 				3A392E902AAEB25A00D82221 /* SignUpModel.swift in Sources */,
 				BCE658552AA8AD420009ECD1 /* LocationManager.swift in Sources */,
 				D848249A2AA8A3700067A065 /* EnquiryView.swift in Sources */,
+				53AC17752AAEF6E10004D3E9 /* EnquiryFormView.swift in Sources */,
 				BC344F032AA808FC00F8CEB3 /* MDPContentView.swift in Sources */,
 				BCE658532AA8AD420009ECD1 /* SummaryPlaceView.swift in Sources */,
 				BC344EEE2AA808DB00F8CEB3 /* ReservationCalendarView.swift in Sources */,
