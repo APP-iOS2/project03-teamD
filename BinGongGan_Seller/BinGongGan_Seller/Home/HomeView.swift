@@ -17,9 +17,18 @@ struct HomeView: View {
                 .ignoresSafeArea(.all)
             NavigationStack {
                 ScrollView {
+                    HStack{
+                        Text("전체 메뉴")
+                            .font(.title2)
+                            .bold()
+                            .padding([.top, .leading], 20)
+                            .foregroundColor(Color.myDarkGray)
+                        Spacer()
+                    }
                     CategoryButtonsView()
                         .frame(maxWidth: .infinity, maxHeight: .infinity)
-                        .padding(10)
+                        .padding(.horizontal, 20)
+                        .padding(.bottom, 10)
                     HStack{
                         Text("신규 예약")
                             .font(.title2)
@@ -46,11 +55,11 @@ struct HomeView: View {
                                     .padding(EdgeInsets(top: 20, leading: 0, bottom: 0, trailing: 40))
                                     Spacer()
                                 }
-                                .sheet(isPresented: self.$isPresentedModal) {
-                                    ReservationDetailSheet()
-                                        .presentationDetents([.medium])
-                                        .cornerRadius(15)
-                                }
+                                    .sheet(isPresented: self.$isPresentedModal) {
+                                        ReservationDetailSheet()
+                                            .presentationDetents([.medium])
+                                            .cornerRadius(15)
+                                    }
                             )
                     }
                 }
