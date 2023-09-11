@@ -8,8 +8,9 @@
 import SwiftUI
 
 struct PrimaryButton: View {
-    var action: () -> Void
+
     var title: String
+    var action: () -> Void
     
     var body: some View {
         Button {
@@ -28,8 +29,8 @@ struct PrimaryButton: View {
 
 struct PirmaryButton_Previews: PreviewProvider {
     static var previews: some View {
-        PrimaryButton(action: {
+        PrimaryButton(title: "다음", action: {
             
-        }, title: "다음")
+        })
     }
 }

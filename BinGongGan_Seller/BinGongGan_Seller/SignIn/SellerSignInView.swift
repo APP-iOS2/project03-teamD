@@ -43,9 +43,9 @@ struct SellerSignInView: View {
                 
                 
                 
-                PrimaryButton(action: {
+                PrimaryButton(title: "로그인") {
                     isShowingAlert = signInStore.checkSignIn(email: emailText, password: passwordText)
-                }, title: "로그인")
+                }
                 .padding(.horizontal, 20)
                 
                 Spacer()

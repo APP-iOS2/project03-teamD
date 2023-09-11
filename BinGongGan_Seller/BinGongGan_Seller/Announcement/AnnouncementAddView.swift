@@ -14,10 +14,14 @@ struct AnnouncementAddView: View {
     @State private var announcementContent: String = ""
     @State private var isSelectedAllPlace: Bool = false
     @State private var selectedPlace: String = ""
+    @State private var placeNameText: String = ""
+    @State private var informationToPassText: String = ""
+    
     var body: some View {
         ZStack {
             Color.myBackground
                 .ignoresSafeArea(.all)
+            
             ScrollView{
                 HStack{
                     Text("공간 선택")
@@ -27,6 +31,7 @@ struct AnnouncementAddView: View {
                     Spacer()
                 }
                 .padding(.top, 10)
+                
                 HStack{
                     Picker("공간 선택", selection: $selectedPlace) {
                         ForEach(0..<3) { _ in
@@ -36,6 +41,7 @@ struct AnnouncementAddView: View {
                     .accentColor(Color.myPrimary)
                     .padding(.leading, -10)
                     .disabled(isSelectedAllPlace)
+                    
                     Spacer()
                     Button {
                         isSelectedAllPlace.toggle()
@@ -72,9 +78,9 @@ struct AnnouncementAddView: View {
                             .border(Color.myPrimary)
                     }
                 }//Form
-                
                 .padding(.bottom, 10)
                 .foregroundColor(Color.myPrimary)
+                
                 HStack{
                     Text("공지사항 제목")
                         .font(.title3)
@@ -83,7 +89,7 @@ struct AnnouncementAddView: View {
                     Spacer()
                 }
                 TextField("", text: $announcementTitle)
-                    .textFieldStyle(TextFieldStyles())
+//                    .textFieldStyle(TextFieldStyles())
                     .padding(.bottom, 10)
                 HStack{
                     Text("공지사항 입력")
@@ -101,9 +107,11 @@ struct AnnouncementAddView: View {
                     .padding(.bottom, 10)
             }
             .padding(.horizontal, 20)
+            
             VStack{
                 Spacer()
                 Button {
+                    //action
                 } label: {
                     Text("등록하기")
                         .frame(maxWidth: .infinity)
