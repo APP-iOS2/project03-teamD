@@ -9,67 +9,60 @@ import SwiftUI
 import BinGongGanCore
 
 struct SubGongGanSelectView: View {
-    @EnvironmentObject var gongGan: GongGanStore
+    @State var gongGan: GongGan
     private let scrennWidth = UIScreen.main.bounds.width
+    @State var selectedSpaceIndex: Int? = nil
+    
     var body: some View {
-        NavigationStack {
-            
-            gongGan.customSection("세부공간 선택")
+        VStack {
+            customSection("세부공간 선택")
                 .padding(EdgeInsets(top: 5, leading: 5, bottom: 0, trailing: 0))
             
             VStack(alignment: .center) {
-                ForEach($gongGan.gongGanStore.detailGongGan) { $space in
+                ForEach(gongGan.detailGongGan.indices, id: \.self) { index in
+                    let space = gongGan.detailGongGan[index]
                     Button {
-                        if space.isSelected == true {
-                            space.isSelected = false
+                        if selectedSpaceIndex == index {
+                            selectedSpaceIndex = nil
                         } else {
-                            for index in 0..<gongGan.gongGanStore.detailGongGan.count {
-                                gongGan.gongGanStore.detailGongGan[index].isSelected = false
-                            }
-                            space.isSelected.toggle()
+                            selectedSpaceIndex = index
                         }
                     } label: {
-                        VStack(alignment: .leading) {
+                        VStack {
                             HStack(alignment: .center) {
-                                
-                                //                                    Image(systemName: "checkmark")
-                                //                                        .opacity(space.isSelected ? 1 : 2)
-                                //                                    .font(.captionRegular)
-                                //                                        .foregroundColor(space.isSelected ? .white : .black)
-                                
-                                
                                 Text("\(space.title)")
                                     .font(.body1Regular)
-                                    .foregroundColor(space.isSelected ? .white : .myPrimary)
+                                    .foregroundColor(selectedSpaceIndex == index ? .white : .myPrimary)
                                     .frame(width: scrennWidth * 0.85)
                                     .padding(10)
                                     .foregroundColor(.white)
                                     .background(
                                         RoundedRectangle(cornerRadius: 15)
-                                            .foregroundColor(space.isSelected ? .myPrimary : .white)
+                                            .foregroundColor(selectedSpaceIndex == index ? .myPrimary : .white)
                                             .shadow(color: .gray, radius: 1, x: 1, y: 1)
                                     )
                             }
-                            //                            .frame(height: 30)
-                            if space.isSelected {
-                                SubGongGanDetailView()
+                            
+                            if selectedSpaceIndex == index {
+                                SubGongGanDetailView(gongGan: space)
                                     .transition(.offset(.zero))
-                                    .padding(.top ,1)
+                                    .padding(EdgeInsets(top: 1, leading: 0, bottom: 1, trailing: 0))
                             }
                         }
                     }
                     .buttonStyle(.plain)
+                    
                 }
-                
             }
-            .padding(.top, 10)
+            .padding(EdgeInsets(top: 5, leading: 0, bottom: 5, trailing: 0))
         }
+        .background(Color.myBackground)
     }
 }
 
+
 struct SubGongGanSelectView_Previews: PreviewProvider {
     static var previews: some View {
-        SubGongGanSelectView()
-            .environmentObject(GongGanStore())
+        SubGongGanSelectView(gongGan: GongGan.sampleGongGan)
     }
 }

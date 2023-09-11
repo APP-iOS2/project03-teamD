@@ -8,35 +8,48 @@
 import SwiftUI
 import BinGongGanCore
 
+
 struct GongGanDetailView: View {
-    @StateObject var gongGan: GongGanStore = GongGanStore()
+    @State var gongGan: GongGan = GongGan.sampleGongGan
     @State private var heartButton: Bool = false
     @State private var isActionSheetPresented = false
     @State private var tabBarVisivility: Visibility = .visible
     private let screenWidth = UIScreen.main.bounds.width
+    private let screenheight = UIScreen.main.bounds.height
+    
     enum viewFrame {
         static let haltWidth = (UIScreen.main.bounds.width / 2)
         static let buttonHeight = CGFloat(60)
     }
     
+    enum segmentIndex: String , CaseIterable {
+        case info = "상세 정보"
+        case review = "리뷰"
+    }
+    
     @StateObject var reservationStore: ReservationStore = ReservationStore()
+    @State private var selectedSegment: segmentIndex = .info
+    @Namespace var animation
+    
     var body: some View {
         NavigationStack {
             ZStack {
                 Spacer().background(Color.myBackground).edgesIgnoringSafeArea(.all)
                 ScrollView(showsIndicators: false) {
                     
-                    DetailTabImageView()
+                    DetailTabImageView(imageUrl: gongGan.placeImageUrl)
+                        .frame(height: screenheight * 0.25)
                     
                     Group {
                         VStack(alignment: .leading, spacing: 10) {
-                            Text("서울역 공유키친, 파티룸")
+                            Text(gongGan.placeName)
                                 .font(.title2)
-                            Text("서울 송파구 송파대로 28길 13 (가락동, 거북이빌딩)")
+                            Text(gongGan.placeLocation)
                                 .foregroundColor(Color.myDarkGray)
                         }
                     }
                     .padding(EdgeInsets(top: 10, leading: 10, bottom: 0, trailing: 10))
+                    
                     
                     
                     Divider()
@@ -66,46 +79,47 @@ struct GongGanDetailView: View {
                     Rectangle()
                         .fill(Color.myLightGray)
                         .frame(height: 5)
-                    
-                    VStack(spacing: 20) {
-                        Group {
-                            SubGongGanSelectView()
-                                .environmentObject(gongGan)
-                        }
-                        .frame(width: screenWidth * 0.95)
-                        
-                        Group {
-                            VStack(alignment: .leading, spacing: 10) {
-                                gongGan.customSection("건물 정보")
-                                ForEach(gongGan.tempSummary, id: \.self) { summary in
-                                    Text("◦ \(summary)")
-                                        .font(.subheadline)
-                                        .foregroundColor(.myDarkGray)
-                                }
-                                
-                            }
-                        }
-                        .padding(EdgeInsets(top: 5, leading: 5, bottom: 0, trailing: 0))
-                        
-                        Group {
-                            gongGan.customSection("시설 안내")
-                            HStack(spacing: 40) {
-                                ForEach(gongGan.tempLabel) { label in
+                    Group { // 세그먼트
+                        VStack {
+                            HStack {
+                                ForEach(segmentIndex.allCases, id: \.self) { segment in
                                     VStack {
-                                        Image(systemName: label.systemImage)
-                                            .resizable()
-                                            .frame(width: 40,height: 30)
+                                        Text(segment.rawValue)
+                                            .font(.subheadline)
+                                            .fontWeight(selectedSegment == segment ? .bold : .regular)
+                                            .foregroundColor(selectedSegment == segment ? .myPrimary : .black)
                                         
-                                        Text(label.text)
+                                        
+                                        
+                                        if selectedSegment == segment {
+                                            Rectangle()
+                                                .foregroundColor(.myPrimary)
+                                                .frame(maxWidth: screenWidth * 0.45, maxHeight: 2)
+                                                .matchedGeometryEffect(id: "item", in: animation)
+                                        } else {
+                                            Rectangle()
+                                                .foregroundColor(.clear)
+                                                .frame(maxWidth: screenWidth * 0.45, maxHeight: 2)
+                                        }
+                                    }
+                                    .frame(height: 50)
+                                    .onTapGesture {
+                                        withAnimation {
+                                            selectedSegment = segment
+                                        }
                                     }
                                 }
                             }
+                            
+                            switch selectedSegment {
+                            case .info:
+                                SegmentInfoView(gongGan: gongGan)
+                            case .review:
+                                //                                DetailReviewRowView(text: "맛있어요")
+                                Text("리뷰 뷰")
+                            }
                         }
-                        .padding(EdgeInsets(top: 0, leading: 5, bottom: 20, trailing: 0))
-                        
                     }
-                    .padding(.horizontal, 15)
-                    .padding(.bottom, 60)
                 }
                 
                 VStack{
@@ -140,17 +154,14 @@ struct GongGanDetailView: View {
                 }
             }
             
-            
-            
-            
             .navigationTitle("BinGongGan")
             .navigationBarTitleDisplayMode(.inline)
             .actionSheet(isPresented: $isActionSheetPresented) {
                 ActionSheet(
                     title: Text("전화 문의"),
                     buttons: [
-                        .default(Text("전화 010 3939 3838")) {
-                            if let phoneURL = URL(string: "tel://01039393838") {
+                        .default(Text("전화 \(gongGan.placePhone)")) {
+                            if let phoneURL = URL(string: "tel://\(gongGan.placePhone)") {
                                 UIApplication.shared.open(phoneURL, options: [:], completionHandler: nil)
                             }
                         },
@@ -171,24 +182,28 @@ struct GongGanDetailView: View {
             }
         }
     }
+    
 }
 
 struct GongGanDetailView_Previews: PreviewProvider {
     static var previews: some View {
         TabView {
-            GongGanDetailView()
+            GongGanDetailView(gongGan: GongGan.sampleGongGan)
                 .tabItem {
                     Label("홈", systemImage: "house")
                 }
-            GongGanDetailView()
+            //            GongGanDetailView()
+                .environmentObject(GongGanStore())
                 .tabItem {
                     Label("내 주변", systemImage: "location.circle")
                 }
-            GongGanDetailView()
+            //            GongGanDetailView()
+                .environmentObject(GongGanStore())
                 .tabItem {
                     Label("찜", systemImage: "heart")
                 }
-            GongGanDetailView()
+            //            GongGanDetailView()
+                .environmentObject(GongGanStore())
                 .tabItem {
                     Label("마이페이지", systemImage: "book")
                 }
