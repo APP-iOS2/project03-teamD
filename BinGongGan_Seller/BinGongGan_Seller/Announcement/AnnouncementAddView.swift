@@ -10,7 +10,7 @@ import BinGongGanCore
 
 struct AnnouncementAddView: View {
     @Environment(\.dismiss) private var dismiss
-    @State private var selectedPlace: PlaceCategory = .쉐어오피스
+    @State private var selectedPlace: PlaceCategory = .Share
     @State private var placeNameText: String = ""
     @State private var informationToPassText: String = ""
     @State private var placePriceText: String = ""
