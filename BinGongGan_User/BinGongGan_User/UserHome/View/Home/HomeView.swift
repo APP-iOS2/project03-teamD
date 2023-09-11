@@ -68,10 +68,6 @@ struct HomeView: View {
                             .padding([.leading, .trailing], 20)
                             .environmentObject(homeStore)
                        
-                        HomeEventTapView()
-                            .padding([.top, .bottom], 7)
-                            .environmentObject(homeStore)
-                        
                         HStack {
                             Text("인기 플레이스")
                                 .font(.head1Bold)
@@ -95,8 +91,8 @@ struct HomeView: View {
                                 homeStore.settingRecommendPlace()
                             } label: {
                                 Image(systemName: "goforward")
-                                    .font(.body1Bold)
-                                    .foregroundColor(.mySecondary)
+                                    .font(.body1Regular)
+                                    .foregroundColor(.myPrimary)
                             }
                         }
                         .padding([.leading, .trailing], 20)
@@ -105,6 +101,11 @@ struct HomeView: View {
                             HomeListRow(place: place)
                         }
                         .padding(.bottom, 10)
+                        
+                        HomeEventTapView()
+                            .padding([.top, .bottom], 7)
+                            .environmentObject(homeStore)
+                        
                         
                     }// GROUP
                 }// LazyVStack
