@@ -56,7 +56,7 @@ struct PlaceListRow: View {
                 .frame(height: backGroundHeight * 0.32)
                 .padding([.leading, .trailing], 20)
                
-            }
+            }// VSTACK
             .background(
                 RoundedRectangle(cornerRadius: 0)
                     .frame(
@@ -67,14 +67,8 @@ struct PlaceListRow: View {
                     .shadow(radius: 1)
             )
             .overlay(alignment: .trailingFirstTextBaseline) {
-                Button {
-                    place.isFavorite.toggle()
-                } label: {
-                    Image(systemName: place.isFavorite ? "heart.fill" : "heart")
-                        .foregroundColor(.mySecondary)
-                        .font(.system(size: 30))
-                        .padding(20)
-                }
+                HeartButton(place: $place)
+                    .padding(20)
             }
         }
         

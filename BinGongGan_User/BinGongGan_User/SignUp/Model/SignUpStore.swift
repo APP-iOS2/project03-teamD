@@ -6,30 +6,16 @@
 //
 import Foundation
 import SwiftUI
-
-struct SignUpData {
-    var name: String = ""
-    var birthDate: String = ""
-    var phoneNumber: String = ""
-    var emailId: String = ""
-    var password: String = ""
-    var passwordCheck: String = ""
-    var isTermOfUseAgree: Bool = false
-    var isPrivacyAgree: Bool = false
-    var isLocaitonAgree: Bool = false
-    var isAllAgree: Bool = false
-}
-
-enum SignUpStep {
-    case first
-    case second
-    case third
-}
+import Firebase
+import FirebaseFirestore
+import FirebaseFirestoreSwift
 
 final class SignUpStore: ObservableObject {
+    let dbRef = Firestore.firestore()
     @Published var signUpData = SignUpData()
     @State var certificateNumber: String = ""
     @Published var currentStep: SignUpStep = .first
+    @Published var showAlert: Bool = false
     @Published var showToast: Bool = false
     @Published var toastMessage: String = ""
     
@@ -99,13 +85,13 @@ final class SignUpStore: ObservableObject {
             toastMessage = "서비스 이용약관에 동의하여 주세요."
             return false
         }
-        
+
         guard signUpData.isPrivacyAgree else {
             showToast = true
             toastMessage = "개인정보 이용약관에 동의하여 주세요."
             return false
         }
-        
+
         guard signUpData.isLocaitonAgree else {
             showToast = true
             toastMessage = "위치 이용약관에 동의하여 주세요."
@@ -114,4 +100,30 @@ final class SignUpStore: ObservableObject {
         
         return true
     }
+    
+    @MainActor
+    func postSignUp() async -> Bool {
+        guard isAllAgreed() else {
+            return false
+        }
+        do {
+            let authResult = try await AuthStore.createUser(email: signUpData.emailId, password: signUpData.password)
+            let user = signUpData.changeToUserModel(id: authResult.user.uid)
+            try await UserStore.saveUserData(user: user)
+            
+            UserDefaults.standard.setValue(authResult.user.uid, forKey: "UserId")
+            return true
+        } catch {
+            showToast = true
+            if let error = error as? AuthErrorCode {
+                if error.errorCode == 17007 {
+                    toastMessage = "이미 회원가입 되어있습니다."
+                } else {
+                    toastMessage = "회원가입을 할 수 없습니다."
+                }
+            }
+            return false
+        }
+    }
+
 }

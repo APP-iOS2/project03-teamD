@@ -20,20 +20,29 @@ struct SampleSpace {
 }
 
 struct Reservation {
-
-    let reservationDate = Date().timeIntervalSince1970
-
-    let spaceName: String
-    let roomName: String
-    let imageString: String
     
-    let checkInDate = Date().timeIntervalSince1970
-    let checkOutDate = Date().timeIntervalSince1970
-    let hour: Int
-    let personnel: Int
+    var userEmail: String
+    var roomID: String
     
-    let reservationName: String
-    let reservationPhoneNumber: String
-    let reservationRequest: String
+    var reservationID: String
+    
+    var reservationYear: String
+    var reservationMonth: String
+    var reservationDay: String
+    
+    var checkInYear: String
+    var checkInMonth: String
+    var checkInDay: String
+    
+    var checkOutYear: String
+    var checkOutMonth: String
+    var checkOutDay: String
+    
+    var hour: Int
+    var personnel: Int
+    
+    var reservationName: String
+    var reservationPhoneNumber: String
+    var reservationRequest: String
     
 }

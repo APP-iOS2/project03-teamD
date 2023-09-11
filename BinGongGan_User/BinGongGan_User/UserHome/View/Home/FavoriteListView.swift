@@ -50,7 +50,7 @@ struct FavoriteListView: View {
                         .cornerRadius(8, corners: .bottomRight)
                     }// ZSTACK
                 }
-            }
+            }.padding(.horizontal, 5)
         }// TABVIEW
         .tabViewStyle(PageTabViewStyle())
         .frame( height: HomeNameSpace.screenWidth * 0.5)
