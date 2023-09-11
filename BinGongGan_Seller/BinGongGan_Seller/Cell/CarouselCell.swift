@@ -8,16 +8,19 @@
 import SwiftUI
 
 struct CarouselCell: View {
+    var urlStrings: [String] = [
+        "https://t2.daumcdn.net/thumb/R720x0.fpng/?fname=http://t1.daumcdn.net/brunch/service/user/6bWv/image/enpC-LVvOM4EI120_-QsMhntxUM.png",
+        "https://byline.network/wp-content/uploads/2020/01/kitchen1.jpg"
+    ]
+    
     var body: some View {
         TabView {
-            ForEach(1...3, id: \.self) { _ in
-                AsyncImage(url: URL(string: "https://i.namu.wiki/i/7ty5kfzWYjaQZwEnu1mw1MHoMwlon4idv56VJE0B6LmJq6t8udR2H7oMvIovAN4EUXhZmXaKiHgz86ajNO8tNg.webp")) { image in
+            ForEach(urlStrings, id: \.self) { urlString in
+                AsyncImage(url: URL(string: urlString)) { image in
                     image
                         .resizable()
                         .aspectRatio(contentMode: .fill)
-                        .frame(width: 370, height: 160)
-                        .cornerRadius(15)
-//                        .padding(.horizontal, 15)
+                        .frame(height: 210)
                 } placeholder: {
                     ProgressView()
                 }
