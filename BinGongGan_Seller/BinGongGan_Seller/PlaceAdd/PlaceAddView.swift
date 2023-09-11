@@ -11,6 +11,7 @@ import Combine
 import FirebaseFirestore
 
 struct PlaceAddView: View {
+    @EnvironmentObject var placeStore: PlaceStore
     @State private var selectedPlace: PlaceCategory = .Share
     @State private var placeNameText: String = ""
     @State private var noteText: String = ""
@@ -19,6 +20,7 @@ struct PlaceAddView: View {
     @State private var placeInfomations = PlaceInfomationModel.data
     @State var address: Address?
     @State var selectedImage: [UIImage] = []
+    @State var selectedImageNames: [String] = []
     // @State var address: String = ""
     @State var isShwoingSearchSheet: Bool = false
     @State private var coordinates = CLLocationCoordinate2D(latitude: 37.5666791, longitude: 126.9782914)
@@ -111,7 +113,7 @@ struct PlaceAddView: View {
                 
                 Section {
                     Text("공간 사진 등록")
-                    PhotoSelectedView(selectedImages: $selectedImage)
+                    PhotoSelectedView(selectedImages: $selectedImage,selectedImageNames: $selectedImageNames)
                 }
                 
                 Section {
@@ -128,7 +130,7 @@ struct PlaceAddView: View {
                 }
                 
                 Section {
-                    Text("공간 이용시 주의사항")
+                    Text("공간 정보")
                     TextEditor(text: $noteText)
                         .frame(height: 150)
                         .background(Color.myLightGray)
@@ -137,15 +139,16 @@ struct PlaceAddView: View {
                     Button {
                         if let address {
                             let place = Place(
+                                sellerId: "판매자",
                                 placeName: placeNameText,
                                 placePrice: placePriceText,
                                 placeCategory: selectedPlace,
-                                placeImageStringList: [""],
+                                placeImageStringList: selectedImageNames,
                                 note: noteText,
                                 placeInfomationList: placeInfomationString,
                                 address: address
                             )
-                            self.addPlace(place: place)
+                            placeStore.addPlace(place: place)
                             
                         }
                         
@@ -164,7 +167,7 @@ struct PlaceAddView: View {
         }
         .sheet(isPresented: $isShwoingSearchSheet, onDismiss: {
             if let address {
-                coordinates =  CLLocationCoordinate2D(latitude: address.latitude, longitude: address.longitude)
+                coordinates =  CLLocationCoordinate2D(latitude: address.latitudeDouble, longitude: address.longitudeDouble)
             }
         }, content: {
             AddressSearchView(isShwoingSearchSheet: $isShwoingSearchSheet) { newAdress in
@@ -172,17 +175,11 @@ struct PlaceAddView: View {
             }
             
         })
+        .customBackbutton()
         .padding(10)
         .listStyle(.plain)
         //Form
         .navigationTitle("내 공간 등록")
-    }
-    
-    func addPlace(place: Place) {
-        let dataBase = Firestore.firestore().collection("Place")
-        dataBase.document(place.id)
-            .setData(place.asDictionary())
-        print("장소 추가 완료")
     }
     
 }
@@ -191,6 +188,7 @@ struct PlaceAddView_Previews: PreviewProvider {
     static var previews: some View {
         NavigationStack {
             PlaceAddView()
+                .environmentObject(PlaceStore())
         }
     }
 }

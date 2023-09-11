@@ -11,7 +11,7 @@ import BinGongGanCore
 struct AddressSearchView: View {
     @State private var searchText:String = ""
     
-    @State var address: Address = Address(address: "", placeName: "", x: "", y: "")
+
     @Binding var isShwoingSearchSheet:Bool
     @State private var searchResults: [Address] = []
     var addressClosure: (Address) -> ()
@@ -33,9 +33,9 @@ struct AddressSearchView: View {
             List(searchResults, id: \.address) { result in
                 Button {
                     searchText = result.address
-                    address = result
                     addressClosure(result)
                     isShwoingSearchSheet = false
+                    
                 } label: {
                     Text("\(result.placeName)  \(result.address)")
                         .font(.body1Bold)
@@ -43,8 +43,9 @@ struct AddressSearchView: View {
                 }
                 
             }
+            .navigationTitle("주소 검색")
         }
-        .navigationTitle("주소 검색")
+       
     }
     
     func searchAddress() {
@@ -52,7 +53,7 @@ struct AddressSearchView: View {
         
         let query = searchText.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) ?? ""
         let urlString = "https://dapi.kakao.com/v2/local/search/keyword?query=\(query)&size=10"
-        //10개 까지만 출력
+        // 10개 까지만 출력
         if let url = URL(string: urlString) {
             var request = URLRequest(url: url)
             request.httpMethod = "GET"
@@ -77,10 +78,10 @@ struct AddressSearchView: View {
 
 struct AddressSearchView_Previews: PreviewProvider {
     static var previews: some View {
-        NavigationStack {
+      
             AddressSearchView(isShwoingSearchSheet: .constant(false)) { Address in
                 
-            }
+    
         }
     }
 }

@@ -4,8 +4,9 @@ import UIKit
 // MARK: - 수정중
 struct PhotoSelectedView: View {
     @Binding var selectedImages: [UIImage]
+    @Binding  var selectedImageNames: [String]
     @State private var isImagePickerPresented = false
-    
+ 
     var body: some View {
         VStack {
             ScrollView(.horizontal, showsIndicators: false) {
@@ -34,7 +35,7 @@ struct PhotoSelectedView: View {
                 }
             }
             .sheet(isPresented: $isImagePickerPresented) {
-                MultiPhotoPickerView(selectedImages: $selectedImages)
+                MultiPhotoPickerView(selectedImages: $selectedImages, selectedImageNames: $selectedImageNames)
             }
         }
         .padding()
@@ -43,6 +44,7 @@ struct PhotoSelectedView: View {
 
 struct MultiPhotoPickerView: UIViewControllerRepresentable {
     @Binding var selectedImages: [UIImage]
+    @Binding var selectedImageNames: [String]
     @Environment(\.presentationMode) private var presentationMode
     
     func makeUIViewController(context: UIViewControllerRepresentableContext<MultiPhotoPickerView>) -> UIImagePickerController {
@@ -67,6 +69,9 @@ struct MultiPhotoPickerView: UIViewControllerRepresentable {
         }
         
         func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey: Any]) {
+            if let seletedImageName = info[.imageURL] as? String {
+                parent.selectedImageNames.append(seletedImageName)
+            }
             if let selectedImage = info[.originalImage] as? UIImage {
                 parent.selectedImages.append(selectedImage)
             }
@@ -81,6 +86,6 @@ struct MultiPhotoPickerView: UIViewControllerRepresentable {
 
 struct PhotoSelectedView_Previews: PreviewProvider {
     static var previews: some View {
-        PhotoSelectedView(selectedImages: .constant([]))
+        PhotoSelectedView(selectedImages: .constant([]), selectedImageNames: .constant([""]))
     }
 }
