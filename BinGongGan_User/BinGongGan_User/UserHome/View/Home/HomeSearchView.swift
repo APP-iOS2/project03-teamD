@@ -67,7 +67,7 @@ struct HomeSearchView: View {
                                                 .padding(.leading, 5)
                                             Button {
                                                 placeSearchTextField = word
-                                                homeStore.deleteRecentlyWord(word: word)
+                                                homeStore.deleteRecentlyWordk(word: word)
                                             } label: {
                                                 Image(systemName: "x.circle")
                                                     .font(.captionRegular)

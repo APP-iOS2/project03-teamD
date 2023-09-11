@@ -36,24 +36,13 @@ struct ThirdStepSignUpView: View {
                 AgreementCheckButton(agreement: $store.signUpData.isLocaitonAgree, text: "위치기반 서비스 이용을 동의합니다.")
             }
             Spacer()
+//            AgreementCheckButton(agreement: $store.signUpData.isAllAgree, text: "전체 동의합니다")
             PrimaryButton(action: {
-                Task {
-                    if await store.postSignUp() {
-                        store.showAlert = true
-                    }
+                if store.isAllAgreed() {
+                    presentationMode.wrappedValue.dismiss()
                 }
             }, title: "회원가입")
             Spacer(minLength: 80)
-        }.alert("회원가입", isPresented: $store.showAlert) {
-            Button("완료", role: .destructive) {
-                Task {
-                    if await store.postSignUp() {
-                        presentationMode.wrappedValue.dismiss()
-                    }
-                }
-            }
-        } message: {
-            Text("회원가입이 완료되었습니다.")
         }
     }
     
@@ -62,7 +51,8 @@ struct ThirdStepSignUpView: View {
             RoundedRectangle(cornerRadius: 8)
                 .stroke(Color.myPrimary, lineWidth: 1)
                 .background(Color.white)
-        }.frame(minHeight: 70, maxHeight: 80)
+            Text("")
+        }.frame(minHeight: 70, maxHeight: 100)
     }
 }
 

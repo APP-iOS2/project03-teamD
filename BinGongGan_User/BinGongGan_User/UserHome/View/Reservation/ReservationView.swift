@@ -11,9 +11,6 @@ struct ReservationView: View {
     
     @Environment(\.dismiss) private var dismiss
     @StateObject var reservationStore: ReservationStore = ReservationStore()
-    @State var isReservationFinished: Bool = false
-    
-    @State var isReservationEmpty: Bool = false
     
     @Binding var tabBarVisivility: Visibility
     
@@ -24,6 +21,7 @@ struct ReservationView: View {
         VStack {
             // 상단 바
             ReservationHeaderView()
+                .environmentObject(reservationStore)
                 .padding(.top, 1)
             
             ScrollView {
@@ -42,46 +40,41 @@ struct ReservationView: View {
                     ReservationSellerInfoView()
                         .environmentObject(reservationStore)
                     
-                    if isReservationEmpty {
-                        Text("빈칸이 존재합니다.")
-                            .foregroundColor(.red)
-                            .font(.captionRegular)
-                    }
-                    
-                    Button {
-                        // 데이터 저장
-                        if reservationStore.reservation.reservationName.isEmpty || reservationStore.reservation.reservationPhoneNumber.isEmpty {
-                            isReservationEmpty = true
-                        } else {
-                            
-                            isReservationEmpty = false
-                            isReservationFinished.toggle()
-                        }
+                    NavigationLink {
+                        PaymentView()
+                            //.toolbar(tabBarVisible, for: .tabBar)
+                            .environmentObject(reservationStore)
+                            .navigationBarBackButtonHidden()
+                        
                     } label: {
                         Text("무통장으로 입금")
                             .frame(width: screenWidth * 0.9, height: 50)
-                            .foregroundColor(reservationStore.isPolicyChecked ? Color.white : Color.myMediumGray)
-                            .background(reservationStore.isPolicyChecked ? Color.myPrimary : Color.myLightGray )
+                            .foregroundColor(reservationStore.checkPolicy ? Color.white : Color.myMediumGray)
+                            .background(reservationStore.checkPolicy ? Color.myPrimary : Color.myLightGray )
                             .cornerRadius(8)
                     }
-                    .disabled(!reservationStore.isPolicyChecked)
+                    .disabled(!reservationStore.checkPolicy)
                     .buttonStyle(.plain)
                     .padding([.top, .bottom], 10)
-                    .navigationDestination(isPresented: $isReservationFinished) {
-                        PaymentView()
-                            .environmentObject(reservationStore)
-                        //.toolbar(tabBarVisible, for: .tabBar)
-                            .navigationBarBackButtonHidden()
-                    }
                 }
-                .padding([.leading], 20)
+                .padding([.leading, .trailing], 20)
             }
         }
+        .toolbar {
+            ToolbarItem(placement:.navigationBarLeading) {
+                Button {
+                    dismiss()
+                } label: {
+                    Image(systemName: "chevron.left")
+                        .foregroundColor(.myPrimary)
+                }
+            }
+        }
+        
         .background(Color.myBackground)
         .navigationTitle("예약화면")
         .navigationBarTitleDisplayMode(.inline)
         .toolbarBackground(Color.myBackground, for: .navigationBar)
-        .customBackbutton()
         .onAppear {
             tabBarVisivility = .hidden
         }
@@ -95,7 +88,6 @@ struct ReservationView_Previews: PreviewProvider {
     static var previews: some View {
         NavigationStack {
             ReservationView(tabBarVisivility: .constant(.hidden))
-                .environmentObject(ReservationStore())
         }
     }
 }

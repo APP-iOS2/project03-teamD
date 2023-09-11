@@ -9,9 +9,6 @@ import SwiftUI
 import BinGongGanCore
 
 struct MyReviewRowView: View {
-    @State private var isShowingDetailView: Bool = false
-    @State private var isFolded: Bool = true
-    
     var text: String
     var foldedText: String {
         let endIndex = text.index(text.startIndex, offsetBy: 20)
@@ -22,58 +19,62 @@ struct MyReviewRowView: View {
         }
     }
     var imageList: [String] = ["SignInLogo", "SignInLogo", "SignInLogo", "SignInLogo", "SignInLogo"]
-    
+    @State private var isFolded: Bool = true
     var body: some View {
-            VStack(alignment: .leading){
-                HStack(alignment: .bottom) {
-                    VStack(alignment: .leading) {
-                        Button {
-                            isShowingDetailView.toggle()
-                        } label: {
-                            Text("공간 이름 >")
-                                .font(.body1Bold)
-                                .foregroundColor(.myBlack)
-                        }
-                        HStack(alignment: .bottom) {
-                            ForEach(0..<5, id: \.self) { index in
-                                Image(systemName: "star.fill")
-                                    .foregroundColor(.yellow)
-                                    .padding(.horizontal, -3)
-                            }
-                            Text(" | ")
-                            Text("2023.01.01 작성")
-                        }
-                        .foregroundColor(.myDarkGray)
-                        .font(.captionRegular)
-                    }
-                }
-                ScrollView(.horizontal) {
-                    HStack {
-                        ForEach(imageList, id:\.self) { image in
-                            Image(image)
-                                .resizable()
-                                .scaledToFit()
-                                .frame(height: UIScreen.main.bounds.height * 0.2)
-                                .overlay {
-                                    RoundedRectangle(cornerRadius: 15)
-                                        .stroke()
-                                }
-                        }
-                    }
-                }
-                Group{
-                    Text(isFolded ? foldedText : text)
-                    + Text(isFolded ? " 더보기" : " 접기")
-                        .foregroundColor(.myDarkGray)
-                        .font(.body1Regular)
-                }
-                .onTapGesture {
-                    isFolded.toggle()
-                }
-                .navigationDestination(isPresented: $isShowingDetailView) {
+        VStack(alignment: .leading){
+            ZStack {
+                NavigationLink {
                     GongGanDetailView()
+                } label: {
+
                 }
+            }
+            .opacity(0)
+            HStack(alignment: .bottom) {
+                
+
+                VStack(alignment: .leading) {
+                    Text("공간 이름")
+                        .font(.body1Bold)
+                        .foregroundColor(.myBlack)
+                    HStack(alignment: .bottom) {
+                        ForEach(0..<5, id: \.self) { index in
+                            Image(systemName: "star.fill")
+                                .foregroundColor(.yellow)
+                                .padding(.horizontal, -3)
+                        }
+                        Text(" | ")
+                        Text("2023.01.01 작성")
+                    }
+                    .foregroundColor(.myDarkGray)
+                    .font(.captionRegular)
+                }
+            }
+            ScrollView(.horizontal) {
+                HStack {
+                    ForEach(imageList, id:\.self) { image in
+                        Image(image)
+                            .resizable()
+                            .scaledToFit()
+                            .frame(height: UIScreen.main.bounds.height * 0.2)
+                            .overlay {
+                                RoundedRectangle(cornerRadius: 15)
+                                    .stroke()
+                            }
+                    }
+                }
+            }
+            Group{
+                Text(isFolded ? foldedText : text)
+                + Text(isFolded ? " 더보기" : " 접기")
+                    .foregroundColor(.myDarkGray)
+                    .font(.body1Regular)
+            }
+            .onTapGesture {
+                isFolded.toggle()
+            }
         }
+        .padding(.horizontal)
     }
 }
 

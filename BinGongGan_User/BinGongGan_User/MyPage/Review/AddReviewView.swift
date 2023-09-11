@@ -13,8 +13,8 @@ struct AddReviewView: View {
     
     @State private var starRating: Int = 0
     @State private var reviewText: String = ""
+    @State private var reviewPhotoList: [String] = []
     @State private var isShowingAlert: Bool = false
-    
     var reservate: ReservationModel
     var body: some View {
         Form {
@@ -27,6 +27,7 @@ struct AddReviewView: View {
                     ForEach(0..<5, id: \.self){ index in
                         Button {
                             starRating = index + 1
+                            print(index)
                         }label: {
                             Image(systemName: "star.fill")
                         }
@@ -50,7 +51,7 @@ struct AddReviewView: View {
             }
             
             Section("사진 추가 (최대 5개)") {
-                AddPhotoView()
+                AddPhotoView(reviewPhotoList: $reviewPhotoList)
             }
         }
         .navigationTitle("리뷰 작성")
@@ -106,6 +107,62 @@ struct PlaceInfoView: View {
                 .font(.body1Regular)
                 .foregroundColor(.myDarkGray)
         }
+    }
+}
+
+struct AddPhotoView: View {
+    @Binding var reviewPhotoList: [String]
+    
+    var body: some View {
+        ScrollViewReader { proxy in
+            HStack{
+                Button {
+                    //TODO: - 이미지 불러오기 로직 추가
+                    if reviewPhotoList.count < 5 {
+                        reviewPhotoList.append("\(reviewPhotoList.count + 1)")
+                    }
+                }label: {
+                    ZStack {
+                        RoundedRectangle(cornerRadius: 15)
+                            .frame(width: 100, height: 100)
+                            .foregroundColor(.myPrimary)
+                        Text("+")
+                            .foregroundColor(.white)
+                            .font(.largeTitle)
+                    }
+                }// Button
+                .buttonStyle(.plain)
+                ScrollView(.horizontal, showsIndicators: false) {
+                    HStack {
+                        ForEach(reviewPhotoList.indices, id:\.self) { index in
+                            ZStack {
+                                RoundedRectangle(cornerRadius: 15)
+                                    .frame(width: 100, height: 100)
+                                    .foregroundColor(.myPrimary)
+                                    .id(index)
+                                Text("\(reviewPhotoList[index])번째 이미지")
+                                    .foregroundColor(.white)
+                            }
+                            .overlay(alignment: .topTrailing) {
+                                Button {
+                                    reviewPhotoList.remove(at: index)
+                                } label: {
+                                    Image(systemName: "xmark.circle.fill")
+                                        .foregroundColor(.white)
+                                        .offset(x: -4, y: 4)
+                                }
+                            }
+                        }
+                    }
+                }// ScrollView
+                .onChange(of: reviewPhotoList.count) { _ in
+                    // 메시지 목록이 변경되면 스크롤을 아래로 이동
+                    withAnimation {
+                        proxy.scrollTo(reviewPhotoList.count - 1, anchor: .center)
+                    }
+                }
+            }// HStack
+        }// ScrollViewReder
     }
 }
 

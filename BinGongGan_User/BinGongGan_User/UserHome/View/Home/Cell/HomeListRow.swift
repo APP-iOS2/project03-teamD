@@ -43,18 +43,25 @@ struct HomeListRow: View {
                     VStack(alignment: .leading) {
                         
                         Text("\(place.placeName)")
-                            
+                            .padding(.top , 17)
                             .foregroundColor(.myBlack)
                             .font(.body1Bold)
                         Text("\(place.placeLocation)")
-                            
+                            .padding(.bottom , 3)
                             .foregroundColor(.myBlack)
                             .font(.captionRegular)
-                        
+                        Text("\(place.placePrice) / 시간당")
+                            .padding(.bottom , 17)
+                            .foregroundColor(.myBlack)
+                            .font(.captionRegular)
                     }// VSTACK
                     Spacer()
-                    HeartButton(place: $place)
-                        .padding(.trailing, 20)
+                    Button {
+                        place.isFavorite.toggle()
+                    } label: {
+                        Image(systemName: place.isFavorite ? "heart.fill" : "heart")
+                            .foregroundColor(.mySecondary)
+                    }.padding(.trailing, 20)
                     
                 }// HSTACK
                 .foregroundColor(.myBackground)

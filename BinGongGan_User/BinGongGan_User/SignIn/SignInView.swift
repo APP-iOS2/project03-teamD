@@ -14,7 +14,7 @@ struct SignInView: View {
     @State private var isShowingAlert: Bool = false
     
     @EnvironmentObject private var signInStore: SignInStore
-    
+
     var signIn: SignIn = SignIn()
     
     var body: some View {
@@ -30,18 +30,26 @@ struct SignInView: View {
                     .resizable()
                     .frame(width: 250, height: 250)
                 
-                VStack {
-                    CustomTextField(placeholder: "이메일을 입력하세요", keyboardType: .emailAddress, text: $emailText)
-                    CustomSecureField(placeholder: "비밀번호를 입력하세요", text: $passwordText)
+                Group {
+                    CustomTextField(placeholder: "이메일을 입력하세요", text: $emailText)
+                    CustomTextField(placeholder: "비밀번호를 입력하세요", text: $passwordText)
                 }
-                .padding(.horizontal, 20)
+                .padding()
+                .frame(width: 353, height: 47)
+                .background(Color.white)
+                .cornerRadius(15)
                 
                 
-                
-                PrimaryButton(action: {
+                Button {
                     isShowingAlert = signInStore.checkSignIn(email: emailText, password: passwordText)
-                }, title: "로그인")
-                .padding(.horizontal, 20)
+                } label: {
+                    Text("로그인")
+                }
+                .padding()
+                .frame(width: 353, height: 47)
+                .foregroundColor(.white)
+                .background(Color.myPrimary)
+                .cornerRadius(15)
                 
                 Spacer()
                 
@@ -52,8 +60,7 @@ struct SignInView: View {
                     Text("회원가입")
                 }
                 .padding()
-                .font(.body1Bold)
-                .frame(width: 120, height: 40)
+                .frame(width: 100, height: 37)
                 .foregroundColor(.white)
                 .background(Color.mySecondary)
                 .cornerRadius(50)

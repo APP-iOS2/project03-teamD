@@ -14,12 +14,6 @@ struct SecondStepSignUpView: View {
     var body: some View {
         VStack(alignment: .leading) {
             Group {
-                Text("닉네임")
-                    .font(.body1Bold)
-                    .frame(height: 38)
-                CustomTextField(placeholder: "닉네임", text: $store.signUpData.nickname)
-            }
-            Group {
                 Text("아이디(이메일)")
                     .font(.body1Bold)
                     .frame(height: 38)

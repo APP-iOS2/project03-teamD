@@ -46,6 +46,4 @@ public extension Color {
     static let myErrorColor = Color(hex: "#FFCDD2", opacity: 0.5)
     
     static let myVeryLightGrayColor = Color(hex: "#EBEEF2")
-    
-    static let myWarningColor = Color(hex: "#FED875")
 }

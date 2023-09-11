@@ -19,8 +19,6 @@ class AppDelegate: NSObject, UIApplicationDelegate {
 
 @main
 struct BinGongGan_UserApp: App {
-    @UIApplicationDelegateAdaptor(AppDelegate.self) var delegate
-
     var body: some Scene {
         WindowGroup {
             ContentView()

@@ -13,6 +13,7 @@ struct AgreementCheckButton: View {
 
     var body: some View {
         HStack {
+            Spacer()
             Button(action: {
                 agreement.toggle()
             }, label: {
@@ -26,7 +27,6 @@ struct AgreementCheckButton: View {
             }).buttonStyle(.plain)
                 .font(.body1Regular)
                 .frame(height: 24)
-            Spacer()
         }
     }
 }

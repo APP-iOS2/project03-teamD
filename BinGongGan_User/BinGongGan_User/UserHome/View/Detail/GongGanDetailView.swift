@@ -138,6 +138,7 @@ struct GongGanDetailView: View {
                             .padding(.vertical, 5)
                         NavigationLink {
                             ReservationView(tabBarVisivility: $tabBarVisivility)
+                                .environmentObject(reservationStore)
                                 .toolbar(tabBarVisivility, for: .tabBar)
                                 .navigationBarBackButtonHidden()
                             

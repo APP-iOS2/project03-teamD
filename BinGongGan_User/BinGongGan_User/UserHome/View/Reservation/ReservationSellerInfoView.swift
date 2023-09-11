@@ -9,7 +9,8 @@ import SwiftUI
 
 struct ReservationSellerInfoView: View {
     
-    @State private var isRefundPolicySheetOpened: Bool = false
+    @State private var openRefundPolicySheet: Bool = false
+    @State private var checkRefundPolicy: Bool = false
     
     @EnvironmentObject var reservationStore: ReservationStore
     private let screenWidth = UIScreen.main.bounds.width
@@ -44,19 +45,18 @@ struct ReservationSellerInfoView: View {
                     // Spacer()
                     Button {
                         // sheet 올리기 -> sheet 속 버튼 누르면 활성화되도록
-                        isRefundPolicySheetOpened.toggle()
+                        openRefundPolicySheet.toggle()
                         
                     } label: {
                         Text("확인")
-                            .font(.captionRegular)
-                            .foregroundColor(.mySecondary)
+                            .foregroundColor(.blue)
                             .padding(.leading, 20)
                     }
                 }
             }
             .padding(.bottom, 10)
         }
-        .sheet(isPresented: $isRefundPolicySheetOpened, content: {
+        .sheet(isPresented: $openRefundPolicySheet, content: {
             NavigationStack {
                 RefundPolicySheetView()
                     .environmentObject(reservationStore)

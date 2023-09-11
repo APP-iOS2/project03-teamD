@@ -1,3 +1,4 @@
+
 //
 //  ToastMessage.swift
 //  BinGongGan_User
@@ -8,11 +9,11 @@
 import SwiftUI
 
 @available(iOS 13.0, *)
-struct ToastMessageModifier: ViewModifier {
+public struct ToastMessageModifier: ViewModifier {
     @Binding var isShowing: Bool
     var message: String
     
-    func body(content: Content) -> some View {
+    public func body(content: Content) -> some View {
         ZStack {
             content
             
@@ -20,25 +21,20 @@ struct ToastMessageModifier: ViewModifier {
                 VStack {
                     Spacer()
                     ZStack {
-                        RoundedRectangle(cornerRadius: 8)
-                            .stroke(Color.myWarningColor, lineWidth: 3)
-                            .foregroundColor(.white)
-                            .background(Color.white)
+                        Rectangle()
+                            .foregroundColor(.myErrorColor)
+                            .cornerRadius(20)
                             .frame(width: 300, height: 50)
                             .transition(.scale)
                         HStack {
                             Image(systemName: "exclamationmark.circle")
-                                .resizable()
-                                .frame(width: 26, height: 26)
-                                .foregroundColor(.myWarningColor)
-                                .padding(.trailing, 5)
+                                .foregroundColor(.red)
                             Text(message)
-                                .font(.captionRegular)
-                                .foregroundColor(.black)
+                                .foregroundColor(.red)
                                 .multilineTextAlignment(.center)
                         }
                     }
-                }.padding(.bottom, 40)
+                }.padding(.bottom, 30)
                 .onAppear {
                     DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
                         withAnimation {

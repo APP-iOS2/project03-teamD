@@ -21,7 +21,6 @@ struct HomeCategoryView: View {
                         NavigationLink {
                                 PlaceListView(category: category.category.rawValue)
                                     .environmentObject(homeStore)
-                            // 질문 !
                         } label: {
                             VStack {
                                 ZStack {

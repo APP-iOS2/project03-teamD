@@ -12,8 +12,6 @@ struct RefundPolicySheetView: View {
     @Environment(\.dismiss) private var dismiss
     @EnvironmentObject var reservationStore: ReservationStore
     
-    let refundPolicy  = ["환불 불가", "환불 불가", "환불 불가", "환불 불가", "환불 불가", "총 금액의 80% 환불", "총 금액의 100% 환불", "총 금액의 100% 환불"]
-    
     private let screenWidth = UIScreen.main.bounds.width
     
     var body: some View {
@@ -27,28 +25,27 @@ struct RefundPolicySheetView: View {
             }
             
             Section("취소 수수료") {
-                ForEach(refundPolicy.indices, id: \.self) { index in
+                ForEach(reservationStore.refundPolicy.indices, id: \.self) { index in
                     
                     HStack {
                         Text("이용 \(index + 1)일전")
                             .font(.captionRegular)
                         Divider()
                             .padding()
-                        Text("\(refundPolicy[index])")
+                        Text("\(reservationStore.refundPolicy[index])")
                             .font(.body1Regular)
                     }
                 }
             }
             
             Button {
-                reservationStore.reservation.reservationID = UUID().uuidString
-                reservationStore.updateReservation(type: .reservationDate, value: Date())
-                reservationStore.isPolicyChecked.toggle()
+                reservationStore.checkPolicy.toggle()
+                print(reservationStore.checkPolicy)
                 dismiss()
             } label: {
                 Text("확인 완료")
                     .font(.body1Regular)
-                    .foregroundColor(.mySecondary)
+                    .foregroundColor(.blue)
                     .frame(width: screenWidth)
             }
             .buttonStyle(.plain)
@@ -56,7 +53,6 @@ struct RefundPolicySheetView: View {
         }
         .navigationTitle("환불 규정 안내")
         .navigationBarTitleDisplayMode(.inline)
-        .customBackbutton()
     }
 }
 
