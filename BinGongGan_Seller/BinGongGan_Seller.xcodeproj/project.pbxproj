@@ -14,6 +14,7 @@
 		2F36A5722AA83E9200578AEB /* ReportCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F36A5712AA83E9200578AEB /* ReportCase.swift */; };
 		2FAF0AC22AA8A9B500113F94 /* CarouselCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FAF0AC12AA8A9B500113F94 /* CarouselCell.swift */; };
 		2FD53AE92AA952D300183687 /* EventView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FD53AE82AA952D300183687 /* EventView.swift */; };
+		2FD74B0F2AAEA56200FED918 /* EventAddView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FD74B0E2AAEA56200FED918 /* EventAddView.swift */; };
 		2FECE3C62AADECFA00F04CFC /* ReportStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FECE3C52AADECFA00F04CFC /* ReportStore.swift */; };
 		4B74203D2AA80ACC00818257 /* AnnouncementView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B74203C2AA80ACC00818257 /* AnnouncementView.swift */; };
 		4B84D4BE2AAAE84F00F5FB01 /* AnnouncementAddView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B84D4BD2AAAE84F00F5FB01 /* AnnouncementAddView.swift */; };
@@ -98,6 +99,7 @@
 		2F36A5712AA83E9200578AEB /* ReportCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportCase.swift; sourceTree = "<group>"; };
 		2FAF0AC12AA8A9B500113F94 /* CarouselCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarouselCell.swift; sourceTree = "<group>"; };
 		2FD53AE82AA952D300183687 /* EventView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventView.swift; sourceTree = "<group>"; };
+		2FD74B0E2AAEA56200FED918 /* EventAddView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventAddView.swift; sourceTree = "<group>"; };
 		2FECE3C52AADECFA00F04CFC /* ReportStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportStore.swift; sourceTree = "<group>"; };
 		4B74203C2AA80ACC00818257 /* AnnouncementView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnnouncementView.swift; sourceTree = "<group>"; };
 		4B84D4BD2AAAE84F00F5FB01 /* AnnouncementAddView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnnouncementAddView.swift; sourceTree = "<group>"; };
@@ -245,6 +247,7 @@
 			isa = PBXGroup;
 			children = (
 				2FD53AE82AA952D300183687 /* EventView.swift */,
+				2FD74B0E2AAEA56200FED918 /* EventAddView.swift */,
 			);
 			path = Event;
 			sourceTree = "<group>";
@@ -646,7 +649,7 @@
 				54D4677C2AA8AA6200054F12 /* ChartModel.swift in Sources */,
 				4BC0BD722AA860AC00B792B8 /* AnnouncementTextRow.swift in Sources */,
 				6A3B443C2AA83058008CC944 /* ReservationTapType.swift in Sources */,
-				B13464FA2AA90ED400098E9B /* ReservationListModalView.swift in Sources */,
+				B13464FA2AA90ED400098E9B /* ReservationDetailSheet.swift in Sources */,
 				0CDDF1C82AAB001E00834AA9 /* MyInfoView.swift in Sources */,
 				B13464FA2AA90ED400098E9B /* ReservationDetailSheet.swift in Sources */,
 				2F36A56B2AA81EEC00578AEB /* ReviewWithCommentCell.swift in Sources */,
@@ -665,6 +668,7 @@
 				B13464F82AA90EA700098E9B /* CategoryButtonsView.swift in Sources */,
 				6A3B444C2AA83119008CC944 /* ReservationConfirmedCell.swift in Sources */,
 				2F36A5722AA83E9200578AEB /* ReportCase.swift in Sources */,
+				2FD74B0F2AAEA56200FED918 /* EventAddView.swift in Sources */,
 				B13464EA2AA90D5700098E9B /* PlaceAddView.swift in Sources */,
 				B13465002AA9102D00098E9B /* ReviewManageView.swift in Sources */,
 				545AA9C22AA83A8A00A281D0 /* PlaceInfomationModel.swift in Sources */,
