@@ -25,11 +25,12 @@ struct PlaceListFilterView: View {
                 ScrollView(.horizontal, showsIndicators: false) {
                     HStack {
                         ForEach(selectSub, id: \.self) { sub in
-                            RoundedRectangle(cornerRadius: 12)
-                                .frame(width: HomeNameSpace.screenHeight * 0.15)
-                                .foregroundColor(.myLightGray)
+                            RoundedRectangle(cornerRadius: 15)
+                                .frame(width: HomeNameSpace.screenHeight * 0.15, height: HomeNameSpace.screenHeight * 0.07)
+                                .foregroundColor(.myBackground)
                                 .overlay {
                                     Text("\(sub)")
+                                    
                                 }
                         }
                     }// HSTACK
@@ -47,7 +48,7 @@ struct PlaceListFilterView: View {
             .padding(.vertical, 10)
             
             HStack {
-                Group {
+               
                     List {
                         ForEach(homeStore.cities) { city in
                             Button {
@@ -56,16 +57,20 @@ struct PlaceListFilterView: View {
                                 selectSub.removeAll()
                             } label: {
                                 Text("\(city.name)")
-                                    .foregroundColor(city.name == selectCity ? . black : .myLightGray)
+
+                                    .foregroundColor(city.name == selectCity ? . myBlack : .myDarkGray)
+
                                     .font(city.name == selectCity ? .body1Bold : .body1Regular)
-                            }
+                                    
+                            }.listRowBackground(Color.myBackground)
+                               
                         }
-                    }// LIST
+                    }
                     .listStyle(.plain)
-                    .listRowSeparator(.hidden)
-                }// Group
+                    
                 PlaceListSubFilterView(selectedCity: $filteredCity, selectSub: $selectSub)
             }// HSTACK
+            
         }// VSTACK
         .presentationDetents(
             [.large,.large])
