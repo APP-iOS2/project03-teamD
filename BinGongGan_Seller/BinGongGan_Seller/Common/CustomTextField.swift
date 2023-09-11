@@ -33,6 +33,7 @@ struct CustomTextField: View {
                 .keyboardType(keyboardType)
                 .textInputAutocapitalization(.never)
                 .disableAutocorrection(true)
+            
             if isFocused {
                 HStack {
                     Spacer()
@@ -41,16 +42,18 @@ struct CustomTextField: View {
                     }, label: {
                         Image(systemName: "xmark.circle.fill")
                             .foregroundColor(.myBrown)
-                    }).padding(.trailing, 20)
+                    })
+                    .padding(.trailing, 20)
                 }
             }
-        }.frame(minHeight: 42, maxHeight: 52)
-            .onChange(of: text, perform: { newValue in
-                if newValue.count > maxLength {
-                    text = String(newValue.prefix(maxLength))
-                    isFocused = false
-                }
-            })
+        }
+        .frame(minHeight: 42, maxHeight: 52)
+        .onChange(of: text, perform: { newValue in
+            if newValue.count > maxLength {
+                text = String(newValue.prefix(maxLength))
+                isFocused = false
+            }
+        })
     }
 }
 
