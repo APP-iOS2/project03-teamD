@@ -18,38 +18,36 @@ struct PlaceListView: View {
             Spacer().background(Color.myBackground).edgesIgnoringSafeArea(.all)
             VStack {
                     HStack {
-                        if selectSub.count == 0 {
+                        if selectSub.contains("전체") {
                             Text("필터 버튼을 통해서 원하는 검색결과를 찾아보세요!")
                                 .font(.body1Regular)
                                 .foregroundColor(.myPrimary)
                         } else {
                             HStack {
-                                
-                                Text("조건을 필터한 결과입니다.")
+                                Text("조건을 맞는 장소는 \(homeStore.filteredArray.count)개 입니다.")
                                     .font(.body1Regular)
                                     .foregroundColor(.myPrimary)
                             }
                         }
-                    }.frame(height: HomeNameSpace.screenHeight * 0.08)
+                    }// HSTACK
+                    .frame(height: HomeNameSpace.screenHeight * 0.08)
                     .padding(.top, 10)
-                ScrollView(showsIndicators: false){
-                    // 가야할 데이터 카테고리 별 값 , 처음엔 전체 , 그후에는 필터로  
-                    ForEach(homeStore.filteredArray){ place in
-                        PlaceListRow(place: place)
-                            .padding(.bottom, 20)
-//                        if category == place.category.rawValue {
-//                            ForEach(selectSub, id: \.self) { sub in
-//                                if place.placeLocation.contains(sub){
-//
-//                                }
-//                            }
-//                        }
+                ScrollViewReader { reader in
+                    ScrollView(showsIndicators: false){
+                        ForEach(homeStore.filteredArray){ place in
+                            PlaceListRow(place: place)
+                                .padding(.bottom, 20)
+                        }.id("Scroll_To_Top")
+                    } // SCROLLVIEW
+                    .onAppear{
+                        withAnimation(.default) {
+                            
+                              reader.scrollTo("Scroll_To_Top",anchor: .top)
+                            
+                        }
+                        homeStore.filteredPlaceList(category: category, cities: selectSub)
                     }
-                } // SCROLLVIEW
-                .onAppear{
-                    homeStore.filteredPlaceList(category: category, cities: selectSub)
-                }
-                
+                }// ScrollViewReader
             }// VSTACK
             .navigationTitle("\(category)")
             .navigationBarTitleDisplayMode(.inline)
@@ -66,7 +64,6 @@ struct PlaceListView: View {
                     }
                     .sheet(isPresented: $isShowingFilterSheet) {
                         PlaceListFilterView(isShowingFilterSheet: $isShowingFilterSheet, selectSub: $selectSub, category: $category)
-                       
                     }
                 }
             }
