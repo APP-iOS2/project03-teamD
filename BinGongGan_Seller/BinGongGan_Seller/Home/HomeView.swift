@@ -22,7 +22,7 @@ struct HomeView: View {
                             .font(.title2)
                             .bold()
                             .padding([.top, .leading], 20)
-                            .foregroundColor(Color.myDarkGray)
+                            .foregroundColor(Color.myBlack)
                         Spacer()
                     }
                     CategoryButtonsView()
@@ -34,7 +34,7 @@ struct HomeView: View {
                             .font(.title2)
                             .bold()
                             .padding(.leading, 20)
-                            .foregroundColor(Color.myDarkGray)
+                            .foregroundColor(Color.myBlack)
                         Spacer()
                     }
                     ForEach(0..<5) { _ in

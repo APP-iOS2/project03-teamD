@@ -16,46 +16,53 @@ struct ReservationCell: View {
                 ReservationDeadlineCell()
                 Spacer()
             }
-            .padding(.bottom, 10)
+            .padding(.bottom, 5)
             HStack {
                 Text("ABCD키친")
-                    .font(.title3)
+                    .font(.headline)
                     .bold()
                 
                 Text("#132")
-                    .font(.title3)
+                    .font(.headline)
                     .bold()
             }
-            .padding(.bottom, 10)
+            .foregroundColor(Color.myPrimary)
+            .padding(.bottom, 5)
             
             HStack {
                 Text("인원")
                     .font(.subheadline)
+                    .foregroundColor(Color.myPrimary)
                 Spacer()
                 Text("오영석 외 3명")
+                    .foregroundColor(Color.myBlack)
             }
             .padding(.bottom, 5)
             
             HStack{
                 Text("일정")
                     .font(.subheadline)
+                    .foregroundColor(Color.myPrimary)
                 Spacer()
                 Text("09월 13일 11:00 - 12:00")
+                    .foregroundColor(Color.myBlack)
             }
             .padding(.bottom, 5)
             
             HStack{
                 Text("번호")
                     .font(.subheadline)
+                    .foregroundColor(Color.myPrimary)
                 Spacer()
                 Image(systemName: "phone.fill")
+                    .foregroundColor(Color.myBlack)
                 Text("010-7320-9330")
+                    .foregroundColor(Color.myBlack)
             }
         }
         .padding(.horizontal, 20)
         .padding(.vertical, 15)
         .frame(maxWidth: .infinity)
-        .foregroundColor(Color.myPrimary)
         .background(Color.myWhite)
         .cornerRadius(15)
     }
