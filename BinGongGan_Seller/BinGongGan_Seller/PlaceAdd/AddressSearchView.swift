@@ -6,13 +6,18 @@
 //
 
 import SwiftUI
+import BinGongGanCore
 
 struct AddressSearchView: View {
-    @Binding var searchText:String
-    @State private var searchResults: [Address] = []
+    @State private var searchText:String = ""
+    
+
     @Binding var isShwoingSearchSheet:Bool
+    @State private var searchResults: [Address] = []
+    var addressClosure: (Address) -> ()
+    
     var body: some View {
-        VStack {
+        NavigationStack {
             TextField("주소를 검색하세요", text: $searchText, onCommit: {
                 // 검색 버튼을 누를 때 네트워크 요청을 수행합니다.
                 searchAddress()
@@ -28,22 +33,28 @@ struct AddressSearchView: View {
             List(searchResults, id: \.address) { result in
                 Button {
                     searchText = result.address
+                    addressClosure(result)
                     isShwoingSearchSheet = false
+                    
                 } label: {
-                    Text("\(result.address)")
+                    Text("\(result.placeName)  \(result.address)")
+                        .font(.body1Bold)
+                        .foregroundColor(.black)
                 }
-
+                
             }
+            .navigationTitle("주소 검색")
         }
+       
     }
     
     func searchAddress() {
         let apiKey = "8e088bfc28cca9de16fd5dd594dd32f1"
         
         let query = searchText.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) ?? ""
-        let urlString = "https://dapi.kakao.com/v2/local/search/address.json?query=\(query)&analyze_type=similar"
-        let keywordsearchUrl = "https://dapi.kakao.com/v2/local/search/keyword?query=\(query)&size=10"
-        if let url = URL(string: keywordsearchUrl) {
+        let urlString = "https://dapi.kakao.com/v2/local/search/keyword?query=\(query)&size=10"
+        // 10개 까지만 출력
+        if let url = URL(string: urlString) {
             var request = URLRequest(url: url)
             request.httpMethod = "GET"
             request.setValue("KakaoAK \(apiKey)", forHTTPHeaderField: "Authorization")
@@ -65,21 +76,12 @@ struct AddressSearchView: View {
     }
 }
 
-struct Address: Codable, Identifiable {
-    var id: UUID = UUID()
-    var address: String
-    
-    enum CodingKeys: String, CodingKey {
-        case address = "address_name"
-    }
-}
-
-struct AddressSearchResult: Codable {
-    var documents: [Address]
-}
-
 struct AddressSearchView_Previews: PreviewProvider {
     static var previews: some View {
-        AddressSearchView(searchText: .constant(""), isShwoingSearchSheet: .constant(false))
+      
+            AddressSearchView(isShwoingSearchSheet: .constant(false)) { Address in
+                
+    
+        }
     }
 }

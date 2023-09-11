@@ -6,11 +6,16 @@
 //
 
 import Foundation
+import BinGongGanCore
+import FirebaseFirestore
 
 class PlaceStore: ObservableObject {
-    @Published var placeList: [PlaceModel] = []
+    @Published var placeList: [Place] = []
+    let dataBase = Firestore.firestore().collection("Place")
     
-    func addPlace() {
-        
+    func addPlace(place: Place) {
+        dataBase.document(place.id)
+            .setData(place.asDictionary())
+                print("장소 추가 완료")
     }
 }
