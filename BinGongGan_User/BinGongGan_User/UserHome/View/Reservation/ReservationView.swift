@@ -49,32 +49,22 @@ struct ReservationView: View {
                     } label: {
                         Text("무통장으로 입금")
                             .frame(width: screenWidth * 0.9, height: 50)
-                            .foregroundColor(reservationStore.checkPolicy ? Color.white : Color.myMediumGray)
-                            .background(reservationStore.checkPolicy ? Color.myPrimary : Color.myLightGray )
+                            .foregroundColor(reservationStore.isPolicyChecked ? Color.white : Color.myMediumGray)
+                            .background(reservationStore.isPolicyChecked ? Color.myPrimary : Color.myLightGray )
                             .cornerRadius(8)
                     }
-                    .disabled(!reservationStore.checkPolicy)
+                    .disabled(!reservationStore.isPolicyChecked)
                     .buttonStyle(.plain)
                     .padding([.top, .bottom], 10)
                 }
                 .padding([.leading, .trailing], 20)
             }
         }
-        .toolbar {
-            ToolbarItem(placement:.navigationBarLeading) {
-                Button {
-                    dismiss()
-                } label: {
-                    Image(systemName: "chevron.left")
-                        .foregroundColor(.myPrimary)
-                }
-            }
-        }
-        
         .background(Color.myBackground)
         .navigationTitle("예약화면")
         .navigationBarTitleDisplayMode(.inline)
         .toolbarBackground(Color.myBackground, for: .navigationBar)
+        .customBackbutton()
         .onAppear {
             tabBarVisivility = .hidden
         }

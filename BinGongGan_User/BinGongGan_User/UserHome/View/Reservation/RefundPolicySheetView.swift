@@ -39,8 +39,8 @@ struct RefundPolicySheetView: View {
             }
             
             Button {
-                reservationStore.checkPolicy.toggle()
-                print(reservationStore.checkPolicy)
+                reservationStore.isPolicyChecked.toggle()
+                print(reservationStore.isPolicyChecked)
                 dismiss()
             } label: {
                 Text("확인 완료")
@@ -53,6 +53,7 @@ struct RefundPolicySheetView: View {
         }
         .navigationTitle("환불 규정 안내")
         .navigationBarTitleDisplayMode(.inline)
+        .customBackbutton()
     }
 }
 
