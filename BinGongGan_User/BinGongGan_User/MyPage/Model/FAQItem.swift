@@ -48,7 +48,7 @@ extension FAQItem {
         FAQItem(category: .operationalPolicy, title: "자주 이용하는데 혜택은 없나요?", content: "답변 6"),
     ]
     
-    static func filteredCategory(of category: FAQCategory) -> [FAQItem] {
+    static func filterFAQCategory(of category: FAQCategory) -> [FAQItem] {
         return sampleFAQItems.filter { $0.category == category }
     }
 }

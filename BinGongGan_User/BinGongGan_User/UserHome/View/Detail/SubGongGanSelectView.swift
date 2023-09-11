@@ -10,10 +10,14 @@ import BinGongGanCore
 
 struct SubGongGanSelectView: View {
     @EnvironmentObject var gongGan: GongGanStore
+    private let scrennWidth = UIScreen.main.bounds.width
     var body: some View {
         NavigationStack {
-            VStack(alignment: .leading) {
-                gongGan.customSection("세부공간 선택")
+            
+            gongGan.customSection("세부공간 선택")
+                .padding(EdgeInsets(top: 5, leading: 5, bottom: 0, trailing: 0))
+            
+            VStack(alignment: .center) {
                 ForEach($gongGan.gongGanStore.detailGongGan) { $space in
                     Button {
                         if space.isSelected == true {
@@ -21,24 +25,40 @@ struct SubGongGanSelectView: View {
                         } else {
                             for index in 0..<gongGan.gongGanStore.detailGongGan.count {
                                 gongGan.gongGanStore.detailGongGan[index].isSelected = false
-                            } // 하나의 버튼만 클릭 이미지 표시
+                            }
                             space.isSelected.toggle()
                         }
                     } label: {
                         VStack(alignment: .leading) {
-                            HStack {
-                                Text(space.isSelected ? " ◉ " : " ◎ ")
+                            HStack(alignment: .center) {
+                                
+                                //                                    Image(systemName: "checkmark")
+                                //                                        .opacity(space.isSelected ? 1 : 2)
+                                //                                    .font(.captionRegular)
+                                //                                        .foregroundColor(space.isSelected ? .white : .black)
+                                
+                                
                                 Text("\(space.title)")
-                                    .font(.subheadline)
-                                .foregroundColor(.myDarkGray)
+                                    .font(.body1Regular)
+                                    .foregroundColor(space.isSelected ? .white : .myPrimary)
+                                    .frame(width: scrennWidth * 0.85)
+                                    .padding(10)
+                                    .foregroundColor(.white)
+                                    .background(
+                                        RoundedRectangle(cornerRadius: 15)
+                                            .foregroundColor(space.isSelected ? .myPrimary : .white)
+                                            .shadow(color: .gray, radius: 1, x: 1, y: 1)
+                                    )
                             }
+                            //                            .frame(height: 30)
                             if space.isSelected {
                                 SubGongGanDetailView()
+                                    .transition(.offset(.zero))
+                                    .padding(.top ,1)
                             }
                         }
                     }
                     .buttonStyle(.plain)
-                    .padding(3)
                 }
                 
             }

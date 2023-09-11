@@ -10,11 +10,15 @@ import SwiftUI
 struct ContentView: View {
 
     @StateObject private var signInStore: SignInStore = SignInStore()
+    
+    @StateObject var homeStore: HomeStore = HomeStore()
     @StateObject private var reservationStore: ReservationStore = ReservationStore()
 
     var body: some View {
         if signInStore.isSuccessSignIn {
             GongGanTabView()
+                .environmentObject(signInStore)
+                .environmentObject(homeStore)
                 .environmentObject(reservationStore)
         } else {
             NavigationStack {

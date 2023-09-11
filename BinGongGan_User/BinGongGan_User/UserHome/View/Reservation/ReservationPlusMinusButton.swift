@@ -9,8 +9,10 @@ import SwiftUI
 
 struct ReservationPlusMinusButton: View {
     
-    @State var content: Int = 1
+    @State private var content: Int = 1
+    
     var contentLabel: String
+    var type: String
     
     private let screenWidth = UIScreen.main.bounds.width
     
@@ -23,7 +25,7 @@ struct ReservationPlusMinusButton: View {
                 }
             } label: {
                 Image(systemName: "minus")
-                    .foregroundColor(.myPrimary)
+                    .foregroundColor(content == 1 ? Color.myLightGray : Color.myPrimary)
                     .frame(width: 20, height: 40)
             }
             .buttonStyle(.plain)
@@ -35,7 +37,17 @@ struct ReservationPlusMinusButton: View {
                 .cornerRadius(8)
             
             Button {
-                content += 1
+                if type == "time" {
+                    if content < 24 {
+                        content += 1
+                    }
+                } else if type == "person" {
+                    if content < 13 {
+                        content += 1
+                    }
+                } else {
+                    content += 1
+                }
             } label: {
                 Image(systemName: "plus")
                     .foregroundColor(.myPrimary)
@@ -48,6 +60,6 @@ struct ReservationPlusMinusButton: View {
 
 struct ReservationPlusMinusButton_Previews: PreviewProvider {
     static var previews: some View {
-        ReservationPlusMinusButton(content: 1, contentLabel: "시간")
+        ReservationPlusMinusButton(contentLabel: "시간", type: "time")
     }
 }

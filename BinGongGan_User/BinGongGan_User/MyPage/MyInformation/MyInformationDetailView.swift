@@ -1,3 +1,6 @@
+
+
+
 //
 //  MyInformationDetail.swift
 //  BinGongGan_User
@@ -10,37 +13,45 @@ import BinGongGanCore
 
 struct MyInformationDetailView: View {
     @Environment(\.dismiss) private var dismiss
-    @State private var name: String = "손윤호"
-    @State private var phoneNumber: String = "010-1234-5678"
+    private var formattedPhoneNumber: String {
+        phoneNumber.formatPhoneNumber()
+    }
+    @State private var nickName: String = "유노"
+    @State private var phoneNumber: String = "01012345678"
+    @State private var isPresentedAlert: Bool = false
     
     var body: some View {
         Form {
-            VStack(alignment: .leading) {
-                NavigationLink {
-                    MyInformationEditView(editType: .name, name: $name, phoneNumber: $phoneNumber)
-                } label: {
-                    HStack {
-                        Text("이름")
-                            .font(.body1Regular)
-                        Spacer()
-                        Text("\(name)")
-                            .foregroundColor(.myDarkGray)
-                    }
+            NavigationLink {
+                MyInformationEditView(editType: .name, name: $nickName, phoneNumber: $phoneNumber)
+            } label: {
+                HStack {
+                    Text("닉네임")
+                        .font(.body1Regular)
+                    Spacer()
+                    Text("\(nickName)")
+                        .foregroundColor(.myDarkGray)
                 }
             }
             
-            VStack(alignment: .leading) {
-                NavigationLink {
-                    MyInformationEditView(editType: .phoneNumber, name: $name, phoneNumber: $phoneNumber)
-                } label: {
-                    HStack {
-                        Text("연락처")
-                            .font(.body1Regular)
-                        Spacer()
-                        Text("\(phoneNumber)")
-                            .foregroundColor(.myDarkGray)
-                    }
+            NavigationLink {
+                MyInformationEditView(editType: .phoneNumber, name: $nickName, phoneNumber: $phoneNumber)
+            } label: {
+                HStack {
+                    Text("연락처")
+                        .font(.body1Regular)
+                    Spacer()
+                    Text("\(formattedPhoneNumber)")
+                        .foregroundColor(.myDarkGray)
                 }
+            }
+            
+            HStack {
+                Text("이름")
+                    .font(.body1Regular)
+                Spacer()
+                Text("손윤호")
+                    .foregroundColor(.myDarkGray)
             }
             
             HStack {
@@ -60,29 +71,20 @@ struct MyInformationDetailView: View {
             }
             
             Section {
-                Button {
-                    
+                NavigationLink {
+                    AccountSettingView()
                 } label: {
-                    Text("회원 탈퇴")
-                        .foregroundColor(.red)
+                    Text("계정 관리")
                 }
+            } header: {
+                Text("계정")
             }
         }
         .scrollContentBackground(.hidden)
         .background(Color.myBackground)
         .navigationTitle("내 정보")
         .navigationBarTitleDisplayMode(.inline)
-        .navigationBarBackButtonHidden(true)
-        .toolbar {
-            ToolbarItem(placement:.navigationBarLeading) {
-                Button {
-                    dismiss()
-                } label: {
-                    Image(systemName: "chevron.left")
-                        .foregroundColor(.myPrimary)
-                }
-            }
-        }
+        .customBackbutton()
     }
 }
 

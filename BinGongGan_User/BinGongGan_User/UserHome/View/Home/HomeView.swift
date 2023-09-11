@@ -8,85 +8,125 @@
 import SwiftUI
 import BinGongGanCore
 
-enum ImageLogoConstant {
-    static let width = CGFloat(50)
-    static let height = CGFloat(50)
+enum HomeNameSpace {
+    static let screenWidth = UIScreen.main.bounds.width
+    static let screenHeight = UIScreen.main.bounds.width
 }
 
-enum HomeViewConstant {
-    static let searchButtonWidth = CGFloat(50)
-    static let searchButtonHeight = CGFloat(40)
+extension View {
+    func cornerRadius(_ radius: CGFloat, corners: UIRectCorner) -> some View {
+        clipShape( RoundedCorner(radius: radius, corners: corners) )
+    }
+}
+
+struct RoundedCorner: Shape {
+    
+    var radius: CGFloat = .infinity
+    var corners: UIRectCorner = .allCorners
+    
+    func path(in rect: CGRect) -> Path {
+        let path = UIBezierPath(roundedRect: rect, byRoundingCorners: corners, cornerRadii: CGSize(width: radius, height: radius))
+        return Path(path.cgPath)
+    }
 }
 
 struct HomeView: View {
     
-    @ObservedObject var dummyStore: HomeStore = HomeStore()
-    private let screenWidth = UIScreen.main.bounds.width
-    private var isTapSearchButton: Bool = false
+    @EnvironmentObject var homeStore: HomeStore
+    @Binding var tabBarVisivility: Visibility
     
     var body: some View {
+        
         ZStack {
             Spacer().background(Color.myBackground).edgesIgnoringSafeArea(.all)
-            VStack {
-                HStack {
-                    HomeStore.backButton("https://item.kakaocdn.net/do/a1ccece94b4ba1b47f0e5dbe05ce65687e6f47a71c79378b48860ead6a12bf11")
+            
+            ScrollView(showsIndicators: false) {
+                LazyVStack{
                     NavigationLink {
-                        HomeSearchView()
+                        MapSearchView(tabBarVisivility: $tabBarVisivility)
+                            .toolbar(tabBarVisivility, for: .tabBar)
                     } label: {
-                        RoundedRectangle(cornerRadius: 15)
-                            .frame(width: screenWidth * 0.7 , height: HomeViewConstant.searchButtonHeight)
-                            .opacity(0.6)
-                            .foregroundColor(.myLightGray)
-                            .overlay {
+                        RoundedRectangle(cornerRadius: 10)
+                            .stroke(Color.myPrimary, lineWidth: 1)
+                            .background()
+                            .frame(height: 50)
+                            .overlay(alignment: .leading) {
                                 HStack {
-                                    Spacer()
-                                    Text("어떤 장소를 찾고 계신가요? ")
-                                        .foregroundColor(.black)
-                                        .font(.body1Regular)
-                                    Spacer()
-                                    Image(systemName: "magnifyingglass")
-                                        .foregroundColor(.mySecondary)
-                                        .padding(.trailing, 10)
+                                    Image("SearchViewImage")
+                                        .foregroundColor(.myDarkGray)
+                                        .padding(.leading)
+                                    Text(" 내 주변 검색하기")
+                                        .font(.body1Bold)
+                                        .foregroundColor(.myPrimary)
                                 }
                             }
-                            .padding([.top, .bottom], 20)
-                            .padding([.leading, .trailing], 5)
+                            .padding()
                     }
-                }// HSTACK
-                .padding(EdgeInsets(top: 50, leading: 50, bottom: 10, trailing: 50))
-                ScrollView(showsIndicators: false) {
-                    LazyVStack{
-                        Group {
-                            HomeEventTapView().padding(.bottom,  20)
-                            
-                            Text("어떤 공간이 필요하세요?")
+                    Group {
+                        HomeCategoryView()
+                            .padding([.leading, .trailing], 20)
+                            .environmentObject(homeStore)
+                        HStack {
+                            Text("인기 플레이스")
                                 .font(.head1Bold)
-                                .padding(.top, 5)
-                            HomeCategoryView()
-                                .padding(.bottom, 20)
-                            
+                                .foregroundColor(.myPrimary)
+                                .padding([.leading, .top], 20)
+                            Spacer()
+                        }
+                        
+                        FavoriteListView()
+                            .environmentObject(homeStore)
+                            .padding(.horizontal)
+                            .padding(.bottom, 20)
+                        
+                        HStack {
                             Text("이런 공간은 어떠세요?")
                                 .font(.head1Bold)
-                            
-                            ForEach(HomeStore().places) { place in
-                                HomeListRow(place: place)
-                                    .padding([.bottom, .leading, .trailing], 10)
+                                .foregroundColor(.myPrimary)
+                            Spacer()
+                            Button {
+                                homeStore.settingRecommendPlace()
+                            } label: {
+                                Image(systemName: "goforward")
+                                    .font(.body1Bold)
+                                    .foregroundColor(.mySecondary)
                             }
+
+                        }.padding([.leading, .trailing], 20)
+                        
+                        ForEach(homeStore.recommendPlace) { place in
+                            HomeListRow(place: place)
                         }
-                    }// LazyVStack
-                }// SCROLLVIEW
-                
-            }// VSTACK
-            .edgesIgnoringSafeArea(.all)
+                        .padding(.bottom, 10)
+                        
+                        HomeEventTapView()
+                            .padding(.bottom, 10)
+                            .environmentObject(homeStore)
+                    }// GROUP
+                }// LazyVStack
+                .padding(.bottom, 10)
+            }// SCROLLVIEW
+            .onAppear{
+                homeStore.settingRecommendPlace()
+            }
+            .toolbar {
+                ToolbarItem(placement: .navigationBarLeading) {
+                    Image("HomeLogo")
+                        .resizable()
+                        .aspectRatio(contentMode: .fit)
+                        .frame(width: 40, height: 40)
+                        .padding(.leading, 10)
+                }
+            }
         }// ZSTACK
-        
     }// BODY
 }
 
 struct HomeView_Previews: PreviewProvider {
     static var previews: some View {
         NavigationStack{
-            HomeView()
+            HomeView(tabBarVisivility: .constant(.visible))
+                .environmentObject(HomeStore())
         }
     }
 }
