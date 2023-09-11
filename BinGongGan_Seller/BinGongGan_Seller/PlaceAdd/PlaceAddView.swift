@@ -139,7 +139,7 @@ struct PlaceAddView: View {
                             let place = Place(
                                 placeName: placeNameText,
                                 placePrice: placePriceText,
-                                placeCategory: selectedPlace.rawValue,
+                                placeCategory: selectedPlace,
                                 placeImageStringList: [""],
                                 note: noteText,
                                 placeInfomationList: placeInfomationString,
