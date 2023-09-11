@@ -17,7 +17,7 @@ final class HomeStore: ObservableObject {
     @Published var recommendPlace: [Place] = []
     @Published var filteredArray:[Place] = []
     @Published var recentlyWords: [String] = []
-    
+    @Published var cities: [City] = []
 //    let dbRef = Firestore.firestore().collection("Incruitments")
     
     var categories: [Category] = [
@@ -42,6 +42,11 @@ final class HomeStore: ObservableObject {
 //      self.places = places
 //    }
 //
+    
+    func fetchPlace(){
+        places = placeArray
+        cities = cityArray
+    }
     func deleteRecentlyWord(word: String) {
         let index = recentlyWords.firstIndex {
             $0 == word
@@ -75,9 +80,7 @@ final class HomeStore: ObservableObject {
             ProgressView()
         }
     }
-    func fetchPlace(){
-        places = placeArray
-    }
+    
     
     func settingEventBanner(){
         for i in eventImageArray.shuffled() {
@@ -126,7 +129,40 @@ final class HomeStore: ObservableObject {
            places[index].isFavorite.toggle()
        }
     }
-    
+    func filteredPlaceList(category: String, cities: [String]) {
+        
+        filteredArray.removeAll()
+        var tempFilteredArray: [Place] = []
+        let all = "전체"
+        if cities.contains(all){
+            for filteredPlace in places {
+                if filteredPlace.category.rawValue == category {
+                    tempFilteredArray.append(filteredPlace)
+                }
+            }
+            filteredArray = tempFilteredArray
+        } else {
+            for filteredPlace in places {
+                if filteredPlace.category.rawValue == category {
+                    for sub in cities {
+                        if filteredPlace.placeLocation.contains(sub){
+                            tempFilteredArray.append(filteredPlace)
+                        }
+                    }
+                }
+            }
+            filteredArray = tempFilteredArray
+        }
+//      if all != category {
+//        for incruitment in incruitments {
+//          if incruitment.jobCategory == category {
+//            filteredIncruitments.append(incruitment)
+//          }
+//        }
+//      }else{
+//        filteredIncruitments = incruitments
+//      }
+    }
 }
 
 
@@ -207,3 +243,25 @@ let eventImageArray: [String] = [
     "https://media.discordapp.net/attachments/1148158635667632149/1149282573881724979/canva----------mp-LcAtJ4yQ.jpg?width=1410&height=528",
     "https://media.discordapp.net/attachments/1148158635667632149/1149282575689469993/canva--------zIbSUFxMP-c.jpg?width=1410&height=470",
 ]
+
+
+let cityArray: [City] = [
+City(name: "서울특별시", subCity: SubCity(name: ["강남구", "강동구", "강북구", "강서구", "관악구", "광진구", "구로구", "금천구", "노원구", "도봉구", "동대문구", "동작구", "마포구", "서대문구", "서초구", "성동구", "성북구", "송파구", "양천구", "영등포구", "용산구", "은평구", "종로구", "중구", "중랑구"])),
+City(name: "부산광역시", subCity: SubCity(name: ["강서구", "금정구", "기장군", "남구", "동구", "동래구", "부산진구", "북구", "사상구", "사하구", "서구", "수영구", "연제구", "영도구", "중구", "해운대구"])),
+City(name: "대구광역시", subCity: SubCity(name: ["중구", "동구", "서구", "남구", "북구", "수성구", "달서구", "달성군"])),
+City(name: "인천광역시", subCity: SubCity(name: ["중구", "동구", "남구", "연수구", "남동구", "부평구", "계양구", "서구", "강화군", "옹진군"])),
+City(name: "광주광역시", subCity: SubCity(name: ["동구", "서구", "남구", "북구", "광산구"])),
+City(name: "대전광역시", subCity: SubCity(name: ["동구", "중구", "서구", "유성구", "대덕구"])),
+City(name: "울산광역시", subCity: SubCity(name: ["중구", "남구", "동구", "북구", "울주군"])),
+City(name: "세종특별자치시", subCity: SubCity(name: ["세종시"])),
+City(name: "강원도", subCity: SubCity(name: ["춘천시", "원주시", "강릉시", "동해시", "태백시", "속초시", "삼척시", "홍천군", "횡성군", "영월군", "평창군", "정선군", "철원군", "화천군", "양구군", "인제군", "고성군", "양양군"])),
+City(name: "충청북도", subCity: SubCity(name: ["청주시", "충주시", "제천시", "보은군", "옥천군", "영동군", "진천군", "괴산군", "음성군", "단양군"])),
+City(name: "충청남도", subCity: SubCity(name: ["천안시", "공주시", "보령시", "아산시", "서산시", "논산시", "계룡시", "당진시", "금산군", "연기군", "부여군", "서천군", "청양군", "홍성군", "예산군", "태안군"])),
+City(name: "전라북도", subCity: SubCity(name: ["전주시", "군산시", "익산시", "정읍시", "남원시", "김제시", "완주군", "진안군", "무주군", "장수군", "임실군", "순창군", "고창군", "부안군"])),
+City(name: "전라남도", subCity: SubCity(name: ["목포시", "여수시", "순천시", "나주시", "광양시", "담양군", "곡성군", "구례군", "고흥군", "보성군", "화순군", "장흥군", "강진군", "해남군", "영암군", "무안군", "함평군", "영광군", "장성군", "완도군", "진도군", "신안군"])),
+City(name: "경상북도", subCity: SubCity(name: ["포항시", "경주시", "김천시", "안동시", "구미시", "영주시", "영천시", "상주시", "문경시", "경산시", "군위군", "의성군", "청송군", "영양군", "영덕군", "청도군", "고령군", "성주군", "칠곡군", "예천군", "봉화군", "울진군", "울릉군"])),
+City(name: "경상남도", subCity: SubCity(name: ["창원시", "김해시", "진주시", "양산시", "거제시", "통영시", "사천시", "밀양시", "함안군", "거창군", "창녕군", "고성군", "남해군", "하동군", "산청군", "함양군", "거북군", "합천군"])),
+City(name: "제주도", subCity: SubCity(name: ["제주시", "서귀포시"])),
+]
+
+

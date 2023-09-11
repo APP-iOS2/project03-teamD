@@ -11,20 +11,45 @@ struct PlaceListView: View {
     
     @EnvironmentObject var homeStore: HomeStore 
     @State var category: String
+    @State var isShowingFilterSheet: Bool = false
+    @State var selectSub: [String] = ["전체"]
     var body: some View {
         ZStack {
             Spacer().background(Color.myBackground).edgesIgnoringSafeArea(.all)
             VStack {
-                Text("sad")
-                ScrollView(showsIndicators: false){
-                    ForEach(homeStore.places){ place in
-                        if category == place.category.rawValue {
-                            PlaceListRow(place: place)
-                                .padding(.bottom, 20)
+                    HStack {
+                        if selectSub.count == 0 {
+                            Text("필터 버튼을 통해서 원하는 검색결과를 찾아보세요!")
+                                .font(.body1Regular)
+                                .foregroundColor(.myPrimary)
+                        } else {
+                            HStack {
+                                
+                                Text("조건을 필터한 결과입니다.")
+                                    .font(.body1Regular)
+                                    .foregroundColor(.myPrimary)
+                            }
                         }
+                    }.frame(height: HomeNameSpace.screenHeight * 0.08)
+                    .padding(.top, 10)
+                ScrollView(showsIndicators: false){
+                    // 가야할 데이터 카테고리 별 값 , 처음엔 전체 , 그후에는 필터로  
+                    ForEach(homeStore.filteredArray){ place in
+                        PlaceListRow(place: place)
+                            .padding(.bottom, 20)
+//                        if category == place.category.rawValue {
+//                            ForEach(selectSub, id: \.self) { sub in
+//                                if place.placeLocation.contains(sub){
+//
+//                                }
+//                            }
+//                        }
                     }
-                }// SCROLLVIEW
-                .padding(.top, 20)
+                } // SCROLLVIEW
+                .onAppear{
+                    homeStore.filteredPlaceList(category: category, cities: selectSub)
+                }
+                
             }// VSTACK
             .navigationTitle("\(category)")
             .navigationBarTitleDisplayMode(.inline)
@@ -32,45 +57,22 @@ struct PlaceListView: View {
             .toolbar {
                 ToolbarItem(placement: .navigationBarTrailing) {
                     Button {
-                        // 필터 모달
+                        selectSub.removeAll()
+                        isShowingFilterSheet = true
                     } label: {
                         Image(systemName: "slider.horizontal.3")
                             .foregroundColor(.myPrimary)
                             .font(.body1Bold)
+                    }
+                    .sheet(isPresented: $isShowingFilterSheet) {
+                        PlaceListFilterView(isShowingFilterSheet: $isShowingFilterSheet, selectSub: $selectSub, category: $category)
+                       
                     }
                 }
             }
         }// ZSTACK
         .background(Color.myBackground)
     }// BODY
-//    @ViewBuilder
-//    private func tabAnimate() -> some View {
-//        HStack {
-//            ForEach(ReservationHistoryType.allCases, id: \.self) { item in
-//                VStack {
-//                    Text(item.rawValue)
-//                        .font(.footnote)
-//                        .frame(maxWidth: .infinity/6, minHeight: 30)
-//                        .foregroundColor(selectedPicker == item ? .black : .gray)
-//
-//                    if selectedPicker == item {
-//                        Capsule()
-//                            .foregroundColor(.myPrimary)
-//                            .frame(height: 3)
-//                            .matchedGeometryEffect(id: "info", in: animation)
-//                    }
-//
-//                }
-//                .padding()
-//                .onTapGesture {
-//                    withAnimation(.easeInOut) {
-//                        self.selectedPicker = item
-//                    }
-//                }
-//            }
-//        }
-//    }
-    
 }
 
 struct PlaceListView_Previews: PreviewProvider {
