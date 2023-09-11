@@ -43,7 +43,6 @@ struct AnnouncementContentCell: View {
             AnnouncementOptionSheet()
                 .presentationDetents([.height(AnnouncementOptionCell.screenHeight * 0.37)])
                 .presentationDragIndicator(.hidden)
-                .cornerRadius(15)
         }
     }
 }
