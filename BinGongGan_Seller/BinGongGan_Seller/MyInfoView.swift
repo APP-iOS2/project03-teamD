@@ -25,89 +25,82 @@ struct MyInfoView: View {
     @State private var alertMessage = ""
     @State private var isShowAlert: Bool = false
     @State private var logOutToggle: Bool = false
+    @State private var isShowingEditSheet: Bool = false
     
     @StateObject var info: MyStore = MyStore()
     var body: some View {
-        VStack {
+        Form {
             Section {
-                Form {
-                    VStack(alignment: .leading) {
-                        Text("이름")
-                            .font(.body1Regular)
-                        Text(info.myStore.name)
-                            .font(.body1Bold)
-                            .foregroundColor(.myDarkGray)
-                    }
-                    
-                    Group {
-                        VStack(alignment: .leading) {
-                            Text("연락처")
-                                .font(.body1Regular)
-                            Text(info.myStore.phoneNumber)
-                                .font(.body1Bold)
-                                .foregroundColor(.myDarkGray)
-                        }
-                    }
-                    
-                    VStack(alignment: .leading) {
-                        Text("계좌번호")
-                            .font(.body1Regular)
-                        Text(info.myStore.accountNumber)
-                            .font(.body1Bold)
-                            .foregroundColor(.myDarkGray)
-                    }
-                    
-                    VStack(alignment: .leading) {
-                        Text("사업자 등록번호")
-                            .font(.body1Regular)
-                        Text(info.myStore.companyNumber)
-                            .font(.body1Bold)
-                            .foregroundColor(.myDarkGray)
-                    }
-                    
-                    Section {
-                        Button {
-                            isShowAlert.toggle()
-                            alertMessage = "로그아웃 하시겠습니까?"
-                        } label: {
-                            Text("로그아웃")
-                                .foregroundColor(.myDarkGray)
-                        }
-                        .buttonStyle(.plain)
-                        
-                        Button {
-                            isShowAlert.toggle()
-                            alertMessage = "정말 탈퇴 하시겠습니까?"
-                        } label: {
-                            Text("회원 탈퇴")
-                                .foregroundColor(.red)
-                        }
-                    }
+                VStack(alignment: .leading) {
+                    Text("이름")
+                        .font(.body1Regular)
+                    Text(info.myStore.name)
+                        .font(.body1Bold)
+                        .foregroundColor(.myDarkGray)
                 }
-            } header: {
-                Text("내 정보")
-                    .padding([.top, .leading], 20)
+                
+                VStack(alignment: .leading) {
+                    Text("연락처")
+                        .font(.body1Regular)
+                    Text(info.myStore.phoneNumber)
+                        .font(.body1Bold)
+                        .foregroundColor(.myDarkGray)
+                }
+                
+                VStack(alignment: .leading) {
+                    Text("계좌번호")
+                        .font(.body1Regular)
+                    Text(info.myStore.accountNumber)
+                        .font(.body1Bold)
+                        .foregroundColor(.myDarkGray)
+                }
+                
+                VStack(alignment: .leading) {
+                    Text("사업자 등록번호")
+                        .font(.body1Regular)
+                    Text(info.myStore.companyNumber)
+                        .font(.body1Bold)
+                        .foregroundColor(.myDarkGray)
+                }
+            }
+            Section {
+                Button {
+                    isShowAlert.toggle()
+                    alertMessage = "로그아웃 하시겠습니까?"
+                } label: {
+                    Text("로그아웃")
+                        .foregroundColor(.myDarkGray)
+                }
+                .buttonStyle(.plain)
+                
+                Button {
+                    isShowAlert.toggle()
+                    alertMessage = "정말 탈퇴 하시겠습니까?"
+                } label: {
+                    Text("회원 탈퇴")
+                        .foregroundColor(.red)
+                }
             }
         }
+        .navigationTitle("내 정보")
         .navigationBarBackButtonHidden(true)
         .scrollContentBackground(.hidden)
+        .customBackbutton()
         .background(Color.myBackground)
         .navigationBarTitleDisplayMode(.inline)
-        //        .customBackbutton()
         .toolbar {
-            ToolbarItem(placement: .navigationBarLeading) {
-                HStack{
-                    Image("HomeLogo")
-                        .resizable()
-                        .aspectRatio(contentMode: .fit)
-                        .frame(width: 40, height: 40)
-                    Text("BinGongGan")
-                        .bold()
-                        .foregroundColor(Color.myPrimary)
+            ToolbarItem {
+                Button {
+                    isShowingEditSheet.toggle()
+                } label: {
+                    Text("수정")
+                        .accentColor(.black)
                 }
-                .padding(EdgeInsets(top: 10, leading: 10, bottom: 15, trailing: 0))
             }
         }
+        .sheet(isPresented: $isShowingEditSheet, content: {
+            MyInfoEditView(isShowingEditSheet: $isShowingEditSheet, myInfo: info)
+        })
         .alert(isPresented:$isShowAlert) {
             Alert(title: Text(""), message: Text(alertMessage), primaryButton: .default(Text("확인"), action: {
                 if alertMessage == "로그아웃 하시겠습니까?" {

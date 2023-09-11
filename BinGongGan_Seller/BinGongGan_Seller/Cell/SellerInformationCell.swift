@@ -31,6 +31,7 @@ struct SellerInformationCell: View {
                     Text("E-mail")
                     Spacer()
                     Text("test@test.com")
+                        .accentColor(.black)
                 }
                 HStack {
                     Text("Acc No.")
