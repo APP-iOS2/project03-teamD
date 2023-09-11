@@ -12,55 +12,59 @@ struct MyPlaceManagementView: View {
     @Environment(\.dismiss) private var dismiss
     
     var body: some View {
+        ZStack {
+            Color.myBackground
+                .ignoresSafeArea(.all)
             VStack {
-                HStack {
-                    Text("판매자 정보")
-                        .font(.title)
-                        .bold()
-                        .padding(.horizontal, 20)
-                    Spacer()
-                }
-                SellerInformationCell()
-                HStack {
-                    Text("내 공간")
-                        .font(.title)
-                        .bold()
-                        .padding(.horizontal, 20)
-                    Spacer()
-                    NavigationLink {
-                        PlaceAddView()
-                    } label: {
-                        Text("내 공간 추가")
-                            .padding(.trailing, 20)
-                            .bold()
-                            .foregroundColor(.myBlack)
-                    }
-
-                }
-                TabView {
-                    // TODO: TabView 작동 안돼서 수정 필요
-                    ForEach(1...3, id: \.self) { _ in
-                        MySpaceCell()
+                Section {
+                    SellerInformationCell()
+                        .padding([.bottom, .leading, .trailing])
+                } header: {
+                    HStack {
+                        Text("내 정보")
+                            .padding([.top, .leading], 20)
+                            .font(.head1Bold)
+                        Spacer()
+                        NavigationLink {
+                            
+                        } label: {
+                            Image(systemName: "square.and.pencil")
+                                .foregroundColor(Color.mySecondary)
+                                .font(.title3)
+                                .padding([.top, .trailing], 20)
+                        }
                     }
                 }
-            }
-            .navigationBarBackButtonHidden(true)
-            .scrollContentBackground(.hidden)
-            .background(Color.myBackground)
-            .navigationBarTitleDisplayMode(.inline)
-            .toolbar {
-                ToolbarItem(placement:.navigationBarLeading) {
-                    Button {
-                        dismiss()
-                    } label: {
-                        Image(systemName: "chevron.left")
-                            .foregroundColor(.myPrimary)
+                
+                Section {
+                    
+                } header: {
+                    HStack {
+                        Text("내 공간")
+                            .padding([.top, .leading], 20)
+                            .font(.head1Bold)
+                        Spacer()
                     }
                 }
             }
+        }
+        .background(Color.myBackground)
+        .toolbar {
+            ToolbarItem(placement: .navigationBarLeading) {
+                HStack{
+                    Image("HomeLogo")
+                        .resizable()
+                        .aspectRatio(contentMode: .fit)
+                        .frame(width: 40, height: 40)
+                    Text("BinGongGan")
+                        .bold()
+                        .foregroundColor(Color.myPrimary)
+                }
+                .padding(EdgeInsets(top: 10, leading: 10, bottom: 15, trailing: 0))
+            }
+        }
     }
 }
-
 
 struct MyPlaceManagementView_Previews: PreviewProvider {
     static var previews: some View {

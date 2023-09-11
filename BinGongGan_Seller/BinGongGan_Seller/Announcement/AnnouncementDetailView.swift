@@ -26,7 +26,6 @@ struct AnnouncementDetailView: View {
             .navigationTitle("공지사항")
             .navigationBarTitleDisplayMode(.inline)
         }
-        .navigationBarBackButtonHidden(true)
         .scrollContentBackground(.hidden)
         .background(Color.myBackground)
         .customBackbutton()
