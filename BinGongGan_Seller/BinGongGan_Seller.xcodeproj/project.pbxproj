@@ -76,6 +76,29 @@
 		B1343A712AA9022200DC20EE /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = B1343A702AA9022200DC20EE /* GoogleService-Info.plist */; };
 		B1343A722AA9022200DC20EE /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = B1343A702AA9022200DC20EE /* GoogleService-Info.plist */; };
 		B1343A732AA9022200DC20EE /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = B1343A702AA9022200DC20EE /* GoogleService-Info.plist */; };
+		B13464E42AA90CD100098E9B /* PhotoSelectedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B13464E32AA90CD100098E9B /* PhotoSelectedView.swift */; };
+		B13464E62AA90CF700098E9B /* PlaceMapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B13464E52AA90CF700098E9B /* PlaceMapView.swift */; };
+		B13464E82AA90D2A00098E9B /* PlaceInfomationButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B13464E72AA90D2A00098E9B /* PlaceInfomationButtonView.swift */; };
+		B13464EA2AA90D5700098E9B /* PlaceAddView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B13464E92AA90D5700098E9B /* PlaceAddView.swift */; };
+		B13464EC2AA90DAD00098E9B /* MySpaceCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B13464EB2AA90DAD00098E9B /* MySpaceCell.swift */; };
+		B13464EE2AA90DCA00098E9B /* ReviewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B13464ED2AA90DCA00098E9B /* ReviewCell.swift */; };
+		B13464F02AA90DE800098E9B /* ReservationCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B13464EF2AA90DE800098E9B /* ReservationCell.swift */; };
+		B13464F22AA90E1800098E9B /* SellerInformationCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B13464F12AA90E1800098E9B /* SellerInformationCell.swift */; };
+		B13464F42AA90E6200098E9B /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B13464F32AA90E6200098E9B /* HomeView.swift */; };
+		B13464F62AA90E8800098E9B /* CategoryButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = B13464F52AA90E8800098E9B /* CategoryButton.swift */; };
+		B13464F82AA90EA700098E9B /* CategoryButtonsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B13464F72AA90EA700098E9B /* CategoryButtonsView.swift */; };
+		B13464FA2AA90ED400098E9B /* ReservationDetailSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = B13464F92AA90ED400098E9B /* ReservationDetailSheet.swift */; };
+		B13464FC2AA90EF700098E9B /* CategoryModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B13464FB2AA90EF700098E9B /* CategoryModel.swift */; };
+		B13464FE2AA9100A00098E9B /* ReviewManageDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B13464FD2AA9100A00098E9B /* ReviewManageDetailView.swift */; };
+		B13465002AA9102D00098E9B /* ReviewManageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B13464FF2AA9102D00098E9B /* ReviewManageView.swift */; };
+		B13465022AA910B900098E9B /* BinGongGan_SellerApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = B13465012AA910B900098E9B /* BinGongGan_SellerApp.swift */; };
+		D2C4B6062AAECEA000F60B51 /* SellerSignInStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2C4B6052AAECEA000F60B51 /* SellerSignInStore.swift */; };
+		D2C4B6082AAECECC00F60B51 /* SellerSignInView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2C4B6072AAECECC00F60B51 /* SellerSignInView.swift */; };
+		D2C4B60E2AAED11900F60B51 /* CustomTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2C4B60D2AAED11900F60B51 /* CustomTextField.swift */; };
+		D2C4B6102AAED16000F60B51 /* PrimaryButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2C4B60F2AAED16000F60B51 /* PrimaryButton.swift */; };
+		D2C4B6142AAED1D400F60B51 /* ToastMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2C4B6132AAED1D400F60B51 /* ToastMessage.swift */; };
+		D2C4B6162AAED22300F60B51 /* CustomSecureField.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2C4B6152AAED22300F60B51 /* CustomSecureField.swift */; };
+
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -162,6 +185,12 @@
 		B13464FD2AA9100A00098E9B /* ReviewManageDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewManageDetailView.swift; sourceTree = "<group>"; };
 		B13464FF2AA9102D00098E9B /* ReviewManageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewManageView.swift; sourceTree = "<group>"; };
 		B13465012AA910B900098E9B /* BinGongGan_SellerApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BinGongGan_SellerApp.swift; sourceTree = "<group>"; };
+		D2C4B6052AAECEA000F60B51 /* SellerSignInStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SellerSignInStore.swift; sourceTree = "<group>"; };
+		D2C4B6072AAECECC00F60B51 /* SellerSignInView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SellerSignInView.swift; sourceTree = "<group>"; };
+		D2C4B60D2AAED11900F60B51 /* CustomTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTextField.swift; sourceTree = "<group>"; };
+		D2C4B60F2AAED16000F60B51 /* PrimaryButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrimaryButton.swift; sourceTree = "<group>"; };
+		D2C4B6132AAED1D400F60B51 /* ToastMessage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToastMessage.swift; sourceTree = "<group>"; };
+		D2C4B6152AAED22300F60B51 /* CustomSecureField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomSecureField.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -448,6 +477,8 @@
 				2FAB80552AA7FF960091D8CC /* PlaceAdd */,
 				2FAB805F2AA7FFF30091D8CC /* Review */,
 				2FD53AE72AA952B700183687 /* Event */,
+				D2C4B6022AAECE0500F60B51 /* SignIn */,
+				D2C4B60A2AAED0A100F60B51 /* Common */,
 				B10A042D2AA9014A00ACF757 /* MyPlaceManagementView.swift */,
 				0CDDF1C72AAB001E00834AA9 /* MyInfoView.swift */,
 				0CDDF1C92AAB140900834AA9 /* MyInfoEditView.swift */,
@@ -511,6 +542,26 @@
 				B13464FB2AA90EF700098E9B /* CategoryModel.swift */,
 			);
 			path = HomeModels;
+			sourceTree = "<group>";
+		};
+		D2C4B6022AAECE0500F60B51 /* SignIn */ = {
+			isa = PBXGroup;
+			children = (
+				D2C4B6052AAECEA000F60B51 /* SellerSignInStore.swift */,
+				D2C4B6072AAECECC00F60B51 /* SellerSignInView.swift */,
+			);
+			path = SignIn;
+			sourceTree = "<group>";
+		};
+		D2C4B60A2AAED0A100F60B51 /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				D2C4B60D2AAED11900F60B51 /* CustomTextField.swift */,
+				D2C4B60F2AAED16000F60B51 /* PrimaryButton.swift */,
+				D2C4B6132AAED1D400F60B51 /* ToastMessage.swift */,
+				D2C4B6152AAED22300F60B51 /* CustomSecureField.swift */,
+			);
+			path = Common;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -655,63 +706,67 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4BF4FA932AAED4BD007F6563 /* ChartView.swift in Sources */,
-				4BF4FA942AAED4BD007F6563 /* ChartModel.swift in Sources */,
-				4BF4FA952AAED4BD007F6563 /* AnnouncementTitleCell.swift in Sources */,
-				4BF4FA962AAED4BD007F6563 /* AnnouncementContentCell.swift in Sources */,
-				4BF4FA972AAED4BD007F6563 /* AnnouncementOptionCell.swift in Sources */,
-				4BF4FA982AAED4BD007F6563 /* AnnouncmentOptionButton.swift in Sources */,
-				4BF4FA992AAED4BD007F6563 /* AnnouncementOptionSheet.swift in Sources */,
-				4BF4FA9A2AAED4BD007F6563 /* AnnouncementOption.swift in Sources */,
-				4BF4FA9B2AAED4BD007F6563 /* AnnounceStore.swift in Sources */,
-				4BF4FA9C2AAED4BD007F6563 /* AnnouncementView.swift in Sources */,
-				4BF4FA9D2AAED4BD007F6563 /* AnnouncementTextRow.swift in Sources */,
-				4BF4FA9E2AAED4BD007F6563 /* AnnouncementDetailView.swift in Sources */,
-				4BF4FA9F2AAED4BD007F6563 /* AnnouncementAddView.swift in Sources */,
-				4BF4FAA02AAED4BD007F6563 /* BinGongGan_SellerApp.swift in Sources */,
-				4BF4FAA12AAED4BD007F6563 /* ReservationConfirmedCell.swift in Sources */,
-				4BF4FAA22AAED4BD007F6563 /* SellerInformationCell.swift in Sources */,
-				4BF4FAA32AAED4BD007F6563 /* ReservationCell.swift in Sources */,
-				4BF4FAA42AAED4BD007F6563 /* ReviewCell.swift in Sources */,
-				4BF4FAA52AAED4BD007F6563 /* ReviewWithCommentCell.swift in Sources */,
-				4BF4FAA62AAED4BD007F6563 /* CarouselCell.swift in Sources */,
-				4BF4FAA72AAED4BD007F6563 /* MySpaceCell.swift in Sources */,
-				4BF4FAA82AAED4BD007F6563 /* ReservationDeadlineCell.swift in Sources */,
-				4BF4FAA92AAED4BD007F6563 /* ApprovedPlaceListView.swift in Sources */,
-				4BF4FAAA2AAED4BD007F6563 /* CategoryModel.swift in Sources */,
-				4BF4FAAB2AAED4BD007F6563 /* ReservationDetailSheet.swift in Sources */,
-				4BF4FAAC2AAED4BD007F6563 /* CategoryButton.swift in Sources */,
-				4BF4FAAD2AAED4BD007F6563 /* CategoryButtonsView.swift in Sources */,
-				4BF4FAAE2AAED4BD007F6563 /* HomeView.swift in Sources */,
-				4BF4FAAF2AAED4BD007F6563 /* RervationDetailsStore.swift in Sources */,
-				4BF4FAB02AAED4BD007F6563 /* RervationcalendarStore.swift in Sources */,
-				4BF4FAB12AAED4BD007F6563 /* ReservationCalendar.swift in Sources */,
-				4BF4FAB22AAED4BD007F6563 /* DateValue.swift in Sources */,
-				4BF4FAB32AAED4BD007F6563 /* ReservationTapType.swift in Sources */,
-				4BF4FAB42AAED4BD007F6563 /* ReservationDetailsView.swift in Sources */,
-				4BF4FAB52AAED4BD007F6563 /* ReservationTapBarView.swift in Sources */,
-				4BF4FAB62AAED4BD007F6563 /* ReservationDetailsSegmentView.swift in Sources */,
-				4BF4FAB72AAED4BD007F6563 /* ReservationDetailsListView.swift in Sources */,
-				4BF4FAB82AAED4BD007F6563 /* ReservationDetailsCalendarView.swift in Sources */,
-				4BF4FAB92AAED4BD007F6563 /* ReservationDatePickerView.swift in Sources */,
-				4BF4FABA2AAED4BD007F6563 /* ReservationCardView.swift in Sources */,
-				4BF4FABB2AAED4BD007F6563 /* PlaceAddView.swift in Sources */,
-				4BF4FABC2AAED4BD007F6563 /* PlaceMapView.swift in Sources */,
-				4BF4FABD2AAED4BD007F6563 /* PlaceInfomationButtonView.swift in Sources */,
-				4BF4FABE2AAED4BD007F6563 /* PlaceModel.swift in Sources */,
-				4BF4FABF2AAED4BD007F6563 /* PhotoSelectedView.swift in Sources */,
-				4BF4FAC02AAED4BD007F6563 /* PlaceInfomationModel.swift in Sources */,
-				4BF4FAC12AAED4BD007F6563 /* AddressSearchView.swift in Sources */,
-				4BF4FAC22AAED4BD007F6563 /* PlaceStore.swift in Sources */,
-				4BF4FAC32AAED4BD007F6563 /* ReportCase.swift in Sources */,
-				4BF4FAC42AAED4BD007F6563 /* ReportStore.swift in Sources */,
-				4BF4FAC52AAED4BD007F6563 /* ReviewManageDetailView.swift in Sources */,
-				4BF4FAC62AAED4BD007F6563 /* ReviewManageView.swift in Sources */,
-				4BF4FAC72AAED4BD007F6563 /* ReviewReportSheet.swift in Sources */,
-				4BF4FAC82AAED4BD007F6563 /* EventView.swift in Sources */,
-				4BF4FAC92AAED4BD007F6563 /* MyPlaceManagementView.swift in Sources */,
-				4BF4FACA2AAED4BD007F6563 /* MyInfoView.swift in Sources */,
-				4BF4FACB2AAED4BD007F6563 /* MyInfoEditView.swift in Sources */,
+
+				B13464F22AA90E1800098E9B /* SellerInformationCell.swift in Sources */,
+				6A3B444A2AA830F4008CC944 /* ReservationDetailsCalendarView.swift in Sources */,
+				4B84D4BE2AAAE84F00F5FB01 /* AnnouncementAddView.swift in Sources */,
+				B13464E62AA90CF700098E9B /* PlaceMapView.swift in Sources */,
+				4BBAF3042AADA47400F1405D /* ReservationDeadlineCell.swift in Sources */,
+				6A3B44462AA830D4008CC944 /* ReservationDetailsListView.swift in Sources */,
+				B13465022AA910B900098E9B /* BinGongGan_SellerApp.swift in Sources */,
+				B13464EE2AA90DCA00098E9B /* ReviewCell.swift in Sources */,
+				B13464EC2AA90DAD00098E9B /* MySpaceCell.swift in Sources */,
+				2FAF0AC22AA8A9B500113F94 /* CarouselCell.swift in Sources */,
+				B10A042E2AA9014B00ACF757 /* MyPlaceManagementView.swift in Sources */,
+				6A3B44422AA83099008CC944 /* ReservationDetailsView.swift in Sources */,
+				0CDDF1CA2AAB140900834AA9 /* MyInfoEditView.swift in Sources */,
+				6A3B44402AA83081008CC944 /* RervationDetailsStore.swift in Sources */,
+				B13464F42AA90E6200098E9B /* HomeView.swift in Sources */,
+				545AA9C02AA8380000A281D0 /* PlaceModel.swift in Sources */,
+				B13464FC2AA90EF700098E9B /* CategoryModel.swift in Sources */,
+				2FD53AE92AA952D300183687 /* EventView.swift in Sources */,
+				4B84D4CF2AAAEE3E00F5FB01 /* AnnouncementOptionCell.swift in Sources */,
+				54D4677C2AA8AA6200054F12 /* ChartModel.swift in Sources */,
+				4BC0BD722AA860AC00B792B8 /* AnnouncementTextRow.swift in Sources */,
+				6A3B443C2AA83058008CC944 /* ReservationTapType.swift in Sources */,
+				B13464FA2AA90ED400098E9B /* ReservationDetailSheet.swift in Sources */,
+				0CDDF1C82AAB001E00834AA9 /* MyInfoView.swift in Sources */,
+				B13464FA2AA90ED400098E9B /* ReservationDetailSheet.swift in Sources */,
+				2F36A56B2AA81EEC00578AEB /* ReviewWithCommentCell.swift in Sources */,
+				4BC0BD742AA860B900B792B8 /* AnnouncementDetailView.swift in Sources */,
+				4B74203D2AA80ACC00818257 /* AnnouncementView.swift in Sources */,
+				D2C4B60E2AAED11900F60B51 /* CustomTextField.swift in Sources */,
+				4B84D4CB2AAAEA5100F5FB01 /* AnnouncementTitleCell.swift in Sources */,
+				D2C4B6162AAED22300F60B51 /* CustomSecureField.swift in Sources */,
+				2F36A56D2AA83E2100578AEB /* ReviewReportSheet.swift in Sources */,
+				4BBAF3092AAE3E8D00F1405D /* ApprovedPlaceListView.swift in Sources */,
+				B13464FE2AA9100A00098E9B /* ReviewManageDetailView.swift in Sources */,
+				B13464E42AA90CD100098E9B /* PhotoSelectedView.swift in Sources */,
+				4BBAF3062AADED1E00F1405D /* AnnounceStore.swift in Sources */,
+				D2C4B6142AAED1D400F60B51 /* ToastMessage.swift in Sources */,
+				54D4677A2AA8A90C00054F12 /* ChartView.swift in Sources */,
+				B13464F02AA90DE800098E9B /* ReservationCell.swift in Sources */,
+				6A3B44442AA830C3008CC944 /* ReservationTapBarView.swift in Sources */,
+				D2C4B6082AAECECC00F60B51 /* SellerSignInView.swift in Sources */,
+				54D467802AAE51A200054F12 /* PlaceStore.swift in Sources */,
+				B13464F82AA90EA700098E9B /* CategoryButtonsView.swift in Sources */,
+				6A3B444C2AA83119008CC944 /* ReservationConfirmedCell.swift in Sources */,
+				2F36A5722AA83E9200578AEB /* ReportCase.swift in Sources */,
+				B13464EA2AA90D5700098E9B /* PlaceAddView.swift in Sources */,
+				B13465002AA9102D00098E9B /* ReviewManageView.swift in Sources */,
+				545AA9C22AA83A8A00A281D0 /* PlaceInfomationModel.swift in Sources */,
+				2FECE3C62AADECFA00F04CFC /* ReportStore.swift in Sources */,
+				6A70AE8A2AA9A3BE00EF6AAE /* ReservationDetailsSegmentView.swift in Sources */,
+				4B84D4C82AAAE9B400F5FB01 /* AnnouncementOptionSheet.swift in Sources */,
+				B13464F62AA90E8800098E9B /* CategoryButton.swift in Sources */,
+				B13464E82AA90D2A00098E9B /* PlaceInfomationButtonView.swift in Sources */,
+				4B84D4C62AAAE99300F5FB01 /* AnnouncmentOptionButton.swift in Sources */,
+				D2C4B6062AAECEA000F60B51 /* SellerSignInStore.swift in Sources */,
+				4B84D4CD2AAAEA6800F5FB01 /* AnnouncementContentCell.swift in Sources */,
+				D2C4B6102AAED16000F60B51 /* PrimaryButton.swift in Sources */,
+				4B84D4C32AAAE8C000F5FB01 /* AnnouncementOption.swift in Sources */,
+				54D4677E2AAE42E500054F12 /* AddressSearchView.swift in Sources */,
+
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
