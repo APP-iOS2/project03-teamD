@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import FirebaseFirestoreSwift
 
 enum CategoryCase: String {
     case shareOffice = "공유오피스"
@@ -34,7 +35,7 @@ struct Category : Identifiable {
     }
 }
 
-struct Place : Identifiable , Hashable {
+struct Place : Identifiable, Hashable {
     let id = UUID().uuidString
     var placeName: String
     let category: CategoryCase
