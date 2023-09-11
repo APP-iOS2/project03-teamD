@@ -60,7 +60,7 @@ struct HomeListRow: View {
                         place.isFavorite.toggle()
                     } label: {
                         Image(systemName: place.isFavorite ? "heart.fill" : "heart")
-                            .foregroundColor(.mySecondary)
+                            .foregroundColor(.red)
                     }.padding(.trailing, 20)
                     
                 }// HSTACK
