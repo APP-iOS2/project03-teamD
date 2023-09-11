@@ -86,6 +86,6 @@ struct SellerSignInView: View {
 struct SignInView_Previews: PreviewProvider {
     static var previews: some View {
         SellerSignInView()
-            .environmentObject(SignInStore())
+//            .environmentObject(SignInStore())
     }
 }

@@ -36,9 +36,12 @@ struct MySpaceCell: View {
                 }
                 .padding(.top, 10)
             }
-            .padding(20)
+            .padding(EdgeInsets(top: 20, leading: 20, bottom: 0, trailing: 20))
+            
+            Spacer()
             
             CarouselCell()
+                .frame(height: 210)
         }
         .background(Color.white)
         .cornerRadius(15)
