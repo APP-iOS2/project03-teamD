@@ -2,23 +2,23 @@
 //  FavoriteCellView.swift
 //  BinGongGan_User
 //
-//  Created by 최하늘 on 2023/09/08.
+//  Created by 임대진 on 2023/09/08.
 //
 
 import SwiftUI
 import BinGongGanCore
 
 struct FavoriteCellView: View {
-    @State var listRow: TempFavorit
-    @State var tempHeartToggle: Bool = false
+    @Binding var isHeartButtonShowing: Bool
+    var gongGanItem: GongGan
     
     var body: some View {
         NavigationLink {
-            GongGanDetailView()
+            GongGanDetailView(gongGan: gongGanItem)
         } label: {
             VStack {
                 HStack {
-                    AsyncImage(url: URL(string: listRow), content: { image in
+                    AsyncImage(url: URL(string: gongGanItem.placeImageUrl[0]), content: { image in
                         image
                             .resizable()
                             .aspectRatio(contentMode: .fill)
@@ -41,12 +41,7 @@ struct FavoriteCellView: View {
                     .padding(EdgeInsets(top: 0, leading: 20, bottom: 0, trailing: 10))
                     
                     VStack(alignment: .leading) {
-                        
-                        Text("\(gongGan.gongGanStore.title)")
-                            .padding(.top , 17)
-                            .foregroundColor(.myBlack)
-                            .font(.body1Bold)
-                        Text("\(gongGan.gongGanStore.simpleLocation)")
+                        Text("\(gongGanItem.placeLocation)")
                             .padding(.bottom , 3)
                             .foregroundColor(.myBlack)
                             .font(.captionRegular)
@@ -54,28 +49,30 @@ struct FavoriteCellView: View {
                             .padding(.bottom , 17)
                             .foregroundColor(.myBlack)
                             .font(.captionRegular)
-                    }// VSTACK
+                    }
                     Spacer()
                     Button {
-//                        place.isFavorite.toggle()
                     } label: {
-                        Image(systemName: tempHeartToggle ? "heart.fill" : "heart")
-                            .foregroundColor(.mySecondary)
-                    }.padding(.trailing, 20)
-                    
-                }// HSTACK
+                        if isHeartButtonShowing {
+                            Image(systemName: gongGanItem.isFavorite ? "heart.fill" : "heart")
+                                .foregroundColor(.mySecondary)
+                        }
+                    }
+                    .padding(.trailing, 20)
+                    .buttonStyle(.plain)
+                }
                 Rectangle()
                     .frame(height: 1)
                     .foregroundColor(.myLightGray)
-            }// VSTACK
-            
+            }
         }
     }
 }
 
-struct FavoriteCellView_Previews: PreviewProvider {
+struct FavoriteRowView_Previews: PreviewProvider {
     static var previews: some View {
-        FavoriteCellView()
-            .environmentObject(GongGanStore())
+        NavigationStack {
+            FavoriteCellView(isHeartButtonShowing: .constant(false), gongGanItem: GongGan.sampleGongGan)
+        }
     }
 }

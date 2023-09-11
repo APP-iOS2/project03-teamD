@@ -14,7 +14,7 @@ struct HomeListRow: View {
     
     var body: some View {
         NavigationLink {
-            GongGanDetailView()
+//            GongGanDetailView()
         } label: {
             VStack {
                 HStack {

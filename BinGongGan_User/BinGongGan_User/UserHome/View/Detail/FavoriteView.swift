@@ -6,72 +6,44 @@
 //
 
 import SwiftUI
+import BinGongGanCore
 
 struct FavoriteView: View {
-    @StateObject var gongGan: GongGanStore = GongGanStore()
-    @State var navigationLink: Bool = false
-    @State var tempHeartToggle: Bool = false
-    private let screenWidth = UIScreen.main.bounds.width
-    private let screenheight = UIScreen.main.bounds.height
+    @StateObject var gongGan: MyFavoriteStore = MyFavoriteStore()
+    @State var isHeartButtonShowing: Bool = false
+    
     var body: some View {
-//        NavigationStack {
-//            List {
-//                ForEach(gongGan.tempFavorit) { place in
-//                    Button {
-//                        navigationLink.toggle()
-//                    } label: {
-//                        HStack {
-//                            VStack(alignment: .leading, spacing: 5) {
-//                                Text(place.title)
-//                                    .font(.body1Bold)
-//                                Text(place.category)
-//                                    .font(.captionRegular)
-//                                Spacer().frame(height: screenheight * 0.001)
-//                                Text(place.location)
-//                                    .font(.captionRegular)
-//
-//                            }
-//                            Spacer()
-//
-//                        }
-//                        .frame(width: screenWidth * 0.8)
-//                        .padding()
-//                        .foregroundColor(.white)
-//                        .background(
-//                            RoundedRectangle(cornerRadius: 15)
-//                                .foregroundColor(.myPrimary)
-//                                .shadow(color: .gray, radius: 5, x: 3, y: 3)
-//
-//                        )
-//                    }
-//
-//                }
-////                .onDelete { indices in
-////                    gongGan.tempFavorit.remove(atOffsets: indices)
-////                }
-//                .listRowSeparator(.hidden)
-//            }
-//            .listStyle(.plain)
-//            .navigationTitle("나의 찜")
-//            .navigationBarTitleDisplayMode(.inline)
-//            .navigationDestination(isPresented: $navigationLink) {
-//                GongGanDetailView()
-//            }
-////            .toolbar {
-////                ToolbarItem(placement: .navigationBarTrailing) {
-////                    EditButton()
-////                }
-////            }
-//        }
-        ForEach(gongGan.gongGanStore) { listRow in
-            FavoriteView()
+        ZStack {
+            Spacer().background(Color.myBackground).edgesIgnoringSafeArea(.all)
+            ScrollView {
+                ForEach(gongGan.myFavoriteGongGan) { gongGanItem in
+                    VStack {
+                        FavoriteCellView(isHeartButtonShowing: $isHeartButtonShowing, gongGanItem: gongGanItem)
+                    }
+                }
+                .navigationTitle("나의 찜")
+                .navigationBarTitleDisplayMode(.inline)
+                Spacer()
+            }
+            .padding(.top, 10)
         }
-        .padding(.bottom, 10)
+        .toolbar {
+            ToolbarItem(placement: .navigationBarTrailing) {
+                Button {
+                    isHeartButtonShowing.toggle()
+                } label: {
+                    Text("Edit")
+                }
+            }
+        }
     }
 }
 
 struct FavoriteView_Previews: PreviewProvider {
     static var previews: some View {
-        FavoriteView()
+        NavigationStack {
+            FavoriteView()
+                .environmentObject(MyFavoriteStore())
+        }
     }
 }
