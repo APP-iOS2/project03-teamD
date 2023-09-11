@@ -72,6 +72,11 @@ struct GongGanDetailView: View {
                                         withAnimation {
                                             selectedSegment = segment
                                         }
+                                        
+                                        if selectedSegment != .info {
+                                            isReservationActive = nil
+                                        }
+                                        
                                     }
                                 }
                             }
