@@ -33,6 +33,7 @@ struct CustomTextField: View {
                 .keyboardType(keyboardType)
                 .textInputAutocapitalization(.never)
                 .disableAutocorrection(true)
+            
             if isFocused {
                 HStack {
                     Spacer()
@@ -41,7 +42,8 @@ struct CustomTextField: View {
                     }, label: {
                         Image(systemName: "xmark.circle.fill")
                             .foregroundColor(.myBrown)
-                    }).padding(.trailing, 20)
+                    })
+                    .padding(.trailing, 20)
                 }
             }
         }

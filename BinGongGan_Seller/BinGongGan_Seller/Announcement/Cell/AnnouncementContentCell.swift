@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct AnnouncemnetContentCell: View {
+struct AnnouncementContentCell: View {
     @State var isShowingAnnouncementOptionSheet: Bool = false
 
     var body: some View {
@@ -43,13 +43,12 @@ struct AnnouncemnetContentCell: View {
             AnnouncementOptionSheet()
                 .presentationDetents([.height(AnnouncementOptionCell.screenHeight * 0.37)])
                 .presentationDragIndicator(.hidden)
-                .cornerRadius(15)
         }
     }
 }
 
-struct AnnouncemnetContentCell_Previews: PreviewProvider {
+struct AnnouncementContentCell_Previews: PreviewProvider {
     static var previews: some View {
-        AnnouncemnetContentCell()
+        AnnouncementContentCell()
     }
 }
