@@ -11,6 +11,7 @@ import BinGongGanCore
 enum HomeNameSpace {
     static let screenWidth = UIScreen.main.bounds.width
     static let screenHeight = UIScreen.main.bounds.width
+    static let scrollViewBottomPadding = CGFloat(10)
 }
 
 extension View {
@@ -66,18 +67,24 @@ struct HomeView: View {
                         HomeCategoryView()
                             .padding([.leading, .trailing], 20)
                             .environmentObject(homeStore)
+                       
+                        HomeEventTapView()
+                            .padding([.top, .bottom], 7)
+                            .environmentObject(homeStore)
+                        
                         HStack {
                             Text("인기 플레이스")
                                 .font(.head1Bold)
                                 .foregroundColor(.myPrimary)
-                                .padding([.leading, .top], 20)
+                                .padding(.leading, 20)
+                                .padding(.top, 7)
                             Spacer()
                         }
                         
                         FavoriteListView()
                             .environmentObject(homeStore)
                             .padding(.horizontal)
-                            .padding(.bottom, 20)
+                            .padding(.bottom, 13)
                         
                         HStack {
                             Text("이런 공간은 어떠세요?")
@@ -91,20 +98,17 @@ struct HomeView: View {
                                     .font(.body1Bold)
                                     .foregroundColor(.mySecondary)
                             }
-
-                        }.padding([.leading, .trailing], 20)
+                        }
+                        .padding([.leading, .trailing], 20)
                         
                         ForEach(homeStore.recommendPlace) { place in
                             HomeListRow(place: place)
                         }
                         .padding(.bottom, 10)
                         
-                        HomeEventTapView()
-                            .padding(.bottom, 10)
-                            .environmentObject(homeStore)
                     }// GROUP
                 }// LazyVStack
-                .padding(.bottom, 10)
+                .padding(.bottom, HomeNameSpace.scrollViewBottomPadding)
             }// SCROLLVIEW
             .onAppear{
                 homeStore.settingRecommendPlace()
@@ -115,7 +119,7 @@ struct HomeView: View {
                         .resizable()
                         .aspectRatio(contentMode: .fit)
                         .frame(width: 40, height: 40)
-                        .padding(.leading, 10)
+                        .padding([.bottom, .leading], 10)
                 }
             }
         }// ZSTACK
