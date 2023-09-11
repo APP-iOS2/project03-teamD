@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct DetailTabImageView: View {
-    @State var imageUrl: [String]
+    @StateObject var gongGan: GongGanStore = GongGanStore()
     private let screenWidth = UIScreen.main.bounds.width
     @State private var selectedTab = 0
     private let timer = Timer.publish(every: 3, on: .main, in: .common).autoconnect()
@@ -17,8 +17,8 @@ struct DetailTabImageView: View {
         NavigationStack {
             
             TabView {
-                ForEach(imageUrl.indices, id: \.self) { index in
-                    AsyncImage(url: URL(string: imageUrl[index])) { image in
+                ForEach(gongGan.tempImage.indices, id: \.self) { index in
+                    AsyncImage(url: URL(string: gongGan.tempImage[index])) { image in
                         image
                             .resizable()
                             .scaledToFill()
@@ -29,7 +29,7 @@ struct DetailTabImageView: View {
                 }
             }
             .tabViewStyle(PageTabViewStyle())
-//            .frame(width: screenWidth * 0.9, height: 200)
+            .frame(width: screenWidth, height: 200)
             
             
 //                TabView(selection: $selectedTab) {
@@ -61,6 +61,6 @@ struct DetailTabImageView: View {
 
 struct DetailTabImageView_Previews: PreviewProvider {
     static var previews: some View {
-        DetailTabImageView(imageUrl: [""])
+        DetailTabImageView()
     }
 }
