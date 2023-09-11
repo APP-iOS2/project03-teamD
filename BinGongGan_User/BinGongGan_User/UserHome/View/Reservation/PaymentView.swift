@@ -36,26 +36,89 @@ struct PaymentView: View {
                     })
                 .listRowBackground(Color.clear)
                 
-                PaymentListCell(title: "방식", data: "무통장 입금 seller/ 통장번호")
+                HStack {
+                    Text("방식")
+                        .font(.body1Regular)
+                        .frame(width: 80)
+                    Divider()
+                    
+                    Text("무통장 입금 seller/ 통장번호")
+                }
                     .foregroundColor(.red)
                     .listRowBackground(Color.clear)
                 
-                PaymentListCell(title: "신청일", data: "reservationDate")
+                HStack {
+                    Text("예약 번호")
+                        .font(.body1Regular)
+                        .frame(width: 80)
+                    Divider()
+                    
+                    Text(reservationStore.getReservation(type: .reservationID))
+                }
                     .listRowBackground(Color.clear)
                 
-                PaymentListCell(title: "예약공간", data: "spaceName / roomName")
+                HStack {
+                    Text("신청일")
+                        .font(.body1Regular)
+                        .frame(width: 80)
+                    Divider()
+                    
+                    Text(reservationStore.getReservation(type: .reservationDate))
+                }
                     .listRowBackground(Color.clear)
                 
-                PaymentListCell(title: "예약내용", data: "checkInDate / checkOutDate/ hour")
+                HStack {
+                    Text("예약 공간")
+                        .font(.body1Regular)
+                        .frame(width: 80)
+                    Divider()
+                    
+                    Text("공간 이름:")
+                    Text("방 이름:")
+                }
                     .listRowBackground(Color.clear)
                 
-                PaymentListCell(title: "예약인원", data: "personal")
+                HStack {
+                    Text("예약 내용")
+                        .font(.body1Regular)
+                        .frame(width: 80)
+                    Divider()
+                    
+                    Text("체크인 날짜: \(reservationStore.getReservation(type: .checkInDate))")
+                    Text("체크아웃 날짜: \(reservationStore.getReservation(type: .checkOutDate))")
+                    Text("하루 이용 시간: \(reservationStore.getReservation(type: .hour))")
+                }
                     .listRowBackground(Color.clear)
                 
-                PaymentListCell(title: "예약자정보", data: "reservationName / reservationPhoneNumber")
+                HStack {
+                    Text("예약 인원")
+                        .font(.body1Regular)
+                        .frame(width: 80)
+                    Divider()
+                    
+                    Text(reservationStore.getReservation(type: .personnel))
+                }
                     .listRowBackground(Color.clear)
                 
-                PaymentListCell(title: "요청사항", data: "reservationRequest")
+                HStack {
+                    Text("예약자 정보")
+                        .font(.body1Regular)
+                        .frame(width: 80)
+                    Divider()
+                    
+                    Text("이름: \(reservationStore.getReservation(type: .reservationName))")
+                    Text("전화번호: \(reservationStore.getReservation(type: .reservationPhoneNumber))")
+                }
+                    .listRowBackground(Color.clear)
+                
+                HStack {
+                    Text("요청사항")
+                        .font(.body1Regular)
+                        .frame(width: 80)
+                    Divider()
+                    
+                    Text(reservationStore.getReservation(type: .reservationRequest))
+                }
                     .listRowBackground(Color.clear)
                 
             }

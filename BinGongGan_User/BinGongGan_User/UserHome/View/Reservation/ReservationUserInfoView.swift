@@ -9,6 +9,8 @@ import SwiftUI
 
 struct ReservationUserInfoView: View {
     
+    @EnvironmentObject var reservationStore: ReservationStore
+    
     @State private var reservationName: String = ""
     @State private var reservationPhoneNumber: String = ""
     
@@ -28,6 +30,7 @@ struct ReservationUserInfoView: View {
         }
         
         ReservationPlusMinusButton(contentLabel: "시간", type: "time")
+            .environmentObject(reservationStore)
             .padding(.bottom, 10)
         
         
@@ -39,6 +42,7 @@ struct ReservationUserInfoView: View {
         }
         
         ReservationPlusMinusButton(contentLabel: "명", type: "person")
+            .environmentObject(reservationStore)
             .padding(.bottom, 10)
         
         
@@ -48,6 +52,9 @@ struct ReservationUserInfoView: View {
         CustomTextField(placeholder: "입금자명을 입력하세요", text: $reservationName)
             .frame(width: screenWidth * 0.9, height: 50)
             .padding(.bottom, 10)
+            .onSubmit {
+                reservationStore.updateReservation(type: .reservationName, value: reservationName)
+            }
         
         
         Text("연락처")
@@ -57,7 +64,9 @@ struct ReservationUserInfoView: View {
             .keyboardType(.numberPad)
             .frame(width: screenWidth * 0.9, height: 50)
             .padding(.bottom, 10)
-        
+            .onSubmit {
+                reservationStore.updateReservation(type: .reservationPhoneNumber, value: reservationPhoneNumber)
+            }
         
         Text("요청사항")
             .font(.body1Regular)
@@ -73,8 +82,8 @@ struct ReservationUserInfoView: View {
                 .lineLimit(4)
                 .frame(width: screenWidth * 0.8)
                 .padding([.top,.leading], 20)
-                .onTapGesture {
-                    UIApplication.shared.sendAction(#selector(UIResponder.resignFirstResponder), to: nil, from: nil, for: nil)
+                .onSubmit {
+                   reservationStore.updateReservation(type: .reservationRequest, value: reservationRequest)
                 }
             
             if reservationRequest.isEmpty {

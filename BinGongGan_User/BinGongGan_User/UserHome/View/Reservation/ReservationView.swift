@@ -40,12 +40,11 @@ struct ReservationView: View {
                     ReservationSellerInfoView()
                         .environmentObject(reservationStore)
                     
-                    NavigationLink {
-                        PaymentView()
-                            //.toolbar(tabBarVisible, for: .tabBar)
-                            .environmentObject(reservationStore)
-                            .navigationBarBackButtonHidden()
-                        
+                    Button {
+                        // 데이터 저장
+                        reservationStore.reservation.reservationID = UUID().uuidString
+                        reservationStore.reservation.reservationDate = "\(Date().timeIntervalSince1970)"
+                      
                     } label: {
                         Text("무통장으로 입금")
                             .frame(width: screenWidth * 0.9, height: 50)
@@ -56,6 +55,12 @@ struct ReservationView: View {
                     .disabled(!reservationStore.isPolicyChecked)
                     .buttonStyle(.plain)
                     .padding([.top, .bottom], 10)
+                    .navigationDestination(isPresented: $reservationStore.isPolicyChecked) {
+                            PaymentView()
+                                //.toolbar(tabBarVisible, for: .tabBar)
+                                .environmentObject(reservationStore)
+                                .navigationBarBackButtonHidden()
+                    }
                 }
                 .padding([.leading, .trailing], 20)
             }
