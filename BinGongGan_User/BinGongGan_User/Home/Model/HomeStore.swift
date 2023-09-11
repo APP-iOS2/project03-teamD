@@ -25,10 +25,10 @@ final class HomeStore: ObservableObject {
     
     var filteredCategoryCity: [Place] {
         return places.filter { place in
-            selectSub.isEmpty ?  place.category == selectedCategory : place.category == selectedCategory && selectSub.contains(place.placeLocation)
+            selectSub.isEmpty ? place.category == selectedCategory : place.category == selectedCategory && selectSub.contains(place.placeLocation)
         }
     }
-    //
+    
     var categories: [Category] = [
         Category(category: .shareOffice, categoryImageString:  "building.2"),
         Category(category: .bandRoom, categoryImageString:  "music.mic"),
