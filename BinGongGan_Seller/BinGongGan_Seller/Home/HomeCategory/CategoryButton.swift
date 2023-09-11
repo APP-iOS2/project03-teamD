@@ -13,7 +13,7 @@ struct CategoryButton: View {
     var body: some View {
         Rectangle()
             .fill(Color.myWhite)
-            .frame(width: AnnouncementOptionCell.screenWidth * 0.19, height: AnnouncementOptionCell.screenWidth * 0.21)
+            .frame(width: AnnouncementOptionCell.screenWidth * 0.21, height: AnnouncementOptionCell.screenWidth * 0.21)
             .cornerRadius(15)
             .overlay(
                 VStack{

@@ -13,7 +13,7 @@ struct CategoryButtonsView: View {
     let categoryList = CategoryModel.data
  
     var body: some View {
-        LazyVGrid(columns: columns, spacing: 16) {
+        LazyVGrid(columns: columns, spacing: 12) {
             ForEach(categoryList) { category in
                 NavigationLink {
                     category.anyView

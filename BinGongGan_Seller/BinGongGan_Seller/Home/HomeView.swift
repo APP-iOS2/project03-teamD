@@ -30,6 +30,7 @@ struct HomeView: View {
                     }
                     ForEach(0..<5) { _ in
                         ReservationCell()
+                            .padding(.bottom, 12)
                             .padding(.horizontal, 20)
                             .overlay(
                                 VStack {
