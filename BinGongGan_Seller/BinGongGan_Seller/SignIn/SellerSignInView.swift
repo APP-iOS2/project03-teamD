@@ -41,7 +41,7 @@ struct SellerSignInView: View {
                 
                 
                 Button {
-                    isShowingAlert = signInStore.checkSignIn(email: emailText, password: passwordText)
+//                    isShowingAlert = signInStore.checkSignIn(email: emailText, password: passwordText)
                 } label: {
                     Text("로그인")
                 }
