@@ -14,12 +14,12 @@ struct MDPDayView: View {
     
     // outline "today"
     private var strokeColor: Color {
-        dayOfMonth.isToday ? .myPrimary : Color.clear
+        dayOfMonth.isToday ? .myBrown : Color.clear
     }
     
     // filled if selected
     private var fillColor: Color {
-        monthDataModel.isSelected(dayOfMonth) ? .mySecondary.opacity(0.55) : Color.clear
+        monthDataModel.isSelected(dayOfMonth) ? .myMint.opacity(0.55) : Color.clear
     }
     
     // reverse color for selections or gray if not selectable

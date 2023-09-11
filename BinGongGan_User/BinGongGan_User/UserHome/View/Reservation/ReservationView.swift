@@ -61,7 +61,7 @@ struct ReservationView: View {
                         Text("무통장으로 입금")
                             .frame(width: screenWidth * 0.9, height: 50)
                             .foregroundColor(reservationStore.isPolicyChecked ? Color.white : Color.myMediumGray)
-                            .background(reservationStore.isPolicyChecked ? Color.myPrimary : Color.myLightGray )
+                            .background(reservationStore.isPolicyChecked ? Color.myBrown : Color.myLightGray )
                             .cornerRadius(8)
                     }
                     .disabled(!reservationStore.isPolicyChecked)

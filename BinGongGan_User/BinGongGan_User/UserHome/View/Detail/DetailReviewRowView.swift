@@ -27,7 +27,7 @@ struct DetailReviewRowView: View {
                 VStack(alignment: .leading) {
                     Text("작성자 닉네임")
                         .font(.body1Bold)
-                        .foregroundColor(.myBlack)
+                        .foregroundColor(.black)
                     
                     HStack(alignment: .bottom) {
                         ForEach(0..<3, id: \.self) { index in

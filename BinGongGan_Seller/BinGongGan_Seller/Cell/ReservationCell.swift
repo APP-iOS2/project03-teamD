@@ -55,8 +55,8 @@ struct ReservationCell: View {
         .padding(.horizontal, 20)
         .padding(.vertical, 15)
         .frame(maxWidth: .infinity)
-        .foregroundColor(Color.myPrimary)
-        .background(Color.myWhite)
+        .foregroundColor(Color.myBrown)
+        .background(Color.white)
         .cornerRadius(15)
     }
 }

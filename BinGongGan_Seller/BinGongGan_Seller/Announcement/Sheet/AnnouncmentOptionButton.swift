@@ -33,7 +33,7 @@ struct AnnouncementOptionButton: View {
                             .padding(.top, 5)
                             .fixedSize()
                     }
-                    .foregroundColor(Color.myPrimary)
+                    .foregroundColor(Color.myBrown)
                 )
         }
         .buttonStyle(.plain)

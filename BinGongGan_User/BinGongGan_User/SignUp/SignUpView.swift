@@ -46,12 +46,12 @@ struct SignUpView: View {
     var SignUpProgressView: some View {
         HStack {
             Circle()
-                .foregroundColor(.mySecondary)
+                .foregroundColor(.myMint)
                 .frame(width: 12, height: 12)
             Rectangle()
                 .foregroundColor(.clear)
                 .frame(height: 1)
-                .background(store.currentStep == .first ?  Color.myLightGray : Color.mySecondary)
+                .background(store.currentStep == .first ?  Color.myLightGray : Color.myMint)
             if store.currentStep == .first {
                 ProgressStrokeCircleView
             } else {
@@ -60,7 +60,7 @@ struct SignUpView: View {
             Rectangle()
                 .foregroundColor(.clear)
                 .frame(height: 1)
-                .background(store.currentStep == .third ?  Color.mySecondary : Color.myLightGray)
+                .background(store.currentStep == .third ?  Color.myMint : Color.myLightGray)
             if store.currentStep == .third {
                 ProgressCircleView
             } else {
@@ -72,13 +72,13 @@ struct SignUpView: View {
     
     var ProgressCircleView: some View {
         Circle()
-            .foregroundColor(.mySecondary)
+            .foregroundColor(.myMint)
             .frame(width: 12, height: 12)
     }
     
     var ProgressStrokeCircleView: some View {
         Circle()
-            .stroke(Color.mySecondary, lineWidth: 1.3)
+            .stroke(Color.myMint, lineWidth: 1.3)
             .frame(width: 12, height: 12)
     }
 }

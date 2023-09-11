@@ -18,9 +18,9 @@ struct MDPMonthYearPickerButton: View {
                 Text(monthDataModel.title)
                     .font(.subheadline)
                     .fontWeight(.semibold)
-                    .foregroundColor(self.isPresented ? .myPrimary : .myDarkGray)
+                    .foregroundColor(self.isPresented ? .myBrown : .myDarkGray)
                 Image(systemName: "chevron.right")
-                    .foregroundColor(self.isPresented ? .myPrimary : .myDarkGray)
+                    .foregroundColor(self.isPresented ? .myBrown : .myDarkGray)
                     .rotationEffect(self.isPresented ? .degrees(90) : .degrees(0))
             }
         }

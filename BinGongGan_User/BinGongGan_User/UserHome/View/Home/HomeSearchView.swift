@@ -39,7 +39,7 @@ struct HomeSearchView: View {
                     } label: {
                         Image(systemName: "magnifyingglass")
                             .font(.head1Bold)
-                            .foregroundColor(.myPrimary)
+                            .foregroundColor(.myBrown)
                     }.buttonStyle(.plain)
                         .padding(.trailing, 20)
                     
@@ -49,7 +49,7 @@ struct HomeSearchView: View {
                     HStack {
                         Text("최근검색어")
                             .font(.head1Bold)
-                            .foregroundColor(.myPrimary)
+                            .foregroundColor(.myBrown)
                         Spacer()
                     }
                     ScrollView(.horizontal, showsIndicators: false) {
@@ -58,10 +58,10 @@ struct HomeSearchView: View {
                                     ZStack {
                                         RoundedRectangle(cornerRadius: 15)
                                             .frame(width: HomeNameSpace.screenWidth * 0.2, height: HomeNameSpace.screenHeight * 0.1)
-                                            .foregroundColor(.myWhite)
+                                            .foregroundColor(.white)
                                         HStack {
                                             Text("\(word)")
-                                                .foregroundColor(.myBlack)
+                                                .foregroundColor(.black)
                                                 .font(.captionBold)
                                                 .frame(width: HomeNameSpace.screenWidth * 0.14, height: HomeNameSpace.screenHeight * 0.08)
                                                 .padding(.leading, 5)

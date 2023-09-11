@@ -55,7 +55,7 @@ struct SignInView: View {
                 .font(.body1Bold)
                 .frame(width: 120, height: 40)
                 .foregroundColor(.white)
-                .background(Color.mySecondary)
+                .background(Color.myMint)
                 .cornerRadius(50)
                 
                 Text("@ZDCOMPANY")

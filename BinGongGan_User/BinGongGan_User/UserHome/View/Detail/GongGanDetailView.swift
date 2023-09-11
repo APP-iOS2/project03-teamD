@@ -52,13 +52,13 @@ struct GongGanDetailView: View {
                                         Text(segment.rawValue)
                                             .font(.subheadline)
                                             .fontWeight(selectedSegment == segment ? .bold : .regular)
-                                            .foregroundColor(selectedSegment == segment ? .myPrimary : .black)
+                                            .foregroundColor(selectedSegment == segment ? .myBrown : .black)
                                         
                                         
                                         
                                         if selectedSegment == segment {
                                             Rectangle()
-                                                .foregroundColor(.myPrimary)
+                                                .foregroundColor(.myBrown)
                                                 .frame(maxWidth: screenWidth * 0.45, maxHeight: 2)
                                                 .matchedGeometryEffect(id: "item", in: animation)
                                         } else {
@@ -124,7 +124,7 @@ struct GongGanDetailView: View {
                     }
                     .frame(height: 50)
                     .font(.body1Regular)
-                    .background(Color.myPrimary)
+                    .background(Color.myBrown)
                     .padding(.bottom, 0.1)
                 }
             }
@@ -159,7 +159,7 @@ struct GongGanDetailView: View {
                         heartButton.toggle()
                     } label: {
                         Image(systemName: heartButton ? "heart.fill" : "heart")
-                            .foregroundColor(Color.myPrimary)
+                            .foregroundColor(Color.myBrown)
                     }
                 }
             }
@@ -183,6 +183,6 @@ struct GongGanDetailView_Previews: PreviewProvider {
                     Label("홈", systemImage: "house")
                 }
         }
-        .tint(.myPrimary)
+        .tint(.myBrown)
     }
 }

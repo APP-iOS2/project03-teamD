@@ -26,7 +26,7 @@ struct CategoryButton: View {
                         .bold()
                 }
             )
-            .foregroundColor(Color.myPrimary)
+            .foregroundColor(Color.myBrown)
     }
 }
 

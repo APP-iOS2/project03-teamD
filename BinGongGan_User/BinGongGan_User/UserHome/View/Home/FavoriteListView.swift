@@ -31,7 +31,7 @@ struct FavoriteListView: View {
                             Spacer()
                             Rectangle()
                                 .frame( height: 92)
-                                .foregroundColor(.myBlack)
+                                .foregroundColor(.black)
                             .opacity(0.5)
                             .overlay(alignment: .topLeading) {
                                 VStack(alignment: .leading) {
@@ -42,7 +42,7 @@ struct FavoriteListView: View {
                                     Text("\(place.placeLocation)")
                                         .font(.body1Regular)
                                 }
-                                .foregroundColor(.myWhite)
+                                .foregroundColor(.white)
                                 .padding()
                             }
                         }

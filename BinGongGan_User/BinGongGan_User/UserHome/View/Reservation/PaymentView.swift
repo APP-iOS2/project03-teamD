@@ -148,7 +148,7 @@ struct PaymentView: View {
                 Text("확인")
                     .frame(width: screenWidth * 0.9, height: 50)
                     .foregroundColor(Color.myBackground)
-                    .background(Color.myPrimary )
+                    .background(Color.myBrown )
                 
                     .cornerRadius(8)
             }

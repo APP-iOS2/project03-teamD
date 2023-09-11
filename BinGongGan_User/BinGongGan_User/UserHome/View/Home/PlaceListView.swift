@@ -21,12 +21,12 @@ struct PlaceListView: View {
                         if selectSub.contains("전체") {
                             Text("필터 버튼을 통해서 원하는 검색결과를 찾아보세요!")
                                 .font(.body1Regular)
-                                .foregroundColor(.myPrimary)
+                                .foregroundColor(.myBrown)
                         } else {
                             HStack {
                                 Text("조건을 맞는 장소는 \(homeStore.filteredArray.count)개 입니다.")
                                     .font(.body1Regular)
-                                    .foregroundColor(.myPrimary)
+                                    .foregroundColor(.myBrown)
                             }
                         }
                     }// HSTACK
@@ -59,7 +59,7 @@ struct PlaceListView: View {
                         isShowingFilterSheet = true
                     } label: {
                         Image(systemName: "slider.horizontal.3")
-                            .foregroundColor(.myPrimary)
+                            .foregroundColor(.myBrown)
                             .font(.body1Bold)
                     }
                     .sheet(isPresented: $isShowingFilterSheet) {

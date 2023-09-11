@@ -56,7 +56,7 @@ struct PlaceListFilterView: View {
                                 selectSub.removeAll()
                             } label: {
                                 Text("\(city.name)")
-                                    .foregroundColor(city.name == selectCity ? . myBlack : .myLightGray)
+                                    .foregroundColor(city.name == selectCity ? . black : .myLightGray)
                                     .font(city.name == selectCity ? .body1Bold : .body1Regular)
                             }
                         }
@@ -89,7 +89,7 @@ struct PlaceListSubFilterView: View {
                     }
                 } label: {
                     Text("\(sub)")
-                        .foregroundColor(selectSub.contains(sub) ? .myBlack : .myLightGray)
+                        .foregroundColor(selectSub.contains(sub) ? .black : .myLightGray)
                         .font(selectSub.contains(sub) ? .body1Bold : .body1Regular)
                 }
             }

@@ -44,11 +44,11 @@ struct HomeListRow: View {
                         
                         Text("\(place.placeName)")
                             
-                            .foregroundColor(.myBlack)
+                            .foregroundColor(.black)
                             .font(.body1Bold)
                         Text("\(place.placeLocation)")
                             
-                            .foregroundColor(.myBlack)
+                            .foregroundColor(.black)
                             .font(.captionRegular)
                         
                     }// VSTACK

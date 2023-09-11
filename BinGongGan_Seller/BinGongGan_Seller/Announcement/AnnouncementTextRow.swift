@@ -18,7 +18,7 @@ struct AnnouncementTextRow: View {
             Text("2023. 09. 05")
                 .foregroundColor(Color.myMediumGray)
         }
-        .foregroundColor(Color.myBlack)
+        .foregroundColor(.black)
     }
 }
 

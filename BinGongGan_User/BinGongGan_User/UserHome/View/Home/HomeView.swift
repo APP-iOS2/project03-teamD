@@ -48,7 +48,7 @@ struct HomeView: View {
                             .toolbar(tabBarVisivility, for: .tabBar)
                     } label: {
                         RoundedRectangle(cornerRadius: 10)
-                            .stroke(Color.myPrimary, lineWidth: 1)
+                            .stroke(Color.myBrown, lineWidth: 1)
                             .background()
                             .frame(height: 50)
                             .overlay(alignment: .leading) {
@@ -58,7 +58,7 @@ struct HomeView: View {
                                         .padding(.leading)
                                     Text(" 내 주변 검색하기")
                                         .font(.body1Bold)
-                                        .foregroundColor(.myPrimary)
+                                        .foregroundColor(.myBrown)
                                 }
                             }
                             .padding()
@@ -70,7 +70,7 @@ struct HomeView: View {
                         HStack {
                             Text("인기 플레이스")
                                 .font(.head1Bold)
-                                .foregroundColor(.myPrimary)
+                                .foregroundColor(.myBrown)
                                 .padding(.leading, 20)
                                 .padding(.top, 7)
                             Spacer()
@@ -83,14 +83,14 @@ struct HomeView: View {
                         HStack {
                             Text("이런 공간은 어떠세요?")
                                 .font(.head1Bold)
-                                .foregroundColor(.myPrimary)
+                                .foregroundColor(.myBrown)
                             Spacer()
                             Button {
                                 homeStore.settingRecommendPlace()
                             } label: {
                                 Image(systemName: "goforward")
                                     .font(.body1Regular)
-                                    .foregroundColor(.myPrimary)
+                                    .foregroundColor(.myBrown)
                             }
                         }
                         .padding([.leading, .trailing], 20)

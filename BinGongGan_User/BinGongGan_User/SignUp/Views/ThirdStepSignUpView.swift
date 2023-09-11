@@ -60,7 +60,7 @@ struct ThirdStepSignUpView: View {
     var TextView: some View {
         VStack {
             RoundedRectangle(cornerRadius: 8)
-                .stroke(Color.myPrimary, lineWidth: 1)
+                .stroke(Color.myBrown, lineWidth: 1)
                 .background(Color.white)
         }.frame(minHeight: 70, maxHeight: 80)
     }

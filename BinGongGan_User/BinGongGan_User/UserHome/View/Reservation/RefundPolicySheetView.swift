@@ -48,7 +48,7 @@ struct RefundPolicySheetView: View {
             } label: {
                 Text("확인 완료")
                     .font(.body1Regular)
-                    .foregroundColor(.mySecondary)
+                    .foregroundColor(.myMint)
                     .frame(width: screenWidth)
             }
             .buttonStyle(.plain)

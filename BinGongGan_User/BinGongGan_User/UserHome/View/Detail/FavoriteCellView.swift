@@ -43,11 +43,11 @@ struct FavoriteCellView: View {
                     VStack(alignment: .leading) {
                         Text("\(gongGanItem.placeLocation)")
                             .padding(.bottom , 3)
-                            .foregroundColor(.myBlack)
+                            .foregroundColor(.black)
                             .font(.captionRegular)
                         Text("12,000원 / 시간당")
                             .padding(.bottom , 17)
-                            .foregroundColor(.myBlack)
+                            .foregroundColor(.black)
                             .font(.captionRegular)
                     }
                     Spacer()
@@ -55,7 +55,7 @@ struct FavoriteCellView: View {
                     } label: {
                         if isHeartButtonShowing {
                             Image(systemName: gongGanItem.isFavorite ? "heart.fill" : "heart")
-                                .foregroundColor(.mySecondary)
+                                .foregroundColor(.myMint)
                         }
                     }
                     .padding(.trailing, 20)

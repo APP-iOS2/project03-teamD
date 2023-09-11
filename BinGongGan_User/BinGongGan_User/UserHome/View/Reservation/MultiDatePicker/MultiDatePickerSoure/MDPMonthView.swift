@@ -36,12 +36,12 @@ struct MDPMonthView: View {
                 Spacer()
                 Button( action: {showPrevMonth()} ) {
                     Image(systemName: "chevron.left")
-                        .foregroundColor(.myPrimary)
+                        .foregroundColor(.myBrown)
                         .font(.title2)
                 }.padding()
                 Button( action: {showNextMonth()} ) {
                     Image(systemName: "chevron.right")
-                        .foregroundColor(.myPrimary)
+                        .foregroundColor(.myBrown)
                         .font(.title2)
                 }.padding()
             }
@@ -64,7 +64,7 @@ struct MDPMonthView: View {
         )
         .overlay(
             RoundedRectangle(cornerRadius: 10)
-                .stroke(Color.myPrimary, lineWidth: 1)
+                .stroke(Color.myBrown, lineWidth: 1)
         )
         .padding()
         .frame(width: screenWidth, height: 300)

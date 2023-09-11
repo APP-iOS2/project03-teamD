@@ -17,8 +17,8 @@ struct AnnouncementTitleCell: View {
         }
         .padding(20)
         .frame(maxWidth: .infinity, alignment: .leading)
-        .foregroundColor(Color.myWhite)
-        .background(Color.myPrimary)
+        .foregroundColor(Color.white)
+        .background(Color.myBrown)
         .cornerRadius(15)
 
     }

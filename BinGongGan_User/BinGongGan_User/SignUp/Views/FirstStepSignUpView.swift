@@ -50,7 +50,7 @@ struct FirstStepSignUpView: View {
             Text("인증")
                 .padding(EdgeInsets(top: 10, leading: 15, bottom: 10, trailing: 15))
                 .foregroundColor(.white)
-                .background(Color.mySecondary)
+                .background(Color.myMint)
                 .clipShape(Capsule())
         }
     }

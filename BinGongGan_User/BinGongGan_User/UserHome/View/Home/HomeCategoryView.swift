@@ -26,15 +26,15 @@ struct HomeCategoryView: View {
                             VStack {
                                 ZStack {
                                     Circle()
-                                        .foregroundColor(Color.myWhite)
+                                        .foregroundColor(.white)
                                     Image(systemName: "\(category.categoryImageString)")
                                         .aspectRatio(contentMode: .fit)
-                                        .foregroundColor(Color.mySecondary)
+                                        .foregroundColor(Color.myMint)
                                         .font(.system(size: 27))
                                 }
                                 Text(category.category.rawValue)
                                     .font(.captionBold)
-                                    .foregroundColor(.myPrimary)
+                                    .foregroundColor(.myBrown)
                                     .lineLimit(1)
                             }// VSTACK
                         }// NAVIGATIONLINK

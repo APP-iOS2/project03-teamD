@@ -36,20 +36,20 @@ struct PlaceListRow: View {
                     HStack {
                         Text("\(place.placeName)")
                             .font(.head1Bold)
-                            .foregroundColor(.myBlack)
+                            .foregroundColor(.black)
                     }
                     Text("\(place.placeLocation)")
                         .font(.body1Regular)
-                        .foregroundColor(.myBlack)
+                        .foregroundColor(.black)
                     
                     HStack(spacing: 109) {
                         Text("\(place.placePrice) / 시간 당")
                             .font(.body1Regular)
-                            .foregroundColor(.myBlack)
+                            .foregroundColor(.black)
 
                         Text("최대 인원 00명")
                             .font(.body1Regular)
-                        .foregroundColor(.myBlack)
+                        .foregroundColor(.black)
                     }.padding(.top, 4)
                     
                 }
@@ -62,7 +62,7 @@ struct PlaceListRow: View {
                     .frame(
                         width: backGroundWitdh, height: backGroundHeight
                     )
-                    .foregroundColor(.myWhite)
+                    .foregroundColor(.white)
                     .cornerRadius(15)
                     .shadow(radius: 1)
             )

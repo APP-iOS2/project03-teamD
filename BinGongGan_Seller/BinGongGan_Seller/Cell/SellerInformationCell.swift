@@ -47,7 +47,7 @@ struct SellerInformationCell: View {
             } //: HStack
         }
         .padding(20)
-        .background(Color.myPrimary)
+        .background(Color.myBrown)
         .cornerRadius(15)
         .padding([.bottom, .leading, .trailing])
     }

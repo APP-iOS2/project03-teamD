@@ -57,16 +57,16 @@ struct HomeEventTapView: View {
                     } label: {
                         Text("-")
                             .font(.body1Bold)
-                            .foregroundColor(.myWhite)
+                            .foregroundColor(.white)
                     }
                     .padding(.trailing, 10)
                     
                     Text("\(currentPage + 1)")
                         .font(.body1Bold)
-                        .foregroundColor(.myWhite)
+                        .foregroundColor(.white)
                     Text("|  \(homeStore.EventList.count)")
                         .font(.body1Bold)
-                        .foregroundColor(.myWhite)
+                        .foregroundColor(.white)
                     
                     Button {
                         if currentPage == homeStore.EventList.count - 1 {
@@ -77,7 +77,7 @@ struct HomeEventTapView: View {
                     } label: {
                         Text("+")
                             .font(.body1Bold)
-                            .foregroundColor(.myWhite)
+                            .foregroundColor(.white)
                     }
                     .padding(.leading, 10)
                     

@@ -74,13 +74,13 @@ struct SubGongGanSelectView: View {
                                 HStack(alignment: .center) {
                                     Text("\(space.title)")
                                         .font(.body1Regular)
-                                        .foregroundColor(selectedSpaceIndex == index ? .white : .myPrimary)
+                                        .foregroundColor(selectedSpaceIndex == index ? .white : .myBrown)
                                         .frame(width: screenWidth * 0.85)
                                         .padding(10)
                                         .foregroundColor(.white)
                                         .background(
                                             RoundedRectangle(cornerRadius: 15)
-                                                .foregroundColor(selectedSpaceIndex == index ? .myPrimary : .white)
+                                                .foregroundColor(selectedSpaceIndex == index ? .myBrown : .white)
                                                 .shadow(color: .gray, radius: 1, x: 1, y: 1)
                                         )
                                 }

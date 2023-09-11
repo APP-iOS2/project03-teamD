@@ -19,7 +19,7 @@ struct AgreementCheckButton: View {
                 HStack {
                     Image(systemName: agreement ? "checkmark.circle.fill" : "checkmark.circle")
                         .resizable()
-                        .foregroundColor(.mySecondary)
+                        .foregroundColor(.myMint)
                         .frame(width: 24, height: 24)
                     Text(text)
                 }
