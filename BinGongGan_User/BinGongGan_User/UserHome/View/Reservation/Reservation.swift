@@ -25,7 +25,10 @@ struct Reservation {
     var roomID: String
     
     var reservationID: String
-    var reservationDate: String
+    
+    var reservationYear: String
+    var reservationMonth: String
+    var reservationDay: String
     
     var checkInYear: String
     var checkInMonth: String

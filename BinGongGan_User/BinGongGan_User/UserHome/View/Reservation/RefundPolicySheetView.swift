@@ -42,12 +42,12 @@ struct RefundPolicySheetView: View {
             
             Button {
                 reservationStore.isPolicyChecked.toggle()
-                print(reservationStore.reservation)
+                print(reservationStore.isPolicyChecked)
                 dismiss()
             } label: {
                 Text("확인 완료")
                     .font(.body1Regular)
-                    .foregroundColor(.blue)
+                    .foregroundColor(.mySecondary)
                     .frame(width: screenWidth)
             }
             .buttonStyle(.plain)

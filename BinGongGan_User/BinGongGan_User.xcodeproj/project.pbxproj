@@ -428,16 +428,15 @@
 			isa = PBXGroup;
 			children = (
 				BC344EF22AA808DD00F8CEB3 /* MultiDatePicker */,
+				BC344EE82AA808DA00F8CEB3 /* ReservationView.swift */,
 				BC344EEB2AA808DA00F8CEB3 /* Reservation.swift */,
-				BC344EEC2AA808DB00F8CEB3 /* ReservationStore.swift */,
 				BC344EEA2AA808DA00F8CEB3 /* ReservationHeaderView.swift */,
 				BC344EE92AA808DA00F8CEB3 /* ReservationCalendarView.swift */,
 				6927255A2AA83ABD00A2441E /* ReservationPlusMinusButton.swift */,
-				BC344EE82AA808DA00F8CEB3 /* ReservationView.swift */,
-				692725582AA81E5300A2441E /* RefundPolicySheetView.swift */,
-				6927255C2AA85A0600A2441E /* PaymentView.swift */,
 				BC8CFE732AA9897E00E8D8F2 /* ReservationUserInfoView.swift */,
 				BC8CFE712AA9896300E8D8F2 /* ReservationSellerInfoView.swift */,
+				692725582AA81E5300A2441E /* RefundPolicySheetView.swift */,
+				6927255C2AA85A0600A2441E /* PaymentView.swift */,
 			);
 			path = Reservation;
 			sourceTree = "<group>";
@@ -453,6 +452,7 @@
 		BC344EF22AA808DD00F8CEB3 /* MultiDatePicker */ = {
 			isa = PBXGroup;
 			children = (
+				BC344EEC2AA808DB00F8CEB3 /* ReservationStore.swift */,
 				BC344EF52AA808EA00F8CEB3 /* MultiDatePickerSoure */,
 				BC344EF32AA808E700F8CEB3 /* MultiDatePicker.swift */,
 			);

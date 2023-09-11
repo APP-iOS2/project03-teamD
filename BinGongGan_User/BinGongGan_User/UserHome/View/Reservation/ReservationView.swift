@@ -11,6 +11,7 @@ struct ReservationView: View {
     
     @Environment(\.dismiss) private var dismiss
     @StateObject var reservationStore: ReservationStore = ReservationStore()
+    @State var isReservationFinished: Bool = false
     
     @Binding var tabBarVisivility: Visibility
     
@@ -21,30 +22,26 @@ struct ReservationView: View {
         VStack {
             // 상단 바
             ReservationHeaderView()
-                .environmentObject(reservationStore)
                 .padding(.top, 1)
             
             ScrollView {
                 // 달력
                 ReservationCalendarView()
-                    .environmentObject(reservationStore)
                     .padding(.bottom, 10)
                 
                 VStack(alignment: .leading) {
                     
                     // 시간, 인원, 입금자명, 연락처, 요청사항
                     ReservationUserInfoView()
-                        .environmentObject(reservationStore)
                     
                     // 이용 시 주의 사항, 환불 규정
                     ReservationSellerInfoView()
-                        .environmentObject(reservationStore)
                     
                     Button {
                         // 데이터 저장
                         reservationStore.reservation.reservationID = UUID().uuidString
-                        reservationStore.reservation.reservationDate = "\(Date().timeIntervalSince1970)"
-                      
+                        reservationStore.updateReservation(type: .reservationDate, value: Date())
+                        isReservationFinished.toggle()
                     } label: {
                         Text("무통장으로 입금")
                             .frame(width: screenWidth * 0.9, height: 50)
@@ -55,10 +52,9 @@ struct ReservationView: View {
                     .disabled(!reservationStore.isPolicyChecked)
                     .buttonStyle(.plain)
                     .padding([.top, .bottom], 10)
-                    .navigationDestination(isPresented: $reservationStore.isPolicyChecked) {
+                    .navigationDestination(isPresented: $isReservationFinished) {
                             PaymentView()
                                 //.toolbar(tabBarVisible, for: .tabBar)
-                                .environmentObject(reservationStore)
                                 .navigationBarBackButtonHidden()
                     }
                 }
@@ -83,6 +79,7 @@ struct ReservationView_Previews: PreviewProvider {
     static var previews: some View {
         NavigationStack {
             ReservationView(tabBarVisivility: .constant(.hidden))
+                .environmentObject(ReservationStore())
         }
     }
 }

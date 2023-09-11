@@ -43,6 +43,7 @@ struct PaymentView: View {
                     Divider()
                     
                     Text("무통장 입금 seller/ 통장번호")
+                    .font(.captionRegular)
                 }
                     .foregroundColor(.red)
                     .listRowBackground(Color.clear)
@@ -54,6 +55,7 @@ struct PaymentView: View {
                     Divider()
                     
                     Text(reservationStore.getReservation(type: .reservationID))
+                    .font(.captionRegular)
                 }
                     .listRowBackground(Color.clear)
                 
@@ -64,8 +66,10 @@ struct PaymentView: View {
                     Divider()
                     
                     Text(reservationStore.getReservation(type: .reservationDate))
+                    .font(.captionRegular)
                 }
-                    .listRowBackground(Color.clear)
+                .listRowBackground(Color.clear)
+                
                 
                 HStack {
                     Text("예약 공간")
@@ -73,20 +77,25 @@ struct PaymentView: View {
                         .frame(width: 80)
                     Divider()
                     
-                    Text("공간 이름:")
-                    Text("방 이름:")
+                    VStack(alignment: .leading) {
+                        Text("공간 이름:")
+                        Text("방 이름:")
+                    }
+                    .font(.captionRegular)
                 }
-                    .listRowBackground(Color.clear)
+                .listRowBackground(Color.clear)
                 
                 HStack {
                     Text("예약 내용")
                         .font(.body1Regular)
                         .frame(width: 80)
                     Divider()
-                    
-                    Text("체크인 날짜: \(reservationStore.getReservation(type: .checkInDate))")
-                    Text("체크아웃 날짜: \(reservationStore.getReservation(type: .checkOutDate))")
-                    Text("하루 이용 시간: \(reservationStore.getReservation(type: .hour))")
+                    VStack(alignment: .leading) {
+                        Text("체크인 날짜: \(reservationStore.getReservation(type: .checkInDate))")
+                        Text("체크아웃 날짜: \(reservationStore.getReservation(type: .checkOutDate))")
+                        Text("하루 이용 시간: \(reservationStore.getReservation(type: .hour))")
+                    }
+                    .font(.captionRegular)
                 }
                     .listRowBackground(Color.clear)
                 
@@ -97,6 +106,7 @@ struct PaymentView: View {
                     Divider()
                     
                     Text(reservationStore.getReservation(type: .personnel))
+                    .font(.captionRegular)
                 }
                     .listRowBackground(Color.clear)
                 
@@ -106,8 +116,11 @@ struct PaymentView: View {
                         .frame(width: 80)
                     Divider()
                     
-                    Text("이름: \(reservationStore.getReservation(type: .reservationName))")
-                    Text("전화번호: \(reservationStore.getReservation(type: .reservationPhoneNumber))")
+                    VStack(alignment: .leading) {
+                        Text("이름: \(reservationStore.getReservation(type: .reservationName))")
+                        Text("전화번호: \(reservationStore.getReservation(type: .reservationPhoneNumber))")
+                    }
+                    .font(.captionRegular)
                 }
                     .listRowBackground(Color.clear)
                 
@@ -118,11 +131,11 @@ struct PaymentView: View {
                     Divider()
                     
                     Text(reservationStore.getReservation(type: .reservationRequest))
+                    .font(.captionRegular)
                 }
                     .listRowBackground(Color.clear)
                 
             }
-            //.padding([.leading, .trailing], 10)
             .listStyle(.plain)
             
             Button {
