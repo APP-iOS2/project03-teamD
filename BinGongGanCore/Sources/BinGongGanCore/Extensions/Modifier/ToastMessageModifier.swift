@@ -5,7 +5,6 @@
 //  Created by 마경미 on 07.09.23.
 //
 
-import Foundation
 import SwiftUI
 
 @available(iOS 13.0, *)
