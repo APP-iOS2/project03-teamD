@@ -8,12 +8,13 @@
 import SwiftUI
 
 struct ContentView: View {
-
-    @StateObject private var signInStore: SignInStore = SignInStore()
     
-    @StateObject var homeStore: HomeStore = HomeStore()
+    @StateObject private var signInStore: SignInStore = SignInStore()
+    @StateObject private var signUpStore: SignUpStore = SignUpStore()
+    
+    @StateObject private var homeStore: HomeStore = HomeStore()
     @StateObject private var reservationStore: ReservationStore = ReservationStore()
-
+    
     var body: some View {
         if signInStore.isSuccessSignIn {
             GongGanTabView()
@@ -24,6 +25,7 @@ struct ContentView: View {
             NavigationStack {
                 SignInView()
                     .environmentObject(signInStore)
+                    .environmentObject(signUpStore)
             }
         }
     }

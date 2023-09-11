@@ -44,13 +44,14 @@ struct CustomTextField: View {
                     }).padding(.trailing, 20)
                 }
             }
-        }.frame(minHeight: 42, maxHeight: 52)
-            .onChange(of: text, perform: { newValue in
-                if newValue.count > maxLength {
-                    text = String(newValue.prefix(maxLength))
-                    isFocused = false
-                }
-            })
+        }
+        .frame(minHeight: 42, maxHeight: 52)
+        .onChange(of: text, perform: { newValue in
+            if newValue.count > maxLength {
+                text = String(newValue.prefix(maxLength))
+                isFocused = false
+            }
+        })
     }
 }
 

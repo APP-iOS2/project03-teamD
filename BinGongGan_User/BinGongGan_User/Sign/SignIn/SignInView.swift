@@ -8,12 +8,12 @@
 import SwiftUI
 
 struct SignInView: View {
-    @StateObject private var signUpStore = SignUpStore()
+    @EnvironmentObject private var signInStore: SignInStore
+    @EnvironmentObject private var signUpStore: SignUpStore
+    
     @State private var emailText: String = ""
     @State private var passwordText: String = ""
     @State private var isShowingAlert: Bool = false
-    
-    @EnvironmentObject private var signInStore: SignInStore
     
     var signIn: SignIn = SignIn()
     
@@ -36,8 +36,6 @@ struct SignInView: View {
                 }
                 .padding(.horizontal, 20)
                 
-                
-                
                 PrimaryButton(action: {
                     isShowingAlert = signInStore.checkSignIn(email: emailText, password: passwordText)
                 }, title: "로그인")
@@ -47,7 +45,6 @@ struct SignInView: View {
                 
                 NavigationLink {
                     SignUpView()
-                        .environmentObject(signUpStore)
                 } label: {
                     Text("회원가입")
                 }
@@ -81,6 +78,5 @@ struct SignInView: View {
 struct SignInView_Previews: PreviewProvider {
     static var previews: some View {
         SignInView()
-            .environmentObject(SignInStore())
     }
 }

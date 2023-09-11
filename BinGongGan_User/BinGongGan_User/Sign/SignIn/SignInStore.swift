@@ -21,15 +21,15 @@ final class SignInStore: ObservableObject {
     
     // 로그인 버튼
     func checkSignIn(email: String, password: String) -> Bool {
-            if email == signIns[0].email && password == signIns[0].password {
-                print("성공")
-                isSuccessSignIn = true
-                return false
-            } else {
-                print("실패")
-                isSuccessSignIn = false
-                return true
-            }
+        if email == signIns[0].email && password == signIns[0].password {
+            print("성공")
+            isSuccessSignIn = true
+            return false
+        } else {
+            print("실패")
+            isSuccessSignIn = false
+            return true
+        }
     }
     
     // 프리뷰를 위한 코드

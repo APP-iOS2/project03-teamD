@@ -9,15 +9,14 @@
 /* Begin PBXBuildFile section */
 		3661ED052AA956750055AC97 /* FavoriteListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3661ED042AA956750055AC97 /* FavoriteListView.swift */; };
 		368394DD2AA84732004A3AC3 /* HomeStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 368394DC2AA84732004A3AC3 /* HomeStore.swift */; };
-		3A392E932AAECD7E00D82221 /* Collections.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A392E922AAECD7E00D82221 /* Collections.swift */; };
-		3A392E952AAECDB000D82221 /* UserStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A392E942AAECDB000D82221 /* UserStore.swift */; };
-		3A392E972AAECDDF00D82221 /* FirestoreService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A392E962AAECDDF00D82221 /* FirestoreService.swift */; };
-		3A392E992AAED19900D82221 /* AuthStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A392E982AAED19900D82221 /* AuthStore.swift */; };
 		36FD386F2AAEB437009722A7 /* HeartButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36FD386E2AAEB437009722A7 /* HeartButton.swift */; };
 		36FD38752AAEE0E0009722A7 /* PlaceListFilterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36FD38742AAEE0E0009722A7 /* PlaceListFilterView.swift */; };
 		36FD38772AAEF822009722A7 /* City.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36FD38762AAEF822009722A7 /* City.swift */; };
 		3A392E902AAEB25A00D82221 /* SignUpModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A392E8F2AAEB25A00D82221 /* SignUpModel.swift */; };
-		3AC7480B2AA9000F0092B1EC /* ToastMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AC7480A2AA9000F0092B1EC /* ToastMessage.swift */; };
+		3A392E932AAECD7E00D82221 /* Collections.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A392E922AAECD7E00D82221 /* Collections.swift */; };
+		3A392E952AAECDB000D82221 /* UserStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A392E942AAECDB000D82221 /* UserStore.swift */; };
+		3A392E972AAECDDF00D82221 /* FirestoreService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A392E962AAECDDF00D82221 /* FirestoreService.swift */; };
+		3A392E992AAED19900D82221 /* AuthStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A392E982AAED19900D82221 /* AuthStore.swift */; };
 		3AC748112AA90B250092B1EC /* CustomSecureField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AC748102AA90B250092B1EC /* CustomSecureField.swift */; };
 		3AC748132AA90CCF0092B1EC /* AgreementCheckButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AC748122AA90CCF0092B1EC /* AgreementCheckButton.swift */; };
 		53254A232AAE2F18002E7542 /* AddPhotoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53254A222AAE2F18002E7542 /* AddPhotoView.swift */; };
@@ -132,16 +131,14 @@
 /* Begin PBXFileReference section */
 		3661ED042AA956750055AC97 /* FavoriteListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteListView.swift; sourceTree = "<group>"; };
 		368394DC2AA84732004A3AC3 /* HomeStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeStore.swift; sourceTree = "<group>"; };
+		36FD386E2AAEB437009722A7 /* HeartButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeartButton.swift; sourceTree = "<group>"; };
+		36FD38742AAEE0E0009722A7 /* PlaceListFilterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceListFilterView.swift; sourceTree = "<group>"; };
+		36FD38762AAEF822009722A7 /* City.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = City.swift; sourceTree = "<group>"; };
 		3A392E8F2AAEB25A00D82221 /* SignUpModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpModel.swift; sourceTree = "<group>"; };
 		3A392E922AAECD7E00D82221 /* Collections.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Collections.swift; sourceTree = "<group>"; };
 		3A392E942AAECDB000D82221 /* UserStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserStore.swift; sourceTree = "<group>"; };
 		3A392E962AAECDDF00D82221 /* FirestoreService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirestoreService.swift; sourceTree = "<group>"; };
 		3A392E982AAED19900D82221 /* AuthStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthStore.swift; sourceTree = "<group>"; };
-		36FD386E2AAEB437009722A7 /* HeartButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeartButton.swift; sourceTree = "<group>"; };
-		36FD38742AAEE0E0009722A7 /* PlaceListFilterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceListFilterView.swift; sourceTree = "<group>"; };
-		36FD38762AAEF822009722A7 /* City.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = City.swift; sourceTree = "<group>"; };
-		3A392E8F2AAEB25A00D82221 /* SignUpModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpModel.swift; sourceTree = "<group>"; };
-		3AC7480A2AA9000F0092B1EC /* ToastMessage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToastMessage.swift; sourceTree = "<group>"; };
 		3AC748102AA90B250092B1EC /* CustomSecureField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomSecureField.swift; sourceTree = "<group>"; };
 		3AC748122AA90CCF0092B1EC /* AgreementCheckButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AgreementCheckButton.swift; sourceTree = "<group>"; };
 		53254A222AAE2F18002E7542 /* AddPhotoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddPhotoView.swift; sourceTree = "<group>"; };
@@ -295,9 +292,8 @@
 			isa = PBXGroup;
 			children = (
 				EC6F7F542AA8886900C0B094 /* CustomTextField.swift */,
-				BCE6580D2AA8AB670009ECD1 /* PrimaryButton.swift */,
-				3AC7480A2AA9000F0092B1EC /* ToastMessage.swift */,
 				3AC748102AA90B250092B1EC /* CustomSecureField.swift */,
+				BCE6580D2AA8AB670009ECD1 /* PrimaryButton.swift */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -334,19 +330,17 @@
 		B12A84A32AA6F00D00BDF8CA /* BinGongGan_User */ = {
 			isa = PBXGroup;
 			children = (
-				3A392E912AAECD7500D82221 /* Service */,
+				B15806402AA89795006C772B /* Config */,
 				3AC748072AA8FA360092B1EC /* Extension */,
-				B12A84A82AA6F01000BDF8CA /* Assets.xcassets */,
-				B15806402AA89795006C772B /* Document */,
+				3AE911632AA7FDBF005E4F71 /* Common */,
 				BC344EBA2AA806C200F8CEB3 /* App */,
 				5398C2142AA8D9F8000BD361 /* Content */,
-				BCE658462AA8AD380009ECD1 /* SignIn */,
-				BCE658562AA8AD4D0009ECD1 /* SignUp */,
+				B138253B2AAFB32400705CB9 /* Sign */,
+				3A392E912AAECD7500D82221 /* Service */,
 				BC344EBD2AA806EC00F8CEB3 /* TapBar */,
-				BC344EC12AA8070800F8CEB3 /* UserHome */,
+				BC344EC12AA8070800F8CEB3 /* Home */,
 				BCE6584B2AA8AD420009ECD1 /* MapSearch */,
 				D848247F2AA8A3700067A065 /* MyPage */,
-				3AE911632AA7FDBF005E4F71 /* Common */,
 				B12A84AA2AA6F01000BDF8CA /* Preview Content */,
 			);
 			path = BinGongGan_User;
@@ -384,12 +378,22 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		B15806402AA89795006C772B /* Document */ = {
+		B138253B2AAFB32400705CB9 /* Sign */ = {
 			isa = PBXGroup;
 			children = (
+				BCE658462AA8AD380009ECD1 /* SignIn */,
+				BCE658562AA8AD4D0009ECD1 /* SignUp */,
+			);
+			path = Sign;
+			sourceTree = "<group>";
+		};
+		B15806402AA89795006C772B /* Config */ = {
+			isa = PBXGroup;
+			children = (
+				B12A84A82AA6F01000BDF8CA /* Assets.xcassets */,
 				B15806412AA897A5006C772B /* GoogleService-Info.plist */,
 			);
-			path = Document;
+			path = Config;
 			sourceTree = "<group>";
 		};
 		BC344EBA2AA806C200F8CEB3 /* App */ = {
@@ -416,13 +420,13 @@
 			path = View;
 			sourceTree = "<group>";
 		};
-		BC344EC12AA8070800F8CEB3 /* UserHome */ = {
+		BC344EC12AA8070800F8CEB3 /* Home */ = {
 			isa = PBXGroup;
 			children = (
 				BC344EC32AA8071800F8CEB3 /* View */,
 				BC344EC22AA8071400F8CEB3 /* Model */,
 			);
-			path = UserHome;
+			path = Home;
 			sourceTree = "<group>";
 		};
 		BC344EC22AA8071400F8CEB3 /* Model */ = {
@@ -847,7 +851,6 @@
 				BC344F032AA808FC00F8CEB3 /* MDPContentView.swift in Sources */,
 				BCE658532AA8AD420009ECD1 /* SummaryPlaceView.swift in Sources */,
 				BC344EEE2AA808DB00F8CEB3 /* ReservationCalendarView.swift in Sources */,
-				3AC7480B2AA9000F0092B1EC /* ToastMessage.swift in Sources */,
 				BCB5A2C92AAF444100C173F4 /* DetailSegmentReviewListView.swift in Sources */,
 				BC344F022AA808FC00F8CEB3 /* MDPModel.swift in Sources */,
 				53254A232AAE2F18002E7542 /* AddPhotoView.swift in Sources */,
