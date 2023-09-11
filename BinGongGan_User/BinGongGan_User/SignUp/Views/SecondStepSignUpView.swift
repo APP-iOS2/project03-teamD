@@ -17,7 +17,7 @@ struct SecondStepSignUpView: View {
                 Text("닉네임")
                     .font(.body1Bold)
                     .frame(height: 38)
-                CustomTextField(placeholder: "닉네임", text: $store.signUpData.emailId)
+                CustomTextField(placeholder: "닉네임", text: $store.signUpData.nickname)
             }
             Group {
                 Text("아이디(이메일)")

@@ -21,8 +21,8 @@ struct SignUpData {
     var isLocaitonAgree: Bool = false
     var isAllAgree: Bool = false
     
-    func changeToUserModel() -> User {
-        return User(email: emailId, name: name, nickname: nickname, phoneNumber: phoneNumber, password: password, birthDate: birthDate)
+    func changeToUserModel(id: String) -> User {
+        return User(id: id, email: emailId, name: name, nickname: nickname, phoneNumber: phoneNumber, password: password, birthDate: birthDate)
     }
 }
 
