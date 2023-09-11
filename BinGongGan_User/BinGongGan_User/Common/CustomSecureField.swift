@@ -26,6 +26,7 @@ struct CustomSecureField: View {
                 .focused($isFocused)
                 .textInputAutocapitalization(.never)
                 .disableAutocorrection(true)
+            
             if isFocused {
                 HStack {
                     Spacer()
@@ -34,7 +35,8 @@ struct CustomSecureField: View {
                     }, label: {
                         Image(systemName: "xmark.circle.fill")
                             .foregroundColor(.myBrown)
-                    }).padding(.trailing, 20)
+                    })
+                    .padding(.trailing, 20)
                 }
             }
         }

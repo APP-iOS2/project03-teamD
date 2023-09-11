@@ -8,9 +8,9 @@
 import SwiftUI
 
 struct ContentView: View {
-
+    
     @StateObject private var signInStore: SignInStore = SignInStore()
-
+    
     var body: some View {
         if signInStore.isSuccessSignIn {
             HomeView()
