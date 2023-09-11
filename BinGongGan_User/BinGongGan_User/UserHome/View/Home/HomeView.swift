@@ -66,12 +66,7 @@ struct HomeView: View {
                     Group {
                         HomeCategoryView()
                             .padding([.leading, .trailing], 20)
-                            .environmentObject(homeStore)
-                       
-                        HomeEventTapView()
-                            .padding([.top, .bottom], 7)
-                            .environmentObject(homeStore)
-                        
+                            
                         HStack {
                             Text("인기 플레이스")
                                 .font(.head1Bold)
@@ -82,7 +77,6 @@ struct HomeView: View {
                         }
                         
                         FavoriteListView()
-                            .environmentObject(homeStore)
                             .padding(.horizontal)
                             .padding(.bottom, 13)
                         
@@ -95,8 +89,8 @@ struct HomeView: View {
                                 homeStore.settingRecommendPlace()
                             } label: {
                                 Image(systemName: "goforward")
-                                    .font(.body1Bold)
-                                    .foregroundColor(.mySecondary)
+                                    .font(.body1Regular)
+                                    .foregroundColor(.myPrimary)
                             }
                         }
                         .padding([.leading, .trailing], 20)
@@ -106,6 +100,11 @@ struct HomeView: View {
                         }
                         .padding(.bottom, 10)
                         
+                        HomeEventTapView()
+                            .padding([.top, .bottom], 7)
+                        Text("Copyright © 2023 Apple Inc. All rights reserved.")
+                            .font(.footnote)
+                            .foregroundColor(.myLightGray)
                     }// GROUP
                 }// LazyVStack
                 .padding(.bottom, HomeNameSpace.scrollViewBottomPadding)
@@ -118,8 +117,27 @@ struct HomeView: View {
                     Image("HomeLogo")
                         .resizable()
                         .aspectRatio(contentMode: .fit)
-                        .frame(width: 40, height: 40)
+                        .frame(width: 30, height: 30)
                         .padding([.bottom, .leading], 10)
+                }
+                ToolbarItem(placement: .navigationBarTrailing) {
+                    ZStack{
+                        Image(systemName: "calendar")
+                        
+                        Text("0")
+                            .font(.caption)
+                            .padding(EdgeInsets(top: 2, leading: 4, bottom: 2, trailing: 4))
+                            .background{
+                                if reservates.count == 0 {
+                                    Color.red
+                                } else {
+                                    Color.blue
+                                }
+                            }
+                            .foregroundColor(.white)
+                            .cornerRadius(10)
+                            .offset(x: 10, y: -10)
+                    }// ZSTACK
                 }
             }
         }// ZSTACK
