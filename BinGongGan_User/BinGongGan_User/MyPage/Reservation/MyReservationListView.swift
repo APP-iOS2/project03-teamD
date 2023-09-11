@@ -101,7 +101,7 @@ struct MyReservationListView: View {
                     
                     if selectedPicker == item {
                         Capsule()
-                            .foregroundColor(.myPrimary)
+                            .foregroundColor(.myBrown)
                             .frame(height: 3)
                             .matchedGeometryEffect(id: "info", in: animation)
                     }

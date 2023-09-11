@@ -16,13 +16,13 @@ struct EventView: View {
                 Text("이벤트 관리")
                     .font(.title)
                     .bold()
-                    .foregroundColor(Color.myPrimary)
+                    .foregroundColor(Color.myBrown)
                     .padding(.leading, 20)
                 Spacer()
             }
             Form {
                 Section(header: Text("공간1")
-                    .foregroundColor(Color.myPrimary)
+                    .foregroundColor(Color.myBrown)
                 ) {
                     ForEach(0..<5) { _ in
                         AnnouncementTextRow()
@@ -30,14 +30,14 @@ struct EventView: View {
                     }
                 }
                 Section(header: Text("공간2")
-                    .foregroundColor(Color.myPrimary)) {
+                    .foregroundColor(Color.myBrown)) {
                         ForEach(0..<5) { _ in
                             AnnouncementTextRow()
                                 .background(Color.clear)
                         }
                     }
                 Section(header: Text("공간3")
-                    .foregroundColor(Color.myPrimary)) {
+                    .foregroundColor(Color.myBrown)) {
                         ForEach(0..<5) { _ in
                             AnnouncementTextRow()
                                 .background(Color.clear)
@@ -56,7 +56,7 @@ struct EventView: View {
                     dismiss()
                 } label: {
                     Image(systemName: "chevron.left")
-                        .foregroundColor(.myPrimary)
+                        .foregroundColor(.myBrown)
                 }
             }
         }

@@ -84,7 +84,7 @@ struct PlaceAddView: View {
                 TextEditor(text: $informationToPassText)
                     .frame(height: 150)
                     .background(Color.myLightGray)
-                    .border(Color.myPrimary)
+                    .border(Color.myBrown)
                 
                 Button {
                     //Code
@@ -94,7 +94,7 @@ struct PlaceAddView: View {
                         .padding()
                         .foregroundColor(.black)
                         .bold()
-                        .background(Color.myPrimary)
+                        .background(Color.myBrown)
                         .cornerRadius(15)
                 }
             }

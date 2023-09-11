@@ -33,7 +33,7 @@ struct MyPlaceManagementView: View {
                         Text("내 공간 추가")
                             .padding(.trailing, 20)
                             .bold()
-                            .foregroundColor(.myBlack)
+                            .foregroundColor(.black)
                     }
 
                 }
@@ -54,7 +54,7 @@ struct MyPlaceManagementView: View {
                         dismiss()
                     } label: {
                         Image(systemName: "chevron.left")
-                            .foregroundColor(.myPrimary)
+                            .foregroundColor(.myBrown)
                     }
                 }
             }

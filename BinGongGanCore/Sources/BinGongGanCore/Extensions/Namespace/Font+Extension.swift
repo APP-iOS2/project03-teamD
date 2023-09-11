@@ -8,6 +8,7 @@
 import Foundation
 import SwiftUI
 
+// Font 사용으로 13이상
 @available(iOS 13.0, *)
 public extension Font {
     static var head1Regular: Font {

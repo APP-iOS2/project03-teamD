@@ -24,9 +24,9 @@ struct SettingListView: View {
             
             Section("일반") {
                 Toggle("알림", isOn: $isNotificationToggle)
-                    .tint(.myPrimary)
+                    .tint(.myBrown)
                 Toggle("위치 권한", isOn: $isLocationToggle)
-                    .tint(.myPrimary)
+                    .tint(.myBrown)
             }
         }
         .navigationTitle("Setting")

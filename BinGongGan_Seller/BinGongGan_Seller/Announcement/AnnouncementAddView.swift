@@ -34,14 +34,14 @@ struct AnnouncementAddView: View {
                     Text("공지 등록")
                         .font(.title2)
                         .bold()
-                        .foregroundColor(Color.myPrimary)
+                        .foregroundColor(Color.myBrown)
                         .padding(EdgeInsets(top: 20, leading: 20, bottom: 0, trailing: 20))
                     Spacer()
                     Button {
                         dismiss()
                     } label: {
                         Text("등록 취소")
-                            .foregroundColor(Color.myPrimary)
+                            .foregroundColor(Color.myBrown)
                     }
                     .buttonStyle(.plain)
                     .padding(EdgeInsets(top: 20, leading: 20, bottom: 0, trailing: 20))
@@ -69,7 +69,7 @@ struct AnnouncementAddView: View {
                         TextEditor(text: $informationToPassText)
                             .frame(height: 150)
                             .background(Color.myLightGray)
-                            .border(Color.myPrimary)
+                            .border(Color.myBrown)
                     }
                 }//Form
                 

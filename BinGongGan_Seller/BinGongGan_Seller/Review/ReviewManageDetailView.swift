@@ -51,7 +51,7 @@ struct ReviewManageDetailView: View {
                     dismiss()
                 } label: {
                     Image(systemName: "chevron.left")
-                        .foregroundColor(.myPrimary)
+                        .foregroundColor(.myBrown)
                 }
             }
         }
