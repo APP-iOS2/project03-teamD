@@ -6,27 +6,12 @@
 //
 import Foundation
 import SwiftUI
-
-struct SignUpData {
-    var name: String = ""
-    var birthDate: String = ""
-    var phoneNumber: String = ""
-    var emailId: String = ""
-    var password: String = ""
-    var passwordCheck: String = ""
-    var isTermOfUseAgree: Bool = false
-    var isPrivacyAgree: Bool = false
-    var isLocaitonAgree: Bool = false
-    var isAllAgree: Bool = false
-}
-
-enum SignUpStep {
-    case first
-    case second
-    case third
-}
+import Firebase
+import FirebaseFirestore
+import FirebaseFirestoreSwift
 
 final class SignUpStore: ObservableObject {
+    let dbRef = Firestore.firestore()
     @Published var signUpData = SignUpData()
     @State var certificateNumber: String = ""
     @Published var currentStep: SignUpStep = .first
@@ -114,4 +99,6 @@ final class SignUpStore: ObservableObject {
         
         return true
     }
+    
+    
 }

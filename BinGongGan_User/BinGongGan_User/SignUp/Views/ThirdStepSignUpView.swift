@@ -51,8 +51,7 @@ struct ThirdStepSignUpView: View {
             RoundedRectangle(cornerRadius: 8)
                 .stroke(Color.myPrimary, lineWidth: 1)
                 .background(Color.white)
-            Text("")
-        }.frame(minHeight: 70, maxHeight: 100)
+        }.frame(minHeight: 70, maxHeight: 80)
     }
 }
 

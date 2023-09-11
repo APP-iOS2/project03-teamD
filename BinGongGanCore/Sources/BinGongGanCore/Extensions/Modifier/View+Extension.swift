@@ -24,7 +24,9 @@ extension View {
     public func endTextEditing() {
         UIApplication.shared.sendAction(#selector(UIResponder.resignFirstResponder), to: nil, from: nil, for: nil)
     }
-    
+
+    // MARK: 토스트 메세지
+    // 토스트 메세지를 띄우고싶은 뷰에서 .toast(isShowing: $showToast, message: message) 추가
     public func toast(isShowing: Binding<Bool>, message: String) -> some View {
         self.modifier(ToastMessageModifier(isShowing: isShowing, message: message))
     }

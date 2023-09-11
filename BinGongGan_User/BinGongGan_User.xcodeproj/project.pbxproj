@@ -5,10 +5,11 @@
 	};
 	objectVersion = 56;
 	objects = {
-
 /* Begin PBXBuildFile section */
 		3661ED052AA956750055AC97 /* FavoriteListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3661ED042AA956750055AC97 /* FavoriteListView.swift */; };
 		368394DD2AA84732004A3AC3 /* HomeStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 368394DC2AA84732004A3AC3 /* HomeStore.swift */; };
+		3A392E902AAEB25A00D82221 /* SignUpModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A392E8F2AAEB25A00D82221 /* SignUpModel.swift */; };
+		3AC748092AA8FA410092B1EC /* View+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AC748082AA8FA410092B1EC /* View+Extension.swift */; };
 		3AC7480B2AA9000F0092B1EC /* ToastMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AC7480A2AA9000F0092B1EC /* ToastMessage.swift */; };
 		3AC748112AA90B250092B1EC /* CustomSecureField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AC748102AA90B250092B1EC /* CustomSecureField.swift */; };
 		3AC748132AA90CCF0092B1EC /* AgreementCheckButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AC748122AA90CCF0092B1EC /* AgreementCheckButton.swift */; };
@@ -120,6 +121,8 @@
 /* Begin PBXFileReference section */
 		3661ED042AA956750055AC97 /* FavoriteListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteListView.swift; sourceTree = "<group>"; };
 		368394DC2AA84732004A3AC3 /* HomeStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeStore.swift; sourceTree = "<group>"; };
+		3A392E8F2AAEB25A00D82221 /* SignUpModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpModel.swift; sourceTree = "<group>"; };
+		3AC748082AA8FA410092B1EC /* View+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+Extension.swift"; sourceTree = "<group>"; };
 		3AC7480A2AA9000F0092B1EC /* ToastMessage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToastMessage.swift; sourceTree = "<group>"; };
 		3AC748102AA90B250092B1EC /* CustomSecureField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomSecureField.swift; sourceTree = "<group>"; };
 		3AC748122AA90CCF0092B1EC /* AgreementCheckButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AgreementCheckButton.swift; sourceTree = "<group>"; };
@@ -237,6 +240,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3A392E8E2AAEB24D00D82221 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				3A392E8F2AAEB25A00D82221 /* SignUpModel.swift */,
+				BCE658572AA8AD4D0009ECD1 /* SignUpStore.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		3AC748072AA8FA360092B1EC /* Extension */ = {
 			isa = PBXGroup;
 			children = (
@@ -514,7 +526,7 @@
 		BCE658562AA8AD4D0009ECD1 /* SignUp */ = {
 			isa = PBXGroup;
 			children = (
-				BCE658572AA8AD4D0009ECD1 /* SignUpStore.swift */,
+				3A392E8E2AAEB24D00D82221 /* Model */,
 				BCE6585C2AA8AD4D0009ECD1 /* SignUpView.swift */,
 				BCE658582AA8AD4D0009ECD1 /* Views */,
 			);
@@ -785,6 +797,7 @@
 				BCE658612AA8AD4D0009ECD1 /* SignUpView.swift in Sources */,
 				BC8CFE742AA9897E00E8D8F2 /* ReservationUserInfoView.swift in Sources */,
 				BC344F1B2AA86A5F00F8CEB3 /* PlaceListRow.swift in Sources */,
+				3A392E902AAEB25A00D82221 /* SignUpModel.swift in Sources */,
 				BCE658552AA8AD420009ECD1 /* LocationManager.swift in Sources */,
 				D848249A2AA8A3700067A065 /* EnquiryView.swift in Sources */,
 				BC344F032AA808FC00F8CEB3 /* MDPContentView.swift in Sources */,
