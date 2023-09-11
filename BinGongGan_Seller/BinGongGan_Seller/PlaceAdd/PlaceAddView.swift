@@ -7,11 +7,12 @@
 import SwiftUI
 import MapKit
 import BinGongGanCore
-import Combine
 import FirebaseFirestore
 
+//여기 뷰가 너무 너무너눔넘누너눈너눔 길어여..
 struct PlaceAddView: View {
     @EnvironmentObject var placeStore: PlaceStore
+    //희권님 혹시 여기 많은 @State 값들이 모델안에 있는 아이들이라면 이렇게 하는 거 보다 스토어에 넣어주는 것이 좋을 거 같다는 생각이 듭니다만 ..?
     @State private var selectedPlace: PlaceCategory = .Share
     @State private var placeInfomations = PlaceInfomationModel.data
     @State private var address: Address?
@@ -176,7 +177,6 @@ struct PlaceAddView: View {
                             }
                         }
                     }
-                    
                     .padding(.top, 15)
                 }
                 .padding(20)
@@ -186,8 +186,10 @@ struct PlaceAddView: View {
                         coordinates =  CLLocationCoordinate2D(latitude: address.latitudeDouble, longitude: address.longitudeDouble)
                     }
                 }, content: {
-                    AddressSearchView(isShwoingSearchSheet: $isShwoingSearchSheet) { newAdress in
-                        address = newAdress
+                    NavigationStack {
+                        AddressSearchView(isShwoingSearchSheet: $isShwoingSearchSheet) { newAdress in
+                            address = newAdress
+                        }
                     }
                 })
             }
@@ -196,7 +198,6 @@ struct PlaceAddView: View {
         .customBackbutton()
         .padding(10)
     }
-    
 }
 
 struct PlaceAddView_Previews: PreviewProvider {

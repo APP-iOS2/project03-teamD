@@ -21,6 +21,7 @@ struct RoomAddView: View {
         ZStack {
             Color.myBackground
                 .ignoresSafeArea()
+            
             ScrollView {
                 VStack(alignment: .leading) {
                     Group{
@@ -36,10 +37,9 @@ struct RoomAddView: View {
                             Text("시간 당")
                                 .padding(.trailing, 5)
                                 .foregroundColor(Color.myDarkGray)
+                            
                             TextField("가격을 입력하세요", text: $placePriceText)
-                            
                                 .keyboardType(.decimalPad)
-                            
                                 .onReceive(Just(placePriceText)) { newValue in
                                     let filtered = newValue.filter { "0123456789".contains($0) }
                                     if filtered != newValue {
@@ -67,7 +67,6 @@ struct RoomAddView: View {
                         PhotoSelectedView(selectedImages: $selectedImage, selectedImageNames: $selectedImageNames)
                     }
                     
-                    
                     Section{
                         Text("방 상세내용")
                         TextEditor(text: $roomNote)
@@ -83,10 +82,9 @@ struct RoomAddView: View {
             }
             .padding(20)
         }
-      
         .navigationTitle("방 추가")
     }
-    
+    //뷰파일에서 메소드는 분리부탁드랴여요웅어ㅜ어웅~
     func formatNumberString(_ input: String) -> String? {
         let formatter = NumberFormatter()
         formatter.numberStyle = .decimal
@@ -99,7 +97,6 @@ struct RoomAddView: View {
             return nil
         }
     }
-    
 }
 
 struct RoomAddView_Previews: PreviewProvider {
