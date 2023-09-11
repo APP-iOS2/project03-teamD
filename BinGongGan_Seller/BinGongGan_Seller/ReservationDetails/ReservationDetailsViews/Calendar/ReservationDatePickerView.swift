@@ -56,9 +56,10 @@ struct ReservationDatePickerView: View {
                 ForEach(rervationCalendarStore.extractDate(currentMonth: currentMonth)) { value in
                     ReservationCardView(value: value, currentDate: $currentDate).environmentObject(rervationCalendarStore)
                         .background(
-                            Capsule()
-                                .fill(Color.myPrimary)
-                                .padding(.horizontal, 8)
+                            Circle()
+                                .fill(Color.mySecondary)
+                                .padding(4)
+                                .offset(y:-9)
                                 .opacity(rervationCalendarStore.isSameDay(date1: value.date, date2: currentDate) ? 1 : 0)
                         )
                         .onTapGesture {
@@ -75,6 +76,6 @@ struct ReservationDatePickerView: View {
 
 struct ReservationDatePickerView_Previews: PreviewProvider {
     static var previews: some View {
-        ReservationDatePickerView(currentDate: .constant(Date()))
+        ReservationDatePickerView(currentDate: .constant(Date())).environmentObject(RervationCalendarStore())
     }
 }

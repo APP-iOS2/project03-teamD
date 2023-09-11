@@ -9,7 +9,7 @@ import SwiftUI
 
 struct ReservationDetailsListView: View {
    
-    @State private var isShowingModal: Bool = false
+    @State private var isPresentedModal: Bool = false
     
     var body: some View {
         
@@ -18,8 +18,7 @@ struct ReservationDetailsListView: View {
                 .padding(EdgeInsets(top: 20, leading: 20, bottom: 20, trailing: 20))
 
             ForEach(0..<5) { index in
-               ReservationCell()
-                    .padding(.horizontal, 20)
+                ReservationDetailsCell(isPresentedModal: $isPresentedModal)
             }
 
         }.navigationTitle("예약관리")

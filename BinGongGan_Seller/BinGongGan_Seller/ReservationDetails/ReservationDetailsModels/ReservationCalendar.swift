@@ -8,18 +8,18 @@
 import Foundation
 
 struct ReservationCalendar: Identifiable {
-    var id = UUID().uuidString
+    let id = UUID().uuidString
     ///에약 내역
-    var reservationDetails: [ReservationDetails]
+    let reservationDetails: [ReservationDetails]
     ///에약 날짜
-    var reservationDate: Date
+    let reservationDate: Date
     
     struct ReservationDetails: Identifiable {
-        var id = UUID().uuidString
+        let id = UUID().uuidString
         ///예약 이름
-        var title: String
+        let title: String
         ///예약 시간
-        var time: Date = Date()
+        let time: Date = Date()
 
     }
     

@@ -6,12 +6,14 @@
 //
 
 import SwiftUI
+import BinGongGanCore
 
 struct ReservationCardView: View {
     
     @EnvironmentObject var rervationCalendarStore : RervationCalendarStore
     var value: DateValue
     @Binding var currentDate: Date
+    
     var body: some View {
         VStack {
             
@@ -23,25 +25,25 @@ struct ReservationCardView: View {
                     ZStack{
                         Text("\(value.day)")
                             .font(.title3.bold())
-                            .foregroundColor(rervationCalendarStore.isSameDay(date1: reservation.reservationDate, date2: currentDate) ? .white : .primary)
+                            .foregroundColor(rervationCalendarStore.isSameDay(date1: reservation.reservationDate, date2: currentDate) ? .myWhite : .primary)
                             .frame(maxWidth: .infinity)
                         if value.day < 10{
                             Circle()
-                                .fill(rervationCalendarStore.isSameDay(date1: reservation.reservationDate, date2: currentDate) ? .white : Color.red )
+                                .fill(rervationCalendarStore.isSameDay(date1: reservation.reservationDate, date2: currentDate) ? .myWhite : Color.red )
                                 .frame(width: 7, height: 7)
                                 .offset(x:8,y:-10)
                         } else {
                             Circle()
-                                .fill(rervationCalendarStore.isSameDay(date1: reservation.reservationDate, date2: currentDate) ? .white : Color.red )
+                                .fill(rervationCalendarStore.isSameDay(date1: reservation.reservationDate, date2: currentDate) ? .myWhite : Color.red )
                                 .frame(width: 7, height: 7)
                                 .offset(x:12,y:-10)
                         }
                     }
                     Spacer()
-                    
-                    Text("2")
+                    //TODO: store랑 연결해주기
+                    Text("\(2)")
                         .font(.body)
-                        .foregroundColor(rervationCalendarStore.isSameDay(date1: reservation.reservationDate, date2: currentDate) ? .white : Color.gray )
+                        .foregroundColor(rervationCalendarStore.isSameDay(date1: reservation.reservationDate, date2: currentDate) ? .black : Color.gray )
                 }else {
                     Text("\(value.day)")
                         .font(.title3.bold())
@@ -60,6 +62,6 @@ struct ReservationCardView: View {
 }
 struct ReservationCardView_Previews: PreviewProvider {
     static var previews: some View {
-        ReservationCardView(value: DateValue(day: 1, date: Date()), currentDate: .constant(Date()))
+        ReservationCardView(value: DateValue(day: 1, date: Date()), currentDate: .constant(Date())).environmentObject(RervationCalendarStore())
     }
 }
