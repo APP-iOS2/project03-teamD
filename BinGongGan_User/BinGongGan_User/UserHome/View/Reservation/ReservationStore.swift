@@ -29,7 +29,7 @@ final class ReservationStore: ObservableObject {
     
     @Published var reservation: Reservation
     
-    var isPolicyChecked: Bool = false
+    @Published var isPolicyChecked: Bool = false
     
     let sampleSpace: SampleSpace = SampleSpace(spaceName: "[서울역] 갬성 파티룸", roomName: "202호 불타는 애플", imageString: "https://cdn.e2news.com/news/photo/202301/249694_103455_5758.png")
     

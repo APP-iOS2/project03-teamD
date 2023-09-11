@@ -74,11 +74,12 @@ struct ReservationUserInfoView: View {
             Spacer()
             
             Button {
+                
                 reservationStore.updateReservation(type: .reservationRequest, value: reservationRequest)
-                print("click")
+                self.endTextEditing()
             } label: {
                 Text("완료")
-                .onTapGesture { self.endTextEditing() }
+                    .padding(.trailing, 20)
             }
         }
         

@@ -55,7 +55,7 @@ struct PaymentView: View {
                     Divider()
                     
                     Text(reservationStore.getReservation(type: .reservationID))
-                    .font(.captionRegular)
+                        .font(.captionRegular)
                 }
                     .listRowBackground(Color.clear)
                 
@@ -66,7 +66,7 @@ struct PaymentView: View {
                     Divider()
                     
                     Text(reservationStore.getReservation(type: .reservationDate))
-                    .font(.captionRegular)
+                        .font(.captionRegular)
                 }
                 .listRowBackground(Color.clear)
                 
@@ -79,6 +79,7 @@ struct PaymentView: View {
                     
                     VStack(alignment: .leading) {
                         Text("공간 이름:")
+                            .padding(.bottom, 0.2)
                         Text("방 이름:")
                     }
                     .font(.captionRegular)
@@ -92,7 +93,9 @@ struct PaymentView: View {
                     Divider()
                     VStack(alignment: .leading) {
                         Text("체크인 날짜: \(reservationStore.getReservation(type: .checkInDate))")
+                            .padding(.bottom, 0.2)
                         Text("체크아웃 날짜: \(reservationStore.getReservation(type: .checkOutDate))")
+                            .padding(.bottom, 0.2)
                         Text("하루 이용 시간: \(reservationStore.getReservation(type: .hour))")
                     }
                     .font(.captionRegular)
@@ -118,6 +121,7 @@ struct PaymentView: View {
                     
                     VStack(alignment: .leading) {
                         Text("이름: \(reservationStore.getReservation(type: .reservationName))")
+                            .padding(.bottom, 0.2)
                         Text("전화번호: \(reservationStore.getReservation(type: .reservationPhoneNumber))")
                     }
                     .font(.captionRegular)

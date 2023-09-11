@@ -38,7 +38,6 @@ struct Reservation {
     var checkOutMonth: String
     var checkOutDay: String
     
-    
     var hour: Int
     var personnel: Int
     

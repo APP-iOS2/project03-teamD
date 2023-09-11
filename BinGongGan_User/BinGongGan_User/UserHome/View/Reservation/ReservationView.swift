@@ -13,6 +13,8 @@ struct ReservationView: View {
     @StateObject var reservationStore: ReservationStore = ReservationStore()
     @State var isReservationFinished: Bool = false
     
+    @State var isReservationEmpty: Bool = false
+    
     @Binding var tabBarVisivility: Visibility
     
     private let screenWidth = UIScreen.main.bounds.width
@@ -27,21 +29,34 @@ struct ReservationView: View {
             ScrollView {
                 // 달력
                 ReservationCalendarView()
+                    .environmentObject(reservationStore)
                     .padding(.bottom, 10)
                 
                 VStack(alignment: .leading) {
                     
                     // 시간, 인원, 입금자명, 연락처, 요청사항
                     ReservationUserInfoView()
+                        .environmentObject(reservationStore)
                     
                     // 이용 시 주의 사항, 환불 규정
                     ReservationSellerInfoView()
+                        .environmentObject(reservationStore)
+                    
+                    if isReservationEmpty {
+                        Text("빈칸이 존재합니다.")
+                            .foregroundColor(.red)
+                            .font(.captionRegular)
+                    }
                     
                     Button {
                         // 데이터 저장
-                        reservationStore.reservation.reservationID = UUID().uuidString
-                        reservationStore.updateReservation(type: .reservationDate, value: Date())
-                        isReservationFinished.toggle()
+                        if reservationStore.reservation.reservationName.isEmpty || reservationStore.reservation.reservationPhoneNumber.isEmpty {
+                            isReservationEmpty = true
+                        } else {
+                            
+                            isReservationEmpty = false
+                            isReservationFinished.toggle()
+                        }
                     } label: {
                         Text("무통장으로 입금")
                             .frame(width: screenWidth * 0.9, height: 50)
@@ -53,12 +68,13 @@ struct ReservationView: View {
                     .buttonStyle(.plain)
                     .padding([.top, .bottom], 10)
                     .navigationDestination(isPresented: $isReservationFinished) {
-                            PaymentView()
-                                //.toolbar(tabBarVisible, for: .tabBar)
-                                .navigationBarBackButtonHidden()
+                        PaymentView()
+                            .environmentObject(reservationStore)
+                        //.toolbar(tabBarVisible, for: .tabBar)
+                            .navigationBarBackButtonHidden()
                     }
                 }
-                .padding([.leading, .trailing], 20)
+                .padding([.leading], 20)
             }
         }
         .background(Color.myBackground)

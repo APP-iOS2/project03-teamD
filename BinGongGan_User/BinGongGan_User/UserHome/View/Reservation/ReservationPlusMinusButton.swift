@@ -40,7 +40,7 @@ struct ReservationPlusMinusButton: View {
             
             Text("\(content) \(contentLabel)")
                 .font(.captionRegular)
-                .frame(width: screenWidth - 110, height: 40)
+                .frame(width: screenWidth * 0.8, height: 40)
                 .background(.white)
                 .cornerRadius(8)
             

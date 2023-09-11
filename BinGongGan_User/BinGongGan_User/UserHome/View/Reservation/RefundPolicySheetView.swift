@@ -41,8 +41,9 @@ struct RefundPolicySheetView: View {
             }
             
             Button {
+                reservationStore.reservation.reservationID = UUID().uuidString
+                reservationStore.updateReservation(type: .reservationDate, value: Date())
                 reservationStore.isPolicyChecked.toggle()
-                print(reservationStore.isPolicyChecked)
                 dismiss()
             } label: {
                 Text("확인 완료")
