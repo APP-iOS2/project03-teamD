@@ -17,21 +17,22 @@ struct HomeCategoryView: View {
         HStack(spacing: 10) {
             Grid(horizontalSpacing: 20) {
                 GridRow {
-                    ForEach(homeStore.categories) { place in
+                    ForEach(homeStore.categories) { category in
                         NavigationLink {
-                            PlaceListView(category: place.category.rawValue)
-                                .environmentObject(homeStore)
+                                PlaceListView(category: category.category.rawValue)
+                                    .environmentObject(homeStore)
+                            // 질문 !
                         } label: {
                             VStack {
                                 ZStack {
                                     Circle()
                                         .foregroundColor(Color.myWhite)
-                                    Image(systemName: "\(place.categoryImageString)")
+                                    Image(systemName: "\(category.categoryImageString)")
                                         .aspectRatio(contentMode: .fit)
                                         .foregroundColor(Color.mySecondary)
                                         .font(.system(size: 27))
                                 }
-                                Text(place.category.rawValue)
+                                Text(category.category.rawValue)
                                     .font(.captionBold)
                                     .foregroundColor(.myPrimary)
                                     .lineLimit(1)

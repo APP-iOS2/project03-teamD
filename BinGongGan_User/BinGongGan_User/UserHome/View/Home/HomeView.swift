@@ -11,6 +11,7 @@ import BinGongGanCore
 enum HomeNameSpace {
     static let screenWidth = UIScreen.main.bounds.width
     static let screenHeight = UIScreen.main.bounds.width
+    static let scrollViewBottomPadding = CGFloat(10)
 }
 
 extension View {
@@ -65,19 +66,19 @@ struct HomeView: View {
                     Group {
                         HomeCategoryView()
                             .padding([.leading, .trailing], 20)
-                            .environmentObject(homeStore)
+                            
                         HStack {
                             Text("인기 플레이스")
                                 .font(.head1Bold)
                                 .foregroundColor(.myPrimary)
-                                .padding([.leading, .top], 20)
+                                .padding(.leading, 20)
+                                .padding(.top, 7)
                             Spacer()
                         }
                         
                         FavoriteListView()
-                            .environmentObject(homeStore)
                             .padding(.horizontal)
-                            .padding(.bottom, 20)
+                            .padding(.bottom, 13)
                         
                         HStack {
                             Text("이런 공간은 어떠세요?")
@@ -88,11 +89,11 @@ struct HomeView: View {
                                 homeStore.settingRecommendPlace()
                             } label: {
                                 Image(systemName: "goforward")
-                                    .font(.body1Bold)
-                                    .foregroundColor(.mySecondary)
+                                    .font(.body1Regular)
+                                    .foregroundColor(.myPrimary)
                             }
-
-                        }.padding([.leading, .trailing], 20)
+                        }
+                        .padding([.leading, .trailing], 20)
                         
                         ForEach(homeStore.recommendPlace) { place in
                             HomeListRow(place: place)
@@ -100,11 +101,13 @@ struct HomeView: View {
                         .padding(.bottom, 10)
                         
                         HomeEventTapView()
-                            .padding(.bottom, 10)
-                            .environmentObject(homeStore)
+                            .padding([.top, .bottom], 7)
+                        Text("Copyright © 2023 Apple Inc. All rights reserved.")
+                            .font(.footnote)
+                            .foregroundColor(.myLightGray)
                     }// GROUP
                 }// LazyVStack
-                .padding(.bottom, 10)
+                .padding(.bottom, HomeNameSpace.scrollViewBottomPadding)
             }// SCROLLVIEW
             .onAppear{
                 homeStore.settingRecommendPlace()
@@ -114,8 +117,27 @@ struct HomeView: View {
                     Image("HomeLogo")
                         .resizable()
                         .aspectRatio(contentMode: .fit)
-                        .frame(width: 40, height: 40)
-                        .padding(.leading, 10)
+                        .frame(width: 30, height: 30)
+                        .padding([.bottom, .leading], 10)
+                }
+                ToolbarItem(placement: .navigationBarTrailing) {
+                    ZStack{
+                        Image(systemName: "calendar")
+                        
+                        Text("0")
+                            .font(.caption)
+                            .padding(EdgeInsets(top: 2, leading: 4, bottom: 2, trailing: 4))
+                            .background{
+                                if reservates.count == 0 {
+                                    Color.red
+                                } else {
+                                    Color.blue
+                                }
+                            }
+                            .foregroundColor(.white)
+                            .cornerRadius(10)
+                            .offset(x: 10, y: -10)
+                    }// ZSTACK
                 }
             }
         }// ZSTACK

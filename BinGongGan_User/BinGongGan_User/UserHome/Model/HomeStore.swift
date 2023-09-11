@@ -6,6 +6,8 @@
 //
 
 import SwiftUI
+//import FirebaseFirestoreSwift
+//import FirebaseFirestore
 
 final class HomeStore: ObservableObject {
     
@@ -14,6 +16,10 @@ final class HomeStore: ObservableObject {
     @Published var hotPlace: [Place] = []
     @Published var recommendPlace: [Place] = []
     @Published var filteredArray:[Place] = []
+    @Published var recentlyWords: [String] = []
+    
+//    let dbRef = Firestore.firestore().collection("Incruitments")
+    
     var categories: [Category] = [
         Category(category: .shareOffice, categoryImageString:  "building.2"),
         Category(category: .bandRoom, categoryImageString:  "music.mic"),
@@ -26,6 +32,23 @@ final class HomeStore: ObservableObject {
         settingEventBanner()
         settingHotPlace()
         settingRecommendPlace()
+    }
+    
+//    @MainActor
+//    func fetchPlaces() async throws -> Void {
+//      let snapshot = try await dbRef.getDocuments()
+//
+//      let places = snapshot.documents.compactMap({try? $0.data(as: Place.self) })
+//      self.places = places
+//    }
+//
+    func deleteRecentlyWord(word: String) {
+        let index = recentlyWords.firstIndex {
+            $0 == word
+        }
+        if let index {
+            recentlyWords.remove(at: index)
+        }
     }
     
     func searchPlaceName(placess: [Place] , keyWord: String) {
@@ -93,8 +116,20 @@ final class HomeStore: ObservableObject {
         }
     }
     
+    func searchRecentlyWord(word: String) {
+        recentlyWords.append(word)
+    }
+    
+    func changeFavorite(place: Place){
+       if let index = places.firstIndex(where:{
+           $0.id == place.id }) {
+           places[index].isFavorite.toggle()
+       }
+    }
     
 }
+
+
 
 // 밑은 전부 데모입니다
 let placeArray: [Place] = [
@@ -167,10 +202,8 @@ let imageArray: [String] = [
 let eventImageArray: [String] = [
     "https://media.discordapp.net/attachments/1148158635667632149/1149282476380934234/2023-09-07_6.58.09.png?width=1410&height=408",
     "https://media.discordapp.net/attachments/1148158635667632149/1149282166413459536/2023-09-07_6.56.57.png?width=1410&height=402",
-    "https://media.discordapp.net/attachments/1148158635667632149/1149282508807086171/2023-09-07_6.58.02.png?width=1410&height=410",
     "https://media.discordapp.net/attachments/1148158635667632149/1149282573181276170/canva---------Gpco5qgYLmU.jpg?width=1410&height=352",
     "https://media.discordapp.net/attachments/1148158635667632149/1149282573550362666/canva--------BGJr497I-OM.jpg?width=1410&height=352",
     "https://media.discordapp.net/attachments/1148158635667632149/1149282573881724979/canva----------mp-LcAtJ4yQ.jpg?width=1410&height=528",
-    "https://media.discordapp.net/attachments/1148158635667632149/1149282573550362666/canva--------BGJr497I-OM.jpg?width=1410&height=352",
     "https://media.discordapp.net/attachments/1148158635667632149/1149282575689469993/canva--------zIbSUFxMP-c.jpg?width=1410&height=470",
 ]
