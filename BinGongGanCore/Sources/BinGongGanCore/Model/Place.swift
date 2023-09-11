@@ -9,14 +9,16 @@ import Foundation
 
 public struct Place: Identifiable {
     public var id: String = UUID().uuidString //id
-    public var sellerId: String //판매자 아이디
     public var placeName: String //이름
     public var placePrice: String //가격
     public var placeCategory: PlaceCategory //카테고리
     public var placeAddress: String //주소
     public var placeImageStringList: [String] // 이미지 링크
-    public var informationToPass: String //가는길
+    public var note: String //이용시 주의 사항
     public var placeInfomationList: [String] //공간 정보
+    public var latitude: Double //위도
+    public var longitude: Double //경도
+    
 }
 
 public enum PlaceCategory: String, CaseIterable, Identifiable {
