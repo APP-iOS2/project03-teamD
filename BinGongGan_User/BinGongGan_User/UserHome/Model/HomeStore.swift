@@ -6,6 +6,8 @@
 //
 
 import SwiftUI
+//import FirebaseFirestoreSwift
+//import FirebaseFirestore
 
 final class HomeStore: ObservableObject {
     
@@ -15,6 +17,9 @@ final class HomeStore: ObservableObject {
     @Published var recommendPlace: [Place] = []
     @Published var filteredArray:[Place] = []
     @Published var recentlyWords: [String] = []
+    
+//    let dbRef = Firestore.firestore().collection("Incruitments")
+    
     var categories: [Category] = [
         Category(category: .shareOffice, categoryImageString:  "building.2"),
         Category(category: .bandRoom, categoryImageString:  "music.mic"),
@@ -29,7 +34,15 @@ final class HomeStore: ObservableObject {
         settingRecommendPlace()
     }
     
-    func deleteRecentlyWordk(word: String) {
+//    @MainActor
+//    func fetchPlaces() async throws -> Void {
+//      let snapshot = try await dbRef.getDocuments()
+//
+//      let places = snapshot.documents.compactMap({try? $0.data(as: Place.self) })
+//      self.places = places
+//    }
+//
+    func deleteRecentlyWord(word: String) {
         let index = recentlyWords.firstIndex {
             $0 == word
         }
@@ -108,6 +121,8 @@ final class HomeStore: ObservableObject {
     }
     
 }
+
+
 
 // 밑은 전부 데모입니다
 let placeArray: [Place] = [
