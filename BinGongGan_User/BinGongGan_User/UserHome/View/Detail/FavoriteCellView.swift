@@ -1,24 +1,24 @@
 //
-//  HomeShowPlaceListCellView.swift
+//  FavoriteCellView.swift
 //  BinGongGan_User
 //
-//  Created by LJh on 2023/09/06.
+//  Created by 임대진 on 2023/09/08.
 //
 
 import SwiftUI
 import BinGongGanCore
 
-struct HomeListRow: View {
-    
-    @State var place: Place
+struct FavoriteCellView: View {
+    @Binding var isHeartButtonShowing: Bool
+    var gongGanItem: GongGan
     
     var body: some View {
         NavigationLink {
-//            GongGanDetailView()
+            GongGanDetailView(gongGan: gongGanItem)
         } label: {
             VStack {
                 HStack {
-                    AsyncImage(url: place.imageURL, content: { image in
+                    AsyncImage(url: URL(string: gongGanItem.placeImageUrl[0]), content: { image in
                         image
                             .resizable()
                             .aspectRatio(contentMode: .fill)
@@ -41,34 +41,38 @@ struct HomeListRow: View {
                     .padding(EdgeInsets(top: 0, leading: 20, bottom: 0, trailing: 10))
                     
                     VStack(alignment: .leading) {
-                        
-                        Text("\(place.placeName)")
-                            
-                            .foregroundColor(.myBlack)
-                            .font(.body1Bold)
-                        Text("\(place.placeLocation)")
-                            
+                        Text("\(gongGanItem.placeLocation)")
+                            .padding(.bottom , 3)
                             .foregroundColor(.myBlack)
                             .font(.captionRegular)
-                        
-                    }// VSTACK
+                        Text("12,000원 / 시간당")
+                            .padding(.bottom , 17)
+                            .foregroundColor(.myBlack)
+                            .font(.captionRegular)
+                    }
                     Spacer()
-                    HeartButton(place: $place)
-                        .padding(.trailing, 20)
-                    
-                }// HSTACK
-                .foregroundColor(.myBackground)
+                    Button {
+                    } label: {
+                        if isHeartButtonShowing {
+                            Image(systemName: gongGanItem.isFavorite ? "heart.fill" : "heart")
+                                .foregroundColor(.mySecondary)
+                        }
+                    }
+                    .padding(.trailing, 20)
+                    .buttonStyle(.plain)
+                }
                 Rectangle()
                     .frame(height: 1)
                     .foregroundColor(.myLightGray)
-            }// VSTACK
-            
+            }
         }
     }
 }
 
-struct HomeShowPlaceListCellView_Previews: PreviewProvider {
+struct FavoriteRowView_Previews: PreviewProvider {
     static var previews: some View {
-        HomeListRow(place: HomeStore().places[3])
+        NavigationStack {
+            FavoriteCellView(isHeartButtonShowing: .constant(false), gongGanItem: GongGan.sampleGongGan)
+        }
     }
 }

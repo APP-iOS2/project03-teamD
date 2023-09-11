@@ -9,67 +9,61 @@ import SwiftUI
 import BinGongGanCore
 
 struct SubGongGanSelectView: View {
-    @EnvironmentObject var gongGan: GongGanStore
+    @State var gongGan: GongGan
     private let scrennWidth = UIScreen.main.bounds.width
+    @State var selectedSpaceIndex: Int? = nil
+    
     var body: some View {
-        NavigationStack {
-            
-            gongGan.customSection("세부공간 선택")
-                .padding(EdgeInsets(top: 5, leading: 5, bottom: 0, trailing: 0))
-            
-            VStack(alignment: .center) {
-                ForEach($gongGan.gongGanStore.detailGongGan) { $space in
-                    Button {
-                        if space.isSelected == true {
-                            space.isSelected = false
-                        } else {
-                            for index in 0..<gongGan.gongGanStore.detailGongGan.count {
-                                gongGan.gongGanStore.detailGongGan[index].isSelected = false
-                            }
-                            space.isSelected.toggle()
-                        }
-                    } label: {
-                        VStack(alignment: .leading) {
-                            HStack(alignment: .center) {
-                                
-                                //                                    Image(systemName: "checkmark")
-                                //                                        .opacity(space.isSelected ? 1 : 2)
-                                //                                    .font(.captionRegular)
-                                //                                        .foregroundColor(space.isSelected ? .white : .black)
-                                
-                                
-                                Text("\(space.title)")
-                                    .font(.body1Regular)
-                                    .foregroundColor(space.isSelected ? .white : .myPrimary)
-                                    .frame(width: scrennWidth * 0.85)
-                                    .padding(10)
-                                    .foregroundColor(.white)
-                                    .background(
-                                        RoundedRectangle(cornerRadius: 15)
-                                            .foregroundColor(space.isSelected ? .myPrimary : .white)
-                                            .shadow(color: .gray, radius: 1, x: 1, y: 1)
-                                    )
-                            }
-                            //                            .frame(height: 30)
-                            if space.isSelected {
-                                SubGongGanDetailView()
-                                    .transition(.offset(.zero))
-                                    .padding(.top ,1)
-                            }
-                        }
-                    }
-                    .buttonStyle(.plain)
-                }
+            VStack {
+                customSection("세부공간 선택")
+                    .padding(EdgeInsets(top: 5, leading: 5, bottom: 0, trailing: 0))
                 
+                VStack(alignment: .center) {
+                    ForEach(gongGan.detailGongGan.indices, id: \.self) { index in
+                        let space = gongGan.detailGongGan[index]
+                        Button {
+                            // 선택한 버튼의 인덱스를 업데이트
+                            if selectedSpaceIndex == index {
+                                selectedSpaceIndex = nil // 같은 버튼을 다시 클릭하면 선택 해제
+                            } else {
+                                selectedSpaceIndex = index
+                            }
+                        } label: {
+                            VStack {
+                                HStack(alignment: .center) {
+                                    Text("\(space.title)")
+                                        .font(.body1Regular)
+                                        .foregroundColor(selectedSpaceIndex == index ? .white : .myPrimary)
+                                        .frame(width: scrennWidth * 0.85)
+                                        .padding(10)
+                                        .foregroundColor(.white)
+                                        .background(
+                                            RoundedRectangle(cornerRadius: 15)
+                                                .foregroundColor(selectedSpaceIndex == index ? .myPrimary : .white)
+                                                .shadow(color: .gray, radius: 1, x: 1, y: 1)
+                                        )
+                                }
+                                
+                                if selectedSpaceIndex == index {
+                                    SubGongGanDetailView(gongGan: space)
+                                        .transition(.offset(.zero))
+                                        .padding(EdgeInsets(top: 1, leading: 0, bottom: 1, trailing: 0))
+                                }
+                            }
+                        }
+                        .buttonStyle(.plain)
+                        
+                    }
+                }
+                .padding(EdgeInsets(top: 5, leading: 0, bottom: 5, trailing: 0))
             }
-            .padding(.top, 10)
-        }
+            .background(Color.myBackground)
     }
 }
 
+
 struct SubGongGanSelectView_Previews: PreviewProvider {
     static var previews: some View {
-        SubGongGanSelectView()
-            .environmentObject(GongGanStore())
+        SubGongGanSelectView(gongGan: GongGan.sampleGongGan)
     }
 }
