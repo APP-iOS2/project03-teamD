@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct AnnouncemnetContentCell: View {
+struct AnnouncementContentCell: View {
     @State var isShowingAnnouncementOptionSheet: Bool = false
 
     var body: some View {
@@ -48,8 +48,8 @@ struct AnnouncemnetContentCell: View {
     }
 }
 
-struct AnnouncemnetContentCell_Previews: PreviewProvider {
+struct AnnouncementContentCell_Previews: PreviewProvider {
     static var previews: some View {
-        AnnouncemnetContentCell()
+        AnnouncementContentCell()
     }
 }
