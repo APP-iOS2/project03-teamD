@@ -7,21 +7,33 @@
 
 import Foundation
 
-public struct Place: Identifiable {
+public struct Place:Identifiable, Codable {
     public var id: String = UUID().uuidString //id
+    public var sellerId: String //판매자 id
     public var placeName: String //이름
     public var placePrice: String //가격
     public var placeCategory: PlaceCategory //카테고리
-    public var placeAddress: String //주소
     public var placeImageStringList: [String] // 이미지 링크
     public var note: String //이용시 주의 사항
     public var placeInfomationList: [String] //공간 정보
-    public var latitude: Double //위도
-    public var longitude: Double //경도
+    public var address: Address //주소
     
+    public init(sellerId: String,placeName: String, placePrice: String, placeCategory: PlaceCategory, placeImageStringList: [String], note: String, placeInfomationList: [String], address: Address) {
+        self.sellerId = sellerId
+        self.placeName = placeName
+        self.placePrice = placePrice
+        self.placeCategory = placeCategory
+        self.placeImageStringList = placeImageStringList
+        self.note = note
+        self.placeInfomationList = placeInfomationList
+        self.address = address
+    }
 }
 
-public enum PlaceCategory: String, CaseIterable, Identifiable {
-    case 쉐어오피스, 밴드룸, 스튜디오, 키친룸
+public enum PlaceCategory: String, CaseIterable, Identifiable, Codable {
+    case Share = "쉐어오피스"
+    case band = "밴드룸"
+    case studio = "스튜디오"
+    case kitchen = "키친룸"
     public var id: Self { self }
 }

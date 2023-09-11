@@ -8,17 +8,22 @@ import SwiftUI
 import MapKit
 import BinGongGanCore
 import Combine
+import FirebaseFirestore
 
 struct PlaceAddView: View {
+    @EnvironmentObject var placeStore: PlaceStore
     @State private var selectedPlace: PlaceCategory = .Share
     @State private var placeNameText: String = ""
-    @State private var informationToPassText: String = ""
+    @State private var noteText: String = ""
     @State private var placePriceText: String = ""
     @State private var placeAdress: String = ""
     @State private var placeInfomations = PlaceInfomationModel.data
+    @State var address: Address?
     @State var selectedImage: [UIImage] = []
-    @State var address: String = ""
+    @State var selectedImageNames: [String] = []
+    // @State var address: String = ""
     @State var isShwoingSearchSheet: Bool = false
+    @State private var coordinates = CLLocationCoordinate2D(latitude: 37.5666791, longitude: 126.9782914)
     private let columns: [GridItem] = Array(repeating: .init(.flexible()), count: 4)
     private var placeInfomationString: [String] {
         placeInfomations.filter {
@@ -34,7 +39,7 @@ struct PlaceAddView: View {
                 Section {
                     Text("공간 이름")
                     TextField("공간 이름을 입력하세요", text: $placeNameText)
-                        .textFieldStyle(TextFieldStyles())
+                        .textFieldStyle(RoundedBorderTextFieldStyle())
                 }
                 
                 Section{
@@ -51,26 +56,49 @@ struct PlaceAddView: View {
                 
                 Section {
                     Text("공간 주소")
-                    TextField("공간 주소를 입력하세요", text: $address)
-                        .textFieldStyle(TextFieldStyles())
-                        .overlay(alignment: .trailing) {
-                            Button {
-                                isShwoingSearchSheet = true
-                            } label: {
+                    if address == nil {
+                        Button {
+                            isShwoingSearchSheet = true
+                        } label: {
+                            HStack {
                                 Image(systemName: "magnifyingglass")
-                                    .foregroundColor(.black)
+                                Text("주소검색")
                             }
-                            .padding(.trailing, 15)
+                            .padding(5)
+                            .frame(maxWidth: .infinity)
+                            .foregroundColor(.blue)
+                            .border(Color.myLightGray, width: 2)
+                            .cornerRadius(5)
                         }
                         
-                   // PlaceMapView(address: placeNameText)
+                    } else {
+                        VStack(alignment: .leading) {
+                            Text("\(address?.placeName ?? "상호명")")
+                            Text("\(address?.address ?? "주소입니다")")
+                        }
+                        Button {
+                            isShwoingSearchSheet = true
+                        } label: {
+                            Text("주소검색")
+                            
+                                .frame(maxWidth: .infinity)
+                                .background(.gray)
+                                .foregroundColor(.blue)
+                                .cornerRadius(5)
+                            
+                        }
+                        
+                        MapView(coordinates: coordinates)
+                            .frame(height: 300)
+                            .cornerRadius(10)
+                    }
                 }
                 
                 Section {
                     Text("공간 대여 가격")
                     TextField("가격을 입력하세요", text: $placePriceText)
                         .keyboardType(.decimalPad)
-                        .textFieldStyle(TextFieldStyles())
+                        .textFieldStyle(RoundedBorderTextFieldStyle())
                         .onReceive(Just(placePriceText)) { newValue in
                             let filtered = newValue.filter { "0123456789".contains($0) }
                             if filtered != newValue {
@@ -85,7 +113,7 @@ struct PlaceAddView: View {
                 
                 Section {
                     Text("공간 사진 등록")
-                    PhotoSelectedView(selectedImages: $selectedImage)
+                    PhotoSelectedView(selectedImages: $selectedImage,selectedImageNames: $selectedImageNames)
                 }
                 
                 Section {
@@ -102,23 +130,28 @@ struct PlaceAddView: View {
                 }
                 
                 Section {
-                    Text("공간 이용시 주의사항")
-                    TextEditor(text: $informationToPassText)
+                    Text("공간 정보")
+                    TextEditor(text: $noteText)
                         .frame(height: 150)
                         .background(Color.myLightGray)
                         .border(Color.myPrimary)
                     
                     Button {
-                        let place = PlaceModel(
-                            placeName: placeNameText,
-                            placePrice: placePriceText,
-                            placeCategory: selectedPlace.rawValue,
-                            placeAdress: placeAdress,
-                            placeImageStringList: ["nil"],
-                            informationToPass: informationToPassText,
-                            placeInfomationList: placeInfomationString
-                        )
-                        print(place)
+                        if let address {
+                            let place = Place(
+                                sellerId: "판매자",
+                                placeName: placeNameText,
+                                placePrice: placePriceText,
+                                placeCategory: selectedPlace,
+                                placeImageStringList: selectedImageNames,
+                                note: noteText,
+                                placeInfomationList: placeInfomationString,
+                                address: address
+                            )
+                            placeStore.addPlace(place: place)
+                            
+                        }
+                        
                     } label: {
                         Text("등록하기")
                             .frame(maxWidth: .infinity)
@@ -132,30 +165,30 @@ struct PlaceAddView: View {
             }
             .listRowSeparator(.hidden)
         }
-        .sheet(isPresented: $isShwoingSearchSheet) {
-            AddressSearchView(searchText: $address, isShwoingSearchSheet: $isShwoingSearchSheet)
-        }
+        .sheet(isPresented: $isShwoingSearchSheet, onDismiss: {
+            if let address {
+                coordinates =  CLLocationCoordinate2D(latitude: address.latitudeDouble, longitude: address.longitudeDouble)
+            }
+        }, content: {
+            AddressSearchView(isShwoingSearchSheet: $isShwoingSearchSheet) { newAdress in
+                address = newAdress
+            }
+            
+        })
+        .customBackbutton()
         .padding(10)
         .listStyle(.plain)
         //Form
         .navigationTitle("내 공간 등록")
     }
+    
 }
 
 struct PlaceAddView_Previews: PreviewProvider {
     static var previews: some View {
         NavigationStack {
             PlaceAddView()
+                .environmentObject(PlaceStore())
         }
-    }
-}
-
-struct TextFieldStyles: TextFieldStyle {
-    func _body(configuration: TextField<Self._Label>) -> some View {
-        // 텍스트필드
-        configuration
-            .textFieldStyle(.roundedBorder)
-            .font(.system(size: 13))
-            .foregroundColor(.black)
     }
 }

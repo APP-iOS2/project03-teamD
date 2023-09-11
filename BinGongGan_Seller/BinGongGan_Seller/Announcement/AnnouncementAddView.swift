@@ -45,6 +45,34 @@ struct AnnouncementAddView: View {
                     }
                     .buttonStyle(.plain)
                 }
+
+                Form {
+                    Section{
+                        Text("공간 선택")
+                        Picker("Place", selection: $selectedPlace) {
+                            ForEach(PlaceCategory.allCases) { category in
+                                Text(category.rawValue)
+                            }
+                        }
+                        .pickerStyle(.segmented)
+                    }
+                    .listRowSeparator(.hidden)
+
+                    Section {
+                        Text("공지사항 제목")
+                        TextField("제목을 입력하세요", text: $placeNameText)
+                            .textFieldStyle(RoundedBorderTextFieldStyle())
+                    }
+
+                    Section {
+                        Text("공지사항 입력")
+                        TextEditor(text: $informationToPassText)
+                            .frame(height: 150)
+                            .background(Color.myLightGray)
+                            .border(Color.myPrimary)
+                    }
+                }//Form
+                
                 .padding(.bottom, 10)
                 .foregroundColor(Color.myPrimary)
                 HStack{
