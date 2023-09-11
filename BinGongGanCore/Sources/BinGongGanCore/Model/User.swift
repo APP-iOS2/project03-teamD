@@ -22,4 +22,15 @@ public struct User: Identifiable {
     public var id: String {
         return email
     }
+    
+    public init(email: String, name: String, nickname: String, phoneNumber: String, password: String, birthDate: String, accountNumber: String? = nil, accountHolder: String? = nil) {
+        self.email = email
+        self.name = name
+        self.nickname = nickname
+        self.phoneNumber = phoneNumber
+        self.password = password
+        self.birthDate = birthDate
+        self.accountNumber = accountNumber
+        self.accountHolder = accountHolder
+    }
 }
