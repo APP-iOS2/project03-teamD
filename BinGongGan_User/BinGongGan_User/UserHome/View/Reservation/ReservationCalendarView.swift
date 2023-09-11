@@ -13,6 +13,9 @@ struct ReservationCalendarView: View {
     
     @State private var dateRange: ClosedRange<Date>?
     
+    @State private var checkInDate: String = ""
+    @State private var checkOutDate: String = ""
+    
     private let screenWidth = UIScreen.main.bounds.width
     
     var body: some View {
@@ -20,7 +23,10 @@ struct ReservationCalendarView: View {
         VStack(alignment: .leading) {
             
             MultiDatePicker(dateRange: $dateRange, minDate: Date.now)
-            
+                .onChange(of: dateRange) { newValue in
+                    reservationStore.updateReservation(type: .checkInDate, value: newValue?.lowerBound)
+                    reservationStore.updateReservation(type: .checkOutDate, value: newValue?.upperBound)
+                }
             VStack(alignment: .leading) {
                 Text("선택한 날짜")
                     .font(.body1Regular)
@@ -30,18 +36,18 @@ struct ReservationCalendarView: View {
                         .fill(.white)
                         .frame(maxWidth: screenWidth * 0.9, minHeight: 40)
                     
-                    if let range = dateRange {
+                    if let dateRange = dateRange {
                         HStack {
                             Text("입실 날짜: ")
                                 .font(.captionRegular)
-                            Text(reservationStore.changeDateString(range.lowerBound))
-                                .font(.captionBold)
+                            Text(reservationStore.changeDateString(dateRange.lowerBound))
+                            .font(.captionBold)
                             
                             Spacer()
                             
                             Text("퇴실 날짜: ")
                                 .font(.captionRegular)
-                            Text(reservationStore.changeDateString(range.upperBound))
+                            Text(reservationStore.changeDateString(dateRange.upperBound))
                                 .font(.captionBold)
                         }
                         .padding([.leading,.trailing], 20)

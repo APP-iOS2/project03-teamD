@@ -5,9 +5,9 @@
 //  Created by 마경미 on 07.09.23.
 //
 
-import Foundation
 import SwiftUI
 
+@available(iOS 13.0, *)
 struct ToastMessageModifier: ViewModifier {
     @Binding var isShowing: Bool
     var message: String
@@ -20,20 +20,25 @@ struct ToastMessageModifier: ViewModifier {
                 VStack {
                     Spacer()
                     ZStack {
-                        Rectangle()
-                            .foregroundColor(.myErrorColor)
-                            .cornerRadius(20)
+                        RoundedRectangle(cornerRadius: 8)
+                            .stroke(Color.myWarningColor, lineWidth: 3)
+                            .foregroundColor(.white)
+                            .background(Color.white)
                             .frame(width: 300, height: 50)
                             .transition(.scale)
                         HStack {
                             Image(systemName: "exclamationmark.circle")
-                                .foregroundColor(.red)
+                                .resizable()
+                                .frame(width: 26, height: 26)
+                                .foregroundColor(.myWarningColor)
+                                .padding(.trailing, 5)
                             Text(message)
-                                .foregroundColor(.red)
+                                .font(.captionRegular)
+                                .foregroundColor(.black)
                                 .multilineTextAlignment(.center)
                         }
                     }
-                }.padding(.bottom, 30)
+                }.padding(.bottom, 40)
                 .onAppear {
                     DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
                         withAnimation {

@@ -9,6 +9,7 @@ import SwiftUI
 
 struct ReservationPlusMinusButton: View {
     
+    @EnvironmentObject var reservationStore: ReservationStore
     @State private var content: Int = 1
     
     var contentLabel: String
@@ -22,6 +23,13 @@ struct ReservationPlusMinusButton: View {
             Button {
                 if content > 1 {
                     content -= 1
+                    
+                    if type == "time" {
+                        reservationStore.updateReservation(type: .hour, value: content)
+                        
+                    } else if type == "person" {
+                        reservationStore.updateReservation(type: .personnel, value: content)
+                    }
                 }
             } label: {
                 Image(systemName: "minus")
@@ -32,7 +40,7 @@ struct ReservationPlusMinusButton: View {
             
             Text("\(content) \(contentLabel)")
                 .font(.captionRegular)
-                .frame(width: screenWidth - 110, height: 40)
+                .frame(width: screenWidth * 0.8, height: 40)
                 .background(.white)
                 .cornerRadius(8)
             
@@ -40,14 +48,19 @@ struct ReservationPlusMinusButton: View {
                 if type == "time" {
                     if content < 24 {
                         content += 1
+                        
+                        reservationStore.updateReservation(type: .hour, value: content)
                     }
                 } else if type == "person" {
                     if content < 13 {
                         content += 1
+                        
+                        reservationStore.updateReservation(type: .personnel, value: content)
                     }
                 } else {
                     content += 1
                 }
+                
             } label: {
                 Image(systemName: "plus")
                     .foregroundColor(.myPrimary)
