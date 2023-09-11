@@ -23,6 +23,7 @@ struct ReviewManageDetailView: View {
             VStack {
                 ScrollView {
                     ReservationCell()
+                        .padding(EdgeInsets(top: 10, leading: 20, bottom: 10, trailing: 20))
                     
                     ReviewWithCommentCell()
                         .padding(EdgeInsets(top: 0, leading: 20, bottom: 0, trailing: 20))
@@ -45,16 +46,7 @@ struct ReviewManageDetailView: View {
         .scrollContentBackground(.hidden)
         .background(Color.myBackground)
         .navigationBarTitleDisplayMode(.inline)
-        .toolbar {
-            ToolbarItem(placement:.navigationBarLeading) {
-                Button {
-                    dismiss()
-                } label: {
-                    Image(systemName: "chevron.left")
-                        .foregroundColor(.myPrimary)
-                }
-            }
-        }
+        .customBackbutton()
     }
 }
 

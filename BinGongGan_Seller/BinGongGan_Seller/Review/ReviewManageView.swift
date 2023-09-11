@@ -49,16 +49,7 @@ struct ReviewManageView: View {
         .scrollContentBackground(.hidden)
         .background(Color.myBackground)
         .navigationBarTitleDisplayMode(.inline)
-        .toolbar {
-            ToolbarItem(placement:.navigationBarLeading) {
-                Button {
-                    dismiss()
-                } label: {
-                    Image(systemName: "chevron.left")
-                        .foregroundColor(.myPrimary)
-                }
-            }
-        }
+        .customBackbutton()
     }
 }
 
