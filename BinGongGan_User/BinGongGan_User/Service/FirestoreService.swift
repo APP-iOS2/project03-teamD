@@ -13,7 +13,7 @@ public class FirestoreService {
 
     func saveDocument<T: Codable>(collectionId: Collections, data: T) async throws {
         do {
-            try await dbRef.collection(collectionId.rawValue).addDocument(from: data.self)
+            try dbRef.collection(collectionId.rawValue).addDocument(from: data.self)
             print("Success to save new document at collection\(collectionId.rawValue)")
         } catch {
             print("Error to save new document : \(error)")
@@ -24,7 +24,7 @@ public class FirestoreService {
     func saveDocument<T: Codable>(collectionId: Collections, documentId: String,
         data: T) async throws {
         do {
-            try await dbRef.collection(collectionId.rawValue).document(documentId).setData(from: data.self)
+            try dbRef.collection(collectionId.rawValue).document(documentId).setData(from: data.self)
             print("Success to save new document at \(collectionId.rawValue) \(documentId)")
         } catch {
             print("Error to save new document at \(collectionId.rawValue) \(documentId) \(error)")
