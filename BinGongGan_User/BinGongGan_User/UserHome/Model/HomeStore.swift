@@ -120,6 +120,13 @@ final class HomeStore: ObservableObject {
         recentlyWords.append(word)
     }
     
+    func changeFavorite(place: Place){
+       if let index = places.firstIndex(where:{
+           $0.id == place.id }) {
+           places[index].isFavorite.toggle()
+       }
+    }
+    
 }
 
 
