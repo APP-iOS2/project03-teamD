@@ -5,8 +5,6 @@
 //  Created by 방유빈 on 2023/09/08.
 //
 
-
-
 import Foundation
 import FirebaseFirestore
 import FirebaseFirestoreSwift
