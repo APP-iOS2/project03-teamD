@@ -105,6 +105,7 @@ struct HomeView: View {
                         Text("Copyright © 2023 Apple Inc. All rights reserved.")
                             .font(.footnote)
                             .foregroundColor(.myLightGray)
+                        
                     }// GROUP
                 }// LazyVStack
                 .padding(.bottom, HomeNameSpace.scrollViewBottomPadding)
@@ -114,30 +115,15 @@ struct HomeView: View {
             }
             .toolbar {
                 ToolbarItem(placement: .navigationBarLeading) {
-                    Image("HomeLogo")
-                        .resizable()
-                        .aspectRatio(contentMode: .fit)
-                        .frame(width: 30, height: 30)
+                    HStack {
+                        Image("HomeLogo")
+                            .resizable()
+                            .aspectRatio(contentMode: .fit)
+                            .frame(width: 40, height: 40)
                         .padding([.bottom, .leading], 10)
-                }
-                ToolbarItem(placement: .navigationBarTrailing) {
-                    ZStack{
-                        Image(systemName: "calendar")
-                        
-                        Text("0")
-                            .font(.caption)
-                            .padding(EdgeInsets(top: 2, leading: 4, bottom: 2, trailing: 4))
-                            .background{
-                                if reservates.count == 0 {
-                                    Color.red
-                                } else {
-                                    Color.blue
-                                }
-                            }
-                            .foregroundColor(.white)
-                            .cornerRadius(10)
-                            .offset(x: 10, y: -10)
-                    }// ZSTACK
+                        Text("BinGongGan")
+                            .font(.body1Bold)
+                    }
                 }
             }
         }// ZSTACK
