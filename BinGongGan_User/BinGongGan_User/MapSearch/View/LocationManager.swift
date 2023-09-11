@@ -21,17 +21,23 @@ final class LocationManager: NSObject, ObservableObject {
     private let locationManager = CLLocationManager()
     @Published var mapView: MKMapView = .init()
     
-    @Published var region = MKCoordinateRegion(
-        center: .init(latitude: 37.334_900 , longitude: -122.009_020),
-        span: .init(latitudeDelta: 0.5 , longitudeDelta: 0.5)
-    )
+//    @Published var region = MKCoordinateRegion(
+//        center: .init(latitude: 37.334_900 , longitude: -122.009_020),
+//        span: .init(latitudeDelta: 0.5 , longitudeDelta: 0.5)
+//    )
     
     @Published var isShowingList: Bool = false
     @Published var isChaging: Bool = false
     @Published var isFocusUser: Bool = true
     
-    private var nowUserPoint: CLLocationCoordinate2D?
     
+    private var annotations: [MKAnnotation] = []
+    
+    private var userLocalcity: String = ""
+    private var searchResult: [SamplePlace] = []
+    private var selectedResult: [SamplePlace] = []
+    
+    private var nowUserPoint: CLLocationCoordinate2D?
     
     override init() {
         super.init()
@@ -47,11 +53,9 @@ final class LocationManager: NSObject, ObservableObject {
     
     func requestAuthorizqtion() {
         
-        
         switch locationManager.authorizationStatus {
         case .authorizedWhenInUse, .authorizedAlways:
             moveFocusOnUserLocation()
-            mapView.showsUserLocation = true
         case .notDetermined:
             locationManager.startUpdatingLocation()
             locationManager.requestAlwaysAuthorization()
@@ -72,6 +76,42 @@ final class LocationManager: NSObject, ObservableObject {
         mapView.setRegion(region, animated: true)
     }
     
+    func convertCLLocationToAddress(location: CLLocation) {
+        let geocoder = CLGeocoder()
+        
+        geocoder.reverseGeocodeLocation(location) { [weak self] placemark, error in
+            if error != nil {
+                return
+            }
+            
+            guard let placemark = placemark?.first else { return }
+            self?.userLocalcity = placemark.subLocality ?? ""
+            
+            if self?.userLocalcity != placemark.subLocality ?? "" {
+                self?.userLocalcity = placemark.subLocality ?? "주소없음"
+                self?.searchAnotations(subLocality: placemark.subLocality ?? "주소없음")
+            }
+            
+            print(self?.userLocalcity ?? "주소없음")
+            return
+        }
+    }
+    
+    func didSelectCategory(_ category: String) {
+        annotations = 
+    }
+    
+    func searchAnotations(subLocality: String) {
+        
+        // dbRef
+        
+//        let reult
+        
+    }
+    
+    func selectAnnotation() {
+        
+    }
 }
 
 
@@ -91,33 +131,23 @@ extension LocationManager: CLLocationManagerDelegate {
             locationManager.stopUpdatingLocation()
             locations.last.map { location in
                 DispatchQueue.main.async {
-                    self.region = MKCoordinateRegion(
-                        center: location.coordinate,
-                        span: .init(latitudeDelta: 0.5, longitudeDelta: 0.5)
-                    )
+//                    self.region = MKCoordinateRegion(
+//                        center: location.coordinate,
+//                        span: .init(latitudeDelta: 0.5, longitudeDelta: 0.5)
+//                    )
                 }
             }
         }
     }
     
-    func convertCLLocationToAddress(location: CLLocation) {
-        let geocoder = CLGeocoder()
-        
-        geocoder.reverseGeocodeLocation(location) { placemark, error in
-            if error != nil {
-                return
-            }
-            
-            guard let placemark = placemark?.first else { return }
-            print("\(placemark.country ?? "") / \(placemark.locality ?? "") / \(placemark.name ?? "")")
-        }
-    }
+    
     
 }
 
 
 extension LocationManager: MKMapViewDelegate {
     func mapViewDidChangeVisibleRegion(_ mapView: MKMapView) {
+        
         DispatchQueue.main.async {
             self.isShowingList = false
             self.isFocusUser = false
@@ -129,9 +159,59 @@ extension LocationManager: MKMapViewDelegate {
         let location: CLLocation = CLLocation(latitude: mapView.centerCoordinate.latitude, longitude: mapView.centerCoordinate.longitude)
         
         self.convertCLLocationToAddress(location: location)
-        
+
         DispatchQueue.main.async {
             self.isChaging = false
         }
+    }
+}
+
+
+struct SamplePlace:Identifiable, Codable {
+    public var id: String = UUID().uuidString //id
+    public var placeName: String //이름
+    public var placePrice: String //가격
+    public var placeCategory: String //카테고리
+    public var placeImageStringList: [String] // 이미지 링크
+    public var note: String //이용시 주의 사항
+    public var placeInfomationList: [String] //공간 정보
+    public var address: Address //주소
+    
+    public init(placeName: String, placePrice: String, placeCategory: String, placeImageStringList: [String], note: String, placeInfomationList: [String], address: Address) {
+        self.placeName = placeName
+        self.placePrice = placePrice
+        self.placeCategory = placeCategory
+        self.placeImageStringList = placeImageStringList
+        self.note = note
+        self.placeInfomationList = placeInfomationList
+        self.address = address
+    }
+}
+
+public struct Address: Codable, Identifiable {
+    public var id: UUID = UUID()
+    public var address: String
+    public var placeName: String
+    public var x:String
+    public var y:String
+    public var longitude: Double {
+        return Double(x) ?? 0
+    }
+    public var latitude: Double {
+        return Double(y) ?? 0
+    }
+    
+    public enum CodingKeys: String, CodingKey {
+        case address = "address_name"
+        case placeName = "place_name"
+        case x = "x"
+        case y = "y"
+    }
+    
+    public init(address: String, placeName: String, x: String, y: String) {
+        self.address = address
+        self.placeName = placeName
+        self.x = x
+        self.y = y
     }
 }

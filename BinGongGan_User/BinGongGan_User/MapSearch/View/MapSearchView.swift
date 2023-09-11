@@ -84,6 +84,12 @@ struct MapSearchView: View {
                 }
                 .padding(.leading)
             }
+            
+            Image("mungmoongE")
+                .resizable()
+                .position(CGPoint(x: geometry.size.width / 2 + 7, y: locationManager.isChaging ? (geometry.size.height / 2 - 25) : (geometry.size.height / 2 - 20)))
+                .frame(width: 80, height: 80, alignment: .center)
+                
            
             if locationManager.isShowingList {
                 
@@ -146,6 +152,6 @@ struct MapSearchView: View {
 
 struct MapSearch_Previews: PreviewProvider {
     static var previews: some View {
-        MapSearchView( tabBarVisivility: .constant(.hidden))
+        MapSearchView(tabBarVisivility: .constant(.hidden))
     }
 }
