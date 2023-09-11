@@ -12,7 +12,7 @@ struct CategoryButton: View {
     
     var body: some View {
         Rectangle()
-            .fill(Color.myWhite)
+            .fill(Color.white)
             .frame(width: AnnouncementOptionCell.screenWidth * 0.19, height: AnnouncementOptionCell.screenWidth * 0.21)
             .cornerRadius(15)
             .overlay(
@@ -23,11 +23,11 @@ struct CategoryButton: View {
                         .scaleEffect(0.8)
                     Text(category.categories)
                         .font(.footnote)
-                        .foregroundColor(Color.myBlack)
+                        .foregroundColor(Color.black)
                         .bold()
                 }
             )
-            .foregroundColor(Color.myPrimary)
+            .foregroundColor(Color.myBrown)
     }
 }
 

@@ -23,7 +23,7 @@ struct CustomTextField: View {
     var body: some View {
         ZStack {
             RoundedRectangle(cornerRadius: 8)
-                .stroke(isFocused ? Color.myPrimary : Color.clear, lineWidth: 1)
+                .stroke(isFocused ? Color.myBrown : Color.clear, lineWidth: 1)
                 .background(RoundedRectangle(cornerRadius: 8).foregroundColor(backgroundColor))
             TextField(placeholder, text: $text)
                 .padding(EdgeInsets(top: 0, leading: 20, bottom: 0, trailing: 20))
@@ -40,7 +40,7 @@ struct CustomTextField: View {
                         text = ""
                     }, label: {
                         Image(systemName: "xmark.circle.fill")
-                            .foregroundColor(.myPrimary)
+                            .foregroundColor(.myBrown)
                     }).padding(.trailing, 20)
                 }
             }

@@ -27,7 +27,7 @@ struct AppInformationList: View {
                 AppInfomationView()
             } label: {
                 Text(item)
-                    .foregroundColor(.myPrimary)
+                    .foregroundColor(.myBrown)
                     .font(.body1Bold)
             }
         }

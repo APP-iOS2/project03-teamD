@@ -30,11 +30,11 @@ struct ReservationCancelSheet: View {
                 Text("취소완료")
                     .font(.title3)
                     .bold()
-                    .foregroundColor(.myWhite)
+                    .foregroundColor(.white)
                     
             }
             .frame(width: uiViewWidth, height: 50)
-            .background(Color.myPrimary)
+            .background(Color.myBrown)
         }
         .background(Color.myBackground)
         

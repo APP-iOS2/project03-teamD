@@ -23,7 +23,7 @@ struct ReservationDetailsCell: View {
                     }) {
                         Image(systemName: "chevron.right")
                             .background(Color.clear)
-                            .foregroundColor(Color.myPrimary)
+                            .foregroundColor(Color.myBrown)
                     }
                     .buttonStyle(.plain)
                     .frame(maxWidth: .infinity, alignment: .trailing)

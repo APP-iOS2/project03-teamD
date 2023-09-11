@@ -22,9 +22,9 @@ struct PasswordEditView: View {
             ZStack {
                 RoundedRectangle(cornerRadius: 15)
                     .frame(width: min(250, UIScreen.main.bounds.width * 0.3), height: min(250, UIScreen.main.bounds.width * 0.3))
-                    .foregroundColor(.myPrimary)
+                    .foregroundColor(.myBrown)
                 Text("Logo")
-                    .foregroundColor(.myWhite)
+                    .foregroundColor(.white)
             }
             .padding(.vertical, 70)
             
@@ -63,7 +63,7 @@ struct PasswordEditView: View {
                     .frame(width: UIScreen.main.bounds.width - 50)
             }
             .buttonStyle(.borderedProminent)
-            .tint(.myPrimary)
+            .tint(.myBrown)
         }
         .padding(.horizontal, 20)
         .navigationTitle("비밀번호 변경")

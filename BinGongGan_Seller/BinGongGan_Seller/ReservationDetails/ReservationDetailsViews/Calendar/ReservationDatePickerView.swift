@@ -57,7 +57,7 @@ struct ReservationDatePickerView: View {
                     ReservationCardView(value: value, currentDate: $currentDate).environmentObject(rervationCalendarStore)
                         .background(
                             Circle()
-                                .fill(Color.mySecondary)
+                                .fill(Color.myMint)
                                 .padding(4)
                                 .offset(y:-9)
                                 .opacity(rervationCalendarStore.isSameDay(date1: value.date, date2: currentDate) ? 1 : 0)

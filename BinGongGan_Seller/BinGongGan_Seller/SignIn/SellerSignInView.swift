@@ -32,7 +32,7 @@ struct SellerSignInView: View {
                         Text("Biz")
                             .padding()
                             .font(.head1Bold)
-                            .foregroundColor(.myPrimary)
+                            .foregroundColor(.myBrown)
                     }
                 
                 VStack {
@@ -60,7 +60,7 @@ struct SellerSignInView: View {
                 .font(.body1Bold)
                 .frame(width: 120, height: 40)
                 .foregroundColor(.white)
-                .background(Color.mySecondary)
+                .background(Color.myMint)
                 .cornerRadius(50)
                 
                 Text("@ZDCOMPANY")

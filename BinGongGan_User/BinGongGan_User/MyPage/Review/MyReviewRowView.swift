@@ -32,7 +32,7 @@ struct MyReviewRowView: View {
                         } label: {
                             Text("공간 이름 >")
                                 .font(.body1Bold)
-                                .foregroundColor(.myBlack)
+                                .foregroundColor(.black)
                         }
                         HStack(alignment: .bottom) {
                             ForEach(0..<5, id: \.self) { index in

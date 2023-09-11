@@ -40,13 +40,13 @@ struct ReservationDetailSheet: View {
                     Text("예약확정")
                         .font(.title3)
                         .bold()
-                        .foregroundColor(.myWhite)
+                        .foregroundColor(.white)
                     Spacer()
                 }
             }
             .buttonStyle(.plain)
             .frame(width: ReservationDetailSheet.uiViewWidth / 2, height: 50)
-            .background(Color.myPrimary)
+            .background(Color.myBrown)
             .alert(isPresented: $isSelectedApprovalButton) {
                 Alert(title: Text("예약 승인"), message: Text("해당 예약 요청을 승인하시겠습니까?"), primaryButton: .destructive(Text("취소"), action: {
                 }), secondaryButton: .cancel(Text("승인")))
@@ -62,13 +62,13 @@ struct ReservationDetailSheet: View {
                     Text("예약거절")
                         .font(.title3)
                         .bold()
-                        .foregroundColor(.myWhite)
+                        .foregroundColor(.white)
                     Spacer()
                 }
             }
             .buttonStyle(.plain)
             .frame(width: ReservationDetailSheet.uiViewWidth / 2, height: 50)
-            .background(Color.myPrimary)
+            .background(Color.myBrown)
             .alert(isPresented: $isSelectedRefusalButton) {
                 Alert(title: Text("예약 거절"), message: Text("해당 예약 요청을 거절하시겠습니까?"), primaryButton: .destructive(Text("취소"), action: {
                     }), secondaryButton: .cancel(Text("거절")))

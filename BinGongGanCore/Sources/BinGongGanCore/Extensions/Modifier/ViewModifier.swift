@@ -5,10 +5,9 @@
 //  Created by 방유빈 on 2023/09/07.
 //
 
-import Foundation
 import SwiftUI
 
-//커스텀 백버튼
+// dismiss 사용으로 15이상
 @available(iOS 15.0, *)
 public struct CustomBackButton: ViewModifier {
     @Environment(\.dismiss) private var dismiss
@@ -26,7 +25,7 @@ public struct CustomBackButton: ViewModifier {
                         dismiss()
                     } label: {
                         Image(systemName: "chevron.left")
-                            .foregroundColor(.myPrimary)
+                            .foregroundColor(.myBrown)
                     }
                 }
             }

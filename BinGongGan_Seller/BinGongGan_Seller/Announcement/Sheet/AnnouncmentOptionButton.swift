@@ -19,7 +19,7 @@ struct AnnouncementOptionButton: View {
             }
         } label: {
             Rectangle()
-                .fill(Color.myVeryLightGrayColor)
+                .fill(Color.myLightGray2)
                 .frame(width: AnnouncementOptionCell.screenWidth * 0.4, height: AnnouncementOptionCell.screenHeight * 0.1)
                 .cornerRadius(15)
                 .padding(.top, 20)
@@ -37,7 +37,7 @@ struct AnnouncementOptionButton: View {
                             .padding(.top, 5)
                             .fixedSize()
                     }
-                        .foregroundColor(Color.myPrimary)
+                        .foregroundColor(Color.myBrown)
                 )
         }
         .sheet(isPresented: $isSelectedShareButton) {

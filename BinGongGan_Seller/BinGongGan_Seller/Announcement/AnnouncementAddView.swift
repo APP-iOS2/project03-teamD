@@ -27,7 +27,7 @@ struct AnnouncementAddView: View {
                     Text("공간 선택")
                         .font(.title3)
                         .bold()
-                        .foregroundColor(Color.myBlack)
+                        .foregroundColor(Color.black)
                     Spacer()
                 }
                 .padding(.top, 10)
@@ -38,7 +38,7 @@ struct AnnouncementAddView: View {
                             Text("picker1")
                         }
                     }
-                    .accentColor(Color.myPrimary)
+                    .accentColor(Color.myBrown)
                     .padding(.leading, -10)
                     .disabled(isSelectedAllPlace)
                     
@@ -63,29 +63,29 @@ struct AnnouncementAddView: View {
                         .pickerStyle(.segmented)
                     }
                     .listRowSeparator(.hidden)
-
+                    
                     Section {
                         Text("공지사항 제목")
                         TextField("제목을 입력하세요", text: $placeNameText)
                             .textFieldStyle(RoundedBorderTextFieldStyle())
                     }
-
-                    Section {
-                        Text("공지사항 입력")
-                        TextEditor(text: $informationToPassText)
-                            .frame(height: 150)
-                            .background(Color.myLightGray)
-                            .border(Color.myPrimary)
-                    }
+                    
+//                    Section {
+//                        Text("공지사항 입력")
+//                        TextEditor(text: $informationToPassText)
+//                            .frame(height: 150)
+//                            .background(Color.myLightGray)
+//                            .border(Color.myPrimary)
+//                    }
                 }//Form
                 .padding(.bottom, 10)
-                .foregroundColor(Color.myPrimary)
+                .foregroundColor(Color.myBrown)
                 
                 HStack{
                     Text("공지사항 제목")
                         .font(.title3)
                         .bold()
-                        .foregroundColor(Color.myBlack)
+                        .foregroundColor(Color.black)
                     Spacer()
                 }
                 TextField("", text: $announcementTitle)
@@ -95,15 +95,15 @@ struct AnnouncementAddView: View {
                     Text("공지사항 입력")
                         .font(.title3)
                         .bold()
-                        .foregroundColor(Color.myBlack)
+                        .foregroundColor(Color.black)
                     Spacer()
                 }
                 TextEditor(text: $announcementContent)
                     .frame(height: AnnouncementOptionCell.screenHeight * 0.3)
-                    .background(Color.myWhite)
+                    .background(Color.white)
                     .font(.body1Regular)
                     .cornerRadius(5)
-                    .border(Color.myVeryLightGrayColor)
+                    .border(Color.myLightGray2)
                     .padding(.bottom, 10)
             }
             .padding(.horizontal, 20)
@@ -118,7 +118,7 @@ struct AnnouncementAddView: View {
                         .padding()
                         .foregroundColor(.white)
                         .bold()
-                        .background(Color.myPrimary)
+                        .background(Color.myBrown)
                         .cornerRadius(15)
                 }
             }

@@ -17,20 +17,20 @@ struct AnnouncementView: View {
                 Text("공지 관리")
                     .font(.title2)
                     .bold()
-                    .foregroundColor(Color.myPrimary)
+                    .foregroundColor(Color.myBrown)
                     .padding(.leading, 20)
                 Spacer()
                 NavigationLink {
                     AnnouncementAddView()
                 } label: {
                     Image(systemName: "plus")
-                        .foregroundColor(Color.myPrimary)
+                        .foregroundColor(Color.myBrown)
                         .padding(.trailing, 20)
                 }
             }
             Form {
                 Section(header: Text("공간1")
-                    .foregroundColor(Color.myPrimary)
+                    .foregroundColor(Color.myBrown)
                 ) {
                     ForEach(0..<5) { _ in
                         NavigationLink {
@@ -42,7 +42,7 @@ struct AnnouncementView: View {
                     }
                 }
                 Section(header: Text("공간2")
-                    .foregroundColor(Color.myPrimary)) {
+                    .foregroundColor(Color.myBrown)) {
                         ForEach(0..<5) { _ in
                             NavigationLink {
                                 AnnouncementDetailView()
@@ -53,7 +53,7 @@ struct AnnouncementView: View {
                         }
                     }
                 Section(header: Text("공간3")
-                    .foregroundColor(Color.myPrimary)) {
+                    .foregroundColor(Color.myBrown)) {
                         ForEach(0..<5) { _ in
                             NavigationLink {
                                 AnnouncementDetailView()

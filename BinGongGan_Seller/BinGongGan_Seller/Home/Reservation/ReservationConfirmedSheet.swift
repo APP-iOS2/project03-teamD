@@ -40,13 +40,13 @@ struct ReservationConfirmedSheet: View {
                     Text("예약취소")
                         .font(.title3)
                         .bold()
-                        .foregroundColor(.myWhite)
+                        .foregroundColor(.white)
                     Spacer()
                 }
             }
             .buttonStyle(.plain)
             .frame(width: ReservationDetailSheet.uiViewWidth, height: 50)
-            .background(Color.myPrimary)
+            .background(Color.myBrown)
             .alert(isPresented: $isSelectedApprovalButton) {
                 Alert(title: Text("예약 취소"), message: Text("해당 확정 예약을 취소하시겠습니까?"), primaryButton: .destructive(Text("취소"), action: {
                 }), secondaryButton: .cancel(Text("돌아가기")))

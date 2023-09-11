@@ -28,9 +28,10 @@ struct MyPlaceManagementView: View {
                         Spacer()
                         NavigationLink {
                             MyInfoView()
+                            
                         } label: {
                             Image(systemName: "square.and.pencil")
-                                .foregroundColor(Color.mySecondary)
+                                .foregroundColor(Color.myMint)
                                 .font(.title3)
                                 .padding([.top, .trailing], 20)
                         }
@@ -94,7 +95,7 @@ struct MyPlaceManagementView: View {
                         .frame(width: 40, height: 40)
                     Text("BinGongGan")
                         .bold()
-                        .foregroundColor(Color.myPrimary)
+                        .foregroundColor(Color.myBrown)
                 }
                 .padding(EdgeInsets(top: 10, leading: 10, bottom: 15, trailing: 0))
             }

@@ -55,7 +55,7 @@ struct GongGanTabView: View {
             }
             .tag(3)
         }
-        .tint(.myPrimary)
+        .tint(.myBrown)
         .navigationBarBackButtonHidden()
     }
 }

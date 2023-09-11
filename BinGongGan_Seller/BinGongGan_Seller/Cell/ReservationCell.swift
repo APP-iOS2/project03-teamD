@@ -8,7 +8,6 @@
 import SwiftUI
 import BinGongGanCore
 
-
 struct ReservationCell: View {
     var body: some View {
         VStack(alignment: .leading) {
@@ -17,6 +16,7 @@ struct ReservationCell: View {
                 Spacer()
             }
             .padding(.bottom, 5)
+            
             HStack {
                 Text("ABCD키친")
                     .font(.headline)
@@ -26,44 +26,44 @@ struct ReservationCell: View {
                     .font(.headline)
                     .bold()
             }
-            .foregroundColor(Color.myBlack)
+            .foregroundColor(Color.black)
             .padding(.bottom, 5)
             
             HStack {
                 Text("인원")
                     .font(.subheadline)
-                    .foregroundColor(Color.myPrimary)
+                    .foregroundColor(Color.myBrown)
                 Spacer()
                 Text("오영석 외 3명")
-                    .foregroundColor(Color.myBlack)
+                    .foregroundColor(Color.black)
             }
             .padding(.bottom, 5)
             
             HStack{
                 Text("일정")
                     .font(.subheadline)
-                    .foregroundColor(Color.myPrimary)
+                    .foregroundColor(Color.myBrown)
                 Spacer()
                 Text("09월 13일 11:00 - 12:00")
-                    .foregroundColor(Color.myBlack)
+                    .foregroundColor(Color.black)
             }
             .padding(.bottom, 5)
             
             HStack{
                 Text("번호")
                     .font(.subheadline)
-                    .foregroundColor(Color.myPrimary)
+                    .foregroundColor(Color.myBrown)
                 Spacer()
                 Image(systemName: "phone.fill")
-                    .foregroundColor(Color.myBlack)
+                    .foregroundColor(Color.black)
                 Text("010-7320-9330")
-                    .foregroundColor(Color.myBlack)
+                    .foregroundColor(Color.black)
             }
         }
         .padding(.horizontal, 20)
         .padding(.vertical, 15)
         .frame(maxWidth: .infinity)
-        .background(Color.myWhite)
+        .background(Color.white)
         .cornerRadius(15)
     }
 }

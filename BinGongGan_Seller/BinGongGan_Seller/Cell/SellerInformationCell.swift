@@ -19,7 +19,7 @@ struct SellerInformationCell: View {
             
             Divider()
                 .frame(minHeight: 3)
-                .background(Color.myPrimary)
+                .background(Color.myBrown)
             VStack(alignment: .leading) {
                 
                 HStack {

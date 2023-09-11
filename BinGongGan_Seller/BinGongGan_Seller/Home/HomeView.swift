@@ -22,7 +22,7 @@ struct HomeView: View {
                             .font(.title2)
                             .bold()
                             .padding([.top, .leading], 20)
-                            .foregroundColor(Color.myBlack)
+                            .foregroundColor(Color.black)
                         Spacer()
                     }
                     CategoryButtonsView()
@@ -34,7 +34,7 @@ struct HomeView: View {
                             .font(.title2)
                             .bold()
                             .padding(.leading, 20)
-                            .foregroundColor(Color.myBlack)
+                            .foregroundColor(Color.black)
                         Spacer()
                     }
                     ForEach(0..<5) { _ in
@@ -48,7 +48,7 @@ struct HomeView: View {
                                     }) {
                                         Image(systemName: "chevron.right")
                                             .background(Color.clear)
-                                            .foregroundColor(Color.myPrimary)
+                                            .foregroundColor(Color.myBrown)
                                     }
                                     .buttonStyle(.plain)
                                     .frame(maxWidth: .infinity, alignment: .trailing)
@@ -72,7 +72,7 @@ struct HomeView: View {
                                 .frame(width: 40, height: 40)
                             Text("BinGongGan")
                                 .bold()
-                                .foregroundColor(Color.myPrimary)
+                                .foregroundColor(Color.myBrown)
                         }
                         .padding(EdgeInsets(top: 10, leading: 10, bottom: 15, trailing: 0))
                     }

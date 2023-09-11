@@ -18,7 +18,7 @@ struct EventView: View {
                 Text("이벤트 관리")
                     .font(.title)
                     .bold()
-                    .foregroundColor(Color.myPrimary)
+                    .foregroundColor(Color.myBrown)
                     .padding(.leading, 20)
                 Spacer()
             }
@@ -31,7 +31,7 @@ struct EventView: View {
                     }
                 } header: {
                     Text("공간1")
-                        .foregroundColor(Color.myPrimary)
+                        .foregroundColor(Color.myBrown)
                 }
                 
                 Section {
@@ -41,7 +41,7 @@ struct EventView: View {
                     }
                 } header: {
                     Text("공간2")
-                        .foregroundColor(Color.myPrimary)
+                        .foregroundColor(Color.myBrown)
                 }
                 
                 Section {
@@ -51,7 +51,7 @@ struct EventView: View {
                     }
                 } header: {
                     Text("공간3")
-                        .foregroundColor(Color.myPrimary)
+                        .foregroundColor(Color.myBrown)
                 }
             }
             .background(Color.myBackground)

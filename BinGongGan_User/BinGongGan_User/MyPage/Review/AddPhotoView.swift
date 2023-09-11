@@ -67,7 +67,7 @@ struct AddPhotoView: View {
                     ZStack {
                         RoundedRectangle(cornerRadius: 15)
                             .frame(width: 100, height: 100)
-                            .foregroundColor(.myPrimary)
+                            .foregroundColor(.myBrown)
                         Text("+")
                             .foregroundColor(.white)
                             .font(.largeTitle)
@@ -88,7 +88,7 @@ struct AddPhotoView: View {
                                     } label: {
                                         Image(systemName: "xmark.circle.fill")
                                             .font(.head1Bold)
-                                            .foregroundColor(.myWhite)
+                                            .foregroundColor(.white)
                                             .offset(x: -4, y: 4)
                                     }
                                 }

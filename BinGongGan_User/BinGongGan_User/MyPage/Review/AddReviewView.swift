@@ -63,7 +63,7 @@ struct AddReviewView: View {
                 Button("완료") {
                     isShowingAlert.toggle()
                 }
-                .foregroundColor(.myPrimary)
+                .foregroundColor(.myBrown)
             }
         }
         
