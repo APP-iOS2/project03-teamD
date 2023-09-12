@@ -69,10 +69,7 @@ public enum PlaceCategory: String, CaseIterable, Identifiable, Codable {
            case "키친룸":
                return .kitchen
            default:
-               // 문자열이 어떤 열거형 값과도 일치하지 않는 경우를 처리합니다.
-               return .share // 기본값을 제공하거나 필요한 대로 오류 처리를 수행할 수 있습니다.
+               return .share
            }
        }
-    
-    static let samplePlaceCategory = PlaceCategory(rawValue: "쉐어오피스")
 }
