@@ -18,6 +18,7 @@
 		534F56BC2AB0C00500FA79B0 /* ReplyListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 534F56BB2AB0C00500FA79B0 /* ReplyListView.swift */; };
 		534F56BF2AB0C06300FA79B0 /* PostingListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 534F56BE2AB0C06300FA79B0 /* PostingListView.swift */; };
 		534F56C22AB0C0CE00FA79B0 /* ReportListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 534F56C12AB0C0CE00FA79B0 /* ReportListView.swift */; };
+		534F56C52AB0C6CB00FA79B0 /* Text+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 534F56C42AB0C6CB00FA79B0 /* Text+Extension.swift */; };
 		B12A84362AA6EF9500BDF8CA /* BinGongGan_AdminApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = B12A84352AA6EF9500BDF8CA /* BinGongGan_AdminApp.swift */; };
 		B12A843A2AA6EF9800BDF8CA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B12A84392AA6EF9800BDF8CA /* Assets.xcassets */; };
 		B12A843D2AA6EF9800BDF8CA /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B12A843C2AA6EF9800BDF8CA /* Preview Assets.xcassets */; };
@@ -60,6 +61,7 @@
 		534F56BB2AB0C00500FA79B0 /* ReplyListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReplyListView.swift; sourceTree = "<group>"; };
 		534F56BE2AB0C06300FA79B0 /* PostingListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostingListView.swift; sourceTree = "<group>"; };
 		534F56C12AB0C0CE00FA79B0 /* ReportListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportListView.swift; sourceTree = "<group>"; };
+		534F56C42AB0C6CB00FA79B0 /* Text+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Text+Extension.swift"; sourceTree = "<group>"; };
 		B12A84322AA6EF9500BDF8CA /* BinGongGan_Admin.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BinGongGan_Admin.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B12A84352AA6EF9500BDF8CA /* BinGongGan_AdminApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BinGongGan_AdminApp.swift; sourceTree = "<group>"; };
 		B12A84392AA6EF9800BDF8CA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -144,6 +146,14 @@
 			path = Report;
 			sourceTree = "<group>";
 		};
+		534F56C32AB0C6A500FA79B0 /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				534F56C42AB0C6CB00FA79B0 /* Text+Extension.swift */,
+			);
+			path = Extension;
+			sourceTree = "<group>";
+		};
 		B12A84292AA6EF9500BDF8CA = {
 			isa = PBXGroup;
 			children = (
@@ -169,6 +179,7 @@
 			isa = PBXGroup;
 			children = (
 				B12A85022AA7A92700BDF8CA /* Config */,
+				534F56C32AB0C6A500FA79B0 /* Extension */,
 				B12A85032AA7A93400BDF8CA /* App */,
 				B12A85052AA7A9A800BDF8CA /* TabBar */,
 				534F56AE2AB0BE5700FA79B0 /* Announcement */,
@@ -392,6 +403,7 @@
 				534F56AB2AB0B70C00FA79B0 /* CategoryView.swift in Sources */,
 				534F56C22AB0C0CE00FA79B0 /* ReportListView.swift in Sources */,
 				534F56B22AB0BEB400FA79B0 /* AddAnnouncementView.swift in Sources */,
+				534F56C52AB0C6CB00FA79B0 /* Text+Extension.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
