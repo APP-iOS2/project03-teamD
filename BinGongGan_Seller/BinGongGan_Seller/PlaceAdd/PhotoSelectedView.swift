@@ -1,9 +1,58 @@
 import SwiftUI
 import UIKit
+import BinGongGanCore
 
 // MARK: - 수정중
+struct PhotoSelectedView: View {
+    @Binding var selectedImages: [UIImage]
+    @Binding  var selectedImageNames: [String]
+    @State private var isImagePickerPresented = false
+    
+    var body: some View {
+        VStack {
+            ScrollView(.horizontal, showsIndicators: false) {
+                HStack(spacing: 15) {
+                    if selectedImages.count < 4 {
+                        Button {
+                            isImagePickerPresented.toggle()
+                        } label: {
+                            Image(systemName: "camera")
+                                .resizable()
+                                .frame(width: 15, height: 15)
+                                .foregroundColor(.black)
+                                .padding(25)
+                                .overlay {
+                                    RoundedRectangle(cornerRadius: 10)
+                                        .stroke(Color.myLightGray, lineWidth: 1)
+                                }
+                            
+                        }
+                        
+                    }
+                    ForEach(selectedImages, id: \.self) { image in
+                        Image(uiImage: image)
+                            .resizable()
+                            .cornerRadius(10)
+                            .frame(width: 70, height: 70)
+                            .padding(.leading, 5)
+                            .aspectRatio(contentMode: .fill)
+                            .onTapGesture {
+                                
+                            }
+                    }
+                }
+            }
+            .sheet(isPresented: $isImagePickerPresented) {
+                MultiPhotoPickerView(selectedImages: $selectedImages, selectedImageNames: $selectedImageNames)
+            }
+        }
+        .padding()
+    }
+}
+
 struct MultiPhotoPickerView: UIViewControllerRepresentable {
     @Binding var selectedImages: [UIImage]
+    @Binding var selectedImageNames: [String]
     @Environment(\.presentationMode) private var presentationMode
     
     func makeUIViewController(context: UIViewControllerRepresentableContext<MultiPhotoPickerView>) -> UIImagePickerController {
@@ -28,6 +77,11 @@ struct MultiPhotoPickerView: UIViewControllerRepresentable {
         }
         
         func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey: Any]) {
+            if let imageURL = info[.imageURL] as? URL
+            {
+                let selectedImageNames = imageURL.lastPathComponent
+                parent.selectedImageNames.append(selectedImageNames)
+            }
             if let selectedImage = info[.originalImage] as? UIImage {
                 parent.selectedImages.append(selectedImage)
             }
@@ -40,49 +94,8 @@ struct MultiPhotoPickerView: UIViewControllerRepresentable {
     }
 }
 
-struct PhotoSelectedView: View {
-    @State private var selectedImages: [UIImage] = []
-    @State private var isImagePickerPresented = false
-    
-    var body: some View {
-        VStack {
-            
-            ScrollView(.horizontal, showsIndicators: false) {
-                HStack(spacing: 15) {
-                    if selectedImages.count < 4 {
-                        Button {
-                            isImagePickerPresented.toggle()
-                        } label: {
-                            ZStack {
-                                Rectangle()
-                                    .fill(.gray)
-                                    .frame(width: 100, height: 100)
-                                Image(systemName: "plus")
-                                    .resizable()
-                                    .frame(width: 30, height: 30)
-                                    .foregroundColor(.black)
-                            }
-                        }
-                    }
-                    
-                    ForEach(selectedImages, id: \.self) { image in
-                        Image(uiImage: image)
-                            .resizable()
-                            .aspectRatio(contentMode: .fit)
-                            .frame(width: 100, height: 100)
-                    }
-                }
-            }
-            .sheet(isPresented: $isImagePickerPresented) {
-                MultiPhotoPickerView(selectedImages: $selectedImages)
-            }
-        }
-        .padding()
-    }
-}
-
 struct PhotoSelectedView_Previews: PreviewProvider {
     static var previews: some View {
-        PhotoSelectedView()
+        PhotoSelectedView(selectedImages: .constant([]), selectedImageNames: .constant([""]))
     }
 }

@@ -29,7 +29,7 @@ struct ReviewReportSheet: View {
                         Spacer()
                         if report.isSelected {
                             Image(systemName: "checkmark.circle")
-                                .foregroundColor(.mySecondary)
+                                .foregroundColor(.myMint)
                         }
                     }
                     .onTapGesture {

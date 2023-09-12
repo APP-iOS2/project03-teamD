@@ -10,42 +10,48 @@ import BinGongGanCore
 
 struct AnnouncementAddView: View {
     @Environment(\.dismiss) private var dismiss
-    @State private var selectedPlace: PlaceCategory = .쉐어오피스
+    @State private var announcementTitle: String = ""
+    @State private var announcementContent: String = ""
+    @State private var isSelectedAllPlace: Bool = false
+    @State private var selectedPlace: String = ""
     @State private var placeNameText: String = ""
     @State private var informationToPassText: String = ""
-    @State private var placePriceText: String = ""
-    @State private var placeAdress: String = ""
-    @State private var placeInfomations = PlaceInfomationModel.data
-    private let columns: [GridItem] = Array(repeating: .init(.flexible()), count: 4)
-    private var placeInfomationString: [String] {
-        placeInfomations.filter {
-            $0.isSelected
-        }.map {
-            $0.name
-        }
-    }
-
+    
     var body: some View {
         ZStack {
             Color.myBackground
                 .ignoresSafeArea(.all)
-            VStack{
+            
+            ScrollView{
                 HStack{
-                    Text("공지 등록")
-                        .font(.title2)
+                    Text("공간 선택")
+                        .font(.title3)
                         .bold()
-                        .foregroundColor(Color.myPrimary)
-                        .padding(EdgeInsets(top: 20, leading: 20, bottom: 0, trailing: 20))
+                        .foregroundColor(Color.black)
+                    Spacer()
+                }
+                .padding(.top, 10)
+                
+                HStack{
+                    Picker("공간 선택", selection: $selectedPlace) {
+                        ForEach(0..<3) { _ in
+                            Text("picker1")
+                        }
+                    }
+                    .accentColor(Color.myBrown)
+                    .padding(.leading, -10)
+                    .disabled(isSelectedAllPlace)
+                    
                     Spacer()
                     Button {
-                        dismiss()
+                        isSelectedAllPlace.toggle()
                     } label: {
-                        Text("등록 취소")
-                            .foregroundColor(Color.myPrimary)
+                        Text("전체 공간 선택")
+                        Image(systemName: isSelectedAllPlace ? "checkmark.square.fill" : "square")
                     }
                     .buttonStyle(.plain)
-                    .padding(EdgeInsets(top: 20, leading: 20, bottom: 0, trailing: 20))
                 }
+
                 Form {
                     Section{
                         Text("공간 선택")
@@ -57,26 +63,76 @@ struct AnnouncementAddView: View {
                         .pickerStyle(.segmented)
                     }
                     .listRowSeparator(.hidden)
-
+                    
                     Section {
                         Text("공지사항 제목")
                         TextField("제목을 입력하세요", text: $placeNameText)
-                            .textFieldStyle(TextFieldStyles())
+                            .textFieldStyle(RoundedBorderTextFieldStyle())
                     }
-
-                    Section {
-                        Text("공지사항 입력")
-                        TextEditor(text: $informationToPassText)
-                            .frame(height: 150)
-                            .background(Color.myLightGray)
-                            .border(Color.myPrimary)
-                    }
+                    
+//                    Section {
+//                        Text("공지사항 입력")
+//                        TextEditor(text: $informationToPassText)
+//                            .frame(height: 150)
+//                            .background(Color.myLightGray)
+//                            .border(Color.myPrimary)
+//                    }
                 }//Form
+                .padding(.bottom, 10)
+                .foregroundColor(Color.myBrown)
                 
+                HStack{
+                    Text("공지사항 제목")
+                        .font(.title3)
+                        .bold()
+                        .foregroundColor(Color.black)
+                    Spacer()
+                }
+                TextField("", text: $announcementTitle)
+//                    .textFieldStyle(TextFieldStyles())
+                    .padding(.bottom, 10)
+                HStack{
+                    Text("공지사항 입력")
+                        .font(.title3)
+                        .bold()
+                        .foregroundColor(Color.black)
+                    Spacer()
+                }
+                TextEditor(text: $announcementContent)
+                    .frame(height: AnnouncementOptionCell.screenHeight * 0.3)
+                    .background(Color.white)
+                    .font(.body1Regular)
+                    .cornerRadius(5)
+                    .border(Color.myLightGray2)
+                    .padding(.bottom, 10)
             }
+            .padding(.horizontal, 20)
+            
+            VStack{
+                Spacer()
+                Button {
+                    //action
+                } label: {
+                    Text("등록하기")
+                        .frame(maxWidth: .infinity)
+                        .padding()
+                        .foregroundColor(.white)
+                        .bold()
+                        .background(Color.myBrown)
+                        .cornerRadius(15)
+                }
+            }
+            .padding(.horizontal, 20)
+            .navigationTitle("공간 공지 등록")
+            .navigationBarTitleDisplayMode(.inline)
+            .navigationBarBackButtonHidden(true)
+            .scrollContentBackground(.hidden)
+            .customBackbutton()
         }
     }
 }
+
+
 
 struct AnnouncementAddView_Previews: PreviewProvider {
     static var previews: some View {

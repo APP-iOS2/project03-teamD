@@ -4,6 +4,7 @@
 //
 //  Created by 방유빈 on 2023/09/07.
 //
+
 import SwiftUI
 
 /* 이전 툴바랑 백버튼 히든 들어갔던 자리에 .customBackbutton()
@@ -13,6 +14,7 @@ import SwiftUI
  }
  */
 
+// CustomBackButton의 dismiss 사용으로 15이상
 @available(iOS 15.0, *)
 extension View {
     public func customBackbutton(action: (() -> ())? = nil) -> some View {
@@ -24,8 +26,10 @@ extension View {
     public func endTextEditing() {
         UIApplication.shared.sendAction(#selector(UIResponder.resignFirstResponder), to: nil, from: nil, for: nil)
     }
-    
-    public func toastmessage(isShowing: Binding<Bool>, message: String) -> some View {
+
+    // MARK: 토스트 메세지
+    // 토스트 메세지를 띄우고싶은 뷰에서 .toast(isShowing: $showToast, message: message) 추가
+    public func toast(isShowing: Binding<Bool>, message: String) -> some View {
         self.modifier(ToastMessageModifier(isShowing: isShowing, message: message))
     }
 }

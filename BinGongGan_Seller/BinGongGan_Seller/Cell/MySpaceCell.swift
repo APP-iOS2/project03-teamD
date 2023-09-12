@@ -9,25 +9,42 @@ import SwiftUI
 
 struct MySpaceCell: View {
     var body: some View {
-        HStack {
-            VStack(alignment: .leading, spacing: 15) {
-                Text("영석키친")
-                    .font(.title)
-                Text("오영석")
-                Text("010-1234-1234")
-                Text("서울특별시 강남구 논현로 30 뉴진스")
+        VStack {
+            VStack {
+                HStack {
+                    Text("영석키친")
+                        .font(.head1Bold)
+                    Text("#132")
+                        .font(.head1Bold)
+                    Spacer()
+                }
+                .padding(.bottom, 10)
                 
-                CarouselCell()
-                    .frame(width: 320, height: 160)
-                    .cornerRadius(15)
+                HStack {
+                    Text("서울특별시 강남구 논현로 30 뉴진스")
+                    Spacer()
+                }
+                
+                HStack {
+                    Text("12000원 / 시간당")
+                    Spacer()
+                }
+                
+                HStack {
+                    Spacer()
+                    Text("총 예약 수 200 리뷰 99 찜 10")
+                }
+                .padding(.top, 10)
             }
-            .foregroundColor(.white)
-            .bold()
-        } //: HStack
-        .padding(20)
-        .background(Color.myPrimary)
+            .padding(EdgeInsets(top: 20, leading: 20, bottom: 0, trailing: 20))
+            
+            Spacer()
+            
+            CarouselCell()
+                .frame(height: 210)
+        }
+        .background(Color.white)
         .cornerRadius(15)
-        .padding([.leading, .trailing])
     }
 }
 

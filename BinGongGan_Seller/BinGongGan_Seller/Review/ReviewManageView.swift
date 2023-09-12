@@ -13,52 +13,50 @@ struct ReviewManageView: View {
     
     @State private var selectedPlace: String = ""
     
-    var places: [String] = ["전체", "공간1", "공간2"]
-    
     var body: some View {
-        ZStack {
-            Color.myBackground
-                .ignoresSafeArea(.all)
+        Form {
+            Section {
+                ForEach(1...3, id: \.self) { _ in
+                    NavigationLink {
+                        ReviewManageDetailView()
+                    } label: {
+                        ReviewCell()
+                    }
+                }
+            } header: {
+                Text("공간 1")
+            }
             
-            ScrollView {
-                VStack {
-                    HStack {
-                        Spacer()
-                        Picker("Place", selection: $selectedPlace) {
-                            ForEach(places, id: \.self) { place in
-                                Text("\(place)")
-                            }
-                        }
+            Section {
+                ForEach(1...3, id: \.self) { _ in
+                    NavigationLink {
+                        ReviewManageDetailView()
+                    } label: {
+                        ReviewCell()
                     }
-                    
-                    ForEach(1...3, id: \.self) { _ in
-                        NavigationLink {
-                            ReviewManageDetailView()
-                        } label: {
-                            ReviewCell()
-                                .padding(EdgeInsets(top: 5, leading: 20, bottom: 5, trailing: 20))
-                        }
-                    }
-
-                    Spacer()
                 }
-                .navigationTitle("리뷰 관리")
+            } header: {
+                Text("공간 2")
+            }
+            
+            Section {
+                ForEach(1...3, id: \.self) { _ in
+                    NavigationLink {
+                        ReviewManageDetailView()
+                    } label: {
+                        ReviewCell()
+                    }
+                }
+            } header: {
+                Text("공간 3")
             }
         }
-        .navigationBarBackButtonHidden(true)
-        .scrollContentBackground(.hidden)
         .background(Color.myBackground)
+        .navigationTitle("리뷰 관리")
+        .navigationBarBackButtonHidden(true)
         .navigationBarTitleDisplayMode(.inline)
-        .toolbar {
-            ToolbarItem(placement:.navigationBarLeading) {
-                Button {
-                    dismiss()
-                } label: {
-                    Image(systemName: "chevron.left")
-                        .foregroundColor(.myPrimary)
-                }
-            }
-        }
+        .scrollContentBackground(.hidden)
+        .customBackbutton()
     }
 }
 

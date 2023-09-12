@@ -63,10 +63,10 @@ struct MyInformationEditView: View {
             } label: {
                 Text("완료")
                     .frame(maxWidth: .infinity, maxHeight: 50)
-                    .background(isButtonDisabled ? Color.myLightGray : Color.myPrimary)
+                    .background(isButtonDisabled ? Color.myLightGray : Color.myBrown)
                     .cornerRadius(15)
                     .padding(20)
-                    .foregroundColor(.myWhite)
+                    .foregroundColor(.white)
             }
             .buttonStyle(.automatic)
             .disabled(isButtonDisabled)

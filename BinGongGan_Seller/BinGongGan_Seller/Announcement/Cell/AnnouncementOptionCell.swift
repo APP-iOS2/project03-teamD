@@ -16,16 +16,18 @@ struct AnnouncementOptionCell: View {
         Form {
             Section {
                 ForEach(2..<4) { index in
-                    Button {} label: {
+                    Button {
+                        //action
+                    } label: {
                         HStack{
                             Text("")
                             Image(systemName: AnnouncementOption.data[index].optionIamge)
                             Text(AnnouncementOption.data[index].option)
                         }
                         .padding(.vertical, 10)
-                        .foregroundColor(index == 2 ? Color.myBlack : Color.red)
+                        .foregroundColor(index == 2 ? .black : .red)
                     }
-                    .listRowBackground(Color.myVeryLightGrayColor)
+                    .listRowBackground(Color.myLightGray2)
                 }
             }
         }

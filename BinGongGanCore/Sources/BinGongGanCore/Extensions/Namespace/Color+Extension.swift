@@ -8,6 +8,7 @@
 import Foundation
 import SwiftUI
 
+// Color 사용으로 13이상
 @available(iOS 13.0, *)
 public extension Color {
     // MARK: #FFFFFF와 같이 16진수 hexString color를 쓸 수 있음.
@@ -27,15 +28,11 @@ public extension Color {
     }
 
     // MARK: 정의된 Color와 겹치지 않는 닉네임 선정
-    static let myPrimary = Color(hex: "#655D55")
+    static let myBrown = Color(hex: "#655D55")
     
-    static let mySecondary = Color(hex: "#8DB9C1")
+    static let myMint = Color(hex: "#8DB9C1")
     
     static let myBackground = Color(hex: "#F5F5F5")
-    
-    static let myWhite = Color(hex: "#FFFFFF")
-    
-    static let myBlack = Color(hex:"#000000")
     
     static let myDarkGray = Color(hex: "#666666")
     
@@ -43,7 +40,9 @@ public extension Color {
     
     static let myLightGray = Color(hex: "#CCCCCC")
     
+    static let myLightGray2 = Color(hex: "#EBEEF2")
+    
     static let myErrorColor = Color(hex: "#FFCDD2", opacity: 0.5)
     
-    static let myVeryLightGrayColor = Color(hex: "#EBEEF2")
+    static let myWarningColor = Color(hex: "#FED875")
 }

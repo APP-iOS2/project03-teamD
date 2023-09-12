@@ -74,7 +74,7 @@ struct MapSearchView: View {
                             .padding([.top, .bottom], 7)
                             .foregroundColor(locationManager.selectedCategoty == category.rawValue ? .white : .myDarkGray)
                             .font(.captionRegular)
-                            .background(locationManager.selectedCategoty == category.rawValue ? Color.mySecondary : Color.white)
+                            .background(locationManager.selectedCategoty == category.rawValue ? Color.myMint : Color.white)
                             .cornerRadius(13)
                             .shadow(radius: 2, y: 1)
                         }
@@ -119,7 +119,7 @@ struct MapSearchView: View {
                             .overlay {
                                 Image("SearchViewImage")
                                     .renderingMode(.template)
-                                    .foregroundColor(.myBlack)
+                                    .foregroundColor(.black)
                             }
                     }
                     Spacer()
@@ -130,7 +130,7 @@ struct MapSearchView: View {
                             .frame(width: 100, height: 40)
                             .background(Color.white)
                             .cornerRadius(20)
-                            .foregroundColor(.myBlack)
+                            .foregroundColor(.black)
                             .shadow(radius: 2, y: 1)
                     }
                     

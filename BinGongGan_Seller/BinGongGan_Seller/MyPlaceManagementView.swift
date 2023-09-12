@@ -12,55 +12,96 @@ struct MyPlaceManagementView: View {
     @Environment(\.dismiss) private var dismiss
     
     var body: some View {
+        ZStack {
+            Color.myBackground
+                .ignoresSafeArea(.all)
+            
             VStack {
-                HStack {
-                    Text("판매자 정보")
-                        .font(.title)
-                        .bold()
-                        .padding(.horizontal, 20)
-                    Spacer()
-                }
-                SellerInformationCell()
-                HStack {
-                    Text("내 공간")
-                        .font(.title)
-                        .bold()
-                        .padding(.horizontal, 20)
-                    Spacer()
-                    NavigationLink {
-                        PlaceAddView()
-                    } label: {
-                        Text("내 공간 추가")
-                            .padding(.trailing, 20)
-                            .bold()
-                            .foregroundColor(.myBlack)
+                Section {
+                    SellerInformationCell()
+                        .padding([.bottom, .leading, .trailing])
+                } header: {
+                    HStack {
+                        Text("내 정보")
+                            .padding([.top, .leading], 20)
+                            .font(.head1Bold)
+                        Spacer()
+                        NavigationLink {
+                            MyInfoView()
+                            
+                        } label: {
+                            Image(systemName: "square.and.pencil")
+                                .foregroundColor(Color.myMint)
+                                .font(.title3)
+                                .padding([.top, .trailing], 20)
+                        }
                     }
-
                 }
-                TabView {
-                    // TODO: TabView 작동 안돼서 수정 필요
-                    ForEach(1...3, id: \.self) { _ in
-                        MySpaceCell()
+                
+                Section {
+                    GeometryReader { geometry in
+                        let size = geometry.size
+                        
+                        ScrollView(.horizontal) {
+                            HStack(spacing: 5) {
+                                ForEach(1...3, id: \.self) { i in
+                                    GeometryReader { proxy in
+                                        let cardSize = proxy.size
+                                        
+                                        if i != 3 {
+                                            MySpaceCell()
+                                                .frame(width: cardSize.width - 20)
+                                        } else {
+                                            NavigationLink(destination: PlaceAddView()) {
+                                                ZStack {
+                                                    RoundedRectangle(cornerRadius: 15)
+                                                        .fill(.white)
+                                                        .frame(width: cardSize.width - 20)
+                                                    
+                                                    VStack {
+                                                        Image(systemName: "plus.square.fill.on.square.fill").font(.title)
+                                                            .padding(.bottom, 10)
+                                                        Text("새 공간 추가하기")
+                                                            .font(.title3)
+                                                    }
+                                                    .foregroundColor(.gray)
+                                                }
+                                            }
+                                        }
+                                    }
+                                    .frame(width: size.width - 50, height: size.width - 10)
+                                }
+                            }
+                            .padding(EdgeInsets(top: 0, leading: 20, bottom: 0, trailing: 10))
+                        }
+                    }
+                } header: {
+                    HStack {
+                        Text("내 공간")
+                            .padding([.top, .leading], 20)
+                            .font(.head1Bold)
+                        Spacer()
                     }
                 }
             }
-            .navigationBarBackButtonHidden(true)
-            .scrollContentBackground(.hidden)
-            .background(Color.myBackground)
-            .navigationBarTitleDisplayMode(.inline)
-            .toolbar {
-                ToolbarItem(placement:.navigationBarLeading) {
-                    Button {
-                        dismiss()
-                    } label: {
-                        Image(systemName: "chevron.left")
-                            .foregroundColor(.myPrimary)
-                    }
+        }
+        .background(Color.myBackground)
+        .toolbar {
+            ToolbarItem(placement: .navigationBarLeading) {
+                HStack{
+                    Image("HomeLogo")
+                        .resizable()
+                        .aspectRatio(contentMode: .fit)
+                        .frame(width: 40, height: 40)
+                    Text("BinGongGan")
+                        .bold()
+                        .foregroundColor(Color.myBrown)
                 }
+                .padding(EdgeInsets(top: 10, leading: 10, bottom: 15, trailing: 0))
             }
+        }
     }
 }
-
 
 struct MyPlaceManagementView_Previews: PreviewProvider {
     static var previews: some View {
