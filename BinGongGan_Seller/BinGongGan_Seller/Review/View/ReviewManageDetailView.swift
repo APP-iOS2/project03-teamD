@@ -22,7 +22,7 @@ struct ReviewManageDetailView: View {
     var body: some View {
         VStack {
             ScrollView {
-                    ReservationCell()
+                    ReservationCell(isHiddenRightButton: false)
                         .padding(EdgeInsets(top: 10, leading: 20, bottom: 10, trailing: 20))
                     
                     ReviewWithCommentCell(review: review)

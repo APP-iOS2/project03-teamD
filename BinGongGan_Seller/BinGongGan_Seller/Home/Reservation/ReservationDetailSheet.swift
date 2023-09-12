@@ -17,14 +17,14 @@ struct ReservationDetailSheet: View {
         VStack {
             HStack{
                 Text("예약 내역 확인")
-                    .font(.title2)
-                    .bold()
+                    .font(.head1Bold)
                     .padding([.top, .leading], 20)
                     .foregroundColor(Color.myDarkGray)
                 Spacer()
             }
             
-            ReservationCell()
+            ReservationCell(isHiddenRightButton: false)
+                .padding(.bottom, 12)
                 .padding(.horizontal, 20)
             
             Text("반드시 사용자 입금 확인 후 예약확정 버튼을 누르세요")
@@ -36,12 +36,11 @@ struct ReservationDetailSheet: View {
             HStack {
                 Button{
                     isSelectedApprovalButton.toggle()
-                    
                 } label: {
                     HStack {
                         Spacer()
                         Text("예약확정")
-                            .bold()
+                            .font(.body1Bold)
                             .foregroundColor(.white)
                         Spacer()
                     }
@@ -50,14 +49,14 @@ struct ReservationDetailSheet: View {
                 .frame(height: 50)
                 .background(Color.myBrown)
                 .alert(isPresented: $isSelectedApprovalButton) {
-                    Alert(title: Text("예약 승인"), message: Text("해당 예약 요청을 승인하시겠습니까?"), primaryButton: .destructive(Text("취소"), action: {
-                    }), secondaryButton: .cancel(Text("승인")))
+                    Alert(title: Text("예약 승인"),
+                          message: Text("해당 예약 요청을 승인하시겠습니까?"),
+                          primaryButton: .destructive(Text("취소"),
+                                                      action: {}),
+                          secondaryButton: .cancel(Text("승인")))
                 }
                 
-                Rectangle()
-                    .foregroundColor(.gray)
-                    .frame(width: 1, height: 50)
-                    .padding(.vertical, 5)
+                Spacer(minLength: 1)
                 
                 Button {
                     isSelectedRefusalButton.toggle()
@@ -65,7 +64,7 @@ struct ReservationDetailSheet: View {
                     HStack {
                         Spacer()
                         Text("예약거절")
-                            .bold()
+                            .font(.body1Bold)
                             .foregroundColor(.white)
                         Spacer()
                     }
@@ -74,8 +73,11 @@ struct ReservationDetailSheet: View {
                 .frame(height: 50)
                 .background(Color.myBrown)
                 .alert(isPresented: $isSelectedRefusalButton) {
-                    Alert(title: Text("예약 거절"), message: Text("해당 예약 요청을 거절하시겠습니까?"), primaryButton: .destructive(Text("취소"), action: {
-                    }), secondaryButton: .cancel(Text("거절")))
+                    Alert(title: Text("예약 거절"),
+                          message: Text("해당 예약 요청을 거절하시겠습니까?"),
+                          primaryButton: .destructive(Text("취소"),
+                                                      action: {}),
+                          secondaryButton: .cancel(Text("거절")))
                 }
             }
         }

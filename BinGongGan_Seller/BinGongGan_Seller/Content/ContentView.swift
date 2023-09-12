@@ -13,7 +13,9 @@ struct ContentView: View {
     @StateObject private var signUpStore: SignUpStore = SignUpStore()
     var body: some View {
         if signInStore.isSuccessSignIn {
-            HomeView()
+            NavigationStack {
+                HomeView()
+            }
         } else {
             NavigationStack {
                 SellerSignInView()
