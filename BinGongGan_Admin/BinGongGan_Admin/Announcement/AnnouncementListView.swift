@@ -8,13 +8,14 @@
 import SwiftUI
 
 struct AnnouncementListView: View {
+    @StateObject private var announcementStore: AnnouncementStore = AnnouncementStore()
     var body: some View {
         VStack {
             List {
                 
             }
             NavigationLink{
-                AddAnnouncementView()
+                AddAnnouncementView(announcementStore: announcementStore)
             } label: {
                 Text("공지 작성")
                     .buttonStyle(backgroundColor: .myBrown)

@@ -13,21 +13,22 @@ struct AddAnnouncementView: View {
         case cancel
         case submit
     }
+    
     @Environment(\.dismiss) private var dismiss
+    @ObservedObject var announcementStore: AnnouncementStore
     @State private var title: String = ""
     @State private var content: String = ""
-    @State private var selectedType: Int = 0
+    @State private var selectedType: AnnouncementType = .notice
     @State private var isShowingAlert: Bool = false
     @State private var alertType: AlertType = .cancel
     
-    var announcementType: [String] = ["공지", "업데이트", "장애", "기타"]
     
     var body: some View {
         Form {
             Section("공지 타입") {
                 Picker("공지 타입 선택", selection: $selectedType) {
-                    ForEach(0 ..< announcementType.count, id: \.self) {
-                        Text(announcementType[$0])
+                    ForEach(AnnouncementType.allCases, id: \.self) {
+                        Text($0.rawValue)
                     }
                 }
                 .pickerStyle(.menu)
@@ -77,12 +78,19 @@ struct AddAnnouncementView: View {
         }
         .alert("공지 작성", isPresented: $isShowingAlert) {
             Button {
-            
+
             } label: {
                 Text("취소") //MARK: - 작성 취소 시 취소 / 작성 취소 먼가 레이블링 겹침 수정 필요
             }
             Button {
-                //TODO: - action 넣기
+                switch alertType {
+                case .cancel :
+                    dismiss()
+                case .submit :
+                    Task {
+                        try await announcementStore.addAnnouncement(title: title, content: content, type: selectedType)
+                    }
+                }
                 dismiss()
             } label: {
                 Text((alertType == .cancel) ? "작성 취소" : "공지 저장")
@@ -99,7 +107,7 @@ struct AddAnnouncementView: View {
 struct AddAnnouncementView_Previews: PreviewProvider {
     static var previews: some View {
         NavigationStack {
-            AddAnnouncementView()
+            AddAnnouncementView(announcementStore: AnnouncementStore())
         }
     }
 }

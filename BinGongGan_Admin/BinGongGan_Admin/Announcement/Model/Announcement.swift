@@ -17,7 +17,7 @@ struct SystemAnnouncement: Identifiable, Codable {
     var createdAt: String
 }
 
-enum AnnouncementType: String, Codable {
+enum AnnouncementType: String, Codable, CaseIterable{
     case notice = "[공지]"
     case update = "[업데이트]"
     case error = "[장애]"
