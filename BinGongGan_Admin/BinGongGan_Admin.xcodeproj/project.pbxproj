@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		534F56A92AB0B63800FA79B0 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 534F56A82AB0B63800FA79B0 /* GoogleService-Info.plist */; };
 		534F56AB2AB0B70C00FA79B0 /* CategoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 534F56AA2AB0B70C00FA79B0 /* CategoryView.swift */; };
 		534F56AD2AB0BD2600FA79B0 /* MainEmptyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 534F56AC2AB0BD2500FA79B0 /* MainEmptyView.swift */; };
 		534F56B02AB0BEA300FA79B0 /* AnnouncementListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 534F56AF2AB0BEA300FA79B0 /* AnnouncementListView.swift */; };
@@ -37,6 +36,7 @@
 		B12A84E02AA6F08100BDF8CA /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = B12A84DF2AA6F08100BDF8CA /* FirebaseFirestore */; };
 		B12A84E22AA6F08100BDF8CA /* FirebaseFirestoreSwift in Frameworks */ = {isa = PBXBuildFile; productRef = B12A84E12AA6F08100BDF8CA /* FirebaseFirestoreSwift */; };
 		B12A85092AA7AAD700BDF8CA /* MainTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B12A85082AA7AAD700BDF8CA /* MainTabView.swift */; };
+		B171F48D2AB11DFD00B8059B /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = B171F48C2AB11DFD00B8059B /* GoogleService-Info.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -57,7 +57,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		534F56A82AB0B63800FA79B0 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		534F56AA2AB0B70C00FA79B0 /* CategoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryView.swift; sourceTree = "<group>"; };
 		534F56AC2AB0BD2500FA79B0 /* MainEmptyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainEmptyView.swift; sourceTree = "<group>"; };
 		534F56AF2AB0BEA300FA79B0 /* AnnouncementListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnnouncementListView.swift; sourceTree = "<group>"; };
@@ -86,6 +85,7 @@
 		B12A84502AA6EF9900BDF8CA /* BinGongGan_AdminUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BinGongGan_AdminUITests.swift; sourceTree = "<group>"; };
 		B12A84522AA6EF9900BDF8CA /* BinGongGan_AdminUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BinGongGan_AdminUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		B12A85082AA7AAD700BDF8CA /* MainTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabView.swift; sourceTree = "<group>"; };
+		B171F48C2AB11DFD00B8059B /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -209,7 +209,6 @@
 		B12A84292AA6EF9500BDF8CA = {
 			isa = PBXGroup;
 			children = (
-				534F56CB2AB0D51D00FA79B0 /* Service */,
 				B12A84342AA6EF9500BDF8CA /* BinGongGan_Admin */,
 				B12A84452AA6EF9900BDF8CA /* BinGongGan_AdminTests */,
 				B12A844F2AA6EF9900BDF8CA /* BinGongGan_AdminUITests */,
@@ -233,6 +232,7 @@
 			children = (
 				B12A85022AA7A92700BDF8CA /* Config */,
 				534F56C32AB0C6A500FA79B0 /* Extension */,
+				534F56CB2AB0D51D00FA79B0 /* Service */,
 				B12A85052AA7A9A800BDF8CA /* TabBar */,
 				534F56AE2AB0BE5700FA79B0 /* Announcement */,
 				534F56B32AB0BEDF00FA79B0 /* User */,
@@ -279,8 +279,8 @@
 		B12A85022AA7A92700BDF8CA /* Config */ = {
 			isa = PBXGroup;
 			children = (
+				B171F48C2AB11DFD00B8059B /* GoogleService-Info.plist */,
 				B12A84392AA6EF9800BDF8CA /* Assets.xcassets */,
-				534F56A82AB0B63800FA79B0 /* GoogleService-Info.plist */,
 			);
 			path = Config;
 			sourceTree = "<group>";
@@ -417,9 +417,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B171F48D2AB11DFD00B8059B /* GoogleService-Info.plist in Resources */,
 				B12A843D2AA6EF9800BDF8CA /* Preview Assets.xcassets in Resources */,
 				B12A843A2AA6EF9800BDF8CA /* Assets.xcassets in Resources */,
-				534F56A92AB0B63800FA79B0 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -622,6 +622,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"BinGongGan_Admin/Preview Content\"";
+				DEVELOPMENT_TEAM = 6R3M7VGRP2;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_CFBundleDisplayName = "빈공간_관리자";
@@ -635,7 +636,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.ZD.BinGongGan-Admin";
+				PRODUCT_BUNDLE_IDENTIFIER = com.ZD.BinGongGan.Admin;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = NO;
@@ -654,6 +655,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"BinGongGan_Admin/Preview Content\"";
+				DEVELOPMENT_TEAM = 6R3M7VGRP2;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_CFBundleDisplayName = "빈공간_관리자";
@@ -667,7 +669,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.ZD.BinGongGan-Admin";
+				PRODUCT_BUNDLE_IDENTIFIER = com.ZD.BinGongGan.Admin;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = NO;
