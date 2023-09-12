@@ -555,7 +555,6 @@
 			isa = PBXGroup;
 			children = (
 				3A392E8E2AAEB24D00D82221 /* Model */,
-				BCE6585C2AA8AD4D0009ECD1 /* SignUpView.swift */,
 				BCE658582AA8AD4D0009ECD1 /* Views */,
 			);
 			path = SignUp;
@@ -564,6 +563,7 @@
 		BCE658582AA8AD4D0009ECD1 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				BCE6585C2AA8AD4D0009ECD1 /* SignUpView.swift */,
 				BCE6585B2AA8AD4D0009ECD1 /* FirstStepSignUpView.swift */,
 				BCE658592AA8AD4D0009ECD1 /* SecondStepSignUpView.swift */,
 				BCE6585A2AA8AD4D0009ECD1 /* ThirdStepSignUpView.swift */,
