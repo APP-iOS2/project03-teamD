@@ -32,6 +32,14 @@ public struct Address: Codable {
         self.longitude = longitude
         self.latitude = latitude
     }
+    
+    public init() {
+        self.address = ""
+        self.placeName = ""
+        self.longitude = ""
+        self.latitude = ""
+    }
+    
 }
 
 public struct AddressSearchResult: Codable {
