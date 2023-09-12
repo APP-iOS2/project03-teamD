@@ -53,6 +53,7 @@ struct AddReviewView: View {
                 AddPhotoView()
             }
         }
+        .padding(.top, -20)
         .navigationTitle("리뷰 작성")
         .navigationBarTitleDisplayMode(.inline)
         .customBackbutton()
