@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct MyInfoEditView: View {
+    @EnvironmentObject private var myInfo: MyStore
     @State var email: String = ""
     @State var phoneNumber: String = ""
     @State var accountNumber: String = "인증 필요"
@@ -15,7 +16,6 @@ struct MyInfoEditView: View {
     @State private var showAlert = false
     @State private var alertMessage = ""
     @Binding var isShowingEditSheet: Bool
-    @StateObject var myInfo: MyStore
     
     var body: some View {
         NavigationStack {
@@ -96,6 +96,6 @@ func isValidEmail(_ email: String) -> Bool {
 
 struct MyInfoEditView_Previews: PreviewProvider {
     static var previews: some View {
-        MyInfoEditView(isShowingEditSheet: .constant(true), myInfo: MyStore())
+        MyInfoEditView(isShowingEditSheet: .constant(true))
     }
 }
