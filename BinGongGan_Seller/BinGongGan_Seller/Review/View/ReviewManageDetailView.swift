@@ -12,10 +12,12 @@ struct ReviewManageDetailView: View {
     @Environment(\.dismiss) private var dismiss
     
     @EnvironmentObject var reviewStore: ReviewStore
-    
-    @StateObject var reportStore: ReportStore = ReportStore()
+    @EnvironmentObject var replyStore: ReplyStore
+    @EnvironmentObject var reportStore: ReportStore
     
     @State var isShowingReviewReportSheet: Bool = false
+    
+    var review: Review
     
     var body: some View {
         VStack {
@@ -25,6 +27,7 @@ struct ReviewManageDetailView: View {
                     
                     ReviewWithCommentCell()
                         .padding(EdgeInsets(top: 0, leading: 20, bottom: 0, trailing: 20))
+                        .environmentObject(replyStore)
                 }
             
             Button("리뷰 신고하기", role: .destructive) {
@@ -48,7 +51,10 @@ struct ReviewManageDetailView: View {
 struct ReviewManageDetailView_Previews: PreviewProvider {
     static var previews: some View {
         NavigationStack {
-            ReviewManageDetailView()
+            ReviewManageDetailView(review: Review(placeId: "", writerId: "", date: "", rating: 5, content: ""))
+                .environmentObject(ReviewStore())
+                .environmentObject(ReplyStore())
+                .environmentObject(ReportStore())
         }
     }
 }
