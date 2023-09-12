@@ -7,11 +7,17 @@
 
 import SwiftUI
 
-struct PrimaryButton: View {
+public struct PrimaryButton: View {
     var action: () -> Void
     var title: String
     
-    var body: some View {
+    public init(action: @escaping () -> Void, title: String) {
+        self.action = action
+        self.title = title
+    }
+    
+    @available(iOS 13.0, *)
+    public var body: some View {
         Button {
             action()
         } label: {
@@ -27,6 +33,7 @@ struct PrimaryButton: View {
 }
 
 struct PirmaryButton_Previews: PreviewProvider {
+    @available(iOS 13.0, *)
     static var previews: some View {
         PrimaryButton(action: {
             

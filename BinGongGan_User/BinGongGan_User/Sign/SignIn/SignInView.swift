@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import BinGongGanCore
 
 struct SignInView: View {
     @EnvironmentObject private var signInStore: SignInStore
