@@ -10,15 +10,30 @@ import BinGongGanCore
 
 struct CategoryButtonsView: View {
     let columns: [GridItem] = Array(repeating: .init(.flexible()), count: 4)
-    let categoryList = CategoryModel.data
  
     var body: some View {
         LazyVGrid(columns: columns, spacing: 16) {
-            ForEach(categoryList) { category in
+            ForEach(CategoryName.allCases, id: \.self) { category in
                 NavigationLink {
-                    category.anyView
+                    switch category {
+                    case .managementReservation:
+                        ReservationDetailsView()
+                    case .managementReview:
+                        ReviewManageView()
+                    case .announcement:
+                        AnnouncementView(announcementStore: AnnouncementStore())
+                    case .event:
+                        EmptyView()
+                    case .myPlace:
+                        MyPlaceView()
+                    case .statistics:
+                        ChartView()
+                    case .myInformation:
+                        MyInfoView()
+                    }
+                    
                 } label: {
-                    CategoryButton(category: category)
+                    CategoryButton(imageString: category.imageString, categoryName: category.nameString)
                 }
             }
         }
