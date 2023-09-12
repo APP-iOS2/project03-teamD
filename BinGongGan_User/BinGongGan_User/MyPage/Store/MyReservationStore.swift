@@ -29,9 +29,9 @@ final class MyReservationStore: ObservableObject {
         
         let sampleReservation2: BinGongGanCore.Reservation =
         BinGongGanCore.Reservation(id: "2", userEmail: "2", roomID: "2", reservationYear: "2", reservationMonth: "2", reservationDay: "2", checkInYear: "2", checkInMonth: "2", checkInDay: "2", checkOutYear: "2", checkOutMonth: "2", checkOutDay: "2", hour: 4, personnel: 2, reservationName: "촤하늘", reservationPhoneNumber: "2", reservationRequest: "요청사항2", reservateState: .success)
+
         myReservations.append(sampleReservation)
         myReservations.append(sampleReservation2)
         
     }
 }
-

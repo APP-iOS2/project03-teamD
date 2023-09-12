@@ -15,7 +15,7 @@ struct ContentView: View {
     @StateObject private var reservationStore: ReservationStore = ReservationStore()
     @StateObject private var myReservationStore: MyReservationStore = MyReservationStore()
     @StateObject private var myReviewStore: MyReviewStore = MyReviewStore()
-    
+
     var body: some View {
         if signInStore.isSuccessSignIn {
             GongGanTabView()
@@ -24,6 +24,7 @@ struct ContentView: View {
                 .environmentObject(reservationStore)
                 .environmentObject(myReservationStore)
                 .environmentObject(myReviewStore)
+                .environmentObject(myReservationStore)
         } else {
             NavigationStack {
                 SignInView()

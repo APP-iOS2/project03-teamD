@@ -11,7 +11,7 @@ public struct Reservation: Identifiable {
     public var id: String = UUID().uuidString
     public var userEmail: String
     public var roomID: String
-
+    
     public var reservationYear: String
     public var reservationMonth: String
     public var reservationDay: String
@@ -42,9 +42,8 @@ public struct Reservation: Identifiable {
     public var reservationName: String
     public var reservationPhoneNumber: String
     public var reservationRequest: String
-    
     public var reservateState: ReservationHistoryType
-  
+    
     public init(id: String, userEmail: String, roomID: String, reservationYear: String, reservationMonth: String, reservationDay: String, checkInYear: String, checkInMonth: String, checkInDay: String, checkOutYear: String, checkOutMonth: String, checkOutDay: String, hour: Int, personnel: Int, reservationName: String, reservationPhoneNumber: String, reservationRequest: String, reservateState: ReservationHistoryType) {
         self.id = id
         self.userEmail = userEmail
@@ -65,7 +64,6 @@ public struct Reservation: Identifiable {
         self.reservationRequest = reservationRequest
         self.reservateState = reservateState
     }
-    
 }
 
 public enum ReservationHistoryType: String , CaseIterable {
@@ -74,4 +72,3 @@ public enum ReservationHistoryType: String , CaseIterable {
     case success = "완료 내역"
     case cancel = "취소 내역"
 }
-
