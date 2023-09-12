@@ -26,10 +26,6 @@ final class HomeStore: ObservableObject {
 ////
 //    let db = Firestore.firestore()
     var filteredCategoryCity: [Place] {
-        realfilteredCategoryCity()
-    }
-    func realfilteredCategoryCity () -> [Place] {
-        
         return places.filter { place in
             let placetest = place.placeLocation.components(separatedBy: " ")
             var testBoll: [Bool] = []
@@ -42,7 +38,21 @@ final class HomeStore: ObservableObject {
             return selectSub.isEmpty ? place.category == selectedCategory : place.category == selectedCategory && testBoll.contains(true)
         }
     }
-    
+//    func realfilteredCategoryCity () -> [Place] {
+//
+//        return places.filter { place in
+//            let placetest = place.placeLocation.components(separatedBy: " ")
+//            var testBoll: [Bool] = []
+//
+//                for i in placetest {
+//                    if selectSub.contains(i){
+//                        testBoll.append(true)
+//                    }
+//                }
+//            return selectSub.isEmpty ? place.category == selectedCategory : place.category == selectedCategory && testBoll.contains(true)
+//        }
+//    }
+//
     var categories: [Category] = [
         Category(category: "쉐어오피스", categoryImageString:  "building.2"),
         Category(category: "밴드룸", categoryImageString:  "music.mic"),
