@@ -34,7 +34,7 @@ final class ReservationStore: ObservableObject {
     let sampleSpace: SampleSpace = SampleSpace(spaceName: "[서울역] 갬성 파티룸", roomName: "202호 불타는 애플", imageString: "https://cdn.e2news.com/news/photo/202301/249694_103455_5758.png")
     
     init() {
-        reservation = Reservation(userEmail: "", placeID: "", roomID: "", reservationID: "", reservationYear: "", reservationMonth: "", reservationDay: "", checkInYear: "", checkInMonth: "", checkInDay: "", checkOutYear: "", checkOutMonth: "", checkOutDay: "", hour: 1, personnel: 1, reservationName: "", reservationPhoneNumber: "", reservationRequest: "")
+        reservation = Reservation(userEmail: "", placeID: "", roomID: "", reservationID: "", reservationState: 0, reservationYear: "", reservationMonth: "", reservationDay: "", checkInYear: "", checkInMonth: "", checkInDay: "", checkOutYear: "", checkOutMonth: "", checkOutDay: "", hour: 1, personnel: 1, reservationName: "", reservationPhoneNumber: "", reservationRequest: "")
     }
     
     func changeDateString(_ date: Date) -> String {

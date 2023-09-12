@@ -15,6 +15,19 @@ struct ReservationPlusMinusButton: View {
     var contentLabel: String
     var type: String
     
+    var contentColor: Color {
+        if type == "time" {
+            if content == 1 || content == 24 {
+                return Color.myLightGray
+            }
+        } else if type == "person" {
+            if content == 1 || content == 13 {
+                return Color.myLightGray
+            }
+        }
+        return Color.myBrown
+    }
+    
     private let screenWidth = UIScreen.main.bounds.width
     
     var body: some View {
@@ -33,7 +46,7 @@ struct ReservationPlusMinusButton: View {
                 }
             } label: {
                 Image(systemName: "minus")
-                    .foregroundColor(content == 1 ? Color.myLightGray : Color.myBrown)
+                    .foregroundColor(contentColor)
                     .frame(width: 20, height: 40)
             }
             .buttonStyle(.plain)
@@ -63,7 +76,7 @@ struct ReservationPlusMinusButton: View {
                 
             } label: {
                 Image(systemName: "plus")
-                    .foregroundColor(.myBrown)
+                    .foregroundColor(contentColor)
                     .frame(width: 20, height: 40)
             }
             .buttonStyle(.plain)
