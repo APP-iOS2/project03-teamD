@@ -25,6 +25,7 @@ struct MyReservationRowView: View {
                 } label: {
                     Text("상세보기 >")
                         .font(.captionBold)
+                        .foregroundColor(.myBrown)
                 }
             }
             
