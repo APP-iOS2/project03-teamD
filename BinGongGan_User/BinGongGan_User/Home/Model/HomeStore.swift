@@ -13,11 +13,11 @@ import Firebase
 @MainActor
 final class HomeStore: ObservableObject {
     
-    @Published var places: [Place] = []
+    @Published var places: [GongGanPlace] = []
     @Published var EventList: [Event] = []
-    @Published var hotPlace: [Place] = []
-    @Published var recommendPlace: [Place] = []
-    @Published var filteredArray:[Place] = []
+    @Published var hotPlace: [GongGanPlace] = []
+    @Published var recommendPlace: [GongGanPlace] = []
+    @Published var filteredArray:[GongGanPlace] = []
     @Published var recentlyWords: [String] = []
     @Published var cities: [City] = []
     @Published var selectedCategory: String = "밴드룸"
@@ -46,14 +46,14 @@ final class HomeStore: ObservableObject {
   
     func fetchPlaces() async {
         do {
-            var tempStore: [Place] = []
+            var tempStore: [GongGanPlace] = []
             let querySnapshot = try await dbRef.getDocuments()
             
             for document in querySnapshot.documents {
                 let data = document.data()
                 let addressMap: [String: Any] = data["address"] as? [String: Any] ?? [:]
                 let placeImageStringList: [String] = data["placeImageStringList"] as? [String] ?? [""]
-                let place = Place (
+                let place = GongGanPlace (
                     placeName: addressMap["place_name"] as? String ?? "",
                     category: data["placeCategory"] as? String ?? "",
                     placeLocation: addressMap["address_name"] as? String ?? "",
@@ -69,7 +69,7 @@ final class HomeStore: ObservableObject {
         }
     }
     
-    var filteredCategoryCity: [Place] {
+    var filteredCategoryCity: [GongGanPlace] {
         return places.filter { place in
             let placetest = place.placeLocation.components(separatedBy: " ")
             var testBoll: [Bool] = []
@@ -83,7 +83,7 @@ final class HomeStore: ObservableObject {
         }
     }
 
-    func searchPlaceName(placess: [Place] , keyWord: String) {
+    func searchPlaceName(placess: [GongGanPlace] , keyWord: String) {
         filteredArray.removeAll()
         for place in placess {
             let key = keyWord.lowercased()
@@ -95,7 +95,7 @@ final class HomeStore: ObservableObject {
         }
     }
     
-    func changeFavorite(place: Place){
+    func changeFavorite(place: GongGanPlace){
         if let index = places.firstIndex(where:{
             $0.id == place.id }) {
             places[index].isFavorite.toggle()
@@ -111,7 +111,7 @@ final class HomeStore: ObservableObject {
     
     func settingHotPlace() {
         // 추후구현
-        let temp: [Place] = places
+        let temp: [GongGanPlace] = places
         var count: Int = 0
         
         hotPlace.removeAll()
@@ -126,7 +126,7 @@ final class HomeStore: ObservableObject {
     }
     
     func settingRecommendPlace() {
-        var temp: [Place] = places
+        var temp: [GongGanPlace] = places
         var count: Int = 0
         temp.shuffle()
         recommendPlace.removeAll()
@@ -166,4 +166,4 @@ final class HomeStore: ObservableObject {
     }
 }
 
-let demoPlace = Place(placeName: "나는데모긴글자테스트용", category: "쉐어오피스", placeLocation: "서울시 강서구 화곡동 일공칠구-10", placePrice: 1, imageString: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT9JQXtDMPHZnD0bBgTODPgX_HmUZzlusBQ9kEPtkYwJg&s", isFavorite: false)
+let demoPlace = GongGanPlace(placeName: "나는데모긴글자테스트용", category: "쉐어오피스", placeLocation: "서울시 강서구 화곡동 일공칠구-10", placePrice: 1, imageString: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT9JQXtDMPHZnD0bBgTODPgX_HmUZzlusBQ9kEPtkYwJg&s", isFavorite: false)

@@ -68,13 +68,13 @@ struct MapSearchView: View {
                     HStack {
                         ForEach(categorys, id: \.self) { category in
                             Button(category.rawValue) {
-                                locationManager.didSelectCategory(category.rawValue)
+                                locationManager.didSelectCategory(category)
                             }
                             .padding([.trailing, .leading], paddingWidth)
                             .padding([.top, .bottom], 7)
-                            .foregroundColor(locationManager.selectedCategoty == category.rawValue ? .white : .myDarkGray)
+                            .foregroundColor(locationManager.selectedCategoty == category ? .white : .myDarkGray)
                             .font(.captionRegular)
-                            .background(locationManager.selectedCategoty == category.rawValue ? Color.myMint : Color.white)
+                            .background(locationManager.selectedCategoty == category ? Color.myMint : Color.white)
                             .cornerRadius(13)
                             .shadow(radius: 2, y: 1)
                         }
@@ -84,7 +84,7 @@ struct MapSearchView: View {
                 .padding(.leading)
             }
             
-            Image("mungmoongE")
+            Image("mungmoongE1")
                 .resizable()
                 .position(CGPoint(x: geometry.size.width / 2 + 7, y: locationManager.isChaging ? (geometry.size.height / 2 - 25) : (geometry.size.height / 2 - 20)))
                 .frame(width: 80, height: 80, alignment: .center)
@@ -142,6 +142,7 @@ struct MapSearchView: View {
         .navigationBarHidden(true)
         .onAppear {
             tabBarVisivility = .hidden
+            locationManager.fetchAnotations()
         }
         .onDisappear {
             tabBarVisivility = .visible

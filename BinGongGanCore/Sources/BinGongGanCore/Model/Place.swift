@@ -11,9 +11,9 @@ public struct Place:Identifiable, Codable {
     public var id: String = UUID().uuidString //id
     public var sellerId: String //판매자 id
     public var placeName: String //이름
-    public var placeCategory: PlaceCategory //카테고리
-    public var placeImageStringList: [String] // 이미지 링크
-    public var note: [String] //공간 내용
+    public var placeCategory: PlaceCategory //카테고리 -
+    public var placeImageStringList: [String] // 이미지 링크 -
+    public var note: [String] //공간 내용 -
     public var placeInfomationList: [String] //공간 정보
     public var address: Address //주소
     
