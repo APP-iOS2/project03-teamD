@@ -43,12 +43,9 @@ public struct Reservation: Identifiable {
     public var reservationPhoneNumber: String
     public var reservationRequest: String
     
-    public var reservateState: Int
-    
-    public var isReservateStateEmpty: Bool {
-        return reservateState == 0
-    }
-    public init(id: String, userEmail: String, roomID: String, reservationYear: String, reservationMonth: String, reservationDay: String, checkInYear: String, checkInMonth: String, checkInDay: String, checkOutYear: String, checkOutMonth: String, checkOutDay: String, hour: Int, personnel: Int, reservationName: String, reservationPhoneNumber: String, reservationRequest: String, reservateState: Int) {
+    public var reservateState: ReservationHistoryType
+  
+    public init(id: String, userEmail: String, roomID: String, reservationYear: String, reservationMonth: String, reservationDay: String, checkInYear: String, checkInMonth: String, checkInDay: String, checkOutYear: String, checkOutMonth: String, checkOutDay: String, hour: Int, personnel: Int, reservationName: String, reservationPhoneNumber: String, reservationRequest: String, reservateState: ReservationHistoryType) {
         self.id = id
         self.userEmail = userEmail
         self.roomID = roomID
@@ -68,4 +65,13 @@ public struct Reservation: Identifiable {
         self.reservationRequest = reservationRequest
         self.reservateState = reservateState
     }
+    
 }
+
+public enum ReservationHistoryType: String , CaseIterable {
+    case all = "전체 내역"
+    case expect = "예정 내역"
+    case success = "완료 내역"
+    case cancel = "취소 내역"
+}
+

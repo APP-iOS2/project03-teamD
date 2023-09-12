@@ -58,13 +58,13 @@ struct MyReservationRowView: View {
                 Spacer()
                 
                 Button {
-                    if reservation.isReservateStateEmpty {
+                    if reservation.reservateState == .all {
                         isShowingAddReview = true
                     } else {
                         isShowingReservationCancelView = true
                     }
                 } label: {
-                    Text(reservation.isReservateStateEmpty ? "리뷰작성" : "예약취소")
+                    Text(reservation.reservateState == .all ? "리뷰작성" : "예약취소")
                         .font(.captionRegular)
                         .foregroundColor(.white)
                 }
@@ -72,7 +72,7 @@ struct MyReservationRowView: View {
                 .padding(8)
                 .background(
                     RoundedRectangle(cornerRadius: 15)
-                        .foregroundColor(reservation.isReservateStateEmpty ? .myMint : .myBrown)
+                        .foregroundColor(reservation.reservateState == .all ? .myMint : .myBrown)
                 )
             }
             .fullScreenCover(isPresented: $isShowingAddReview) {

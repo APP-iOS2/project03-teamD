@@ -8,17 +8,10 @@
 import SwiftUI
 import BinGongGanCore
 
-enum ReservationHistoryType: String , CaseIterable {
-    case all = "전체 내역"
-    case expect = "예정 내역"
-    case success = "완료 내역"
-    case cancel = "취소 내역"
-}
 
 struct MyReservationListView: View {
    
     @EnvironmentObject private var myReservationStore: MyReservationStore
-    @State private var selectedPicker: ReservationHistoryType = .all
     @State private var isShowingGongGanDetailView: Bool = false
     @State private var isShowingSheet: Bool = false
     
@@ -30,7 +23,7 @@ struct MyReservationListView: View {
                     isShowingSheet = true
                 } label: {
                     HStack {
-                        Text(selectedPicker.rawValue)
+                        Text(myReservationStore.selectedPicker.rawValue)
                         Image(systemName: "arrowtriangle.down.fill")
                     }
                     .padding(10)
@@ -45,7 +38,7 @@ struct MyReservationListView: View {
             .padding(.trailing)
 
             List {
-                ForEach(myReservationStore.myReservations) { reservate in
+                ForEach(myReservationStore.filteredReservations) { reservate in
                     Button {
                         isShowingGongGanDetailView = true
                         myReservationStore.reservation = reservate
@@ -70,7 +63,7 @@ struct MyReservationListView: View {
             GongGanDetailView()
         }
         .sheet(isPresented: $isShowingSheet) {
-            CategorySheetView(isShowingSheet: $isShowingSheet, selectedPicker: $selectedPicker)
+            CategorySheetView(isShowingSheet: $isShowingSheet)
         }
         
     }
