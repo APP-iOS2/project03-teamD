@@ -288,6 +288,13 @@
 			path = Extension;
 			sourceTree = "<group>";
 		};
+		534F56A02AB003BD00FA79B0 /* Store */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Store;
+			sourceTree = "<group>";
+		};
 		5398C2142AA8D9F8000BD361 /* Content */ = {
 			isa = PBXGroup;
 			children = (
@@ -581,6 +588,7 @@
 		D848247F2AA8A3700067A065 /* MyPage */ = {
 			isa = PBXGroup;
 			children = (
+				534F56A02AB003BD00FA79B0 /* Store */,
 				D84824802AA8A3700067A065 /* MyPageMainView.swift */,
 				D84824AF2AA8A4450067A065 /* Model */,
 				D84824812AA8A3700067A065 /* AppInformation */,
