@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		2F143E122AB0574000CB9ED5 /* ReplyStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F143E112AB0574000CB9ED5 /* ReplyStore.swift */; };
 		2F143E162AB05B8B00CB9ED5 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2F143E152AB05B8B00CB9ED5 /* GoogleService-Info.plist */; };
-		2F143E1C2AB073C700CB9ED5 /* MyInfoStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F143E1B2AB073C700CB9ED5 /* MyInfoStore.swift */; };
 		2F143E202AB0760200CB9ED5 /* ManagementStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F143E1F2AB0760200CB9ED5 /* ManagementStore.swift */; };
 		4B76BBA52AB0526600E07878 /* AnnouncementStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B76BBA42AB0526600E07878 /* AnnouncementStore.swift */; };
 		4B76BBA72AB052EB00E07878 /* AnnouncementAddView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B76BBA62AB052EB00E07878 /* AnnouncementAddView.swift */; };
@@ -115,7 +114,6 @@
 		0CDDF1C92AAB140900834AA9 /* MyInfoEditView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyInfoEditView.swift; sourceTree = "<group>"; };
 		2F143E112AB0574000CB9ED5 /* ReplyStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReplyStore.swift; sourceTree = "<group>"; };
 		2F143E152AB05B8B00CB9ED5 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
-		2F143E1B2AB073C700CB9ED5 /* MyInfoStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = MyInfoStore.swift; path = "../../../../../../../.Trash/project03-teamD 오후 5.34.43/BinGongGan_Seller/BinGongGan_Seller/Review/Model/MyInfoStore.swift"; sourceTree = "<group>"; };
 		2F143E1F2AB0760200CB9ED5 /* ManagementStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ManagementStore.swift; path = ../../../../../../../ManagementStore.swift; sourceTree = "<group>"; };
 		2F36A56A2AA81EEC00578AEB /* ReviewWithCommentCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewWithCommentCell.swift; sourceTree = "<group>"; };
 		2F36A56C2AA83E2100578AEB /* ReviewReportSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewReportSheet.swift; sourceTree = "<group>"; };
@@ -245,7 +243,6 @@
 		2F143E192AB0739200CB9ED5 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				2F143E1B2AB073C700CB9ED5 /* MyInfoStore.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -881,7 +878,6 @@
 				5406F8BA2AB03A42000A6441 /* ReservationCardView.swift in Sources */,
 				5406F8BB2AB03A42000A6441 /* MyPlaceView.swift in Sources */,
 				5406F8BC2AB03A42000A6441 /* PlaceDetailView.swift in Sources */,
-				2F143E1C2AB073C700CB9ED5 /* MyInfoStore.swift in Sources */,
 				5406F8BD2AB03A42000A6441 /* PlaceAddView.swift in Sources */,
 				5406F8BE2AB03A42000A6441 /* MapView.swift in Sources */,
 				5406F8BF2AB03A42000A6441 /* AddressSearchView.swift in Sources */,
