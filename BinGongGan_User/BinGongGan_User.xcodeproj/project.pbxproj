@@ -18,6 +18,7 @@
 		3A392E972AAECDDF00D82221 /* FirestoreService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A392E962AAECDDF00D82221 /* FirestoreService.swift */; };
 		3A392E992AAED19900D82221 /* AuthStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A392E982AAED19900D82221 /* AuthStore.swift */; };
 		3AC748132AA90CCF0092B1EC /* AgreementCheckButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AC748122AA90CCF0092B1EC /* AgreementCheckButton.swift */; };
+		3ACEBAF42AB055FA008F4600 /* BankSheetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ACEBAF32AB055FA008F4600 /* BankSheetView.swift */; };
 		53254A232AAE2F18002E7542 /* AddPhotoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53254A222AAE2F18002E7542 /* AddPhotoView.swift */; };
 		534F56A42AB008D700FA79B0 /* MyReviewStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 534F56A32AB008D700FA79B0 /* MyReviewStore.swift */; };
 		534F56A72AB036DC00FA79B0 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 534F56A62AB036DC00FA79B0 /* GoogleService-Info.plist */; };
@@ -103,7 +104,6 @@
 		D84824B32AA8F5970067A065 /* FAQItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = D84824B22AA8F5970067A065 /* FAQItem.swift */; };
 		D8741E5E2AAEF64100F45C79 /* BankAccountSettingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8741E5D2AAEF64100F45C79 /* BankAccountSettingView.swift */; };
 		D8741E612AAF09EE00F45C79 /* UserAccountSettingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8E0FA2A2AAB13C300B8C092 /* UserAccountSettingView.swift */; };
-		D8741E652AB017FF00F45C79 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = D8741E642AB017FF00F45C79 /* GoogleService-Info.plist */; };
 		D8741E672AB02F8A00F45C79 /* Bank.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8741E662AB02F8A00F45C79 /* Bank.swift */; };
 		D8741E692AB0347300F45C79 /* BankSelectView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8741E682AB0347300F45C79 /* BankSelectView.swift */; };
 		D8E0FA272AAAFAAD00B8C092 /* Announcement.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8E0FA262AAAFAAD00B8C092 /* Announcement.swift */; };
@@ -143,9 +143,10 @@
 		3A392E962AAECDDF00D82221 /* FirestoreService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirestoreService.swift; sourceTree = "<group>"; };
 		3A392E982AAED19900D82221 /* AuthStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthStore.swift; sourceTree = "<group>"; };
 		3AC748122AA90CCF0092B1EC /* AgreementCheckButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AgreementCheckButton.swift; sourceTree = "<group>"; };
+		3ACEBAF32AB055FA008F4600 /* BankSheetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BankSheetView.swift; sourceTree = "<group>"; };
 		53254A222AAE2F18002E7542 /* AddPhotoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddPhotoView.swift; sourceTree = "<group>"; };
 		534F56A32AB008D700FA79B0 /* MyReviewStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyReviewStore.swift; sourceTree = "<group>"; };
-		534F56A62AB036DC00FA79B0 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../../../GoogleService-Info.plist"; sourceTree = "<group>"; };
+		534F56A62AB036DC00FA79B0 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		5398C2122AA8D9A0000BD361 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		53AC17742AAEF6E10004D3E9 /* EnquiryFormView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnquiryFormView.swift; sourceTree = "<group>"; };
 		692725582AA81E5300A2441E /* RefundPolicySheetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RefundPolicySheetView.swift; sourceTree = "<group>"; };
@@ -226,7 +227,6 @@
 		D84824B02AA8A4450067A065 /* ReservationModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReservationModel.swift; sourceTree = "<group>"; };
 		D84824B22AA8F5970067A065 /* FAQItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FAQItem.swift; sourceTree = "<group>"; };
 		D8741E5D2AAEF64100F45C79 /* BankAccountSettingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BankAccountSettingView.swift; sourceTree = "<group>"; };
-		D8741E642AB017FF00F45C79 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		D8741E662AB02F8A00F45C79 /* Bank.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Bank.swift; sourceTree = "<group>"; };
 		D8741E682AB0347300F45C79 /* BankSelectView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BankSelectView.swift; sourceTree = "<group>"; };
 		D8E0FA262AAAFAAD00B8C092 /* Announcement.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Announcement.swift; sourceTree = "<group>"; };
@@ -586,7 +586,6 @@
 			isa = PBXGroup;
 			children = (
 				3A392E8E2AAEB24D00D82221 /* Model */,
-				BCE6585C2AA8AD4D0009ECD1 /* SignUpView.swift */,
 				BCE658582AA8AD4D0009ECD1 /* Views */,
 			);
 			path = SignUp;
@@ -595,10 +594,12 @@
 		BCE658582AA8AD4D0009ECD1 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				BCE6585C2AA8AD4D0009ECD1 /* SignUpView.swift */,
 				BCE6585B2AA8AD4D0009ECD1 /* FirstStepSignUpView.swift */,
 				BCE658592AA8AD4D0009ECD1 /* SecondStepSignUpView.swift */,
 				BCE6585A2AA8AD4D0009ECD1 /* ThirdStepSignUpView.swift */,
 				3AC748122AA90CCF0092B1EC /* AgreementCheckButton.swift */,
+				3ACEBAF32AB055FA008F4600 /* BankSheetView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -917,6 +918,7 @@
 				BC344EF12AA808DB00F8CEB3 /* ReservationStore.swift in Sources */,
 				3A392E972AAECDDF00D82221 /* FirestoreService.swift in Sources */,
 				D84824982AA8A3700067A065 /* AnnouncementView.swift in Sources */,
+				3ACEBAF42AB055FA008F4600 /* BankSheetView.swift in Sources */,
 				D848249F2AA8A3710067A065 /* MyReviewListView.swift in Sources */,
 				BC344F1F2AA86A8E00F8CEB3 /* Home.swift in Sources */,
 				D84824992AA8A3700067A065 /* FAQCategoryItemView.swift in Sources */,
