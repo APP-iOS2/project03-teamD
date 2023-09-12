@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		2F9739BE2AAFEAF20063C8C6 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2F9739BD2AAFEAF20063C8C6 /* GoogleService-Info.plist */; };
+		4B9360CD2AB04F460006DA4F /* AnnouncementStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B9360CC2AB04F460006DA4F /* AnnouncementStore.swift */; };
 		4BF4FADF2AAFE6D8007F6563 /* CustomSecureField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FD06C9A2AAEE51900D116B9 /* CustomSecureField.swift */; };
 		4BF4FAE02AAFE6D8007F6563 /* CustomTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FD06C9D2AAEE51D00D116B9 /* CustomTextField.swift */; };
 		4BF4FAE12AAFE6D8007F6563 /* PrimaryButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FD06C9B2AAEE51B00D116B9 /* PrimaryButton.swift */; };
@@ -128,6 +129,7 @@
 		4B84D4CA2AAAEA5100F5FB01 /* AnnouncementTitleCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnnouncementTitleCell.swift; sourceTree = "<group>"; };
 		4B84D4CC2AAAEA6800F5FB01 /* AnnouncementContentCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnnouncementContentCell.swift; sourceTree = "<group>"; };
 		4B84D4CE2AAAEE3E00F5FB01 /* AnnouncementOptionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnnouncementOptionCell.swift; sourceTree = "<group>"; };
+		4B9360CC2AB04F460006DA4F /* AnnouncementStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnnouncementStore.swift; sourceTree = "<group>"; };
 		4BBAF3032AADA47400F1405D /* ReservationDeadlineCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReservationDeadlineCell.swift; sourceTree = "<group>"; };
 		4BBAF3082AAE3E8D00F1405D /* ApprovedPlaceListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApprovedPlaceListView.swift; sourceTree = "<group>"; };
 		4BC0BD712AA860AC00B792B8 /* AnnouncementTextRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnnouncementTextRow.swift; sourceTree = "<group>"; };
@@ -334,6 +336,7 @@
 			children = (
 				4B84D4C22AAAE8C000F5FB01 /* AnnouncementOption.swift */,
 				4BF4FAD22AAF0AC4007F6563 /* AnnouncementShareModel.swift */,
+				4B9360CC2AB04F460006DA4F /* AnnouncementStore.swift */,
 			);
 			path = Store;
 			sourceTree = "<group>";
@@ -791,6 +794,7 @@
 				4BF4FB162AAFE6D8007F6563 /* PlaceInfomationModel.swift in Sources */,
 				4BF4FB172AAFE6D9007F6563 /* PlaceStore.swift in Sources */,
 				4BF4FB182AAFE6D9007F6563 /* ReportCase.swift in Sources */,
+				4B9360CD2AB04F460006DA4F /* AnnouncementStore.swift in Sources */,
 				4BF4FB192AAFE6D9007F6563 /* ReportStore.swift in Sources */,
 				4BF4FB1A2AAFE6D9007F6563 /* ReviewManageDetailView.swift in Sources */,
 				4BF4FB1B2AAFE6D9007F6563 /* ReviewManageView.swift in Sources */,
