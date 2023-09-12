@@ -21,9 +21,9 @@ struct ReviewCell: View {
             }
             
             HStack {
-                ForEach(1...5, id: \.self) { _ in
+                ForEach(1...5, id: \.self) { star in
                     Image(systemName: "star.fill")
-                        .foregroundColor(.yellow)
+                        .foregroundColor(star < review.rating ? .yellow : .gray)
                 }
                 Spacer()
             }
