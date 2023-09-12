@@ -59,8 +59,21 @@ struct ReviewReportSheet: View {
                 message: Text("해당 리뷰를 신고하시겠습니까?"),
                 primaryButton: .cancel(Text("취소하기")),
                 secondaryButton: .destructive(Text("신고하기"), action: {
-                    // TODO: 신고 처리 로직 구현하기
+                    for category in reportStore.reportCategory {
+                        if category.isSelected {
+                            let report = Report(
+                                // TODO: 신고한 판매자 ID, 신고한 리뷰 ID 넣기
+                                reporterId: "",
+                                reportedReviewId: "",
+                                reason: category.reason,
+                                isSelected: category.isSelected
+                            )
+                            reportStore.reportReview(report: report)
+                            break
+                        }
+                    }
                     
+                    isShowingReviewReportSheet.toggle()
                 })
             )
         }
