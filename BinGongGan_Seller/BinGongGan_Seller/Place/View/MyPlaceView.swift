@@ -1,14 +1,14 @@
 //
-//  MyPlaceManagementView.swift
+//  MyPlaceView.swift
 //  BinGongGan_Seller
 //
-//  Created by 윤경환 on 2023/09/05.
+//  Created by 박채영 on 2023/09/12.
 //
 
 import SwiftUI
 import BinGongGanCore
 
-struct MyPlaceManagementView: View {
+struct MyPlaceView: View {
     @Environment(\.dismiss) private var dismiss
     
     var body: some View {
@@ -43,7 +43,7 @@ struct MyPlaceManagementView: View {
                                             MySpaceCell()
                                                 .frame(width: cardSize.width - 20)
                                         } else {
-                                            NavigationLink(destination: PlaceAddView()) {
+                                            NavigationLink(destination: RoomAddView()) {
                                                 ZStack {
                                                     RoundedRectangle(cornerRadius: 15)
                                                         .fill(.white)
@@ -98,10 +98,10 @@ struct MyPlaceManagementView: View {
     }
 }
 
-struct MyPlaceManagementView_Previews: PreviewProvider {
+struct MyPlaceView_Previews: PreviewProvider {
     static var previews: some View {
         NavigationStack {
-            MyPlaceManagementView()
+            MyPlaceView()
         }
     }
 }
