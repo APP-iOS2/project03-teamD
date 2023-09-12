@@ -21,7 +21,6 @@
 		3ACEBAF42AB055FA008F4600 /* BankSheetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ACEBAF32AB055FA008F4600 /* BankSheetView.swift */; };
 		53254A232AAE2F18002E7542 /* AddPhotoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53254A222AAE2F18002E7542 /* AddPhotoView.swift */; };
 		534F56A42AB008D700FA79B0 /* MyReviewStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 534F56A32AB008D700FA79B0 /* MyReviewStore.swift */; };
-		534F56A72AB036DC00FA79B0 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 534F56A62AB036DC00FA79B0 /* GoogleService-Info.plist */; };
 		5398C2132AA8D9A0000BD361 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5398C2122AA8D9A0000BD361 /* ContentView.swift */; };
 		53AC17752AAEF6E10004D3E9 /* EnquiryFormView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53AC17742AAEF6E10004D3E9 /* EnquiryFormView.swift */; };
 		692725592AA81E5300A2441E /* RefundPolicySheetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 692725582AA81E5300A2441E /* RefundPolicySheetView.swift */; };
@@ -65,13 +64,12 @@
 		BC344F252AA86B3E00F8CEB3 /* PlaceListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC344F242AA86B3E00F8CEB3 /* PlaceListView.swift */; };
 		BC3A443C2AAFEB7200D78309 /* SegmentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC3A443B2AAFEB7200D78309 /* SegmentView.swift */; };
 		BC3A443E2AAFEF9F00D78309 /* GongGanInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC3A443D2AAFEF9F00D78309 /* GongGanInfo.swift */; };
-		BC3A44402AB0061F00D78309 /* DetailAnnouncementView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC3A443F2AB0061F00D78309 /* DetailAnnouncementView.swift */; };
-		BC3A44422AB0421200D78309 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = BC3A44412AB0421200D78309 /* GoogleService-Info.plist */; };
 		BC8CFE6A2AA8C38C00E8D8F2 /* DetailTabImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC8CFE692AA8C38C00E8D8F2 /* DetailTabImageView.swift */; };
 		BC8CFE6C2AA9510A00E8D8F2 /* FavoriteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC8CFE6B2AA9510A00E8D8F2 /* FavoriteView.swift */; };
 		BC8CFE722AA9896300E8D8F2 /* ReservationSellerInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC8CFE712AA9896300E8D8F2 /* ReservationSellerInfoView.swift */; };
 		BC8CFE742AA9897E00E8D8F2 /* ReservationUserInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC8CFE732AA9897E00E8D8F2 /* ReservationUserInfoView.swift */; };
 		BCB5A2C92AAF444100C173F4 /* DetailSegmentReviewListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCB5A2C82AAF444100C173F4 /* DetailSegmentReviewListView.swift */; };
+		BCC197222AB0B2FF000A7651 /* DetailAnnouncementView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCC197212AB0B2FF000A7651 /* DetailAnnouncementView.swift */; };
 		BCDD34852AAF272000A68F4F /* View+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCDD34842AAF272000A68F4F /* View+Extension.swift */; };
 		BCDD34872AAF273600A68F4F /* DetailInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCDD34862AAF273600A68F4F /* DetailInfoView.swift */; };
 		BCDD34892AAF27AD00A68F4F /* FavoriteCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCDD34882AAF27AD00A68F4F /* FavoriteCellView.swift */; };
@@ -151,7 +149,6 @@
 		3ACEBAF32AB055FA008F4600 /* BankSheetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BankSheetView.swift; sourceTree = "<group>"; };
 		53254A222AAE2F18002E7542 /* AddPhotoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddPhotoView.swift; sourceTree = "<group>"; };
 		534F56A32AB008D700FA79B0 /* MyReviewStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyReviewStore.swift; sourceTree = "<group>"; };
-		534F56A62AB036DC00FA79B0 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		5398C2122AA8D9A0000BD361 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		53AC17742AAEF6E10004D3E9 /* EnquiryFormView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnquiryFormView.swift; sourceTree = "<group>"; };
 		692725582AA81E5300A2441E /* RefundPolicySheetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RefundPolicySheetView.swift; sourceTree = "<group>"; };
@@ -194,13 +191,12 @@
 		BC344F242AA86B3E00F8CEB3 /* PlaceListView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlaceListView.swift; sourceTree = "<group>"; };
 		BC3A443B2AAFEB7200D78309 /* SegmentView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SegmentView.swift; sourceTree = "<group>"; };
 		BC3A443D2AAFEF9F00D78309 /* GongGanInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = GongGanInfo.swift; path = ../../../../../../GongGanInfo.swift; sourceTree = "<group>"; };
-		BC3A443F2AB0061F00D78309 /* DetailAnnouncementView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = DetailAnnouncementView.swift; path = ../../../../../../../DetailAnnouncementView.swift; sourceTree = "<group>"; };
-		BC3A44412AB0421200D78309 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		BC8CFE692AA8C38C00E8D8F2 /* DetailTabImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailTabImageView.swift; sourceTree = "<group>"; };
 		BC8CFE6B2AA9510A00E8D8F2 /* FavoriteView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteView.swift; sourceTree = "<group>"; };
 		BC8CFE712AA9896300E8D8F2 /* ReservationSellerInfoView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReservationSellerInfoView.swift; sourceTree = "<group>"; };
 		BC8CFE732AA9897E00E8D8F2 /* ReservationUserInfoView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReservationUserInfoView.swift; sourceTree = "<group>"; };
 		BCB5A2C82AAF444100C173F4 /* DetailSegmentReviewListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailSegmentReviewListView.swift; sourceTree = "<group>"; };
+		BCC197212AB0B2FF000A7651 /* DetailAnnouncementView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailAnnouncementView.swift; sourceTree = "<group>"; };
 		BCDD34842AAF272000A68F4F /* View+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "View+Extension.swift"; sourceTree = "<group>"; };
 		BCDD34862AAF273600A68F4F /* DetailInfoView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailInfoView.swift; sourceTree = "<group>"; };
 		BCDD34882AAF27AD00A68F4F /* FavoriteCellView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FavoriteCellView.swift; sourceTree = "<group>"; };
@@ -491,7 +487,7 @@
 				BCDD34882AAF27AD00A68F4F /* FavoriteCellView.swift */,
 				BCB5A2C82AAF444100C173F4 /* DetailSegmentReviewListView.swift */,
 				BCDD348A2AAF27B600A68F4F /* DetailReviewRowView.swift */,
-				BC3A443F2AB0061F00D78309 /* DetailAnnouncementView.swift */,
+				BCC197212AB0B2FF000A7651 /* DetailAnnouncementView.swift */,
 			);
 			path = Detail;
 			sourceTree = "<group>";
@@ -927,6 +923,7 @@
 				D8F41E132AA9A289004C52BD /* String+Extension.swift in Sources */,
 				36FD38772AAEF822009722A7 /* City.swift in Sources */,
 				D84824962AA8A3700067A065 /* MyPageMainView.swift in Sources */,
+				BCC197222AB0B2FF000A7651 /* DetailAnnouncementView.swift in Sources */,
 				D848249B2AA8A3700067A065 /* FAQView.swift in Sources */,
 				BC344F252AA86B3E00F8CEB3 /* PlaceListView.swift in Sources */,
 				534F56A42AB008D700FA79B0 /* MyReviewStore.swift in Sources */,
@@ -942,7 +939,6 @@
 				3A392E952AAECDB000D82221 /* UserStore.swift in Sources */,
 				D8741E5E2AAEF64100F45C79 /* BankAccountSettingView.swift in Sources */,
 				D84824972AA8A3700067A065 /* AppInformationList.swift in Sources */,
-				BC3A44402AB0061F00D78309 /* DetailAnnouncementView.swift in Sources */,
 				BC344EC92AA8072000F8CEB3 /* GongGanInfoStore.swift in Sources */,
 				D84824B32AA8F5970067A065 /* FAQItem.swift in Sources */,
 				BCDD34852AAF272000A68F4F /* View+Extension.swift in Sources */,
