@@ -68,13 +68,8 @@ struct ReservationCancelView: View {
                         Spacer()
                     }
                 }
-                
-                
             }
-            
-            
         }
-        
         .navigationTitle("예약 취소")
         .navigationBarTitleDisplayMode(.inline)
         .customBackbutton()
@@ -83,8 +78,9 @@ struct ReservationCancelView: View {
             Button("예약취소", role: .destructive) {
                 //TODO: 리뷰 저장 로직
                 dismiss()
+                
             }
-        }message: {
+        } message: {
             Text("취소하면 즉시 예약이 취소됩니다.")
         }
     }
