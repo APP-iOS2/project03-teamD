@@ -9,9 +9,7 @@ import SwiftUI
 import BinGongGanCore
 
 struct DetailReviewRowView: View {
-    @State private var isFolded: Bool = true
     var text: String
-    var imageList: [String] = ["SignInLogo", "SignInLogo", "SignInLogo"]
     var foldedText: String {
         let endIndex = text.index(text.startIndex, offsetBy: 20)
         if text.count <= 20 {
@@ -20,6 +18,8 @@ struct DetailReviewRowView: View {
             return "\(text[..<endIndex]) ..."
         }
     }
+    var imageList: [String] = ["SignInLogo", "SignInLogo", "SignInLogo", "SignInLogo", "SignInLogo"]
+    @State private var isFolded: Bool = true
 
     var body: some View {
         VStack(alignment: .leading) {

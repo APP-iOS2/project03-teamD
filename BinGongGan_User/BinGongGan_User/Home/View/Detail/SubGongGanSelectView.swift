@@ -9,22 +9,22 @@ import SwiftUI
 import BinGongGanCore
 
 struct SubGongGanSelectView: View {
-    @EnvironmentObject var gongGan: GongGanStore
-    @Binding var isReservationActive: Int?
-    @State var selectedSpaceIndex: Int? = nil
+    @State var gongGan: GongGan
     private let screenWidth = UIScreen.main.bounds.width
+    @State var selectedSpaceIndex: Int? = nil
+    @Binding var isReservationActive: Int?
     
     var body: some View {
         VStack {
             Group {
                 VStack(alignment: .leading, spacing: 10) {
-                    Text(gongGan.gongGanInfo.placeName)
+                    Text(gongGan.placeName)
                         .font(.title2)
-                    Text(gongGan.gongGanInfo.placeLocation)
+                    Text(gongGan.placeLocation)
                         .foregroundColor(Color.myDarkGray)
                 }
             }
-            .padding(EdgeInsets(top: 5, leading: 10, bottom: 0, trailing: 10))
+            .padding(EdgeInsets(top: 10, leading: 10, bottom: 0, trailing: 10))
             
             
             
@@ -56,42 +56,35 @@ struct SubGongGanSelectView: View {
                 .frame(height: 5)
             
             Group {
-//            customSection("세부공간 선택")
-                HStack {
-                    Text("세부공간 선택")
-                    Spacer()
-                }
+            customSection("세부공간 선택")
                 .padding(EdgeInsets(top: 5, leading: 5, bottom: 0, trailing: 0))
             
                 VStack(alignment: .center) {
-                    ForEach(gongGan.gongGanInfo.detailGongGan.indices, id: \.self) { index in
-                        let space = gongGan.gongGanInfo.detailGongGan[index]
+                    ForEach(gongGan.detailGongGan.indices, id: \.self) { index in
+                        let space = gongGan.detailGongGan[index]
                         Button {
                             if selectedSpaceIndex == index {
                                 selectedSpaceIndex = nil
-                                isReservationActive = nil
                             } else {
                                 selectedSpaceIndex = index
-                                isReservationActive = index
                             }
+                            isReservationActive = index
                         } label: {
                             VStack {
                                 HStack(alignment: .center) {
-                                    Text(" ● ")
                                     Text("\(space.title)")
-                                    Spacer()
-                                    Text("\(space.price) / 시간")
+                                        .font(.body1Regular)
+                                        .foregroundColor(selectedSpaceIndex == index ? .white : .myBrown)
+                                        .frame(width: screenWidth * 0.85)
+                                        .padding(10)
+                                        .foregroundColor(.white)
+                                        .background(
+                                            RoundedRectangle(cornerRadius: 15)
+                                                .foregroundColor(selectedSpaceIndex == index ? .myBrown : .white)
+                                                .shadow(color: .gray, radius: 1, x: 1, y: 1)
+                                        )
                                 }
-                                    .font(.body1Regular)
-                                    .foregroundColor(selectedSpaceIndex == index ? .white : .myBrown)
-                                    .frame(width: screenWidth * 0.85)
-                                    .padding(EdgeInsets(top: 10, leading: 20, bottom: 10, trailing: 20))
-                                    .foregroundColor(.white)
-                                    .background(
-                                        RoundedRectangle(cornerRadius: 15)
-                                            .foregroundColor(selectedSpaceIndex == index ? .myBrown : .white)
-                                            .shadow(color: .gray, radius: 1, x: 1, y: 1)
-                                    )
+                                
                                 
                                 
                             }
@@ -118,7 +111,6 @@ struct SubGongGanSelectView: View {
 
 struct SubGongGanSelectView_Previews: PreviewProvider {
     static var previews: some View {
-        SubGongGanSelectView(isReservationActive: .constant(nil))
-            .environmentObject(GongGanStore())
+        SubGongGanSelectView(gongGan: GongGan.sampleGongGan, isReservationActive: .constant(nil))
     }
 }

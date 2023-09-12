@@ -8,9 +8,7 @@
 import SwiftUI
 
 struct DetailSegmentReviewListView: View {
-    
-    private let tempText: [String] = ["맛있어요", "맛있어요맛있어요", "맛있어요맛있어요맛있어요맛있어요맛있어요", "맛있어요맛있어요맛있어요맛있어요맛있어요"]
-    private let screenWidth = UIScreen.main.bounds.width
+    let tempText: [String] = ["맛있어요", "맛있어요맛있어요", "맛있어요맛있어요맛있어요맛있어요맛있어요", "맛있어요맛있어요맛있어요맛있어요맛있어요"]
     
     var body: some View {
         NavigationStack {
@@ -18,7 +16,6 @@ struct DetailSegmentReviewListView: View {
                 DetailReviewRowView(text: element)
             }
         }
-        .padding()
     }
 }
 
