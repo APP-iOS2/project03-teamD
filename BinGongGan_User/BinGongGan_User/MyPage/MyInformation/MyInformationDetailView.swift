@@ -72,7 +72,17 @@ struct MyInformationDetailView: View {
             
             Section {
                 NavigationLink {
-                    AccountSettingView()
+                    BankAccountSettingView()
+                } label: {
+                    Text("계좌 관리")
+                }
+            } header: {
+                Text("계좌")
+            }
+            
+            Section {
+                NavigationLink {
+                    UserAccountSettingView()
                 } label: {
                     Text("계정 관리")
                 }
@@ -80,6 +90,7 @@ struct MyInformationDetailView: View {
                 Text("계정")
             }
         }
+        .padding(.top, -20)
         .scrollContentBackground(.hidden)
         .background(Color.myBackground)
         .navigationTitle("내 정보")
