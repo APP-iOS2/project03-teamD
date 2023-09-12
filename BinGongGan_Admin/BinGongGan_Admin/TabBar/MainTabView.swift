@@ -8,9 +8,13 @@
 import SwiftUI
 
 struct MainTabView: View {
+    @State var splitViewVisibility: NavigationSplitViewVisibility = .all
+    
     var body: some View {
-        NavigationSplitView {
+        NavigationSplitView(columnVisibility: $splitViewVisibility) {
             CategoryView()
+        } content: {
+            MainEmptyView()
         } detail: {
             MainEmptyView()
         }
