@@ -573,9 +573,9 @@
 		BCE6584C2AA8AD420009ECD1 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				BCE6584D2AA8AD420009ECD1 /* MapSearchView.swift */,
-				BCE6584E2AA8AD420009ECD1 /* MapSearchSubView */,
 				BCE658512AA8AD420009ECD1 /* LocationManager.swift */,
+				BCE6584E2AA8AD420009ECD1 /* MapSearchSubView */,
+				BCE6584D2AA8AD420009ECD1 /* MapSearchView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1098,7 +1098,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"BinGongGan_User/Preview Content\"";
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = 6R3M7VGRP2;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "BinGongGan-User-Info.plist";
@@ -1133,7 +1133,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"BinGongGan_User/Preview Content\"";
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = 6R3M7VGRP2;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "BinGongGan-User-Info.plist";
