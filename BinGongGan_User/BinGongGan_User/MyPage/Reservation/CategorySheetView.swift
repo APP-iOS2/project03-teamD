@@ -6,11 +6,13 @@
 //
 
 import SwiftUI
+import BinGongGanCore
 
 struct CategorySheetView: View {
     
+    @EnvironmentObject private var myReservationStore: MyReservationStore
     @Binding var isShowingSheet: Bool
-    @Binding var selectedPicker: ReservationHistoryType
+    
     
     var body: some View {
         VStack{
@@ -31,7 +33,7 @@ struct CategorySheetView: View {
             ForEach(ReservationHistoryType.allCases , id: \.self) { item in
                 VStack {
                     HStack {
-                        if selectedPicker == item {
+                        if myReservationStore.selectedPicker == item {
                             Text(item.rawValue)
                                 .foregroundColor(.myBrown).bold()
                             Spacer()
@@ -49,7 +51,7 @@ struct CategorySheetView: View {
                 .background(.white)
                 .onTapGesture {
                     withAnimation(.easeInOut) {
-                        self.selectedPicker = item
+                        myReservationStore.selectedPicker = item
                         isShowingSheet = false
                     }
                 }
@@ -61,6 +63,7 @@ struct CategorySheetView: View {
 
 struct CategorySheetView_Previews: PreviewProvider {
     static var previews: some View {
-        CategorySheetView(isShowingSheet: .constant(false), selectedPicker: .constant(.all))
+        CategorySheetView(isShowingSheet: .constant(false))
+            .environmentObject(MyReservationStore())
     }
 }

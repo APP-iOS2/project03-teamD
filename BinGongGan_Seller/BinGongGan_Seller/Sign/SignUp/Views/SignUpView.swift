@@ -29,8 +29,11 @@ struct SignUpView: View {
                 } else if store.currentStep == .second {
                     SecondStepSignUpView()
                         .environmentObject(store)
-                } else {
+                } else if store.currentStep == .third {
                     ThirdStepSignUpView()
+                        .environmentObject(store)
+                } else {
+                    FourthSignUpView()
                         .environmentObject(store)
                 }
             }
@@ -51,7 +54,9 @@ struct SignUpView: View {
             Rectangle()
                 .foregroundColor(.clear)
                 .frame(height: 1)
-                .background(store.currentStep == .first ?  Color.myLightGray : Color.myMint)
+                .background(
+               
+                    store.currentStep == .first ?  Color.myLightGray : Color.myMint)
             if store.currentStep == .first {
                 ProgressStrokeCircleView
             } else {
@@ -60,8 +65,19 @@ struct SignUpView: View {
             Rectangle()
                 .foregroundColor(.clear)
                 .frame(height: 1)
-                .background(store.currentStep == .third ?  Color.myMint : Color.myLightGray)
-            if store.currentStep == .third {
+                .background(store.currentStep == .third || store.currentStep == .fourth  ? Color.myMint : Color.myLightGray )
+            if store.currentStep == .third || store.currentStep == .fourth {
+                ProgressCircleView
+//                ProgressStrokeCircleView
+            } else   {
+                ProgressStrokeCircleView
+                
+            }
+            Rectangle()
+                .foregroundColor(.clear)
+                .frame(height: 1)
+                .background(store.currentStep == .fourth ?  Color.myMint : Color.myLightGray)
+            if store.currentStep == .fourth {
                 ProgressCircleView
             } else {
                 ProgressStrokeCircleView
@@ -81,6 +97,16 @@ struct SignUpView: View {
             .stroke(Color.myMint, lineWidth: 1.3)
             .frame(width: 12, height: 12)
     }
+    @ViewBuilder
+      private func backgroundView() -> some View {
+          if store.currentStep == .first {
+             
+              Color.blue
+          } else {
+              
+              Color.red
+          }
+      }
 }
 
 struct SignUpView_Previews: PreviewProvider {

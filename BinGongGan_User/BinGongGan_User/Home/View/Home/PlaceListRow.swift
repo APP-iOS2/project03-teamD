@@ -66,10 +66,13 @@ struct PlaceListRow: View {
                     .cornerRadius(15)
                     .shadow(radius: 1)
             )
-            .overlay(alignment: .trailingFirstTextBaseline) {
-                HeartButton(place: $place)
-                    .padding(20)
-            }
+//            .overlay(alignment: .trailingFirstTextBaseline) {
+//                HeartButton(place: $place)
+//                    .padding(20)
+//            }
+        }
+        .onAppear{
+            print(place.placeLocation)
         }
         
     }
