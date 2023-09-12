@@ -6,14 +6,17 @@
 //
 
 import SwiftUI
+import BinGongGanCore
 
 struct AnnouncementContentCell: View {
     @State var isShowingAnnouncementOptionSheet: Bool = false
-
+    @EnvironmentObject var announcementStore: AnnouncementStore
+    var announcement: Announcement
+    
     var body: some View {
         VStack(alignment: .leading) {
             HStack{
-                Text("이것은 제목입니다. 제목인데 제목이 길면 안되는데, 일단 길게 써보려고 해요.")
+                Text(announcement.title)
                     .fontWeight(.bold)
                 Spacer()
                 Button {
@@ -28,11 +31,12 @@ struct AnnouncementContentCell: View {
             Divider()
             Spacer()
             HStack {
-                Text("작성일 : 2023. 09. 05")
+                Text("작성일 : \(announcementStore.formattedDate(from: announcement.date))")
+                    .font(.subheadline)
             }
             .padding(.bottom, 20)
             HStack {
-                Text("계절이 지나가는 하늘에는 가을로 가득 차 있습니다.\n나는 아무 걱정도 없이 가을 속의 별들을 다 헤일 듯합니다.\n가슴속에 하나둘 새겨지는 별을 이제 다 못 헤는 것은 쉬이 아침이 오는 까닭이요,\n내일 밤이 남은 까닭이요,\n아직 나의 청춘이 다하지 않은 까닭입니다.\n별 하나에 추억과\n별 하나에 사랑과\n별 하나에 쓸쓸함과\n별 하나에 동경과\n별 하나에 시와\n별 하나에 어머니, 어머니")
+                Text(announcement.content)
             }
         }
         .padding()
@@ -40,7 +44,7 @@ struct AnnouncementContentCell: View {
         .foregroundColor(.black)
         .cornerRadius(15)
         .sheet(isPresented: $isShowingAnnouncementOptionSheet) {
-            AnnouncementOptionSheet()
+            AnnouncementOptionSheet(announcement: announcement)
                 .presentationDetents([.height(AnnouncementOptionCell.screenHeight * 0.37)])
                 .presentationDragIndicator(.hidden)
         }
@@ -49,6 +53,8 @@ struct AnnouncementContentCell: View {
 
 struct AnnouncementContentCell_Previews: PreviewProvider {
     static var previews: some View {
-        AnnouncementContentCell()
+        let testAnnouncement = Announcement(title: "테스트", content: "테스트", date: Date().timeIntervalSince1970)
+        
+        return AnnouncementContentCell(announcement: testAnnouncement)
     }
 }

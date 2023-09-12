@@ -12,6 +12,8 @@ struct SignUpData {
     var name: String = ""
     var birthDate: String = ""
     var phoneNumber: String = ""
+    var bankName: String?
+    var accountNumber: String = ""
     var nickname: String = ""
     var emailId: String = ""
     var password: String = ""
@@ -22,7 +24,7 @@ struct SignUpData {
     var isAllAgree: Bool = false
     
     func changeToUserModel(id: String) -> User {
-        return User(id: id, email: emailId, name: name, nickname: nickname, phoneNumber: phoneNumber, password: password, birthDate: birthDate)
+        return User(id: id, email: emailId, name: name, nickname: nickname, phoneNumber: phoneNumber, password: password, birthDate: birthDate, accountNumber: accountNumber, accountBank: bankName, accountHolder: name)
     }
 }
 

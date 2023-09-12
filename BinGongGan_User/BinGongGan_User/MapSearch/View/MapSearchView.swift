@@ -15,7 +15,6 @@ struct MapSearchView: View {
     @ScaledMetric(wrappedValue: 12, relativeTo: .caption) var paddingWidth
     @State private var categorys: [CategoryCase] = [.shareOffice, .studio, .shareKitchen, .bandRoom]
     @State private var searchText: String = ""
-    @State private var selectedCategoty = ""
     
     @Binding var tabBarVisivility: Visibility
     @Environment(\.dismiss) var dismiss
@@ -69,13 +68,13 @@ struct MapSearchView: View {
                     HStack {
                         ForEach(categorys, id: \.self) { category in
                             Button(category.rawValue) {
-                                selectedCategoty = category.rawValue
+                                locationManager.didSelectCategory(category.rawValue)
                             }
                             .padding([.trailing, .leading], paddingWidth)
                             .padding([.top, .bottom], 7)
-                            .foregroundColor(selectedCategoty == category.rawValue ? .white : .myDarkGray)
+                            .foregroundColor(locationManager.selectedCategoty == category.rawValue ? .white : .myDarkGray)
                             .font(.captionRegular)
-                            .background(selectedCategoty == category.rawValue ? Color.myMint : Color.white)
+                            .background(locationManager.selectedCategoty == category.rawValue ? Color.myMint : Color.white)
                             .cornerRadius(13)
                             .shadow(radius: 2, y: 1)
                         }
@@ -84,16 +83,22 @@ struct MapSearchView: View {
                 }
                 .padding(.leading)
             }
+            
+            Image("mungmoongE")
+                .resizable()
+                .position(CGPoint(x: geometry.size.width / 2 + 7, y: locationManager.isChaging ? (geometry.size.height / 2 - 25) : (geometry.size.height / 2 - 20)))
+                .frame(width: 80, height: 80, alignment: .center)
+                
            
             if locationManager.isShowingList {
                 
                 ScrollView(.horizontal, showsIndicators: false) {
                     HStack {
-                        ForEach(0..<4, id: \.self) { idx in
+                        ForEach(locationManager.placeList) { place in
                             NavigationLink {
                                 GongGanDetailView()
                             } label: {
-                                SummaryPlaceView()
+                                SummaryPlaceView(place: place)
                                     .foregroundColor(.myDarkGray)
                             }
                         }
@@ -146,6 +151,6 @@ struct MapSearchView: View {
 
 struct MapSearch_Previews: PreviewProvider {
     static var previews: some View {
-        MapSearchView( tabBarVisivility: .constant(.hidden))
+        MapSearchView(tabBarVisivility: .constant(.hidden))
     }
 }

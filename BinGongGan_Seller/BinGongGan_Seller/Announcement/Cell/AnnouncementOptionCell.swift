@@ -1,4 +1,3 @@
-//
 //  AnnouncementOptionCell.swift
 //  BinGongGan_Seller
 //
