@@ -11,6 +11,8 @@ import BinGongGanCore
 struct ReviewManageDetailView: View {
     @Environment(\.dismiss) private var dismiss
     
+    @EnvironmentObject var reviewStore: ReviewStore
+    
     @StateObject var reportStore: ReportStore = ReportStore()
     
     @State var isShowingReviewReportSheet: Bool = false

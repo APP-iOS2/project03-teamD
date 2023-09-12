@@ -11,6 +11,8 @@ import BinGongGanCore
 struct ReviewManageView: View {
     @Environment(\.dismiss) private var dismiss
     
+    @StateObject var reviewStore: ReviewStore = ReviewStore()
+    
     @State private var selectedPlace: String = ""
     
     var body: some View {
@@ -19,6 +21,7 @@ struct ReviewManageView: View {
                 ForEach(1...3, id: \.self) { _ in
                     NavigationLink {
                         ReviewManageDetailView()
+                            .environmentObject(reviewStore)
                     } label: {
                         ReviewCell()
                     }
@@ -31,6 +34,7 @@ struct ReviewManageView: View {
                 ForEach(1...3, id: \.self) { _ in
                     NavigationLink {
                         ReviewManageDetailView()
+                            .environmentObject(reviewStore)
                     } label: {
                         ReviewCell()
                     }
@@ -43,6 +47,7 @@ struct ReviewManageView: View {
                 ForEach(1...3, id: \.self) { _ in
                     NavigationLink {
                         ReviewManageDetailView()
+                            .environmentObject(reviewStore)
                     } label: {
                         ReviewCell()
                     }
