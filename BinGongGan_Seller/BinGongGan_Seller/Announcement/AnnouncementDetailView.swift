@@ -11,6 +11,7 @@ struct AnnouncementDetailView: View {
     @Environment(\.dismiss) private var dismiss
     @State var isShowingAnnouncementOptionSheet: Bool = false
     var announcement: Announcement
+    var placeInfo: PlaceInfo
     
     var body: some View {
         ZStack {
@@ -18,7 +19,7 @@ struct AnnouncementDetailView: View {
                 .ignoresSafeArea(.all)
             
             ScrollView {
-                AnnouncementTitleCell()
+                AnnouncementTitleCell(title: placeInfo.name)
                     .padding(EdgeInsets(top: 0, leading: 20, bottom: 10, trailing: 20))
                 
                 AnnouncementContentCell(announcement: announcement)
@@ -38,6 +39,6 @@ struct AnnouncementDetailView_Previews: PreviewProvider {
     static var previews: some View {
         let testAnnouncement = Announcement(title: "프리뷰", content: "프리뷰", date: Date().timeIntervalSince1970, places: [])
         
-        return AnnouncementDetailView(announcement: testAnnouncement)
+        return AnnouncementDetailView(announcement: testAnnouncement, placeInfo: PlaceInfo(id: "1", name: "Sample Place"))
     }
 }
