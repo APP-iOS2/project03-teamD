@@ -8,7 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		2F143E122AB0574000CB9ED5 /* ReplyStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F143E112AB0574000CB9ED5 /* ReplyStore.swift */; };
-		2F143E142AB0585700CB9ED5 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2F143E132AB0585700CB9ED5 /* GoogleService-Info.plist */; };
+		2F143E162AB05B8B00CB9ED5 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2F143E152AB05B8B00CB9ED5 /* GoogleService-Info.plist */; };
+		2F143E1C2AB073C700CB9ED5 /* MyInfoStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F143E1B2AB073C700CB9ED5 /* MyInfoStore.swift */; };
 		4B76BBA52AB0526600E07878 /* AnnouncementStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B76BBA42AB0526600E07878 /* AnnouncementStore.swift */; };
 		4B76BBA72AB052EB00E07878 /* AnnouncementAddView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B76BBA62AB052EB00E07878 /* AnnouncementAddView.swift */; };
 		5406F8882AB03A42000A6441 /* CustomSecureField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FD06C9A2AAEE51900D116B9 /* CustomSecureField.swift */; };
@@ -112,7 +113,8 @@
 		0CDDF1C72AAB001E00834AA9 /* MyInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyInfoView.swift; sourceTree = "<group>"; };
 		0CDDF1C92AAB140900834AA9 /* MyInfoEditView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyInfoEditView.swift; sourceTree = "<group>"; };
 		2F143E112AB0574000CB9ED5 /* ReplyStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReplyStore.swift; sourceTree = "<group>"; };
-		2F143E132AB0585700CB9ED5 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		2F143E152AB05B8B00CB9ED5 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		2F143E1B2AB073C700CB9ED5 /* MyInfoStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = MyInfoStore.swift; path = "../../../../../../../.Trash/project03-teamD 오후 5.34.43/BinGongGan_Seller/BinGongGan_Seller/Review/Model/MyInfoStore.swift"; sourceTree = "<group>"; };
 		2F36A56A2AA81EEC00578AEB /* ReviewWithCommentCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewWithCommentCell.swift; sourceTree = "<group>"; };
 		2F36A56C2AA83E2100578AEB /* ReviewReportSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewReportSheet.swift; sourceTree = "<group>"; };
 		2F36A5712AA83E9200578AEB /* ReportCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportCase.swift; sourceTree = "<group>"; };
@@ -220,6 +222,43 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2F143E172AB0736D00CB9ED5 /* MyInfo */ = {
+			isa = PBXGroup;
+			children = (
+				2F143E192AB0739200CB9ED5 /* Model */,
+				2F143E182AB0737900CB9ED5 /* View */,
+			);
+			path = MyInfo;
+			sourceTree = "<group>";
+		};
+		2F143E182AB0737900CB9ED5 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				0CDDF1C72AAB001E00834AA9 /* MyInfoView.swift */,
+				0CDDF1C92AAB140900834AA9 /* MyInfoEditView.swift */,
+				2F143E1A2AB0739800CB9ED5 /* SubView */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		2F143E192AB0739200CB9ED5 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				2F143E1B2AB073C700CB9ED5 /* MyInfoStore.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		2F143E1A2AB0739800CB9ED5 /* SubView */ = {
+			isa = PBXGroup;
+			children = (
+				B13464F12AA90E1800098E9B /* SellerInformationCell.swift */,
+				B13464EB2AA90DAD00098E9B /* MySpaceCell.swift */,
+				2FAF0AC12AA8A9B500113F94 /* CarouselCell.swift */,
+			);
+			path = SubView;
+			sourceTree = "<group>";
+		};
 		2F36A56E2AA83E2600578AEB /* Sheet */ = {
 			isa = PBXGroup;
 			children = (
@@ -232,9 +271,9 @@
 			isa = PBXGroup;
 			children = (
 				2FF048312AAFFB37002A04C3 /* ReviewStore.swift */,
+				2F143E112AB0574000CB9ED5 /* ReplyStore.swift */,
 				2F36A5712AA83E9200578AEB /* ReportCase.swift */,
 				2FECE3C52AADECFA00F04CFC /* ReportStore.swift */,
-				2F143E112AB0574000CB9ED5 /* ReplyStore.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -257,10 +296,7 @@
 			isa = PBXGroup;
 			children = (
 				6A3B444B2AA83119008CC944 /* ReservationDetailsCell.swift */,
-				B13464F12AA90E1800098E9B /* SellerInformationCell.swift */,
 				B13464EF2AA90DE800098E9B /* ReservationCell.swift */,
-				2FAF0AC12AA8A9B500113F94 /* CarouselCell.swift */,
-				B13464EB2AA90DAD00098E9B /* MySpaceCell.swift */,
 				4BBAF3032AADA47400F1405D /* ReservationDeadlineCell.swift */,
 			);
 			path = Cell;
@@ -554,8 +590,7 @@
 				2FAB80552AA7FF960091D8CC /* PlaceAdd */,
 				54C9D2702AAF492C008B0FF7 /* RoomAdd */,
 				2FAB805F2AA7FFF30091D8CC /* Review */,
-				0CDDF1C72AAB001E00834AA9 /* MyInfoView.swift */,
-				0CDDF1C92AAB140900834AA9 /* MyInfoEditView.swift */,
+				2F143E172AB0736D00CB9ED5 /* MyInfo */,
 				B1343A6D2AA901E900DC20EE /* Preview Content */,
 			);
 			path = BinGongGan_Seller;
@@ -596,7 +631,7 @@
 		B12A85012AA7A8DE00BDF8CA /* Config */ = {
 			isa = PBXGroup;
 			children = (
-				2F143E132AB0585700CB9ED5 /* GoogleService-Info.plist */,
+				2F143E152AB05B8B00CB9ED5 /* GoogleService-Info.plist */,
 				B12A84722AA6EFE900BDF8CA /* Assets.xcassets */,
 			);
 			path = Config;
@@ -749,7 +784,7 @@
 			files = (
 				B1343A6F2AA901E900DC20EE /* Preview Assets.xcassets in Resources */,
 				B12A84732AA6EFE900BDF8CA /* Assets.xcassets in Resources */,
-				2F143E142AB0585700CB9ED5 /* GoogleService-Info.plist in Resources */,
+				2F143E162AB05B8B00CB9ED5 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -827,6 +862,7 @@
 				5406F8BA2AB03A42000A6441 /* ReservationCardView.swift in Sources */,
 				5406F8BB2AB03A42000A6441 /* MyPlaceView.swift in Sources */,
 				5406F8BC2AB03A42000A6441 /* PlaceDetailView.swift in Sources */,
+				2F143E1C2AB073C700CB9ED5 /* MyInfoStore.swift in Sources */,
 				5406F8BD2AB03A42000A6441 /* PlaceAddView.swift in Sources */,
 				5406F8BE2AB03A42000A6441 /* MapView.swift in Sources */,
 				5406F8BF2AB03A42000A6441 /* AddressSearchView.swift in Sources */,

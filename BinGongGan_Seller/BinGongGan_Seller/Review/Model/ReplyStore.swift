@@ -20,6 +20,6 @@ final class ReplyStore: ObservableObject {
     }
     
     func uploadReply(newReply: Reply) {
-        
+        replies.append(newReply)
     }
 }
