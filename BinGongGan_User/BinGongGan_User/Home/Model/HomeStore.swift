@@ -10,6 +10,7 @@ import FirebaseFirestoreSwift
 import FirebaseFirestore
 import Firebase
 
+@MainActor
 final class HomeStore: ObservableObject {
     
     @Published var places: [Place] = []
@@ -19,40 +20,9 @@ final class HomeStore: ObservableObject {
     @Published var filteredArray:[Place] = []
     @Published var recentlyWords: [String] = []
     @Published var cities: [City] = []
-    
     @Published var selectedCategory: String = "밴드룸"
     @Published var selectSub: [String] = []
-    let dbRef = Firestore.firestore().collection("Place")
-////
-//    let db = Firestore.firestore()
-    var filteredCategoryCity: [Place] {
-        return places.filter { place in
-            let placetest = place.placeLocation.components(separatedBy: " ")
-            var testBoll: [Bool] = []
-            
-                for i in placetest {
-                    if selectSub.contains(i){
-                        testBoll.append(true)
-                    }
-                }
-            return selectSub.isEmpty ? place.category == selectedCategory : place.category == selectedCategory && testBoll.contains(true)
-        }
-    }
-//    func realfilteredCategoryCity () -> [Place] {
-//
-//        return places.filter { place in
-//            let placetest = place.placeLocation.components(separatedBy: " ")
-//            var testBoll: [Bool] = []
-//
-//                for i in placetest {
-//                    if selectSub.contains(i){
-//                        testBoll.append(true)
-//                    }
-//                }
-//            return selectSub.isEmpty ? place.category == selectedCategory : place.category == selectedCategory && testBoll.contains(true)
-//        }
-//    }
-//
+    
     var categories: [Category] = [
         Category(category: "쉐어오피스", categoryImageString:  "building.2"),
         Category(category: "밴드룸", categoryImageString:  "music.mic"),
@@ -60,18 +30,22 @@ final class HomeStore: ObservableObject {
         Category(category: "쉐어키친", categoryImageString:  "fork.knife"),
     ]
     
+    let dbRef = Firestore.firestore().collection("Place")
+    
     init() {
+        places.append(demoPlace)
+        cities = cityArray
+        
         Task{
             await fetchPlaces()
-            cities = cityArray
-            settingEventBanner()
             settingHotPlace()
-            settingRecommendPlace()
+            settingEventBanner()
+             settingRecommendPlace()
+            
         }
     }
-
+  
     func fetchPlaces() async {
-        
         do {
             var tempStore: [Place] = []
             let querySnapshot = try await dbRef.getDocuments()
@@ -91,12 +65,25 @@ final class HomeStore: ObservableObject {
                 tempStore.append(place)
             }
             self.places = tempStore
-            
         } catch {
             print("Error fetching Place: (error)")
         }
     }
     
+    var filteredCategoryCity: [Place] {
+        return places.filter { place in
+            let placetest = place.placeLocation.components(separatedBy: " ")
+            var testBoll: [Bool] = []
+            
+                for i in placetest {
+                    if selectSub.contains(i){
+                        testBoll.append(true)
+                    }
+                }
+            return selectSub.isEmpty ? place.category == selectedCategory : place.category == selectedCategory && testBoll.contains(true)
+        }
+    }
+
     func searchPlaceName(placess: [Place] , keyWord: String) {
         
         filteredArray.removeAll()
@@ -168,3 +155,5 @@ final class HomeStore: ObservableObject {
     }
     
 }
+
+let demoPlace = Place(placeName: "나는데모긴글자테스트용", category: "쉐어오피스", placeLocation: "서울시 강서구 화곡동 일공칠구-10", placePrice: 1, imageString: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT9JQXtDMPHZnD0bBgTODPgX_HmUZzlusBQ9kEPtkYwJg&s", isFavorite: false)
