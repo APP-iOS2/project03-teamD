@@ -6,24 +6,8 @@
 //
 
 import Foundation
-
-enum ReservationCase {
-    case reservationID
-    case reservationDate
-    case checkInDate
-    case checkOutDate
-    case hour
-    case personnel
-    case reservationName
-    case reservationPhoneNumber
-    case reservationRequest
-}
-
-enum CheckDate{
-    case year
-    case month
-    case day
-}
+import BinGongGanCore
+import FirebaseFirestore
 
 final class ReservationStore: ObservableObject {
     
@@ -33,8 +17,10 @@ final class ReservationStore: ObservableObject {
     
     let sampleSpace: SampleSpace = SampleSpace(spaceName: "[서울역] 갬성 파티룸", roomName: "202호 불타는 애플", imageString: "https://cdn.e2news.com/news/photo/202301/249694_103455_5758.png")
     
+    let dataBase = Firestore.firestore().collection("Reservation")
+    
     init() {
-        reservation = Reservation(userEmail: "", roomID: "", reservationID: "", reservationYear: "", reservationMonth: "", reservationDay: "", checkInYear: "", checkInMonth: "", checkInDay: "", checkOutYear: "", checkOutMonth: "", checkOutDay: "", hour: 1, personnel: 1, reservationName: "", reservationPhoneNumber: "", reservationRequest: "")
+        reservation = Reservation(userEmail: "", placeID: "", roomID: "", reservationState: 0, reservationYear: "", reservationMonth: "", reservationDay: "", checkInYear: "", checkInMonth: "", checkInDay: "", checkOutYear: "", checkOutMonth: "", checkOutDay: "", hour: 1, personnel: 1, reservationName: "", reservationPhoneNumber: "", reservationRequest: "")
     }
     
     func changeDateString(_ date: Date) -> String {
@@ -105,9 +91,11 @@ final class ReservationStore: ObservableObject {
     }
     
     func getReservation (type: ReservationCase) -> String {
+        
         switch type {
+        
         case .reservationID:
-            return "\(reservation.reservationID)"
+            return "\(reservation.id)"
             
         case .reservationDate:
             return "\(reservation.reservationYear)년 \(reservation.reservationMonth)월 \(reservation.reservationDay)일"
@@ -128,13 +116,21 @@ final class ReservationStore: ObservableObject {
             return reservation.reservationName
             
         case .reservationPhoneNumber:
-            return reservation.reservationPhoneNumber
+            return reservation.reservationPhoneNumber.formatPhoneNumber()
             
         case .reservationRequest:
             return reservation.reservationRequest
             
         }
     }
+    
+    func addReservation() {
+        dataBase.document(reservation.id)
+            .setData(reservation.asDictionary())
+                print("예약 추가 완료")
+    }
+    
+    func getUserEmail() {
+        
+    }
 }
-
-

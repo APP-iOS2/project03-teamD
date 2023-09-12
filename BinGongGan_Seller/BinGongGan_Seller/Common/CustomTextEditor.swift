@@ -1,8 +1,8 @@
 //
-//  CustomTextField.swift
-//  BinGongGan_User
+//  CustomTextEditor.swift
+//  BinGongGan_Seller
 //
-//  Created by 마경미 on 05.09.23.
+//  Created by 오영석 on 2023/09/12.
 //
 
 import SwiftUI
@@ -12,10 +12,9 @@ import BinGongGanCore
 // 플레이스홀더(힌트메세지), 키보드타입, 텍스트를 선언해줄 수 있다.
 // 키보드타입은 default가 기본으로, 특정 타입이 있다면 슈퍼뷰에서 넘겨준다.
 // 자동대문자화 false, 자동 수정 false 처리
-struct CustomTextField: View {
-    var maxLength: Int = 100
+struct CustomTextEditor: View {
+    var maxLength: Int = 500
     var backgroundColor: Color = .white
-    var placeholder: String
     var keyboardType: UIKeyboardType = .default
     @Binding var text: String
     @FocusState private var isFocused: Bool
@@ -25,7 +24,7 @@ struct CustomTextField: View {
             RoundedRectangle(cornerRadius: 8)
                 .stroke(isFocused ? Color.myBrown : Color.clear, lineWidth: 1)
                 .background(RoundedRectangle(cornerRadius: 8).foregroundColor(backgroundColor))
-            TextField(placeholder, text: $text)
+            TextEditor(text: $text)
                 .padding(EdgeInsets(top: 0, leading: 20, bottom: 0, trailing: 20))
                 .font(.captionRegular)
                 .foregroundColor(.black)
@@ -47,7 +46,7 @@ struct CustomTextField: View {
                 }
             }
         }
-        .frame(minHeight: 42, maxHeight: 52)
+        .frame(minHeight: 200, maxHeight: 300)
         .onChange(of: text, perform: { newValue in
             if newValue.count > maxLength {
                 text = String(newValue.prefix(maxLength))
@@ -57,8 +56,8 @@ struct CustomTextField: View {
     }
 }
 
-struct CustomTextField_Previews: PreviewProvider {
+struct CustomTextEditor_Previews: PreviewProvider {
     static var previews: some View {
-        CustomTextField(placeholder: "ㅎㅎ", text: .constant(""))
+        CustomTextEditor(text: .constant(""))
     }
 }

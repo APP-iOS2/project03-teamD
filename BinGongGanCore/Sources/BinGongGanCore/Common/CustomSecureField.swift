@@ -6,15 +6,22 @@
 //
 
 import SwiftUI
-import BinGongGanCore
 
-struct CustomSecureField: View {
+@available(iOS 15.0, *)
+public struct CustomSecureField: View {
     var maxLength: Int = 8
     var placeholder: String
     @Binding var text: String
     @FocusState private var isFocused: Bool
     
-    var body: some View {
+    public init(maxLength: Int = 8, placeholder: String, text: Binding<String>, isFocused: Bool = false) {
+        self.maxLength = maxLength
+        self.placeholder = placeholder
+        self._text = text
+        self.isFocused = isFocused
+    }
+    
+    public var body: some View {
         ZStack {
             RoundedRectangle(cornerRadius: 8)
                 .stroke(isFocused ? Color.myBrown : Color.clear, lineWidth: 1)
@@ -50,6 +57,7 @@ struct CustomSecureField: View {
     }
 }
 
+@available(iOS 15.0, *)
 struct CustomSecureField_Previews: PreviewProvider {
     static var previews: some View {
         CustomSecureField(placeholder: "비밀번호", text: .constant(""))

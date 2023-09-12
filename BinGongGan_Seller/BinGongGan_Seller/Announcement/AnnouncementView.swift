@@ -10,6 +10,7 @@ import BinGongGanCore
 struct AnnouncementView: View {
     
     @Environment(\.dismiss) private var dismiss
+    @StateObject var announcementStore: AnnouncementStore
     
     var body: some View {
         VStack{
@@ -22,6 +23,7 @@ struct AnnouncementView: View {
                 Spacer()
                 NavigationLink {
                     AnnouncementAddView()
+                        .environmentObject(announcementStore)
                 } label: {
                     Image(systemName: "plus")
                         .foregroundColor(Color.myBrown)
@@ -32,33 +34,36 @@ struct AnnouncementView: View {
                 Section(header: Text("공간1")
                     .foregroundColor(Color.myBrown)
                 ) {
-                    ForEach(0..<5) { _ in
+                    ForEach(announcementStore.announcementList.indices.reversed(), id: \.self) { index in
                         NavigationLink {
-                            AnnouncementDetailView()
+                            AnnouncementDetailView(announcement: announcementStore.announcementList[index])
                         } label: {
-                            AnnouncementTextRow()
+                            AnnouncementTextRow(index: index, announcement: announcementStore.announcementList[index])
+                                .environmentObject(announcementStore)
                                 .background(Color.clear)
                         }
                     }
                 }
                 Section(header: Text("공간2")
                     .foregroundColor(Color.myBrown)) {
-                        ForEach(0..<5) { _ in
+                        ForEach(announcementStore.announcementList.indices.reversed(), id: \.self) { index in
                             NavigationLink {
-                                AnnouncementDetailView()
+                                AnnouncementDetailView(announcement: announcementStore.announcementList[index])
                             } label: {
-                                AnnouncementTextRow()
+                                AnnouncementTextRow(index: index, announcement: announcementStore.announcementList[index])
+                                    .environmentObject(announcementStore)
                                     .background(Color.clear)
                             }
                         }
                     }
                 Section(header: Text("공간3")
                     .foregroundColor(Color.myBrown)) {
-                        ForEach(0..<5) { _ in
+                        ForEach(announcementStore.announcementList.indices.reversed(), id: \.self) { index in
                             NavigationLink {
-                                AnnouncementDetailView()
+                                AnnouncementDetailView(announcement: announcementStore.announcementList[index])
                             } label: {
-                                AnnouncementTextRow()
+                                AnnouncementTextRow(index: index, announcement: announcementStore.announcementList[index])
+                                    .environmentObject(announcementStore)
                                     .background(Color.clear)
                             }
                         }
@@ -75,6 +80,6 @@ struct AnnouncementView: View {
 
 struct AnnouncementView_Previews: PreviewProvider {
     static var previews: some View {
-        AnnouncementView()
+        AnnouncementView(announcementStore: AnnouncementStore())
     }
 }

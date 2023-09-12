@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import BinGongGanCore
 
 struct ReservationUserInfoView: View {
     
@@ -13,12 +14,20 @@ struct ReservationUserInfoView: View {
     
     @State private var reservationName: String = ""
     @State private var reservationPhoneNumber: String = ""
-    
     @State private var reservationRequest: String = ""
     
-    @FocusState private var isTextMasterFocused: Bool
+    @State var phoneNumber:Int? = nil
     
     private let screenWidth = UIScreen.main.bounds.width
+    
+    let numberFormatter: NumberFormatter = {
+        let formatter = NumberFormatter()
+        formatter.minimum = .init(integerLiteral: 1)
+        formatter.maximum = .init(integerLiteral: 11)
+        formatter.generatesDecimalNumbers = false
+        formatter.maximumFractionDigits = 0
+        return formatter
+    }()
     
     var body: some View {
         
@@ -51,7 +60,7 @@ struct ReservationUserInfoView: View {
             .frame(width: screenWidth * 0.9, height: 50)
             .padding(.bottom, 10)
             .onChange(of: reservationName, perform: { newValue in
-               reservationStore.updateReservation(type: .reservationName, value: newValue)
+                reservationStore.updateReservation(type: .reservationName, value: newValue)
             })
         
         
@@ -59,11 +68,12 @@ struct ReservationUserInfoView: View {
             .font(.body1Regular)
         
         CustomTextField(placeholder: "연락처를 입력하세요", text: $reservationPhoneNumber)
-            .keyboardType(.numberPad)
+            .keyboardType(.decimalPad)
             .frame(width: screenWidth * 0.9, height: 50)
             .padding(.bottom, 10)
             .onChange(of: reservationPhoneNumber, perform: { newValue in
-               reservationStore.updateReservation(type: .reservationPhoneNumber, value: newValue)
+                
+                reservationStore.updateReservation(type: .reservationPhoneNumber, value: newValue)
             })
         
         HStack {
@@ -74,8 +84,6 @@ struct ReservationUserInfoView: View {
             Spacer()
             
             Button {
-                
-                reservationStore.updateReservation(type: .reservationRequest, value: reservationRequest)
                 self.endTextEditing()
             } label: {
                 Text("완료")
@@ -95,9 +103,9 @@ struct ReservationUserInfoView: View {
                 .lineLimit(4)
                 .frame(width: screenWidth * 0.8)
                 .padding([.top,.leading], 20)
-        }
-        .onTapGesture {
-            isTextMasterFocused.toggle()
+                .onChange(of: reservationRequest) { newValue in
+                    reservationStore.updateReservation(type: .reservationRequest, value: newValue)
+                }
         }
     }
 }

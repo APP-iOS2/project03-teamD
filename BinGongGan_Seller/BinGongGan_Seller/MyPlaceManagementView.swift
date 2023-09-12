@@ -26,15 +26,6 @@ struct MyPlaceManagementView: View {
                             .padding([.top, .leading], 20)
                             .font(.head1Bold)
                         Spacer()
-                        NavigationLink {
-                            MyInfoView()
-                            
-                        } label: {
-                            Image(systemName: "square.and.pencil")
-                                .foregroundColor(Color.myMint)
-                                .font(.title3)
-                                .padding([.top, .trailing], 20)
-                        }
                     }
                 }
                 
@@ -86,6 +77,9 @@ struct MyPlaceManagementView: View {
             }
         }
         .background(Color.myBackground)
+        .navigationBarBackButtonHidden(true)
+        .navigationBarTitleDisplayMode(.inline)
+        .scrollContentBackground(.hidden)
         .toolbar {
             ToolbarItem(placement: .navigationBarLeading) {
                 HStack{
@@ -100,6 +94,7 @@ struct MyPlaceManagementView: View {
                 .padding(EdgeInsets(top: 10, leading: 10, bottom: 15, trailing: 0))
             }
         }
+        .customBackbutton()
     }
 }
 
