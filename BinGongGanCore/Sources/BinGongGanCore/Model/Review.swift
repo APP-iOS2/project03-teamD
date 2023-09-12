@@ -7,7 +7,7 @@
 
 import Foundation
 
-public struct Review: Identifiable {
+public struct Review: Identifiable, Codable {
     public var id: String = UUID().uuidString
     public var placeId: String //리뷰 달린 공간 id값
     public var writerId: String
