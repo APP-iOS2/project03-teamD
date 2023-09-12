@@ -18,11 +18,12 @@ struct ReservationDetailsListView: View {
                 .padding(EdgeInsets(top: 20, leading: 20, bottom: 20, trailing: 20))
 
             ForEach(0..<5) { index in
-                ReservationDetailsCell(isPresentedModal: $isPresentedModal)
+                ReservationCell(isHiddenRightButton: true)
+                    .padding(.bottom, 12)
+                    .padding(.horizontal, 20)
             }
-
-        }.navigationTitle("예약관리")
-        
+        }
+        .navigationTitle("예약관리")
     }
 }
 struct ReservationDetailsListView_Previews: PreviewProvider {
