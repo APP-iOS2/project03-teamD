@@ -496,9 +496,9 @@
 		BCE6584C2AA8AD420009ECD1 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				BCE6584D2AA8AD420009ECD1 /* MapSearchView.swift */,
-				BCE6584E2AA8AD420009ECD1 /* MapSearchSubView */,
 				BCE658512AA8AD420009ECD1 /* LocationManager.swift */,
+				BCE6584E2AA8AD420009ECD1 /* MapSearchSubView */,
+				BCE6584D2AA8AD420009ECD1 /* MapSearchView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";

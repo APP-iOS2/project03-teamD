@@ -7,6 +7,9 @@
 
 import Foundation
 import MapKit
+import Firebase
+import FirebaseFirestore
+import FirebaseFirestoreSwift
 
 // 작동 방식
 // 1. 시작 시 자신의 gps위치로 고정 -> 자신 주변의 place들을 핀으로 찍음
@@ -21,12 +24,9 @@ final class LocationManager: NSObject, ObservableObject {
     private let locationManager = CLLocationManager()
     @Published var mapView: MKMapView = .init()
     
-//    @Published var region = MKCoordinateRegion(
-//        center: .init(latitude: 37.334_900 , longitude: -122.009_020),
-//        span: .init(latitudeDelta: 0.5 , longitudeDelta: 0.5)
-//    )
     @Published var selectedCategoty: String = ""
     @Published var isShowingList: Bool = false
+    
     @Published var isChaging: Bool = false
     @Published var isFocusUser: Bool = true
 
@@ -68,7 +68,7 @@ final class LocationManager: NSObject, ObservableObject {
     }
     
     func moveFocusChange() {
-        let span = MKCoordinateSpan(latitudeDelta: 0.5, longitudeDelta: 0.5)
+        let span = MKCoordinateSpan(latitudeDelta: 0.05, longitudeDelta: 0.05)
         
         let region = MKCoordinateRegion(center: nowUserPoint ?? .init(latitude: 37.334_900 , longitude: -122.009_020), span: span)
         mapView.setRegion(region, animated: true)
@@ -83,38 +83,53 @@ final class LocationManager: NSObject, ObservableObject {
             }
             
             guard let placemark = placemark?.first else { return }
-            self?.userLocalcity = placemark.subLocality ?? ""
             
-            if self?.userLocalcity != placemark.subLocality ?? "" {
+            if self?.userLocalcity != placemark.subLocality ?? "주소없음" {
                 self?.userLocalcity = placemark.subLocality ?? "주소없음"
+                
                 self?.searchAnotations(subLocality: placemark.subLocality ?? "주소없음")
             }
-            
             print(self?.userLocalcity ?? "주소없음")
+
             return
         }
     }
     
     func searchAnotations(subLocality: String) {
-        // dbRef
         
-        let result: [SamplePlace] = []
         
-        searchResult = result
-        setAnnotation()
-    }
-    
-    func setAnnotation() {
-        var result: [SamplePlace] = []
-        switch selectedCategoty {
-        case "":
-            result = searchResult
-        default:
-            result = searchResult.filter { $0.placeCategory == selectedCategoty }
+        do {
+            let resultFire = try await Firestore.firestore().collection("Place")
+                .w
+
+            let result: [SamplePlace] = [SamplePlace.sample, SamplePlace.sample2]
+            
+            searchResult = result
+            setAnnotations()
+        } catch {
+            print(error.localizedDescription)
         }
         
-        result.forEach { place in
-//            var 
+        
+        
+        
+       
+    }
+    
+    func setAnnotations() {
+        var resultPlace: [SamplePlace] = []
+        switch selectedCategoty {
+        case "":
+            resultPlace = searchResult
+        default:
+            resultPlace = searchResult.filter { $0.placeCategory == selectedCategoty }
+        }
+        
+        for place in resultPlace {
+            let annotation = MKPointAnnotation()
+            annotation.title = place.placeName
+            annotation.coordinate = CLLocationCoordinate2D(latitude: place.address.latitude, longitude: place.address.longitude)
+            mapView.addAnnotation(annotation)
         }
     }
     
@@ -179,6 +194,11 @@ extension LocationManager: MKMapViewDelegate {
             self.isChaging = false
         }
     }
+    
+    func mapView(_ mapView: MKMapView, didSelect annotation: MKAnnotation) {
+//        if l
+    }
+    
 }
 
 
@@ -201,6 +221,14 @@ struct SamplePlace:Identifiable, Codable {
         self.placeInfomationList = placeInfomationList
         self.address = address
     }
+    
+//    static let myRegion = Sam
+    
+    static let sample = SamplePlace(placeName: "돌초밥", placePrice: "1000", placeCategory: "공유오피스", placeImageStringList: [], note: "", placeInfomationList: [], address: Address(address: "봉천동", placeName: "돌초밥", x: "126.964", y: "37.4774"))
+    
+    static let sample2 = SamplePlace(placeName: "공차", placePrice: "11000", placeCategory: "스튜디오", placeImageStringList: [], note: "", placeInfomationList: [], address: Address(address: "사당동", placeName: "공차", x: "126.9615", y: "37.4781"))
+    
+    
 }
 
 public struct Address: Codable, Identifiable {
