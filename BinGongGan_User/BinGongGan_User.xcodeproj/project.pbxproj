@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		279241972AB0F6FD0092155D /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 279241962AB0F6FD0092155D /* GoogleService-Info.plist */; };
 		3661ED052AA956750055AC97 /* FavoriteListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3661ED042AA956750055AC97 /* FavoriteListView.swift */; };
 		368394DD2AA84732004A3AC3 /* HomeStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 368394DC2AA84732004A3AC3 /* HomeStore.swift */; };
 		36B7A56A2AB0AC3100424B93 /* EasterEggAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36B7A5692AB0AC3100424B93 /* EasterEggAlert.swift */; };
@@ -84,6 +85,7 @@
 		BCE6585F2AA8AD4D0009ECD1 /* ThirdStepSignUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCE6585A2AA8AD4D0009ECD1 /* ThirdStepSignUpView.swift */; };
 		BCE658602AA8AD4D0009ECD1 /* FirstStepSignUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCE6585B2AA8AD4D0009ECD1 /* FirstStepSignUpView.swift */; };
 		BCE658612AA8AD4D0009ECD1 /* SignUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCE6585C2AA8AD4D0009ECD1 /* SignUpView.swift */; };
+		D819F43F2AB0FB2200E1BAA1 /* AccountNumberEditView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D819F43E2AB0FB2200E1BAA1 /* AccountNumberEditView.swift */; };
 		D84824962AA8A3700067A065 /* MyPageMainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D84824802AA8A3700067A065 /* MyPageMainView.swift */; };
 		D84824972AA8A3700067A065 /* AppInformationList.swift in Sources */ = {isa = PBXBuildFile; fileRef = D84824822AA8A3700067A065 /* AppInformationList.swift */; };
 		D84824982AA8A3700067A065 /* AnnouncementView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D84824842AA8A3700067A065 /* AnnouncementView.swift */; };
@@ -107,6 +109,9 @@
 		D8741E612AAF09EE00F45C79 /* UserAccountSettingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8E0FA2A2AAB13C300B8C092 /* UserAccountSettingView.swift */; };
 		D8741E672AB02F8A00F45C79 /* Bank.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8741E662AB02F8A00F45C79 /* Bank.swift */; };
 		D8741E692AB0347300F45C79 /* BankSelectView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8741E682AB0347300F45C79 /* BankSelectView.swift */; };
+		D8741E6B2AB04F5A00F45C79 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = D8741E6A2AB04F5A00F45C79 /* GoogleService-Info.plist */; };
+		D8741E712AB0EE4B00F45C79 /* AccountEditView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8741E702AB0EE4B00F45C79 /* AccountEditView.swift */; };
+		D8741E732AB0F0E100F45C79 /* AccountTextFieldView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8741E722AB0F0E100F45C79 /* AccountTextFieldView.swift */; };
 		D8E0FA272AAAFAAD00B8C092 /* Announcement.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8E0FA262AAAFAAD00B8C092 /* Announcement.swift */; };
 		D8F41E132AA9A289004C52BD /* String+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8F41E122AA9A289004C52BD /* String+Extension.swift */; };
 		EC6F7F572AA8896700C0B094 /* BinGongGan_UserApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC6F7F562AA8896700C0B094 /* BinGongGan_UserApp.swift */; };
@@ -134,6 +139,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		279241962AB0F6FD0092155D /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		3661ED042AA956750055AC97 /* FavoriteListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteListView.swift; sourceTree = "<group>"; };
 		368394DC2AA84732004A3AC3 /* HomeStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeStore.swift; sourceTree = "<group>"; };
 		36B7A5692AB0AC3100424B93 /* EasterEggAlert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EasterEggAlert.swift; sourceTree = "<group>"; };
@@ -210,6 +216,7 @@
 		BCE6585A2AA8AD4D0009ECD1 /* ThirdStepSignUpView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ThirdStepSignUpView.swift; sourceTree = "<group>"; };
 		BCE6585B2AA8AD4D0009ECD1 /* FirstStepSignUpView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FirstStepSignUpView.swift; sourceTree = "<group>"; };
 		BCE6585C2AA8AD4D0009ECD1 /* SignUpView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignUpView.swift; sourceTree = "<group>"; };
+		D819F43E2AB0FB2200E1BAA1 /* AccountNumberEditView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountNumberEditView.swift; sourceTree = "<group>"; };
 		D84824802AA8A3700067A065 /* MyPageMainView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyPageMainView.swift; sourceTree = "<group>"; };
 		D84824822AA8A3700067A065 /* AppInformationList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppInformationList.swift; sourceTree = "<group>"; };
 		D84824842AA8A3700067A065 /* AnnouncementView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnnouncementView.swift; sourceTree = "<group>"; };
@@ -232,6 +239,9 @@
 		D8741E5D2AAEF64100F45C79 /* BankAccountSettingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BankAccountSettingView.swift; sourceTree = "<group>"; };
 		D8741E662AB02F8A00F45C79 /* Bank.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Bank.swift; sourceTree = "<group>"; };
 		D8741E682AB0347300F45C79 /* BankSelectView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BankSelectView.swift; sourceTree = "<group>"; };
+		D8741E6A2AB04F5A00F45C79 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../../GoogleService-Info.plist"; sourceTree = "<group>"; };
+		D8741E702AB0EE4B00F45C79 /* AccountEditView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AccountEditView.swift; sourceTree = "<group>"; };
+		D8741E722AB0F0E100F45C79 /* AccountTextFieldView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountTextFieldView.swift; sourceTree = "<group>"; };
 		D8E0FA262AAAFAAD00B8C092 /* Announcement.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Announcement.swift; sourceTree = "<group>"; };
 		D8E0FA2A2AAB13C300B8C092 /* UserAccountSettingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserAccountSettingView.swift; sourceTree = "<group>"; };
 		D8F41E122AA9A289004C52BD /* String+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Extension.swift"; sourceTree = "<group>"; };
@@ -676,6 +686,9 @@
 				D8E0FA2A2AAB13C300B8C092 /* UserAccountSettingView.swift */,
 				D8741E5D2AAEF64100F45C79 /* BankAccountSettingView.swift */,
 				D8741E682AB0347300F45C79 /* BankSelectView.swift */,
+				D8741E702AB0EE4B00F45C79 /* AccountEditView.swift */,
+				D819F43E2AB0FB2200E1BAA1 /* AccountNumberEditView.swift */,
+				D8741E722AB0F0E100F45C79 /* AccountTextFieldView.swift */,
 			);
 			path = MyInformation;
 			sourceTree = "<group>";
@@ -857,6 +870,7 @@
 				BC344F212AA86AB900F8CEB3 /* HomeListRow.swift in Sources */,
 				368394DD2AA84732004A3AC3 /* HomeStore.swift in Sources */,
 				D84824A12AA8A3710067A065 /* MyReviewRowView.swift in Sources */,
+				D819F43F2AB0FB2200E1BAA1 /* AccountNumberEditView.swift in Sources */,
 				BCDD348B2AAF27B600A68F4F /* DetailReviewRowView.swift in Sources */,
 				D84824AE2AA8A41D0067A065 /* ReservationDetailView.swift in Sources */,
 				BCE658492AA8AD380009ECD1 /* SignInView.swift in Sources */,
@@ -893,6 +907,7 @@
 				ECBD877D2AB01E3300ECEC7D /* MyReservationStore.swift in Sources */,
 				BCE6584A2AA8AD380009ECD1 /* SignInStore.swift in Sources */,
 				D84824A02AA8A3710067A065 /* AddReviewView.swift in Sources */,
+				D8741E732AB0F0E100F45C79 /* AccountTextFieldView.swift in Sources */,
 				BCE6585E2AA8AD4D0009ECD1 /* SecondStepSignUpView.swift in Sources */,
 				BC344EED2AA808DB00F8CEB3 /* ReservationView.swift in Sources */,
 				5398C2132AA8D9A0000BD361 /* ContentView.swift in Sources */,
@@ -938,6 +953,7 @@
 				BC344EC92AA8072000F8CEB3 /* GongGanInfo.swift in Sources */,
 				D84824B32AA8F5970067A065 /* FAQItem.swift in Sources */,
 				BCDD34852AAF272000A68F4F /* View+Extension.swift in Sources */,
+				D8741E712AB0EE4B00F45C79 /* AccountEditView.swift in Sources */,
 				36FD38752AAEE0E0009722A7 /* PlaceListFilterView.swift in Sources */,
 				ECBD87772AAE097200ECEC7D /* AppInformationView.swift in Sources */,
 			);

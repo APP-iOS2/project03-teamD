@@ -7,12 +7,14 @@
 
 import SwiftUI
 import FirebaseFirestoreSwift
+import BinGongGanCore
 
 enum CategoryCase: String {
-    case shareOffice = "공유오피스"
+    case shareOffice = "쉐어오피스"
     case bandRoom = "밴드룸"
     case studio = "스튜디오"
-    case shareKitchen = "공유주방"
+    case shareKitchen = "키친룸"
+    case none
 }
 
 struct Event: Identifiable {
@@ -22,7 +24,7 @@ struct Event: Identifiable {
         URL(string: eventImage)!
     }
 }
-
+//
 struct Category : Identifiable {
     let id = UUID().uuidString
     let category: String
@@ -30,19 +32,6 @@ struct Category : Identifiable {
     var imageURL: URL {
         URL(string: categoryImageString)!
     }
-}
-
-struct Place : Identifiable, Hashable {
-    var id = UUID().uuidString
-    var placeName: String
-    let category: String
-    let placeLocation: String
-    let placePrice: Int
-    let imageString: String
-    var imageURL: URL {
-        URL(string: imageString)!
-    }
-    var isFavorite: Bool
 }
 
 
@@ -56,3 +45,6 @@ let eventImageArray: [String] = [
 ]
 
 
+/*
+
+*/
