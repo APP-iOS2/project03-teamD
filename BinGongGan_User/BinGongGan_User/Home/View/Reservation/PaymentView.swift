@@ -15,7 +15,7 @@ struct PaymentView: View {
     @State private var isAllPaymentInfoChecked: Bool = false
     @State private var isPaymentChecked: Bool = false
     
-    //@Binding var tabBarVisible: Visibility
+    @State var tabBarVisivility: Visibility = .visible
     
     private let screenWidth = UIScreen.main.bounds.width
     
@@ -40,29 +40,32 @@ struct PaymentView: View {
                     Text("방식")
                         .font(.body1Regular)
                         .frame(width: 80)
+                    
                     Divider()
                     
                     Text("무통장 입금 seller/ 통장번호")
-                    .font(.captionRegular)
+                        .font(.captionRegular)
                 }
-                    .foregroundColor(.red)
-                    .listRowBackground(Color.clear)
+                .foregroundColor(.red)
+                .listRowBackground(Color.clear)
                 
                 HStack {
                     Text("예약 번호")
                         .font(.body1Regular)
                         .frame(width: 80)
+                    
                     Divider()
                     
                     Text(reservationStore.getReservation(type: .reservationID))
                         .font(.captionRegular)
                 }
-                    .listRowBackground(Color.clear)
+                .listRowBackground(Color.clear)
                 
                 HStack {
                     Text("신청일")
                         .font(.body1Regular)
                         .frame(width: 80)
+                    
                     Divider()
                     
                     Text(reservationStore.getReservation(type: .reservationDate))
@@ -75,6 +78,7 @@ struct PaymentView: View {
                     Text("예약 공간")
                         .font(.body1Regular)
                         .frame(width: 80)
+                    
                     Divider()
                     
                     VStack(alignment: .leading) {
@@ -90,7 +94,9 @@ struct PaymentView: View {
                     Text("예약 내용")
                         .font(.body1Regular)
                         .frame(width: 80)
+                    
                     Divider()
+                    
                     VStack(alignment: .leading) {
                         Text("체크인 날짜: \(reservationStore.getReservation(type: .checkInDate))")
                             .padding(.bottom, 0.2)
@@ -100,23 +106,25 @@ struct PaymentView: View {
                     }
                     .font(.captionRegular)
                 }
-                    .listRowBackground(Color.clear)
+                .listRowBackground(Color.clear)
                 
                 HStack {
                     Text("예약 인원")
                         .font(.body1Regular)
                         .frame(width: 80)
+                    
                     Divider()
                     
                     Text(reservationStore.getReservation(type: .personnel))
-                    .font(.captionRegular)
+                        .font(.captionRegular)
                 }
-                    .listRowBackground(Color.clear)
+                .listRowBackground(Color.clear)
                 
                 HStack {
                     Text("예약자 정보")
                         .font(.body1Regular)
                         .frame(width: 80)
+                    
                     Divider()
                     
                     VStack(alignment: .leading) {
@@ -126,18 +134,19 @@ struct PaymentView: View {
                     }
                     .font(.captionRegular)
                 }
-                    .listRowBackground(Color.clear)
+                .listRowBackground(Color.clear)
                 
                 HStack {
                     Text("요청사항")
                         .font(.body1Regular)
                         .frame(width: 80)
+                    
                     Divider()
                     
                     Text(reservationStore.getReservation(type: .reservationRequest))
-                    .font(.captionRegular)
+                        .font(.captionRegular)
                 }
-                    .listRowBackground(Color.clear)
+                .listRowBackground(Color.clear)
                 
             }
             .listStyle(.plain)
@@ -155,7 +164,6 @@ struct PaymentView: View {
             .buttonStyle(.plain)
             .padding([.top, .bottom], 10)
         }
-        
         .alert(isPresented: $isAllPaymentInfoChecked) {
             Alert(title: Text("결제 확인"),
                   message: Text("계좌번호 : 1010101010110로 입금부탁드립니다"),
@@ -164,21 +172,14 @@ struct PaymentView: View {
             }))
         }
         .navigationDestination(isPresented: $isPaymentChecked) {
-//            HomeView()
-//                .navigationBarBackButtonHidden()
+            HomeView(tabBarVisivility: $tabBarVisivility)
+                .navigationBarBackButtonHidden()
         }
         .background(Color.myBackground)
         .navigationTitle("결제 정보")
         .navigationBarTitleDisplayMode(.inline)
         .customBackbutton()
-        .onAppear {
-            //tabBarVisible = .hidden
-        }
-        .onDisappear {
-            //tabBarVisible = .visible
-        }
     }
-    
 }
 
 struct PaymentView_Previews: PreviewProvider {

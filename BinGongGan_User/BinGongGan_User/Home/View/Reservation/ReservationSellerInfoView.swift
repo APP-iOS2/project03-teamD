@@ -17,7 +17,7 @@ struct ReservationSellerInfoView: View {
     var body: some View {
         VStack(alignment: .leading) {
             
-            Text("이용 시 주의 사항")
+            Text("안내사항")
                 .font(.body1Regular)
             ZStack {
                 
