@@ -17,19 +17,29 @@ struct HomeView: View {
                 .ignoresSafeArea(.all)
             NavigationStack {
                 ScrollView {
+                    HStack{
+                        Text("전체 메뉴")
+                            .font(.title2)
+                            .bold()
+                            .padding([.top, .leading], 20)
+                            .foregroundColor(Color.black)
+                        Spacer()
+                    }
                     CategoryButtonsView()
                         .frame(maxWidth: .infinity, maxHeight: .infinity)
-                        .padding(10)
+                        .padding(.horizontal, 20)
+                        .padding(.bottom, 10)
                     HStack{
                         Text("신규 예약")
                             .font(.title2)
                             .bold()
                             .padding(.leading, 20)
-                            .foregroundColor(Color.myDarkGray)
+                            .foregroundColor(Color.black)
                         Spacer()
                     }
                     ForEach(0..<5) { _ in
                         ReservationCell()
+                            .padding(.bottom, 12)
                             .padding(.horizontal, 20)
                             .overlay(
                                 VStack {
@@ -38,18 +48,18 @@ struct HomeView: View {
                                     }) {
                                         Image(systemName: "chevron.right")
                                             .background(Color.clear)
-                                            .foregroundColor(Color.myPrimary)
+                                            .foregroundColor(Color.myBrown)
                                     }
                                     .buttonStyle(.plain)
                                     .frame(maxWidth: .infinity, alignment: .trailing)
                                     .padding(EdgeInsets(top: 20, leading: 0, bottom: 0, trailing: 40))
                                     Spacer()
                                 }
-                                .sheet(isPresented: self.$isPresentedModal) {
-                                    ReservationDetailSheet()
-                                        .presentationDetents([.medium])
-                                        .cornerRadius(15)
-                                }
+                                    .sheet(isPresented: self.$isPresentedModal) {
+                                        ReservationDetailSheet()
+                                            .presentationDetents([.medium])
+                                            .cornerRadius(15)
+                                    }
                             )
                     }
                 }
@@ -62,7 +72,7 @@ struct HomeView: View {
                                 .frame(width: 40, height: 40)
                             Text("BinGongGan")
                                 .bold()
-                                .foregroundColor(Color.myPrimary)
+                                .foregroundColor(Color.myBrown)
                         }
                         .padding(EdgeInsets(top: 10, leading: 10, bottom: 15, trailing: 0))
                     }

@@ -57,7 +57,7 @@ struct MyPageMainView: View {
                     isShowingActionSheet = true
                 } label: {
                     Text("상담원 연결")
-                        .foregroundColor(.myBlack)
+                        .foregroundColor(.black)
                 }
 
             } //Section - 고객센터
@@ -90,7 +90,7 @@ struct MyPageMainView: View {
                     isShowingSetting.toggle()
                 }label: {
                     Image(systemName: "gearshape")
-                        .foregroundColor(.myPrimary)
+                        .foregroundColor(.myBrown)
                 }
             }
         }

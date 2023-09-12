@@ -7,6 +7,7 @@
 
 import SwiftUI
 
+// Binding 사용으로 13이상
 @available(iOS 13.0, *)
 struct ToastMessageModifier: ViewModifier {
     @Binding var isShowing: Bool
@@ -15,7 +16,6 @@ struct ToastMessageModifier: ViewModifier {
     func body(content: Content) -> some View {
         ZStack {
             content
-            
             if isShowing {
                 VStack {
                     Spacer()
@@ -26,6 +26,7 @@ struct ToastMessageModifier: ViewModifier {
                             .background(Color.white)
                             .frame(width: 300, height: 50)
                             .transition(.scale)
+                        
                         HStack {
                             Image(systemName: "exclamationmark.circle")
                                 .resizable()
@@ -38,7 +39,8 @@ struct ToastMessageModifier: ViewModifier {
                                 .multilineTextAlignment(.center)
                         }
                     }
-                }.padding(.bottom, 40)
+                }
+                .padding(.bottom, 40)
                 .onAppear {
                     DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
                         withAnimation {

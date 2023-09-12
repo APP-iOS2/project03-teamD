@@ -5,11 +5,12 @@
 //  Created by 방유빈 on 2023/09/08.
 //
 
-
-
 import Foundation
+import FirebaseFirestore
+import FirebaseFirestoreSwift
 
-public struct User: Identifiable {
+public struct User: Identifiable, Codable {
+    @DocumentID public var id: String?
     public var email: String //이메일
     public var name: String //이름
     public var nickname: String //닉네임
@@ -19,11 +20,8 @@ public struct User: Identifiable {
     public var accountNumber: String? //환불계좌번호
     public var accountHolder: String? //환불계좌 예금주
     
-    public var id: String {
-        return email
-    }
-    
-    public init(email: String, name: String, nickname: String, phoneNumber: String, password: String, birthDate: String, accountNumber: String? = nil, accountHolder: String? = nil) {
+    public init(id: String, email: String, name: String, nickname: String, phoneNumber: String, password: String, birthDate: String, accountNumber: String? = nil, accountHolder: String? = nil) {
+        self.id = id
         self.email = email
         self.name = name
         self.nickname = nickname

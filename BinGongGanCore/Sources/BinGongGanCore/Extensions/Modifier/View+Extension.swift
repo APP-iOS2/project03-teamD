@@ -4,6 +4,7 @@
 //
 //  Created by 방유빈 on 2023/09/07.
 //
+
 import SwiftUI
 
 /* 이전 툴바랑 백버튼 히든 들어갔던 자리에 .customBackbutton()
@@ -13,6 +14,7 @@ import SwiftUI
  }
  */
 
+// CustomBackButton의 dismiss 사용으로 15이상
 @available(iOS 15.0, *)
 extension View {
     public func customBackbutton(action: (() -> ())? = nil) -> some View {

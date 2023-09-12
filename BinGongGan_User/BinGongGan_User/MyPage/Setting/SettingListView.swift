@@ -16,17 +16,11 @@ struct SettingListView: View {
     
     var body: some View {
         Form {
-            Section("계정 설정") {
-                NavigationLink("비밀번호 변경") {
-                    PasswordEditView()
-                }
-            }
-            
             Section("일반") {
                 Toggle("알림", isOn: $isNotificationToggle)
-                    .tint(.myPrimary)
+                    .tint(.myBrown)
                 Toggle("위치 권한", isOn: $isLocationToggle)
-                    .tint(.myPrimary)
+                    .tint(.myBrown)
             }
         }
         .navigationTitle("Setting")
