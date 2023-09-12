@@ -25,10 +25,10 @@ struct PlaceListView: View {
                             HStack {
                                 Text("조건을 맞는 장소는")
                                     .font(.body1Regular)
-                                    .foregroundColor(.myPrimary)
+                                    .foregroundColor(.myBrown)
                                 Text("\(homeStore.filteredCategoryCity.count)")
                                     .font(.body1Bold)
-                                    .foregroundColor(.mySecondary)
+                                    .foregroundColor(.myMint)
                                 Text("개 입니다.")
                                     .font(.body1Regular)
                                     .foregroundColor(.myBrown)
@@ -50,11 +50,10 @@ struct PlaceListView: View {
                               reader.scrollTo("Scroll_To_Top",anchor: .top)
                             
                         }
-//                        homeStore.filteredPlaceList(category: category)
                     }
                 }// ScrollViewReader
             }// VSTACK
-            .navigationTitle("\(homeStore.selectedCategory.rawValue)")
+            .navigationTitle("\(homeStore.selectedCategory)")
             .customBackbutton()
             .toolbar {
                 ToolbarItem(placement: .navigationBarTrailing) {

@@ -26,7 +26,7 @@ struct PlaceListFilterView: View {
                     } label: {
                         Text("취소")
                             .font(.body1Bold)
-                            .foregroundColor(.myPrimary)
+                            .foregroundColor(.myBrown)
                     }
                     Spacer()
                     Button {
@@ -34,7 +34,7 @@ struct PlaceListFilterView: View {
                     } label: {
                         Text("찾기")
                             .font(.body1Bold)
-                            .foregroundColor(.myPrimary)
+                            .foregroundColor(.myBrown)
                     }
                 }// HSTACK
                 .padding(.horizontal, 20)
@@ -45,7 +45,7 @@ struct PlaceListFilterView: View {
                             ForEach(homeStore.selectSub, id: \.self) { sub in
                                 RoundedRectangle(cornerRadius: 13)
                                     .frame(width: HomeNameSpace.screenHeight * 0.15, height: HomeNameSpace.screenHeight * 0.07)
-                                    .foregroundColor(.myWhite)
+                                    .foregroundColor(.white)
                                     .shadow(radius: 2, y: 1)
                                     .overlay {
                                         Text("\(sub)")
@@ -68,7 +68,7 @@ struct PlaceListFilterView: View {
                             } label: {
                                 Text("\(city.name)")
 
-                                    .foregroundColor(city.name == selectCity ? . myBlack : .myDarkGray)
+                                    .foregroundColor(city.name == selectCity ? . black : .myDarkGray)
 
                                     .font(city.name == selectCity ? .body1Bold : .body1Regular)
                                 
@@ -84,7 +84,7 @@ struct PlaceListFilterView: View {
                
             }// VSTACK
             .presentationDetents(
-                [.medium,.medium])
+                [.large,.large])
             .presentationDragIndicator(
             .visible)
             // 크게 작게
@@ -103,15 +103,14 @@ struct PlaceListSubFilterView: View {
                 Button {
                     if !homeStore.selectSub.contains(sub){
                         homeStore.selectSub.append(sub)
-                        print("\(homeStore.selectSub)")
                     }
                 } label: {
                     Text("\(sub)")
 
-                        .foregroundColor(homeStore.selectSub.contains(sub) ? .myBlack : .myLightGray)
+                        .foregroundColor(homeStore.selectSub.contains(sub) ? .black : .myLightGray)
                         .font(homeStore.selectSub.contains(sub) ? .body1Bold : .body1Regular)
                 }
-                .listRowBackground(Color.myWhite)
+                .listRowBackground(Color.white)
             }
         }
         .listStyle(.plain)
