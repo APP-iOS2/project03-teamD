@@ -28,7 +28,9 @@ struct AnnouncementView: View {
                 .font(.captionRegular)
             }
         }
+        .padding(.top, -20)
         .background(Color.myBackground)
+        .scrollContentBackground(.hidden)
         .navigationTitle("공지사항")
         .navigationBarTitleDisplayMode(.inline)
         .customBackbutton()

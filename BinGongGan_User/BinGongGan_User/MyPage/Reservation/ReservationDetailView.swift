@@ -9,7 +9,6 @@ import SwiftUI
 
 struct ReservationDetailView: View {
     
-    @Environment(\.dismiss) private var dismiss
     var reservate: ReservationModel
     
     var body: some View {

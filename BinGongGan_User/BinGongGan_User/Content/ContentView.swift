@@ -14,6 +14,7 @@ struct ContentView: View {
     
     @StateObject private var homeStore: HomeStore = HomeStore()
     @StateObject private var reservationStore: ReservationStore = ReservationStore()
+    @StateObject private var myReviewStore: MyReviewStore = MyReviewStore()
     
     var body: some View {
         if signInStore.isSuccessSignIn {
@@ -21,6 +22,7 @@ struct ContentView: View {
                 .environmentObject(signInStore)
                 .environmentObject(homeStore)
                 .environmentObject(reservationStore)
+                .environmentObject(myReviewStore)
         } else {
             NavigationStack {
                 SignInView()

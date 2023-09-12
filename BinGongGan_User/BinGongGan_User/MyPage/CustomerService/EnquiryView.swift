@@ -9,27 +9,54 @@ import SwiftUI
 
 struct EnquiryView: View {
     @Environment(\.dismiss) private var dismiss
+    @State private var isShowingActionSheet = false
+    @State private var isHiddenEmailInfo = false
     
     var body: some View {
-        VStack {
-            Image(systemName: "exclamationmark.circle.fill")
-            Text("공사중~")
-        }
-        .foregroundColor(.myBrown)
-        .font(.largeTitle)
-        .navigationTitle("1 : 1 문의")
-        .navigationBarTitleDisplayMode(.inline)
-        .navigationBarBackButtonHidden(true)
-        .toolbar {
-            ToolbarItem(placement:.navigationBarLeading) {
+        List {
+            Section("문의 방법") {
                 Button {
-                    dismiss()
+                    isShowingActionSheet.toggle()
                 } label: {
-                    Image(systemName: "chevron.left")
-                        .foregroundColor(.myBrown)
+                    HStack {
+                        Text("")
+                        Image(systemName: "phone.fill")
+                        Text("상담원 연결")
+                            .foregroundColor(.black)
+                        Spacer()
+                        Image(systemName: "chevron.right")
+                            .foregroundColor(.myBrown)
+                    }
+                    
+                }
+                ZStack {
+                    NavigationLink {
+                        EnquiryFormView()
+                    } label: {
+                        EmptyView()
+                    }
+                    HStack {
+                        Text("")
+                        Image(systemName: "envelope.fill")
+                        Text("이메일 문의")
+                            .foregroundColor(.black)
+                        Spacer()
+                        Image(systemName: "chevron.right")
+                            .foregroundColor(.myBrown)
+                    }
                 }
             }
         }
+        .foregroundColor(.myDarkGray)
+        .navigationTitle("1 : 1 문의")
+        .customBackbutton()
+        .scrollContentBackground(.hidden)
+        .background(Color.myBackground, ignoresSafeAreaEdges: .all)
+        .confirmationDialog("", isPresented: $isShowingActionSheet) {
+            Button("통화 02-0000-0000", role: .none) {}
+            Button("취소", role: .cancel) {}
+        }
+        
     }
 }
 
