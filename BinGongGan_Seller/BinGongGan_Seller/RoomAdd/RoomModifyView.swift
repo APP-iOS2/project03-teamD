@@ -9,10 +9,10 @@ import SwiftUI
 import BinGongGanCore
 import Combine
 
-struct RoomAddView: View {
+struct RoomModifyView: View {
     @EnvironmentObject var roomStore:RoomStore
     @State private var selectedImage: [UIImage] = []
-    
+    @State private var roomId: String = ""
     
     var body: some View {
         ZStack {
@@ -45,33 +45,34 @@ struct RoomAddView: View {
                                     Text("￦")
                                         .padding(.trailing, 1)
                                 }
-                            
                         }
                         .padding()
                         .background(.white)
                         .cornerRadius(10)
                     }
                     .padding(.top, 15)
-//                    
-//                    Section {
-//                        Text("방 상세사진")
-//                        PhotoSelectedView(selectedImages: $selectedImage, selectedImageNames: $roomStore.room.imageNames)
-//                    }
-//                    
-                    Section{
+                    
+                    Group {
+                        Text("방 상세사진")
+                        PhotoSelectedView(selectedImages: $selectedImage, selectedImageNames: $roomStore.room.imageNames)
+                    }
+                    
+                    Group{
                         Text("방 상세내용")
                         TextEditor(text: $roomStore.room.note)
                             .font(.body1Regular)
                             .frame(height: 300)
                             .cornerRadius(10)
                     }
-                    
                     PrimaryButton(title: "등록 하기") {
                         roomStore.addRoom(placeId: "heekwon")
                     }
                 }
             }
-          
+            .onAppear {
+                roomStore.fetchRoom()
+                roomId = roomStore.room.id
+            }
             .padding(20)
         }
         .customBackbutton()
@@ -79,10 +80,10 @@ struct RoomAddView: View {
     }
 }
 
-struct RoomAddView_Previews: PreviewProvider {
+struct RoomUpdateView_Previews: PreviewProvider {
     static var previews: some View {
         NavigationStack {
-            RoomAddView()
+            RoomModifyView()
                 .environmentObject(RoomStore())
         }
     }
