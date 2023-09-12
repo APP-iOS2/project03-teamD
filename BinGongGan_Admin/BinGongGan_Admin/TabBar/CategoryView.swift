@@ -17,17 +17,7 @@ struct CategoryView: View {
                     AnnouncementListView()
                 } label: {
                     Label {
-                        Text("작성된 공지 확인")
-                    } icon: {
-                        Image(systemName: "megaphone.fill")
-                            .foregroundColor(.myBrown)
-                    }
-                }
-                NavigationLink {
-                    AddAnnouncementView()
-                } label: {
-                    Label {
-                        Text("공지 작성")
+                        Text("공지 관리")
                     } icon: {
                         Image(systemName: "megaphone.fill")
                             .foregroundColor(.myBrown)

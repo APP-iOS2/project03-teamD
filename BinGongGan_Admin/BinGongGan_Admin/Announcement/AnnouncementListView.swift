@@ -9,12 +9,25 @@ import SwiftUI
 
 struct AnnouncementListView: View {
     var body: some View {
-        Text("전체 공지 목록")
+        VStack {
+            List {
+                
+            }
+            NavigationLink{
+                AddAnnouncementView()
+            } label: {
+                Text("공지 작성")
+                    .buttonStyle(backgroundColor: .myBrown)
+            }
+        }
+        .ignoresSafeArea(.keyboard)
     }
 }
 
 struct AnnouncementListView_Previews: PreviewProvider {
     static var previews: some View {
-        AnnouncementListView()
+        NavigationStack {
+            AnnouncementListView()
+        }
     }
 }
