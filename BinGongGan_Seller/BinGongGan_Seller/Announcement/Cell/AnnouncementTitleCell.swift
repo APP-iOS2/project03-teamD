@@ -9,9 +9,11 @@ import SwiftUI
 import BinGongGanCore
 
 struct AnnouncementTitleCell: View {
+    var title: String
+    
     var body: some View {
         VStack(alignment: .leading) {
-            Text("ABCD키친")
+            Text(title)
                 .font(.title3)
                 .bold()
         }
@@ -26,6 +28,6 @@ struct AnnouncementTitleCell: View {
 
 struct AnnouncementTitleCell_Previews: PreviewProvider {
     static var previews: some View {
-        AnnouncementTitleCell()
+        AnnouncementTitleCell(title: "hi")
     }
 }
