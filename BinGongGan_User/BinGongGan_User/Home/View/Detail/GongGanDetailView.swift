@@ -10,7 +10,10 @@ import BinGongGanCore
 
 
 struct GongGanDetailView: View {
-    @State var gongGan: GongGan = GongGan.sampleGongGan
+    
+//    @State var gongGanID: String = ""
+    
+    @EnvironmentObject var gongGan: GongGanStore
     @State private var heartButton: Bool = false
     @State private var isActionSheetPresented = false
     @State private var tabBarVisivility: Visibility = .visible
@@ -28,6 +31,7 @@ struct GongGanDetailView: View {
     enum segmentIndex: String , CaseIterable {
         case info = "상세 정보"
         case review = "리뷰"
+        case event = "공지사항"
     }
     
     @StateObject var reservationStore: ReservationStore = ReservationStore()
@@ -35,61 +39,16 @@ struct GongGanDetailView: View {
     @Namespace var animation
     
     var body: some View {
-        NavigationStack {
             ZStack {
                 Spacer().background(Color.myBackground).edgesIgnoringSafeArea(.all)
                 ScrollView(showsIndicators: false) {
                     
-                    DetailTabImageView(imageUrl: gongGan.placeImageUrl)
+                    DetailTabImageView(imageUrl: gongGan.gongGanInfo.placeImageUrl)
                         .frame(height: screenheight * 0.25)
                     
                     
                     Group { // 세그먼트
-                        VStack {
-                            HStack {
-                                ForEach(segmentIndex.allCases, id: \.self) { segment in
-                                    VStack {
-                                        Text(segment.rawValue)
-                                            .font(.subheadline)
-                                            .fontWeight(selectedSegment == segment ? .bold : .regular)
-                                            .foregroundColor(selectedSegment == segment ? .myBrown : .black)
-                                        
-                                        
-                                        
-                                        if selectedSegment == segment {
-                                            Rectangle()
-                                                .foregroundColor(.myBrown)
-                                                .frame(maxWidth: screenWidth * 0.45, maxHeight: 2)
-                                                .matchedGeometryEffect(id: "item", in: animation)
-                                        } else {
-                                            Rectangle()
-                                                .foregroundColor(.clear)
-                                                .frame(maxWidth: screenWidth * 0.45, maxHeight: 2)
-                                        }
-                                    }
-                                    .frame(height: 50)
-                                    .onTapGesture {
-                                        withAnimation {
-                                            selectedSegment = segment
-                                        }
-                                        
-                                        if selectedSegment != .info {
-                                            isReservationActive = nil
-                                        }
-                                        
-                                    }
-                                }
-                            }
-                            
-                            switch selectedSegment {
-                            case .info:
-                                DetailSegmentView(gongGan: gongGan,isReservationActive: $isReservationActive)
-                            case .review:
-                                //                                DetailReviewRowView(text: "맛있어요")
-                                DetailSegmentReviewListView()
-                                    .padding()
-                            }
-                        }
+                        SegmentView(selectedSegment: $selectedSegment, isReservationActive: $isReservationActive, screenWidth: screenWidth, animation: animation)
                     }
                 }
                 
@@ -109,6 +68,9 @@ struct GongGanDetailView: View {
                             .frame(width: 1)
                             .padding(.vertical, 5)
                         Button {
+//                            #if DEBUG
+//                            print(isReservationActive ?? 101010)
+//                            #endif
                             if isReservationActive != nil {
                                 isShowingReservationView.toggle()
                             } else {
@@ -143,8 +105,8 @@ struct GongGanDetailView: View {
                 ActionSheet(
                     title: Text("전화 문의"),
                     buttons: [
-                        .default(Text("전화 \(gongGan.placePhone)")) {
-                            if let phoneURL = URL(string: "tel://\(gongGan.placePhone)") {
+                        .default(Text("전화 \(gongGan.gongGanInfo.placePhone)")) {
+                            if let phoneURL = URL(string: "tel://\(gongGan.gongGanInfo.placePhone)") {
                                 UIApplication.shared.open(phoneURL, options: [:], completionHandler: nil)
                             }
                         },
@@ -170,7 +132,6 @@ struct GongGanDetailView: View {
                         .toolbar(tabBarVisivility, for: .tabBar)
                         .navigationBarBackButtonHidden()
             }
-        }
     }
     
 }
@@ -178,9 +139,12 @@ struct GongGanDetailView: View {
 struct GongGanDetailView_Previews: PreviewProvider {
     static var previews: some View {
         TabView {
-            GongGanDetailView(gongGan: GongGan.sampleGongGan)
-                .tabItem {
-                    Label("홈", systemImage: "house")
+            NavigationStack {
+                GongGanDetailView()
+            }
+                    .environmentObject(GongGanStore())
+                    .tabItem {
+                        Label("홈", systemImage: "house")
                 }
         }
         .tint(.myBrown)

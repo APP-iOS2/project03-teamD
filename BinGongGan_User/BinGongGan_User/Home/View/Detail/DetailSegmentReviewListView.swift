@@ -9,13 +9,14 @@ import SwiftUI
 
 struct DetailSegmentReviewListView: View {
     let tempText: [String] = ["맛있어요", "맛있어요맛있어요", "맛있어요맛있어요맛있어요맛있어요맛있어요", "맛있어요맛있어요맛있어요맛있어요맛있어요"]
-    
+    private let screenWidth = UIScreen.main.bounds.width
     var body: some View {
         NavigationStack {
             ForEach(Array(tempText.enumerated()), id: \.element) { (index, element) in
                 DetailReviewRowView(text: element)
             }
         }
+        .padding()
     }
 }
 

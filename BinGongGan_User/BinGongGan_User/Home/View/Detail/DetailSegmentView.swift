@@ -6,9 +6,10 @@
 //
 
 import SwiftUI
+import BinGongGanCore
 
 struct DetailSegmentView: View {
-    @State var gongGan: GongGan
+    @EnvironmentObject var gongGan: GongGanStore
     @Binding var isReservationActive: Int?
     private let screenWidth = UIScreen.main.bounds.width
     private let screenheight = UIScreen.main.bounds.height
@@ -16,16 +17,17 @@ struct DetailSegmentView: View {
     var body: some View {
         NavigationStack {
             Group {
-                SubGongGanSelectView(gongGan: gongGan, isReservationActive: $isReservationActive)
+                SubGongGanSelectView(isReservationActive: $isReservationActive)
             }
             
             
-            VStack(spacing: 20) {
+            VStack(alignment: .leading,spacing: 20) {
                 
                 Group {
                     VStack(alignment: .leading, spacing: 10) {
-                        customSection("건물 정보")
-                        ForEach(gongGan.placeInfo, id: \.self) { summary in
+                                                customSection("건물 정보")
+//                        Text("건물 정보")
+                        ForEach(gongGan.gongGanInfo.placeInfo, id: \.self) { summary in
                             Text("◦ \(summary)")
                                 .font(.subheadline)
                                 .foregroundColor(.myDarkGray)
@@ -36,30 +38,35 @@ struct DetailSegmentView: View {
                 .padding(EdgeInsets(top: 5, leading: 5, bottom: 0, trailing: 0))
                 
                 Group {
-                    customSection("시설 안내")
-                    HStack(spacing: 40) {
-                        ForEach(gongGan.placeGuide) { label in
+                                        customSection("시설 안내")
+//                    Text("시설 안내")
+                        .padding(EdgeInsets(top: 5, leading: 5, bottom: 5, trailing: 0))
+                    LazyHGrid(rows: [GridItem(.flexible(), spacing: 80), GridItem(.flexible(), spacing: 10)], spacing: 20) {
+                        ForEach(gongGan.gongGanInfo.placeGuide) { item in
                             VStack {
-                                Image(systemName: label.systemImage)
-                                    .resizable()
-                                    .frame(width: 40,height: 30)
-                                
-                                Text(label.text)
+                                VStack {
+                                    Image(systemName: item.systemImage)
+                                        .font(.system(size: 40))
+                                }
+                                .frame(height: 40)
+                                Text(item.labelTitle)
                             }
                         }
                     }
+                    .foregroundColor(Color.myBrown)
                 }
                 .padding(EdgeInsets(top: 0, leading: 5, bottom: 20, trailing: 0))
                 
             }
             .padding(.horizontal, 15)
-            .padding(.bottom, 60)
+            .padding(.bottom, 90)
         }
     }
 }
 
 struct SegmentInfoView_Previews: PreviewProvider {
     static var previews: some View {
-        DetailSegmentView(gongGan: GongGan.sampleGongGan, isReservationActive: .constant(nil))
+        DetailSegmentView(isReservationActive: .constant(nil))
+            .environmentObject(GongGanStore())
     }
 }

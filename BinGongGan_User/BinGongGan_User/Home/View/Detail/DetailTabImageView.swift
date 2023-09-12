@@ -29,31 +29,6 @@ struct DetailTabImageView: View {
                 }
             }
             .tabViewStyle(PageTabViewStyle())
-            //            .frame(width: screenWidth * 0.9, height: 200)
-            
-            
-            //                TabView(selection: $selectedTab) {
-            //                    ForEach(gongGan.tempImage.indices, id: \.self) { index in
-            //                        AsyncImage(url: URL(string: gongGan.tempImage[index])) { image in
-            //                            image
-            //                                .resizable()
-            //                                .scaledToFill()
-            //                        } placeholder: {
-            //                            ProgressView()
-            //                        }
-            //                        .tag(index) // Tag each tab with its index
-            //                    }
-            //                }
-            //                .tabViewStyle(PageTabViewStyle())
-            //                .frame(width: screenWidth, height: 250)
-            //                .onReceive(timer) { _ in
-            //                    // Automatically switch to the next tab
-            //                    withAnimation {
-            //                        selectedTab = (selectedTab + 1) % gongGan.tempImage.count
-            //                    }
-            //                }
-            
-            
             
         }
     }

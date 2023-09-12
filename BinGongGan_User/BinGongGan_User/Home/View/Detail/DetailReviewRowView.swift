@@ -18,7 +18,7 @@ struct DetailReviewRowView: View {
             return "\(text[..<endIndex]) ..."
         }
     }
-    var imageList: [String] = ["SignInLogo", "SignInLogo", "SignInLogo", "SignInLogo", "SignInLogo"]
+    var imageList: [String] = ["SignInLogo", "SignInLogo", "SignInLogo"]
     @State private var isFolded: Bool = true
 
     var body: some View {
