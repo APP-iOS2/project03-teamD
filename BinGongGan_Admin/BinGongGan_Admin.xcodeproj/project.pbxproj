@@ -23,6 +23,8 @@
 		534F56CA2AB0CB9800FA79B0 /* AnnouncementStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 534F56C92AB0CB9800FA79B0 /* AnnouncementStore.swift */; };
 		534F56CD2AB0D53500FA79B0 /* FirestoreService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 534F56CC2AB0D53500FA79B0 /* FirestoreService.swift */; };
 		534F56CF2AB0DD4500FA79B0 /* AnnouncementDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 534F56CE2AB0DD4500FA79B0 /* AnnouncementDetailView.swift */; };
+		534F56D22AB0E2C500FA79B0 /* UserStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 534F56D12AB0E2C500FA79B0 /* UserStore.swift */; };
+		534F56D42AB0E4E800FA79B0 /* UserDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 534F56D32AB0E4E800FA79B0 /* UserDetailView.swift */; };
 		B12A84362AA6EF9500BDF8CA /* BinGongGan_AdminApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = B12A84352AA6EF9500BDF8CA /* BinGongGan_AdminApp.swift */; };
 		B12A843A2AA6EF9800BDF8CA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B12A84392AA6EF9800BDF8CA /* Assets.xcassets */; };
 		B12A843D2AA6EF9800BDF8CA /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B12A843C2AA6EF9800BDF8CA /* Preview Assets.xcassets */; };
@@ -70,6 +72,8 @@
 		534F56C92AB0CB9800FA79B0 /* AnnouncementStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnnouncementStore.swift; sourceTree = "<group>"; };
 		534F56CC2AB0D53500FA79B0 /* FirestoreService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirestoreService.swift; sourceTree = "<group>"; };
 		534F56CE2AB0DD4500FA79B0 /* AnnouncementDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnnouncementDetailView.swift; sourceTree = "<group>"; };
+		534F56D12AB0E2C500FA79B0 /* UserStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserStore.swift; sourceTree = "<group>"; };
+		534F56D32AB0E4E800FA79B0 /* UserDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDetailView.swift; sourceTree = "<group>"; };
 		B12A84322AA6EF9500BDF8CA /* BinGongGan_Admin.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BinGongGan_Admin.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B12A84352AA6EF9500BDF8CA /* BinGongGan_AdminApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BinGongGan_AdminApp.swift; sourceTree = "<group>"; };
 		B12A84392AA6EF9800BDF8CA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -125,7 +129,9 @@
 		534F56B32AB0BEDF00FA79B0 /* User */ = {
 			isa = PBXGroup;
 			children = (
+				534F56D02AB0E2B300FA79B0 /* Model */,
 				534F56B42AB0BF3900FA79B0 /* UserListView.swift */,
+				534F56D32AB0E4E800FA79B0 /* UserDetailView.swift */,
 				534F56B62AB0BF4900FA79B0 /* SellerListView.swift */,
 			);
 			path = User;
@@ -181,6 +187,14 @@
 			path = Service;
 			sourceTree = "<group>";
 		};
+		534F56D02AB0E2B300FA79B0 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				534F56D12AB0E2C500FA79B0 /* UserStore.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		B12A84292AA6EF9500BDF8CA = {
 			isa = PBXGroup;
 			children = (
@@ -208,7 +222,6 @@
 			children = (
 				B12A85022AA7A92700BDF8CA /* Config */,
 				534F56C32AB0C6A500FA79B0 /* Extension */,
-				B12A85032AA7A93400BDF8CA /* App */,
 				B12A85052AA7A9A800BDF8CA /* TabBar */,
 				534F56AE2AB0BE5700FA79B0 /* Announcement */,
 				534F56B32AB0BEDF00FA79B0 /* User */,
@@ -272,6 +285,7 @@
 		B12A85052AA7A9A800BDF8CA /* TabBar */ = {
 			isa = PBXGroup;
 			children = (
+				B12A85032AA7A93400BDF8CA /* App */,
 				B12A85082AA7AAD700BDF8CA /* MainTabView.swift */,
 				534F56AA2AB0B70C00FA79B0 /* CategoryView.swift */,
 				534F56AC2AB0BD2500FA79B0 /* MainEmptyView.swift */,
@@ -419,12 +433,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				534F56D42AB0E4E800FA79B0 /* UserDetailView.swift in Sources */,
 				534F56B52AB0BF3900FA79B0 /* UserListView.swift in Sources */,
 				B12A85092AA7AAD700BDF8CA /* MainTabView.swift in Sources */,
 				534F56BC2AB0C00500FA79B0 /* ReplyListView.swift in Sources */,
 				534F56BA2AB0BFF700FA79B0 /* ReviewListView.swift in Sources */,
 				534F56C82AB0CB2200FA79B0 /* Announcement.swift in Sources */,
 				534F56CD2AB0D53500FA79B0 /* FirestoreService.swift in Sources */,
+				534F56D22AB0E2C500FA79B0 /* UserStore.swift in Sources */,
 				534F56BF2AB0C06300FA79B0 /* PostingListView.swift in Sources */,
 				534F56B02AB0BEA300FA79B0 /* AnnouncementListView.swift in Sources */,
 				534F56CF2AB0DD4500FA79B0 /* AnnouncementDetailView.swift in Sources */,

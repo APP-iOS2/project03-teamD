@@ -21,6 +21,8 @@ struct AnnouncementDetailView: View {
                 Text(announcement.content)
             }
         }
+        .scrollContentBackground(.hidden)
+        .background(Color.myBackground, ignoresSafeAreaEdges: .all)
     }
 }
 

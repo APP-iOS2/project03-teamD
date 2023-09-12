@@ -31,10 +31,12 @@ struct AnnouncementListView: View {
         }
         .onAppear {
             Task {
-                try await announcementStore.featchAnnouncement()
+                try await announcementStore.fetchAnnouncement()
             }
         }
         .ignoresSafeArea(.keyboard)
+        .scrollContentBackground(.hidden)
+        .background(Color.myBackground, ignoresSafeAreaEdges: .all)
     }
 }
 

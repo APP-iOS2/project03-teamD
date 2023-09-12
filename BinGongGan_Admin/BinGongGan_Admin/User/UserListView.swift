@@ -8,13 +8,35 @@
 import SwiftUI
 
 struct UserListView: View {
+    @StateObject private var userStore: UserStore = UserStore()
+    
     var body: some View {
-        Text("일반 사용자 리스트")
+        List(userStore.userList) { user in
+            NavigationLink {
+                UserDetailView(user: user)
+            } label: {
+                VStack(alignment: .leading) {
+                    Text(user.name)
+                        .font(.head1Bold)
+                    Text("\(user.nickname)")
+                        .font(.captionRegular)
+                        .foregroundColor(.myDarkGray)
+                }
+            }
+
+        }
+        .onAppear {
+            Task {
+                try await userStore.fetchUser()
+            }
+        }
     }
 }
 
 struct UserListView_Previews: PreviewProvider {
     static var previews: some View {
-        UserListView()
+        NavigationStack {
+            UserListView()
+        }
     }
 }

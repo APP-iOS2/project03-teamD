@@ -10,19 +10,22 @@ import BinGongGanCore
 
 struct MainEmptyView: View {
     var body: some View {
-        VStack {
-            Text("Admin System")
-                .font(.largeTitle)
-                .fontWeight(.heavy)
-                .foregroundColor(.myBrown)
-            Image("HomeLogo")
-                .padding(.vertical, 20)
+        ZStack {
+            Color.myBackground.ignoresSafeArea(.all)
             VStack {
-                Text("관리자 시스템에 오신걸 환영합니다.")
-                Text("이용하실 메뉴를 선택해주세요.")
+                Text("Admin System")
+                    .font(.largeTitle)
+                    .fontWeight(.heavy)
+                    .foregroundColor(.myBrown)
+                Image("HomeLogo")
+                    .padding(.vertical, 20)
+                VStack {
+                    Text("관리자 시스템에 오신걸 환영합니다.")
+                    Text("이용하실 메뉴를 선택해주세요.")
+                }
+                .font(.head1Regular)
+                .foregroundColor(.myDarkGray)
             }
-            .font(.head1Regular)
-            .foregroundColor(.myDarkGray)
         }
     }
 }

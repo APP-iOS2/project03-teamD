@@ -17,7 +17,7 @@ class AnnouncementStore: ObservableObject {
     
     init() {}
     
-    func featchAnnouncement() async throws {
+    func fetchAnnouncement() async throws {
         var tempList: [SystemAnnouncement] = []
         
         do {
