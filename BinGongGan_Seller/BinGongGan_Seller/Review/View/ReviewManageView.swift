@@ -20,48 +20,18 @@ struct ReviewManageView: View {
     var body: some View {
         Form {
             Section {
-                ForEach(1...3, id: \.self) { _ in
+                ForEach(reviewStore.reviewList) { review in
                     NavigationLink {
-                        ReviewManageDetailView()
+                        ReviewManageDetailView(review: review)
                             .environmentObject(reviewStore)
                             .environmentObject(replyStore)
                             .environmentObject(reportStore)
                     } label: {
-                        ReviewCell()
+                        ReviewCell(review: review)
                     }
                 }
             } header: {
                 Text("공간 1")
-            }
-            
-            Section {
-                ForEach(1...3, id: \.self) { _ in
-                    NavigationLink {
-                        ReviewManageDetailView()
-                            .environmentObject(reviewStore)
-                            .environmentObject(replyStore)
-                            .environmentObject(reportStore)
-                    } label: {
-                        ReviewCell()
-                    }
-                }
-            } header: {
-                Text("공간 2")
-            }
-            
-            Section {
-                ForEach(1...3, id: \.self) { _ in
-                    NavigationLink {
-                        ReviewManageDetailView()
-                            .environmentObject(reviewStore)
-                            .environmentObject(replyStore)
-                            .environmentObject(reportStore)
-                    } label: {
-                        ReviewCell()
-                    }
-                }
-            } header: {
-                Text("공간 3")
             }
         }
         .background(Color.myBackground)

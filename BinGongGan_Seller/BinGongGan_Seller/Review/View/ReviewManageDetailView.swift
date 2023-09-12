@@ -17,6 +17,8 @@ struct ReviewManageDetailView: View {
     
     @State var isShowingReviewReportSheet: Bool = false
     
+    var review: Review
+    
     var body: some View {
         VStack {
             ScrollView {
@@ -49,7 +51,7 @@ struct ReviewManageDetailView: View {
 struct ReviewManageDetailView_Previews: PreviewProvider {
     static var previews: some View {
         NavigationStack {
-            ReviewManageDetailView()
+            ReviewManageDetailView(review: Review(placeId: "", writerId: "", date: "", rating: 5, content: ""))
                 .environmentObject(ReviewStore())
                 .environmentObject(ReplyStore())
                 .environmentObject(ReportStore())
