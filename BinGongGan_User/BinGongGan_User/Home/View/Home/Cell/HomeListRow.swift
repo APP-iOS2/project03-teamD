@@ -41,7 +41,6 @@ struct HomeListRow: View {
                     .padding(EdgeInsets(top: 0, leading: 20, bottom: 0, trailing: 10))
                     
                     VStack(alignment: .leading) {
-                        
                         Text("\(place.placeName)")
                             .foregroundColor(.black)
                             .font(.body1Bold)
@@ -55,22 +54,18 @@ struct HomeListRow: View {
                             .lineLimit(1)
                     }// VSTACK
                     Spacer()
-//                    HeartButton(place: $place)
-//                        .padding(.trailing, 20)
-                    
                 }// HSTACK
                 .foregroundColor(.myBackground)
                 Rectangle()
                     .frame(height: 1)
                     .foregroundColor(.myLightGray)
             }// VSTACK
-            
         }
     }
 }
 
 struct HomeShowPlaceListCellView_Previews: PreviewProvider {
     static var previews: some View {
-        HomeListRow(place: HomeStore().places[3])
+        HomeListRow(place: HomeStore().places[0])
     }
 }

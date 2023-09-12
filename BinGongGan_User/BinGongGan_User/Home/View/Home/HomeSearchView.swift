@@ -34,7 +34,7 @@ struct HomeSearchView: View {
                         homeStore.searchPlaceName(placess: homeStore.places, keyWord: placeSearchTextField)
                         
                         if !homeStore.recentlyWords.contains(placeSearchTextField){
-                            homeStore.searchRecentlyWord(word: placeSearchTextField)
+                            homeStore.addRecentlyWord(word: placeSearchTextField)
                         }
                         placeSearchTextField = ""
                     } label: {
@@ -58,9 +58,7 @@ struct HomeSearchView: View {
                                 .font(.captionRegular)
                                 .foregroundColor(.myBrown)
                         }
-                        
                         Spacer()
-                        
                     }
                     ScrollView(.horizontal, showsIndicators: false) {
                         HStack(spacing: 5) {
