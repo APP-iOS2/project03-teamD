@@ -9,7 +9,7 @@
 	<key>PLIST_VERSION</key>
 	<string>1</string>
 	<key>BUNDLE_ID</key>
-	<string>com.ZD.BinGongGan.Seller</string>
+	<string>com.ZD.BinGongGan.User</string>
 	<key>PROJECT_ID</key>
 	<string>bingongganapp</string>
 	<key>STORAGE_BUCKET</key>
@@ -25,6 +25,6 @@
 	<key>IS_SIGNIN_ENABLED</key>
 	<true></true>
 	<key>GOOGLE_APP_ID</key>
-	<string>1:187035313188:ios:03f4b4e3563766669564b1</string>
+	<string>1:187035313188:ios:9a2db2ccd1cce1629564b1</string>
 </dict>
 </plist>
