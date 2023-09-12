@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import BinGongGanCore
 
 enum ReservationHistoryType: String , CaseIterable {
     case all = "전체 내역"
@@ -15,11 +16,10 @@ enum ReservationHistoryType: String , CaseIterable {
 }
 
 struct MyReservationListView: View {
-    
+   
+    @EnvironmentObject private var myReservationStore: MyReservationStore
     @State private var selectedPicker: ReservationHistoryType = .all
     @State private var isShowingGongGanDetailView: Bool = false
-    @State private var reservation: ReservationModel = ReservationModel(placeName: "", reservationNumber: "", reservationDate: "", reservationTime: "" , reservationPersonal: 1, placeAddress: "", isReservation: false)
-    
     @State private var isShowingSheet: Bool = false
     
     var body: some View {
@@ -41,77 +41,26 @@ struct MyReservationListView: View {
                             .shadow(color: .myBackground, radius: 5, x: 3, y: 3)
                     )
                 }
-            }.padding(.trailing)
-            
+            }
+            .padding(.trailing)
+
             List {
-                ForEach(reservates) { reservate in
-                    switch selectedPicker {
-                    case .all:
-                        Button {
-                            isShowingGongGanDetailView = true
-                            reservation = reservate
-                        } label: {
-                            MyReservationRowView(reservate: reservate)
-                                .background(
-                                    RoundedRectangle(cornerRadius: 15)
-                                        .foregroundColor(reservate.isReservation ? .myBackground : .white)
-                                        .shadow(color: .gray, radius: 5, x: 3, y: 3)
-                                    
-                                )
-                        }
-                        
-                    case .expect:
-                        if !reservate.isReservation {
-                            Button {
-                                isShowingGongGanDetailView = true
-                                reservation = reservate
-                            } label: {
-                                MyReservationRowView(reservate: reservate)
-                                    .background(
-                                        RoundedRectangle(cornerRadius: 15)
-                                            .foregroundColor(reservate.isReservation ? .myBackground : .white)
-                                            .shadow(color: .gray, radius: 5, x: 3, y: 3)
-                                    )
-                            }
-                            
-                            
-                            
-                        }
-                    case .success:
-                        if reservate.isReservation {
-                            
-                            Button {
-                                isShowingGongGanDetailView = true
-                                reservation = reservate
-                            } label: {
-                                MyReservationRowView(reservate: reservate)
-                                    .background(
-                                        RoundedRectangle(cornerRadius: 15)
-                                            .foregroundColor(reservate.isReservation ? .myBackground : .white)
-                                            .shadow(color: .gray, radius: 5, x: 3, y: 3)
-                                    )
-                            }
-                            
-                        }
-                        
-                    case .cancel:
-                        Button {
-                            isShowingGongGanDetailView = true
-                            reservation = reservate
-                        } label: {
-                            MyReservationRowView(reservate: reservate)
-                                .background(
-                                    RoundedRectangle(cornerRadius: 15)
-                                        .foregroundColor(reservate.isReservation ? .myBackground : .white)
-                                        .shadow(color: .gray, radius: 5, x: 3, y: 3)
-                                )
-                        }
+                ForEach(myReservationStore.myReservations) { reservate in
+                    Button {
+                        isShowingGongGanDetailView = true
+                        myReservationStore.reservation = reservate
+                    } label: {
+                        MyReservationRowView(reservation: reservate)
+                            .background(
+                                RoundedRectangle(cornerRadius: 15)
+                                    .foregroundColor(.white)
+                                    .shadow(color: .gray, radius: 5, x: 3, y: 3)
+                            )
                     }
                 }
                 .listRowSeparator(.hidden)
             }
             .listStyle(.plain)
-            
             Spacer()
         }
         .navigationTitle("예약 내역")
@@ -123,11 +72,13 @@ struct MyReservationListView: View {
         .sheet(isPresented: $isShowingSheet) {
             CategorySheetView(isShowingSheet: $isShowingSheet, selectedPicker: $selectedPicker)
         }
+        
     }
 }
 
 struct MyReservationListView_Previews: PreviewProvider {
     static var previews: some View {
         MyReservationListView()
+            .environmentObject(MyReservationStore())
     }
 }
