@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		2F143E122AB0574000CB9ED5 /* ReplyStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F143E112AB0574000CB9ED5 /* ReplyStore.swift */; };
-		2F143E142AB0585700CB9ED5 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2F143E132AB0585700CB9ED5 /* GoogleService-Info.plist */; };
 		4B76BBA52AB0526600E07878 /* AnnouncementStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B76BBA42AB0526600E07878 /* AnnouncementStore.swift */; };
 		4B76BBA72AB052EB00E07878 /* AnnouncementAddView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B76BBA62AB052EB00E07878 /* AnnouncementAddView.swift */; };
 		5406F8882AB03A42000A6441 /* CustomSecureField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FD06C9A2AAEE51900D116B9 /* CustomSecureField.swift */; };
@@ -83,6 +82,20 @@
 		543E21BD2AAEF54E00F12A06 /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = 543E21BC2AAEF54E00F12A06 /* FirebaseAuth */; };
 		543E21BF2AAEF54E00F12A06 /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = 543E21BE2AAEF54E00F12A06 /* FirebaseFirestore */; };
 		543E21C12AAEF54E00F12A06 /* FirebaseFirestoreSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 543E21C02AAEF54E00F12A06 /* FirebaseFirestoreSwift */; };
+		6A7135392AB071EB00DC7194 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 6A7135382AB071EB00DC7194 /* GoogleService-Info.plist */; };
+		6A7135402AB0737C00DC7194 /* SignUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A71353F2AB0737C00DC7194 /* SignUpView.swift */; };
+		6A7135422AB0739300DC7194 /* FirstStepSignUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A7135412AB0739300DC7194 /* FirstStepSignUpView.swift */; };
+		6A7135442AB073A200DC7194 /* SecondStepSignUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A7135432AB073A200DC7194 /* SecondStepSignUpView.swift */; };
+		6A7135462AB073B500DC7194 /* ThirdStepSignUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A7135452AB073B500DC7194 /* ThirdStepSignUpView.swift */; };
+		6A7135482AB073C400DC7194 /* FourthSignUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A7135472AB073C400DC7194 /* FourthSignUpView.swift */; };
+		6A71354A2AB073D300DC7194 /* AgreementCheckButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A7135492AB073D300DC7194 /* AgreementCheckButton.swift */; };
+		6A71354C2AB073E000DC7194 /* ImagePickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A71354B2AB073E000DC7194 /* ImagePickerView.swift */; };
+		6A71354E2AB073F600DC7194 /* SignUpData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A71354D2AB073F600DC7194 /* SignUpData.swift */; };
+		6A7135502AB0740E00DC7194 /* SignUpStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A71354F2AB0740E00DC7194 /* SignUpStore.swift */; };
+		6A7135522AB0742C00DC7194 /* AuthStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A7135512AB0742C00DC7194 /* AuthStore.swift */; };
+		6A7135542AB0743B00DC7194 /* SellerStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A7135532AB0743B00DC7194 /* SellerStore.swift */; };
+		6A7135562AB0750000DC7194 /* FirestoreService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A7135552AB0750000DC7194 /* FirestoreService.swift */; };
+		6A7135582AB0751600DC7194 /* Collections.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A7135572AB0751600DC7194 /* Collections.swift */; };
 		B12A84732AA6EFE900BDF8CA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B12A84722AA6EFE900BDF8CA /* Assets.xcassets */; };
 		B12A84802AA6EFEA00BDF8CA /* BinGongGan_SellerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B12A847F2AA6EFEA00BDF8CA /* BinGongGan_SellerTests.swift */; };
 		B12A848A2AA6EFEA00BDF8CA /* BinGongGan_SellerUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B12A84892AA6EFEA00BDF8CA /* BinGongGan_SellerUITests.swift */; };
@@ -112,7 +125,6 @@
 		0CDDF1C72AAB001E00834AA9 /* MyInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyInfoView.swift; sourceTree = "<group>"; };
 		0CDDF1C92AAB140900834AA9 /* MyInfoEditView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyInfoEditView.swift; sourceTree = "<group>"; };
 		2F143E112AB0574000CB9ED5 /* ReplyStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReplyStore.swift; sourceTree = "<group>"; };
-		2F143E132AB0585700CB9ED5 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		2F36A56A2AA81EEC00578AEB /* ReviewWithCommentCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewWithCommentCell.swift; sourceTree = "<group>"; };
 		2F36A56C2AA83E2100578AEB /* ReviewReportSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewReportSheet.swift; sourceTree = "<group>"; };
 		2F36A5712AA83E9200578AEB /* ReportCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportCase.swift; sourceTree = "<group>"; };
@@ -165,6 +177,20 @@
 		6A3B44492AA830F4008CC944 /* ReservationDetailsCalendarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReservationDetailsCalendarView.swift; sourceTree = "<group>"; };
 		6A3B444B2AA83119008CC944 /* ReservationDetailsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReservationDetailsCell.swift; sourceTree = "<group>"; };
 		6A70AE892AA9A3BE00EF6AAE /* ReservationDetailsSegmentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReservationDetailsSegmentView.swift; sourceTree = "<group>"; };
+		6A7135382AB071EB00DC7194 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		6A71353F2AB0737C00DC7194 /* SignUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpView.swift; sourceTree = "<group>"; };
+		6A7135412AB0739300DC7194 /* FirstStepSignUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstStepSignUpView.swift; sourceTree = "<group>"; };
+		6A7135432AB073A200DC7194 /* SecondStepSignUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondStepSignUpView.swift; sourceTree = "<group>"; };
+		6A7135452AB073B500DC7194 /* ThirdStepSignUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThirdStepSignUpView.swift; sourceTree = "<group>"; };
+		6A7135472AB073C400DC7194 /* FourthSignUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FourthSignUpView.swift; sourceTree = "<group>"; };
+		6A7135492AB073D300DC7194 /* AgreementCheckButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AgreementCheckButton.swift; sourceTree = "<group>"; };
+		6A71354B2AB073E000DC7194 /* ImagePickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePickerView.swift; sourceTree = "<group>"; };
+		6A71354D2AB073F600DC7194 /* SignUpData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpData.swift; sourceTree = "<group>"; };
+		6A71354F2AB0740E00DC7194 /* SignUpStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpStore.swift; sourceTree = "<group>"; };
+		6A7135512AB0742C00DC7194 /* AuthStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthStore.swift; sourceTree = "<group>"; };
+		6A7135532AB0743B00DC7194 /* SellerStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SellerStore.swift; sourceTree = "<group>"; };
+		6A7135552AB0750000DC7194 /* FirestoreService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirestoreService.swift; sourceTree = "<group>"; };
+		6A7135572AB0751600DC7194 /* Collections.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Collections.swift; sourceTree = "<group>"; };
 		B12A846B2AA6EFE700BDF8CA /* BinGongGan_Seller.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BinGongGan_Seller.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B12A84722AA6EFE900BDF8CA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B12A847B2AA6EFEA00BDF8CA /* BinGongGan_SellerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BinGongGan_SellerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -515,6 +541,57 @@
 			path = Enums;
 			sourceTree = "<group>";
 		};
+		6A71353A2AB072E500DC7194 /* SignUp */ = {
+			isa = PBXGroup;
+			children = (
+				6A71353B2AB0730300DC7194 /* Views */,
+				6A71353D2AB0731400DC7194 /* Store */,
+				6A71353C2AB0730E00DC7194 /* Model */,
+			);
+			path = SignUp;
+			sourceTree = "<group>";
+		};
+		6A71353B2AB0730300DC7194 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				6A71353F2AB0737C00DC7194 /* SignUpView.swift */,
+				6A7135412AB0739300DC7194 /* FirstStepSignUpView.swift */,
+				6A7135432AB073A200DC7194 /* SecondStepSignUpView.swift */,
+				6A7135452AB073B500DC7194 /* ThirdStepSignUpView.swift */,
+				6A7135472AB073C400DC7194 /* FourthSignUpView.swift */,
+				6A7135492AB073D300DC7194 /* AgreementCheckButton.swift */,
+				6A71354B2AB073E000DC7194 /* ImagePickerView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		6A71353C2AB0730E00DC7194 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				6A71354D2AB073F600DC7194 /* SignUpData.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		6A71353D2AB0731400DC7194 /* Store */ = {
+			isa = PBXGroup;
+			children = (
+				6A71354F2AB0740E00DC7194 /* SignUpStore.swift */,
+			);
+			path = Store;
+			sourceTree = "<group>";
+		};
+		6A71353E2AB0731D00DC7194 /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				6A7135512AB0742C00DC7194 /* AuthStore.swift */,
+				6A7135532AB0743B00DC7194 /* SellerStore.swift */,
+				6A7135552AB0750000DC7194 /* FirestoreService.swift */,
+				6A7135572AB0751600DC7194 /* Collections.swift */,
+			);
+			path = Service;
+			sourceTree = "<group>";
+		};
 		B12A84622AA6EFE700BDF8CA = {
 			isa = PBXGroup;
 			children = (
@@ -596,7 +673,7 @@
 		B12A85012AA7A8DE00BDF8CA /* Config */ = {
 			isa = PBXGroup;
 			children = (
-				2F143E132AB0585700CB9ED5 /* GoogleService-Info.plist */,
+				6A7135382AB071EB00DC7194 /* GoogleService-Info.plist */,
 				B12A84722AA6EFE900BDF8CA /* Assets.xcassets */,
 			);
 			path = Config;
@@ -622,6 +699,8 @@
 			isa = PBXGroup;
 			children = (
 				2FD06C942AAEE4DB00D116B9 /* SignIn */,
+				6A71353A2AB072E500DC7194 /* SignUp */,
+				6A71353E2AB0731D00DC7194 /* Service */,
 			);
 			path = Sign;
 			sourceTree = "<group>";
@@ -749,7 +828,7 @@
 			files = (
 				B1343A6F2AA901E900DC20EE /* Preview Assets.xcassets in Resources */,
 				B12A84732AA6EFE900BDF8CA /* Assets.xcassets in Resources */,
-				2F143E142AB0585700CB9ED5 /* GoogleService-Info.plist in Resources */,
+				6A7135392AB071EB00DC7194 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -781,6 +860,7 @@
 				5406F88B2AB03A42000A6441 /* CustomTextEditor.swift in Sources */,
 				5406F88C2AB03A42000A6441 /* BinGongGan_SellerApp.swift in Sources */,
 				5406F88D2AB03A42000A6441 /* ContentView.swift in Sources */,
+				6A7135482AB073C400DC7194 /* FourthSignUpView.swift in Sources */,
 				5406F88E2AB03A42000A6441 /* SellerSignInStore.swift in Sources */,
 				5406F88F2AB03A42000A6441 /* SellerSignInView.swift in Sources */,
 				5406F8902AB03A42000A6441 /* CategoryModel.swift in Sources */,
@@ -788,16 +868,21 @@
 				5406F8922AB03A42000A6441 /* ReservationConfirmedSheet.swift in Sources */,
 				5406F8932AB03A42000A6441 /* ReservationCancelSheet.swift in Sources */,
 				5406F8942AB03A42000A6441 /* CategoryButton.swift in Sources */,
+				6A7135402AB0737C00DC7194 /* SignUpView.swift in Sources */,
 				5406F8952AB03A42000A6441 /* CategoryButtonsView.swift in Sources */,
+				6A7135462AB073B500DC7194 /* ThirdStepSignUpView.swift in Sources */,
 				5406F8962AB03A42000A6441 /* HomeView.swift in Sources */,
 				5406F8972AB03A42000A6441 /* ChartModel.swift in Sources */,
 				5406F8982AB03A42000A6441 /* ChartStore.swift in Sources */,
 				5406F8992AB03A42000A6441 /* ChartView.swift in Sources */,
 				5406F89A2AB03A42000A6441 /* AnnouncementTitleCell.swift in Sources */,
 				5406F89B2AB03A42000A6441 /* AnnouncementContentCell.swift in Sources */,
+				6A7135582AB0751600DC7194 /* Collections.swift in Sources */,
 				5406F89C2AB03A42000A6441 /* AnnouncementOptionCell.swift in Sources */,
 				5406F89D2AB03A42000A6441 /* AnnouncmentOptionButton.swift in Sources */,
 				5406F89E2AB03A42000A6441 /* AnnouncementOptionSheet.swift in Sources */,
+				6A71354A2AB073D300DC7194 /* AgreementCheckButton.swift in Sources */,
+				6A7135442AB073A200DC7194 /* SecondStepSignUpView.swift in Sources */,
 				5406F89F2AB03A42000A6441 /* AnnouncementShareSheet.swift in Sources */,
 				5406F8A02AB03A42000A6441 /* AnnouncementOption.swift in Sources */,
 				5406F8A12AB03A42000A6441 /* AnnouncementShareModel.swift in Sources */,
@@ -805,6 +890,7 @@
 				5406F8A32AB03A42000A6441 /* AnnouncementTextRow.swift in Sources */,
 				5406F8A42AB03A42000A6441 /* AnnouncementDetailView.swift in Sources */,
 				5406F8A62AB03A42000A6441 /* ReservationDetailsCell.swift in Sources */,
+				6A7135542AB0743B00DC7194 /* SellerStore.swift in Sources */,
 				5406F8A72AB03A42000A6441 /* SellerInformationCell.swift in Sources */,
 				5406F8A82AB03A42000A6441 /* ReservationCell.swift in Sources */,
 				5406F8A92AB03A42000A6441 /* ReviewCell.swift in Sources */,
@@ -817,6 +903,7 @@
 				5406F8B02AB03A42000A6441 /* RervationcalendarStore.swift in Sources */,
 				5406F8B12AB03A42000A6441 /* ReservationCalendar.swift in Sources */,
 				5406F8B22AB03A42000A6441 /* DateValue.swift in Sources */,
+				6A7135562AB0750000DC7194 /* FirestoreService.swift in Sources */,
 				5406F8B32AB03A42000A6441 /* ReservationTapType.swift in Sources */,
 				5406F8B42AB03A42000A6441 /* ReservationDetailsView.swift in Sources */,
 				5406F8B52AB03A42000A6441 /* ReservationTapBarView.swift in Sources */,
@@ -824,9 +911,11 @@
 				5406F8B72AB03A42000A6441 /* ReservationDetailsListView.swift in Sources */,
 				5406F8B82AB03A42000A6441 /* ReservationDetailsCalendarView.swift in Sources */,
 				5406F8B92AB03A42000A6441 /* ReservationDatePickerView.swift in Sources */,
+				6A7135422AB0739300DC7194 /* FirstStepSignUpView.swift in Sources */,
 				5406F8BA2AB03A42000A6441 /* ReservationCardView.swift in Sources */,
 				5406F8BB2AB03A42000A6441 /* MyPlaceView.swift in Sources */,
 				5406F8BC2AB03A42000A6441 /* PlaceDetailView.swift in Sources */,
+				6A71354E2AB073F600DC7194 /* SignUpData.swift in Sources */,
 				5406F8BD2AB03A42000A6441 /* PlaceAddView.swift in Sources */,
 				5406F8BE2AB03A42000A6441 /* MapView.swift in Sources */,
 				5406F8BF2AB03A42000A6441 /* AddressSearchView.swift in Sources */,
@@ -836,16 +925,19 @@
 				5406F8C32AB03A43000A6441 /* PlaceStore.swift in Sources */,
 				2F143E122AB0574000CB9ED5 /* ReplyStore.swift in Sources */,
 				5406F8C42AB03A43000A6441 /* RoomAddView.swift in Sources */,
+				6A71354C2AB073E000DC7194 /* ImagePickerView.swift in Sources */,
 				5406F8C52AB03A43000A6441 /* (null) in Sources */,
 				5406F8C62AB03A43000A6441 /* ReviewStore.swift in Sources */,
 				5406F8C72AB03A43000A6441 /* ReportCase.swift in Sources */,
 				5406F8C82AB03A43000A6441 /* ReportStore.swift in Sources */,
 				5406F8C92AB03A43000A6441 /* ReviewManageView.swift in Sources */,
+				6A7135502AB0740E00DC7194 /* SignUpStore.swift in Sources */,
 				5406F8CA2AB03A43000A6441 /* ReviewManageDetailView.swift in Sources */,
 				5406F8CB2AB03A43000A6441 /* ReviewReportSheet.swift in Sources */,
 				4B76BBA72AB052EB00E07878 /* AnnouncementAddView.swift in Sources */,
 				5406F8CC2AB03A43000A6441 /* MyInfoView.swift in Sources */,
 				5406F8CD2AB03A43000A6441 /* MyInfoEditView.swift in Sources */,
+				6A7135522AB0742C00DC7194 /* AuthStore.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
