@@ -15,10 +15,10 @@ class PlaceStore: ObservableObject {
     
     let dataBase = Firestore.firestore().collection("Place")
     
+    //데이터베이스 비동기처리해주세요~!
     func addPlace(place: Place) {
         dataBase.document(place.id)
             .setData(place.asDictionary())
-                print("장소 추가 완료")
 
         print("장소 추가 완료")
     }

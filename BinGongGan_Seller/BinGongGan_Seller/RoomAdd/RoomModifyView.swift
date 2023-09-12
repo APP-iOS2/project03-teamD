@@ -1,5 +1,5 @@
 //
-//  RoomAddView.swift
+//  RoomModifyView.swift
 //  BinGongGan_Seller
 //
 //  Created by 신희권 on 2023/09/11.
@@ -10,7 +10,7 @@ import BinGongGanCore
 import Combine
 
 struct RoomModifyView: View {
-    @EnvironmentObject var roomStore:RoomStore
+    @EnvironmentObject var roomStore: RoomStore
     @State private var selectedImage: [UIImage] = []
     @State private var roomId: String = ""
     

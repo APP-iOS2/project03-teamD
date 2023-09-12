@@ -10,9 +10,13 @@ import BinGongGanCore
 import Combine
 
 struct RoomAddView: View {
-    @EnvironmentObject var roomStore:RoomStore
+    @Environment(\.dismiss) private var dismiss
+    @EnvironmentObject var roomStore: RoomStore
     @State private var selectedImage: [UIImage] = []
-    
+    @State private var roomName: String = ""
+    @State private var roomPrice: String = ""
+    @State private var roomNote: String = ""
+    @State private var imageNames: [String] = []
     
     var body: some View {
         ZStack {
@@ -23,7 +27,7 @@ struct RoomAddView: View {
                 VStack(alignment: .leading) {
                     Group{
                         Text("방이름")
-                        CustomTextField(placeholder: "방이름을 입력하세요", text: $roomStore.room.name)
+                        CustomTextField(placeholder: "방이름을 입력하세요", text: $roomName)
                     }
                     
                     Group {
@@ -33,12 +37,12 @@ struct RoomAddView: View {
                                 .padding(.trailing, 5)
                                 .foregroundColor(Color.myDarkGray)
                             
-                            TextField("가격을 입력하세요", text: $roomStore.room.price)
+                            TextField("가격을 입력하세요", text: $roomPrice)
                                 .keyboardType(.decimalPad)
-                                .onReceive(Just(roomStore.room.price)) { newValue in
+                                .onReceive(Just(roomPrice)) { newValue in
                                     let filtered = newValue.filter { "0123456789".contains($0) }
                                     if filtered != newValue {
-                                        self.roomStore.room.price = filtered
+                                        self.roomPrice = filtered
                                     }
                                 }
                                 .overlay(alignment:.trailing) {
@@ -52,26 +56,26 @@ struct RoomAddView: View {
                         .cornerRadius(10)
                     }
                     .padding(.top, 15)
-//                    
-//                    Section {
-//                        Text("방 상세사진")
-//                        PhotoSelectedView(selectedImages: $selectedImage, selectedImageNames: $roomStore.room.imageNames)
-//                    }
-//                    
+                    //
+                    //                    Section {
+                    //                        Text("방 상세사진")
+                    //                        PhotoSelectedView(selectedImages: $selectedImage, selectedImageNames: imageNames)
+                    //                    }
+                    //
                     Section{
                         Text("방 상세내용")
-                        TextEditor(text: $roomStore.room.note)
+                        TextEditor(text: $roomNote)
                             .font(.body1Regular)
                             .frame(height: 300)
                             .cornerRadius(10)
                     }
                     
                     PrimaryButton(title: "등록 하기") {
-                        roomStore.addRoom(placeId: "heekwon")
+                        roomStore.addRoom(placeId: "heeheehee", roomName: roomName, roomPrice: roomPrice, roomNote: roomNote, imageNames: imageNames)
+                        dismiss()
                     }
                 }
             }
-          
             .padding(20)
         }
         .customBackbutton()

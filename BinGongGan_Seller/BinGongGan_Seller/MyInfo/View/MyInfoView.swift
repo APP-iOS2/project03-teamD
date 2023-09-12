@@ -22,20 +22,21 @@ class MyStore: ObservableObject {
 
 
 struct MyInfoView: View {
-    @Environment(\.dismiss) private var dismiss
+    @StateObject private var placeStore: PlaceStore = PlaceStore()
+    @EnvironmentObject private var myStore: MyStore
+
     @State private var alertMessage = ""
     @State private var isShowAlert: Bool = false
     @State private var logOutToggle: Bool = false
     @State private var isShowingEditSheet: Bool = false
     
-    @StateObject var info: MyStore = MyStore()
     var body: some View {
         Form {
             Section {
                 VStack(alignment: .leading) {
                     Text("이름")
                         .font(.body1Regular)
-                    Text(info.myStore.name)
+                    Text(myStore.myStore.name)
                         .font(.body1Bold)
                         .foregroundColor(.myDarkGray)
                 }
@@ -43,7 +44,7 @@ struct MyInfoView: View {
                 VStack(alignment: .leading) {
                     Text("이메일")
                         .font(.body1Regular)
-                    Text(info.myStore.email)
+                    Text(myStore.myStore.email)
                         .font(.body1Bold)
                         .foregroundColor(.myDarkGray)
                 }
@@ -51,7 +52,7 @@ struct MyInfoView: View {
                 VStack(alignment: .leading) {
                     Text("연락처")
                         .font(.body1Regular)
-                    Text(info.myStore.phoneNumber)
+                    Text(myStore.myStore.phoneNumber)
                         .font(.body1Bold)
                         .foregroundColor(.myDarkGray)
                 }
@@ -59,7 +60,7 @@ struct MyInfoView: View {
                 VStack(alignment: .leading) {
                     Text("계좌번호")
                         .font(.body1Regular)
-                    Text(info.myStore.accountNumber)
+                    Text(myStore.myStore.accountNumber)
                         .font(.body1Bold)
                         .foregroundColor(.myDarkGray)
                 }
@@ -67,7 +68,7 @@ struct MyInfoView: View {
                 VStack(alignment: .leading) {
                     Text("사업자 등록번호")
                         .font(.body1Regular)
-                    Text(info.myStore.companyNumber)
+                    Text(myStore.myStore.companyNumber)
                         .font(.body1Bold)
                         .foregroundColor(.myDarkGray)
                 }
@@ -89,6 +90,14 @@ struct MyInfoView: View {
                     Text("회원 탈퇴")
                         .foregroundColor(.red)
                 }
+                
+                NavigationLink {
+                    PlaceAddView()
+                        .environmentObject(placeStore)
+                } label: {
+                    Text("임시 공간 추가 버튼")
+                }
+
             }
         }
         .navigationTitle("내 정보")
@@ -108,16 +117,17 @@ struct MyInfoView: View {
             }
         }
         .sheet(isPresented: $isShowingEditSheet, content: {
-            MyInfoEditView(isShowingEditSheet: $isShowingEditSheet, myInfo: info)
+            MyInfoEditView(isShowingEditSheet: $isShowingEditSheet)
         })
         .alert(isPresented:$isShowAlert) {
-            Alert(title: Text(""), message: Text(alertMessage), primaryButton: .default(Text("확인"), action: {
+            Alert(title: Text(""),
+                  message: Text(alertMessage),
+                  primaryButton: .default(Text("확인"),
+                                          action: {
                 if alertMessage == "로그아웃 하시겠습니까?" {
                     logOutToggle.toggle()
                 } else if alertMessage == "정말 탈퇴 하시겠습니까?" {
-                    
-                }
-            }),
+                }}),
                   secondaryButton: .cancel(Text("취소")))
         }
         

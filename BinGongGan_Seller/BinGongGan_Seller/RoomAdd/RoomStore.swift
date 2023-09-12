@@ -12,13 +12,14 @@ import FirebaseFirestore
 class RoomStore: ObservableObject {
     @Published var room: Room = Room()
     @Published var rooms: [Room] = []
-    let placeStore: PlaceStore = PlaceStore()
     let dataBase = Firestore.firestore().collection("Room")
     
-    func addRoom(placeId: String) {
+    func addRoom(placeId: String, roomName: String, roomPrice: String, roomNote: String, imageNames: [String]) {
         room.placeId = placeId
-        dataBase.document(room.id)
-            .setData(room.asDictionary())
+        
+        let newRoom: Room = Room(placeId: placeId, name: roomName, price: roomPrice, note: roomNote, imageNames: imageNames)    
+        dataBase.document(newRoom.id)
+            .setData(newRoom.asDictionary())
         print("방 추가 완료")
     }
     
