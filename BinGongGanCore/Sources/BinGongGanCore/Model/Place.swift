@@ -26,6 +26,17 @@ public struct Place:Identifiable, Codable {
         self.placeInfomationList = placeInfomationList
         self.address = address
     }
+    
+    public init() {
+        self.sellerId = ""
+          self.placeName = ""
+          self.placeCategory = .Share // 또는 다른 기본값
+          self.placeImageStringList = []
+          self.note = []
+          self.placeInfomationList = []
+          self.address = Address() // Address 초기화자 호출
+    }
+    
 }
 
 public enum PlaceCategory: String, CaseIterable, Identifiable, Codable {
