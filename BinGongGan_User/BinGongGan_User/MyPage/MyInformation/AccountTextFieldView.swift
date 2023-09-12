@@ -10,6 +10,7 @@ import BinGongGanCore
 
 struct AccountTextFieldView: View {
     @Binding var accountNumber: String
+    
     private let accountNumberLimit: Int = 20
     
     var body: some View {

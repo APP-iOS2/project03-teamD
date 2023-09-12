@@ -22,7 +22,7 @@ struct AccountNumberEditView: View {
             ForEach(numbers, id: \.self) { row in
                 HStack {
                     ForEach(row, id: \.self) { number in
-                        Button(action: {
+                        Button {
                             if number == "arrow.backward" {
                                 if !inputText.isEmpty {
                                     inputText.removeLast()
@@ -30,7 +30,7 @@ struct AccountNumberEditView: View {
                             } else {
                                 inputText += number
                             }
-                        }) {
+                        } label: {
                             if number == "arrow.backward" {
                                 Image(systemName: number)
                                     .padding(.vertical, 10)

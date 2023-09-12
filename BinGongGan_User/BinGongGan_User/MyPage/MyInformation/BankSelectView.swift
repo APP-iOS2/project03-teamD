@@ -28,6 +28,7 @@ struct BankSelectView: View {
                 }
             }
             .padding(.leading, 20)
+            
             Spacer()
             
         }

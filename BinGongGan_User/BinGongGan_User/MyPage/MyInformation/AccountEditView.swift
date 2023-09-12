@@ -10,9 +10,11 @@ import BinGongGanCore
 
 struct AccountEditView: View {
     @Environment(\.dismiss) var dismiss
+    
     @Binding var bank: Bank
     @Binding var isClickedEditBankButton: Bool
     @State private var accountNumber: String = ""
+    
     private var isDisabled: Bool {
         return accountNumber.isEmpty || accountNumber.count < 7
     }
@@ -50,7 +52,6 @@ struct AccountEditView: View {
             AccountNumberEditView(inputText: $accountNumber)
             
             Button {
-                
                 dismiss()
             } label: {
                 Text("확인")
@@ -63,7 +64,7 @@ struct AccountEditView: View {
                     .padding(.horizontal, 20)
             }
             .disabled(isDisabled)
-     
+            
             Spacer()
         }
         .toolbar {
