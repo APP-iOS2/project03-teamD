@@ -36,7 +36,7 @@ struct AnnouncementDetailView: View {
 
 struct AnnouncementDetailView_Previews: PreviewProvider {
     static var previews: some View {
-        let testAnnouncement = Announcement(title: "프리뷰", content: "프리뷰", date: Date().timeIntervalSince1970)
+        let testAnnouncement = Announcement(title: "프리뷰", content: "프리뷰", date: Date().timeIntervalSince1970, places: [])
         
         return AnnouncementDetailView(announcement: testAnnouncement)
     }

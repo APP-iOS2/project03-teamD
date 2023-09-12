@@ -10,6 +10,7 @@
 		2F143E122AB0574000CB9ED5 /* ReplyStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F143E112AB0574000CB9ED5 /* ReplyStore.swift */; };
 		4B76BBA52AB0526600E07878 /* AnnouncementStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B76BBA42AB0526600E07878 /* AnnouncementStore.swift */; };
 		4B76BBA72AB052EB00E07878 /* AnnouncementAddView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B76BBA62AB052EB00E07878 /* AnnouncementAddView.swift */; };
+		4B76BBA92AB0598B00E07878 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4B76BBA82AB0598B00E07878 /* GoogleService-Info.plist */; };
 		5406F8882AB03A42000A6441 /* CustomSecureField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FD06C9A2AAEE51900D116B9 /* CustomSecureField.swift */; };
 		5406F8892AB03A42000A6441 /* CustomTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FD06C9D2AAEE51D00D116B9 /* CustomTextField.swift */; };
 		5406F88A2AB03A42000A6441 /* PrimaryButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FD06C9B2AAEE51B00D116B9 /* PrimaryButton.swift */; };
@@ -142,6 +143,7 @@
 		4B74203C2AA80ACC00818257 /* AnnouncementView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnnouncementView.swift; sourceTree = "<group>"; };
 		4B76BBA42AB0526600E07878 /* AnnouncementStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnnouncementStore.swift; sourceTree = "<group>"; };
 		4B76BBA62AB052EB00E07878 /* AnnouncementAddView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnnouncementAddView.swift; sourceTree = "<group>"; };
+		4B76BBA82AB0598B00E07878 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		4B84D4C22AAAE8C000F5FB01 /* AnnouncementOption.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnnouncementOption.swift; sourceTree = "<group>"; };
 		4B84D4C52AAAE99300F5FB01 /* AnnouncmentOptionButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnnouncmentOptionButton.swift; sourceTree = "<group>"; };
 		4B84D4C72AAAE9B400F5FB01 /* AnnouncementOptionSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnnouncementOptionSheet.swift; sourceTree = "<group>"; };
@@ -721,6 +723,7 @@
 		B12A85012AA7A8DE00BDF8CA /* Config */ = {
 			isa = PBXGroup;
 			children = (
+
 				6A800A8D2AB08DF700F1CE25 /* GoogleService-Info.plist */,
 				B12A84722AA6EFE900BDF8CA /* Assets.xcassets */,
 			);
