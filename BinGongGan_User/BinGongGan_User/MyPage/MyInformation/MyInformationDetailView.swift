@@ -1,6 +1,3 @@
-
-
-
 //
 //  MyInformationDetail.swift
 //  BinGongGan_User
@@ -12,14 +9,13 @@ import SwiftUI
 import BinGongGanCore
 
 struct MyInformationDetailView: View {
-    @Environment(\.dismiss) private var dismiss
+    @State private var nickName: String = "유노"
+    @State private var phoneNumber: String = "01012345678"
+    @State private var isPresentedAlert: Bool = false
+    private let birthDate: String = "000508"
     private var formattedPhoneNumber: String {
         phoneNumber.formatPhoneNumber()
     }
-    @State private var nickName: String = "유노"
-    @State private var phoneNumber: String = "01012345678"
-    private let birthDate: String = "000508"
-    @State private var isPresentedAlert: Bool = false
     
     var body: some View {
         Form {
