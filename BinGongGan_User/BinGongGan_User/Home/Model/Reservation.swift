@@ -18,14 +18,14 @@ struct SampleSpace {
     }
 }
 
-struct Reservation {
+struct Reservation: Codable {
     
     var userEmail: String
     
     var placeID: String
     var roomID: String
     
-    var reservationID: String
+    var id: String = UUID().uuidString
     var reservationState: Int
     
     var reservationYear: String
