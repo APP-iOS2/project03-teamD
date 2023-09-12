@@ -10,7 +10,7 @@ import BinGongGanCore
 
 struct HomeListRow: View {
     
-    @State var place: GongGanPlace
+    @State var place: Place
     
     var body: some View {
         NavigationLink {
