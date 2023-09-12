@@ -77,6 +77,9 @@ struct MyPlaceManagementView: View {
             }
         }
         .background(Color.myBackground)
+        .navigationBarBackButtonHidden(true)
+        .navigationBarTitleDisplayMode(.inline)
+        .scrollContentBackground(.hidden)
         .toolbar {
             ToolbarItem(placement: .navigationBarLeading) {
                 HStack{
@@ -91,6 +94,7 @@ struct MyPlaceManagementView: View {
                 .padding(EdgeInsets(top: 10, leading: 10, bottom: 15, trailing: 0))
             }
         }
+        .customBackbutton()
     }
 }
 
