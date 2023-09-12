@@ -10,12 +10,16 @@ import BinGongGanCore
 
 
 struct GongGanDetailView: View {
-    @State var gongGan: GongGan = GongGan.sampleGongGan
+    
+    @EnvironmentObject var gongGan: GongGanStore
+    @StateObject var reservationStore: ReservationStore = ReservationStore()
     @State private var heartButton: Bool = false
     @State private var isActionSheetPresented = false
     @State private var isReservationActive: Int? = nil
     @State private var isShowingReservationView = false
     @State private var isShowingReservationAlert = false
+    @State private var selectedSegment: segmentIndex = .info
+    @Namespace var animation
     private let screenWidth = UIScreen.main.bounds.width
     private let screenheight = UIScreen.main.bounds.height
     
@@ -27,68 +31,21 @@ struct GongGanDetailView: View {
     enum segmentIndex: String , CaseIterable {
         case info = "상세 정보"
         case review = "리뷰"
+        case event = "공지사항"
     }
     
-    @StateObject var reservationStore: ReservationStore = ReservationStore()
-    @State private var selectedSegment: segmentIndex = .info
-    @Namespace var animation
     
     var body: some View {
-        NavigationStack {
             ZStack {
                 Spacer().background(Color.myBackground).edgesIgnoringSafeArea(.all)
                 ScrollView(showsIndicators: false) {
                     
-                    DetailTabImageView(imageUrl: gongGan.placeImageUrl)
+                    DetailTabImageView(imageUrl: gongGan.gongGanInfo.placeImageUrl)
                         .frame(height: screenheight * 0.25)
                     
                     
                     Group { // 세그먼트
-                        VStack {
-                            HStack {
-                                ForEach(segmentIndex.allCases, id: \.self) { segment in
-                                    VStack {
-                                        Text(segment.rawValue)
-                                            .font(.subheadline)
-                                            .fontWeight(selectedSegment == segment ? .bold : .regular)
-                                            .foregroundColor(selectedSegment == segment ? .myBrown : .black)
-                                        
-                                        
-                                        
-                                        if selectedSegment == segment {
-                                            Rectangle()
-                                                .foregroundColor(.myBrown)
-                                                .frame(maxWidth: screenWidth * 0.45, maxHeight: 2)
-                                                .matchedGeometryEffect(id: "item", in: animation)
-                                        } else {
-                                            Rectangle()
-                                                .foregroundColor(.clear)
-                                                .frame(maxWidth: screenWidth * 0.45, maxHeight: 2)
-                                        }
-                                    }
-                                    .frame(height: 50)
-                                    .onTapGesture {
-                                        withAnimation {
-                                            selectedSegment = segment
-                                        }
-                                        
-                                        if selectedSegment != .info {
-                                            isReservationActive = nil
-                                        }
-                                        
-                                    }
-                                }
-                            }
-                            
-                            switch selectedSegment {
-                            case .info:
-                                DetailSegmentView(gongGan: gongGan,isReservationActive: $isReservationActive)
-                            case .review:
-                                //                                DetailReviewRowView(text: "맛있어요")
-                                DetailSegmentReviewListView()
-                                    .padding()
-                            }
-                        }
+                        SegmentView(selectedSegment: $selectedSegment, isReservationActive: $isReservationActive, screenWidth: screenWidth, animation: animation)
                     }
                 }
                 
@@ -108,6 +65,9 @@ struct GongGanDetailView: View {
                             .frame(width: 1)
                             .padding(.vertical, 5)
                         Button {
+//                            #if DEBUG
+//                            print(isReservationActive ?? 101010)
+//                            #endif
                             if isReservationActive != nil {
                                 isShowingReservationView.toggle()
                             } else {
@@ -127,23 +87,22 @@ struct GongGanDetailView: View {
                     .padding(.bottom, 0.1)
                 }
             }
+        
+            .onAppear{
+//                Task{
+//                    await gongGan.fetchGongGanInfo()
+//                }
+            }
             
             .navigationTitle("BinGongGan")
             .navigationBarTitleDisplayMode(.inline)
-            
-            .alert(isPresented: $isShowingReservationAlert) {
-                Alert(
-                    title: Text("예약 신청"),
-                    message: Text("세부 공간을 선택해 주세요."),
-                    dismissButton: .default(Text("돌아가기"))
-                )
-            }
+            .toast(isShowing: $isShowingReservationAlert, message: "세부 공간을 선택해 주세요.")
             .actionSheet(isPresented: $isActionSheetPresented) {
                 ActionSheet(
                     title: Text("전화 문의"),
                     buttons: [
-                        .default(Text("전화 \(gongGan.placePhone)")) {
-                            if let phoneURL = URL(string: "tel://\(gongGan.placePhone)") {
+                        .default(Text("전화 \(gongGan.gongGanInfo.placePhone)")) {
+                            if let phoneURL = URL(string: "tel://\(gongGan.gongGanInfo.placePhone)") {
                                 UIApplication.shared.open(phoneURL, options: [:], completionHandler: nil)
                             }
                         },
@@ -168,7 +127,6 @@ struct GongGanDetailView: View {
                         .environmentObject(reservationStore)
                         .navigationBarBackButtonHidden()
             }
-        }
     }
     
 }

@@ -37,17 +37,16 @@ struct PlaceListRow: View {
                         Text("\(place.placeName)")
                             .font(.head1Bold)
                             .foregroundColor(.black)
-                            
                     }
                     Text("\(place.placeLocation)")
                         .font(.body1Regular)
                         .foregroundColor(.black)
                     
-                    HStack {
+                    HStack(spacing: 109) {
                         Text("\(place.placePrice) / 시간 당")
                             .font(.body1Regular)
                             .foregroundColor(.black)
-                        Spacer()
+
                         Text("최대 인원 00명")
                             .font(.body1Regular)
                         .foregroundColor(.black)
@@ -55,11 +54,9 @@ struct PlaceListRow: View {
                     
                 }
                 .frame(height: backGroundHeight * 0.32)
-                .padding([.leading, .trailing], backGroundWitdh * 0.04)
+                .padding([.leading, .trailing], 20)
                
             }// VSTACK
-            .padding([.leading, .trailing], backGroundWitdh * 0.10)
-           
             .background(
                 RoundedRectangle(cornerRadius: 0)
                     .frame(
@@ -69,6 +66,10 @@ struct PlaceListRow: View {
                     .cornerRadius(15)
                     .shadow(radius: 1)
             )
+//            .overlay(alignment: .trailingFirstTextBaseline) {
+//                HeartButton(place: $place)
+//                    .padding(20)
+//            }
         }
         .onAppear{
             print(place.placeLocation)
