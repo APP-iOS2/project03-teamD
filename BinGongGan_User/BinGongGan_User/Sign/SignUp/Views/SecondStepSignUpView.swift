@@ -63,6 +63,7 @@ struct SecondStepSignUpView: View {
                     ThirdStepSignUpView()
                         .environmentObject(store)
                 })
+                .customBackbutton()
             }
         }.edgesIgnoringSafeArea(.all)
             .onTapGesture {

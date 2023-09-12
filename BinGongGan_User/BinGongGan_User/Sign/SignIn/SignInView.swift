@@ -43,7 +43,6 @@ struct SignInView: View {
                 .padding(.horizontal, 20)
                 
                 Spacer()
-                
                 Button(action: {
                     signUpStore.isShowingSignUp = true
                 }, label: {

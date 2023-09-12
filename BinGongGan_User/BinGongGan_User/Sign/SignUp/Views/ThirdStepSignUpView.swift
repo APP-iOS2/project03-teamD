@@ -68,6 +68,7 @@ struct ThirdStepSignUpView: View {
                 .onChange(of: store.signUpData.isLocaitonAgree && store.signUpData.isPrivacyAgree && store.signUpData.isTermOfUseAgree) { newValue in
                     store.isAllAgreed()
                 }
+                .customBackbutton()
             }
         }.edgesIgnoringSafeArea(.all)
             .onTapGesture {

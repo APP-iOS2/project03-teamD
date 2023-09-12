@@ -8,7 +8,7 @@
 import SwiftUI
 import BinGongGanCore
 
-struct AccountSettingView: View {
+struct UserAccountSettingView: View {
     @State private var isPresentedAlert: Bool = false
     var body: some View {
         List {
@@ -33,6 +33,7 @@ struct AccountSettingView: View {
                 }
             }
         }
+        .padding(.top, -20)
         .navigationTitle("계정 관리")
         .navigationBarTitleDisplayMode(.inline)
         .scrollContentBackground(.hidden)
@@ -44,7 +45,7 @@ struct AccountSettingView: View {
 struct AccountSettingView_Previews: PreviewProvider {
     static var previews: some View {
         NavigationStack {
-            AccountSettingView()
+            UserAccountSettingView()
         }
     }
 }
