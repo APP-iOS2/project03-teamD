@@ -103,6 +103,9 @@
 		D84824B32AA8F5970067A065 /* FAQItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = D84824B22AA8F5970067A065 /* FAQItem.swift */; };
 		D8741E5E2AAEF64100F45C79 /* BankAccountSettingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8741E5D2AAEF64100F45C79 /* BankAccountSettingView.swift */; };
 		D8741E612AAF09EE00F45C79 /* UserAccountSettingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8E0FA2A2AAB13C300B8C092 /* UserAccountSettingView.swift */; };
+		D8741E652AB017FF00F45C79 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = D8741E642AB017FF00F45C79 /* GoogleService-Info.plist */; };
+		D8741E672AB02F8A00F45C79 /* Bank.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8741E662AB02F8A00F45C79 /* Bank.swift */; };
+		D8741E692AB0347300F45C79 /* BankSelectView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8741E682AB0347300F45C79 /* BankSelectView.swift */; };
 		D8E0FA272AAAFAAD00B8C092 /* Announcement.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8E0FA262AAAFAAD00B8C092 /* Announcement.swift */; };
 		D8F41E132AA9A289004C52BD /* String+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8F41E122AA9A289004C52BD /* String+Extension.swift */; };
 		EC6F7F572AA8896700C0B094 /* BinGongGan_UserApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC6F7F562AA8896700C0B094 /* BinGongGan_UserApp.swift */; };
@@ -223,6 +226,9 @@
 		D84824B02AA8A4450067A065 /* ReservationModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReservationModel.swift; sourceTree = "<group>"; };
 		D84824B22AA8F5970067A065 /* FAQItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FAQItem.swift; sourceTree = "<group>"; };
 		D8741E5D2AAEF64100F45C79 /* BankAccountSettingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BankAccountSettingView.swift; sourceTree = "<group>"; };
+		D8741E642AB017FF00F45C79 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		D8741E662AB02F8A00F45C79 /* Bank.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Bank.swift; sourceTree = "<group>"; };
+		D8741E682AB0347300F45C79 /* BankSelectView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BankSelectView.swift; sourceTree = "<group>"; };
 		D8E0FA262AAAFAAD00B8C092 /* Announcement.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Announcement.swift; sourceTree = "<group>"; };
 		D8E0FA2A2AAB13C300B8C092 /* UserAccountSettingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserAccountSettingView.swift; sourceTree = "<group>"; };
 		D8F41E122AA9A289004C52BD /* String+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Extension.swift"; sourceTree = "<group>"; };
@@ -662,6 +668,7 @@
 				D84824952AA8A3700067A065 /* MyInformationEditView.swift */,
 				D8E0FA2A2AAB13C300B8C092 /* UserAccountSettingView.swift */,
 				D8741E5D2AAEF64100F45C79 /* BankAccountSettingView.swift */,
+				D8741E682AB0347300F45C79 /* BankSelectView.swift */,
 			);
 			path = MyInformation;
 			sourceTree = "<group>";
@@ -684,6 +691,7 @@
 				D84824B02AA8A4450067A065 /* ReservationModel.swift */,
 				D84824B22AA8F5970067A065 /* FAQItem.swift */,
 				D8E0FA262AAAFAAD00B8C092 /* Announcement.swift */,
+				D8741E662AB02F8A00F45C79 /* Bank.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -849,12 +857,14 @@
 				6943D6602AB0235B00495CDB /* ReservationEnum.swift in Sources */,
 				BC344EF02AA808DB00F8CEB3 /* Reservation.swift in Sources */,
 				D84824A32AA8A3710067A065 /* PasswordEditView.swift in Sources */,
+				D8741E672AB02F8A00F45C79 /* Bank.swift in Sources */,
 				BCE658542AA8AD420009ECD1 /* MapViewCoordinater.swift in Sources */,
 				BC344F232AA86AD500F8CEB3 /* HomeCategoryView.swift in Sources */,
 				BC8CFE6C2AA9510A00E8D8F2 /* FavoriteView.swift in Sources */,
 				ECBD87792AAEF86F00ECEC7D /* CategorySheetView.swift in Sources */,
 				BCE658612AA8AD4D0009ECD1 /* SignUpView.swift in Sources */,
 				BC8CFE742AA9897E00E8D8F2 /* ReservationUserInfoView.swift in Sources */,
+				D8741E692AB0347300F45C79 /* BankSelectView.swift in Sources */,
 				BC344F1B2AA86A5F00F8CEB3 /* PlaceListRow.swift in Sources */,
 				3A392E902AAEB25A00D82221 /* SignUpModel.swift in Sources */,
 				BCE658552AA8AD420009ECD1 /* LocationManager.swift in Sources */,
