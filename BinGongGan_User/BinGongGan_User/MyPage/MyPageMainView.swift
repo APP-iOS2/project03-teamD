@@ -52,13 +52,6 @@ struct MyPageMainView: View {
                 NavigationLink("자주 묻는 질문 FAQ") {
                     FAQView()
                 }
-                
-                Button {
-                    isShowingActionSheet = true
-                } label: {
-                    Text("상담원 연결")
-                        .foregroundColor(.black)
-                }
 
             } //Section - 고객센터
             

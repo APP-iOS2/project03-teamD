@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import BinGongGanCore
 
 struct SignInView: View {
     @EnvironmentObject private var signInStore: SignInStore
@@ -45,6 +46,7 @@ struct SignInView: View {
                 
                 NavigationLink {
                     SignUpView()
+                        .environmentObject(signUpStore)
                 } label: {
                     Text("회원가입")
                 }

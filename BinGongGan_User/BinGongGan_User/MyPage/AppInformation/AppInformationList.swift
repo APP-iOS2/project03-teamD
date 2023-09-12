@@ -31,6 +31,7 @@ struct AppInformationList: View {
                     .font(.body1Bold)
             }
         }
+        .padding(.top, -20)
         .navigationTitle("빈공간 정보")
         .navigationBarTitleDisplayMode(.inline)
         .customBackbutton()

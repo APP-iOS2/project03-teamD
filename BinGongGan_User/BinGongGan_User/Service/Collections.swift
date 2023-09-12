@@ -9,4 +9,5 @@ import Foundation
 
 enum Collections: String {
     case users = "users"
+    case reviews = "reviews"
 }
