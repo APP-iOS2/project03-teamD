@@ -17,7 +17,6 @@
 		3A392E952AAECDB000D82221 /* UserStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A392E942AAECDB000D82221 /* UserStore.swift */; };
 		3A392E972AAECDDF00D82221 /* FirestoreService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A392E962AAECDDF00D82221 /* FirestoreService.swift */; };
 		3A392E992AAED19900D82221 /* AuthStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A392E982AAED19900D82221 /* AuthStore.swift */; };
-		3AC7480B2AA9000F0092B1EC /* ToastMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AC7480A2AA9000F0092B1EC /* ToastMessage.swift */; };
 		3AC748112AA90B250092B1EC /* CustomSecureField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AC748102AA90B250092B1EC /* CustomSecureField.swift */; };
 		3AC748132AA90CCF0092B1EC /* AgreementCheckButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AC748122AA90CCF0092B1EC /* AgreementCheckButton.swift */; };
 		53254A232AAE2F18002E7542 /* AddPhotoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53254A222AAE2F18002E7542 /* AddPhotoView.swift */; };
@@ -109,6 +108,7 @@
 		ECBD87752AAB09F600ECEC7D /* Information1.md in Resources */ = {isa = PBXBuildFile; fileRef = ECBD87742AAB09CD00ECEC7D /* Information1.md */; };
 		ECBD87772AAE097200ECEC7D /* AppInformationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECBD87762AAE097200ECEC7D /* AppInformationView.swift */; };
 		ECBD87792AAEF86F00ECEC7D /* CategorySheetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECBD87782AAEF86F00ECEC7D /* CategorySheetView.swift */; };
+		ECBD877B2AAFEA1D00ECEC7D /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = ECBD877A2AAFEA1D00ECEC7D /* GoogleService-Info.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -139,7 +139,6 @@
 		3A392E942AAECDB000D82221 /* UserStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserStore.swift; sourceTree = "<group>"; };
 		3A392E962AAECDDF00D82221 /* FirestoreService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirestoreService.swift; sourceTree = "<group>"; };
 		3A392E982AAED19900D82221 /* AuthStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthStore.swift; sourceTree = "<group>"; };
-		3AC7480A2AA9000F0092B1EC /* ToastMessage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToastMessage.swift; sourceTree = "<group>"; };
 		3AC748102AA90B250092B1EC /* CustomSecureField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomSecureField.swift; sourceTree = "<group>"; };
 		3AC748122AA90CCF0092B1EC /* AgreementCheckButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AgreementCheckButton.swift; sourceTree = "<group>"; };
 		53254A222AAE2F18002E7542 /* AddPhotoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddPhotoView.swift; sourceTree = "<group>"; };
@@ -230,6 +229,7 @@
 		ECBD87742AAB09CD00ECEC7D /* Information1.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = Information1.md; sourceTree = "<group>"; };
 		ECBD87762AAE097200ECEC7D /* AppInformationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppInformationView.swift; sourceTree = "<group>"; };
 		ECBD87782AAEF86F00ECEC7D /* CategorySheetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategorySheetView.swift; sourceTree = "<group>"; };
+		ECBD877A2AAFEA1D00ECEC7D /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -383,6 +383,7 @@
 			children = (
 				B12A84A82AA6F01000BDF8CA /* Assets.xcassets */,
 				D8741E622AB0025700F45C79 /* GoogleService-Info.plist */,
+				ECBD877A2AAFEA1D00ECEC7D /* GoogleService-Info.plist */,
 			);
 			path = Config;
 			sourceTree = "<group>";
@@ -785,6 +786,7 @@
 			files = (
 				ECBD87752AAB09F600ECEC7D /* Information1.md in Resources */,
 				D8741E632AB0025700F45C79 /* GoogleService-Info.plist in Resources */,
+				ECBD877B2AAFEA1D00ECEC7D /* GoogleService-Info.plist in Resources */,
 				B12A84AC2AA6F01000BDF8CA /* Preview Assets.xcassets in Resources */,
 				B12A84A92AA6F01000BDF8CA /* Assets.xcassets in Resources */,
 			);
