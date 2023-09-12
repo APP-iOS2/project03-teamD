@@ -6,10 +6,22 @@
 //
 
 import SwiftUI
+import BinGongGanCore
 
 struct PlaceDetailView: View {
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        ZStack {
+            Color.myBackground
+                .ignoresSafeArea(.all)
+            
+            VStack {
+                
+            }
+        }
+        .navigationBarBackButtonHidden(true)
+        .navigationBarTitleDisplayMode(.inline)
+        .scrollContentBackground(.hidden)
+        .customBackbutton()
     }
 }
 

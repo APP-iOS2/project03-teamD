@@ -8,6 +8,10 @@
 
 /* Begin PBXBuildFile section */
 		2F9739BE2AAFEAF20063C8C6 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2F9739BD2AAFEAF20063C8C6 /* GoogleService-Info.plist */; };
+		2FF0482F2AAFF8F3002A04C3 /* PlaceDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FF0482E2AAFF8F3002A04C3 /* PlaceDetailView.swift */; };
+		2FF048322AAFFB37002A04C3 /* ReviewStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FF048312AAFFB37002A04C3 /* ReviewStore.swift */; };
+		2FF048342AAFFC04002A04C3 /* MyPlaceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FF048332AAFFC04002A04C3 /* MyPlaceView.swift */; };
+		2FF048392AB02EDB002A04C3 /* ChartStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FF048382AB02EDB002A04C3 /* ChartStore.swift */; };
 		4BF4FADF2AAFE6D8007F6563 /* CustomSecureField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FD06C9A2AAEE51900D116B9 /* CustomSecureField.swift */; };
 		4BF4FAE02AAFE6D8007F6563 /* CustomTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FD06C9D2AAEE51D00D116B9 /* CustomTextField.swift */; };
 		4BF4FAE12AAFE6D8007F6563 /* PrimaryButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FD06C9B2AAEE51B00D116B9 /* PrimaryButton.swift */; };
@@ -70,9 +74,6 @@
 		4BF4FB1A2AAFE6D9007F6563 /* ReviewManageDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B13464FD2AA9100A00098E9B /* ReviewManageDetailView.swift */; };
 		4BF4FB1B2AAFE6D9007F6563 /* ReviewManageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B13464FF2AA9102D00098E9B /* ReviewManageView.swift */; };
 		4BF4FB1C2AAFE6D9007F6563 /* ReviewReportSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F36A56C2AA83E2100578AEB /* ReviewReportSheet.swift */; };
-		4BF4FB1D2AAFE6D9007F6563 /* EventView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FD53AE82AA952D300183687 /* EventView.swift */; };
-		4BF4FB1E2AAFE6D9007F6563 /* EventAddView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FD74B0E2AAEA56200FED918 /* EventAddView.swift */; };
-		4BF4FB1F2AAFE6D9007F6563 /* MyPlaceManagementView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B10A042D2AA9014A00ACF757 /* MyPlaceManagementView.swift */; };
 		4BF4FB202AAFE6D9007F6563 /* MyInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CDDF1C72AAB001E00834AA9 /* MyInfoView.swift */; };
 		4BF4FB212AAFE6D9007F6563 /* MyInfoEditView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CDDF1C92AAB140900834AA9 /* MyInfoEditView.swift */; };
 		4BF4FB232AAFF1A9007F6563 /* CustomTextEditor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BF4FB222AAFF1A9007F6563 /* CustomTextEditor.swift */; };
@@ -117,9 +118,11 @@
 		2FD06C9A2AAEE51900D116B9 /* CustomSecureField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomSecureField.swift; sourceTree = "<group>"; };
 		2FD06C9B2AAEE51B00D116B9 /* PrimaryButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PrimaryButton.swift; sourceTree = "<group>"; };
 		2FD06C9D2AAEE51D00D116B9 /* CustomTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomTextField.swift; sourceTree = "<group>"; };
-		2FD53AE82AA952D300183687 /* EventView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventView.swift; sourceTree = "<group>"; };
-		2FD74B0E2AAEA56200FED918 /* EventAddView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventAddView.swift; sourceTree = "<group>"; };
 		2FECE3C52AADECFA00F04CFC /* ReportStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportStore.swift; sourceTree = "<group>"; };
+		2FF0482E2AAFF8F3002A04C3 /* PlaceDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceDetailView.swift; sourceTree = "<group>"; };
+		2FF048312AAFFB37002A04C3 /* ReviewStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewStore.swift; sourceTree = "<group>"; };
+		2FF048332AAFFC04002A04C3 /* MyPlaceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPlaceView.swift; sourceTree = "<group>"; };
+		2FF048382AB02EDB002A04C3 /* ChartStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartStore.swift; sourceTree = "<group>"; };
 		4B74203C2AA80ACC00818257 /* AnnouncementView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnnouncementView.swift; sourceTree = "<group>"; };
 		4B84D4BD2AAAE84F00F5FB01 /* AnnouncementAddView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnnouncementAddView.swift; sourceTree = "<group>"; };
 		4B84D4C22AAAE8C000F5FB01 /* AnnouncementOption.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnnouncementOption.swift; sourceTree = "<group>"; };
@@ -157,7 +160,6 @@
 		6A3B44492AA830F4008CC944 /* ReservationDetailsCalendarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReservationDetailsCalendarView.swift; sourceTree = "<group>"; };
 		6A3B444B2AA83119008CC944 /* ReservationDetailsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReservationDetailsCell.swift; sourceTree = "<group>"; };
 		6A70AE892AA9A3BE00EF6AAE /* ReservationDetailsSegmentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReservationDetailsSegmentView.swift; sourceTree = "<group>"; };
-		B10A042D2AA9014A00ACF757 /* MyPlaceManagementView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPlaceManagementView.swift; sourceTree = "<group>"; };
 		B12A846B2AA6EFE700BDF8CA /* BinGongGan_Seller.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BinGongGan_Seller.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B12A84722AA6EFE900BDF8CA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B12A847B2AA6EFEA00BDF8CA /* BinGongGan_SellerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BinGongGan_SellerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -224,6 +226,7 @@
 		2F36A56F2AA83E5E00578AEB /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				2FF048312AAFFB37002A04C3 /* ReviewStore.swift */,
 				2F36A5712AA83E9200578AEB /* ReportCase.swift */,
 				2FECE3C52AADECFA00F04CFC /* ReportStore.swift */,
 			);
@@ -263,9 +266,7 @@
 			isa = PBXGroup;
 			children = (
 				2F36A56F2AA83E5E00578AEB /* Model */,
-				B13464FD2AA9100A00098E9B /* ReviewManageDetailView.swift */,
-				B13464FF2AA9102D00098E9B /* ReviewManageView.swift */,
-				2F36A56E2AA83E2600578AEB /* Sheet */,
+				2FF048352AAFFDB6002A04C3 /* View */,
 			);
 			path = Review;
 			sourceTree = "<group>";
@@ -290,13 +291,40 @@
 			path = Common;
 			sourceTree = "<group>";
 		};
-		2FD53AE72AA952B700183687 /* Event */ = {
+		2FF048302AAFF97D002A04C3 /* Place */ = {
 			isa = PBXGroup;
 			children = (
-				2FD53AE82AA952D300183687 /* EventView.swift */,
-				2FD74B0E2AAEA56200FED918 /* EventAddView.swift */,
+				2FF048332AAFFC04002A04C3 /* MyPlaceView.swift */,
+				2FF0482E2AAFF8F3002A04C3 /* PlaceDetailView.swift */,
 			);
-			path = Event;
+			path = Place;
+			sourceTree = "<group>";
+		};
+		2FF048352AAFFDB6002A04C3 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				B13464FF2AA9102D00098E9B /* ReviewManageView.swift */,
+				B13464FD2AA9100A00098E9B /* ReviewManageDetailView.swift */,
+				2F36A56E2AA83E2600578AEB /* Sheet */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		2FF048362AB028D3002A04C3 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				54D4677B2AA8AA6200054F12 /* ChartModel.swift */,
+				2FF048382AB02EDB002A04C3 /* ChartStore.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		2FF048372AB028E0002A04C3 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				54D467792AA8A90C00054F12 /* ChartView.swift */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 		4B7420392AA80A9000818257 /* Home */ = {
@@ -398,8 +426,8 @@
 		54D467782AA8A8F900054F12 /* Chart */ = {
 			isa = PBXGroup;
 			children = (
-				54D467792AA8A90C00054F12 /* ChartView.swift */,
-				54D4677B2AA8AA6200054F12 /* ChartModel.swift */,
+				2FF048362AB028D3002A04C3 /* Model */,
+				2FF048372AB028E0002A04C3 /* View */,
 			);
 			path = Chart;
 			sourceTree = "<group>";
@@ -507,11 +535,10 @@
 				2FAB805E2AA7FFD20091D8CC /* Cell */,
 				4BBAF3072AAE3E6100F1405D /* ApprovedPlace */,
 				6A3B44362AA82F83008CC944 /* ReservationDetails */,
-				54C9D2702AAF492C008B0FF7 /* RoomAdd */,
+				2FF048302AAFF97D002A04C3 /* Place */,
 				2FAB80552AA7FF960091D8CC /* PlaceAdd */,
+				54C9D2702AAF492C008B0FF7 /* RoomAdd */,
 				2FAB805F2AA7FFF30091D8CC /* Review */,
-				2FD53AE72AA952B700183687 /* Event */,
-				B10A042D2AA9014A00ACF757 /* MyPlaceManagementView.swift */,
 				0CDDF1C72AAB001E00834AA9 /* MyInfoView.swift */,
 				0CDDF1C92AAB140900834AA9 /* MyInfoEditView.swift */,
 				B1343A6D2AA901E900DC20EE /* Preview Content */,
@@ -733,6 +760,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				4BF4FADF2AAFE6D8007F6563 /* CustomSecureField.swift in Sources */,
+				2FF048322AAFFB37002A04C3 /* ReviewStore.swift in Sources */,
 				4BF4FAE02AAFE6D8007F6563 /* CustomTextField.swift in Sources */,
 				4BF4FAE12AAFE6D8007F6563 /* PrimaryButton.swift in Sources */,
 				4BF4FAE22AAFE6D8007F6563 /* BinGongGan_SellerApp.swift in Sources */,
@@ -745,6 +773,7 @@
 				4BF4FAE82AAFE6D8007F6563 /* ReservationConfirmedSheet.swift in Sources */,
 				4BF4FAE92AAFE6D8007F6563 /* ReservationCancelSheet.swift in Sources */,
 				4BF4FAEA2AAFE6D8007F6563 /* CategoryButton.swift in Sources */,
+				2FF0482F2AAFF8F3002A04C3 /* PlaceDetailView.swift in Sources */,
 				4BF4FAEB2AAFE6D8007F6563 /* CategoryButtonsView.swift in Sources */,
 				4BF4FAEC2AAFE6D8007F6563 /* HomeView.swift in Sources */,
 				4BF4FAED2AAFE6D8007F6563 /* ChartView.swift in Sources */,
@@ -768,6 +797,7 @@
 				4BF4FAFF2AAFE6D8007F6563 /* ReviewWithCommentCell.swift in Sources */,
 				4BF4FB002AAFE6D8007F6563 /* CarouselCell.swift in Sources */,
 				4BF4FB012AAFE6D8007F6563 /* MySpaceCell.swift in Sources */,
+				2FF048342AAFFC04002A04C3 /* MyPlaceView.swift in Sources */,
 				4BF4FB022AAFE6D8007F6563 /* ReservationDeadlineCell.swift in Sources */,
 				4BF4FB032AAFE6D8007F6563 /* ApprovedPlaceListView.swift in Sources */,
 				4BF4FB042AAFE6D8007F6563 /* RervationDetailsStore.swift in Sources */,
@@ -791,13 +821,11 @@
 				4BF4FB162AAFE6D8007F6563 /* PlaceInfomationModel.swift in Sources */,
 				4BF4FB172AAFE6D9007F6563 /* PlaceStore.swift in Sources */,
 				4BF4FB182AAFE6D9007F6563 /* ReportCase.swift in Sources */,
+				2FF048392AB02EDB002A04C3 /* ChartStore.swift in Sources */,
 				4BF4FB192AAFE6D9007F6563 /* ReportStore.swift in Sources */,
 				4BF4FB1A2AAFE6D9007F6563 /* ReviewManageDetailView.swift in Sources */,
 				4BF4FB1B2AAFE6D9007F6563 /* ReviewManageView.swift in Sources */,
 				4BF4FB1C2AAFE6D9007F6563 /* ReviewReportSheet.swift in Sources */,
-				4BF4FB1D2AAFE6D9007F6563 /* EventView.swift in Sources */,
-				4BF4FB1E2AAFE6D9007F6563 /* EventAddView.swift in Sources */,
-				4BF4FB1F2AAFE6D9007F6563 /* MyPlaceManagementView.swift in Sources */,
 				4BF4FB202AAFE6D9007F6563 /* MyInfoView.swift in Sources */,
 				4BF4FB212AAFE6D9007F6563 /* MyInfoEditView.swift in Sources */,
 			);
