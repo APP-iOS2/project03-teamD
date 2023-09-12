@@ -75,8 +75,6 @@ struct ReservationUserInfoView: View {
             Spacer()
             
             Button {
-                
-                reservationStore.updateReservation(type: .reservationRequest, value: reservationRequest)
                 self.endTextEditing()
             } label: {
                 Text("완료")
@@ -96,6 +94,9 @@ struct ReservationUserInfoView: View {
                 .lineLimit(4)
                 .frame(width: screenWidth * 0.8)
                 .padding([.top,.leading], 20)
+                .onChange(of: reservationRequest) { newValue in
+                    reservationStore.updateReservation(type: .reservationRequest, value: newValue)
+                }
         }
         .onTapGesture {
             isTextMasterFocused.toggle()
