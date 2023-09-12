@@ -33,12 +33,15 @@ struct MDPMonthView: View {
         VStack {
             HStack {
                 MDPMonthYearPickerButton(isPresented: self.$showMonthYearPicker)
+                
                 Spacer()
+                
                 Button( action: {showPrevMonth()} ) {
                     Image(systemName: "chevron.left")
                         .foregroundColor(.myBrown)
                         .font(.title2)
                 }.padding()
+                
                 Button( action: {showNextMonth()} ) {
                     Image(systemName: "chevron.right")
                         .foregroundColor(.myBrown)

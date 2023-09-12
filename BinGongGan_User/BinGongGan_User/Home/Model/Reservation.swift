@@ -16,15 +16,17 @@ struct SampleSpace {
     var imageUrl: URL {
         return URL(string: imageString) ?? URL(string: "https://health.chosun.com/site/data/img_dir/2023/07/17/2023071701753_0.jpg")!
     }
-    
 }
 
-struct Reservation {
+struct Reservation: Codable {
     
     var userEmail: String
+    
+    var placeID: String
     var roomID: String
     
-    var reservationID: String
+    var id: String = UUID().uuidString
+    var reservationState: Int
     
     var reservationYear: String
     var reservationMonth: String
