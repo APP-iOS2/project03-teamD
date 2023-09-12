@@ -26,15 +26,6 @@ struct MyPlaceManagementView: View {
                             .padding([.top, .leading], 20)
                             .font(.head1Bold)
                         Spacer()
-                        NavigationLink {
-                            MyInfoView()
-                            
-                        } label: {
-                            Image(systemName: "square.and.pencil")
-                                .foregroundColor(Color.myMint)
-                                .font(.title3)
-                                .padding([.top, .trailing], 20)
-                        }
                     }
                 }
                 
