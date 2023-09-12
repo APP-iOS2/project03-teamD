@@ -16,12 +16,6 @@ struct SettingListView: View {
     
     var body: some View {
         Form {
-            Section("계정 설정") {
-                NavigationLink("비밀번호 변경") {
-                    PasswordEditView()
-                }
-            }
-            
             Section("일반") {
                 Toggle("알림", isOn: $isNotificationToggle)
                     .tint(.myBrown)

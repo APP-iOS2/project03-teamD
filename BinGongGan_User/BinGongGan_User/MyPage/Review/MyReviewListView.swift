@@ -13,12 +13,11 @@ struct MyReviewListView: View {
     
     var body: some View {
         List {
-            
             ForEach(1..<5, id: \.self) { review in
-                Section {
                     MyReviewRowView(text: "리뷰임둥.리뷰임둥.리뷰임둥.리뷰임둥.리뷰임둥.리뷰임둥.리뷰임둥.리뷰임둥.리뷰임둥.리뷰임둥.리뷰임둥.리뷰임둥.리뷰임둥.리뷰임둥.리뷰임둥.리뷰임둥.리뷰임둥.리뷰임둥.리뷰임둥.리뷰임둥.리뷰임둥.리뷰임둥.리뷰임둥.리뷰임둥.리뷰임둥.리뷰임둥.리뷰임둥.리뷰임둥.리뷰임둥.리뷰임둥.리뷰임둥.리뷰임둥.")
                         .listRowBackground(Color.myBackground)
-                }
+                        .padding(.vertical, 15)
+                        .listSectionSeparator(.hidden, edges: .top)
             }
         }
         .navigationTitle("내가 작성한 리뷰")

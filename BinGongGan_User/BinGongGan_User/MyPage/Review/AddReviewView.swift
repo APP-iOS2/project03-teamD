@@ -18,7 +18,7 @@ struct AddReviewView: View {
     var reservate: ReservationModel
     var body: some View {
         Form {
-            Section {
+            Section("예약 정보") {
                 PlaceInfoView(reservate: reservate)
             }
             
@@ -35,7 +35,7 @@ struct AddReviewView: View {
                     }
                 }
             }
-        
+            
             Section("리뷰 내용") {
                 ZStack(alignment: .topLeading) {
                     if reviewText.isEmpty {
