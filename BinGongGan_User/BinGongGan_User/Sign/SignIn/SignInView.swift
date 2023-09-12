@@ -44,6 +44,7 @@ struct SignInView: View {
                 
                 Spacer()
                 Button(action: {
+                    signUpStore.signUpData = SignUpData()
                     signUpStore.isShowingSignUp = true
                 }, label: {
                     Text("회원가입")
@@ -73,7 +74,6 @@ struct SignInView: View {
         }
         .ignoresSafeArea()
         .onAppear {
-            signUpStore.signUpData = SignUpData()
             signUpStore.currentStep = .first
         }
     }
