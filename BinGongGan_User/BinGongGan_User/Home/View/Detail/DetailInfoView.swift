@@ -8,7 +8,7 @@
 import SwiftUI
 import BinGongGanCore
 
-struct DetailSegmentView: View {
+struct DetailInfoView: View {
     @EnvironmentObject var gongGan: GongGanStore
     @Binding var isReservationActive: Int?
     private let screenWidth = UIScreen.main.bounds.width
@@ -21,12 +21,12 @@ struct DetailSegmentView: View {
             }
             
             
-            VStack(alignment: .leading,spacing: 20) {
+            VStack(alignment: .center,spacing: 20) {
                 
                 Group {
                     VStack(alignment: .leading, spacing: 10) {
-                                                customSection("건물 정보")
-//                        Text("건물 정보")
+                        customSection("건물 정보")
+                        //                        Text("건물 정보")
                         ForEach(gongGan.gongGanInfo.placeInfo, id: \.self) { summary in
                             Text("◦ \(summary)")
                                 .font(.subheadline)
@@ -38,9 +38,9 @@ struct DetailSegmentView: View {
                 .padding(EdgeInsets(top: 5, leading: 5, bottom: 0, trailing: 0))
                 
                 Group {
-                                        customSection("시설 안내")
-//                    Text("시설 안내")
-                        .padding(EdgeInsets(top: 5, leading: 5, bottom: 5, trailing: 0))
+                    customSection("시설 안내")
+                    //                    Text("시설 안내")
+                        .padding(EdgeInsets(top: 5, leading: 0, bottom: 5, trailing: 0))
                     LazyHGrid(rows: [GridItem(.flexible(), spacing: 80), GridItem(.flexible(), spacing: 10)], spacing: 20) {
                         ForEach(gongGan.gongGanInfo.placeGuide) { item in
                             VStack {
@@ -64,9 +64,9 @@ struct DetailSegmentView: View {
     }
 }
 
-struct SegmentInfoView_Previews: PreviewProvider {
+struct DetailInfoView_Previews: PreviewProvider {
     static var previews: some View {
-        DetailSegmentView(isReservationActive: .constant(nil))
+        DetailInfoView(isReservationActive: .constant(nil))
             .environmentObject(GongGanStore())
     }
 }

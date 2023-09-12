@@ -63,13 +63,14 @@
 		BC3A443C2AAFEB7200D78309 /* SegmentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC3A443B2AAFEB7200D78309 /* SegmentView.swift */; };
 		BC3A443E2AAFEF9F00D78309 /* GongGanInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC3A443D2AAFEF9F00D78309 /* GongGanInfo.swift */; };
 		BC3A44402AB0061F00D78309 /* DetailAnnouncementView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC3A443F2AB0061F00D78309 /* DetailAnnouncementView.swift */; };
+		BC3A44422AB0421200D78309 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = BC3A44412AB0421200D78309 /* GoogleService-Info.plist */; };
 		BC8CFE6A2AA8C38C00E8D8F2 /* DetailTabImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC8CFE692AA8C38C00E8D8F2 /* DetailTabImageView.swift */; };
 		BC8CFE6C2AA9510A00E8D8F2 /* FavoriteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC8CFE6B2AA9510A00E8D8F2 /* FavoriteView.swift */; };
 		BC8CFE722AA9896300E8D8F2 /* ReservationSellerInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC8CFE712AA9896300E8D8F2 /* ReservationSellerInfoView.swift */; };
 		BC8CFE742AA9897E00E8D8F2 /* ReservationUserInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC8CFE732AA9897E00E8D8F2 /* ReservationUserInfoView.swift */; };
 		BCB5A2C92AAF444100C173F4 /* DetailSegmentReviewListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCB5A2C82AAF444100C173F4 /* DetailSegmentReviewListView.swift */; };
 		BCDD34852AAF272000A68F4F /* View+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCDD34842AAF272000A68F4F /* View+Extension.swift */; };
-		BCDD34872AAF273600A68F4F /* DetailSegmentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCDD34862AAF273600A68F4F /* DetailSegmentView.swift */; };
+		BCDD34872AAF273600A68F4F /* DetailInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCDD34862AAF273600A68F4F /* DetailInfoView.swift */; };
 		BCDD34892AAF27AD00A68F4F /* FavoriteCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCDD34882AAF27AD00A68F4F /* FavoriteCellView.swift */; };
 		BCDD348B2AAF27B600A68F4F /* DetailReviewRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCDD348A2AAF27B600A68F4F /* DetailReviewRowView.swift */; };
 		BCE6580E2AA8AB670009ECD1 /* PrimaryButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCE6580D2AA8AB670009ECD1 /* PrimaryButton.swift */; };
@@ -185,13 +186,14 @@
 		BC3A443B2AAFEB7200D78309 /* SegmentView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SegmentView.swift; sourceTree = "<group>"; };
 		BC3A443D2AAFEF9F00D78309 /* GongGanInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = GongGanInfo.swift; path = ../../../../../../GongGanInfo.swift; sourceTree = "<group>"; };
 		BC3A443F2AB0061F00D78309 /* DetailAnnouncementView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = DetailAnnouncementView.swift; path = ../../../../../../../DetailAnnouncementView.swift; sourceTree = "<group>"; };
+		BC3A44412AB0421200D78309 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		BC8CFE692AA8C38C00E8D8F2 /* DetailTabImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailTabImageView.swift; sourceTree = "<group>"; };
 		BC8CFE6B2AA9510A00E8D8F2 /* FavoriteView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteView.swift; sourceTree = "<group>"; };
 		BC8CFE712AA9896300E8D8F2 /* ReservationSellerInfoView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReservationSellerInfoView.swift; sourceTree = "<group>"; };
 		BC8CFE732AA9897E00E8D8F2 /* ReservationUserInfoView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReservationUserInfoView.swift; sourceTree = "<group>"; };
 		BCB5A2C82AAF444100C173F4 /* DetailSegmentReviewListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailSegmentReviewListView.swift; sourceTree = "<group>"; };
 		BCDD34842AAF272000A68F4F /* View+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "View+Extension.swift"; sourceTree = "<group>"; };
-		BCDD34862AAF273600A68F4F /* DetailSegmentView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailSegmentView.swift; sourceTree = "<group>"; };
+		BCDD34862AAF273600A68F4F /* DetailInfoView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailInfoView.swift; sourceTree = "<group>"; };
 		BCDD34882AAF27AD00A68F4F /* FavoriteCellView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FavoriteCellView.swift; sourceTree = "<group>"; };
 		BCDD348A2AAF27B600A68F4F /* DetailReviewRowView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailReviewRowView.swift; sourceTree = "<group>"; };
 		BCE6580D2AA8AB670009ECD1 /* PrimaryButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PrimaryButton.swift; sourceTree = "<group>"; };
@@ -394,6 +396,7 @@
 		B15806402AA89795006C772B /* Config */ = {
 			isa = PBXGroup;
 			children = (
+				BC3A44412AB0421200D78309 /* GoogleService-Info.plist */,
 				B12A84A82AA6F01000BDF8CA /* Assets.xcassets */,
 			);
 			path = Config;
@@ -459,7 +462,7 @@
 			children = (
 				BC344ECF2AA8073600F8CEB3 /* GongGanDetailView.swift */,
 				BC3A443B2AAFEB7200D78309 /* SegmentView.swift */,
-				BCDD34862AAF273600A68F4F /* DetailSegmentView.swift */,
+				BCDD34862AAF273600A68F4F /* DetailInfoView.swift */,
 				BC344F172AA81EFF00F8CEB3 /* SubGongGanSelectView.swift */,
 				BC344ED02AA8073700F8CEB3 /* SubGongGanDetailView.swift */,
 				BC8CFE692AA8C38C00E8D8F2 /* DetailTabImageView.swift */,
@@ -797,6 +800,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				ECBD87752AAB09F600ECEC7D /* Information1.md in Resources */,
+				BC3A44422AB0421200D78309 /* GoogleService-Info.plist in Resources */,
 				B12A84AC2AA6F01000BDF8CA /* Preview Assets.xcassets in Resources */,
 				B12A84A92AA6F01000BDF8CA /* Assets.xcassets in Resources */,
 			);
@@ -877,7 +881,7 @@
 				BC344ED12AA8073700F8CEB3 /* GongGanDetailView.swift in Sources */,
 				BC344F002AA808FC00F8CEB3 /* MDPMonthYearPickerButton.swift in Sources */,
 				D84824B12AA8A4450067A065 /* ReservationModel.swift in Sources */,
-				BCDD34872AAF273600A68F4F /* DetailSegmentView.swift in Sources */,
+				BCDD34872AAF273600A68F4F /* DetailInfoView.swift in Sources */,
 				BCE6585F2AA8AD4D0009ECD1 /* ThirdStepSignUpView.swift in Sources */,
 				D84824AC2AA8A41D0067A065 /* ReservationCancelView.swift in Sources */,
 				BC344EEF2AA808DB00F8CEB3 /* ReservationHeaderView.swift in Sources */,

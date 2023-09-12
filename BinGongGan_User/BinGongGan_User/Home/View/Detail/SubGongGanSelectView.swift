@@ -10,9 +10,9 @@ import BinGongGanCore
 
 struct SubGongGanSelectView: View {
     @EnvironmentObject var gongGan: GongGanStore
-    private let screenWidth = UIScreen.main.bounds.width
-    @State var selectedSpaceIndex: Int? = nil
     @Binding var isReservationActive: Int?
+    @State var selectedSpaceIndex: Int? = nil
+    private let screenWidth = UIScreen.main.bounds.width
     
     var body: some View {
         VStack {
@@ -77,19 +77,21 @@ struct SubGongGanSelectView: View {
                         } label: {
                             VStack {
                                 HStack(alignment: .center) {
+                                    Text(" ● ")
                                     Text("\(space.title)")
-                                        .font(.body1Regular)
-                                        .foregroundColor(selectedSpaceIndex == index ? .white : .myBrown)
-                                        .frame(width: screenWidth * 0.85)
-                                        .padding(10)
-                                        .foregroundColor(.white)
-                                        .background(
-                                            RoundedRectangle(cornerRadius: 15)
-                                                .foregroundColor(selectedSpaceIndex == index ? .myBrown : .white)
-                                                .shadow(color: .gray, radius: 1, x: 1, y: 1)
-                                        )
+                                    Spacer()
+                                    Text("\(space.price) / 시간")
                                 }
-                                
+                                    .font(.body1Regular)
+                                    .foregroundColor(selectedSpaceIndex == index ? .white : .myBrown)
+                                    .frame(width: screenWidth * 0.85)
+                                    .padding(EdgeInsets(top: 10, leading: 20, bottom: 10, trailing: 20))
+                                    .foregroundColor(.white)
+                                    .background(
+                                        RoundedRectangle(cornerRadius: 15)
+                                            .foregroundColor(selectedSpaceIndex == index ? .myBrown : .white)
+                                            .shadow(color: .gray, radius: 1, x: 1, y: 1)
+                                    )
                                 
                                 
                             }

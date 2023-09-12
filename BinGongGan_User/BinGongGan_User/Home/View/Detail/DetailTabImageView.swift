@@ -8,9 +8,10 @@
 import SwiftUI
 
 struct DetailTabImageView: View {
+    
     @State var imageUrl: [String]
-    private let screenWidth = UIScreen.main.bounds.width
     @State private var selectedTab = 0
+    private let screenWidth = UIScreen.main.bounds.width
     private let timer = Timer.publish(every: 3, on: .main, in: .common).autoconnect()
     
     var body: some View {

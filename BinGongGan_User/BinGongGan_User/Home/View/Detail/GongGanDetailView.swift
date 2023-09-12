@@ -11,15 +11,16 @@ import BinGongGanCore
 
 struct GongGanDetailView: View {
     
-//    @State var gongGanID: String = ""
-    
     @EnvironmentObject var gongGan: GongGanStore
+    @StateObject var reservationStore: ReservationStore = ReservationStore()
     @State private var heartButton: Bool = false
     @State private var isActionSheetPresented = false
     @State private var tabBarVisivility: Visibility = .visible
     @State private var isReservationActive: Int? = nil
     @State private var isShowingReservationView = false
     @State private var isShowingReservationAlert = false
+    @State private var selectedSegment: segmentIndex = .info
+    @Namespace var animation
     private let screenWidth = UIScreen.main.bounds.width
     private let screenheight = UIScreen.main.bounds.height
     
@@ -34,9 +35,6 @@ struct GongGanDetailView: View {
         case event = "공지사항"
     }
     
-    @StateObject var reservationStore: ReservationStore = ReservationStore()
-    @State private var selectedSegment: segmentIndex = .info
-    @Namespace var animation
     
     var body: some View {
             ZStack {
@@ -90,17 +88,16 @@ struct GongGanDetailView: View {
                     .padding(.bottom, 0.1)
                 }
             }
+        
+            .onAppear{
+//                Task{
+//                    await gongGan.fetchGongGanInfo()
+//                }
+            }
             
             .navigationTitle("BinGongGan")
             .navigationBarTitleDisplayMode(.inline)
-            
-            .alert(isPresented: $isShowingReservationAlert) {
-                Alert(
-                    title: Text("예약 신청"),
-                    message: Text("세부 공간을 선택해 주세요."),
-                    dismissButton: .default(Text("돌아가기"))
-                )
-            }
+            .toast(isShowing: $isShowingReservationAlert, message: "세부 공간을 선택해 주세요.")
             .actionSheet(isPresented: $isActionSheetPresented) {
                 ActionSheet(
                     title: Text("전화 문의"),

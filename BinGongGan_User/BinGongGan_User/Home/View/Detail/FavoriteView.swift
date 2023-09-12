@@ -9,6 +9,7 @@ import SwiftUI
 import BinGongGanCore
 
 struct FavoriteView: View {
+    
     @EnvironmentObject var gongGan: MyFavoriteStore
     @State var isHeartButtonShowing: Bool = false
     

@@ -21,8 +21,6 @@ struct SegmentView: View {
                     VStack {
                         Text(segment.rawValue)
                             .font(.subheadline)
-                            .fontWeight(selectedSegment == segment ? .bold : .regular)
-                            .foregroundColor(selectedSegment == segment ? .myBrown : .black)
                         
                         if selectedSegment == segment {
                             Rectangle()
@@ -47,14 +45,14 @@ struct SegmentView: View {
                     }
                 }
             }
-                switch selectedSegment {
-                case .info:
-                    DetailSegmentView(isReservationActive: $isReservationActive)
-                case .review:
-                    DetailSegmentReviewListView()
-                case .event:
-                    DetailAnnouncementView()
-                }
+            switch selectedSegment {
+            case .info:
+                DetailInfoView(isReservationActive: $isReservationActive)
+            case .review:
+                DetailSegmentReviewListView()
+            case .event:
+                DetailAnnouncementView()
+            }
         }
     }
 }

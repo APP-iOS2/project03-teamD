@@ -9,6 +9,7 @@ import SwiftUI
 import BinGongGanCore
 
 struct FavoriteCellView: View {
+    
     @Binding var isHeartButtonShowing: Bool
     @State var gongGanItem: GongGan
     
