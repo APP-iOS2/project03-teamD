@@ -12,11 +12,11 @@ public struct Review: Identifiable, Codable {
     public var placeId: String //리뷰 달린 공간 id값
     public var writerId: String
     public var date: String //작성 날짜
-    public var rating: Double //별점
+    public var rating: Int //별점
     public var content: String //내용
     public var reviewImageStringList: [String]? //리뷰 이미지
     
-    public init(id: String = UUID().uuidString, placeId: String, writerId: String, date: String, rating: Double, content: String, reviewImageStringList: [String]? = nil) {
+    public init(id: String = UUID().uuidString, placeId: String, writerId: String, date: String, rating: Int, content: String, reviewImageStringList: [String]? = nil) {
         self.id = id
         self.placeId = placeId
         self.writerId = writerId

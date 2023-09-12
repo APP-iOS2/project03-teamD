@@ -10,7 +10,7 @@ import BinGongGanCore
 
 struct AddReviewView: View {
     @Environment(\.dismiss) private var dismiss
-    
+    @EnvironmentObject private var myReviewStore: MyReviewStore
     @State private var starRating: Int = 0
     @State private var reviewText: String = ""
     @State private var isShowingAlert: Bool = false
@@ -71,6 +71,11 @@ struct AddReviewView: View {
             Button("취소", role: .none) {}
             Button("제출", role: .none) {
                 //TODO: 리뷰 저장 로직
+                let currentDate = myReviewStore.currentDateToString()
+                let newReview: Review = Review(placeId: "1B7F6970-EEC1-4244-8D4F-9F8F047F124F", writerId: "xll3TbjPUUZOtWVQx2tsetWlvpV2", date: currentDate, rating: starRating, content: reviewText)
+                    Task {
+                        try await myReviewStore.addReview(review: newReview)
+                    }
                 dismiss()
             }
         }message: {
