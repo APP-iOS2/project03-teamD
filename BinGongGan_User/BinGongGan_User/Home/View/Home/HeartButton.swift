@@ -9,7 +9,7 @@ import SwiftUI
 
 struct HeartButton: View {
     @EnvironmentObject var homeStore: HomeStore
-    @Binding var place: Place
+    @Binding var place: GongGanPlace
     var body: some View {
         Button {
             place.isFavorite.toggle()
