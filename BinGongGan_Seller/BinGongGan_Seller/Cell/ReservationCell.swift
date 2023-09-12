@@ -9,11 +9,26 @@ import SwiftUI
 import BinGongGanCore
 
 struct ReservationCell: View {
+    @State private var isPresentedModal: Bool = false
+    var reservationStateType: ReservationStateType = .waitReservation
+    @State var isHiddenRightButton: Bool
+
     var body: some View {
         VStack(alignment: .leading) {
             HStack {
                 ReservationDeadlineCell()
                 Spacer()
+                
+                if isHiddenRightButton {
+                    Button {
+                        isPresentedModal.toggle()
+                    } label: {
+                        Image(systemName: "chevron.right")
+                            .background(Color.clear)
+                            .foregroundColor(Color.myBrown)
+                    }
+                    .buttonStyle(.plain)
+                }
             }
             .padding(.bottom, 5)
             
@@ -65,11 +80,27 @@ struct ReservationCell: View {
         .frame(maxWidth: .infinity)
         .background(Color.white)
         .cornerRadius(15)
+        .sheet(isPresented: self.$isPresentedModal) {
+            switch reservationStateType {
+            case .waitReservation :
+                ReservationDetailSheet()
+                    .presentationDetents([.medium])
+                    .cornerRadius(15)
+            case .cancelReservation :
+                ReservationCancelSheet()
+                    .presentationDetents([.medium])
+                    .cornerRadius(15)
+            case .confirmedReservation:
+                ReservationConfirmedSheet()
+                    .presentationDetents([.medium])
+                    .cornerRadius(15)
+            }
+        }
     }
 }
 
 struct ReservationCell_Previews: PreviewProvider {
     static var previews: some View {
-        ReservationCell()
+        ReservationCell(isHiddenRightButton: true)
     }
 }

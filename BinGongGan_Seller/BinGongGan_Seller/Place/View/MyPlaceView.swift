@@ -9,8 +9,8 @@ import SwiftUI
 import BinGongGanCore
 
 struct MyPlaceView: View {
-    @Environment(\.dismiss) private var dismiss
-    
+    @StateObject private var roomStore: RoomStore = RoomStore()
+
     var body: some View {
         ZStack {
             Color.myBackground
@@ -43,7 +43,10 @@ struct MyPlaceView: View {
                                             MySpaceCell()
                                                 .frame(width: cardSize.width - 20)
                                         } else {
-                                            NavigationLink(destination: RoomAddView()) {
+                                            NavigationLink {
+                                                RoomAddView()
+                                                    .environmentObject(roomStore)
+                                            } label: {
                                                 ZStack {
                                                     RoundedRectangle(cornerRadius: 15)
                                                         .fill(.white)
