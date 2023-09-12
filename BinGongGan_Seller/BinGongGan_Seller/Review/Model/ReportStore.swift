@@ -6,20 +6,29 @@
 //
 
 import Foundation
+import BinGongGanCore
 
-struct Report: Identifiable {
-    var id: String = UUID().uuidString
-    
-    var title: String
+struct Report {
+    var reportedReviewId: String = ""
+    var reason: String
     var isSelected: Bool
 }
 
 final class ReportStore: ObservableObject {
-    @Published var reports: [Report] = [
-        Report(title: ReportCase.unrelated.rawValue, isSelected: false),
-        Report(title: ReportCase.spamFlagging.rawValue, isSelected: false),
-        Report(title: ReportCase.obscenity.rawValue, isSelected: false),
-        Report(title: ReportCase.offensiveLanguage.rawValue, isSelected: false),
-        Report(title: ReportCase.etc.rawValue, isSelected: false)
-    ]
+    @Published var reportList: [Report] = []
+    @Published var reportCategory: [Report] = []
+    
+    init() {
+        reportCategory = [
+            Report(reason: ReportCase.unrelated.rawValue, isSelected: false),
+            Report(reason: ReportCase.spamFlagging.rawValue, isSelected: false),
+            Report(reason: ReportCase.obscenity.rawValue, isSelected: false),
+            Report(reason: ReportCase.offensiveLanguage.rawValue, isSelected: false),
+            Report(reason: ReportCase.etc.rawValue, isSelected: false)
+        ]
+    }
+    
+    func reportReview(report: Report) {
+        reportList.append(report)
+    }
 }
