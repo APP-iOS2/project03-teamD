@@ -35,7 +35,7 @@ struct HomeView: View {
     
     @EnvironmentObject var homeStore: HomeStore
     @Binding var tabBarVisivility: Visibility
-    
+    @State var isMung: Bool = false
     var body: some View {
         
         ZStack {
@@ -102,10 +102,19 @@ struct HomeView: View {
                         
                         HomeEventTapView()
                             .padding([.top, .bottom], 7)
-                        Text("Copyright © 2023 Apple Inc. All rights reserved.")
-                            .font(.footnote)
+                        HStack {
+                            Text("Copyright")
+                                .font(.footnote)
                             .foregroundColor(.myLightGray)
-                        
+                            Button {
+                                isMung = true
+                            } label: {
+                                Text("©")
+                            }
+                            Text("2023 Apple Inc. All rights reserved.")
+                                .font(.footnote)
+                                .foregroundColor(.myLightGray)
+                        }
                     }// GROUP
                 }// LazyVStack
                 .padding(.bottom, HomeNameSpace.scrollViewBottomPadding)
@@ -118,17 +127,18 @@ struct HomeView: View {
             .toolbar {
                 ToolbarItem(placement: .navigationBarLeading) {
                     HStack {
-                        Image("HomeLogo")
+                        Image(isMung ? "mungmoongE" : "HomeLogo" )
                             .resizable()
                             .aspectRatio(contentMode: .fit)
-                            .frame(width: 40, height: 40)
+                            .frame(width: isMung ? 80 : 40, height: isMung ? 80 : 40)
                         .padding([.bottom, .leading], 10)
-                        Text("BinGongGan")
+                        Text(isMung ? "mungmoongE" : "BinGongGan")
                             .font(.body1Bold)
                     }
                 }
             }
         }// ZSTACK
+        .easterEgg(isPresented: $isMung, title: "놀랐지ㅋㅋ", primaryButtonTitle: "닫아") {}
         .onAppear {
             
         }
@@ -141,5 +151,103 @@ struct HomeView_Previews: PreviewProvider {
             HomeView(tabBarVisivility: .constant(.visible))
                 .environmentObject(HomeStore())
         }
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+struct EasterEggModifier: ViewModifier {
+
+  @Binding var isPresented: Bool
+  let title: String
+  let primaryButtonTitle: String
+  let primaryAction: () -> Void
+
+  func body(content: Content) -> some View {
+    ZStack {
+      content
+
+      ZStack {
+        if isPresented {
+          Rectangle()
+            .fill(.black.opacity(0.5))
+            .blur(radius: isPresented ? 2 : 0)
+            .ignoresSafeArea()
+            .onTapGesture {
+              self.isPresented = false // 외부 영역 터치 시 내려감
+            }
+
+            EasterEggAlert(
+            isPresented: self.$isPresented,
+            title: self.title,
+            primaryButtonTitle: self.primaryButtonTitle,
+            primaryAction: self.primaryAction
+          )
+          .transition(.move(edge: .bottom).combined(with: .opacity))
+        }
+      }
+      .animation(
+        isPresented
+        ? .spring(response: 0.3)
+        : .none,
+        value: isPresented
+      )
+    }
+  }
+}
+extension View {
+    func easterEgg(
+      isPresented: Binding<Bool>,
+      title: String,
+      primaryButtonTitle: String,
+      primaryAction: @escaping () -> Void
+    ) -> some View {
+      return modifier(
+        EasterEggModifier(
+          isPresented: isPresented,
+          title: title,
+          primaryButtonTitle: primaryButtonTitle,
+          primaryAction: primaryAction
+        )
+      )
     }
 }
