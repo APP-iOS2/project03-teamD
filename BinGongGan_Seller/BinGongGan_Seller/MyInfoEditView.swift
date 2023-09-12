@@ -8,10 +8,12 @@
 import SwiftUI
 
 struct MyInfoEditView: View {
-    @State var name: String = ""
+    @State var email: String = ""
     @State var phoneNumber: String = ""
     @State var accountNumber: String = "인증 필요"
     @State var companyNumber: String = ""
+    @State private var showAlert = false
+    @State private var alertMessage = ""
     @Binding var isShowingEditSheet: Bool
     @StateObject var myInfo: MyStore
     
@@ -21,10 +23,10 @@ struct MyInfoEditView: View {
                 Section {
                     VStack(alignment: .leading) {
                         HStack {
-                            Text("이름")
+                            Text("이메일")
                                 .frame(width: 120, alignment: .leading)
-                            TextField("", text: $name)
-                            
+                            TextField("", text: $email)
+                                .autocapitalization(.none) // 자동 대문자 변환 끄기
                         }
                     }
                     
@@ -33,7 +35,7 @@ struct MyInfoEditView: View {
                             Text("연락처")
                                 .frame(width: 120, alignment: .leading)
                             TextField("", text: $phoneNumber)
-                            
+                                .autocapitalization(.none) // 자동 대문자 변환 끄기
                         }
                     }
                     
@@ -43,16 +45,7 @@ struct MyInfoEditView: View {
                                 .frame(width: 120, alignment: .leading)
                             TextField("", text: $accountNumber)
                                 .foregroundColor(.myDarkGray)
-                            
-                        }
-                    }
-                    
-                    VStack(alignment: .leading) {
-                        HStack {
-                            Text("사업자 등록번호")
-                                .frame(width: 120, alignment: .leading)
-                            TextField("", text: $companyNumber)
-                            
+                                .autocapitalization(.none) // 자동 대문자 변환 끄기
                         }
                     }
                 }
@@ -63,6 +56,16 @@ struct MyInfoEditView: View {
                 ToolbarItem(placement: .navigationBarTrailing) {
                     Button {
                         // TODO: 저장기능 수행을 꼭 추가하자.
+                        if !isValidEmail(email) {
+                            showAlert = true
+                            alertMessage = "이메일 형식이 올바르지 않습니다."
+                        } else if phoneNumber.isEmpty {
+                            showAlert = true
+                            alertMessage = "연락처를 입력해주세요."
+                        } else if accountNumber.isEmpty {
+                            showAlert = true
+                            alertMessage = "계좌번호를 입력해주세요."
+                        }
                         isShowingEditSheet.toggle()
                     } label: {
                         Text("저장")
@@ -79,7 +82,16 @@ struct MyInfoEditView: View {
                 }
             }
         }
+        .alert(isPresented:$showAlert) {
+            Alert(title: Text(""), message: Text(alertMessage), dismissButton: .default(Text("확인")))
+        }
     }
+}
+
+func isValidEmail(_ email: String) -> Bool {
+    let emailRegEx = "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,64}"
+    let emailPred = NSPredicate(format:"SELF MATCHES %@", emailRegEx)
+    return emailPred.evaluate(with: email)
 }
 
 struct MyInfoEditView_Previews: PreviewProvider {
