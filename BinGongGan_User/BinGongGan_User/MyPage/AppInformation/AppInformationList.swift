@@ -9,7 +9,6 @@ import SwiftUI
 import BinGongGanCore
 
 struct AppInformationList: View {
-    @Environment(\.dismiss) private var dismiss
     
     private let informationList: [String] = [
         "이용약관",
@@ -31,6 +30,7 @@ struct AppInformationList: View {
                     .font(.body1Bold)
             }
         }
+        .padding(.top, -20)
         .navigationTitle("빈공간 정보")
         .navigationBarTitleDisplayMode(.inline)
         .customBackbutton()

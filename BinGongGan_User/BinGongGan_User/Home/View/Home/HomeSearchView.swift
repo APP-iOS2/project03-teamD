@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import BinGongGanCore
 
 struct HomeSearchView: View {
     
@@ -33,7 +34,7 @@ struct HomeSearchView: View {
                         homeStore.searchPlaceName(placess: homeStore.places, keyWord: placeSearchTextField)
                         
                         if !homeStore.recentlyWords.contains(placeSearchTextField){
-                            homeStore.searchRecentlyWord(word: placeSearchTextField)
+                            homeStore.addRecentlyWord(word: placeSearchTextField)
                         }
                         placeSearchTextField = ""
                     } label: {
@@ -50,31 +51,38 @@ struct HomeSearchView: View {
                         Text("최근검색어")
                             .font(.head1Bold)
                             .foregroundColor(.myBrown)
+                        Button {
+                            homeStore.recentlyWords.removeAll()
+                        } label: {
+                            Image(systemName: "trash")
+                                .font(.captionRegular)
+                                .foregroundColor(.myBrown)
+                        }
                         Spacer()
                     }
                     ScrollView(.horizontal, showsIndicators: false) {
-                        HStack(spacing: 2.5) {
-                            ForEach(homeStore.recentlyWords, id: \.self){ word in
-                                    ZStack {
-                                        RoundedRectangle(cornerRadius: 15)
-                                            .frame(width: HomeNameSpace.screenWidth * 0.2, height: HomeNameSpace.screenHeight * 0.1)
-                                            .foregroundColor(.white)
-                                        HStack {
-                                            Text("\(word)")
-                                                .foregroundColor(.black)
-                                                .font(.captionBold)
-                                                .frame(width: HomeNameSpace.screenWidth * 0.14, height: HomeNameSpace.screenHeight * 0.08)
-                                                .padding(.leading, 5)
-                                            Button {
-                                                placeSearchTextField = word
-                                                homeStore.deleteRecentlyWord(word: word)
-                                            } label: {
-                                                Image(systemName: "x.circle")
-                                                    .font(.captionRegular)
-                                                    .foregroundColor(.myDarkGray)
-                                            }.padding(.trailing, 10)
-                                        }
-                                    }// ZSTACK
+                        HStack(spacing: 5) {
+                            ForEach(homeStore.recentlyWords.reversed(), id: \.self){ word in
+                                ZStack {
+                                    RoundedRectangle(cornerRadius: 15)
+                                        .frame(width: HomeNameSpace.screenWidth * 0.25, height: HomeNameSpace.screenHeight * 0.1)
+                                        .foregroundColor(.myLightGray2)
+                                    HStack {
+                                        Text("\(word)")
+                                            .foregroundColor(.black)
+                                            .font(.captionBold)
+                                            .frame(width: HomeNameSpace.screenWidth * 0.12, height: HomeNameSpace.screenHeight * 0.08)
+                                            .padding(.leading, 5)
+                                        Button {
+                                            placeSearchTextField = word
+                                            homeStore.deleteRecentlyWord(word: word)
+                                        } label: {
+                                            Image(systemName: "x.circle")
+                                                .font(.captionRegular)
+                                                .foregroundColor(.myDarkGray)
+                                        }.padding(.trailing, 10)
+                                    }
+                                }// ZSTACK
                             }
                         }// HSTACK
                     }// SCROLLVIEW

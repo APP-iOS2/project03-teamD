@@ -9,76 +9,158 @@ import SwiftUI
 import BinGongGanCore
 
 struct MyReviewRowView: View {
-    @State private var isShowingDetailView: Bool = false
-    @State private var isFolded: Bool = true
+    @EnvironmentObject private var myReviewStore: MyReviewStore
     
-    var text: String
+    @State private var isFolded: Bool = true
+    @State private var isShowingDetailView: Bool = false
+    @State private var isShowingRemoveAlert: Bool = false
+    @State private var reply: Reply?
+    
+    var review: Review
+    var limitTextLength: Int = 20
     var foldedText: String {
-        let endIndex = text.index(text.startIndex, offsetBy: 20)
-        if text.count <= 10 {
-            return text
+        if review.content.count <= limitTextLength {
+            return review.content
         }else {
-            return "\(text[...endIndex]) ..."
+            let endIndex = review.content.index(review.content.startIndex, offsetBy: limitTextLength)
+            return "\(review.content[...endIndex]) ..."
         }
     }
-    var imageList: [String] = ["SignInLogo", "SignInLogo", "SignInLogo", "SignInLogo", "SignInLogo"]
+    var isLimitTextLength: Bool {
+        if review.content.count <= limitTextLength {
+            return false
+        }else {
+            return true
+        }
+    }
     
     var body: some View {
-            VStack(alignment: .leading){
-                HStack(alignment: .bottom) {
-                    VStack(alignment: .leading) {
-                        Button {
-                            isShowingDetailView.toggle()
-                        } label: {
-                            Text("공간 이름 >")
-                                .font(.body1Bold)
-                                .foregroundColor(.black)
-                        }
-                        HStack(alignment: .bottom) {
-                            ForEach(0..<5, id: \.self) { index in
-                                Image(systemName: "star.fill")
-                                    .foregroundColor(.yellow)
-                                    .padding(.horizontal, -3)
-                            }
-                            Text(" | ")
-                            Text("2023.01.01 작성")
-                        }
-                        .foregroundColor(.myDarkGray)
-                        .font(.captionRegular)
+        VStack(alignment: .leading){
+            HStack(alignment: .top) {
+                VStack(alignment: .leading) {
+                    Button {
+                        isShowingDetailView.toggle()
+                    } label: {
+                        Text("공간 이름 >")
+                            .font(.body1Bold)
+                            .foregroundColor(.black)
                     }
-                }
-                ScrollView(.horizontal) {
-                    HStack {
-                        ForEach(imageList, id:\.self) { image in
-                            Image(image)
-                                .resizable()
-                                .scaledToFit()
-                                .frame(height: UIScreen.main.bounds.height * 0.2)
-                                .overlay {
-                                    RoundedRectangle(cornerRadius: 15)
-                                        .stroke()
-                                }
+                    .buttonStyle(.plain)
+                    HStack(alignment: .bottom) {
+                        ForEach(0..<5, id: \.self) { index in
+                            Image(systemName: "star.fill")
+                                .foregroundColor(index < review.rating ? .yellow : .myLightGray)
+                                .padding(.horizontal, -3)
                         }
+                        Text(" | ")
+                        Text(review.date)
                     }
+                    .foregroundColor(.myDarkGray)
+                    .font(.captionRegular)
+                    .padding(.bottom, 5)
                 }
-                Group{
-                    Text(isFolded ? foldedText : text)
-                    + Text(isFolded ? " 더보기" : " 접기")
+                
+                Spacer()
+                
+                Button {
+                    isShowingRemoveAlert.toggle()
+                } label: {
+                    Text("삭제")
+                        .font(.captionBold)
+                        .foregroundColor(.white)
+                }
+                .buttonStyle(.plain)
+                .padding(EdgeInsets(top: 5, leading: 10, bottom: 5, trailing: 10))
+                .background(
+                    RoundedRectangle(cornerRadius: 15)
+                        .foregroundColor( .myBrown)
+                )
+            }
+            
+            HStack(alignment: .bottom) {
+                Text(isFolded ? foldedText : review.content)
+                if isLimitTextLength {
+                    Spacer()
+                    Text(isFolded ? " 더보기" : " 접기")
                         .foregroundColor(.myDarkGray)
                         .font(.body1Regular)
                 }
-                .onTapGesture {
-                    isFolded.toggle()
+            }
+            .onTapGesture {
+                isFolded.toggle()
+            }
+            if let images = review.reviewImageStringList {
+                ScrollView(.horizontal) {
+                    HStack {
+                        ForEach(images, id:\.self) { imageUrl in
+                            let url = URL(string: imageUrl)
+                            AsyncImage(url: url) { image in
+                                image
+                                    .resizable()
+                                    .scaledToFit()
+                                    .frame(height: UIScreen.main.bounds.height * 0.15)
+                                    .overlay {
+                                        RoundedRectangle(cornerRadius: 15)
+                                            .stroke()
+                                    }
+                                    .padding(.bottom, 10)
+                            } placeholder: {
+                                ProgressView()
+                            }
+
+                        }
+                    }
                 }
-                .navigationDestination(isPresented: $isShowingDetailView) {
-                    GongGanDetailView()
-                }
+            }
+            if let reply = self.reply {
+                MyReviewReplyView(reply: reply)
+            }
+        }
+        .navigationDestination(isPresented: $isShowingDetailView) {
+            GongGanDetailView()
+        }
+        .alert("리뷰 삭제", isPresented: $isShowingRemoveAlert) {
+            Button("취소", role: .cancel) {}
+            Button("삭제", role: .destructive) {
+                //TODO: 리뷰 삭제 로직
+                
+            }
+        }message: {
+            Text("작성한 리뷰를 삭제합니다.")
+        }
+        .task {
+            self.reply = try? await myReviewStore.findReply(reviewId: review.id)
         }
     }
 }
 
 struct MyReviewRowView_Previews: PreviewProvider {
     static var previews: some View {
-        MyReviewRowView(text: "리뷰임둥.리뷰임둥.리뷰임둥.리뷰임둥.리뷰임둥.리뷰임둥.리뷰임둥.리뷰임둥.리뷰임둥.리뷰임둥.리뷰임둥.리뷰임둥.리뷰임둥.리뷰임둥.리뷰임둥.리뷰임둥.리뷰임둥.리뷰임둥.리뷰임둥.리뷰임둥.리뷰임둥.리뷰임둥.리뷰임둥.리뷰임둥.리뷰임둥.리뷰임둥.리뷰임둥.리뷰임둥.리뷰임둥.리뷰임둥.리뷰임둥.리뷰임둥.")
+        MyReviewRowView(review: Review(placeId: "1B7F6970-EEC1-4244-8D4F-9F8F047F124F", writerId: "xll3TbjPUUZOtWVQx2tsetWlvpV2", date: "2023.09.12 화", rating: 4, content: "asdnfjknasdjkvnmzxcnvjkandjkv askjdnfkjhnasdjkfnasdjknfgjkqnjksdnjkagnjklasd") )
+            .environmentObject(MyReviewStore())
+    }
+}
+
+struct MyReviewReplyView: View {
+    var reply: Reply
+    var body: some View {
+        VStack(alignment: .leading) {
+            HStack(alignment: .bottom) {
+                Text("사장님 이름")
+                    .font(.body1Bold)
+                Text(reply.date)
+                    .font(.captionRegular)
+                    .foregroundColor(.myDarkGray)
+            }
+            .padding(.bottom, 5)
+            Text(reply.content)
+                .font(.body1Regular)
+        }
+        .frame(maxWidth: .infinity, alignment: .leading)
+        .padding(15)
+        .background(
+            RoundedRectangle(cornerRadius: 15)
+                .foregroundColor(.myLightGray2)
+        )
     }
 }
