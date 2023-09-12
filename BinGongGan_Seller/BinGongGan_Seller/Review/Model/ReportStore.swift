@@ -12,10 +12,18 @@ import BinGongGanCore
 struct Report: Identifiable, Codable {
     var id: String = UUID().uuidString
     
-    var reporterId: String = "" //신고한 판매자 ID
-    var reportedReviewId: String = "" //신고한 리뷰 ID
-    var reason: String //신고 사유
+    var reporterId: String = "" // 신고한 판매자 ID
+    var reportedReviewId: String = "" // 신고한 리뷰 ID
+    var reason: String // 신고 사유
     var isSelected: Bool
+    
+    enum CodingKeys: String, CodingKey {
+        case id
+        case reporterId
+        case reportedReviewId
+        case reason
+        case isSelected
+    }
 }
 
 final class ReportStore: ObservableObject {
@@ -59,8 +67,8 @@ final class ReportStore: ObservableObject {
     
     func loadData() async {
         do {
-            // TODO: document 이름 판매자 ID로 수정하기
-            try await dbRef.document("reporterId").setData([
+            // TODO: document 이름 신고된 리뷰 ID로 수정하기
+            try await dbRef.document("reportedReviewID").setData([
                 "reports": reportList.map { $0.asDictionary() }
             ])
         } catch {

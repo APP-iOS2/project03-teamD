@@ -73,6 +73,10 @@ struct ReviewReportSheet: View {
                         }
                     }
                     
+                    for (index, _) in reportStore.reportCategory.enumerated() {
+                        reportStore.reportCategory[index].isSelected = false
+                    }
+                    
                     isShowingReviewReportSheet.toggle()
                 })
             )

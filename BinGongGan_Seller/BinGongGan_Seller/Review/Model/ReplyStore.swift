@@ -7,16 +7,29 @@
 
 import Foundation
 import BinGongGanCore
+import FirebaseFirestore
 
 final class ReplyStore: ObservableObject {
     @Published var replies: [Reply] = []
     
+    var dbRef = Firestore.firestore().collection("reply")
+    
     init() {
-        fetchData()
+        Task {
+            await fetchData()
+        }
     }
     
-    func fetchData() {
-        
+    @MainActor func fetchData() async {
+        do {
+            let snapshot = try await dbRef.getDocuments()
+            
+            self.replies = try snapshot.documents.compactMap {
+                try $0.data(as: Reply.self)
+            }
+        } catch {
+            print("Error fetching reviews: \(error)")
+        }
     }
     
     func uploadReply(newReply: Reply) {
