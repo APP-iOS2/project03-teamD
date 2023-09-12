@@ -46,6 +46,7 @@ struct SignInView: View {
                 
                 NavigationLink {
                     SignUpView()
+                        .environmentObject(signUpStore)
                 } label: {
                     Text("회원가입")
                 }
