@@ -23,9 +23,9 @@ struct ReviewReportSheet: View {
             .padding(20)
             
             List {
-                ForEach(reportStore.reports) { report in
+                ForEach(reportStore.reportCategory) { report in
                     HStack {
-                        Text("\(report.title)")
+                        Text("\(report.reason)")
                         Spacer()
                         if report.isSelected {
                             Image(systemName: "checkmark.circle")
@@ -33,12 +33,12 @@ struct ReviewReportSheet: View {
                         }
                     }
                     .onTapGesture {
-                        for (index, _) in reportStore.reports.enumerated() {
-                            reportStore.reports[index].isSelected = false
+                        for (index, _) in reportStore.reportCategory.enumerated() {
+                            reportStore.reportCategory[index].isSelected = false
                         }
                         
-                        if let index = reportStore.reports.firstIndex(where: { $0.id == report.id }) {
-                            reportStore.reports[index].isSelected = true
+                        if let index = reportStore.reportCategory.firstIndex(where: { $0.id == report.id }) {
+                            reportStore.reportCategory[index].isSelected = true
                         }
                     }
                 }
@@ -59,7 +59,25 @@ struct ReviewReportSheet: View {
                 message: Text("해당 리뷰를 신고하시겠습니까?"),
                 primaryButton: .cancel(Text("취소하기")),
                 secondaryButton: .destructive(Text("신고하기"), action: {
-                    // TODO: 신고 처리 로직 구현하기
+                    for category in reportStore.reportCategory {
+                        if category.isSelected {
+                            let report = Report(
+                                // TODO: 신고한 판매자 ID, 신고한 리뷰 ID 넣기
+                                reporterId: "",
+                                reportedReviewId: "",
+                                reason: category.reason,
+                                isSelected: category.isSelected
+                            )
+                            reportStore.reportReview(report: report)
+                            break
+                        }
+                    }
+                    
+                    for (index, _) in reportStore.reportCategory.enumerated() {
+                        reportStore.reportCategory[index].isSelected = false
+                    }
+                    
+                    isShowingReviewReportSheet.toggle()
                 })
             )
         }

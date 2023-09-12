@@ -107,8 +107,7 @@
 		B12A84342AA6EF9500BDF8CA /* BinGongGan_Admin */ = {
 			isa = PBXGroup;
 			children = (
-				B12A84392AA6EF9800BDF8CA /* Assets.xcassets */,
-				B12A85022AA7A92700BDF8CA /* Document */,
+				B12A85022AA7A92700BDF8CA /* Config */,
 				B12A85032AA7A93400BDF8CA /* App */,
 				B12A85052AA7A9A800BDF8CA /* TabBar */,
 				B12A843B2AA6EF9800BDF8CA /* Preview Content */,
@@ -148,12 +147,13 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		B12A85022AA7A92700BDF8CA /* Document */ = {
+		B12A85022AA7A92700BDF8CA /* Config */ = {
 			isa = PBXGroup;
 			children = (
+				B12A84392AA6EF9800BDF8CA /* Assets.xcassets */,
 				B12A84F12AA6F10200BDF8CA /* GoogleService-Info.plist */,
 			);
-			path = Document;
+			path = Config;
 			sourceTree = "<group>";
 		};
 		B12A85032AA7A93400BDF8CA /* App */ = {

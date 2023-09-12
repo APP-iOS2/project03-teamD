@@ -11,8 +11,8 @@ import FirebaseFirestore
 
 class AnnouncementStore: ObservableObject {
     @Published var announcementList: [Announcement] = [
-        Announcement(title: "hello", content: "hello"),
-        Announcement(title: "hi", content: "hi")
+        Announcement(title: "hello", content: "hello", places: [PlaceInfo(id: "1", name: "Place 1")]),
+        Announcement(title: "hi", content: "hi", places: [PlaceInfo(id: "1", name: "Place 1")])
     ]
     
     //    let dataBase = Firestore.firestore().collection("Place")

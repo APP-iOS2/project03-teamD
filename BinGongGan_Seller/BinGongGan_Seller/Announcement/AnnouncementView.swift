@@ -11,6 +11,7 @@ struct AnnouncementView: View {
     
     @Environment(\.dismiss) private var dismiss
     @StateObject var announcementStore: AnnouncementStore
+    @State private var placeInfoList: [PlaceInfo] = []
     
     var body: some View {
         VStack{
@@ -31,43 +32,21 @@ struct AnnouncementView: View {
                 }
             }
             Form {
-                Section(header: Text("공간1")
-                    .foregroundColor(Color.myBrown)
-                ) {
-                    ForEach(announcementStore.announcementList.indices.reversed(), id: \.self) { index in
-                        NavigationLink {
-                            AnnouncementDetailView(announcement: announcementStore.announcementList[index])
-                        } label: {
-                            AnnouncementTextRow(index: index, announcement: announcementStore.announcementList[index])
-                                .environmentObject(announcementStore)
-                                .background(Color.clear)
+                ForEach(placeInfoList) { placeInfo in
+                    Section(header: Text(placeInfo.name)
+                        .foregroundColor(Color.myBrown)
+                    ) {
+                        ForEach(announcementStore.announcementList.indices.reversed(), id: \.self) { index in
+                            NavigationLink {
+                                AnnouncementDetailView(announcement: announcementStore.announcementList[index])
+                            } label: {
+                                AnnouncementTextRow(index: index, announcement: announcementStore.announcementList[index])
+                                    .environmentObject(announcementStore)
+                                    .background(Color.clear)
+                            }
                         }
                     }
                 }
-                Section(header: Text("공간2")
-                    .foregroundColor(Color.myBrown)) {
-                        ForEach(announcementStore.announcementList.indices.reversed(), id: \.self) { index in
-                            NavigationLink {
-                                AnnouncementDetailView(announcement: announcementStore.announcementList[index])
-                            } label: {
-                                AnnouncementTextRow(index: index, announcement: announcementStore.announcementList[index])
-                                    .environmentObject(announcementStore)
-                                    .background(Color.clear)
-                            }
-                        }
-                    }
-                Section(header: Text("공간3")
-                    .foregroundColor(Color.myBrown)) {
-                        ForEach(announcementStore.announcementList.indices.reversed(), id: \.self) { index in
-                            NavigationLink {
-                                AnnouncementDetailView(announcement: announcementStore.announcementList[index])
-                            } label: {
-                                AnnouncementTextRow(index: index, announcement: announcementStore.announcementList[index])
-                                    .environmentObject(announcementStore)
-                                    .background(Color.clear)
-                            }
-                        }
-                    }
             }
         }
         .background(Color.myBackground)
