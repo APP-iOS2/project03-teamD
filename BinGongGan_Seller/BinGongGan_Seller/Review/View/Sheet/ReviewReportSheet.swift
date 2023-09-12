@@ -23,9 +23,9 @@ struct ReviewReportSheet: View {
             .padding(20)
             
             List {
-                ForEach(reportStore.reportCategory) { report in
+                ForEach(reportStore.reports) { report in
                     HStack {
-                        Text("\(report.reason)")
+                        Text("\(report.title)")
                         Spacer()
                         if report.isSelected {
                             Image(systemName: "checkmark.circle")
@@ -60,7 +60,6 @@ struct ReviewReportSheet: View {
                 primaryButton: .cancel(Text("취소하기")),
                 secondaryButton: .destructive(Text("신고하기"), action: {
                     // TODO: 신고 처리 로직 구현하기
-                    reportStore.reports
                 })
             )
         }
