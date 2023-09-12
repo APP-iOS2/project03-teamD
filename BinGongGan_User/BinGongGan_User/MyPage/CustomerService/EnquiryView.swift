@@ -24,20 +24,25 @@ struct EnquiryView: View {
                         Text("상담원 연결")
                             .foregroundColor(.black)
                         Spacer()
-                        //MARK: - 수정 필요
                         Image(systemName: "chevron.right")
                             .foregroundColor(.myBrown)
                     }
                     
                 }
-                VStack(alignment: .leading) {
+                ZStack {
                     NavigationLink {
                         EnquiryFormView()
                     } label: {
+                        EmptyView()
+                    }
+                    HStack {
                         Text("")
                         Image(systemName: "envelope.fill")
                         Text("이메일 문의")
                             .foregroundColor(.black)
+                        Spacer()
+                        Image(systemName: "chevron.right")
+                            .foregroundColor(.myBrown)
                     }
                 }
             }
