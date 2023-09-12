@@ -9,9 +9,9 @@ import SwiftUI
 
 struct EventView: View {
     @Environment(\.dismiss) private var dismiss
-    
+
     @State var isShowingEventAddSheet: Bool = false
-    
+
     var body: some View {
         VStack{
             HStack {
@@ -22,39 +22,39 @@ struct EventView: View {
                     .padding(.leading, 20)
                 Spacer()
             }
-            
-            Form {
-                Section {
-                    ForEach(0..<5) { _ in
-                        AnnouncementTextRow()
-                            .background(Color.clear)
-                    }
-                } header: {
-                    Text("공간1")
-                        .foregroundColor(Color.myBrown)
-                }
-                
-                Section {
-                    ForEach(0..<5) { _ in
-                        AnnouncementTextRow()
-                            .background(Color.clear)
-                    }
-                } header: {
-                    Text("공간2")
-                        .foregroundColor(Color.myBrown)
-                }
-                
-                Section {
-                    ForEach(0..<5) { _ in
-                        AnnouncementTextRow()
-                            .background(Color.clear)
-                    }
-                } header: {
-                    Text("공간3")
-                        .foregroundColor(Color.myBrown)
-                }
-            }
-            .background(Color.myBackground)
+
+//            Form {
+//                Section {
+//                    ForEach(0..<5) { _ in
+//                        AnnouncementTextRow()
+//                            .background(Color.clear)
+//                    }
+//                } header: {
+//                    Text("공간1")
+//                        .foregroundColor(Color.myBrown)
+//                }
+//
+//                Section {
+//                    ForEach(0..<5) { _ in
+//                        AnnouncementTextRow()
+//                            .background(Color.clear)
+//                    }
+//                } header: {
+//                    Text("공간2")
+//                        .foregroundColor(Color.myBrown)
+//                }
+//
+//                Section {
+//                    ForEach(0..<5) { _ in
+//                        AnnouncementTextRow()
+//                            .background(Color.clear)
+//                    }
+//                } header: {
+//                    Text("공간3")
+//                        .foregroundColor(Color.myBrown)
+//                }
+//            }
+//            .background(Color.myBackground)
         }
         .background(Color.myBackground)
         .navigationBarBackButtonHidden(true)
