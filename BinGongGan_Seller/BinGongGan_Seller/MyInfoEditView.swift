@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct MyInfoEditView: View {
-    @State var name: String = ""
+    @State var email: String = ""
     @State var phoneNumber: String = ""
     @State var accountNumber: String = "인증 필요"
     @State var companyNumber: String = ""
@@ -21,9 +21,9 @@ struct MyInfoEditView: View {
                 Section {
                     VStack(alignment: .leading) {
                         HStack {
-                            Text("이름")
+                            Text("이메일")
                                 .frame(width: 120, alignment: .leading)
-                            TextField("", text: $name)
+                            TextField("", text: $email)
                             
                         }
                     }
@@ -43,15 +43,6 @@ struct MyInfoEditView: View {
                                 .frame(width: 120, alignment: .leading)
                             TextField("", text: $accountNumber)
                                 .foregroundColor(.myDarkGray)
-                            
-                        }
-                    }
-                    
-                    VStack(alignment: .leading) {
-                        HStack {
-                            Text("사업자 등록번호")
-                                .frame(width: 120, alignment: .leading)
-                            TextField("", text: $companyNumber)
                             
                         }
                     }
