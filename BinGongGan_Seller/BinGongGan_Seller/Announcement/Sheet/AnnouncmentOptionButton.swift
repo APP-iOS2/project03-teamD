@@ -50,6 +50,6 @@ struct AnnouncementOptionButton: View {
 
 struct AnnouncementOptionButton_Previews: PreviewProvider {
     static var previews: some View {
-        AnnouncementOptionButton(announcementOption: AnnouncementOption.data[0], announcement: Announcement(title: "테스트", content: "테스트", date: Date().timeIntervalSince1970))
+        AnnouncementOptionButton(announcementOption: AnnouncementOption.data[0], announcement: Announcement(title: "테스트", content: "테스트", date: Date().timeIntervalSince1970, places: []))
     }
 }
