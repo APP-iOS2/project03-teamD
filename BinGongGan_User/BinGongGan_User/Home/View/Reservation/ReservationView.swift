@@ -9,8 +9,9 @@ import SwiftUI
 
 struct ReservationView: View {
     
+    @EnvironmentObject var reservationStore: ReservationStore
     @Environment(\.dismiss) private var dismiss
-    @StateObject var reservationStore: ReservationStore = ReservationStore()
+    
     @State var isReservationFinished: Bool = false
     
     @State var isReservationEmpty: Bool = false
