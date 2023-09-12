@@ -89,7 +89,7 @@ struct SubGongGanSelectView: View {
                                     .foregroundColor(.white)
                                     .background(
                                         RoundedRectangle(cornerRadius: 15)
-                                            .foregroundColor(selectedSpaceIndex == index ? .myBrown : .white)
+                                            .foregroundColor(selectedSpaceIndex == index ? .myMint : .white)
                                             .shadow(color: .gray, radius: 1, x: 1, y: 1)
                                     )
                                 

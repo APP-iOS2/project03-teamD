@@ -133,7 +133,6 @@ struct GongGanDetailView: View {
 
 struct GongGanDetailView_Previews: PreviewProvider {
     static var previews: some View {
-        TabView {
             NavigationStack {
                 GongGanDetailView()
             }
@@ -141,7 +140,5 @@ struct GongGanDetailView_Previews: PreviewProvider {
                     .tabItem {
                         Label("홈", systemImage: "house")
                 }
-        }
-        .tint(.myBrown)
     }
 }
