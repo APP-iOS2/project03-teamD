@@ -16,7 +16,6 @@ enum ReservationHistoryType: String , CaseIterable {
 
 struct MyReservationListView: View {
     
-    @Environment(\.dismiss) private var dismiss
     @State private var selectedPicker: ReservationHistoryType = .all
     @State private var isShowingGongGanDetailView: Bool = false
     @State private var reservation: ReservationModel = ReservationModel(placeName: "", reservationNumber: "", reservationDate: "", reservationTime: "" , reservationPersonal: 1, placeAddress: "", isReservation: false)
@@ -120,6 +119,9 @@ struct MyReservationListView: View {
         .customBackbutton()
         .navigationDestination(isPresented: $isShowingGongGanDetailView) {
             GongGanDetailView()
+        }
+        .sheet(isPresented: $isShowingSheet) {
+            CategorySheetView(isShowingSheet: $isShowingSheet, selectedPicker: $selectedPicker)
         }
     }
 }
