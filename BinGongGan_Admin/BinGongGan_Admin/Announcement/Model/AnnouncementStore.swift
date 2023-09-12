@@ -6,14 +6,38 @@
 //
 
 import Foundation
+import FirebaseFirestore
+import FirebaseFirestoreSwift
 
 @MainActor
 class AnnouncementStore: ObservableObject {
     @Published var announcementList: [SystemAnnouncement] = []
     static let service = FirestoreService()
+    private let dbRef = Firestore.firestore()
     
     init() {}
-
+    
+    func featchAnnouncement() async throws {
+        var tempList: [SystemAnnouncement] = []
+        
+        do {
+            let snapshot = try await dbRef.collection(Collections.announcement.rawValue).getDocuments()
+            let documents = snapshot.documents
+            
+            for document in documents {
+                do {
+                    let announcement = try document.data(as: SystemAnnouncement.self)
+                    tempList.append(announcement)
+                }catch let err {
+                    print("error : \(err)")
+                }
+            }
+            self.announcementList = tempList
+        } catch {
+            print("Error getting document: \(error)")
+        }
+    }
+    
     func addAnnouncement(title: String, content: String, type: AnnouncementType) async throws{
         let id = UUID().uuidString
         let date = self.currentDateToString()
