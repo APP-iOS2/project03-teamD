@@ -175,12 +175,12 @@ struct GongGanDetailView: View {
 
 struct GongGanDetailView_Previews: PreviewProvider {
     static var previews: some View {
-            NavigationStack {
-                GongGanDetailView()
-            }
-                    .environmentObject(GongGanStore())
-                    .tabItem {
-                        Label("홈", systemImage: "house")
+        TabView {
+            GongGanDetailView(gongGan: GongGan.sampleGongGan)
+                .tabItem {
+                    Label("홈", systemImage: "house")
                 }
+        }
+        .tint(.myBrown)
     }
 }

@@ -10,7 +10,7 @@ import SwiftUI
 
 
 struct SummaryPlaceView: View {
-//    var place: Place
+    var place: SamplePlace
     
     var body: some View {
         RoundedRectangle(cornerRadius: 8)
@@ -21,21 +21,27 @@ struct SummaryPlaceView: View {
                 VStack(alignment: .leading) {
                     HStack {
                         VStack(alignment: .leading) {
-                            Text("경미님의 코딩교실")
+                            Text(place.placeName)
                                 .font(.headline)
-                            Text("안녕하세요")
+                            Text(place.note)
                                 .font(.footnote)
                         }
                         Spacer()
-                        Image("mungmoongE")
-                            .resizable()
-                            .frame(width: 60, height: 60)
-                            .background(.brown)
-                            .cornerRadius(8)
+                        
+                        AsyncImage(url: URL(string: place.placeImageStringList[0]) ) { image in
+                            image
+                                .resizable()
+                                .frame(width: 60, height: 60)
+                                .background(.brown)
+                                .cornerRadius(8)
+                        } placeholder: {
+                            ProgressView()
+                        }
+     
                     }
                     .padding()
                     
-                    Text("내용 내용내용내용")
+                    Text(place.note)
                         .padding([.leading, .trailing, .bottom])
                     Spacer()
                 }
@@ -43,8 +49,8 @@ struct SummaryPlaceView: View {
     }
 }
 
-struct SummaryPlaceView_Previews: PreviewProvider {
-    static var previews: some View {
-        SummaryPlaceView()
-    }
-}
+//struct SummaryPlaceView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        SummaryPlaceView()
+//    }
+//}

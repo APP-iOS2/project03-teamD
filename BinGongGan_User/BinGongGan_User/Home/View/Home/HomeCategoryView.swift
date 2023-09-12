@@ -27,10 +27,12 @@ struct HomeCategoryView: View {
                                 ZStack {
                                     Circle()
                                         .foregroundColor(.white)
+                                        
                                     Image(systemName: "\(category.categoryImageString)")
                                         .aspectRatio(contentMode: .fit)
                                         .foregroundColor(Color.myMint)
                                         .font(.system(size: 27))
+                                        
                                 }
                                 Text(category.category)
                                     .font(.captionBold)
