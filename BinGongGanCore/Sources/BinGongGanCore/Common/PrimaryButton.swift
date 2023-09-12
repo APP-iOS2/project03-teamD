@@ -7,11 +7,14 @@
 
 import SwiftUI
 
+@available(iOS 13.0, *)
 public struct PrimaryButton: View {
+    @Binding var isDisabled: Bool
     var action: () -> Void
     var title: String
     
-    public init(action: @escaping () -> Void, title: String) {
+    public init(isDisabled: Binding<Bool>, action: @escaping () -> Void, title: String) {
+        self._isDisabled = isDisabled
         self.action = action
         self.title = title
     }
@@ -26,16 +29,16 @@ public struct PrimaryButton: View {
                 .foregroundColor(.white)
                 .padding(.vertical, 16)
                 .frame(maxWidth: .infinity)
-                .background(Color.myBrown)
+                .background(isDisabled ? Color.myLightGray: Color.myBrown)
                 .cornerRadius(8)
-        }
+        }.disabled(isDisabled)
     }
 }
 
 struct PirmaryButton_Previews: PreviewProvider {
     @available(iOS 13.0, *)
     static var previews: some View {
-        PrimaryButton(action: {
+        PrimaryButton(isDisabled: .constant(false), action: {
             
         }, title: "다음")
     }

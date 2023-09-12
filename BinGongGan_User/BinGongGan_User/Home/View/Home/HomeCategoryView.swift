@@ -19,7 +19,7 @@ struct HomeCategoryView: View {
                 GridRow {
                     ForEach(homeStore.categories) { category in
                         NavigationLink {
-                                PlaceListView(category: category.category.rawValue)
+                                PlaceListView()
                                     .environmentObject(homeStore)
                             // 질문 !
                         } label: {
@@ -32,12 +32,15 @@ struct HomeCategoryView: View {
                                         .foregroundColor(Color.myMint)
                                         .font(.system(size: 27))
                                 }
-                                Text(category.category.rawValue)
+                                Text(category.category)
                                     .font(.captionBold)
                                     .foregroundColor(.myBrown)
                                     .lineLimit(1)
                             }// VSTACK
                         }// NAVIGATIONLINK
+                        .simultaneousGesture(TapGesture().onEnded({
+                            homeStore.selectedCategory = category.category
+                        }))
                     }
                 }// GRIDROW
             }// GRID

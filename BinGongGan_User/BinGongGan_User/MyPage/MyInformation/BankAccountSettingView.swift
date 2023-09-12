@@ -9,11 +9,13 @@ import SwiftUI
 import BinGongGanCore
 
 struct BankAccountSettingView: View {
+    @State private var isPresentedEditSheet: Bool = false
+    
     var body: some View {
         Form {
             VStack(alignment: .leading) {
                 HStack(alignment: .center) {
-                    AsyncImage(url: URL(string: "https://play-lh.googleusercontent.com/HTBCHqXZ01RhNVzIDwsA2ARURfzXeHxoWfsmgH92ieCgIG1CuPpJRWqCfJ9KgkwWStko")) { image in
+                    AsyncImage(url: URL(string: "https://pbs.twimg.com/profile_images/1223128080727691265/yp_bP9cU_400x400.jpg")) { image in
                         image
                             .resizable()
                             .aspectRatio(contentMode: .fit)
@@ -31,7 +33,7 @@ struct BankAccountSettingView: View {
                     
                     HStack {
                         Button {
-                            //TODO: 수정 페이지로 이동
+                            isPresentedEditSheet = true
                         } label: {
                             Text("수정")
                                 .font(.captionRegular)
@@ -60,6 +62,13 @@ struct BankAccountSettingView: View {
         .scrollContentBackground(.hidden)
         .background(Color.myBackground)
         .customBackbutton()
+        .sheet(isPresented: $isPresentedEditSheet) {
+            NavigationStack {
+                BankSelectView()
+            }
+            .presentationCornerRadius(20)
+            .presentationDetents([.fraction(0.9)])
+        }
     }
 }
 

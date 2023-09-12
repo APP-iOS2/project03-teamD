@@ -9,7 +9,6 @@ import SwiftUI
 import BinGongGanCore
 
 struct AppInformationList: View {
-    @Environment(\.dismiss) private var dismiss
     
     private let informationList: [String] = [
         "이용약관",
