@@ -10,7 +10,7 @@ import SwiftUI
 struct ContentView: View {
     
     @StateObject private var signInStore: SignInStore = SignInStore()
-    @StateObject private var signUpStore: SignUpStore = SignUpStore()
+    
     var body: some View {
         if signInStore.isSuccessSignIn {
             HomeView()
@@ -18,8 +18,6 @@ struct ContentView: View {
             NavigationStack {
                 SellerSignInView()
                     .environmentObject(signInStore)
-                    .environmentObject(signUpStore)
-
             }
         }
     }
