@@ -6,9 +6,10 @@
 //
 
 import Foundation
+import FirebaseFirestoreSwift
 
 public struct Review: Identifiable, Codable {
-    public var id: String = UUID().uuidString
+    @DocumentID public var id: String?
     public var placeId: String //리뷰 달린 공간 id값
     public var writerId: String
     public var date: String //작성 날짜

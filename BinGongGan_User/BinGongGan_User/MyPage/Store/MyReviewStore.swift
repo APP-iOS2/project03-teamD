@@ -16,12 +16,17 @@ class MyReviewStore: ObservableObject {
     
     @MainActor
     func addReview(review: Review) async throws{
+        guard let reviewId: String = review.id else { return }
         do {
-            try await MyReviewStore.service.saveDocument(collectionId: .reviews, documentId: review.id, data: review)
+            try await MyReviewStore.service.saveDocument(collectionId: .reviews, documentId: reviewId, data: review)
             myReviews.append(review)
         } catch {
             throw error
         }
+    }
+    
+    func fetchReviews() async throws {
+        
     }
     
     func currentDateToString() -> String {
