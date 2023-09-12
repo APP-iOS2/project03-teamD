@@ -6,10 +6,9 @@
 //
 
 import SwiftUI
-import BinGongGanCore
 
-struct DetailInfoView: View {
-    @EnvironmentObject var gongGan: GongGanStore
+struct DetailSegmentView: View {
+    @State var gongGan: GongGan
     @Binding var isReservationActive: Int?
     private let screenWidth = UIScreen.main.bounds.width
     private let screenheight = UIScreen.main.bounds.height
@@ -17,17 +16,16 @@ struct DetailInfoView: View {
     var body: some View {
         NavigationStack {
             Group {
-                SubGongGanSelectView(isReservationActive: $isReservationActive)
+                SubGongGanSelectView(gongGan: gongGan, isReservationActive: $isReservationActive)
             }
             
             
-            VStack(alignment: .center,spacing: 20) {
+            VStack(spacing: 20) {
                 
                 Group {
                     VStack(alignment: .leading, spacing: 10) {
                         customSection("건물 정보")
-                        //                        Text("건물 정보")
-                        ForEach(gongGan.gongGanInfo.placeInfo, id: \.self) { summary in
+                        ForEach(gongGan.placeInfo, id: \.self) { summary in
                             Text("◦ \(summary)")
                                 .font(.subheadline)
                                 .foregroundColor(.myDarkGray)
@@ -39,34 +37,29 @@ struct DetailInfoView: View {
                 
                 Group {
                     customSection("시설 안내")
-                    //                    Text("시설 안내")
-                        .padding(EdgeInsets(top: 5, leading: 0, bottom: 5, trailing: 0))
-                    LazyHGrid(rows: [GridItem(.flexible(), spacing: 80), GridItem(.flexible(), spacing: 10)], spacing: 20) {
-                        ForEach(gongGan.gongGanInfo.placeGuide) { item in
+                    HStack(spacing: 40) {
+                        ForEach(gongGan.placeGuide) { label in
                             VStack {
-                                VStack {
-                                    Image(systemName: item.systemImage)
-                                        .font(.system(size: 40))
-                                }
-                                .frame(height: 40)
-                                Text(item.labelTitle)
+                                Image(systemName: label.systemImage)
+                                    .resizable()
+                                    .frame(width: 40,height: 30)
+                                
+                                Text(label.text)
                             }
                         }
                     }
-                    .foregroundColor(Color.myBrown)
                 }
                 .padding(EdgeInsets(top: 0, leading: 5, bottom: 20, trailing: 0))
                 
             }
             .padding(.horizontal, 15)
-            .padding(.bottom, 90)
+            .padding(.bottom, 60)
         }
     }
 }
 
-struct DetailInfoView_Previews: PreviewProvider {
+struct SegmentInfoView_Previews: PreviewProvider {
     static var previews: some View {
-        DetailInfoView(isReservationActive: .constant(nil))
-            .environmentObject(GongGanStore())
+        DetailSegmentView(gongGan: GongGan.sampleGongGan, isReservationActive: .constant(nil))
     }
 }

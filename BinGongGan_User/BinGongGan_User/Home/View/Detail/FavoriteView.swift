@@ -9,8 +9,7 @@ import SwiftUI
 import BinGongGanCore
 
 struct FavoriteView: View {
-    
-    @EnvironmentObject var gongGan: MyFavoriteStore
+    @StateObject var gongGan: MyFavoriteStore = MyFavoriteStore()
     @State var isHeartButtonShowing: Bool = false
     
     var body: some View {
@@ -45,7 +44,6 @@ struct FavoriteView_Previews: PreviewProvider {
         NavigationStack {
             FavoriteView()
                 .environmentObject(MyFavoriteStore())
-            
         }
     }
 }
