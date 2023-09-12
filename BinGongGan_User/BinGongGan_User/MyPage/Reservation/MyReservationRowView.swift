@@ -6,18 +6,20 @@
 //
 
 import SwiftUI
+import BinGongGanCore
 
 struct MyReservationRowView: View {
-    
-    var reservate: ReservationModel
+
     @State private var isShowingAddReview: Bool = false
     @State private var isShowingReservationCancelView: Bool = false
     @State private var isShowingReservationDetatilView: Bool = false
     
+    var reservation: BinGongGanCore.Reservation
+    
     var body: some View {
         VStack {
             HStack {
-                Text("\(reservate.reservationDate)")
+                Text("\(reservation.checkInDateString)")
                     .font(.body1Bold)
                 Spacer()
                 Button {
@@ -32,23 +34,23 @@ struct MyReservationRowView: View {
             Divider()
             HStack {
                 VStack(alignment: .leading) {
-                    Text("\(reservate.placeName)")
+                    Text("\(reservation.roomID)")
                         .font(.body1Bold)
                         .foregroundColor(.myBrown)
                     
-                    Text("예약 번호 : \(reservate.reservationNumber)")
+                    Text("예약 번호 : \(reservation.id)")
                         .font(.captionRegular)
                         .foregroundColor(.myBrown)
                     
                     Spacer().frame(height: UIScreen.main.bounds.height * 0.01)
                     
-                    Text("\(reservate.reservationDate) | \(reservate.reservationTime) (\(reservate.reservationPersonal)명)")
+                    Text("\(reservation.checkInDateString) | \(reservation.hour) (\(reservation.personnel)명)")
                         .font(.captionRegular)
                         .foregroundColor(.myBrown)
                     
                     Spacer().frame(height: UIScreen.main.bounds.height * 0.01)
                     
-                    Text("\(reservate.placeAddress)")
+                    Text("\(reservation.roomID)")
                         .font(.captionRegular)
                         .foregroundColor(.myBrown)
                 }
@@ -56,13 +58,13 @@ struct MyReservationRowView: View {
                 Spacer()
                 
                 Button {
-                    if reservate.isReservation {
+                    if reservation.reservateState == .all {
                         isShowingAddReview = true
                     } else {
                         isShowingReservationCancelView = true
                     }
                 } label: {
-                    Text(reservate.isReservation ? "리뷰작성" : "예약취소")
+                    Text(reservation.reservateState == .all ? "리뷰작성" : "예약취소")
                         .font(.captionRegular)
                         .foregroundColor(.white)
                 }
@@ -70,29 +72,30 @@ struct MyReservationRowView: View {
                 .padding(8)
                 .background(
                     RoundedRectangle(cornerRadius: 15)
-                        .foregroundColor(reservate.isReservation ? .myMint : .myBrown)
+                        .foregroundColor(reservation.reservateState == .all ? .myMint : .myBrown)
                 )
             }
-            
-            
             .fullScreenCover(isPresented: $isShowingAddReview) {
                 NavigationStack {
-                    AddReviewView(reservate: reservate)
+                    AddReviewView()
                 }
             }
             .navigationDestination(isPresented: $isShowingReservationCancelView) {
                 ReservationCancelView()
             }
             .navigationDestination(isPresented: $isShowingReservationDetatilView) {
-                ReservationDetailView(reservate: reservate)
+                ReservationDetailView(reservation: reservation)
             }
-        }.padding()
-            
+        }
+        .padding()
+
     }
+    
 }
 
 struct MyReservationRowView_Previews: PreviewProvider {
     static var previews: some View {
-        MyReservationRowView(reservate:  ReservationModel(placeName: "희권이네 설빙", reservationNumber: "A103120235", reservationDate: "9/7 (목) 17:00 ~ 21:00", reservationTime: "" , reservationPersonal: 5, placeAddress: "서울특별시 희권구", isReservation: false))
+        MyReservationRowView(reservation: MyReservationStore().reservation)
+        
     }
 }

@@ -6,18 +6,19 @@
 //
 
 import SwiftUI
+import BinGongGanCore
 
 struct ReservationDetailView: View {
     
-    var reservate: ReservationModel
+    var reservation: BinGongGanCore.Reservation
     
     var body: some View {
         Form {
             Section("기본 정보") {
                 VStack(alignment: .leading) {
-                    Text(reservate.placeName)
+                    Text(reservation.roomID)
                         .font(.head1Bold)
-                    Text("예약 번호 : \(reservate.reservationNumber)")
+                    Text("예약 번호 : \(reservation.id)")
                         .font(.captionRegular)
                         .foregroundColor(.myDarkGray)
                     
@@ -34,7 +35,7 @@ struct ReservationDetailView: View {
                     
                     HStack {
                         Image(systemName: "calendar.badge.clock")  .foregroundColor(.blue)
-                        Text("\(reservate.reservationDate) (\(reservate.reservationPersonal)명)")
+                        Text("\(reservation.checkInDateString) (\(reservation.personnel)명)")
                             .font(.captionRegular)
                         
                     }
@@ -44,7 +45,7 @@ struct ReservationDetailView: View {
                     HStack {
                         Image(systemName: "mappin")
                             .foregroundColor(.red)
-                        Text("\(reservate.placeAddress)")
+                        Text("\(reservation.reservationRequest)")
                             .font(.captionRegular)
                         
                     }
@@ -115,6 +116,6 @@ struct ReservationDetailView: View {
 
 struct ReservationDetailView_Previews: PreviewProvider {
     static var previews: some View {
-        ReservationDetailView(reservate:  ReservationModel(placeName: "희권이네 설빙", reservationNumber: "A103120235", reservationDate: "9/7 (목) 17:00 ~ 21:00", reservationTime: "" , reservationPersonal: 5, placeAddress: "서울특별시 희권구", isReservation: false))
+        ReservationDetailView(reservation: MyReservationStore().reservation)
     }
 }

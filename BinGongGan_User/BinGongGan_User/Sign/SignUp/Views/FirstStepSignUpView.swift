@@ -115,3 +115,4 @@ struct FirstStepSignUpView_Previews: PreviewProvider {
             .environmentObject(SignUpStore())
     }
 }
+
