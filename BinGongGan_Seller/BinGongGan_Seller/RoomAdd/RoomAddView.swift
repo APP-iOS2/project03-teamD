@@ -8,15 +8,14 @@
 import SwiftUI
 import BinGongGanCore
 import Combine
-/* TODO: -
- placeID 값 찾아오기 []
- updateView 만들기 []
- 
- */
+
 struct RoomAddView: View {
-    @EnvironmentObject var roomStore:RoomStore
+    @State private var roomName: String = ""
+    @State private var roomNote: String = ""
+    @State private var roomPrice: String = ""
+    @State private var placePriceText: String = ""
     @State private var selectedImage: [UIImage] = []
-    
+    @State private var selectedImageNames: [String] = []
     
     var body: some View {
         ZStack {
@@ -27,29 +26,35 @@ struct RoomAddView: View {
                 VStack(alignment: .leading) {
                     Group{
                         Text("방이름")
-                        CustomTextField(placeholder: "방이름을 입력하세요", text: $roomStore.room.name)
+                        CustomTextField(placeholder: "방이름을 입력하세요", text: $roomName)
                     }
                     
                     Group {
                         Text("공간 대여 가격")
+                            .font(.body1Bold)
+                        
                         HStack(spacing: 0) {
                             Text("시간 당")
                                 .padding(.trailing, 5)
                                 .foregroundColor(Color.myDarkGray)
                             
-                            TextField("가격을 입력하세요", text: $roomStore.room.price)
+                            TextField("가격을 입력하세요", text: $placePriceText)
                                 .keyboardType(.decimalPad)
-                                .onReceive(Just(roomStore.room.price)) { newValue in
+                                .onReceive(Just(placePriceText)) { newValue in
                                     let filtered = newValue.filter { "0123456789".contains($0) }
                                     if filtered != newValue {
-                                        self.roomStore.room.price = filtered
+                                        self.placePriceText = filtered
+                                    }
+                                }
+                                .onChange(of: placePriceText) { newValue in
+                                    if let formattedNumber = formatNumberString(newValue) {
+                                        placePriceText = formattedNumber
                                     }
                                 }
                                 .overlay(alignment:.trailing) {
                                     Text("￦")
                                         .padding(.trailing, 1)
                                 }
-                            
                         }
                         .padding()
                         .background(.white)
@@ -59,29 +64,38 @@ struct RoomAddView: View {
                     
                     Section {
                         Text("방 상세사진")
-                        PhotoSelectedView(selectedImages: $selectedImage, selectedImageNames: $roomStore.room.imageNames)
+                        PhotoSelectedView(selectedImages: $selectedImage, selectedImageNames: $selectedImageNames)
                     }
                     
                     Section{
                         Text("방 상세내용")
-                        TextEditor(text: $roomStore.room.note)
+                        TextEditor(text: $roomNote)
                             .font(.body1Regular)
                             .frame(height: 300)
                             .cornerRadius(10)
                     }
                     
                     PrimaryButton(title: "등록 하기") {
-                        roomStore.addRoom(placeId: "heekwon")
+                        
                     }
                 }
             }
-            .onAppear {
-                roomStore.fetchRooms()
-            }
             .padding(20)
         }
-        .customBackbutton()
         .navigationTitle("방 추가")
+    }
+    //뷰파일에서 메소드는 분리부탁드랴여요웅어ㅜ어웅~
+    func formatNumberString(_ input: String) -> String? {
+        let formatter = NumberFormatter()
+        formatter.numberStyle = .decimal
+        formatter.groupingSeparator = ","
+        formatter.usesGroupingSeparator = true
+        
+        if let number = formatter.number(from: input) {
+            return formatter.string(from: number)
+        } else {
+            return nil
+        }
     }
 }
 
@@ -89,7 +103,6 @@ struct RoomAddView_Previews: PreviewProvider {
     static var previews: some View {
         NavigationStack {
             RoomAddView()
-                .environmentObject(RoomStore())
         }
     }
 }
