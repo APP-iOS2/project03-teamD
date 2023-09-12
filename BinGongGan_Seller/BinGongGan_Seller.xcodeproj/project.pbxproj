@@ -10,7 +10,6 @@
 		2F143E122AB0574000CB9ED5 /* ReplyStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F143E112AB0574000CB9ED5 /* ReplyStore.swift */; };
 		4B76BBA52AB0526600E07878 /* AnnouncementStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B76BBA42AB0526600E07878 /* AnnouncementStore.swift */; };
 		4B76BBA72AB052EB00E07878 /* AnnouncementAddView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B76BBA62AB052EB00E07878 /* AnnouncementAddView.swift */; };
-		4B76BBA92AB0598B00E07878 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4B76BBA82AB0598B00E07878 /* GoogleService-Info.plist */; };
 		5406F8882AB03A42000A6441 /* CustomSecureField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FD06C9A2AAEE51900D116B9 /* CustomSecureField.swift */; };
 		5406F8892AB03A42000A6441 /* CustomTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FD06C9D2AAEE51D00D116B9 /* CustomTextField.swift */; };
 		5406F88A2AB03A42000A6441 /* PrimaryButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FD06C9B2AAEE51B00D116B9 /* PrimaryButton.swift */; };
@@ -70,7 +69,6 @@
 		5406F8C12AB03A42000A6441 /* PlaceInfomationButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B13464E72AA90D2A00098E9B /* PlaceInfomationButtonView.swift */; };
 		5406F8C22AB03A42000A6441 /* PlaceInfomationModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 545AA9C12AA83A8A00A281D0 /* PlaceInfomationModel.swift */; };
 		5406F8C32AB03A43000A6441 /* PlaceStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54D4677F2AAE51A200054F12 /* PlaceStore.swift */; };
-		5406F8C52AB03A43000A6441 /* (null) in Sources */ = {isa = PBXBuildFile; };
 		5406F8C62AB03A43000A6441 /* ReviewStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FF048312AAFFB37002A04C3 /* ReviewStore.swift */; };
 		5406F8C72AB03A43000A6441 /* ReportCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F36A5712AA83E9200578AEB /* ReportCase.swift */; };
 		5406F8C82AB03A43000A6441 /* ReportStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FECE3C52AADECFA00F04CFC /* ReportStore.swift */; };
@@ -80,9 +78,6 @@
 		5406F8CC2AB03A43000A6441 /* MyInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CDDF1C72AAB001E00834AA9 /* MyInfoView.swift */; };
 		5406F8CD2AB03A43000A6441 /* MyInfoEditView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CDDF1C92AAB140900834AA9 /* MyInfoEditView.swift */; };
 		5406F8D82AB05C22000A6441 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5406F8D72AB05C22000A6441 /* GoogleService-Info.plist */; };
-		5406F8DD2AB05D87000A6441 /* RoomStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5406F8DA2AB05D87000A6441 /* RoomStore.swift */; };
-		5406F8DE2AB05D87000A6441 /* RoomAddView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5406F8DB2AB05D87000A6441 /* RoomAddView.swift */; };
-		5406F8DF2AB05D87000A6441 /* RoomUpdateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5406F8DC2AB05D87000A6441 /* RoomUpdateView.swift */; };
 		543E21BD2AAEF54E00F12A06 /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = 543E21BC2AAEF54E00F12A06 /* FirebaseAuth */; };
 		543E21BF2AAEF54E00F12A06 /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = 543E21BE2AAEF54E00F12A06 /* FirebaseFirestore */; };
 		543E21C12AAEF54E00F12A06 /* FirebaseFirestoreSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 543E21C02AAEF54E00F12A06 /* FirebaseFirestoreSwift */; };
@@ -146,7 +141,6 @@
 		4B74203C2AA80ACC00818257 /* AnnouncementView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnnouncementView.swift; sourceTree = "<group>"; };
 		4B76BBA42AB0526600E07878 /* AnnouncementStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnnouncementStore.swift; sourceTree = "<group>"; };
 		4B76BBA62AB052EB00E07878 /* AnnouncementAddView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnnouncementAddView.swift; sourceTree = "<group>"; };
-		4B76BBA82AB0598B00E07878 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		4B84D4C22AAAE8C000F5FB01 /* AnnouncementOption.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnnouncementOption.swift; sourceTree = "<group>"; };
 		4B84D4C52AAAE99300F5FB01 /* AnnouncmentOptionButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnnouncmentOptionButton.swift; sourceTree = "<group>"; };
 		4B84D4C72AAAE9B400F5FB01 /* AnnouncementOptionSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnnouncementOptionSheet.swift; sourceTree = "<group>"; };
@@ -161,10 +155,10 @@
 		4BF4FAD42AAF0AEA007F6563 /* AnnouncementShareSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnnouncementShareSheet.swift; sourceTree = "<group>"; };
 		4BF4FB222AAFF1A9007F6563 /* CustomTextEditor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTextEditor.swift; sourceTree = "<group>"; };
 		5406F8D72AB05C22000A6441 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
-		5406F8DA2AB05D87000A6441 /* RoomStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoomStore.swift; sourceTree = "<group>"; };
-		5406F8DB2AB05D87000A6441 /* RoomAddView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoomAddView.swift; sourceTree = "<group>"; };
-		5406F8DC2AB05D87000A6441 /* RoomUpdateView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoomUpdateView.swift; sourceTree = "<group>"; };
 		545AA9C12AA83A8A00A281D0 /* PlaceInfomationModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceInfomationModel.swift; sourceTree = "<group>"; };
+		54A2BB912AB0E288001E90F9 /* RoomStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoomStore.swift; sourceTree = "<group>"; };
+		54A2BB922AB0E288001E90F9 /* RoomAddView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoomAddView.swift; sourceTree = "<group>"; };
+		54A2BB932AB0E288001E90F9 /* RoomModifyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoomModifyView.swift; sourceTree = "<group>"; };
 		54D467792AA8A90C00054F12 /* ChartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartView.swift; sourceTree = "<group>"; };
 		54D4677B2AA8AA6200054F12 /* ChartModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartModel.swift; sourceTree = "<group>"; };
 		54D4677D2AAE42E500054F12 /* AddressSearchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddressSearchView.swift; sourceTree = "<group>"; };
@@ -507,15 +501,14 @@
 			path = Announcement;
 			sourceTree = "<group>";
 		};
-		5406F8D92AB05D87000A6441 /* RoomAdd */ = {
+		54A2BB902AB0E288001E90F9 /* RoomAdd */ = {
 			isa = PBXGroup;
 			children = (
-				5406F8DA2AB05D87000A6441 /* RoomStore.swift */,
-				5406F8DB2AB05D87000A6441 /* RoomAddView.swift */,
-				5406F8DC2AB05D87000A6441 /* RoomUpdateView.swift */,
+				54A2BB912AB0E288001E90F9 /* RoomStore.swift */,
+				54A2BB922AB0E288001E90F9 /* RoomAddView.swift */,
+				54A2BB932AB0E288001E90F9 /* RoomModifyView.swift */,
 			);
-			name = RoomAdd;
-			path = ../../../../BinGongGan_Seller/RoomAdd;
+			path = RoomAdd;
 			sourceTree = "<group>";
 		};
 		54C9D22C2AAF449F008B0FF7 /* Recovered References */ = {
@@ -687,7 +680,7 @@
 				2FAB805E2AA7FFD20091D8CC /* Cell */,
 				4BBAF3072AAE3E6100F1405D /* ApprovedPlace */,
 				6A3B44362AA82F83008CC944 /* ReservationDetails */,
-				5406F8D92AB05D87000A6441 /* RoomAdd */,
+				54A2BB902AB0E288001E90F9 /* RoomAdd */,
 				2FF048302AAFF97D002A04C3 /* Place */,
 				2FAB80552AA7FF960091D8CC /* PlaceAdd */,
 				2FAB805F2AA7FFF30091D8CC /* Review */,
@@ -733,7 +726,6 @@
 			isa = PBXGroup;
 			children = (
 				5406F8D72AB05C22000A6441 /* GoogleService-Info.plist */,
-
 				6A800A8D2AB08DF700F1CE25 /* GoogleService-Info.plist */,
 				B12A84722AA6EFE900BDF8CA /* Assets.xcassets */,
 			);
@@ -964,7 +956,6 @@
 				5406F8AF2AB03A42000A6441 /* RervationDetailsStore.swift in Sources */,
 				5406F8B02AB03A42000A6441 /* RervationcalendarStore.swift in Sources */,
 				5406F8B12AB03A42000A6441 /* ReservationCalendar.swift in Sources */,
-				5406F8DD2AB05D87000A6441 /* RoomStore.swift in Sources */,
 				5406F8B22AB03A42000A6441 /* DateValue.swift in Sources */,
 				6A800A8A2AB08DBF00F1CE25 /* FirestoreService.swift in Sources */,
 				5406F8B32AB03A42000A6441 /* ReservationTapType.swift in Sources */,
@@ -983,14 +974,11 @@
 				5406F8BE2AB03A42000A6441 /* MapView.swift in Sources */,
 				5406F8BF2AB03A42000A6441 /* AddressSearchView.swift in Sources */,
 				5406F8C02AB03A42000A6441 /* PhotoSelectedView.swift in Sources */,
-				5406F8DF2AB05D87000A6441 /* RoomUpdateView.swift in Sources */,
 				5406F8C12AB03A42000A6441 /* PlaceInfomationButtonView.swift in Sources */,
 				5406F8C22AB03A42000A6441 /* PlaceInfomationModel.swift in Sources */,
 				5406F8C32AB03A43000A6441 /* PlaceStore.swift in Sources */,
 				2F143E122AB0574000CB9ED5 /* ReplyStore.swift in Sources */,
-				5406F8C42AB03A43000A6441 /* RoomAddView.swift in Sources */,
 				6A800A7F2AB08D2B00F1CE25 /* ImagePickerView.swift in Sources */,
-				5406F8C52AB03A43000A6441 /* (null) in Sources */,
 				5406F8C62AB03A43000A6441 /* ReviewStore.swift in Sources */,
 				5406F8C72AB03A43000A6441 /* ReportCase.swift in Sources */,
 				5406F8C82AB03A43000A6441 /* ReportStore.swift in Sources */,
@@ -999,7 +987,6 @@
 				5406F8CA2AB03A43000A6441 /* ReviewManageDetailView.swift in Sources */,
 				5406F8CB2AB03A43000A6441 /* ReviewReportSheet.swift in Sources */,
 				4B76BBA72AB052EB00E07878 /* AnnouncementAddView.swift in Sources */,
-				5406F8DE2AB05D87000A6441 /* RoomAddView.swift in Sources */,
 				5406F8CC2AB03A43000A6441 /* MyInfoView.swift in Sources */,
 				5406F8CD2AB03A43000A6441 /* MyInfoEditView.swift in Sources */,
 				6A800A862AB08DA500F1CE25 /* AuthStore.swift in Sources */,
