@@ -9,7 +9,7 @@ import Foundation
 import BinGongGanCore
 import FirebaseFirestore
 
-class ReviewStore: ObservableObject {
+final class ReviewStore: ObservableObject {
     @Published var reviewList: [Review] = []
     
 }
