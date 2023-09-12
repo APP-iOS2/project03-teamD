@@ -12,6 +12,8 @@ struct SignUpData {
     var name: String = ""
     var birthDate: String = ""
     var phoneNumber: String = ""
+    var bankName: String = ""
+    var accountNumber: String = ""
     var nickname: String = ""
     var emailId: String = ""
     var password: String = ""
