@@ -11,12 +11,13 @@ import BinGongGanCore
 struct MyInfo: Identifiable {
     var id: String = UUID().uuidString
     var name: String
+    var email: String
     var phoneNumber: String
     var accountNumber: String
     var companyNumber: String
 }
 class MyStore: ObservableObject {
-    @Published var myStore: MyInfo = MyInfo(name: "윤경환", phoneNumber: "010-1234-1234", accountNumber: "123456-02-123456", companyNumber: "111-11-12345")
+    @Published var myStore: MyInfo = MyInfo(name: "윤경환", email: "test@gmail.com", phoneNumber: "010-1234-1234", accountNumber: "123456-02-123456", companyNumber: "111-11-12345")
 }
 
 
@@ -35,6 +36,14 @@ struct MyInfoView: View {
                     Text("이름")
                         .font(.body1Regular)
                     Text(info.myStore.name)
+                        .font(.body1Bold)
+                        .foregroundColor(.myDarkGray)
+                }
+                
+                VStack(alignment: .leading) {
+                    Text("이메일")
+                        .font(.body1Regular)
+                    Text(info.myStore.email)
                         .font(.body1Bold)
                         .foregroundColor(.myDarkGray)
                 }

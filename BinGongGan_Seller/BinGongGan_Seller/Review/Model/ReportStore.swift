@@ -14,7 +14,7 @@ struct Report: Identifiable {
     var isSelected: Bool
 }
 
-class ReportStore: ObservableObject {
+final class ReportStore: ObservableObject {
     @Published var reports: [Report] = [
         Report(title: ReportCase.unrelated.rawValue, isSelected: false),
         Report(title: ReportCase.spamFlagging.rawValue, isSelected: false),

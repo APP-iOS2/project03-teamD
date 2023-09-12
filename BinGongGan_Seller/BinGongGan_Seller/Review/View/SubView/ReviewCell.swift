@@ -6,15 +6,18 @@
 //
 
 import SwiftUI
+import BinGongGanCore
 
 struct ReviewCell: View {
+    var review: Review
+    
     var body: some View {
         VStack {
             HStack {
-                Text("공간 이름")
+                Text("\(review.placeId)")
                     .fontWeight(.bold)
                 Spacer()
-                Text("9/1 작성")
+                Text("\(review.date)")
             }
             
             HStack {
@@ -27,7 +30,7 @@ struct ReviewCell: View {
             .padding(.bottom, 10)
             
             HStack {
-                Text("리뷰 내용")
+                Text("\(review.content)")
                 Spacer()
             }
         }
@@ -40,6 +43,14 @@ struct ReviewCell: View {
 
 struct ReviewCell_Previews: PreviewProvider {
     static var previews: some View {
-        ReviewCell()
+        ReviewCell(review:
+                    Review(
+                        placeId: "1B7F6970-EEC1-4244-8D4F-9F8F047F124F",
+                        writerId: "xll3TbjPUUZOtWVQx2tsetWlvpV2",
+                        date: "2023.09.12 화",
+                        rating: 5,
+                        content: "리뷰인데 아닌데? 아니긴 뭐가 아니야 맞으면서 넌 리뷰야 리뷰!"
+                    )
+        )
     }
 }
