@@ -84,18 +84,7 @@ struct SubGongGanSelectView: View {
                                                 .shadow(color: .gray, radius: 1, x: 1, y: 1)
                                         )
                                 }
-
-                                    .font(.body1Regular)
-                                    .foregroundColor(selectedSpaceIndex == index ? .white : .myBrown)
-                                    .frame(width: screenWidth * 0.85)
-                                    .padding(EdgeInsets(top: 10, leading: 20, bottom: 10, trailing: 20))
-                                    .foregroundColor(.white)
-                                    .background(
-                                        RoundedRectangle(cornerRadius: 15)
-                                            .foregroundColor(selectedSpaceIndex == index ? .myMint : .white)
-                                            .shadow(color: .gray, radius: 1, x: 1, y: 1)
-                                    )
-
+                                
                                 
                                 
                             }

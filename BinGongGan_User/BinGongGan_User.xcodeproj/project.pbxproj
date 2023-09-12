@@ -64,15 +64,11 @@
 		BC344F212AA86AB900F8CEB3 /* HomeListRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC344F202AA86AB900F8CEB3 /* HomeListRow.swift */; };
 		BC344F232AA86AD500F8CEB3 /* HomeCategoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC344F222AA86AD500F8CEB3 /* HomeCategoryView.swift */; };
 		BC344F252AA86B3E00F8CEB3 /* PlaceListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC344F242AA86B3E00F8CEB3 /* PlaceListView.swift */; };
-		BC3A443C2AAFEB7200D78309 /* SegmentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC3A443B2AAFEB7200D78309 /* SegmentView.swift */; };
-		BC3A443E2AAFEF9F00D78309 /* GongGanInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC3A443D2AAFEF9F00D78309 /* GongGanInfo.swift */; };
 		BC8CFE6A2AA8C38C00E8D8F2 /* DetailTabImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC8CFE692AA8C38C00E8D8F2 /* DetailTabImageView.swift */; };
 		BC8CFE6C2AA9510A00E8D8F2 /* FavoriteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC8CFE6B2AA9510A00E8D8F2 /* FavoriteView.swift */; };
 		BC8CFE722AA9896300E8D8F2 /* ReservationSellerInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC8CFE712AA9896300E8D8F2 /* ReservationSellerInfoView.swift */; };
 		BC8CFE742AA9897E00E8D8F2 /* ReservationUserInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC8CFE732AA9897E00E8D8F2 /* ReservationUserInfoView.swift */; };
 		BCB5A2C92AAF444100C173F4 /* DetailSegmentReviewListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCB5A2C82AAF444100C173F4 /* DetailSegmentReviewListView.swift */; };
-		BCC197222AB0B2FF000A7651 /* DetailAnnouncementView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCC197212AB0B2FF000A7651 /* DetailAnnouncementView.swift */; };
-		BCC197282AB0BE9D000A7651 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = BCC197272AB0BE9D000A7651 /* GoogleService-Info.plist */; };
 		BCDD34852AAF272000A68F4F /* View+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCDD34842AAF272000A68F4F /* View+Extension.swift */; };
 		BCDD34872AAF273600A68F4F /* DetailSegmentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCDD34862AAF273600A68F4F /* DetailSegmentView.swift */; };
 		BCDD34892AAF27AD00A68F4F /* FavoriteCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCDD34882AAF27AD00A68F4F /* FavoriteCellView.swift */; };
@@ -194,15 +190,11 @@
 		BC344F202AA86AB900F8CEB3 /* HomeListRow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeListRow.swift; sourceTree = "<group>"; };
 		BC344F222AA86AD500F8CEB3 /* HomeCategoryView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeCategoryView.swift; sourceTree = "<group>"; };
 		BC344F242AA86B3E00F8CEB3 /* PlaceListView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlaceListView.swift; sourceTree = "<group>"; };
-		BC3A443B2AAFEB7200D78309 /* SegmentView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SegmentView.swift; sourceTree = "<group>"; };
-		BC3A443D2AAFEF9F00D78309 /* GongGanInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = GongGanInfo.swift; path = ../../../../../../GongGanInfo.swift; sourceTree = "<group>"; };
 		BC8CFE692AA8C38C00E8D8F2 /* DetailTabImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailTabImageView.swift; sourceTree = "<group>"; };
 		BC8CFE6B2AA9510A00E8D8F2 /* FavoriteView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteView.swift; sourceTree = "<group>"; };
 		BC8CFE712AA9896300E8D8F2 /* ReservationSellerInfoView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReservationSellerInfoView.swift; sourceTree = "<group>"; };
 		BC8CFE732AA9897E00E8D8F2 /* ReservationUserInfoView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReservationUserInfoView.swift; sourceTree = "<group>"; };
 		BCB5A2C82AAF444100C173F4 /* DetailSegmentReviewListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailSegmentReviewListView.swift; sourceTree = "<group>"; };
-		BCC197212AB0B2FF000A7651 /* DetailAnnouncementView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailAnnouncementView.swift; sourceTree = "<group>"; };
-		BCC197272AB0BE9D000A7651 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		BCDD34842AAF272000A68F4F /* View+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "View+Extension.swift"; sourceTree = "<group>"; };
 		BCDD34862AAF273600A68F4F /* DetailSegmentView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailSegmentView.swift; sourceTree = "<group>"; };
 		BCDD34882AAF27AD00A68F4F /* FavoriteCellView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FavoriteCellView.swift; sourceTree = "<group>"; };
@@ -418,6 +410,7 @@
 		B15806402AA89795006C772B /* Config */ = {
 			isa = PBXGroup;
 			children = (
+				36B7A5672AB0A36400424B93 /* GoogleService-Info.plist */,
 				B12A84A82AA6F01000BDF8CA /* Assets.xcassets */,
 			);
 			path = Config;
@@ -491,7 +484,6 @@
 				BCDD34882AAF27AD00A68F4F /* FavoriteCellView.swift */,
 				BCB5A2C82AAF444100C173F4 /* DetailSegmentReviewListView.swift */,
 				BCDD348A2AAF27B600A68F4F /* DetailReviewRowView.swift */,
-				BCC197212AB0B2FF000A7651 /* DetailAnnouncementView.swift */,
 			);
 			path = Detail;
 			sourceTree = "<group>";
@@ -581,9 +573,9 @@
 		BCE6584C2AA8AD420009ECD1 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				BCE6584D2AA8AD420009ECD1 /* MapSearchView.swift */,
-				BCE6584E2AA8AD420009ECD1 /* MapSearchSubView */,
 				BCE658512AA8AD420009ECD1 /* LocationManager.swift */,
+				BCE6584E2AA8AD420009ECD1 /* MapSearchSubView */,
+				BCE6584D2AA8AD420009ECD1 /* MapSearchView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -825,6 +817,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				ECBD87752AAB09F600ECEC7D /* Information1.md in Resources */,
+				36B7A5682AB0A36400424B93 /* GoogleService-Info.plist in Resources */,
 				B12A84AC2AA6F01000BDF8CA /* Preview Assets.xcassets in Resources */,
 				B12A84A92AA6F01000BDF8CA /* Assets.xcassets in Resources */,
 			);
@@ -927,7 +920,6 @@
 				D8F41E132AA9A289004C52BD /* String+Extension.swift in Sources */,
 				36FD38772AAEF822009722A7 /* City.swift in Sources */,
 				D84824962AA8A3700067A065 /* MyPageMainView.swift in Sources */,
-				BCC197222AB0B2FF000A7651 /* DetailAnnouncementView.swift in Sources */,
 				D848249B2AA8A3700067A065 /* FAQView.swift in Sources */,
 				BC344F252AA86B3E00F8CEB3 /* PlaceListView.swift in Sources */,
 				534F56A42AB008D700FA79B0 /* MyReviewStore.swift in Sources */,
@@ -943,6 +935,7 @@
 				3A392E952AAECDB000D82221 /* UserStore.swift in Sources */,
 				D8741E5E2AAEF64100F45C79 /* BankAccountSettingView.swift in Sources */,
 				D84824972AA8A3700067A065 /* AppInformationList.swift in Sources */,
+				BC344EC92AA8072000F8CEB3 /* GongGanInfo.swift in Sources */,
 				D84824B32AA8F5970067A065 /* FAQItem.swift in Sources */,
 				BCDD34852AAF272000A68F4F /* View+Extension.swift in Sources */,
 				36FD38752AAEE0E0009722A7 /* PlaceListFilterView.swift in Sources */,
@@ -1105,7 +1098,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"BinGongGan_User/Preview Content\"";
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = 6R3M7VGRP2;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "BinGongGan-User-Info.plist";
@@ -1140,7 +1133,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"BinGongGan_User/Preview Content\"";
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = 6R3M7VGRP2;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "BinGongGan-User-Info.plist";

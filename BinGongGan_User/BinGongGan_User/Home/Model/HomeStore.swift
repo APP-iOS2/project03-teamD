@@ -22,12 +22,11 @@ final class HomeStore: ObservableObject {
     @Published var cities: [City] = []
     @Published var selectedCategory: String = "밴드룸"
     @Published var selectSub: [String] = []
-    
     var categories: [Category] = [
         Category(category: "쉐어오피스", categoryImageString:  "building.2"),
         Category(category: "밴드룸", categoryImageString:  "music.mic"),
         Category(category: "스튜디오", categoryImageString:  "camera"),
-        Category(category: "쉐어키친", categoryImageString:  "fork.knife"),
+        Category(category: "쉐어키친", categoryImageString:  "cooktop"),
     ]
     
     let dbRef = Firestore.firestore().collection("Place")
@@ -85,7 +84,6 @@ final class HomeStore: ObservableObject {
     }
 
     func searchPlaceName(placess: [Place] , keyWord: String) {
-        
         filteredArray.removeAll()
         for place in placess {
             let key = keyWord.lowercased()
@@ -97,6 +95,14 @@ final class HomeStore: ObservableObject {
         }
     }
     
+    func changeFavorite(place: Place){
+        if let index = places.firstIndex(where:{
+            $0.id == place.id }) {
+            places[index].isFavorite.toggle()
+        }
+    }
+    
+    // setting
     func settingEventBanner(){
         for i in eventImageArray.shuffled() {
             EventList.append(Event(eventImage: i))
@@ -134,13 +140,10 @@ final class HomeStore: ObservableObject {
         }
     }
     
-    func changeFavorite(place: Place){
-        if let index = places.firstIndex(where:{
-            $0.id == place.id }) {
-            places[index].isFavorite.toggle()
-        }
+    // Recently
+    func addRecentlyWord(word: String) {
+        recentlyWords.append(word)
     }
-    
     func deleteRecentlyWord(word: String) {
         let index = recentlyWords.firstIndex {
             $0 == word
@@ -150,10 +153,17 @@ final class HomeStore: ObservableObject {
         }
     }
     
-    func searchRecentlyWord(word: String) {
-        recentlyWords.append(word)
-    }
     
+    @Published var mungImageCount: Int = 0
+    @Published var mungText: [String] = ["고마워요.","놀랐죠?" , "이스터에그에요", "눌러줘서" ]
+    @Published var mungImage: [String] = ["mungmoongE4", "mungmoongE1","mungmoongE2","mungmoongE3"]
+    func addMungCount() {
+        if mungImageCount == 3 {
+            mungImageCount = 0
+        } else {
+            mungImageCount += 1
+        }
+    }
 }
 
 let demoPlace = Place(placeName: "나는데모긴글자테스트용", category: "쉐어오피스", placeLocation: "서울시 강서구 화곡동 일공칠구-10", placePrice: 1, imageString: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT9JQXtDMPHZnD0bBgTODPgX_HmUZzlusBQ9kEPtkYwJg&s", isFavorite: false)
