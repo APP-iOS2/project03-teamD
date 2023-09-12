@@ -43,14 +43,16 @@ struct HomeListRow: View {
                     VStack(alignment: .leading) {
                         
                         Text("\(place.placeName)")
-                            
                             .foregroundColor(.black)
                             .font(.body1Bold)
+                            .multilineTextAlignment(.leading)
+                            .lineLimit(2)
                         Text("\(place.placeLocation)")
                             
                             .foregroundColor(.black)
                             .font(.captionRegular)
-                        
+                            .multilineTextAlignment(.leading)
+                            .lineLimit(1)
                     }// VSTACK
                     Spacer()
 //                    HeartButton(place: $place)
