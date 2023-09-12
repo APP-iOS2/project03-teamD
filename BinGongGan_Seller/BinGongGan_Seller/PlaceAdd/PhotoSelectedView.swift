@@ -25,27 +25,19 @@ struct PhotoSelectedView: View {
                                     RoundedRectangle(cornerRadius: 10)
                                         .stroke(Color.myLightGray, lineWidth: 1)
                                 }
+                            
                         }
+                        
                     }
-                    
-                    ForEach(Array(zip(selectedImages,selectedImages.indices)),id:\.1) { image, index in
+                    ForEach(selectedImages, id: \.self) { image in
                         Image(uiImage: image)
                             .resizable()
                             .cornerRadius(10)
                             .frame(width: 70, height: 70)
                             .padding(.leading, 5)
                             .aspectRatio(contentMode: .fill)
-                            .overlay(alignment: .topTrailing) {
-                                Button {
-                                    withAnimation {
-                                        if image == selectedImages[index] {
-                                            selectedImages.remove(at: index)
-                                            selectedImageNames.remove(at: index)
-                                        }
-                                    }
-                                } label: {
-                                    Image(systemName: "xmark.circle.fill")
-                                }
+                            .onTapGesture {
+                                
                             }
                     }
                 }
@@ -54,7 +46,7 @@ struct PhotoSelectedView: View {
                 MultiPhotoPickerView(selectedImages: $selectedImages, selectedImageNames: $selectedImageNames)
             }
         }
-        .padding(10)
+        .padding()
     }
 }
 
