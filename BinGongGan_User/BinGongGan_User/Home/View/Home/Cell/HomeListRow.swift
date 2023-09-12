@@ -53,8 +53,8 @@ struct HomeListRow: View {
                         
                     }// VSTACK
                     Spacer()
-                    HeartButton(place: $place)
-                        .padding(.trailing, 20)
+//                    HeartButton(place: $place)
+//                        .padding(.trailing, 20)
                     
                 }// HSTACK
                 .foregroundColor(.myBackground)

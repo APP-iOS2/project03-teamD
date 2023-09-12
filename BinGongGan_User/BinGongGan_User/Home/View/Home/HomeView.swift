@@ -110,7 +110,9 @@ struct HomeView: View {
                 }// LazyVStack
                 .padding(.bottom, HomeNameSpace.scrollViewBottomPadding)
             }// SCROLLVIEW
+            .navigationBarTitleDisplayMode(.inline)
             .onAppear{
+                homeStore.selectSub.removeAll()
                 homeStore.settingRecommendPlace()
             }
             .toolbar {
@@ -127,6 +129,9 @@ struct HomeView: View {
                 }
             }
         }// ZSTACK
+        .onAppear {
+            
+        }
     }// BODY
 }
 

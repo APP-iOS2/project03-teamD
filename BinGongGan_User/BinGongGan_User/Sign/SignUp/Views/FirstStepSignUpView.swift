@@ -27,6 +27,7 @@ struct FirstStepSignUpView: View {
                     VStack(alignment: .leading) {
                         identifyVerificationView
                         accountView
+                        Spacer()
                         PrimaryButton(isDisabled: .constant(false), action: {
                             if store.isValidAuthentication() {
                                 isNext = true
@@ -39,8 +40,18 @@ struct FirstStepSignUpView: View {
                         store.currentStep = .first
                     })
                     .sheet(isPresented: $isShowingBankSheet, content: {
-                        Text("")
+                        BankSheetView(isShowingSheet: $isShowingBankSheet, selectedBank: $store.signUpData.bankName)
                             .presentationDetents([.medium])
+                    })
+                    .toolbar(content: {
+                        ToolbarItem(content: {
+                            Button(action: {
+                                store.isShowingSignUp = false
+                            }, label: {
+                                Image(systemName: "xmark")
+                                    .foregroundColor(.black)
+                            })
+                        })
                     })
                     .navigationDestination(isPresented: $isNext, destination: {
                         SecondStepSignUpView()
@@ -55,18 +66,6 @@ struct FirstStepSignUpView: View {
         }
     }
     
-    var CertificationButton: some View {
-        Button {
-            
-        } label: {
-            Text("인증")
-                .padding(EdgeInsets(top: 10, leading: 15, bottom: 10, trailing: 15))
-                .foregroundColor(.white)
-                .background(Color.myMint)
-                .clipShape(Capsule())
-        }
-    }
-    
     var identifyVerificationView: some View {
         Group {
             Group {
@@ -77,7 +76,9 @@ struct FirstStepSignUpView: View {
                 CustomTextField(maxLength: 6, placeholder: "생년월일 6자리", keyboardType: .numberPad, text: $store.signUpData.birthDate)
                 HStack {
                     CustomTextField(maxLength: 11, placeholder: "휴대폰 번호", keyboardType: .phonePad, text: $store.signUpData.phoneNumber)
-                    CertificationButton
+                    MintButton(action: {
+                        
+                    }, title: "인증")
                 }
             }
             Group {
@@ -98,13 +99,11 @@ struct FirstStepSignUpView: View {
             HStack {
                 CustomTextField(backgroundColor: .myLightGray, placeholder: "예금주명(이름과 동일)", text: $store.signUpData.name)
                     .disabled(true)
-                Button(action: {
+                MintButton(action: {
                     isShowingBankSheet = true
-                }, label: {
-                    Text("은행")
-                })
+                }, title: store.signUpData.bankName ?? "은행")
             }
-            CustomTextField(placeholder: "환불 계좌 번호", text: $store.signUpData.accountNumber)
+            CustomTextField(placeholder: "환불 계좌 번호", keyboardType: .numberPad, text: $store.signUpData.accountNumber)
         }
         
     }
@@ -116,3 +115,4 @@ struct FirstStepSignUpView_Previews: PreviewProvider {
             .environmentObject(SignUpStore())
     }
 }
+

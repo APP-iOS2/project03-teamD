@@ -36,6 +36,16 @@ final class SignUpStore: ObservableObject {
             toastMessage = "휴대폰 번호 11자리를 입력하여 주세요."
             return false
         }
+        guard (signUpData.bankName != nil) else {
+            showToast = true
+            toastMessage = "은행을 선택하여 주세요."
+            return false
+        }
+        guard signUpData.accountNumber.count >= 6 else {
+            showToast = true
+            toastMessage = "계좌번호가 올바르지 않습니다."
+            return false
+        }
         return true
     }
     
