@@ -43,7 +43,7 @@ struct MyPlaceView: View {
                                             MySpaceCell()
                                                 .frame(width: cardSize.width - 20)
                                         } else {
-                                            NavigationLink(destination: PlaceAddView()) {
+                                            NavigationLink(destination: RoomAddView()) {
                                                 ZStack {
                                                     RoundedRectangle(cornerRadius: 15)
                                                         .fill(.white)
@@ -100,6 +100,8 @@ struct MyPlaceView: View {
 
 struct MyPlaceView_Previews: PreviewProvider {
     static var previews: some View {
-        MyPlaceView()
+        NavigationStack {
+            MyPlaceView()
+        }
     }
 }
