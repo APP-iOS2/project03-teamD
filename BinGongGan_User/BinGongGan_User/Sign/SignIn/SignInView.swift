@@ -15,8 +15,6 @@ struct SignInView: View {
     @State private var passwordText: String = ""
     @State private var isShowingAlert: Bool = false
     
-    var signIn: SignIn = SignIn()
-    
     var body: some View {
         ZStack {
             
@@ -38,6 +36,10 @@ struct SignInView: View {
                 
                 PrimaryButton(action: {
                     isShowingAlert = signInStore.checkSignIn(email: emailText, password: passwordText)
+                    Task {
+                        signInStore.signIns = SignInData(email: emailText, password: passwordText)
+                        isShowingAlert = try await signInStore.signIn()
+                    }
                 }, title: "로그인")
                 .padding(.horizontal, 20)
                 
