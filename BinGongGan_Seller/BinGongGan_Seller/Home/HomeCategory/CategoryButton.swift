@@ -8,7 +8,9 @@
 import SwiftUI
 import BinGongGanCore
 struct CategoryButton: View {
-    var category: CategoryModel
+    
+    var imageString: String
+    var categoryName: String
     
     var body: some View {
         Rectangle()
@@ -17,11 +19,11 @@ struct CategoryButton: View {
             .cornerRadius(15)
             .overlay(
                 VStack{
-                    Image(category.imageString)
+                    Image(imageString)
                         .aspectRatio(contentMode: .fit)
                         .frame(width: AnnouncementOptionCell.screenWidth * 0.08, height: AnnouncementOptionCell.screenHeight * 0.05)
                         .scaleEffect(0.8)
-                    Text(category.categories)
+                    Text(categoryName)
                         .font(.footnote)
                         .foregroundColor(Color.black)
                         .bold()
@@ -34,6 +36,6 @@ struct CategoryButton: View {
 
 struct CategoryButton_Previews: PreviewProvider {
     static var previews: some View {
-        CategoryButton(category: CategoryModel.data[0])
+        CategoryButton(imageString: CategoryName.managementReservation.imageString, categoryName: CategoryName.managementReservation.nameString)
     }
 }
