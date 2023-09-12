@@ -22,6 +22,8 @@ struct SampleSpace {
 struct Reservation {
     
     var userEmail: String
+    
+    var placeID: String
     var roomID: String
     
     var reservationID: String

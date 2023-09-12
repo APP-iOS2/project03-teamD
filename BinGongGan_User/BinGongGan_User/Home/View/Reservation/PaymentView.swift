@@ -15,7 +15,7 @@ struct PaymentView: View {
     @State private var isAllPaymentInfoChecked: Bool = false
     @State private var isPaymentChecked: Bool = false
     
-    //@Binding var tabBarVisible: Visibility
+    @State var tabBarVisivility: Visibility = .visible
     
     private let screenWidth = UIScreen.main.bounds.width
     
@@ -172,21 +172,14 @@ struct PaymentView: View {
             }))
         }
         .navigationDestination(isPresented: $isPaymentChecked) {
-            //            HomeView()
-            //                .navigationBarBackButtonHidden()
+            HomeView(tabBarVisivility: $tabBarVisivility)
+                .navigationBarBackButtonHidden()
         }
         .background(Color.myBackground)
         .navigationTitle("결제 정보")
         .navigationBarTitleDisplayMode(.inline)
         .customBackbutton()
-        .onAppear {
-            //tabBarVisible = .hidden
-        }
-        .onDisappear {
-            //tabBarVisible = .visible
-        }
     }
-    
 }
 
 struct PaymentView_Previews: PreviewProvider {
