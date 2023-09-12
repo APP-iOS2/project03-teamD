@@ -14,13 +14,22 @@ class MyReviewStore: ObservableObject {
     
     init(){}
     
+    @MainActor
     func addReview(review: Review) async throws{
-        myReviews.append(review)
-        
         do {
             try await MyReviewStore.service.saveDocument(collectionId: .reviews, documentId: review.id, data: review)
+            myReviews.append(review)
         } catch {
             throw error
         }
+    }
+    
+    func currentDateToString() -> String {
+        let currentDate:Date = Date()
+        
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy.MM.dd EEE"
+        dateFormatter.locale = Locale(identifier: "ko_KR")
+        return dateFormatter.string(from: currentDate)
     }
 }
