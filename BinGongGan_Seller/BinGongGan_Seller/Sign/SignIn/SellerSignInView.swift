@@ -8,12 +8,12 @@
 import SwiftUI
 
 struct SellerSignInView: View {
-    //    @StateObject private var signUpStore = SignUpStore()
+    @EnvironmentObject private var signInStore: SignInStore
+    @EnvironmentObject private var signUpStore: SignUpStore
+    
     @State private var emailText: String = ""
     @State private var passwordText: String = ""
     @State private var isShowingAlert: Bool = false
-    
-    @EnvironmentObject private var signInStore: SignInStore
     
     var signIn: SignIn = SignIn()
     
@@ -51,8 +51,9 @@ struct SellerSignInView: View {
                 Spacer()
                 
                 NavigationLink {
-                    //                    SignUpView()
-                    //                        .environmentObject(signUpStore)
+                    SignUpView()
+                        .environmentObject(signInStore)
+                        .environmentObject(signUpStore)
                 } label: {
                     Text("Biz 회원가입")
                 }
