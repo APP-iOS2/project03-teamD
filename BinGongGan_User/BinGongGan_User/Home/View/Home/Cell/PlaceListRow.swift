@@ -9,7 +9,7 @@ import SwiftUI
 
 struct PlaceListRow: View {
     
-    @State var place: Place
+    @State var place: GongGanPlace
     @State private var backGroundWitdh: CGFloat = HomeNameSpace.screenWidth * 0.9
     @State private var backGroundHeight: CGFloat = HomeNameSpace.screenHeight * 0.75
     var body: some View {
