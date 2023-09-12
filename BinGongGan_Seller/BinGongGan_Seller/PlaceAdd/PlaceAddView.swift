@@ -11,6 +11,7 @@ import FirebaseFirestore
 
 //여기 뷰가 너무 너무너눔넘누너눈너눔 길어여..
 struct PlaceAddView: View {
+
     @EnvironmentObject var placeStore: PlaceStore
     //희권님 혹시 여기 많은 @State 값들이 모델안에 있는 아이들이라면 이렇게 하는 거 보다 스토어에 넣어주는 것이 좋을 거 같다는 생각이 듭니다만 ..?
     @State private var selectedPlace: PlaceCategory = .Share
@@ -44,6 +45,7 @@ struct PlaceAddView: View {
                     Group {
                         Text("공간 이름")
                             .font(.body1Bold)
+                            
                         CustomTextField(maxLength: 20, placeholder: "공간 이름을 입력하세요", text: $placeNameText)
                     }
                     
@@ -100,7 +102,7 @@ struct PlaceAddView: View {
                     .padding(.top, 15)
                     
                     Group {
-                        Text("공간 정보 선택")
+                        Text("공간 시설 선택")
                             .font(.body1Bold)
                         LazyVGrid(columns: columns, spacing: 8) {
                             ForEach($placeInfomations) { $infomation in
@@ -170,7 +172,6 @@ struct PlaceAddView: View {
                                     address: address
                                 )
                                 placeStore.addPlace(place: place)
-                                
                             } else {
                                 toastMessage = "빈칸을 모두 입력해주세요"
                                 isShowingToast = true
@@ -192,6 +193,9 @@ struct PlaceAddView: View {
                         }
                     }
                 })
+            }
+            .onAppear {
+                placeStore.fetchPlace()
             }
         }
         .edgesIgnoringSafeArea(.all)
