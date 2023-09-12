@@ -26,6 +26,7 @@ final class LocationManager: NSObject, ObservableObject {
     
     @Published var selectedCategoty: String = ""
     @Published var isShowingList: Bool = false
+    @Published var placeList: [SamplePlace] = []
     
     @Published var isChaging: Bool = false
     @Published var isFocusUser: Bool = true
@@ -33,9 +34,19 @@ final class LocationManager: NSObject, ObservableObject {
         
     private var userLocalcity: String = ""
     private var searchResult: [SamplePlace] = []
-    private var selectedResult: [SamplePlace] = []
     
-    private var nowUserPoint: CLLocationCoordinate2D?
+    var filteredPlaces: [SamplePlace] {
+        return searchResult.filter { place in
+            let placetest = place.address.address.components(separatedBy: " ")
+            
+            let isEqualLocalcity = placetest.filter { $0 == userLocalcity }.count > 0
+            let isEqualCategory = place.placeCategory == selectedCategoty
+            
+            
+            return isEqualCategory && isEqualLocalcity
+        }
+    }
+    
     
     override init() {
         super.init()
@@ -61,59 +72,64 @@ final class LocationManager: NSObject, ObservableObject {
         }
     }
     
+}
+
+extension LocationManager {
     func moveFocusOnUserLocation() {
         isFocusUser = true
         mapView.showsUserLocation = true
         mapView.setUserTrackingMode(.follow, animated: true)
     }
     
-    func moveFocusChange() {
+    func moveFocusChange(location: CLLocationCoordinate2D) {
         let span = MKCoordinateSpan(latitudeDelta: 0.05, longitudeDelta: 0.05)
         
-        let region = MKCoordinateRegion(center: nowUserPoint ?? .init(latitude: 37.334_900 , longitude: -122.009_020), span: span)
+        let region = MKCoordinateRegion(center: location, span: span)
         mapView.setRegion(region, animated: true)
     }
     
     func convertCLLocationToAddress(location: CLLocation) {
         let geocoder = CLGeocoder()
         
-        geocoder.reverseGeocodeLocation(location) { [weak self] placemark, error in
+        geocoder.reverseGeocodeLocation(location) { placemark, error in
             if error != nil {
                 return
             }
             
             guard let placemark = placemark?.first else { return }
             
-            if self?.userLocalcity != placemark.subLocality ?? "주소없음" {
-                self?.userLocalcity = placemark.subLocality ?? "주소없음"
+            if self.userLocalcity != placemark.subLocality ?? "주소없음" {
+                self.userLocalcity = placemark.subLocality ?? "주소없음"
                 
-                self?.searchAnotations(subLocality: placemark.subLocality ?? "주소없음")
+                Task {
+                    await self.fetchAnotations()
+                }
             }
-            print(self?.userLocalcity ?? "주소없음")
-
+            print(self.userLocalcity)
             return
         }
     }
     
-    func searchAnotations(subLocality: String) {
-        
-        
+    func fetchAnotations() async {
         do {
-            let resultFire = try await Firestore.firestore().collection("Place")
-                .w
-
-            let result: [SamplePlace] = [SamplePlace.sample, SamplePlace.sample2]
+            let snapshots = try await Firestore.firestore().collection("Place").getDocuments()
             
-            searchResult = result
+            var places: [SamplePlace] = []
+            try snapshots.documents.forEach { snapshot in
+                do {
+                    let place = try snapshot.data(as: SamplePlace.self)
+                    places.append(place)
+                    
+                }
+            }
+            print(places)
+            searchResult = places
+            placeList = filteredPlaces
             setAnnotations()
         } catch {
             print(error.localizedDescription)
         }
-        
-        
-        
-        
-       
+
     }
     
     func setAnnotations() {
@@ -134,15 +150,20 @@ final class LocationManager: NSObject, ObservableObject {
     }
     
     func didSelectCategory(_ category: String) {
-//        annotations =
+        if selectedCategoty == category {
+            selectedCategoty = ""
+        } else {
+            selectedCategoty = category
+            setAnnotations()
+        }
     }
-    
-    
     
     func selectAnnotation() {
         
     }
+    
 }
+
 
 
 extension LocationManager: CLLocationManagerDelegate {
@@ -169,8 +190,6 @@ extension LocationManager: CLLocationManagerDelegate {
             }
         }
     }
-    
-    
     
 }
 

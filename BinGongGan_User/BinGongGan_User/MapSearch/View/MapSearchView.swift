@@ -68,7 +68,7 @@ struct MapSearchView: View {
                     HStack {
                         ForEach(categorys, id: \.self) { category in
                             Button(category.rawValue) {
-                                locationManager.selectedCategoty = category.rawValue
+                                locationManager.didSelectCategory(category.rawValue)
                             }
                             .padding([.trailing, .leading], paddingWidth)
                             .padding([.top, .bottom], 7)
@@ -94,11 +94,11 @@ struct MapSearchView: View {
                 
                 ScrollView(.horizontal, showsIndicators: false) {
                     HStack {
-                        ForEach(0..<4, id: \.self) { idx in
+                        ForEach(locationManager.placeList) { place in
                             NavigationLink {
                                 GongGanDetailView()
                             } label: {
-                                SummaryPlaceView()
+                                SummaryPlaceView(place: place)
                                     .foregroundColor(.myDarkGray)
                             }
                         }
