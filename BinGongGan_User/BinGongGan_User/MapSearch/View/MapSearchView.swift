@@ -15,7 +15,6 @@ struct MapSearchView: View {
     @ScaledMetric(wrappedValue: 12, relativeTo: .caption) var paddingWidth
     @State private var categorys: [CategoryCase] = [.shareOffice, .studio, .shareKitchen, .bandRoom]
     @State private var searchText: String = ""
-    @State private var selectedCategoty = ""
     
     @Binding var tabBarVisivility: Visibility
     @Environment(\.dismiss) var dismiss
@@ -69,13 +68,13 @@ struct MapSearchView: View {
                     HStack {
                         ForEach(categorys, id: \.self) { category in
                             Button(category.rawValue) {
-                                selectedCategoty = category.rawValue
+                                locationManager.selectedCategoty = category.rawValue
                             }
                             .padding([.trailing, .leading], paddingWidth)
                             .padding([.top, .bottom], 7)
-                            .foregroundColor(selectedCategoty == category.rawValue ? .white : .myDarkGray)
+                            .foregroundColor(locationManager.selectedCategoty == category.rawValue ? .white : .myDarkGray)
                             .font(.captionRegular)
-                            .background(selectedCategoty == category.rawValue ? Color.mySecondary : Color.white)
+                            .background(locationManager.selectedCategoty == category.rawValue ? Color.mySecondary : Color.white)
                             .cornerRadius(13)
                             .shadow(radius: 2, y: 1)
                         }

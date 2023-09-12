@@ -25,14 +25,12 @@ final class LocationManager: NSObject, ObservableObject {
 //        center: .init(latitude: 37.334_900 , longitude: -122.009_020),
 //        span: .init(latitudeDelta: 0.5 , longitudeDelta: 0.5)
 //    )
-    
+    @Published var selectedCategoty: String = ""
     @Published var isShowingList: Bool = false
     @Published var isChaging: Bool = false
     @Published var isFocusUser: Bool = true
-    
-    
-    private var annotations: [MKAnnotation] = []
-    
+
+        
     private var userLocalcity: String = ""
     private var searchResult: [SamplePlace] = []
     private var selectedResult: [SamplePlace] = []
@@ -97,17 +95,34 @@ final class LocationManager: NSObject, ObservableObject {
         }
     }
     
-    func didSelectCategory(_ category: String) {
-        annotations = 
-    }
-    
     func searchAnotations(subLocality: String) {
-        
         // dbRef
         
-//        let reult
+        let result: [SamplePlace] = []
         
+        searchResult = result
+        setAnnotation()
     }
+    
+    func setAnnotation() {
+        var result: [SamplePlace] = []
+        switch selectedCategoty {
+        case "":
+            result = searchResult
+        default:
+            result = searchResult.filter { $0.placeCategory == selectedCategoty }
+        }
+        
+        result.forEach { place in
+//            var 
+        }
+    }
+    
+    func didSelectCategory(_ category: String) {
+//        annotations =
+    }
+    
+    
     
     func selectAnnotation() {
         
