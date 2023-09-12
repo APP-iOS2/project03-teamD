@@ -11,6 +11,7 @@ import FirebaseFirestore
 enum Collections: String {
     case announcement = "announcement"
     case user = "users"
+    case review = "reviews"
 }
 
 public class FirestoreService {

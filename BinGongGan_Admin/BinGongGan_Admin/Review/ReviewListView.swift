@@ -8,13 +8,30 @@
 import SwiftUI
 
 struct ReviewListView: View {
+    @StateObject private var reviewStore: ReviewStore = ReviewStore()
+    @State private var writerName: String = ""
     var body: some View {
-        Text("리뷰 리스트")
+        List(reviewStore.reviewList) { review in
+            NavigationLink {
+                
+            } label: {
+                HStack {
+                    Text(review.content)
+                }
+            }
+        }
+        .onAppear {
+            Task {
+                try await reviewStore.fetchReview()
+            }
+        }
     }
 }
 
 struct ReviewListView_Previews: PreviewProvider {
     static var previews: some View {
-        ReviewListView()
+        NavigationStack {
+            ReviewListView()
+        }
     }
 }
