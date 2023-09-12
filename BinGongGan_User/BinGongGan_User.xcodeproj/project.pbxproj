@@ -21,11 +21,11 @@
 		3AC748132AA90CCF0092B1EC /* AgreementCheckButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AC748122AA90CCF0092B1EC /* AgreementCheckButton.swift */; };
 		53254A232AAE2F18002E7542 /* AddPhotoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53254A222AAE2F18002E7542 /* AddPhotoView.swift */; };
 		5398C2132AA8D9A0000BD361 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5398C2122AA8D9A0000BD361 /* ContentView.swift */; };
-		53AC17792AAFDD2B0004D3E9 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 53AC17782AAFDD2B0004D3E9 /* GoogleService-Info.plist */; };
 		53AC17752AAEF6E10004D3E9 /* EnquiryFormView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53AC17742AAEF6E10004D3E9 /* EnquiryFormView.swift */; };
 		692725592AA81E5300A2441E /* RefundPolicySheetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 692725582AA81E5300A2441E /* RefundPolicySheetView.swift */; };
 		6927255B2AA83ABD00A2441E /* ReservationPlusMinusButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6927255A2AA83ABD00A2441E /* ReservationPlusMinusButton.swift */; };
 		6927255D2AA85A0600A2441E /* PaymentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6927255C2AA85A0600A2441E /* PaymentView.swift */; };
+		6943D65B2AAFE7B500495CDB /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 6943D65A2AAFE7B500495CDB /* GoogleService-Info.plist */; };
 		B12A84A92AA6F01000BDF8CA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B12A84A82AA6F01000BDF8CA /* Assets.xcassets */; };
 		B12A84AC2AA6F01000BDF8CA /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B12A84AB2AA6F01000BDF8CA /* Preview Assets.xcassets */; };
 		B12A84B62AA6F01100BDF8CA /* BinGongGan_UserTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B12A84B52AA6F01100BDF8CA /* BinGongGan_UserTests.swift */; };
@@ -142,11 +142,11 @@
 		3AC748122AA90CCF0092B1EC /* AgreementCheckButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AgreementCheckButton.swift; sourceTree = "<group>"; };
 		53254A222AAE2F18002E7542 /* AddPhotoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddPhotoView.swift; sourceTree = "<group>"; };
 		5398C2122AA8D9A0000BD361 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
-		53AC17782AAFDD2B0004D3E9 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		53AC17742AAEF6E10004D3E9 /* EnquiryFormView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnquiryFormView.swift; sourceTree = "<group>"; };
 		692725582AA81E5300A2441E /* RefundPolicySheetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RefundPolicySheetView.swift; sourceTree = "<group>"; };
 		6927255A2AA83ABD00A2441E /* ReservationPlusMinusButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReservationPlusMinusButton.swift; sourceTree = "<group>"; };
 		6927255C2AA85A0600A2441E /* PaymentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentView.swift; sourceTree = "<group>"; };
+		6943D65A2AAFE7B500495CDB /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		B12A84A12AA6F00D00BDF8CA /* BinGongGan_User.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BinGongGan_User.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B12A84A82AA6F01000BDF8CA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B12A84AB2AA6F01000BDF8CA /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
@@ -391,7 +391,7 @@
 			isa = PBXGroup;
 			children = (
 				B12A84A82AA6F01000BDF8CA /* Assets.xcassets */,
-				53AC17782AAFDD2B0004D3E9 /* GoogleService-Info.plist */,
+				6943D65A2AAFE7B500495CDB /* GoogleService-Info.plist */,
 			);
 			path = Config;
 			sourceTree = "<group>";
@@ -791,7 +791,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				ECBD87752AAB09F600ECEC7D /* Information1.md in Resources */,
-				53AC17792AAFDD2B0004D3E9 /* GoogleService-Info.plist in Resources */,
+				6943D65B2AAFE7B500495CDB /* GoogleService-Info.plist in Resources */,
 				B12A84AC2AA6F01000BDF8CA /* Preview Assets.xcassets in Resources */,
 				B12A84A92AA6F01000BDF8CA /* Assets.xcassets in Resources */,
 			);
