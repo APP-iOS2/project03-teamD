@@ -12,6 +12,7 @@
 		2FF048322AAFFB37002A04C3 /* ReviewStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FF048312AAFFB37002A04C3 /* ReviewStore.swift */; };
 		2FF048342AAFFC04002A04C3 /* MyPlaceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FF048332AAFFC04002A04C3 /* MyPlaceView.swift */; };
 		2FF048392AB02EDB002A04C3 /* ChartStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FF048382AB02EDB002A04C3 /* ChartStore.swift */; };
+		2FF0483B2AB0379C002A04C3 /* ReplyStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FF0483A2AB0379C002A04C3 /* ReplyStore.swift */; };
 		4BF4FADF2AAFE6D8007F6563 /* CustomSecureField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FD06C9A2AAEE51900D116B9 /* CustomSecureField.swift */; };
 		4BF4FAE02AAFE6D8007F6563 /* CustomTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FD06C9D2AAEE51D00D116B9 /* CustomTextField.swift */; };
 		4BF4FAE12AAFE6D8007F6563 /* PrimaryButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FD06C9B2AAEE51B00D116B9 /* PrimaryButton.swift */; };
@@ -123,6 +124,7 @@
 		2FF048312AAFFB37002A04C3 /* ReviewStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewStore.swift; sourceTree = "<group>"; };
 		2FF048332AAFFC04002A04C3 /* MyPlaceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPlaceView.swift; sourceTree = "<group>"; };
 		2FF048382AB02EDB002A04C3 /* ChartStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartStore.swift; sourceTree = "<group>"; };
+		2FF0483A2AB0379C002A04C3 /* ReplyStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReplyStore.swift; sourceTree = "<group>"; };
 		4B74203C2AA80ACC00818257 /* AnnouncementView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnnouncementView.swift; sourceTree = "<group>"; };
 		4B84D4BD2AAAE84F00F5FB01 /* AnnouncementAddView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnnouncementAddView.swift; sourceTree = "<group>"; };
 		4B84D4C22AAAE8C000F5FB01 /* AnnouncementOption.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnnouncementOption.swift; sourceTree = "<group>"; };
@@ -227,6 +229,7 @@
 			isa = PBXGroup;
 			children = (
 				2FF048312AAFFB37002A04C3 /* ReviewStore.swift */,
+				2FF0483A2AB0379C002A04C3 /* ReplyStore.swift */,
 				2F36A5712AA83E9200578AEB /* ReportCase.swift */,
 				2FECE3C52AADECFA00F04CFC /* ReportStore.swift */,
 			);
@@ -253,8 +256,6 @@
 				6A3B444B2AA83119008CC944 /* ReservationDetailsCell.swift */,
 				B13464F12AA90E1800098E9B /* SellerInformationCell.swift */,
 				B13464EF2AA90DE800098E9B /* ReservationCell.swift */,
-				B13464ED2AA90DCA00098E9B /* ReviewCell.swift */,
-				2F36A56A2AA81EEC00578AEB /* ReviewWithCommentCell.swift */,
 				2FAF0AC12AA8A9B500113F94 /* CarouselCell.swift */,
 				B13464EB2AA90DAD00098E9B /* MySpaceCell.swift */,
 				4BBAF3032AADA47400F1405D /* ReservationDeadlineCell.swift */,
@@ -305,6 +306,7 @@
 			children = (
 				B13464FF2AA9102D00098E9B /* ReviewManageView.swift */,
 				B13464FD2AA9100A00098E9B /* ReviewManageDetailView.swift */,
+				2FF0483C2AB03929002A04C3 /* SubView */,
 				2F36A56E2AA83E2600578AEB /* Sheet */,
 			);
 			path = View;
@@ -325,6 +327,15 @@
 				54D467792AA8A90C00054F12 /* ChartView.swift */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		2FF0483C2AB03929002A04C3 /* SubView */ = {
+			isa = PBXGroup;
+			children = (
+				B13464ED2AA90DCA00098E9B /* ReviewCell.swift */,
+				2F36A56A2AA81EEC00578AEB /* ReviewWithCommentCell.swift */,
+			);
+			path = SubView;
 			sourceTree = "<group>";
 		};
 		4B7420392AA80A9000818257 /* Home */ = {
@@ -777,6 +788,7 @@
 				4BF4FAEB2AAFE6D8007F6563 /* CategoryButtonsView.swift in Sources */,
 				4BF4FAEC2AAFE6D8007F6563 /* HomeView.swift in Sources */,
 				4BF4FAED2AAFE6D8007F6563 /* ChartView.swift in Sources */,
+				2FF0483B2AB0379C002A04C3 /* ReplyStore.swift in Sources */,
 				4BF4FAEE2AAFE6D8007F6563 /* ChartModel.swift in Sources */,
 				4BF4FAEF2AAFE6D8007F6563 /* AnnouncementTitleCell.swift in Sources */,
 				4BF4FAF02AAFE6D8007F6563 /* AnnouncementContentCell.swift in Sources */,

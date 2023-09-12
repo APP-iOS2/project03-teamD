@@ -8,6 +8,8 @@
 import SwiftUI
 
 struct ReviewWithCommentCell: View {
+    @EnvironmentObject var replyStore: ReplyStore
+    
     @State private var sellerComment: String = ""
     
     var body: some View {

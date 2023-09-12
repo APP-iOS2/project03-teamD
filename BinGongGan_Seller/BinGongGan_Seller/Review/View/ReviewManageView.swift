@@ -12,6 +12,8 @@ struct ReviewManageView: View {
     @Environment(\.dismiss) private var dismiss
     
     @StateObject var reviewStore: ReviewStore = ReviewStore()
+    @StateObject var replyStore: ReplyStore = ReplyStore()
+    @StateObject var reportStore: ReportStore = ReportStore()
     
     @State private var selectedPlace: String = ""
     
@@ -22,6 +24,8 @@ struct ReviewManageView: View {
                     NavigationLink {
                         ReviewManageDetailView()
                             .environmentObject(reviewStore)
+                            .environmentObject(replyStore)
+                            .environmentObject(reportStore)
                     } label: {
                         ReviewCell()
                     }
@@ -35,6 +39,8 @@ struct ReviewManageView: View {
                     NavigationLink {
                         ReviewManageDetailView()
                             .environmentObject(reviewStore)
+                            .environmentObject(replyStore)
+                            .environmentObject(reportStore)
                     } label: {
                         ReviewCell()
                     }
@@ -48,6 +54,8 @@ struct ReviewManageView: View {
                     NavigationLink {
                         ReviewManageDetailView()
                             .environmentObject(reviewStore)
+                            .environmentObject(replyStore)
+                            .environmentObject(reportStore)
                     } label: {
                         ReviewCell()
                     }

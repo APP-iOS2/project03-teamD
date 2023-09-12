@@ -6,7 +6,20 @@
 //
 
 import Foundation
+import BinGongGanCore
 
-final class ReplyStore: Identifiable {
+final class ReplyStore: ObservableObject {
+    @Published var replies: [Reply] = []
     
+    init() {
+        fetchData()
+    }
+    
+    func fetchData() {
+        
+    }
+    
+    func uploadReply(newReply: Reply) {
+        
+    }
 }
