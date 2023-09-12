@@ -29,6 +29,7 @@ struct AnnouncementListView: View {
                     .buttonStyle(backgroundColor: .myBrown)
             }
         }
+        .navigationTitle("공지")
         .onAppear {
             Task {
                 try await announcementStore.fetchAnnouncement()

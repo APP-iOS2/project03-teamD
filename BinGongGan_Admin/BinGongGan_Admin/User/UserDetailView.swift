@@ -35,6 +35,9 @@ struct UserDetailView: View {
                 }
             }
         }
+        .scrollContentBackground(.hidden)
+        .background(Color.myBackground, ignoresSafeAreaEdges: .all)
+        .navigationTitle("\(user.name) 정보")
     }
 }
 

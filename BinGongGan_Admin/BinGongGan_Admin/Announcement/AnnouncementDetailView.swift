@@ -21,6 +21,7 @@ struct AnnouncementDetailView: View {
                 Text(announcement.content)
             }
         }
+        .navigationTitle("공지 내용")
         .scrollContentBackground(.hidden)
         .background(Color.myBackground, ignoresSafeAreaEdges: .all)
     }

@@ -25,6 +25,9 @@ struct UserListView: View {
             }
 
         }
+        .navigationTitle("일반 사용자")
+        .scrollContentBackground(.hidden)
+        .background(Color.myBackground, ignoresSafeAreaEdges: .all)
         .onAppear {
             Task {
                 try await userStore.fetchUser()
