@@ -54,7 +54,7 @@ final class HomeStore: ObservableObject {
     // MARK: - Async Functions
     func fetchPlaces() async {
         do {
-            var tempStore: [GongGanPlace] = []
+            var tempStore: [Place] = []
             let querySnapshot = try await dbRef.getDocuments()
 
             for document in querySnapshot.documents {
@@ -153,7 +153,7 @@ final class HomeStore: ObservableObject {
     }
     
     func settingRecommendPlace() {
-        var temp: [GongGanPlace] = places
+        var temp: [Place] = places
         var count: Int = 0
         temp.shuffle()
         recommendPlace.removeAll()
