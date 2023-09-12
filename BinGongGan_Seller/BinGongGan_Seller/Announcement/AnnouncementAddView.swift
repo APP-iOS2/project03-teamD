@@ -10,12 +10,12 @@ import BinGongGanCore
 
 struct AnnouncementAddView: View {
     @Environment(\.dismiss) private var dismiss
+    @EnvironmentObject var announcementStore: AnnouncementStore
     @State private var announcementTitle: String = ""
     @State private var announcementContent: String = ""
     @State private var isSelectedAllPlace: Bool = false
     @State private var selectedPlace: String = ""
-    @State private var placeNameText: String = ""
-    @State private var informationToPassText: String = ""
+
     
     var body: some View {
         ZStack {
@@ -33,14 +33,16 @@ struct AnnouncementAddView: View {
                 .padding(.top, 10)
                 
                 HStack{
-                    Picker("공간 선택", selection: $selectedPlace) {
-                        ForEach(0..<3) { _ in
-                            Text("picker1")
-                        }
-                    }
-                    .accentColor(Color.myBrown)
-                    .padding(.leading, -10)
-                    .disabled(isSelectedAllPlace)
+
+                    //                    Picker("공간 선택", selection: $selectedPlace) {
+                    //                        ForEach(0..<3) { _ in
+                    //                            Text("picker1")
+                    //                        }
+                    //                    }
+                    //                    .accentColor(Color.myBrown)
+                    //                    .padding(.leading, -10)
+                    //                    .disabled(isSelectedAllPlace)
+
                     
                     Spacer()
                     Button {
@@ -82,7 +84,11 @@ struct AnnouncementAddView: View {
             VStack{
                 Spacer()
                 Button {
-                    //action
+
+                    let newAnnouncement = Announcement(title: announcementTitle, content: announcementContent)
+                    announcementStore.addAnnouncmentDummy(announcement: newAnnouncement)
+                    dismiss()
+
                 } label: {
                     Text("등록하기")
                         .frame(maxWidth: .infinity)
@@ -108,5 +114,7 @@ struct AnnouncementAddView: View {
 struct AnnouncementAddView_Previews: PreviewProvider {
     static var previews: some View {
         AnnouncementAddView()
+            .environmentObject(AnnouncementStore())
+
     }
 }
