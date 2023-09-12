@@ -391,6 +391,7 @@
 				B12A84A82AA6F01000BDF8CA /* Assets.xcassets */,
 				D8741E622AB0025700F45C79 /* GoogleService-Info.plist */,
 				ECBD877A2AAFEA1D00ECEC7D /* GoogleService-Info.plist */,
+				D8741E622AB0025700F45C79 /* GoogleService-Info.plist */,
 			);
 			path = Config;
 			sourceTree = "<group>";
@@ -795,6 +796,7 @@
 				ECBD87752AAB09F600ECEC7D /* Information1.md in Resources */,
 				D8741E632AB0025700F45C79 /* GoogleService-Info.plist in Resources */,
 				ECBD877B2AAFEA1D00ECEC7D /* GoogleService-Info.plist in Resources */,
+				D8741E632AB0025700F45C79 /* GoogleService-Info.plist in Resources */,
 				B12A84AC2AA6F01000BDF8CA /* Preview Assets.xcassets in Resources */,
 				B12A84A92AA6F01000BDF8CA /* Assets.xcassets in Resources */,
 			);
