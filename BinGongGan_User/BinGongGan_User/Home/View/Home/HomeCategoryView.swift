@@ -32,7 +32,7 @@ struct HomeCategoryView: View {
                                         .foregroundColor(Color.myMint)
                                         .font(.system(size: 27))
                                 }
-                                Text(category.category.rawValue)
+                                Text(category.category)
                                     .font(.captionBold)
                                     .foregroundColor(.myBrown)
                                     .lineLimit(1)

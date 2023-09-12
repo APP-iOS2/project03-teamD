@@ -6,8 +6,9 @@
 //
 
 import SwiftUI
-//import FirebaseFirestoreSwift
-//import FirebaseFirestore
+import FirebaseFirestoreSwift
+import FirebaseFirestore
+import Firebase
 
 final class HomeStore: ObservableObject {
     
@@ -19,44 +20,72 @@ final class HomeStore: ObservableObject {
     @Published var recentlyWords: [String] = []
     @Published var cities: [City] = []
     
-    @Published var selectedCategory: CategoryCase = .bandRoom
+    @Published var selectedCategory: String = "밴드룸"
     @Published var selectSub: [String] = []
-    //    let dbRef = Firestore.firestore().collection("Incruitments")
-    
+    let dbRef = Firestore.firestore().collection("Place")
+////
+//    let db = Firestore.firestore()
     var filteredCategoryCity: [Place] {
+        realfilteredCategoryCity()
+    }
+    func realfilteredCategoryCity () -> [Place] {
+        
         return places.filter { place in
-            selectSub.isEmpty ? place.category == selectedCategory : place.category == selectedCategory && selectSub.contains(place.placeLocation)
+            let placetest = place.placeLocation.components(separatedBy: " ")
+            var testBoll: [Bool] = []
+            
+                for i in placetest {
+                    if selectSub.contains(i){
+                        testBoll.append(true)
+                    }
+                }
+            return selectSub.isEmpty ? place.category == selectedCategory : place.category == selectedCategory && testBoll.contains(true)
         }
     }
     
     var categories: [Category] = [
-        Category(category: .shareOffice, categoryImageString:  "building.2"),
-        Category(category: .bandRoom, categoryImageString:  "music.mic"),
-        Category(category: .studio, categoryImageString:  "camera"),
-        Category(category: .shareKitchen, categoryImageString:  "fork.knife"),
+        Category(category: "쉐어오피스", categoryImageString:  "building.2"),
+        Category(category: "밴드룸", categoryImageString:  "music.mic"),
+        Category(category: "스튜디오", categoryImageString:  "camera"),
+        Category(category: "쉐어키친", categoryImageString:  "fork.knife"),
     ]
     
-    init(){
-        fetchPlace()
-        settingEventBanner()
-        settingHotPlace()
-        settingRecommendPlace()
+    init() {
+        Task{
+            await fetchPlaces()
+            cities = cityArray
+            settingEventBanner()
+            settingHotPlace()
+            settingRecommendPlace()
+        }
     }
-    
-    //    @MainActor
-    //    func fetchPlaces() async throws -> Void {
-    //      let snapshot = try await dbRef.getDocuments()
-    //
-    //      let places = snapshot.documents.compactMap({try? $0.data(as: Place.self) })
-    //      self.places = places
-    //    }
-    
-    func fetchPlace(){
-        places = placeArray
-        cities = cityArray
+
+    func fetchPlaces() async {
+        
+        do {
+            var tempStore: [Place] = []
+            let querySnapshot = try await dbRef.getDocuments()
+            
+            for document in querySnapshot.documents {
+                let data = document.data()
+                let addressMap: [String: Any] = data["address"] as? [String: Any] ?? [:]
+                let placeImageStringList: [String] = data["placeImageStringList"] as? [String] ?? [""]
+                let place = Place (
+                    placeName: addressMap["place_name"] as? String ?? "",
+                    category: data["placeCategory"] as? String ?? "",
+                    placeLocation: addressMap["address_name"] as? String ?? "",
+                    placePrice: data["place_Price"] as? Int ?? 16000,
+                    imageString: placeImageStringList[0],
+                    isFavorite: data["isFavorite"] as? Bool ?? false
+                )
+                tempStore.append(place)
+            }
+            self.places = tempStore
+            
+        } catch {
+            print("Error fetching Place: (error)")
+        }
     }
-    
-    
     
     func searchPlaceName(placess: [Place] , keyWord: String) {
         
@@ -70,8 +99,6 @@ final class HomeStore: ObservableObject {
             }
         }
     }
-    
-    
     
     func settingEventBanner(){
         for i in eventImageArray.shuffled() {
