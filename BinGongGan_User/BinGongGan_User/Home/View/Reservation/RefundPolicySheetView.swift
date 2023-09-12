@@ -25,6 +25,7 @@ struct RefundPolicySheetView: View {
                 Text("결제 후 2시간 이내에는 100% 환불이 가능합니다.(단, 이용시간 전까지만 가능)")
                     .font(.captionRegular)
             }
+            .padding([.top, .bottom], 5)
             
             Section("취소 수수료") {
                 ForEach(refundPolicy.indices, id: \.self) { index in
@@ -33,12 +34,13 @@ struct RefundPolicySheetView: View {
                         Text("이용 \(index + 1)일전")
                             .font(.captionRegular)
                         Divider()
-                            .padding()
+                            .padding(10)
                         Text("\(refundPolicy[index])")
                             .font(.body1Regular)
                     }
                 }
             }
+            .padding([.top, .bottom], 2)
             
             Button {
                 reservationStore.reservation.reservationID = UUID().uuidString
