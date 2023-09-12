@@ -142,6 +142,7 @@ struct MyInfoView_Previews: PreviewProvider {
     static var previews: some View {
         NavigationStack {
             MyInfoView()
+                .environmentObject(MyStore())
         }
     }
 }
