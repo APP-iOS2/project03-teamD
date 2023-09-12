@@ -8,7 +8,9 @@
 import Foundation
 import BinGongGanCore
 
-struct Report {
+struct Report: Identifiable {
+    var id: String = UUID().uuidString
+    
     var reportedReviewId: String = ""
     var reason: String
     var isSelected: Bool
