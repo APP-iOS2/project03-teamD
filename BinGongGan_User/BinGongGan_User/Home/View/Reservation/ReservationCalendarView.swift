@@ -27,16 +27,20 @@ struct ReservationCalendarView: View {
                     reservationStore.updateReservation(type: .checkInDate, value: newValue?.lowerBound)
                     reservationStore.updateReservation(type: .checkOutDate, value: newValue?.upperBound)
                 }
+            
             VStack(alignment: .leading) {
+                
                 Text("선택한 날짜")
                     .font(.body1Regular)
+                
                 ZStack {
-                    
+                
                     RoundedRectangle(cornerRadius: 8)
                         .fill(.white)
                         .frame(maxWidth: screenWidth * 0.9, minHeight: 40)
                     
                     if let dateRange = dateRange {
+                        
                         HStack {
                             Text("입실 날짜: ")
                                 .font(.captionRegular)
@@ -59,7 +63,6 @@ struct ReservationCalendarView: View {
                     }
                 }
             }
-            
             .padding(.top, 10)
             .padding(.leading, 20)
         }

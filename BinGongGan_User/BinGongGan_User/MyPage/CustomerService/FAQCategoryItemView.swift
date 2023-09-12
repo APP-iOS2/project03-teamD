@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import BinGongGanCore
 
 struct FAQCategoryItemView: View {
     @Binding var selectedItem: String

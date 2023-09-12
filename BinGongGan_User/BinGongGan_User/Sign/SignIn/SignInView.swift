@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import BinGongGanCore
 
 struct SignInView: View {
     @EnvironmentObject private var signInStore: SignInStore
@@ -36,24 +37,23 @@ struct SignInView: View {
                 }
                 .padding(.horizontal, 20)
                 
-                PrimaryButton(action: {
+                PrimaryButton(isDisabled: .constant(false), action: {
                     isShowingAlert = signInStore.checkSignIn(email: emailText, password: passwordText)
                 }, title: "로그인")
                 .padding(.horizontal, 20)
                 
                 Spacer()
-                
-                NavigationLink {
-                    SignUpView()
-                } label: {
+                Button(action: {
+                    signUpStore.signUpData = SignUpData()
+                    signUpStore.isShowingSignUp = true
+                }, label: {
                     Text("회원가입")
-                }
-                .padding()
-                .font(.body1Bold)
-                .frame(width: 120, height: 40)
-                .foregroundColor(.white)
-                .background(Color.myMint)
-                .cornerRadius(50)
+                }).padding()
+                    .font(.body1Bold)
+                    .frame(width: 120, height: 40)
+                    .foregroundColor(.white)
+                    .background(Color.myMint)
+                    .cornerRadius(50)
                 
                 Text("@ZDCOMPANY")
                     .font(.caption)
@@ -67,6 +67,10 @@ struct SignInView: View {
                     dismissButton: .default(Text("확인"))
                 )
             }
+            .fullScreenCover(isPresented: $signUpStore.isShowingSignUp, content: {
+                FirstStepSignUpView()
+                    .environmentObject(signUpStore)
+            })
         }
         .ignoresSafeArea()
         .onAppear {

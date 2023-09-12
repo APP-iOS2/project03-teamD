@@ -15,7 +15,6 @@ struct GongGanDetailView: View {
     @StateObject var reservationStore: ReservationStore = ReservationStore()
     @State private var heartButton: Bool = false
     @State private var isActionSheetPresented = false
-    @State private var tabBarVisivility: Visibility = .visible
     @State private var isReservationActive: Int? = nil
     @State private var isShowingReservationView = false
     @State private var isShowingReservationAlert = false
@@ -124,9 +123,8 @@ struct GongGanDetailView: View {
             }
             .navigationDestination(isPresented: $isShowingReservationView) {
                 
-                    ReservationView(tabBarVisivility: $tabBarVisivility)
+                    ReservationView()
                         .environmentObject(reservationStore)
-                        .toolbar(tabBarVisivility, for: .tabBar)
                         .navigationBarBackButtonHidden()
             }
     }
