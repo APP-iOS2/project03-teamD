@@ -43,7 +43,6 @@ struct RefundPolicySheetView: View {
             .padding([.top, .bottom], 2)
             
             Button {
-                reservationStore.reservation.reservationID = UUID().uuidString
                 reservationStore.updateReservation(type: .reservationDate, value: Date())
                 reservationStore.isPolicyChecked.toggle()
                 dismiss()

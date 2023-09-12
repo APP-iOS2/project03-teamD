@@ -17,11 +17,11 @@ struct ReservationPlusMinusButton: View {
     
     var contentColor: Color {
         if type == "time" {
-            if content == 1 || content == 24 {
+            if content == 24 {
                 return Color.myLightGray
             }
         } else if type == "person" {
-            if content == 1 || content == 13 {
+            if content == 13 {
                 return Color.myLightGray
             }
         }
@@ -46,7 +46,7 @@ struct ReservationPlusMinusButton: View {
                 }
             } label: {
                 Image(systemName: "minus")
-                    .foregroundColor(contentColor)
+                    .foregroundColor(content == 1 ? Color.myLightGray : Color.myBrown)
                     .frame(width: 20, height: 40)
             }
             .buttonStyle(.plain)

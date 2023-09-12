@@ -45,9 +45,9 @@ struct ReservationView: View {
                         if reservationStore.reservation.reservationName.isEmpty || reservationStore.reservation.reservationPhoneNumber.isEmpty {
                             isReservationEmpty = true
                         } else {
-                            
                             isReservationEmpty = false
                             isReservationFinished.toggle()
+                            reservationStore.addReservation()
                         }
                     } label: {
                         Text("무통장으로 입금")
