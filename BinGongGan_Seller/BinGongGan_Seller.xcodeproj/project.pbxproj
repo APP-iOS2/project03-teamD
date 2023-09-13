@@ -91,6 +91,7 @@
 		6A800A882AB08DB200F1CE25 /* SellerStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A800A872AB08DB200F1CE25 /* SellerStore.swift */; };
 		6A800A8A2AB08DBF00F1CE25 /* FirestoreService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A800A892AB08DBF00F1CE25 /* FirestoreService.swift */; };
 		6A800A8C2AB08DCD00F1CE25 /* Collections.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A800A8B2AB08DCD00F1CE25 /* Collections.swift */; };
+		6A800A942AB1896A00F1CE25 /* RervationStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A800A932AB1896A00F1CE25 /* RervationStore.swift */; };
 		B12A84732AA6EFE900BDF8CA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B12A84722AA6EFE900BDF8CA /* Assets.xcassets */; };
 		B12A84802AA6EFEA00BDF8CA /* BinGongGan_SellerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B12A847F2AA6EFEA00BDF8CA /* BinGongGan_SellerTests.swift */; };
 		B12A848A2AA6EFEA00BDF8CA /* BinGongGan_SellerUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B12A84892AA6EFEA00BDF8CA /* BinGongGan_SellerUITests.swift */; };
@@ -189,6 +190,7 @@
 		6A800A872AB08DB200F1CE25 /* SellerStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SellerStore.swift; sourceTree = "<group>"; };
 		6A800A892AB08DBF00F1CE25 /* FirestoreService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirestoreService.swift; sourceTree = "<group>"; };
 		6A800A8B2AB08DCD00F1CE25 /* Collections.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Collections.swift; sourceTree = "<group>"; };
+		6A800A932AB1896A00F1CE25 /* RervationStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RervationStore.swift; sourceTree = "<group>"; };
 		B12A846B2AA6EFE700BDF8CA /* BinGongGan_Seller.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BinGongGan_Seller.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B12A84722AA6EFE900BDF8CA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B12A847B2AA6EFEA00BDF8CA /* BinGongGan_SellerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BinGongGan_SellerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -420,6 +422,7 @@
 			isa = PBXGroup;
 			children = (
 				B13464F32AA90E6200098E9B /* HomeView.swift */,
+				6A800A922AB1895B00F1CE25 /* Store */,
 				B13465032AA9190900098E9B /* HomeModels */,
 				4B7420432AA80B3A00818257 /* Reservation */,
 				4B74203E2AA80AD800818257 /* HomeCategory */,
@@ -641,6 +644,14 @@
 				6A800A8B2AB08DCD00F1CE25 /* Collections.swift */,
 			);
 			path = Service;
+			sourceTree = "<group>";
+		};
+		6A800A922AB1895B00F1CE25 /* Store */ = {
+			isa = PBXGroup;
+			children = (
+				6A800A932AB1896A00F1CE25 /* RervationStore.swift */,
+			);
+			path = Store;
 			sourceTree = "<group>";
 		};
 		B12A84622AA6EFE700BDF8CA = {
@@ -970,6 +981,7 @@
 				6A800A812AB08D4E00F1CE25 /* SignUpData.swift in Sources */,
 				5406F8BE2AB03A42000A6441 /* MapView.swift in Sources */,
 				5406F8BF2AB03A42000A6441 /* AddressSearchView.swift in Sources */,
+				6A800A942AB1896A00F1CE25 /* RervationStore.swift in Sources */,
 				B171F4872AB1017800B8059B /* PlaceAddView.swift in Sources */,
 				5406F8C02AB03A42000A6441 /* PhotoSelectedView.swift in Sources */,
 				5406F8C12AB03A42000A6441 /* PlaceInfomationButtonView.swift in Sources */,
