@@ -41,8 +41,19 @@ struct PhotoSelectedView: View {
                             .frame(width: 70, height: 70)
                             .padding(.leading, 5)
                             .aspectRatio(contentMode: .fill)
-                            .onTapGesture {
-                                
+                            .overlay(alignment: .topTrailing) {
+                                Button {
+                                    guard let index = selectedImages.firstIndex(where: {
+                                        $0 == image
+                                    }) else {
+                                        return
+                                    }
+                                    selectedImages.remove(at: index)
+                                    selectedImageNames.remove(at: index)
+                                } label: {
+                                    Image(systemName: "xmark.square.fill")
+                                        .foregroundColor(.black)
+                                }
                             }
                     }
                 }

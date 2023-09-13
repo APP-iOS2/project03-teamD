@@ -14,17 +14,16 @@ import FirebaseStorage
 class RoomStore: ObservableObject {
     @Published var room: Room = Room()
     @Published var rooms: [Room] = []
-    let fireStoreService = FirestoreService()
-    let dataBase = Firestore.firestore().collection("Room")
+    private let dataBase = Firestore.firestore().collection("Room")
     
-    func addRoom(room: Room, images: [UIImage], completion: @escaping () -> Void) async {
+    func addRoom(room: Room, images: [UIImage]) async {
         var newRoom = room
         await uploadImages(images, room: newRoom) { urls in
             newRoom.imageNames = urls
             self.dataBase.document(newRoom.id)
                 .setData(newRoom.asDictionary())
         }
-    
+        fetchRooms()
         print("방 추가 완료")
     }
     
@@ -37,7 +36,7 @@ class RoomStore: ObservableObject {
         }
     }
     
-    func fetchRooms()  {
+    func fetchRooms() {
         do {
             dataBase.whereField("placeId", isEqualTo: AuthStore.userUid).getDocuments { (document, error) in
                 self.rooms = []
@@ -78,6 +77,7 @@ class RoomStore: ObservableObject {
                 print("Error removing document: \(err)")
             } else {
                 print("Document successfully removed!")
+                self.fetchRooms()
             }
         }
     }
