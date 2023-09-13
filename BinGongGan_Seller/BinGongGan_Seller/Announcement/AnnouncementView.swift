@@ -58,8 +58,8 @@ struct AnnouncementView: View {
                 }
                 .onAppear {
                     Task {
-                        await announcementStore.fetchRoomInfo
-                        await announcementStore.fetchRoomAnnouncement
+                        await announcementStore.fetchRoomInfo()
+                        await announcementStore.fetchRoomAnnouncement()
                     }
                 }
                 .background(Color.myBackground)
@@ -69,8 +69,8 @@ struct AnnouncementView: View {
             }
         }
         .refreshable {
-            await announcementStore.fetchRoomInfo
-            await announcementStore.fetchRoomAnnouncement
+            await announcementStore.fetchRoomInfo()
+            await announcementStore.fetchRoomAnnouncement()
         }
     }
 }
