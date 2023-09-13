@@ -35,8 +35,14 @@ struct ContentView: View {
                 SignInView()
                     .environmentObject(signInStore)
                     .environmentObject(signUpStore)
+                    .environmentObject(myUserStore)
                     .onAppear {
-                        signInStore.checkSignedIn()
+                        let result = signInStore.checkSignedIn()
+                        if result {
+                            Task {
+                                try                             myUserStore.fetchCurrentUser
+                            }
+                        }
                     }
             }
         }
