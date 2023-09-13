@@ -20,6 +20,9 @@
 		3A392E992AAED19900D82221 /* AuthStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A392E982AAED19900D82221 /* AuthStore.swift */; };
 		3AC748132AA90CCF0092B1EC /* AgreementCheckButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AC748122AA90CCF0092B1EC /* AgreementCheckButton.swift */; };
 		3ACEBAF42AB055FA008F4600 /* BankSheetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ACEBAF32AB055FA008F4600 /* BankSheetView.swift */; };
+		5322C95E2AB20882009F30A9 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5322C95D2AB20882009F30A9 /* GoogleService-Info.plist */; };
+		5322C9602AB20BE8009F30A9 /* AnnouncementStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5322C95F2AB20BE8009F30A9 /* AnnouncementStore.swift */; };
+		5322C9622AB20E15009F30A9 /* AnnouncementDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5322C9612AB20E15009F30A9 /* AnnouncementDetailView.swift */; };
 		53254A232AAE2F18002E7542 /* AddPhotoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53254A222AAE2F18002E7542 /* AddPhotoView.swift */; };
 		534F56A42AB008D700FA79B0 /* MyReviewStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 534F56A32AB008D700FA79B0 /* MyReviewStore.swift */; };
 		5398C2132AA8D9A0000BD361 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5398C2122AA8D9A0000BD361 /* ContentView.swift */; };
@@ -158,6 +161,9 @@
 		3A392E982AAED19900D82221 /* AuthStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthStore.swift; sourceTree = "<group>"; };
 		3AC748122AA90CCF0092B1EC /* AgreementCheckButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AgreementCheckButton.swift; sourceTree = "<group>"; };
 		3ACEBAF32AB055FA008F4600 /* BankSheetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BankSheetView.swift; sourceTree = "<group>"; };
+		5322C95D2AB20882009F30A9 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		5322C95F2AB20BE8009F30A9 /* AnnouncementStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnnouncementStore.swift; sourceTree = "<group>"; };
+		5322C9612AB20E15009F30A9 /* AnnouncementDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnnouncementDetailView.swift; sourceTree = "<group>"; };
 		53254A222AAE2F18002E7542 /* AddPhotoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddPhotoView.swift; sourceTree = "<group>"; };
 		534F56A32AB008D700FA79B0 /* MyReviewStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyReviewStore.swift; sourceTree = "<group>"; };
 		5398C2122AA8D9A0000BD361 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -324,6 +330,15 @@
 			path = Extension;
 			sourceTree = "<group>";
 		};
+		5322C9542AB20256009F30A9 /* Recovered References */ = {
+			isa = PBXGroup;
+			children = (
+				699A820B2AB1E60E00A91380 /* GoogleService-Info.plist */,
+				BCB5BBFB2AB1F9110014CCB6 /* GoogleService-Info.plist */,
+			);
+			name = "Recovered References";
+			sourceTree = "<group>";
+		};
 		534F56A52AB008DB00FA79B0 /* Store */ = {
 			isa = PBXGroup;
 			children = (
@@ -331,6 +346,7 @@
 				534F56A32AB008D700FA79B0 /* MyReviewStore.swift */,
 				ECBD877C2AB01E3300ECEC7D /* MyReservationStore.swift */,
 				D819F4432AB178C600E1BAA1 /* MyUserStore.swift */,
+				5322C95F2AB20BE8009F30A9 /* AnnouncementStore.swift */,
 			);
 			path = Store;
 			sourceTree = "<group>";
@@ -361,6 +377,7 @@
 				B12A84A22AA6F00D00BDF8CA /* Products */,
 				B12A84E32AA6F08F00BDF8CA /* Frameworks */,
 				BCB5BBFD2AB2018A0014CCB6 /* Recovered References */,
+				5322C9542AB20256009F30A9 /* Recovered References */,
 			);
 			sourceTree = "<group>";
 		};
@@ -437,6 +454,7 @@
 			isa = PBXGroup;
 			children = (
 				B12A84A82AA6F01000BDF8CA /* Assets.xcassets */,
+				5322C95D2AB20882009F30A9 /* GoogleService-Info.plist */,
 			);
 			path = Config;
 			sourceTree = "<group>";
@@ -587,8 +605,6 @@
 		BCB5BBFD2AB2018A0014CCB6 /* Recovered References */ = {
 			isa = PBXGroup;
 			children = (
-				699A820B2AB1E60E00A91380 /* GoogleService-Info.plist */,
-				BCB5BBFB2AB1F9110014CCB6 /* GoogleService-Info.plist */,
 			);
 			name = "Recovered References";
 			sourceTree = "<group>";
@@ -685,6 +701,7 @@
 				D84824862AA8A3700067A065 /* EnquiryView.swift */,
 				D84824872AA8A3700067A065 /* FAQView.swift */,
 				53AC17742AAEF6E10004D3E9 /* EnquiryFormView.swift */,
+				5322C9612AB20E15009F30A9 /* AnnouncementDetailView.swift */,
 			);
 			path = CustomerService;
 			sourceTree = "<group>";
@@ -861,6 +878,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5322C95E2AB20882009F30A9 /* GoogleService-Info.plist in Resources */,
 				ECBD87752AAB09F600ECEC7D /* Information1.md in Resources */,
 				B12A84AC2AA6F01000BDF8CA /* Preview Assets.xcassets in Resources */,
 				B12A84A92AA6F01000BDF8CA /* Assets.xcassets in Resources */,
@@ -909,6 +927,7 @@
 				D84824A12AA8A3710067A065 /* MyReviewRowView.swift in Sources */,
 				D819F43F2AB0FB2200E1BAA1 /* AccountNumberEditView.swift in Sources */,
 				BCDD348B2AAF27B600A68F4F /* DetailReviewRowView.swift in Sources */,
+				5322C9622AB20E15009F30A9 /* AnnouncementDetailView.swift in Sources */,
 				D84824AE2AA8A41D0067A065 /* ReservationDetailView.swift in Sources */,
 				BCB5BBF62AB1A50B0014CCB6 /* CustomTransition.swift in Sources */,
 				BCE658492AA8AD380009ECD1 /* SignInView.swift in Sources */,
@@ -954,6 +973,7 @@
 				BCB5BBF42AB1A50B0014CCB6 /* ReservationTossAlert.swift in Sources */,
 				BC344ED12AA8073700F8CEB3 /* GongGanDetailView.swift in Sources */,
 				BCFEA6162AB184480021DE48 /* GongGanInfoStore.swift in Sources */,
+				5322C9602AB20BE8009F30A9 /* AnnouncementStore.swift in Sources */,
 				BC344F002AA808FC00F8CEB3 /* MDPMonthYearPickerButton.swift in Sources */,
 				D84824B12AA8A4450067A065 /* ReservationModel.swift in Sources */,
 				BCDD34872AAF273600A68F4F /* DetailInfoView.swift in Sources */,
