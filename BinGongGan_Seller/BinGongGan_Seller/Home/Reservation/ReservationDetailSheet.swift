@@ -56,8 +56,13 @@ struct ReservationDetailSheet: View {
                     Alert(title: Text("예약 승인"),
                           message: Text("해당 예약 요청을 승인하시겠습니까?"),
                           primaryButton: .destructive(Text("취소"),
-                                                      action: {}),
-                          secondaryButton: .cancel(Text("승인")))
+                                                      action: {
+                     
+                    }),
+                          secondaryButton: .cancel(Text("승인"),action: {
+                        Task{  await rervationStore.updateRervation(isReserve:true )
+                        }
+                    }))
                 }
                 
                 Spacer(minLength: 1)
@@ -81,7 +86,10 @@ struct ReservationDetailSheet: View {
                           message: Text("해당 예약 요청을 거절하시겠습니까?"),
                           primaryButton: .destructive(Text("취소"),
                                                       action: {}),
-                          secondaryButton: .cancel(Text("거절")))
+                          secondaryButton: .cancel(Text("거절"),action: {
+                        Task{  await rervationStore.updateRervation(isReserve:false )
+                        }
+                    }))
                 }
             }
         }
