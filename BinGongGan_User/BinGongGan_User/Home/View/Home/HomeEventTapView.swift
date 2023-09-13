@@ -13,7 +13,7 @@ struct HomeEventTapView: View {
     private let timer = Timer.publish(every: 4, on: .main, in: .common).autoconnect()
     @EnvironmentObject var homeStore: HomeStore
     @State private var currentPage: Int = 0
-    
+    @State var isLoading: Bool = true
     var body: some View {
         GeometryReader { geometry in
             ScrollView(.horizontal, showsIndicators: false){
@@ -39,6 +39,15 @@ struct HomeEventTapView: View {
                 }
             }
         }// GeometryReader
+        .redacted(reason: isLoading ? .placeholder : [])
+        .onAppear {
+           
+                Task {
+                    await homeStore.fetchPlaces()
+                    self.isLoading = false
+                }
+            
+        }
         .tabViewStyle(PageTabViewStyle())
         .frame(width: HomeNameSpace.screenWidth, height: HomeNameSpace.screenHeight * 0.5)
         .overlay(alignment: .bottomTrailing) {
