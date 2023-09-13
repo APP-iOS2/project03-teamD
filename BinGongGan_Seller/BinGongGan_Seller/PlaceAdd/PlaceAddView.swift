@@ -51,7 +51,7 @@ struct PlaceAddView: View {
                             .font(.body1Bold)
                         Picker("공간 카테고리", selection: $selectedPlace) {
                             ForEach(PlaceCategory.allCases) { category in
-                                Text(category.rawValue)
+                                Text(category.placeCategoryName)
                             }
                         }
                         .frame(maxWidth: .infinity)
@@ -172,6 +172,7 @@ struct PlaceAddView: View {
                                 )
                                 Task{
                                     await placeStore.addPlace(place: place, images: selectedImage)
+                                    
                                 }
                                 dismiss()
                             } else {
