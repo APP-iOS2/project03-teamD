@@ -46,10 +46,6 @@ struct PlaceListRow: View {
                         .foregroundColor(.black)
                     
                     HStack {
-                        Text("\(place.price ?? 0) / 시간 당")
-                            .font(.body1Regular)
-                            .foregroundColor(.black)
-                        Spacer()
                         Text("최대 인원 00명")
                             .font(.body1Regular)
                         .foregroundColor(.black)
