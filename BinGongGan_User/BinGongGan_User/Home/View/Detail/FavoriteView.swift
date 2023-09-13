@@ -17,17 +17,21 @@ struct FavoriteView: View {
         NavigationStack {
             ZStack {
                 Spacer().background(Color.myBackground).edgesIgnoringSafeArea(.all)
-                ScrollView {
-                    ForEach(gongGan.myFavoriteGongGan) { gongGanItem in
-                        VStack {
-                            FavoriteCellView(isHeartButtonShowing: $isHeartButtonShowing, gongGanItem: gongGanItem)
+                if gongGan.myFavoriteGongGan.isEmpty {
+                    Text("찜 목록이 없어요")
+                } else {
+                    ScrollView {
+                        ForEach(gongGan.myFavoriteGongGan) { gongGanItem in
+                            VStack {
+                                FavoriteCellView(isHeartButtonShowing: $isHeartButtonShowing, gongGanItem: gongGanItem)
+                            }
                         }
+                        .navigationTitle("나의 찜")
+                        .navigationBarTitleDisplayMode(.inline)
+                        Spacer()
                     }
-                    .navigationTitle("나의 찜")
-                    .navigationBarTitleDisplayMode(.inline)
-                    Spacer()
+                    .padding(.top, 10)
                 }
-                .padding(.top, 10)
             }
             .refreshable {
                 Task {
@@ -48,7 +52,7 @@ struct FavoriteView: View {
                             .foregroundColor(.myBrown)
                     }
                 }
-        }
+            }
         }
     }
 }
