@@ -32,7 +32,7 @@ public class FirestoreService {
             throw error
         }
     }
-    
+  
     func fetchDocument(collectionId: Collections, documentId: String) async throws -> Any? {
         do {
             let snapshot = try await dbRef.collection(collectionId.rawValue).document(documentId).getDocument()
@@ -45,9 +45,6 @@ public class FirestoreService {
                 return try snapshot.data(as: Place.self)
             case .room:
                 return try snapshot.data(as: Room.self)
-            }
-        } catch {
-            return nil
         }
     }
 }

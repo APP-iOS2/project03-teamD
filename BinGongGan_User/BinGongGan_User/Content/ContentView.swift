@@ -15,15 +15,19 @@ struct ContentView: View {
     @StateObject private var reservationStore: ReservationStore = ReservationStore()
     @StateObject private var myReservationStore: MyReservationStore = MyReservationStore()
     @StateObject private var myReviewStore: MyReviewStore = MyReviewStore()
+    @StateObject private var gongGanStore: GongGanStore = GongGanStore()
+    @StateObject private var favoriteGongGanStore: MyFavoriteStore = MyFavoriteStore()
   
     var body: some View {
-        if signInStore.isSuccessSignIn {
+        if signInStore.isSignedIn {
             GongGanTabView()
                 .environmentObject(signInStore)
                 .environmentObject(homeStore)
                 .environmentObject(reservationStore)
                 .environmentObject(myReservationStore)
                 .environmentObject(myReviewStore)
+                .environmentObject(gongGanStore)
+                .environmentObject(favoriteGongGanStore)
         } else {
             NavigationStack {
                 SignInView()

@@ -12,10 +12,6 @@ struct SignInView: View {
     @EnvironmentObject private var signInStore: SignInStore
     @EnvironmentObject private var signUpStore: SignUpStore
     
-    @State private var emailText: String = ""
-    @State private var passwordText: String = ""
-    @State private var isShowingAlert: Bool = false
-    
     var body: some View {
         ZStack {
             
@@ -30,17 +26,13 @@ struct SignInView: View {
                     .frame(width: 250, height: 250)
                 
                 VStack {
-                    CustomTextField(placeholder: "이메일을 입력하세요", keyboardType: .emailAddress, text: $emailText)
-                    CustomSecureField(placeholder: "비밀번호를 입력하세요", text: $passwordText)
+                    CustomTextField(placeholder: "이메일을 입력하세요", keyboardType: .emailAddress, text: $signInStore.emailText)
+                    CustomSecureField(placeholder: "비밀번호를 입력하세요", text: $signInStore.passwordText)
                 }
                 .padding(.horizontal, 20)
                 
-                PrimaryButton(isDisabled: .constant(false), action: {
-                    isShowingAlert = signInStore.checkSignIn(email: emailText, password: passwordText)
-                    Task {
-                        signInStore.signIns = SignInData(email: emailText, password: passwordText)
-                        isShowingAlert = try await signInStore.signIn()
-                    }
+                PrimaryButton(isDisabled: $signInStore.isDisableSignInButton, action: {
+                    signInStore.checkSignIn()
                 }, title: "로그인")
                 .padding(.horizontal, 20)
                 
@@ -62,7 +54,7 @@ struct SignInView: View {
                 
                 Spacer()
             }
-            .alert(isPresented: $isShowingAlert) {
+            .alert(isPresented: $signInStore.isShowingAlert) {
                 Alert(
                     title: Text("로그인 결과"),
                     message: Text("로그인에 실패했습니다."),
