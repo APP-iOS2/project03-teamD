@@ -112,6 +112,9 @@ struct MyPageMainView: View {
         }
         .onAppear{
             myReservationStore.selectedPicker = .all
+//            Task {
+//                try await myReservationStore.fetchMyReservations(currentUser: currentUser.email)
+//            }
         }
     }
 }

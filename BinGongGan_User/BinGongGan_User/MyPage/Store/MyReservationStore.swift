@@ -28,9 +28,6 @@ final class MyReservationStore: ObservableObject {
         return myReservations
     }
     
-    @Published var userEmail: String = ""
-    
-    
     func fetchMyReservations() async throws {
         var tempStore: [BinGongGanCore.Reservation] = []
         let query = db.collection("Reservation")
@@ -89,18 +86,6 @@ final class MyReservationStore: ObservableObject {
         }
     }
     
-    func getUserEmail() {
-        let docRef = db.collection("users").document(AuthStore.userUid)
-            docRef.getDocument() { (document, error) in
-                if let document = document {
-                    let data = document.data()
-                    let email = data?["email"] as? String ?? "none"
-                    self.userEmail = email
-                } else {
-                    print("Document does not exist in cache")
-                }
-            }
-        }
     func sortReservationDate() {
         myReservations = myReservations.sorted { $0.checkInDateString > $1.checkInDateString }
     }

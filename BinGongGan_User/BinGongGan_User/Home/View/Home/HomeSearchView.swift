@@ -100,8 +100,6 @@ struct HomeSearchView: View {
             }// VStack
             .navigationTitle("장소 검색")
             .navigationBarTitleDisplayMode(.inline)
-            .navigationBarBackButtonHidden(true)
-            .customBackbutton()
         }
     }// Body
 }
