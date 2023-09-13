@@ -25,8 +25,10 @@ struct ReservationSellerInfoView: View {
                     .fill(.white)
                     .frame(maxWidth: screenWidth * 0.9, minHeight: 40)
                 
-                Text("판매자 형식 반영 제작")
-                    .font(.captionRegular)
+                if let room = reservationStore.reservationRoom {
+                    Text(room.note)
+                        .font(.captionRegular)
+                }
             }
             .padding(.bottom, 10)
             
@@ -59,6 +61,7 @@ struct ReservationSellerInfoView: View {
         .sheet(isPresented: $isRefundPolicySheetOpened, content: {
             NavigationStack {
                 RefundPolicySheetView()
+                    .environmentObject(reservationStore)
             }
         })
     }

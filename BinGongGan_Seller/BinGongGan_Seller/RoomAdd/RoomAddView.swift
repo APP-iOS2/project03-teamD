@@ -75,17 +75,19 @@ struct RoomAddView: View {
                             .frame(height: 300)
                             .cornerRadius(10)
                     }
-                    
-                    AbledPrimaryButton(title: "등록 하기") {
+                    Button("등록 하기") {
                         Task {
-                            await roomStore.addRoom(room:
-                                                        Room(placeId: AuthStore.userUid,
-                                                             name: roomName,
-                                                             price: roomPrice,
-                                                             note: roomNote,
-                                                             imageNames: imageNames),completion: {
+                            await roomStore.addRoom(
+                                room:
+                                    Room(placeId: AuthStore.userUid,
+                                         name: roomName,
+                                         price: roomPrice,
+                                         note: roomNote,
+                                         imageNames: imageNames),
+                                completion: {
                                       isShowingToast = true
-                            })
+                                }
+                            )
                         }
                         dismiss()
                     }

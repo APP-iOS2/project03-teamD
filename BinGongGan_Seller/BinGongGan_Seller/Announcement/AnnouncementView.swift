@@ -11,6 +11,7 @@ struct AnnouncementView: View {
     
     @Environment(\.dismiss) private var dismiss
     @StateObject var announcementStore: AnnouncementStore
+    @State private var isAnnouncementViewLoading = false
     
     var body: some View {
         ZStack {
@@ -66,6 +67,10 @@ struct AnnouncementView: View {
                 .scrollContentBackground(.hidden)
                 .customBackbutton()
             }
+        }
+        .refreshable {
+            await announcementStore.fetchRoomInfo()
+            await announcementStore.fetchRoomAnnouncement()
         }
     }
 }

@@ -13,6 +13,12 @@ struct MyReviewListView: View {
     @EnvironmentObject private var myReviewStore: MyReviewStore
     var body: some View {
         List {
+            NavigationLink {
+                AddReviewView()
+            } label: {
+                Text("임시 리뷰 추가 버튼")
+            }
+
             ForEach(myReviewStore.myReviews) { review in
                 MyReviewRowView(review: review)
                     .listRowBackground(Color.myBackground)
@@ -26,6 +32,11 @@ struct MyReviewListView: View {
         .scrollContentBackground(.hidden)
         .background(Color.myBackground, ignoresSafeAreaEdges: .all)
         .navigationBarBackButtonHidden(true)
+        .onAppear {
+            Task {
+                try await myReviewStore.fetchReviews()
+            }
+        }
     }
 }
 

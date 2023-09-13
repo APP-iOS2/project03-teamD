@@ -80,7 +80,7 @@ struct SubGongGanSelectView: View {
                                     Text(" ● ")
                                     Text("\(space.title)")
                                     Spacer()
-                                    Text("\(space.price) / 시간")
+                                    Text("\(space.price) 원 / 시간")
                                 }
                                     .font(.body1Regular)
                                     .foregroundColor(selectedSpaceIndex == index ? .white : .myBrown)

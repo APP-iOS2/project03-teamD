@@ -12,8 +12,13 @@ public struct Place:Identifiable, Codable {
     public var placeName: String //이름
     public var placeCategory: PlaceCategory //카테고리 -
     public var placeImageStringList: [String] // 이미지 링크 -
-    public var placeFirstImage: String {
-        return "https://item.kakaocdn.net/do/250a652a90a81a02368ef14505ded6d38b566dca82634c93f811198148a26065"
+    public var placeImageString: String {
+        print("지금 여길 확인하고 있어요 \(placeImageStringList)")
+        if !placeImageStringList.isEmpty {
+            return placeImageStringList[0]
+        } else {
+            return "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQNrDzAAsGUNWG4_XHOoiO0r3maZPFRQ4YqylZ40DT4lSLBflDVbD_w6IIxEFIslGm9KW8&usqp=CAU"
+        }
     }
     public var note: [String] //공간 내용 -
     public var placeInfomationList: [String] //공간 정보

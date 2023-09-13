@@ -99,10 +99,8 @@ struct MyReviewRowView: View {
                                     .resizable()
                                     .scaledToFit()
                                     .frame(height: UIScreen.main.bounds.height * 0.15)
-                                    .overlay {
-                                        RoundedRectangle(cornerRadius: 15)
-                                            .stroke()
-                                    }
+                                    .cornerRadius(15)
+
                                     .padding(.bottom, 10)
                             } placeholder: {
                                 ProgressView()
@@ -122,8 +120,9 @@ struct MyReviewRowView: View {
         .alert("리뷰 삭제", isPresented: $isShowingRemoveAlert) {
             Button("취소", role: .cancel) {}
             Button("삭제", role: .destructive) {
-                //TODO: 리뷰 삭제 로직
-                
+                Task {
+                    try await myReviewStore.removeReview(reviewId: review.id)
+                }
             }
         }message: {
             Text("작성한 리뷰를 삭제합니다.")
@@ -136,7 +135,7 @@ struct MyReviewRowView: View {
 
 struct MyReviewRowView_Previews: PreviewProvider {
     static var previews: some View {
-        MyReviewRowView(review: Review(placeId: "1B7F6970-EEC1-4244-8D4F-9F8F047F124F", writerId: "xll3TbjPUUZOtWVQx2tsetWlvpV2", date: "2023.09.12 화", rating: 4, content: "asdnfjknasdjkvnmzxcnvjkandjkv askjdnfkjhnasdjkfnasdjknfgjkqnjksdnjkagnjklasd") )
+        MyReviewRowView(review: Review(placeId: "1B7F6970-EEC1-4244-8D4F-9F8F047F124F", writerId: "xll3TbjPUUZOtWVQx2tsetWlvpV2", date: "2023.09.12 화", rating: 4, content: "asdnfjknasdjkvnmzxcnvjkandjkv askjdnfkjhnasdjkfnasdjknfgjkqnjksdnjkagnjklasd", reviewImageStringList: ["https://mblogthumb-phinf.pstatic.net/MjAyMjAzMDFfNDYg/MDAxNjQ2MDk1MDI1OTQy.eu3BCy6F2TpqJfdvCg27njjoRgzPvmYnkpUmVtv8RJsg.BpYYh0MjOT6Gq9i1PrDf213X_mtQ9XR04IEeV4Dk6Lcg.JPEG.awawa11/IMG_9518.jpg?type=w800"]) )
             .environmentObject(MyReviewStore())
     }
 }
