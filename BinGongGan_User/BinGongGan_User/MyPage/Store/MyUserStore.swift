@@ -10,6 +10,7 @@ import BinGongGanCore
 import FirebaseFirestore
 import FirebaseFirestoreSwift
 
+
 final class MyUserStore: ObservableObject {
     @Published var currentUser: User = User(id: "", email: "", name: "", nickname: "", phoneNumber: "", password: "", birthDate: "")
     
@@ -17,7 +18,7 @@ final class MyUserStore: ObservableObject {
     func fetchCurrentUser() async throws {
         do {
             let user = try await UserStore.loadUserData(userId: AuthStore.userUid, user: currentUser)
-            self.currentUser = user
+            self.currentUser = user ?? User(id: "", email: "", name: "", nickname: "", phoneNumber: "", password: "", birthDate: "")
         } catch {
             print("Error fetchCurrentUser \(error)")
         }
@@ -30,6 +31,15 @@ final class MyUserStore: ObservableObject {
             currentUser = user
         } catch {
             print("Error editAccount \(error)")
+        }
+    }
+    
+    @MainActor
+    func deleteUser() async throws {
+        do {
+            try await UserStore.removeUserData(userId: AuthStore.userUid)
+        } catch {
+            print("deleteUser \(error)")
         }
     }
 }
