@@ -24,22 +24,20 @@ final class GongGanStore: ObservableObject {
     @Published var gongGanInfo: GongGan = GongGan.sampleGongGan
     @Published var isLoading: Bool = false
     @Published var reviews: [Review] = [
-        Review(placeId: "", writerId: "임대진", date: "2023.01.01 작성", rating: 3, content: "맛있어요~~", reviewImageStringList: ["SignInLogo", "SignInLogo", "SignInLogo"]),
-        Review(placeId: "", writerId: "임대진", date: "2023.01.01 작성", rating: 3, content: "맛있어요~~", reviewImageStringList: ["SignInLogo", "SignInLogo", "SignInLogo"]),
-        Review(placeId: "", writerId: "임대진", date: "2023.01.01 작성", rating: 3, content: "맛있어요~~", reviewImageStringList: ["SignInLogo", "SignInLogo", "SignInLogo"]),
-        Review(placeId: "", writerId: "임대진", date: "2023.01.01 작성", rating: 3, content: "맛있어요~~", reviewImageStringList: ["SignInLogo", "SignInLogo", "SignInLogo"]),
+        Review(placeId: "", writerId: "임대진", date: "2023.01.01 작성", rating: 4, content: "맛있어요~~", reviewImageStringList: ["SignInLogo", "SignInLogo", "SignInLogo"]),
+        Review(placeId: "", writerId: "임대진", date: "2023.01.01 작성", rating: 5, content: "넘맛있어요~~", reviewImageStringList: ["SignInLogo", "SignInLogo", "SignInLogo"]),
+        Review(placeId: "", writerId: "임대진", date: "2023.01.01 작성", rating: 2, content: "있어요~~", reviewImageStringList: ["SignInLogo", "SignInLogo", "SignInLogo"]),
+        Review(placeId: "", writerId: "임대진", date: "2023.01.01 작성", rating: 1, content: "맛없어요~~", reviewImageStringList: ["SignInLogo", "SignInLogo", "SignInLogo"]),
     ]
     
     
-    @Published var placeId: String = ""
-    
     let dbRef = Firestore.firestore().collection("Place")
     @MainActor
-    func fetchGongGanInfo() async {
+    func fetchGongGanInfo(placeId: String) async {
         isLoading = true
         do {
             let document = try await dbRef.document(placeId).getDocument()
-            let docData: [String: Any] = document.data() ?? [:] // 문서 데이터 가져오기
+            let docData: [String: Any] = document.data() ?? [:]
             
             let categoryName: String = docData["placeCategory"] as? String ?? ""
             let placePhone: String = docData["placePhone"] as? String ?? "01050054004"
@@ -59,9 +57,7 @@ final class GongGanStore: ObservableObject {
                 let guide = PlaceGuide(labelTitle: guideString)
                 placeGuide.append(guide)
             }
-            
-            let isFavorite: Bool = docData["isFavorite"] as? Bool ?? false
-            
+            let isFavorite = docData["isFavorite"] as? Bool ?? false
             let info = GongGan(
                 id: placeId,
                 placeName: placeName,
@@ -74,10 +70,8 @@ final class GongGanStore: ObservableObject {
                 placeGuide: placeGuide,
                 isFavorite: isFavorite
             )
-            DispatchQueue.main.async {
                 self.gongGanInfo = info
                 self.isLoading = false
-            }
         } catch {
             print("Error fetchGongGanInfo: \(error)")
             DispatchQueue.main.async {
@@ -128,7 +122,7 @@ final class GongGanStore: ObservableObject {
     }
     
     
-    func fetchReViews(id: String) async {
+    func fetchReViews(placeId: String) async {
         var reviews: [Review] = []
         
         do {
@@ -174,7 +168,7 @@ final class GongGanStore: ObservableObject {
     //            }
     //        }
     //
-    func getAllImagesFromStorage() async throws -> [String] {
+    func getAllImagesFromStorage(placeId: String) async throws -> [String] {
         var imageUrls: [String] = [""]
         let storage = Storage.storage()
         let storageRef = storage.reference()

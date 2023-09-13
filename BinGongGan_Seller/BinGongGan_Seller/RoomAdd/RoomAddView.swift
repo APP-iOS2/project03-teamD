@@ -76,7 +76,7 @@ struct RoomAddView: View {
                             .cornerRadius(10)
                     }
                     
-                    PrimaryButton(title: "등록 하기") {
+                    AbledPrimaryButton(title: "등록 하기") {
                         Task {
                             await roomStore.addRoom(room:
                                                         Room(placeId: AuthStore.userUid,
