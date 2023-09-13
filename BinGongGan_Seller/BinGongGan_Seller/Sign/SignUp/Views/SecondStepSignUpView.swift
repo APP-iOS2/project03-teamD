@@ -38,7 +38,7 @@ struct SecondStepSignUpView: View {
                 CustomSecureField(placeholder: "", text: $store.signUpData.passwordCheck)
             }
             Spacer()
-            PrimaryButton(title: "다음", action: {
+            AbledPrimaryButton(title: "다음", action: {
                 if store.isValidIdAndPassword() {
                     withAnimation {
                         store.currentStep = .third

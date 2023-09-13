@@ -22,6 +22,7 @@
 		3ACEBAF42AB055FA008F4600 /* BankSheetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ACEBAF32AB055FA008F4600 /* BankSheetView.swift */; };
 		53254A232AAE2F18002E7542 /* AddPhotoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53254A222AAE2F18002E7542 /* AddPhotoView.swift */; };
 		534F56A42AB008D700FA79B0 /* MyReviewStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 534F56A32AB008D700FA79B0 /* MyReviewStore.swift */; };
+		535E880B2AB170E000FBA9B4 /* FirebaseStorage in Frameworks */ = {isa = PBXBuildFile; productRef = 535E880A2AB170E000FBA9B4 /* FirebaseStorage */; };
 		5398C2132AA8D9A0000BD361 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5398C2122AA8D9A0000BD361 /* ContentView.swift */; };
 		53AC17752AAEF6E10004D3E9 /* EnquiryFormView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53AC17742AAEF6E10004D3E9 /* EnquiryFormView.swift */; };
 		692725592AA81E5300A2441E /* RefundPolicySheetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 692725582AA81E5300A2441E /* RefundPolicySheetView.swift */; };
@@ -37,6 +38,7 @@
 		B12A84D22AA6F04400BDF8CA /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = B12A84D12AA6F04400BDF8CA /* FirebaseFirestore */; };
 		B12A84D42AA6F04400BDF8CA /* FirebaseFirestoreSwift in Frameworks */ = {isa = PBXBuildFile; productRef = B12A84D32AA6F04400BDF8CA /* FirebaseFirestoreSwift */; };
 		B12A84FC2AA7A65900BDF8CA /* BinGongGanCore in Frameworks */ = {isa = PBXBuildFile; productRef = B12A84FB2AA7A65900BDF8CA /* BinGongGanCore */; };
+		B1CE60EC2AB1CDAE0006E94E /* FirebaseStorage in Frameworks */ = {isa = PBXBuildFile; productRef = B1CE60EB2AB1CDAE0006E94E /* FirebaseStorage */; };
 		BC344EC02AA806FF00F8CEB3 /* GongGanTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC344EBF2AA806FE00F8CEB3 /* GongGanTabView.swift */; };
 		BC344EC92AA8072000F8CEB3 /* GongGanInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC344EC52AA8072000F8CEB3 /* GongGanInfo.swift */; };
 		BC344ED12AA8073700F8CEB3 /* GongGanDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC344ECF2AA8073600F8CEB3 /* GongGanDetailView.swift */; };
@@ -268,6 +270,7 @@
 				B12A84D02AA6F04400BDF8CA /* FirebaseAuth in Frameworks */,
 				B12A84FC2AA7A65900BDF8CA /* BinGongGanCore in Frameworks */,
 				B12A84D22AA6F04400BDF8CA /* FirebaseFirestore in Frameworks */,
+				B1CE60EC2AB1CDAE0006E94E /* FirebaseStorage in Frameworks */,
 				B12A84D42AA6F04400BDF8CA /* FirebaseFirestoreSwift in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -751,6 +754,7 @@
 				B12A84D12AA6F04400BDF8CA /* FirebaseFirestore */,
 				B12A84D32AA6F04400BDF8CA /* FirebaseFirestoreSwift */,
 				B12A84FB2AA7A65900BDF8CA /* BinGongGanCore */,
+				B1CE60EB2AB1CDAE0006E94E /* FirebaseStorage */,
 			);
 			productName = BinGongGan_User;
 			productReference = B12A84A12AA6F00D00BDF8CA /* BinGongGan_User.app */;
@@ -1321,6 +1325,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		535E880A2AB170E000FBA9B4 /* FirebaseStorage */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = B12A84CE2AA6F04400BDF8CA /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseStorage;
+		};
 		B12A84CF2AA6F04400BDF8CA /* FirebaseAuth */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = B12A84CE2AA6F04400BDF8CA /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
@@ -1339,6 +1348,11 @@
 		B12A84FB2AA7A65900BDF8CA /* BinGongGanCore */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = BinGongGanCore;
+		};
+		B1CE60EB2AB1CDAE0006E94E /* FirebaseStorage */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = B12A84CE2AA6F04400BDF8CA /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseStorage;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

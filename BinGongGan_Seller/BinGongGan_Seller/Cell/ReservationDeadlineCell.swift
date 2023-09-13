@@ -9,8 +9,9 @@ import SwiftUI
 import BinGongGanCore
 
 struct ReservationDeadlineCell: View {
+    var date : String
     var body: some View {
-        Text("3일 전")
+        Text("\(date)")
             .bold()
             .font(.subheadline)
             .padding(.horizontal)
@@ -23,6 +24,6 @@ struct ReservationDeadlineCell: View {
 
 struct ReservationDeadlineCell_Previews: PreviewProvider {
     static var previews: some View {
-        ReservationDeadlineCell()
+        ReservationDeadlineCell(date: "")
     }
 }

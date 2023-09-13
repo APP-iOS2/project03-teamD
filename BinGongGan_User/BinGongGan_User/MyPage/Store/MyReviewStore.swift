@@ -7,34 +7,46 @@
 
 import Foundation
 import BinGongGanCore
+import Firebase
+import FirebaseStorage
 import FirebaseFirestore
 import FirebaseFirestoreSwift
 
+@MainActor
 class MyReviewStore: ObservableObject {
     @Published var myReviews: [Review] = []
     
     static let service = FirestoreService()
     private let dbRef = Firestore.firestore()
+    private let storage = Storage.storage().reference()
     
-    init(){
-        Task {
-            try await fetchReviews()
-        }
-    }
-
+    init(){}
     
-    @MainActor
-    func addReview(review: Review) async throws{
-        guard let reviewId: String = review.id else { return }
+    func addReview(placeId: String, writerId: String, rating: Int, content: String, images: [UIImage]) async throws{
+        let date = self.currentDateToString()
+        let id = UUID().uuidString
+        let newReview = Review(placeId: placeId, writerId: writerId, date: date, rating: rating, content: content)
         do {
-            try await MyReviewStore.service.saveDocument(collectionId: .reviews, documentId: reviewId, data: review)
-            myReviews.append(review)
+            try await MyReviewStore.service.saveDocument(collectionId: .reviews, documentId: id, data: newReview)
+            
+            self.uploadImage(images: images, reviewId: id) { imageUrls in
+                if let imageUrls = imageUrls {
+                    self.dbRef.collection(Collections.reviews.rawValue).document(id).updateData(["reviewImageStringList": imageUrls]) { error in
+                        if let error = error {
+                            print("Error updating document: \(error.localizedDescription)")
+                        } else {
+                            print("Document successfully updated with image URLs")
+                        }
+                    }
+                }
+                
+            }
         } catch {
             throw error
         }
+        try await fetchReviews()
     }
-
-    @MainActor
+    
     func fetchReviews() async throws {
         //TODO: - User 로그인, 예약 내역 연결 후 해당 유저 및 공간 판매자 정보 가져와 보여줄 수 있도록 수정하기
         var tempList: [Review] = []
@@ -59,7 +71,6 @@ class MyReviewStore: ObservableObject {
         }
     }
     
-    @MainActor
     func findReply(reviewId: String?) async throws -> Reply?{
         guard let id = reviewId else { return nil }
         do {
@@ -81,4 +92,54 @@ class MyReviewStore: ObservableObject {
         return dateFormatter.string(from: currentDate)
     }
     
+    func uploadImage(images: [UIImage], reviewId: String, completion: @escaping ([String]?) -> Void) {
+        let path = storage.child("reviews").child(reviewId)
+        var imageUrls: [String] = []
+
+        
+        for (index, image) in images.enumerated() {
+
+            let metaData = StorageMetadata()
+            metaData.contentType = "image/jpeg"
+            let imageName = reviewId + String(index)
+            
+            let pullPath = path.child(imageName)
+            if let imageData = image.jpegData(compressionQuality: 0.4) {
+                pullPath.putData(imageData, metadata: metaData) { (metadata, error) in
+                    if let error = error {
+                        print("Error uploading image at index \(index): \(error.localizedDescription)")
+                    } else {
+                        pullPath.downloadURL { (url, error) in
+                            if let downloadURL = url?.absoluteString {
+                                imageUrls.append(downloadURL)
+                                
+                                if imageUrls.count == images.count {
+                                    // 모든 이미지 업로드가 완료되면 이미지 URL을 Firestore 문서에 추가
+                                    completion(imageUrls)
+                                }
+                            } else {
+                                print("Error getting download URL at index \(index): \(error?.localizedDescription ?? "")")
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+    
+    func downLoadImageUrl() async throws {
+        
+    }
+    
+    func removeReview(reviewId: String?) async throws {
+        guard let id = reviewId else { return }
+        
+        try? await dbRef.collection(Collections.reviews.rawValue).document(id).delete()
+        storage.child("reviews").child(id).delete { error in
+            if let error = error {
+                print(error)
+            }
+        }
+        try await fetchReviews()
+    }
 }

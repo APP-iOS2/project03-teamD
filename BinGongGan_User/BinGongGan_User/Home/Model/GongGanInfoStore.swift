@@ -40,12 +40,12 @@ final class GongGanStore: ObservableObject {
             if document.exists {
                 let docData: [String: Any] = document.data() ?? [:]
                 
-                let placeName: String = docData["place_name"] as? String ?? ""
                 let categoryName: String = docData["placeCategory"] as? String ?? ""
                 let placePhone: String = docData["placePhone"] as? String ?? ""
                 
                 let addressMap: [String: Any] = docData["address"] as? [String: Any] ?? [:]
                 let placeLocation: String = addressMap["address_name"] as? String ?? ""
+                let placeName: String = addressMap["place_name"] as? String ?? ""
                 
                 let detailGongGan: [DetailGongGan] = try await fetchSubGongGanInfo(placeId: placeId)
                 
@@ -87,26 +87,27 @@ final class GongGanStore: ObservableObject {
         var subGongGan: [DetailGongGan] = [DetailGongGan.sample]
         
         do {
-            let document = try await Firestore.firestore().collection("Room").document(placeId).getDocument()
+            // Room 컬렉션에서 placeId 값이 "asd"인 문서만 가져오기
+            let querySnapshot = try await Firestore.firestore().collection("Room").whereField("placeId", isEqualTo: placeId).getDocuments()
             
-            if document.exists {
-                let docData: [String: Any] = document.data() ?? [:]
+            for document in querySnapshot.documents {
+                let docData: [String: Any] = document.data()
                 
                 let id: String = docData["id"] as? String ?? ""
-                let isSelected: Bool = docData["place_name"] as? Bool ?? false
-                let title: String = docData["placeCategory"] as? String ?? ""
-                let price: Int = docData["placeCategory"] as? Int ?? 0
+//                let isSelected: Bool = docData["place_name"] as? Bool ?? false
+                let title: String = docData["name"] as? String ?? ""
+                let price: String = docData["price"] as? String ?? "0"
                 let detailImageUrl: [String] = docData["placeCategory"] as? [String] ?? [""]
-                let info: String = docData["placeCategory"] as? String ?? ""
+                let info: String = docData["note"] as? String ?? ""
                 let categoryName: String = docData["placeCategory"] as? String ?? ""
                 let MinimumReservationTimeInfo: String = docData["placeCategory"] as? String ?? ""
                 let capacity: String = docData["placeCategory"] as? String ?? ""
                 
                 let result = DetailGongGan(
                     id: id,
-                    isSelected: isSelected,
+//                    isSelected: isSelected,
                     title: title,
-                    price: price,
+                    price: Int(price) ?? 0,
                     detailImageUrl: detailImageUrl,
                     info: info,
                     categoryName: categoryName,
@@ -114,13 +115,16 @@ final class GongGanStore: ObservableObject {
                     capacity: capacity
                 )
                 
+                subGongGan.removeAll()
                 subGongGan.append(result)
             }
+            
             return subGongGan
         } catch {
             throw error
         }
     }
+
     //    public struct Review: Identifiable, Codable {
     //        @DocumentID public var id: String?
     //        public var placeId: String //리뷰 달린 공간 id값
@@ -186,6 +190,7 @@ final class GongGanStore: ObservableObject {
     //            }
     //        }
     //
+    
 }
 
 final class MyFavoriteStore: ObservableObject {
