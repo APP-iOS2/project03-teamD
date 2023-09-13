@@ -12,6 +12,7 @@ import BinGongGanCore
 struct GongGanDetailView: View {
     
     @EnvironmentObject var gongGan: GongGanStore
+    @EnvironmentObject var favoriteGongGan: MyFavoriteStore
     @StateObject var reservationStore: ReservationStore = ReservationStore()
     @State private var heartButton: Bool = false
     @State private var isActionSheetPresented = false
@@ -101,6 +102,7 @@ struct GongGanDetailView: View {
                 Task{
                     await gongGan.fetchGongGanInfo()
                 }
+                heartButton = gongGan.gongGanInfo.isFavorite
             }
             
             .navigationTitle("BinGongGan")
@@ -124,6 +126,12 @@ struct GongGanDetailView: View {
                 ToolbarItem(placement: .navigationBarTrailing) {
                     Button {
                         heartButton.toggle()
+                        Task {
+                            favoriteGongGan.updateMyInfo(placeId: placeId)
+                            await favoriteGongGan.fetchMyFavorite()
+                            await gongGan.fetchGongGanInfo()
+                        }
+                        
                     } label: {
                         Image(systemName: heartButton ? "heart.fill" : "heart")
                             .foregroundColor(Color.myBrown)

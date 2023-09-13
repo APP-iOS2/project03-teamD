@@ -57,9 +57,10 @@ struct FavoriteCellView: View {
                         Task {
                             await gongGan.fetchMyFavorite()
                         }
+                        
                     } label: {
                         if isHeartButtonShowing {
-                            Image(systemName: gongGanItem.isFavorite ? "heart.fill" : "heart")
+                            Image(systemName: isHeartButtonShowing ? "heart.fill" : "heart")
                                 .foregroundColor(.myMint)
                         }
                     }
