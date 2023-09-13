@@ -11,6 +11,7 @@ struct AnnouncementView: View {
     
     @Environment(\.dismiss) private var dismiss
     @StateObject var announcementStore: AnnouncementStore
+    @State private var isAnnouncementViewLoading = false
     
     var body: some View {
         ZStack {
@@ -57,8 +58,10 @@ struct AnnouncementView: View {
                 }
                 .onAppear {
                     Task {
-                        await announcementStore.fetchRoomInfo()
-                        await announcementStore.fetchRoomAnnouncement()
+                        await [
+                            announcementStore.fetchRoomInfo,
+                            announcementStore.fetchRoomAnnouncement
+                        ]()
                     }
                 }
                 .background(Color.myBackground)
@@ -66,6 +69,12 @@ struct AnnouncementView: View {
                 .scrollContentBackground(.hidden)
                 .customBackbutton()
             }
+        }
+        .refreshable {
+            await [
+                announcementStore.fetchRoomInfo,
+                announcementStore.fetchRoomAnnouncement
+            ]()
         }
     }
 }
