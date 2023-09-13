@@ -51,6 +51,7 @@ struct ReviewManageDetailView: View {
         .onAppear {
             Task {
                 await reportStore.fetchData(review: review)
+                await replyStore.fetchData(review: review)
             }
         }
     }
