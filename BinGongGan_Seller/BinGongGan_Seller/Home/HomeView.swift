@@ -27,6 +27,7 @@ struct HomeView: View {
                 }
                 
                 CategoryButtonsView()
+                    .environmentObject(rervationStore)
                     .frame(maxWidth: .infinity, maxHeight: .infinity)
                     .padding(.horizontal, 20)
                     .padding(.bottom, 30)
@@ -48,6 +49,7 @@ struct HomeView: View {
                 } else {
                     Text("신규 예약이 없습니다.")
                         .font(.title)
+                        .padding(.vertical, 80)
                 }
             }
             .toolbar {
