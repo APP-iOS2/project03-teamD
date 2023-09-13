@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5322C9432AB1B4D5009F30A9 /* AdminReview.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5322C9422AB1B4D5009F30A9 /* AdminReview.swift */; };
 		534F56AB2AB0B70C00FA79B0 /* CategoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 534F56AA2AB0B70C00FA79B0 /* CategoryView.swift */; };
 		534F56AD2AB0BD2600FA79B0 /* MainEmptyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 534F56AC2AB0BD2500FA79B0 /* MainEmptyView.swift */; };
 		534F56B02AB0BEA300FA79B0 /* AnnouncementListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 534F56AF2AB0BEA300FA79B0 /* AnnouncementListView.swift */; };
@@ -57,6 +58,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		5322C9422AB1B4D5009F30A9 /* AdminReview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdminReview.swift; sourceTree = "<group>"; };
 		534F56AA2AB0B70C00FA79B0 /* CategoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryView.swift; sourceTree = "<group>"; };
 		534F56AC2AB0BD2500FA79B0 /* MainEmptyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainEmptyView.swift; sourceTree = "<group>"; };
 		534F56AF2AB0BEA300FA79B0 /* AnnouncementListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnnouncementListView.swift; sourceTree = "<group>"; };
@@ -202,6 +204,7 @@
 			isa = PBXGroup;
 			children = (
 				534F56D62AB0E9F200FA79B0 /* ReviewStore.swift */,
+				5322C9422AB1B4D5009F30A9 /* AdminReview.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -449,6 +452,7 @@
 				B12A85092AA7AAD700BDF8CA /* MainTabView.swift in Sources */,
 				534F56BC2AB0C00500FA79B0 /* ReplyListView.swift in Sources */,
 				534F56BA2AB0BFF700FA79B0 /* ReviewListView.swift in Sources */,
+				5322C9432AB1B4D5009F30A9 /* AdminReview.swift in Sources */,
 				534F56C82AB0CB2200FA79B0 /* Announcement.swift in Sources */,
 				534F56CD2AB0D53500FA79B0 /* FirestoreService.swift in Sources */,
 				534F56D22AB0E2C500FA79B0 /* UserStore.swift in Sources */,

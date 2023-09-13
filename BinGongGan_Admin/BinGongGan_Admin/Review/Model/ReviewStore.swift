@@ -12,22 +12,20 @@ import FirebaseFirestoreSwift
 
 @MainActor
 class ReviewStore: ObservableObject {
-    @Published var reviewList: [Review] = []
+    @Published var reviewList: [AdminReview] = []
     private let dbRef = Firestore.firestore()
     
     init() {}
     
     func fetchReview() async throws {
-        var tempList: [Review] = []
+        var tempList: [AdminReview] = []
         
         do {
             let snapshot = try await dbRef.collection(Collections.review.rawValue).getDocuments()
             let documents = snapshot.documents
-            
             for document in documents {
                 do {
                     let review = try document.data(as: Review.self)
-                    tempList.append(review)
                 }catch let err {
                     print("error : \(err)")
                 }
