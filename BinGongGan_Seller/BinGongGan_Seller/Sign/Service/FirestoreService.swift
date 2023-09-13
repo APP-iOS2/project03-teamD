@@ -42,6 +42,10 @@ import FirebaseFirestore
                 return try snapshot.data(as: User.self) as? T
             case .sellers:
                 return try snapshot.data(as: Seller.self) as? T
+            case .place:
+                return try snapshot.data(as: Place.self) as? T
+            case .room:
+                return try snapshot.data(as: Room.self) as? T
             }
         } catch {
             return nil
