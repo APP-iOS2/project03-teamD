@@ -10,6 +10,7 @@ import BinGongGanCore
 
 struct FavoriteCellView: View {
     
+    @EnvironmentObject var gongGan: MyFavoriteStore
     @Binding var isHeartButtonShowing: Bool
     @State var gongGanItem: GongGan
     
@@ -42,17 +43,20 @@ struct FavoriteCellView: View {
                     .padding(EdgeInsets(top: 0, leading: 20, bottom: 0, trailing: 10))
                     
                     VStack(alignment: .leading) {
-                        Text("\(gongGanItem.placeLocation)")
+                        Text(gongGanItem.placeName)
                             .padding(.bottom , 3)
                             .foregroundColor(.black)
-                            .font(.captionRegular)
-                        Text("12,000원 / 시간당")
+                        Text("\(gongGanItem.placeLocation)")
                             .padding(.bottom , 17)
                             .foregroundColor(.black)
                             .font(.captionRegular)
                     }
                     Spacer()
                     Button {
+                        gongGan.updateMyInfo(placeId: gongGanItem.id)
+                        Task {
+                            await gongGan.fetchMyFavorite()
+                        }
                     } label: {
                         if isHeartButtonShowing {
                             Image(systemName: gongGanItem.isFavorite ? "heart.fill" : "heart")

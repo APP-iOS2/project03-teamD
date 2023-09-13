@@ -9,6 +9,7 @@
 import SwiftUI
 import FirebaseFirestore
 import BinGongGanCore
+import FirebaseStorage
 //struct DetailGongGan: Identifiable {
 //    var id: String = UUID().uuidString
 //    var isSelected: Bool = false
@@ -35,6 +36,7 @@ final class GongGanStore: ObservableObject {
     let dbRef = Firestore.firestore().collection("Place")
     
     func fetchGongGanInfo() async {
+        isLoading = true
         do {
             let document = try await dbRef.document(placeId).getDocument()
             if document.exists {
@@ -50,9 +52,10 @@ final class GongGanStore: ObservableObject {
                 let detailGongGan: [DetailGongGan] = try await fetchSubGongGanInfo(placeId: placeId)
                 
                 let placeImageUrl: [String] = docData["placeImageStringList"] as? [String] ?? [""]
+//                let placeImageUrl: [String] = getAllImagesFromStorage()
                 let placeInfo: [String] = docData["note"] as? [String] ?? [""]
                 
-                let placeGuideStrings: [String] = docData["placeGuide"] as? [String] ?? [""]
+                let placeGuideStrings: [String] = docData["placeInfomationList"] as? [String] ?? [""]
                 var placeGuide: [PlaceGuide] = []
                 for guideString in placeGuideStrings {
                     let guide = PlaceGuide(labelTitle: guideString)
@@ -73,13 +76,14 @@ final class GongGanStore: ObservableObject {
                     placeGuide: placeGuide,
                     isFavorite: isFavorite
                 )
-                
                 DispatchQueue.main.async {
                     self.gongGanInfo = info
+                    self.isLoading = false
                 }
             }
         } catch {
             print("Error fetchGongGanInfo: \(error)")
+            self.isLoading = false
         }
     }
     
@@ -97,11 +101,11 @@ final class GongGanStore: ObservableObject {
 //                let isSelected: Bool = docData["place_name"] as? Bool ?? false
                 let title: String = docData["name"] as? String ?? ""
                 let price: String = docData["price"] as? String ?? "0"
-                let detailImageUrl: [String] = docData["placeCategory"] as? [String] ?? [""]
+                let detailImageUrl: [String] = docData["imageUrl"] as? [String] ?? [""]
                 let info: String = docData["note"] as? String ?? ""
-                let categoryName: String = docData["placeCategory"] as? String ?? ""
-                let MinimumReservationTimeInfo: String = docData["placeCategory"] as? String ?? ""
-                let capacity: String = docData["placeCategory"] as? String ?? ""
+                let categoryName: String = docData["categoryName"] as? String ?? ""
+                let MinimumReservationTimeInfo: String = docData["MinimumReservationTimeInfo"] as? String ?? ""
+                let capacity: String = docData["capacity"] as? String ?? ""
                 
                 let result = DetailGongGan(
                     id: id,
@@ -125,25 +129,7 @@ final class GongGanStore: ObservableObject {
         }
     }
 
-    //    public struct Review: Identifiable, Codable {
-    //        @DocumentID public var id: String?
-    //        public var placeId: String //리뷰 달린 공간 id값
-    //        public var writerId: String
-    //        public var date: String //작성 날짜
-    //        public var rating: Int //별점
-    //        public var content: String //내용
-    //        public var reviewImageStringList: [String]? //리뷰 이미지
-    //
-    //        public init(id: String = UUID().uuidString, placeId: String, writerId: String, date: String, rating: Int, content: String, reviewImageStringList: [String]? = nil) {
-    //            self.id = id
-    //            self.placeId = placeId
-    //            self.writerId = writerId
-    //            self.date = date
-    //            self.rating = rating
-    //            self.content = content
-    //            self.reviewImageStringList = reviewImageStringList
-    //        }
-    //    }
+   
     func fetchReViews(id: String) async {
         var reviews: [Review] = []
         
@@ -190,41 +176,113 @@ final class GongGanStore: ObservableObject {
     //            }
     //        }
     //
-    
+    func getAllImagesFromStorage() async throws -> [String] {
+        var imageUrls: [String] = [""]
+        let storage = Storage.storage()
+        let storageRef = storage.reference()
+        let imagesRef = storageRef.child("place/\(placeId)/")
+        
+        imagesRef.listAll { [weak self] (result, error) in
+            guard self != nil else { return }
+            
+            if let error = error {
+                print("Error listing files: \(error.localizedDescription)")
+            } else if let items = result?.items {
+                for item in items {
+                    // 각 파일에 대한 다운로드 URL 가져오기
+                    item.downloadURL { url, error in
+                        if let downloadURL = url {
+                            imageUrls.append(downloadURL.absoluteString)
+                            print(downloadURL.absoluteString)
+                        } else {
+                            print("다운로드 URL을 가져올 수 없습니다.")
+                        }
+                    }
+                }
+            }
+        }
+        return imageUrls
+    }
+
+
 }
 
 final class MyFavoriteStore: ObservableObject {
-    @Published var myFavoriteGongGan : [GongGan] = [
-        GongGan.sampleGongGan,
-        GongGan.sampleGongGan,
-        GongGan.sampleGongGan,
-        GongGan.sampleGongGan,
-        GongGan.sampleGongGan,
-    ]
+    @Published var myFavoriteGongGan : [GongGan] = []
     @Published var userId: String = ""
     
     let dbRef = Firestore.firestore().collection("Place")
     
+    func updateMyInfo(placeId: String) {
+        dbRef.document(placeId).getDocument { (document, error) in
+            if let error = error {
+                print("데이터 가져오기 실패: \(error)")
+                return
+            }
+            
+            if var docData = document?.data() {
+                if let isFavorite = docData["isFavorite"] as? Bool {
+                    docData["isFavorite"] = !isFavorite
+                } else {
+                    docData["isFavorite"] = true
+                }
+                
+                self.dbRef.document(placeId).setData(docData, merge: true) { error in
+                    if let error = error {
+                        print("수정 실패: \(error)")
+                    } else {
+                        print("수정 완료")
+                    }
+                }
+            } else {
+                print("문서가 없습니다.")
+            }
+        }
+    }
+
+
+
+//
+//    func updateMyInfo(placeId: String) {
+//        let docData: [String: Any] = [
+//            "isFavorite": true
+//        ]
+//
+//        dbRef.document(placeId).setData(docData, merge: true) { error in
+//            if let error = error {
+//                print("수정 실패 \(error)")
+//            } else {
+//                print("수정 완료")
+//            }
+//        }
+//    }
+
+    
     func fetchMyFavorite() async {
         do {
-            let document = try await dbRef.document().getDocument()
-            if document.exists {
-                let docData: [String: Any] = document.data() ?? [:]
+//            var fetchArray: [GongGan] = []
+//            self.myFavoriteGongGan = fetchArray
+            
+            let dbRef = Firestore.firestore().collection("Place")
+            
+            let querySnapshot = try await dbRef.whereField("isFavorite", isEqualTo: true).getDocuments()
+            for document in querySnapshot.documents {
+                let docData: [String: Any] = document.data() // Get data from the document
                 
-                let placeId: String = docData["placeId"] as? String ?? ""
-                let placeName: String = docData["place_name"] as? String ?? ""
+                let placeId: String = document.documentID
                 let categoryName: String = docData["placeCategory"] as? String ?? ""
                 let placePhone: String = docData["placePhone"] as? String ?? ""
                 
                 let addressMap: [String: Any] = docData["address"] as? [String: Any] ?? [:]
                 let placeLocation: String = addressMap["address_name"] as? String ?? ""
+                let placeName: String = addressMap["place_name"] as? String ?? ""
                 
-                let detailGongGan: [DetailGongGan] = try await fetchMyFavoriteSubGongGanInfo(id: placeId)
+                let detailGongGan: [DetailGongGan] = try await fetchMyFavoriteSubGongGanInfo(placeId: placeId)
                 
                 let placeImageUrl: [String] = docData["placeImageStringList"] as? [String] ?? [""]
                 let placeInfo: [String] = docData["note"] as? [String] ?? [""]
                 
-                let placeGuideStrings: [String] = docData["placeGuide"] as? [String] ?? [""]
+                let placeGuideStrings: [String] = docData["placeInfomationList"] as? [String] ?? [""]
                 var placeGuide: [PlaceGuide] = []
                 for guideString in placeGuideStrings {
                     let guide = PlaceGuide(labelTitle: guideString)
@@ -245,17 +303,13 @@ final class MyFavoriteStore: ObservableObject {
                     placeGuide: placeGuide,
                     isFavorite: isFavorite
                 )
-                
-                OperationQueue.main.addOperation {
-                    if isFavorite {
-                        self.myFavoriteGongGan.append(info)
-                    }
-                }
+                myFavoriteGongGan.append(info)
             }
         } catch {
-            print("Error fetchGongGanInfo: \(error)")
+            print("Error fetching favorite places: \(error)")
         }
     }
+
     //    func getGongGanId() async throws -> String {
     //        var gongGanId: String = ""
     //        let db = Firestore.firestore()
@@ -274,40 +328,45 @@ final class MyFavoriteStore: ObservableObject {
     //
     //        return companyName
     //    }
-    func fetchMyFavoriteSubGongGanInfo(id: String) async throws -> [DetailGongGan] {
-        var subGongGan: [DetailGongGan] = [DetailGongGan.sample]
-        
-        do {
-            let document = try await Firestore.firestore().collection("Room").document(id).getDocument()
+    func fetchMyFavoriteSubGongGanInfo(placeId: String) async throws -> [DetailGongGan] {
+            var subGongGan: [DetailGongGan] = [DetailGongGan.sample]
             
-            if document.exists {
-                let docData: [String: Any] = document.data() ?? [:]
+            do {
+                // Room 컬렉션에서 placeId 값이 "asd"인 문서만 가져오기
+                let querySnapshot = try await Firestore.firestore().collection("Room").whereField("placeId", isEqualTo: placeId).getDocuments()
                 
-                let isSelected: Bool = docData["place_name"] as? Bool ?? false
-                let title: String = docData["placeCategory"] as? String ?? ""
-                let price: Int = docData["placeCategory"] as? Int ?? 0
-                let detailImageUrl: [String] = docData["placeCategory"] as? [String] ?? [""]
-                let info: String = docData["placeCategory"] as? String ?? ""
-                let categoryName: String = docData["placeCategory"] as? String ?? ""
-                let MinimumReservationTimeInfo: String = docData["placeCategory"] as? String ?? ""
-                let capacity: String = docData["placeCategory"] as? String ?? ""
+                for document in querySnapshot.documents {
+                    let docData: [String: Any] = document.data()
+                    
+                    let id: String = docData["id"] as? String ?? ""
+    //                let isSelected: Bool = docData["place_name"] as? Bool ?? false
+                    let title: String = docData["name"] as? String ?? ""
+                    let price: String = docData["price"] as? String ?? "0"
+                    let detailImageUrl: [String] = docData["imageUrl"] as? [String] ?? [""]
+                    let info: String = docData["note"] as? String ?? ""
+                    let categoryName: String = docData["categoryName"] as? String ?? ""
+                    let MinimumReservationTimeInfo: String = docData["MinimumReservationTimeInfo"] as? String ?? ""
+                    let capacity: String = docData["capacity"] as? String ?? ""
+                    
+                    let result = DetailGongGan(
+                        id: id,
+    //                    isSelected: isSelected,
+                        title: title,
+                        price: Int(price) ?? 0,
+                        detailImageUrl: detailImageUrl,
+                        info: info,
+                        categoryName: categoryName,
+                        MinimumReservationTimeInfo: MinimumReservationTimeInfo,
+                        capacity: capacity
+                    )
+                    
+                    subGongGan.removeAll()
+                    subGongGan.append(result)
+                }
                 
-                let result = DetailGongGan(
-                    isSelected: isSelected,
-                    title: title,
-                    price: price,
-                    detailImageUrl: detailImageUrl,
-                    info: info,
-                    categoryName: categoryName,
-                    MinimumReservationTimeInfo: MinimumReservationTimeInfo,
-                    capacity: capacity
-                )
-                
-                subGongGan.append(result)
+                return subGongGan
+            } catch {
+                throw error
             }
-            return subGongGan
-        } catch {
-            throw error
         }
-    }
 }
