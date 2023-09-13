@@ -70,7 +70,7 @@ struct RoomAddView: View {
                             .cornerRadius(10)
                     }
                     
-                    PrimaryButton(title: "등록 하기") {
+                    AbledPrimaryButton(title: "등록 하기") {
                         roomStore.addRoom(placeId: "heeheehee", roomName: roomName, roomPrice: roomPrice, roomNote: roomNote, imageNames: imageNames)
                         dismiss()
                     }

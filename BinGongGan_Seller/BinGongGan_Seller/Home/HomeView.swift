@@ -66,6 +66,9 @@ struct HomeView: View {
             }
             .background(Color.myBackground)
         }
+        .onAppear {
+            print(AuthStore.userUid)
+        }
     }
 }
 

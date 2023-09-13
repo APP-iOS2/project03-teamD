@@ -36,7 +36,7 @@ struct FourthSignUpView: View {
                 AgreementCheckButton(agreement: $store.signUpData.isLocaitonAgree, text: "위치기반 서비스 이용을 동의합니다.")
             }
             Spacer()
-            PrimaryButton(title: "회원가입", action: {
+            AbledPrimaryButton(title: "회원가입", action: {
                 Task {
                     if await store.postSignUp() {
                         store.showAlert = true

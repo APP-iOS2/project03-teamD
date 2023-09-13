@@ -13,7 +13,7 @@ struct ContentView: View {
     @StateObject private var signUpStore: SignUpStore = SignUpStore()
     @StateObject private var rervationStore: RervationStore = RervationStore()
     var body: some View {
-        if signInStore.isSuccessSignIn {
+        if signInStore.isSignedIn {
             NavigationStack {
                 HomeView()
                     .environmentObject(rervationStore)

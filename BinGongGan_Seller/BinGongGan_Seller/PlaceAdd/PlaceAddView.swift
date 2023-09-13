@@ -13,7 +13,7 @@ struct PlaceAddView: View {
     @Environment(\.dismiss) private var dismiss
     @EnvironmentObject var placeStore: PlaceStore
     
-    @State private var selectedPlace: PlaceCategory = .Share
+    @State private var selectedPlace: PlaceCategory = .share
     @State private var placeInfomations = PlaceInfomationModel.data
     @State private var address: Address?
     @State private var coordinates = CLLocationCoordinate2D(latitude: 0, longitude: 0)
@@ -155,7 +155,7 @@ struct PlaceAddView: View {
                     .padding(.top, 15)
                     
                     Group {
-                        PrimaryButton(title: "등록하기") {
+                        AbledPrimaryButton(title: "등록하기") {
                             if let address, !placeNameText.isEmpty, !selectedImageNames.isEmpty {
                                 let place = Place(
                                     sellerId: "판매자",
