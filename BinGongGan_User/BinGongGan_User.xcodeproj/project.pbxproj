@@ -116,7 +116,8 @@
 		ECBD87772AAE097200ECEC7D /* AppInformationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECBD87762AAE097200ECEC7D /* AppInformationView.swift */; };
 		ECBD87792AAEF86F00ECEC7D /* CategorySheetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECBD87782AAEF86F00ECEC7D /* CategorySheetView.swift */; };
 		ECBD877D2AB01E3300ECEC7D /* MyReservationStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECBD877C2AB01E3300ECEC7D /* MyReservationStore.swift */; };
-		ECBD87812AB1380A00ECEC7D /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = ECBD87802AB1380A00ECEC7D /* GoogleService-Info.plist */; };
+		ECBD87832AB1561700ECEC7D /* SignInModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECBD87822AB1561700ECEC7D /* SignInModel.swift */; };
+		ECBD87852AB1565000ECEC7D /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = ECBD87842AB1565000ECEC7D /* GoogleService-Info.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -245,7 +246,8 @@
 		ECBD87762AAE097200ECEC7D /* AppInformationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppInformationView.swift; sourceTree = "<group>"; };
 		ECBD87782AAEF86F00ECEC7D /* CategorySheetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategorySheetView.swift; sourceTree = "<group>"; };
 		ECBD877C2AB01E3300ECEC7D /* MyReservationStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyReservationStore.swift; sourceTree = "<group>"; };
-		ECBD87802AB1380A00ECEC7D /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		ECBD87822AB1561700ECEC7D /* SignInModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignInModel.swift; sourceTree = "<group>"; };
+		ECBD87842AB1565000ECEC7D /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -416,7 +418,7 @@
 		B15806402AA89795006C772B /* Config */ = {
 			isa = PBXGroup;
 			children = (
-				ECBD87802AB1380A00ECEC7D /* GoogleService-Info.plist */,
+				ECBD87842AB1565000ECEC7D /* GoogleService-Info.plist */,
 				B12A84A82AA6F01000BDF8CA /* Assets.xcassets */,
 			);
 			path = Config;
@@ -562,6 +564,7 @@
 		BCE658462AA8AD380009ECD1 /* SignIn */ = {
 			isa = PBXGroup;
 			children = (
+				ECBD87822AB1561700ECEC7D /* SignInModel.swift */,
 				BCE658482AA8AD380009ECD1 /* SignInStore.swift */,
 				BCE658472AA8AD380009ECD1 /* SignInView.swift */,
 			);
@@ -826,7 +829,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				ECBD87752AAB09F600ECEC7D /* Information1.md in Resources */,
-				ECBD87812AB1380A00ECEC7D /* GoogleService-Info.plist in Resources */,
+				ECBD87852AB1565000ECEC7D /* GoogleService-Info.plist in Resources */,
 				B12A84AC2AA6F01000BDF8CA /* Preview Assets.xcassets in Resources */,
 				B12A84A92AA6F01000BDF8CA /* Assets.xcassets in Resources */,
 			);
@@ -942,6 +945,7 @@
 				BC344F1F2AA86A8E00F8CEB3 /* Home.swift in Sources */,
 				D84824992AA8A3700067A065 /* FAQCategoryItemView.swift in Sources */,
 				BC344F0B2AA8092E00F8CEB3 /* HomeSearchView.swift in Sources */,
+				ECBD87832AB1561700ECEC7D /* SignInModel.swift in Sources */,
 				D84824A42AA8A3710067A065 /* MyInformationDetailView.swift in Sources */,
 				3A392E952AAECDB000D82221 /* UserStore.swift in Sources */,
 				D8741E5E2AAEF64100F45C79 /* BankAccountSettingView.swift in Sources */,
