@@ -12,6 +12,7 @@ struct PlaceListView: View {
     @EnvironmentObject var homeStore: HomeStore
     @State var isShowingFilterSheet: Bool = false
     @State var isLoading: Bool = true
+     
     var body: some View {
         
         ZStack {
