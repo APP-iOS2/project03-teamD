@@ -25,7 +25,7 @@ struct PaymentView: View {
         VStack {
             
             List {
-                if let room = reservationStore.reservationRoom {
+                if reservationStore.reservationRoom != nil {
                     AsyncImage(
                         //url: URL(string: room.imageNames[0]),
                         url: reservationStore.sampleSpace.imageUrl,
