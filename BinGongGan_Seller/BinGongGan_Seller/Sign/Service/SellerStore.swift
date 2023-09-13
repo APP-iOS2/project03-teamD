@@ -7,33 +7,45 @@
 
 import Foundation
 import BinGongGanCore
+import SwiftUI
 
- class SellerStore {
+ final class SellerStore {
+   
     static let service = FirestoreService()
-///*
-    static func saveUserData(seller: Seller) async throws {
-        guard let sellerId = seller.id else {
-            return
-        }
 
+    static func saveUserData(seller: Seller) async throws {
+        guard let sellerId = seller.id else { return }
+        
         do {
             try await service.saveDocument(collectionId: .sellers, documentId: sellerId, data: seller)
         } catch {
             throw error
         }
     }
+    
+    static func fetchUserData(sellerId: String) async throws -> Bool {
+        do {
+            let seller : Seller? = try await service.fetchDocument(collectionId: .sellers, documentId: sellerId)
+            guard let seller = seller else { return false }
+            print(seller)
+            return true
+        } catch {
+            return false
+        }
+    }
+    
     //*/
-//
-//    static func updateUserData(user: User) {
-//
-//    }
-//
-//    static func updatePartOfUserData() {
-//
-//    }
-//
-//    static func removeUserData() {
-//
-//    }
+    //
+    //    static func updateUserData(user: User) {
+    //
+    //    }
+    //
+    //    static func updatePartOfUserData() {
+    //
+    //    }
+    //
+    //    static func removeUserData() {
+    //
+    //    }
+    
 }
-

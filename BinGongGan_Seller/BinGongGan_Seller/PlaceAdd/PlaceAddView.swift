@@ -13,7 +13,7 @@ struct PlaceAddView: View {
     @Environment(\.dismiss) private var dismiss
     @EnvironmentObject var placeStore: PlaceStore
     
-    @State private var selectedPlace: PlaceCategory = .Share
+    @State private var selectedPlace: PlaceCategory = .share
     @State private var placeInfomations = PlaceInfomationModel.data
     @State private var address: Address?
     @State private var coordinates = CLLocationCoordinate2D(latitude: 0, longitude: 0)
