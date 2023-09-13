@@ -454,7 +454,6 @@
 		B15806402AA89795006C772B /* Config */ = {
 			isa = PBXGroup;
 			children = (
-				530F3B702AB24151008AAFA4 /* GoogleService-Info.plist */,
 				B12A84A82AA6F01000BDF8CA /* Assets.xcassets */,
 			);
 			path = Config;
