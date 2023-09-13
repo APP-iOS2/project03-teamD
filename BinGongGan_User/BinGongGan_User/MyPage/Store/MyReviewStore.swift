@@ -28,8 +28,18 @@ class MyReviewStore: ObservableObject {
         let newReview = Review(placeId: placeId, writerId: writerId, date: date, rating: rating, content: content)
         do {
             try await MyReviewStore.service.saveDocument(collectionId: .reviews, documentId: id, data: newReview)
-            if !images.isEmpty {
-                self.uploadImage(images: images, reviewId: id)
+            
+            self.uploadImage(images: images, reviewId: id) { imageUrls in
+                if let imageUrls = imageUrls {
+                    self.dbRef.collection(Collections.reviews.rawValue).document(id).updateData(["reviewImageStringList": imageUrls]) { error in
+                        if let error = error {
+                            print("Error updating document: \(error.localizedDescription)")
+                        } else {
+                            print("Document successfully updated with image URLs")
+                        }
+                    }
+                }
+                
             }
         } catch {
             throw error
@@ -82,24 +92,36 @@ class MyReviewStore: ObservableObject {
         return dateFormatter.string(from: currentDate)
     }
     
-    func uploadImage(images: [UIImage], reviewId: String) {
+    func uploadImage(images: [UIImage], reviewId: String, completion: @escaping ([String]?) -> Void) {
         let path = storage.child("reviews").child(reviewId)
+        var imageUrls: [String] = []
+
         
         for (index, image) in images.enumerated() {
-            guard let imageData = image.jpegData(compressionQuality: 0.3) else { return  }
+
             let metaData = StorageMetadata()
             metaData.contentType = "image/jpeg"
             let imageName = reviewId + String(index)
             
             let pullPath = path.child(imageName)
-            
-            pullPath.putData(imageData, metadata: metaData) { metaData, error in
-                pullPath.downloadURL { url, error in
+            if let imageData = image.jpegData(compressionQuality: 0.4) {
+                pullPath.putData(imageData, metadata: metaData) { (metadata, error) in
                     if let error = error {
-                        print(error)
-                        return
+                        print("Error uploading image at index \(index): \(error.localizedDescription)")
+                    } else {
+                        pullPath.downloadURL { (url, error) in
+                            if let downloadURL = url?.absoluteString {
+                                imageUrls.append(downloadURL)
+                                
+                                if imageUrls.count == images.count {
+                                    // 모든 이미지 업로드가 완료되면 이미지 URL을 Firestore 문서에 추가
+                                    completion(imageUrls)
+                                }
+                            } else {
+                                print("Error getting download URL at index \(index): \(error?.localizedDescription ?? "")")
+                            }
+                        }
                     }
-                    print("Image \(index) uploaded successfully")
                 }
             }
         }
