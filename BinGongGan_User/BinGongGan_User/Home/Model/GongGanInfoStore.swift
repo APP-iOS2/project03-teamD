@@ -8,6 +8,7 @@
 
 import SwiftUI
 import FirebaseFirestore
+import BinGongGanCore
 //struct DetailGongGan: Identifiable {
 //    var id: String = UUID().uuidString
 //    var isSelected: Bool = false
@@ -21,9 +22,12 @@ import FirebaseFirestore
 final class GongGanStore: ObservableObject {
     @Published var gongGanInfo: GongGan = GongGan.sampleGongGan
     @Published var isLoading: Bool = false
-    
-    init() {
-    }
+    @Published var reviews: [Review] = [
+        Review(placeId: "", writerId: "임대진", date: "2023.01.01 작성", rating: 3, content: "맛있어요~~", reviewImageStringList: ["SignInLogo", "SignInLogo", "SignInLogo"]),
+        Review(placeId: "", writerId: "임대진", date: "2023.01.01 작성", rating: 3, content: "맛있어요~~", reviewImageStringList: ["SignInLogo", "SignInLogo", "SignInLogo"]),
+        Review(placeId: "", writerId: "임대진", date: "2023.01.01 작성", rating: 3, content: "맛있어요~~", reviewImageStringList: ["SignInLogo", "SignInLogo", "SignInLogo"]),
+        Review(placeId: "", writerId: "임대진", date: "2023.01.01 작성", rating: 3, content: "맛있어요~~", reviewImageStringList: ["SignInLogo", "SignInLogo", "SignInLogo"]),
+    ]
     
     
     @Published var placeId: String = "E0449968-A636-4024-B3A9-CB9362A7828F"
@@ -43,7 +47,7 @@ final class GongGanStore: ObservableObject {
                 let addressMap: [String: Any] = docData["address"] as? [String: Any] ?? [:]
                 let placeLocation: String = addressMap["address_name"] as? String ?? ""
                 
-                let detailGongGan: [DetailGongGan] = try await fetchSubGongGanInfo(id: placeId)
+                let detailGongGan: [DetailGongGan] = try await fetchSubGongGanInfo(placeId: placeId)
                 
                 let placeImageUrl: [String] = docData["placeImageStringList"] as? [String] ?? [""]
                 let placeInfo: [String] = docData["note"] as? [String] ?? [""]
@@ -79,15 +83,16 @@ final class GongGanStore: ObservableObject {
         }
     }
     
-    func fetchSubGongGanInfo(id: String) async throws -> [DetailGongGan] {
+    func fetchSubGongGanInfo(placeId: String) async throws -> [DetailGongGan] {
         var subGongGan: [DetailGongGan] = [DetailGongGan.sample]
         
         do {
-            let document = try await Firestore.firestore().collection("Room").document(id).getDocument()
+            let document = try await Firestore.firestore().collection("Room").document(placeId).getDocument()
             
             if document.exists {
                 let docData: [String: Any] = document.data() ?? [:]
                 
+                let id: String = docData["id"] as? String ?? ""
                 let isSelected: Bool = docData["place_name"] as? Bool ?? false
                 let title: String = docData["placeCategory"] as? String ?? ""
                 let price: Int = docData["placeCategory"] as? Int ?? 0
@@ -98,6 +103,7 @@ final class GongGanStore: ObservableObject {
                 let capacity: String = docData["placeCategory"] as? String ?? ""
                 
                 let result = DetailGongGan(
+                    id: id,
                     isSelected: isSelected,
                     title: title,
                     price: price,
@@ -115,7 +121,50 @@ final class GongGanStore: ObservableObject {
             throw error
         }
     }
-    
+    //    public struct Review: Identifiable, Codable {
+    //        @DocumentID public var id: String?
+    //        public var placeId: String //리뷰 달린 공간 id값
+    //        public var writerId: String
+    //        public var date: String //작성 날짜
+    //        public var rating: Int //별점
+    //        public var content: String //내용
+    //        public var reviewImageStringList: [String]? //리뷰 이미지
+    //
+    //        public init(id: String = UUID().uuidString, placeId: String, writerId: String, date: String, rating: Int, content: String, reviewImageStringList: [String]? = nil) {
+    //            self.id = id
+    //            self.placeId = placeId
+    //            self.writerId = writerId
+    //            self.date = date
+    //            self.rating = rating
+    //            self.content = content
+    //            self.reviewImageStringList = reviewImageStringList
+    //        }
+    //    }
+    func fetchReViews(id: String) async {
+        var reviews: [Review] = []
+        
+        do {
+            let querySnapshot = try await Firestore.firestore().collection("reviews").whereField("placeId", isEqualTo: placeId).getDocuments()
+            
+            for document in querySnapshot.documents {
+                let docData = document.data()
+                
+                let placeId: String = docData["placeId"] as? String ?? ""
+                let writerId: String = docData["writerId"] as? String ?? ""
+                let date: String = docData["date"] as? String ?? ""
+                let rating: Int = docData["rating"] as? Int ?? 0
+                let content: String = docData["content"] as? String ?? ""
+                let reviewImageStringList: [String] = docData["reviewImageStringList"] as? [String] ?? [""]
+                
+                let result: Review = Review(placeId: placeId, writerId: writerId, date: date, rating: rating, content: content, reviewImageStringList: reviewImageStringList)
+                
+                reviews.append(result)
+            }
+            
+            self.reviews = reviews
+        } catch {
+        }
+    }
     //    func fetch(completion: @escaping (Bool) -> Void) {
     //
     //            userList.removeAll()
@@ -202,24 +251,24 @@ final class MyFavoriteStore: ObservableObject {
             print("Error fetchGongGanInfo: \(error)")
         }
     }
-//    func getGongGanId() async throws -> String {
-//        var gongGanId: String = ""
-//        let db = Firestore.firestore()
-//
-//        do {
-//            let document = try await db.collection("Incruitments").document(incruitmentId).getDocument()
-//
-//            if document.exists {
-//                let data = document.data()
-//                companyName = data?["companyName"] as? String ?? ""
-//            }
-//        } catch {
-//            print("Error getting document: \(error)")
-//            throw error
-//        }
-//
-//        return companyName
-//    }
+    //    func getGongGanId() async throws -> String {
+    //        var gongGanId: String = ""
+    //        let db = Firestore.firestore()
+    //
+    //        do {
+    //            let document = try await db.collection("Incruitments").document(incruitmentId).getDocument()
+    //
+    //            if document.exists {
+    //                let data = document.data()
+    //                companyName = data?["companyName"] as? String ?? ""
+    //            }
+    //        } catch {
+    //            print("Error getting document: \(error)")
+    //            throw error
+    //        }
+    //
+    //        return companyName
+    //    }
     func fetchMyFavoriteSubGongGanInfo(id: String) async throws -> [DetailGongGan] {
         var subGongGan: [DetailGongGan] = [DetailGongGan.sample]
         
