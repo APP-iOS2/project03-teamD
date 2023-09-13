@@ -123,7 +123,7 @@ struct GongGanDetailView: View {
             }
             .navigationDestination(isPresented: $isShowingReservationView) {
                 
-                    ReservationView()
+                ReservationView(placeName: $gongGan.gongGanInfo.placeName)
                         .environmentObject(reservationStore)
                         .navigationBarBackButtonHidden()
             }
