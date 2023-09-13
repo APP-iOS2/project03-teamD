@@ -68,7 +68,6 @@ final class HomeStore: ObservableObject {
                         longitude: addressMap["x"] as? String ?? "x",
                         latitude: addressMap["y"] as? String ?? "y")
                 )
-                print(place.placeCategory)
                 tempStore.append(place)
             }
             self.places = tempStore
@@ -159,7 +158,7 @@ final class HomeStore: ObservableObject {
     @Published var mungImage: [String] = ["mungmoongE4", "mungmoongE1", "mungmoongE2", "mungmoongE3"]
     
     func addMungCount() {
-        if mungImageCount == 3 {
+        if mungImageCount == mungImage.count - 1 {
             mungImageCount = 0
         } else {
             mungImageCount += 1
