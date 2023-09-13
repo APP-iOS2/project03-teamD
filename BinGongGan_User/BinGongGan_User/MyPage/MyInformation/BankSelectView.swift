@@ -5,7 +5,7 @@ struct BankSelectView: View {
     @Environment(\.dismiss) var dismiss
     @Binding var isPresentedSelectBankSheet: Bool
     @Binding var isSelectedBank: Bool
-    @Binding var selectedBank: Bank
+    @Binding var selectedBank: Bank?
     
     var body: some View {
         VStack {
