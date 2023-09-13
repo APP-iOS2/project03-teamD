@@ -23,6 +23,7 @@
 		3ACEBAF42AB055FA008F4600 /* BankSheetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ACEBAF32AB055FA008F4600 /* BankSheetView.swift */; };
 		5322C9602AB20BE8009F30A9 /* AnnouncementStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5322C95F2AB20BE8009F30A9 /* AnnouncementStore.swift */; };
 		5322C9622AB20E15009F30A9 /* AnnouncementDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5322C9612AB20E15009F30A9 /* AnnouncementDetailView.swift */; };
+		5322C9642AB213C3009F30A9 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5322C9632AB213C3009F30A9 /* GoogleService-Info.plist */; };
 		53254A232AAE2F18002E7542 /* AddPhotoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53254A222AAE2F18002E7542 /* AddPhotoView.swift */; };
 		534F56A42AB008D700FA79B0 /* MyReviewStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 534F56A32AB008D700FA79B0 /* MyReviewStore.swift */; };
 		5398C2132AA8D9A0000BD361 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5398C2122AA8D9A0000BD361 /* ContentView.swift */; };
@@ -165,6 +166,7 @@
 		3ACEBAF32AB055FA008F4600 /* BankSheetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BankSheetView.swift; sourceTree = "<group>"; };
 		5322C95F2AB20BE8009F30A9 /* AnnouncementStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnnouncementStore.swift; sourceTree = "<group>"; };
 		5322C9612AB20E15009F30A9 /* AnnouncementDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnnouncementDetailView.swift; sourceTree = "<group>"; };
+		5322C9632AB213C3009F30A9 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		53254A222AAE2F18002E7542 /* AddPhotoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddPhotoView.swift; sourceTree = "<group>"; };
 		534F56A32AB008D700FA79B0 /* MyReviewStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyReviewStore.swift; sourceTree = "<group>"; };
 		5398C2122AA8D9A0000BD361 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -455,6 +457,8 @@
 			isa = PBXGroup;
 			children = (
 				369C8C5E2AB2388200BB129B /* GoogleService-Info.plist */,
+				ECBD878C2AB233C900ECEC7D /* GoogleService-Info.plist */,
+				5322C9632AB213C3009F30A9 /* GoogleService-Info.plist */,
 				B12A84A82AA6F01000BDF8CA /* Assets.xcassets */,
 			);
 			path = Config;
@@ -880,6 +884,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				ECBD878D2AB233C900ECEC7D /* GoogleService-Info.plist in Resources */,
+				5322C9642AB213C3009F30A9 /* GoogleService-Info.plist in Resources */,
 				ECBD87752AAB09F600ECEC7D /* Information1.md in Resources */,
 				369C8C5F2AB2388200BB129B /* GoogleService-Info.plist in Resources */,
 				B12A84AC2AA6F01000BDF8CA /* Preview Assets.xcassets in Resources */,

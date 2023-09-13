@@ -8,10 +8,12 @@
 import SwiftUI
 
 struct EnquiryFormView: View {
+    @Environment(\.dismiss) private var dismiss
     @State private var email: String = "email@email.com"
     @State private var title: String = ""
     @State private var content: String = ""
     @State private var agreement: Bool = false
+    @Binding var isShowingToast: Bool
     
     var body: some View {
         Form {
@@ -38,7 +40,8 @@ struct EnquiryFormView: View {
              .listRowSeparator(.hidden)
             
             Button {
-                
+                isShowingToast.toggle()
+                dismiss()
             } label: {
                 Text("보내기")
                     .font(.body1Bold)
@@ -66,7 +69,7 @@ struct EnquiryFormView: View {
 struct EnquiryFormView_Previews: PreviewProvider {
     static var previews: some View {
         NavigationStack {
-            EnquiryFormView()
+            EnquiryFormView(isShowingToast: .constant(false))
         }
     }
 }
