@@ -10,8 +10,7 @@ import FirebaseFirestore
 import FirebaseFirestoreSwift
 
 public struct Seller: Identifiable, Codable {
-
-    public var id: String
+    @DocumentID public var id: String?
     public var name: String
     public var birthDate: String
     public var phoneNumber: String
