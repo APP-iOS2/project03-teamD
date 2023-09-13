@@ -60,13 +60,13 @@ struct SubGongGanSelectView: View {
                 .frame(height: 5)
             
             Group {
-//            customSection("세부공간 선택")
+                //            customSection("세부공간 선택")
                 HStack {
                     Text("세부공간 선택")
                     Spacer()
                 }
                 .padding(EdgeInsets(top: 5, leading: 5, bottom: 0, trailing: 0))
-            
+                
                 VStack(alignment: .center) {
                     ForEach(gongGan.gongGanInfo.detailGongGan.indices, id: \.self) { index in
                         let space = gongGan.gongGanInfo.detailGongGan[index]
@@ -87,16 +87,16 @@ struct SubGongGanSelectView: View {
                                     Spacer()
                                     Text("\(space.price) 원 / 시간")
                                 }
-                                    .font(.body1Regular)
-                                    .foregroundColor(selectedSpaceIndex == index ? .white : .myBrown)
-                                    .frame(width: screenWidth * 0.85)
-                                    .padding(EdgeInsets(top: 10, leading: 20, bottom: 10, trailing: 20))
-                                    .foregroundColor(.white)
-                                    .background(
-                                        RoundedRectangle(cornerRadius: 15)
-                                            .foregroundColor(selectedSpaceIndex == index ? .myBrown : .white)
-                                            .shadow(color: .gray, radius: 1, x: 1, y: 1)
-                                    )
+                                .font(.body1Regular)
+                                .foregroundColor(selectedSpaceIndex == index ? .white : .myBrown)
+                                .frame(width: screenWidth * 0.85)
+                                .padding(EdgeInsets(top: 10, leading: 20, bottom: 10, trailing: 20))
+                                .foregroundColor(.white)
+                                .background(
+                                    RoundedRectangle(cornerRadius: 15)
+                                        .foregroundColor(selectedSpaceIndex == index ? .myBrown : .white)
+                                        .shadow(color: .gray, radius: 1, x: 1, y: 1)
+                                )
                                 
                                 
                             }
@@ -106,7 +106,7 @@ struct SubGongGanSelectView: View {
                             VStack {
                                 SubGongGanDetailView(gongGan: space)
                                     .transition(.offset(.zero))
-                                .padding(EdgeInsets(top: 1, leading: 0, bottom: 1, trailing: 0))
+                                    .padding(EdgeInsets(top: 1, leading: 0, bottom: 1, trailing: 0))
                             }
                         }
                     }
@@ -114,7 +114,7 @@ struct SubGongGanSelectView: View {
                 .padding(EdgeInsets(top: 5, leading: 0, bottom: 5, trailing: 0))
             }
             
-                .frame(width: screenWidth * 0.95)
+            .frame(width: screenWidth * 0.95)
         }
         .background(Color.myBackground)
     }

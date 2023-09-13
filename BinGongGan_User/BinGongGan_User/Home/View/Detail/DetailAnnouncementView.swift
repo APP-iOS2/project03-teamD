@@ -59,7 +59,7 @@ struct DetailAnnouncementView: View {
         }
         .frame(width: screenWidth * 0.95)
     }
-        
+    
 }
 
 struct DetailAnnouncementView_Previews: PreviewProvider {
