@@ -22,19 +22,20 @@ final class HomeStore: ObservableObject {
     @Published var filteredArray: [Place] = []
     @Published var recentlyWords: [String] = []
     @Published var cities: [City] = []
-    @Published var selectedCategory: String = "밴드룸"
+    @Published var selectedCategory: String = "band"
     @Published var selectSub: [String] = []
    
     var categories: [Category] = [
-        Category(category: "쉐어오피스", categoryImageString:  "building.2"),
-        Category(category: "밴드룸", categoryImageString:  "music.mic"),
-        Category(category: "스튜디오", categoryImageString:  "camera"),
-        Category(category: "키친룸", categoryImageString:  "cooktop"),
+        Category(category: "share", categoryImageString:  "building.2"),
+        Category(category: "band", categoryImageString:  "music.mic"),
+        Category(category: "studio", categoryImageString:  "camera"),
+        Category(category: "kitchen", categoryImageString:  "cooktop"),
     ]
     
     let dbRef = Firestore.firestore().collection("Place")
     
     init() {
+       
         cities = cityArray
         
         Task {
@@ -46,16 +47,18 @@ final class HomeStore: ObservableObject {
     }
     
     func fetchPlaces() async {
+        
         do {
+            
             var tempStore: [Place] = []
             let querySnapshot = try await dbRef.getDocuments()
-            
+            places.removeAll()
             for document in querySnapshot.documents {
                 
                 let data = document.data()
                 let sellerId: String = data["sellerId"] as? String ?? "sellerId"
                 let placeName = data["placeName"] as? String ?? "placeName"
-                let placeCategoryString = data["placeCategory"] as? String ?? "Share"
+                let placeCategoryString = data["placeCategory"] as? String ?? "share"
                 let placeCategory = PlaceCategory.fromRawString(placeCategoryString)
                 let placeImageStringList: [String] = data["placeImageStringList"] as? [String] ?? [""]
                 let note = data["note"] as? [String] ?? [""]
@@ -81,25 +84,34 @@ final class HomeStore: ObservableObject {
                         latitude: addressLatitude
                     )
                 )
-                tempStore.append(place)
+                if !places.contains(where: { fetchPlace in
+                    fetchPlace.id == place.id
+                }) {
+                    tempStore.append(place)
+                }
+                
             }
             self.places = tempStore
         } catch {
             print("Error fetching Place: \(error)")
         }
     }
-
+    
     var filteredCategoryCity: [Place] {
         return places.filter { place in
+            
             let address = place.address.address.components(separatedBy: " ")
             var addressArray: [Bool] = []
-
+            
             for i in address {
                 if selectSub.contains(i) {
                     addressArray.append(true)
                 }
             }
-            return selectSub.isEmpty ? place.placeCategory.placeCategoryName == selectedCategory : place.placeCategory.placeCategoryName == selectedCategory && addressArray.contains(true)
+            
+            return selectSub.isEmpty
+            ? place.placeCategory.placeCategoryName == selectedCategory
+            : place.placeCategory.placeCategoryName == selectedCategory && addressArray.contains(true)
         }
     }
 
@@ -132,11 +144,15 @@ final class HomeStore: ObservableObject {
         
         hotPlace.removeAll()
         for i in temp {
-            if count == 4 {
-                return
-            } else {
-                hotPlace.append(i)
-                count += 1
+            if !hotPlace.contains(where: { place in
+                place.id == i.id
+            }){
+                if count == 4 {
+                    return
+                } else {
+                    hotPlace.append(i)
+                    count += 1
+                }
             }
         }
     }
@@ -145,13 +161,18 @@ final class HomeStore: ObservableObject {
         var temp: [Place] = places
         var count: Int = 0
         temp.shuffle()
+        
         recommendPlace.removeAll()
         for i in temp {
-            if count == 4 {
-                return
-            } else {
-                recommendPlace.append(i)
-                count += 1
+            if !recommendPlace.contains(where: { place in
+                place.id == i.id
+            }){
+                if count == 4 {
+                    return
+                } else {
+                    recommendPlace.append(i)
+                    count += 1
+                }
             }
         }
     }

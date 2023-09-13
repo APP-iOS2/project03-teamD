@@ -11,8 +11,9 @@ struct PlaceListView: View {
     
     @EnvironmentObject var homeStore: HomeStore
     @State var isShowingFilterSheet: Bool = false
-    
+    @State var isLoading: Bool = true
     var body: some View {
+        
         ZStack {
             Spacer().background(Color.myBackground).edgesIgnoringSafeArea(.all)
             VStack {
@@ -50,9 +51,16 @@ struct PlaceListView: View {
                               reader.scrollTo("Scroll_To_Top",anchor: .top)
                             
                         }
+                        Task {
+                            await homeStore.fetchPlaces()
+                            self.isLoading = false
+                        }
                     }
                 }// ScrollViewReader
+                .redacted(reason: isLoading ? .placeholder :
+                            [])
             }// VSTACK
+            
             .navigationTitle("\(homeStore.selectedCategory)")
             .customBackbutton()
             .toolbar {
