@@ -10,6 +10,7 @@ import FirebaseFirestoreSwift
 import FirebaseFirestore
 import Firebase
 import BinGongGanCore
+import FirebaseStorage
 
 @MainActor
 final class HomeStore: ObservableObject {
@@ -48,25 +49,38 @@ final class HomeStore: ObservableObject {
         do {
             var tempStore: [Place] = []
             let querySnapshot = try await dbRef.getDocuments()
-
+            
             for document in querySnapshot.documents {
+                
                 let data = document.data()
-                let addressMap: [String: Any] = data["address"] as? [String: Any] ?? [:]
+                let sellerId: String = data["sellerId"] as? String ?? "sellerId"
+                let placeName = data["placeName"] as? String ?? "placeName"
                 let placeCategoryString = data["placeCategory"] as? String ?? "Share"
                 let placeCategory = PlaceCategory.fromRawString(placeCategoryString)
-
+                let placeImageStringList: [String] = data["placeImageStringList"] as? [String] ?? [""]
+//                print("\(placeName) 의 사진 배열 \(placeImageStringList)")
+                let note = data["note"] as? [String] ?? [""]
+                let placeInfomationList =  data["placeInfomationList"] as? [String] ?? [""]
+                
+                let addressMap: [String: Any] = data["address"] as? [String: Any] ?? [:]
+                let addressAddress = addressMap["address_name"] as? String ?? "addressAddress"
+                let addressPlaceName = addressMap["placeName_name"] as? String ?? "placeName"
+                let addressLongiture = addressMap["x"] as? String ?? "x"
+                let addressLatitude = addressMap["y"] as? String ?? "y"
+                
                 let place = Place(
-                    sellerId: data["sellerId"] as? String ?? "sellerId",
-                    placeName: data["placeName"] as? String ?? "placeName",
+                    sellerId: sellerId,
+                    placeName: placeName,
                     placeCategory: placeCategory,
-                    placeImageStringList: data["placeImageStringList"] as? [String] ?? ["https://item.kakaocdn.net/do/c953abdde9169fee070a797b592dad489f5287469802eca457586a25a096fd31"],
-                    note: data["note"] as? [String] ?? [""],
-                    placeInfomationList: data["placeInfomationList"] as? [String] ?? [""],
+                    placeImageStringList: placeImageStringList,
+                    note: note,
+                    placeInfomationList: placeInfomationList,
                     address: Address(
-                        address: addressMap["address_name"] as? String ?? "sellerId",
-                        placeName: addressMap["placeName_name"] as? String ?? "placeName",
-                        longitude: addressMap["x"] as? String ?? "x",
-                        latitude: addressMap["y"] as? String ?? "y")
+                        address: addressAddress,
+                        placeName: addressPlaceName,
+                        longitude: addressLongiture,
+                        latitude: addressLatitude
+                    )
                 )
                 tempStore.append(place)
             }
