@@ -63,7 +63,7 @@ public struct Reservation: Identifiable, Codable {
     public var place: Place? = nil
     public var room: Room? = nil
     public var seller: Seller? = nil
-    
+    public var bankName: String? = nil
     public init(id: String, userEmail: String, roomID: String, placeID: String, reservationYear: String, reservationMonth: String, reservationDay: String, checkInYear: String, checkInMonth: String, checkInDay: String, checkOutYear: String, checkOutMonth: String, checkOutDay: String, hour: Int, personnel: Int, reservationName: String, reservationPhoneNumber: String, reservationRequest: String, reservationState: Int) {
         self.id = id
         self.userEmail = userEmail
