@@ -46,7 +46,8 @@ struct ReservationDetailsListView: View {
         }
         .refreshable {
             Task{
-                await rervationStore.fetchData()
+                await rervationStore.fetchData() { success in
+                }
             }
         }
         .navigationTitle("예약관리")

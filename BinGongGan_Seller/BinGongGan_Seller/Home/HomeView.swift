@@ -60,7 +60,11 @@ struct HomeView: View {
             }
             .refreshable {
                 Task{
-                    await rervationStore.fetchData()
+                    await rervationStore.fetchData() { success in
+                        if success {
+                            rervationStore.isLoading = true
+                        }
+                    }
                 }
             }
             .toolbar {
