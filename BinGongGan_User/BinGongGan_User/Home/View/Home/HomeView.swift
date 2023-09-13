@@ -145,6 +145,7 @@ struct HomeView: View {
             .onAppear{
                 homeStore.selectSub.removeAll()
                 homeStore.settingRecommendPlace()
+                
             }
             .toolbar {
                 ToolbarItem(placement: .navigationBarLeading) {
@@ -160,14 +161,16 @@ struct HomeView: View {
                 }
                 ToolbarItem(placement: .navigationBarTrailing) {
                     HStack {
-                        Text("\(myUserStore.currentUser.nickname)님 반가워요~")
+                        Text("\(myUserStore.currentUser.nickname)님")
                             .font(.captionRegular)
                     }
                 }
             }
         }// ZSTACK
         .onAppear(){
-            
+            Task{
+                try await myUserStore.fetchCurrentUser()
+            }
         }
         .easterEgg(isPresented: $isMung, title: homeStore.mungText[homeStore.mungImageCount], primaryButtonTitle: "닫기") {}
     }// BODY
