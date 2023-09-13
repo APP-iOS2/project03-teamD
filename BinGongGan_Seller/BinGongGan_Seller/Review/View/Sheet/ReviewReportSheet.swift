@@ -83,11 +83,6 @@ struct ReviewReportSheet: View {
                 })
             )
         }
-        .onAppear {
-            Task {
-                await reportStore.fetchData(review: review)
-            }
-        }
     }
 }
 

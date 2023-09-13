@@ -19,10 +19,20 @@ final class ReportStore: ObservableObject {
     }
     
     @MainActor func fetchData(review: Review) async {
+        reportList = []
+        
         do {
             let snapshot = try await dbRef.getDocuments()
-            self.reportList = try snapshot.documents.compactMap {
-                try $0.data(as: Report.self)
+            for document in snapshot.documents {
+                if let reportData = document.data()["Reports"] as? [[String: Any]] {
+                    for data in reportData {
+                        if let id = data["id"] as? String,
+                           let reason = data["reason"] as? String {
+                            let report = Report(id: id, reason: reason)
+                            self.reportList.append(report)
+                        }
+                    }
+                }
             }
             self.reportList = self.reportList.filter({ $0.id == review.id })
         } catch {

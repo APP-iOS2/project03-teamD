@@ -48,6 +48,11 @@ struct ReviewManageDetailView: View {
             .environmentObject(reportStore)
             .presentationDetents([.medium, .large])
         }
+        .onAppear {
+            Task {
+                await reportStore.fetchData(review: review)
+            }
+        }
     }
 }
 
