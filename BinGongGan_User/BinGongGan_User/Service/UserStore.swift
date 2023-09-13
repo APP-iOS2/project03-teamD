@@ -7,6 +7,7 @@
 
 import Foundation
 import BinGongGanCore
+import BinGongGanCore
 
 public class UserStore {
     static let service = FirestoreService()
@@ -20,6 +21,17 @@ public class UserStore {
             try await service.saveDocument(collectionId: .users, documentId: userId, data: user)
         } catch {
             throw error
+        }
+    }
+    
+    static func fetchUserData(userId: String) async throws -> Bool {
+        do {
+            let user : User? = try await service.fetchDocument(collectionId: .users, documentId: userId)
+            guard let user = user else { return false }
+            print(user)
+            return true
+        } catch {
+            return false
         }
     }
 //

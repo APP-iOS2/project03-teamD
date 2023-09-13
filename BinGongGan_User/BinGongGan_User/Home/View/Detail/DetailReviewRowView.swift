@@ -9,34 +9,35 @@ import SwiftUI
 import BinGongGanCore
 
 struct DetailReviewRowView: View {
-    var text: String
+    var review: Review
+    @State private var isFolded: Bool = true
+    var imageList: [String] = ["SignInLogo", "SignInLogo", "SignInLogo"]
+    
     var foldedText: String {
-        let endIndex = text.index(text.startIndex, offsetBy: 20)
-        if text.count <= 20 {
-            return text
+        let endIndex = review.content.index(review.content.startIndex, offsetBy: 20)
+        if review.content.count <= 20 {
+            return review.content
         } else {
-            return "\(text[..<endIndex]) ..."
+            return "\(review.content[..<endIndex]) ..."
         }
     }
-    var imageList: [String] = ["SignInLogo", "SignInLogo", "SignInLogo", "SignInLogo", "SignInLogo"]
-    @State private var isFolded: Bool = true
-
+    
     var body: some View {
         VStack(alignment: .leading) {
             HStack(alignment: .bottom) {
                 VStack(alignment: .leading) {
-                    Text("작성자 닉네임")
+                    Text(review.writerId)
                         .font(.body1Bold)
                         .foregroundColor(.black)
                     
                     HStack(alignment: .bottom) {
-                        ForEach(0..<3, id: \.self) { index in
+                        ForEach(0..<review.rating, id: \.self) { _ in
                             Image(systemName: "star.fill")
                                 .foregroundColor(.yellow)
                                 .padding(.horizontal, -3)
                         }
                         Text(" | ")
-                        Text("2023.01.01 작성")
+                        Text("\(review.date) 작성")
                     }
                     .foregroundColor(.myDarkGray)
                     .font(.captionRegular)
@@ -45,13 +46,13 @@ struct DetailReviewRowView: View {
             }
             
             VStack{
-                if text.count <= 20 {
-                    Text(text)
+                if review.content.count <= 20 {
+                    Text(review.content)
                         .foregroundColor(.myDarkGray)
                         .font(.body1Regular)
                 } else {
                     Group {
-                        Text(isFolded ? foldedText : text)
+                        Text(isFolded ? foldedText : review.content)
                         + Text(isFolded ? " 더보기" : " 접기")
                             .foregroundColor(.myDarkGray)
                             .font(.body1Regular)
@@ -69,14 +70,17 @@ struct DetailReviewRowView: View {
                         Image(image)
                             .resizable()
                             .scaledToFit()
-                            .frame(height: UIScreen.main.bounds.height * 0.1)
+                            .frame(width: 100, height: 100)
                             .overlay {
                                 RoundedRectangle(cornerRadius: 15)
                                     .stroke()
                             }
                     }
                 }
+                .frame(height: 110)
+                .padding(.leading, 5)
             }
+            Divider()
         }
         .padding(.horizontal)
     }
@@ -84,6 +88,6 @@ struct DetailReviewRowView: View {
 
 struct DetailReviewRowView_Previews: PreviewProvider {
     static var previews: some View {
-        DetailReviewRowView(text: "맛있어요ㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏ")
+        DetailReviewRowView(review: Review(placeId: "", writerId: "임대진", date: "2023.01.01 작성", rating: 3, content: "맛있어요~~", reviewImageStringList: ["SignInLogo", "SignInLogo", "SignInLogo"]))
     }
 }

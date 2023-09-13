@@ -9,8 +9,13 @@ import SwiftUI
 
 struct ReservationView: View {
     
+    //@AppStorage ("email") var email: String!
     @EnvironmentObject var reservationStore: ReservationStore
     @Environment(\.dismiss) private var dismiss
+    
+    //@Binding var roomID: String // 바인딩으로 받지 않고 detail 뷰에서 셋다 넣어버리는 건?
+    @Binding var placeName: String // 공간 이름
+    @State var roomID: String = "00B41F70-0576-4815-936F-C49F86E7C418"
     
     @State var isReservationFinished: Bool = false
     @State var isReservationEmpty: Bool = false
@@ -27,18 +32,15 @@ struct ReservationView: View {
             ScrollView {
                 // 달력
                 ReservationCalendarView()
-                    .environmentObject(reservationStore)
                     .padding(.bottom, 10)
                 
                 VStack(alignment: .leading) {
                     
                     // 시간, 인원, 입금자명, 연락처, 요청사항
                     ReservationUserInfoView()
-                        .environmentObject(reservationStore)
                     
                     // 이용 시 주의 사항, 환불 규정
                     ReservationSellerInfoView()
-                        .environmentObject(reservationStore)
                     
                     Button {
                         // 데이터 저장
@@ -74,13 +76,19 @@ struct ReservationView: View {
         .navigationBarTitleDisplayMode(.inline)
         .toolbarBackground(Color.myBackground, for: .navigationBar)
         .customBackbutton()
+        .onAppear {
+            if reservationStore.reservation.userEmail.isEmpty {
+                //reservationStore.reservation.userEmail = email
+                reservationStore.fetchReservationRoom(roomID: roomID)
+            }
+        }
     }
 }
 
 struct ReservationView_Previews: PreviewProvider {
     static var previews: some View {
         NavigationStack {
-            ReservationView()
+            ReservationView(placeName: .constant(""))
                 .environmentObject(ReservationStore())
         }
     }

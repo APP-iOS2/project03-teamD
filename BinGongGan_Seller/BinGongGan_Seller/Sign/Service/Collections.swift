@@ -10,4 +10,6 @@ import Foundation
 enum Collections: String {
     case users = "users"
     case sellers = "sellers"
+    case place = "Place"
+    case room = "Room"
 }

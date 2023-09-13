@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct PrimaryButton: View {
+struct AbledPrimaryButton: View {
     var title: String
     var action: () -> Void
     
@@ -28,7 +28,7 @@ struct PrimaryButton: View {
 
 struct PirmaryButton_Previews: PreviewProvider {
     static var previews: some View {
-        PrimaryButton(title: "다음", action: {
+        AbledPrimaryButton(title: "다음", action: {
             
         })
     }

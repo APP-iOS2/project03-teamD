@@ -9,9 +9,11 @@ import SwiftUI
 import BinGongGanCore
 
 struct SubGongGanDetailView: View {
+    
     @State var gongGan: DetailGongGan
     private let screenWidth = UIScreen.main.bounds.width
     private let screenheight = UIScreen.main.bounds.height
+    
     var body: some View {
         NavigationStack {
             VStack(spacing: 10) {
