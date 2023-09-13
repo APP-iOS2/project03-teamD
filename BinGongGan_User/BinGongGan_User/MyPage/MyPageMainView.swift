@@ -97,7 +97,7 @@ struct MyPageMainView: View {
             Button("취소", role: .cancel) {}
             Button("로그아웃", role: .destructive) {
                 //TODO: 로그아웃
-                signInStore.logout()
+                signInStore.signOut()
             }
         } message: {
             Text("로그아웃을 합니다.")

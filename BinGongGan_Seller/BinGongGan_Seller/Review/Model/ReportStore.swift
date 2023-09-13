@@ -9,49 +9,32 @@ import Foundation
 import FirebaseFirestore
 import BinGongGanCore
 
-struct Report: Identifiable, Codable {
-    var id: String = UUID().uuidString
-    
-    var reporterId: String = "" // 신고한 판매자 ID
-    var reportedReviewId: String = "" // 신고한 리뷰 ID
-    var reason: String // 신고 사유
-    var isSelected: Bool
-    
-    enum CodingKeys: String, CodingKey {
-        case id
-        case reporterId
-        case reportedReviewId
-        case reason
-        case isSelected
-    }
-}
-
 final class ReportStore: ObservableObject {
     @Published var reportList: [Report] = []
-    @Published var reportCategory: [Report] = []
     
-    var dbRef = Firestore.firestore().collection("reports")
+    var dbRef = Firestore.firestore().collection("Reports")
     
     init() {
-        Task {
-            await fetchData()
-        }
         
-        reportCategory = [
-            Report(reason: ReportCase.unrelated.rawValue, isSelected: false),
-            Report(reason: ReportCase.spamFlagging.rawValue, isSelected: false),
-            Report(reason: ReportCase.obscenity.rawValue, isSelected: false),
-            Report(reason: ReportCase.offensiveLanguage.rawValue, isSelected: false),
-            Report(reason: ReportCase.etc.rawValue, isSelected: false)
-        ]
     }
     
-    @MainActor func fetchData() async {
+    @MainActor func fetchData(review: Review) async {
+        reportList = []
+        
         do {
             let snapshot = try await dbRef.getDocuments()
-            self.reportList = try snapshot.documents.compactMap {
-                try $0.data(as: Report.self)
+            for document in snapshot.documents {
+                if let reportData = document.data()["Reports"] as? [[String: Any]] {
+                    for data in reportData {
+                        if let id = data["id"] as? String,
+                           let reason = data["reason"] as? String {
+                            let report = Report(id: id, reason: reason)
+                            self.reportList.append(report)
+                        }
+                    }
+                }
             }
+            self.reportList = self.reportList.filter({ $0.id == review.id })
         } catch {
             print("Error fetching reports: \(error)")
         }
@@ -61,15 +44,15 @@ final class ReportStore: ObservableObject {
         reportList.append(report)
         
         Task {
-            await loadData()
+            await loadData(report: report)
         }
     }
     
-    func loadData() async {
+    func loadData(report: Report) async {
         do {
-            // TODO: document 이름 신고된 리뷰 ID로 수정하기
-            try await dbRef.document("reportedReviewID").setData([
-                "reports": reportList.map { $0.asDictionary() }
+            guard let reportId = report.id else { return }
+            try await dbRef.document(reportId).setData([
+                "Reports": reportList.map { $0.asDictionary() }
             ])
         } catch {
             print("Error loading reports: \(error)")

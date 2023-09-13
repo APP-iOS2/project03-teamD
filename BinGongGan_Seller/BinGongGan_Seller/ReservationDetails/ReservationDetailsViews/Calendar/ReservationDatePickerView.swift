@@ -9,12 +9,12 @@ import SwiftUI
 import BinGongGanCore
 
 struct ReservationDatePickerView: View {
-    
+    @EnvironmentObject var rervationCalendarStore : RervationCalendarStore
     @Binding var currentDate: Date
     @State var  currentMonth: Int = 0
     let days = ["일", "월", "화", "수", "목", "금", "토"]
     let columns = Array(repeating: GridItem(.flexible()), count: 7)
-    @EnvironmentObject var rervationCalendarStore : RervationCalendarStore
+   
     var body: some View {
         VStack(spacing: 10) {
             HStack(spacing: 20) {
@@ -54,11 +54,11 @@ struct ReservationDatePickerView: View {
             }
             LazyVGrid(columns: columns, spacing: 1) {
                 ForEach(rervationCalendarStore.extractDate(currentMonth: currentMonth)) { value in
-                    ReservationCardView(value: value, currentDate: $currentDate).environmentObject(rervationCalendarStore)
+                    ReservationCardView(currentDate: $currentDate, value: value).environmentObject(rervationCalendarStore)
                         .background(
                             Circle()
                                 .fill(Color.myMint)
-                                .padding(4)
+                                .padding(3)
                                 .offset(y:-9)
                                 .opacity(rervationCalendarStore.isSameDay(date1: value.date, date2: currentDate) ? 1 : 0)
                         )

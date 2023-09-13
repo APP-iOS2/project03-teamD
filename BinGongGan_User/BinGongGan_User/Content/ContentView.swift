@@ -16,9 +16,11 @@ struct ContentView: View {
     @StateObject private var myReservationStore: MyReservationStore = MyReservationStore()
     @StateObject private var myReviewStore: MyReviewStore = MyReviewStore()
     @StateObject private var myUserStore: MyUserStore = MyUserStore()
+    @StateObject private var gongGanStore: GongGanStore = GongGanStore()
+    @StateObject private var favoriteGongGanStore: MyFavoriteStore = MyFavoriteStore()
   
     var body: some View {
-        if signInStore.isSuccessSignIn {
+        if signInStore.isSignedIn {
             GongGanTabView()
                 .environmentObject(signInStore)
                 .environmentObject(homeStore)
@@ -26,6 +28,8 @@ struct ContentView: View {
                 .environmentObject(myReservationStore)
                 .environmentObject(myReviewStore)
                 .environmentObject(myUserStore)
+                .environmentObject(gongGanStore)
+                .environmentObject(favoriteGongGanStore)
         } else {
             NavigationStack {
                 SignInView()

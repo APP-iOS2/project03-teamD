@@ -32,7 +32,6 @@ struct ThirdStepSignUpView: View {
                     .frame(height: 38)
                 Button {
                     isShowingPhotoSheet = true
-                    print("Tap")
                 } label: {
                     ZStack{
                         Rectangle()
@@ -57,7 +56,7 @@ struct ThirdStepSignUpView: View {
             }
             
             Spacer()
-            PrimaryButton(title: "다음", action: {
+            AbledPrimaryButton(title: "다음", action: {
                 if store.isValidRegistration() {
                     withAnimation {
                         store.currentStep = .fourth

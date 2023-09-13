@@ -9,10 +9,14 @@ import SwiftUI
 import BinGongGanCore
 
 struct ReservationDetailSheet: View {
-    static let uiViewWidth = UIScreen.main.bounds.width
+    
+    @EnvironmentObject private var rervationStore : RervationStore
     @State var isSelectedRefusalButton: Bool = false
     @State var isSelectedApprovalButton: Bool = false
     
+    static let uiViewWidth = UIScreen.main.bounds.width
+   
+    let data: SellerReservation
     var body: some View {
         VStack {
             HStack{
@@ -23,7 +27,7 @@ struct ReservationDetailSheet: View {
                 Spacer()
             }
             
-            ReservationCell(isHiddenRightButton: false)
+            ReservationCell(data: data, isHiddenRightButton: false)
                 .padding(.bottom, 12)
                 .padding(.horizontal, 20)
             
@@ -87,6 +91,6 @@ struct ReservationDetailSheet: View {
 
 struct ReservationDetailSheet_Previews: PreviewProvider {
     static var previews: some View {
-        ReservationDetailSheet()
+        ReservationDetailSheet(data: SellerReservation(id: "", userEmail: "", roomID: "", reservationYear: "", reservationMonth: "", reservationDay: "", checkInYear: "", checkInMonth: "", checkInDay: "", checkOutYear: "", checkOutMonth: "", checkOutDay: "", placeID: "", hour: 0, personnel: 0, reservationName: "", reservationPhoneNumber: "", reservationRequest: "", reservationState: 0))
     }
 }

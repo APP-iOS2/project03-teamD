@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import BinGongGanCore
 import FirebaseFirestore
 
 public class FirestoreService {
@@ -41,6 +42,20 @@ public class FirestoreService {
         } catch {
             print("Error to load new document at \(collectionId.rawValue) \(documentId) \(error)")
             throw error
+        }
+    }
+    
+    func fetchDocument<T: Codable>(collectionId: Collections, documentId: String) async throws -> T? {
+        do {
+            let snapshot = try await dbRef.collection(collectionId.rawValue).document(documentId).getDocument()
+            switch collectionId {
+            case .users:
+                return try snapshot.data(as: User.self) as? T
+            case .reviews:
+                return try snapshot.data(as: Review.self) as? T
+            }
+        } catch {
+            return nil
         }
     }
 }

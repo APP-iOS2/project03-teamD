@@ -8,7 +8,7 @@
 import Foundation
 
 
-class RervationCalendarStore : ObservableObject{
+final class RervationCalendarStore : ObservableObject{
     
     @Published var reservationData = [ReservationCalendar]()
     
