@@ -12,7 +12,7 @@ import SwiftUI
 class AnnouncementStore: ObservableObject {
     @Published var roomInfoList: [RoomAnnouncement] = []
     @Published var announcementList: [RoomAnnouncement] = []
-    
+    let sellerUid = AuthStore.userUid
     let dataBase = Firestore.firestore()
     
     func formattedDate(from date: Double) -> String {
@@ -26,14 +26,19 @@ class AnnouncementStore: ObservableObject {
             let querySnapshot = try await dataBase.collection("Room").getDocuments()
             
             DispatchQueue.main.async {
-                self.roomInfoList = querySnapshot.documents.compactMap { document in
+                let data = querySnapshot.documents.compactMap { document in
                     let data = document.data()
                     
                     return RoomAnnouncement(
                         id: data["id"] as? String ?? "",
-                        roomName: data["name"] as? String ?? ""
+                        roomName: data["name"] as? String ?? "",
+                        placeId: data["placeId"] as? String ?? ""
                     )
                 }
+                self.roomInfoList = data.filter{
+                    $0.placeId == self.sellerUid
+                }
+                print(self.roomInfoList)
             }
         } catch {
             print("공지사항 공간정보 패치 에러")
@@ -64,7 +69,7 @@ class AnnouncementStore: ObservableObject {
                         return Announcement(title: title, content: content, date: date)
                     }
                     
-                    return RoomAnnouncement(id: id, roomName: roomName, announcements: announcements)
+                    return RoomAnnouncement(id: id, roomName: roomName, placeId: "", announcements: announcements)
                 }
             }
         } catch {
