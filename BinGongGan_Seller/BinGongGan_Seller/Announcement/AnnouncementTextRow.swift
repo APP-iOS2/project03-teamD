@@ -28,9 +28,3 @@ struct AnnouncementTextRow: View {
     }
 }
 
-struct AnnouncementTextRow_Previews: PreviewProvider {
-    static var previews: some View {
-        AnnouncementTextRow(index: 1, announcement: Announcement(id: "테스트id", title: "테스트", content: "테스트", date: Date().timeIntervalSince1970, places: []))
-            .environmentObject(AnnouncementStore())
-    }
-}
