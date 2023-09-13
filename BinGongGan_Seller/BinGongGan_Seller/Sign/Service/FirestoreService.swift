@@ -8,7 +8,7 @@
 import Foundation
 import FirebaseFirestore
 
- class FirestoreService {
+ final class FirestoreService {
     private let dbRef = Firestore.firestore()
 
     func saveDocument<T: Codable>(collectionId: Collections, data: T) async throws {
