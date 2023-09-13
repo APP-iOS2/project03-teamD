@@ -19,6 +19,7 @@ struct RoomAddView: View {
     @State private var roomNote: String = ""
     @State private var imageNames: [String] = []
     @State private var isShowingToast: Bool = false
+    @State private var isDisabledButton: Bool = false
     
     var body: some View {
         ZStack {
@@ -77,6 +78,7 @@ struct RoomAddView: View {
                     }
                     
                     AbledPrimaryButton(title: "등록 하기") {
+                        isDisabledButton.toggle()
                         Task {
                             await roomStore.addRoom(
                                 room:Room(placeId: AuthStore.userUid,
@@ -84,11 +86,17 @@ struct RoomAddView: View {
                                           price: roomPrice,
                                           note: roomNote,
                                           imageNames: imageNames),
-                                images: selectedImage)
+                                images: selectedImage) {
+                                    success in
+                                    if success {
+                                        isShowingToast = true
+                                        isDisabledButton.toggle()
+                                        dismiss()
+                                    }
+                                }
                         }
-                        isShowingToast = true
-                        dismiss()
                     }
+                    .disabled(isDisabledButton)
                 }
             }
             .padding(20)
