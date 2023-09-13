@@ -13,24 +13,20 @@ import SwiftUI
    
     static let service = FirestoreService()
 
-    static func saveUserData(seller: Seller) async throws {
-        guard let sellerId = seller.id else { return }
-        
+     static func saveUserData(seller: Seller) async throws {
         do {
-            try await service.saveDocument(collectionId: .sellers, documentId: sellerId, data: seller)
+            try await service.saveDocument(collectionId: .sellers, documentId: AuthStore.userUid, data: seller)
         } catch {
             throw error
         }
     }
     
-    static func fetchUserData(sellerId: String) async throws -> Bool {
+    static func fetchUserData() async throws -> Seller? {
         do {
-            let seller : Seller? = try await service.fetchDocument(collectionId: .sellers, documentId: sellerId)
-            guard let seller = seller else { return false }
-            print(seller)
-            return true
+            let seller = try await service.fetchDocument(collectionId: .sellers, documentId: AuthStore.userUid)
+            return seller as? Seller
         } catch {
-            return false
+            return nil
         }
     }
     
