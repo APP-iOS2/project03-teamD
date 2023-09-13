@@ -8,7 +8,7 @@
 import Foundation
 import BinGongGanCore
 
- class SellerStore {
+ final class SellerStore {
     static let service = FirestoreService()
 ///*
     static func saveUserData(seller: Seller) async throws {

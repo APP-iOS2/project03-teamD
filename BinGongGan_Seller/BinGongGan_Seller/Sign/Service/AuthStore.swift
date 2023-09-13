@@ -8,7 +8,7 @@
 import Foundation
 import FirebaseAuth
 
-public class AuthStore {
+public final class AuthStore {
     // 신규 사용자
     static func createUser(email: String, password: String) async throws -> AuthDataResult {
         do {
