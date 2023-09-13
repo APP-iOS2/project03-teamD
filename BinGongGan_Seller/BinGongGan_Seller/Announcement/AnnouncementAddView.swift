@@ -33,9 +33,9 @@ struct AnnouncementAddView: View {
                 .padding(.top, 10)
                 
                 HStack{
-                    Picker("공간 선택", selection: $selectedPlace) {
-                        ForEach(announcementStore.announcementList[0].places, id: \.id) { placeInfo in
-                            Text(placeInfo.name)
+                    Picker(selection: $selectedPlace, label: Text("공간을 선택해주세요.")) {
+                        ForEach(announcementStore.placeInfoList, id: \.id) { placeInfoList in
+                            Text(placeInfoList.name)
                         }
                     }
                     .accentColor(Color.myBrown)

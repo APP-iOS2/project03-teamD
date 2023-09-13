@@ -16,7 +16,7 @@ class AnnouncementStore: ObservableObject {
     ]
     @Published var placeInfoList: [PlaceInfo] = []
     
-    let dataBase = Firestore.firestore()
+    let dataBase = Firestore.firestore().collection("Room")
     
     //    let dataBase = Firestore.firestore().collection("Place")
     //
@@ -36,22 +36,23 @@ class AnnouncementStore: ObservableObject {
         return dateFormatter.string(from: Date(timeIntervalSince1970: date))
     }
     
-    func placeInfoFetch() {
-        dataBase.collection("Room").getDocuments { (querySnapshot, error) in
-            guard let querySnapshot = querySnapshot, error == nil else {
-                print("패치 에러")
-                
-                return
-            }
+    func placeInfoFetch() async {
+        do {
+            var temp: [PlaceInfo] = []
+            let querySnapshot = try await dataBase.getDocuments()
             
             for document in querySnapshot.documents {
                 let data = document.data()
                 
-                if let id = data["id"] as? String, let name = data["name"] as? String {
-                    let placeInfo = PlaceInfo(id: id, name: name)
-                    self.placeInfoList.append(placeInfo)
-                }
+                let placeInfo = PlaceInfo(
+                    id: data["id"] as? String ?? "",
+                    name: data["name"] as? String ?? ""
+                )
+                temp.append(placeInfo)
             }
+            self.placeInfoList = temp
+        } catch {
+            print("Error fetching Place: \(error)")
         }
     }
 }
