@@ -43,7 +43,7 @@ final class HomeStore: ObservableObject {
             settingRecommendPlace()
         }
     }
-  
+    
     func fetchPlaces() async {
         do {
             var tempStore: [Place] = []
@@ -59,7 +59,7 @@ final class HomeStore: ObservableObject {
                     sellerId: data["sellerId"] as? String ?? "sellerId",
                     placeName: data["placeName"] as? String ?? "placeName",
                     placeCategory: placeCategory,
-                    placeImageStringList: data["placeImageStringList"] as? [String] ?? [""],
+                    placeImageStringList: data["placeImageStringList"] as? [String] ?? ["https://item.kakaocdn.net/do/c953abdde9169fee070a797b592dad489f5287469802eca457586a25a096fd31"],
                     note: data["note"] as? [String] ?? [""],
                     placeInfomationList: data["placeInfomationList"] as? [String] ?? [""],
                     address: Address(
