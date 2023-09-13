@@ -22,10 +22,26 @@ public class UserStore {
             throw error
         }
     }
-//
-//    static func updateUserData(user: User) {
-//
-//    }
+    
+    static func loadUserData(userId: String, user: User) async throws -> User {
+        do {
+            let user = try await service.loadDocument(collectionId: .users, documentId: userId, data: user)
+            return user
+        } catch {
+            throw error
+        }
+    }
+
+    static func updateUserData(user: User) async throws {
+        guard let userId = user.id else { return }
+        
+        do {
+            try await service.saveDocument(collectionId: .users, documentId: userId, data: user)
+            print("updateUserData: 성공")
+        } catch {
+            throw error
+        }
+    }
 //
 //    static func updatePartOfUserData() {
 //
