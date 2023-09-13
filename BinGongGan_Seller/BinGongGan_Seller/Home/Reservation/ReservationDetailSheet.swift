@@ -60,7 +60,7 @@ struct ReservationDetailSheet: View {
                      
                     }),
                           secondaryButton: .cancel(Text("승인"),action: {
-                        Task{  await rervationStore.updateRervation(isReserve:true )
+                        Task{  await rervationStore.updateRervation(id:data.id,isReserve:true )
                         }
                     }))
                 }
@@ -87,7 +87,7 @@ struct ReservationDetailSheet: View {
                           primaryButton: .destructive(Text("취소"),
                                                       action: {}),
                           secondaryButton: .cancel(Text("거절"),action: {
-                        Task{  await rervationStore.updateRervation(isReserve:false )
+                        Task{  await rervationStore.updateRervation(id:data.id,isReserve:false )
                         }
                     }))
                 }

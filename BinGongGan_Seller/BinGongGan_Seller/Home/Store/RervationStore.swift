@@ -69,15 +69,17 @@ class RervationStore : ObservableObject{
         }
         self.confilmedldata = confilmedldata
     }
-    func updateRervation(isReserve:Bool) async {
+    func updateRervation(id:String,isReserve:Bool) async {
         let dataBase = Firestore.firestore().collection("Reservation")
         do {
         //TODO: 여기 값만 넣어주기
             try await dataBase
-                .document(sellerUid)
+                .document(id)
                 .updateData([
                     "reservationState": isReserve ? 1 : 3
                 ])
+            
+                await fetchData()
             
         } catch{
             debugPrint("updateData error")
