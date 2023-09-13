@@ -73,7 +73,7 @@ struct AddReviewView: View {
             Button("제출", role: .none) {
                 //TODO: 리뷰 저장 로직
                     Task {
-                        try await myReviewStore.addReview(placeId: "1B7F6970-EEC1-4244-8D4F-9F8F047F124F", writerId: "xll3TbjPUUZOtWVQx2tsetWlvpV2", rating: starRating, content: reviewText, images: selectedImages)
+                        try await myReviewStore.addReview(placeId: "1B7F6970-EEC1-4244-8D4F-9F8F047F124F", rating: starRating, content: reviewText, images: selectedImages)
                     }
                 dismiss()
             }

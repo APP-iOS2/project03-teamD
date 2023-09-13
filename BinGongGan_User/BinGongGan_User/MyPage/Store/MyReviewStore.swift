@@ -16,18 +16,18 @@ import FirebaseFirestoreSwift
 class MyReviewStore: ObservableObject {
     @Published var myReviews: [Review] = []
     
-    static let service = FirestoreService()
+    let service = FirestoreService()
     private let dbRef = Firestore.firestore()
     private let storage = Storage.storage().reference()
     
     init(){}
     
-    func addReview(placeId: String, writerId: String, rating: Int, content: String, images: [UIImage]) async throws{
+    func addReview(placeId: String, rating: Int, content: String, images: [UIImage]) async throws{
         let date = self.currentDateToString()
         let id = UUID().uuidString
-        let newReview = Review(placeId: placeId, writerId: writerId, date: date, rating: rating, content: content)
+        let newReview = Review(placeId: placeId, writerId: AuthStore.userUid, date: date, rating: rating, content: content)
         do {
-            try await MyReviewStore.service.saveDocument(collectionId: .reviews, documentId: id, data: newReview)
+            try await service.saveDocument(collectionId: .reviews, documentId: id, data: newReview)
             
             self.uploadImage(images: images, reviewId: id) { imageUrls in
                 if let imageUrls = imageUrls {
@@ -50,7 +50,7 @@ class MyReviewStore: ObservableObject {
     func fetchReviews() async throws {
         //TODO: - User 로그인, 예약 내역 연결 후 해당 유저 및 공간 판매자 정보 가져와 보여줄 수 있도록 수정하기
         var tempList: [Review] = []
-        let query = dbRef.collection(Collections.reviews.rawValue).whereField("writerId", isEqualTo: "xll3TbjPUUZOtWVQx2tsetWlvpV2")
+        let query = dbRef.collection(Collections.reviews.rawValue).whereField("writerId", isEqualTo: AuthStore.userUid)
         
         do {
             let snapshot = try await query.getDocuments()
