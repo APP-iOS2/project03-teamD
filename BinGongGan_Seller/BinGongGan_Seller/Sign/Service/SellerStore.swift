@@ -21,14 +21,14 @@ import SwiftUI
         }
     }
     
-    static func fetchUserData() async throws -> Seller? {
-        do {
-            let seller = try await service.fetchDocument(collectionId: .sellers, documentId: AuthStore.userUid)
-            return seller as? Seller
-        } catch {
-            return nil
-        }
-    }
+     static func fetchUserData() async throws -> Seller? {
+             do {
+                 let seller: Seller? = try await service.fetchDocument(collectionId: .sellers, documentId: AuthStore.userUid)
+                 return seller
+             } catch {
+                 return nil
+             }
+         }
     
     //*/
     //
