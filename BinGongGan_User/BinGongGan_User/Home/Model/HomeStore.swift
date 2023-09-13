@@ -58,7 +58,6 @@ final class HomeStore: ObservableObject {
                 let placeCategoryString = data["placeCategory"] as? String ?? "Share"
                 let placeCategory = PlaceCategory.fromRawString(placeCategoryString)
                 let placeImageStringList: [String] = data["placeImageStringList"] as? [String] ?? [""]
-//                print("\(placeName) 의 사진 배열 \(placeImageStringList)")
                 let note = data["note"] as? [String] ?? [""]
                 let placeInfomationList =  data["placeInfomationList"] as? [String] ?? [""]
                 

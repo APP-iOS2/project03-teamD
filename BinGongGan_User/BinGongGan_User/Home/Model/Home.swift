@@ -43,5 +43,3 @@ let eventImageArray: [String] = [
     "https://cdn.mc-plus.net/news/photo/202206/12444_35508_3057.jpg",
     "https://cdn.mc-plus.net/news/photo/202206/12444_35506_3056.jpg",
 ]
-let dummyImageArray: [String] = []
-
