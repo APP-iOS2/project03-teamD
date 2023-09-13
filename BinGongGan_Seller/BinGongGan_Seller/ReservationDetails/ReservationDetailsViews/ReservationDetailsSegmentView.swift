@@ -16,13 +16,15 @@ enum ReservationStateType: String, CaseIterable, Identifiable {
 }
 
 struct ReservationDetailsSegmentView: View {
-    @State private var selectedType = ReservationStateType.waitReservation     //TODO: sotre연결
+    @EnvironmentObject private var rervationStore : RervationStore
+       //TODO: sotre연결
     @State private var count = 0
     
     var body: some View {
-        Picker("대기", selection: $selectedType) {
+        Picker("대기", selection: $rervationStore.selectedType) {
             ForEach(ReservationStateType.allCases){
-                Text("\($0.rawValue) \(count) 건").tag($0.hashValue)
+                
+                Text("\($0.rawValue)")
             }
         }
         .pickerStyle(.segmented)

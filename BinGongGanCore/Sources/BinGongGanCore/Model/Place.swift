@@ -8,15 +8,26 @@
 import Foundation
 
 public struct Place:Identifiable, Codable {
-    public var id: String = UUID().uuidString //id
     public var sellerId: String //판매자 id
     public var placeName: String //이름
     public var placeCategory: PlaceCategory //카테고리 -
     public var placeImageStringList: [String] // 이미지 링크 -
+    public var placeImageString: String {
+        print("지금 여길 확인하고 있어요 \(placeImageStringList)")
+        if !placeImageStringList.isEmpty {
+            return placeImageStringList[0]
+        } else {
+            return "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQNrDzAAsGUNWG4_XHOoiO0r3maZPFRQ4YqylZ40DT4lSLBflDVbD_w6IIxEFIslGm9KW8&usqp=CAU"
+        }
+    }
     public var note: [String] //공간 내용 -
     public var placeInfomationList: [String] //공간 정보
     public var address: Address //주소
-    public var price: Int? 
+  
+    public var id: String {
+        return sellerId
+    }
+  
     public init(sellerId: String,placeName: String, placeCategory: PlaceCategory, placeImageStringList: [String], note: [String], placeInfomationList: [String], address: Address) {
         self.sellerId = sellerId
         self.placeName = placeName
@@ -30,7 +41,7 @@ public struct Place:Identifiable, Codable {
     public init() {
            self.sellerId = ""
              self.placeName = ""
-             self.placeCategory = .Share
+             self.placeCategory = .share
              self.placeImageStringList = []
              self.note = []
              self.placeInfomationList = []
@@ -39,7 +50,7 @@ public struct Place:Identifiable, Codable {
 }
 
 public enum PlaceCategory: String, CaseIterable, Identifiable, Codable {
-    case Share
+    case share
     case band
     case studio
     case kitchen
@@ -47,7 +58,7 @@ public enum PlaceCategory: String, CaseIterable, Identifiable, Codable {
     
     public var placeCategoryName: String {
         switch self {
-        case .Share:
+        case .share:
             return "쉐어오피스"
         case .band:
             return "밴드룸"
@@ -61,7 +72,7 @@ public enum PlaceCategory: String, CaseIterable, Identifiable, Codable {
     public static func fromRawString(_ rawString: String) -> PlaceCategory {
            switch rawString {
            case "쉐어오피스":
-               return .Share
+               return .share
            case "밴드룸":
                return .band
            case "스튜디오":
@@ -69,10 +80,7 @@ public enum PlaceCategory: String, CaseIterable, Identifiable, Codable {
            case "키친룸":
                return .kitchen
            default:
-               // 문자열이 어떤 열거형 값과도 일치하지 않는 경우를 처리합니다.
-               return .Share // 기본값을 제공하거나 필요한 대로 오류 처리를 수행할 수 있습니다.
+               return .share
            }
        }
-    
-    static let samplePlaceCategory = PlaceCategory(rawValue: "쉐어오피스")
 }

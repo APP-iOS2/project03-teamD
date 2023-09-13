@@ -7,31 +7,73 @@
 
 import Foundation
 import BinGongGanCore
+import FirebaseFirestore
 
+@MainActor
 final class MyReservationStore: ObservableObject {
+    
+    let dataBase = Firestore.firestore().collection("Reservation")
+    
     @Published var myReservations: [BinGongGanCore.Reservation] = []
-    @Published var reservation: BinGongGanCore.Reservation = BinGongGanCore.Reservation(id: "", userEmail: "", roomID: "", reservationYear: "", reservationMonth: "", reservationDay: "", checkInYear: "", checkInMonth: "", checkInDay: "", checkOutYear: "", checkOutMonth: "", checkOutDay: "", hour: 0, personnel: 0, reservationName: "", reservationPhoneNumber: "", reservationRequest: "", reservateState: .all)
+    @Published var reservation: BinGongGanCore.Reservation = BinGongGanCore.Reservation(id: "", userEmail: "", roomID: "", placeID: "" , sellerID: "" , reservationYear: "", reservationMonth: "", reservationDay: "", checkInYear: "", checkInMonth: "", checkInDay: "", checkOutYear: "", checkOutMonth: "", checkOutDay: "", hour: 0, personnel: 0, reservationName: "", reservationPhoneNumber: "", reservationRequest: "", reservateState: 0)
     
     @Published var selectedPicker: ReservationHistoryType = .all
     var filteredReservations: [BinGongGanCore.Reservation] {
         if selectedPicker != .all {
             return myReservations.filter {
-                return $0.reservateState == selectedPicker
-           }
+                return $0.reservateStringCase == selectedPicker
+            }
         }
         return myReservations
     }
     
     init() {
-        let sampleReservation: BinGongGanCore.Reservation =
-        BinGongGanCore.Reservation(id: "1", userEmail: "1", roomID: "1", reservationYear: "1", reservationMonth: "1", reservationDay: "1", checkInYear: "1", checkInMonth: "1", checkInDay: "1", checkOutYear: "1", checkOutMonth: "5", checkOutDay: "1", hour: 4, personnel: 2, reservationName: "조민근", reservationPhoneNumber: "1", reservationRequest: "1", reservateState: .cancel)
-        
-        
-        let sampleReservation2: BinGongGanCore.Reservation =
-        BinGongGanCore.Reservation(id: "2", userEmail: "2", roomID: "2", reservationYear: "2", reservationMonth: "2", reservationDay: "2", checkInYear: "2", checkInMonth: "2", checkInDay: "2", checkOutYear: "2", checkOutMonth: "2", checkOutDay: "2", hour: 4, personnel: 2, reservationName: "촤하늘", reservationPhoneNumber: "2", reservationRequest: "요청사항2", reservateState: .success)
-
-        myReservations.append(sampleReservation)
-        myReservations.append(sampleReservation2)
-        
+        Task {
+            await fetchMyReservations()
+        }
     }
+    
+    func fetchMyReservations() async {
+        do {
+            self.myReservations.removeAll()
+            var tempStore: [BinGongGanCore.Reservation] = []
+            let querySnapshot = try await dataBase.getDocuments()
+            
+            for document in querySnapshot.documents {
+                let id = document.documentID
+                let data = document.data()
+                let userEmail = data["userEmail"] as? String ?? "(userEmail 없음)"
+                let roomID = data["roomID"] as? String ?? "(roomID 없음)"
+                let placeID = data["placeID"] as? String ?? "(placeID 없음)"
+                let sellerID = data["sellerID"] as? String ?? "(sellerID 없음)"
+                let reservationYear = data["reservationYear"] as? String ?? "(reservationYear 없음)"
+                let reservationMonth = data["reservationMonth"] as? String ?? "(reservationMonth 없음)"
+                let reservationDay = data["reservationDay"] as? String ?? "(reservationDay 없음)"
+                let checkInYear = data["checkInYear"] as? String ?? "(checkInYear 없음)"
+                let checkInMonth = data["checkInMonth"] as? String ?? "(checkInMonth 없음)"
+                let checkInDay = data["checkInDay"] as? String ?? "(checkInDay 없음)"
+                let checkOutYear = data["checkOutYear"] as? String ?? "(checkOutYear 없음)"
+                let checkOutMonth = data["checkOutMonth"] as? String ?? "(checkOutMonth 없음)"
+                let checkOutDay = data["checkOutDay"] as? String ?? "(checkOutDay 없음)"
+                let hour = data["hour"] as? Int ?? 0
+                let personnel = data["personnel"] as? Int ?? 0
+                
+                
+                
+                let reservationName = data["reservationName"] as? String ?? "(reservationName 없음)"
+                let reservationPhoneNumber = data["reservationPhoneNumber"] as? String ?? "(reservationPhoneNumber 없음)"
+                let reservationRequest = data["reservationRequest"] as? String ?? "(reservationRequest 없음)"
+                let reservateState = data["reservationState"] as? Int ?? 0
+                
+                
+                let reservations = BinGongGanCore.Reservation(id: id, userEmail: userEmail, roomID: roomID, placeID: placeID , sellerID: sellerID , reservationYear: reservationYear, reservationMonth: reservationMonth, reservationDay: reservationDay, checkInYear: checkInYear, checkInMonth: checkInMonth, checkInDay: checkInDay, checkOutYear: checkOutYear, checkOutMonth: checkOutMonth, checkOutDay: checkOutDay, hour: hour, personnel: personnel, reservationName: reservationName, reservationPhoneNumber: reservationPhoneNumber, reservationRequest: reservationRequest, reservateState: reservateState)
+                
+                tempStore.append(reservations)
+            }
+            self.myReservations = tempStore
+        } catch {
+            print("Error fetching Place: (error)")
+        }
+    }
+    
 }

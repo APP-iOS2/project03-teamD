@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import BinGongGanCore
 
 struct ReviewReportSheet: View {
     @EnvironmentObject var reportStore: ReportStore
@@ -13,6 +14,17 @@ struct ReviewReportSheet: View {
     @Binding var isShowingReviewReportSheet: Bool
     
     @State private var isShowingReportAlert: Bool = false
+    
+    @State private var selectedCase: [Bool] = Array(repeating: false, count: ReportCase.allCases.count)
+    
+    var review: Review
+    private var reviewId: String {
+        if let reviewId = review.id {
+            return reviewId
+        }
+        
+        return ""
+    }
     
     var body: some View {
         VStack {
@@ -23,23 +35,18 @@ struct ReviewReportSheet: View {
             .padding(20)
             
             List {
-                ForEach(reportStore.reportCategory) { report in
+                ForEach(Array(ReportCase.allCases.indices), id: \.self) { index in
                     HStack {
-                        Text("\(report.reason)")
+                        Text("\(ReportCase.allCases[index].rawValue)")
                         Spacer()
-                        if report.isSelected {
+                        if selectedCase[index] {
                             Image(systemName: "checkmark.circle")
                                 .foregroundColor(.myMint)
                         }
                     }
                     .onTapGesture {
-                        for (index, _) in reportStore.reportCategory.enumerated() {
-                            reportStore.reportCategory[index].isSelected = false
-                        }
-                        
-                        if let index = reportStore.reportCategory.firstIndex(where: { $0.id == report.id }) {
-                            reportStore.reportCategory[index].isSelected = true
-                        }
+                        selectedCase = Array(repeating: false, count: ReportCase.allCases.count)
+                        selectedCase[index] = true
                     }
                 }
             }
@@ -59,24 +66,20 @@ struct ReviewReportSheet: View {
                 message: Text("해당 리뷰를 신고하시겠습니까?"),
                 primaryButton: .cancel(Text("취소하기")),
                 secondaryButton: .destructive(Text("신고하기"), action: {
-                    for category in reportStore.reportCategory {
-                        if category.isSelected {
+                    guard let reviewId = review.id else { return }
+                    for index in 0..<ReportCase.allCases.count {
+                        if selectedCase[index] {
                             let report = Report(
-                                // TODO: 신고한 판매자 ID, 신고한 리뷰 ID 넣기
-                                reporterId: "",
-                                reportedReviewId: "",
-                                reason: category.reason,
-                                isSelected: category.isSelected
-                            )
-                            reportStore.reportReview(report: report)
+                                reviewId: reviewId,
+                                sellerId: AuthStore.userUid,
+                                reason: ReportCase.allCases[index].rawValue)
+                            
+//                            reportStore.reportReview(report: report)
                             break
                         }
                     }
                     
-                    for (index, _) in reportStore.reportCategory.enumerated() {
-                        reportStore.reportCategory[index].isSelected = false
-                    }
-                    
+                    selectedCase = Array(repeating: false, count: ReportCase.allCases.count)
                     isShowingReviewReportSheet.toggle()
                 })
             )
@@ -87,8 +90,18 @@ struct ReviewReportSheet: View {
 struct ReviewReportSheet_Previews: PreviewProvider {
     static var previews: some View {
         NavigationStack {
-            ReviewReportSheet(isShowingReviewReportSheet: .constant(true))
-                .environmentObject(ReportStore())
+            ReviewReportSheet(
+                isShowingReviewReportSheet: .constant(true),
+                review:
+                    Review(
+                        placeId: "1B7F6970-EEC1-4244-8D4F-9F8F047F124F",
+                        writerId: "xll3TbjPUUZOtWVQx2tsetWlvpV2",
+                        date: "2023.09.12 화",
+                        rating: 5,
+                        content: "리뷰인데 아닌데? 아니긴 뭐가 아니야 맞으면서 넌 리뷰야 리뷰!"
+                    )
+            )
+            .environmentObject(ReportStore())
         }
     }
 }

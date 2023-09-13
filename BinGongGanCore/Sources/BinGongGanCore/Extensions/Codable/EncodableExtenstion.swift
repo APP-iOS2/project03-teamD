@@ -1,5 +1,5 @@
 //
-//  File.swift
+//  EncodableExtenstion.swift
 //  
 //
 //  Created by 신희권 on 2023/09/11.

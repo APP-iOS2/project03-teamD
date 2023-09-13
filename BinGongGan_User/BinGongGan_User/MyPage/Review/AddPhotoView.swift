@@ -48,7 +48,7 @@ struct MultiPhotoPickerView: UIViewControllerRepresentable {
 }
 
 struct AddPhotoView: View {
-    @State var selectedImages: [UIImage] = []
+    @Binding var selectedImages: [UIImage]
     @State var isShowingPhotoPicker: Bool = false
     @State var isShowingToast: Bool = false
     
@@ -112,6 +112,6 @@ struct AddPhotoView: View {
 
 struct AddPhotoView_Previews: PreviewProvider {
     static var previews: some View {
-        AddPhotoView()
+        AddPhotoView(selectedImages: .constant([]))
     }
 }

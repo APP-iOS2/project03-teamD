@@ -9,8 +9,12 @@ import SwiftUI
 
 struct ReservationView: View {
     
+    //@AppStorage ("email") var email: String!
     @EnvironmentObject var reservationStore: ReservationStore
     @Environment(\.dismiss) private var dismiss
+    
+    @Binding var roomID: String
+    @Binding var placeName: String // 공간 이름
     
     @State var isReservationFinished: Bool = false
     @State var isReservationEmpty: Bool = false
@@ -21,28 +25,25 @@ struct ReservationView: View {
         
         VStack {
             // 상단 바
-            ReservationHeaderView()
+            ReservationHeaderView(placeName: $placeName)
                 .padding(.top, 1)
             
             ScrollView {
                 // 달력
                 ReservationCalendarView()
-                    .environmentObject(reservationStore)
                     .padding(.bottom, 10)
                 
                 VStack(alignment: .leading) {
                     
                     // 시간, 인원, 입금자명, 연락처, 요청사항
                     ReservationUserInfoView()
-                        .environmentObject(reservationStore)
                     
                     // 이용 시 주의 사항, 환불 규정
                     ReservationSellerInfoView()
-                        .environmentObject(reservationStore)
                     
                     Button {
                         // 데이터 저장
-                        if reservationStore.reservation.reservationName.isEmpty || reservationStore.reservation.reservationPhoneNumber.isEmpty {
+                        if reservationStore.reservation.reservationName.isEmpty || reservationStore.reservation.reservationPhoneNumber.isEmpty || reservationStore.reservation.checkOutYear.isEmpty {
                             isReservationEmpty = true
                         } else {
                             isReservationEmpty = false
@@ -60,7 +61,7 @@ struct ReservationView: View {
                     .buttonStyle(.plain)
                     .padding([.top, .bottom], 10)
                     .navigationDestination(isPresented: $isReservationFinished) {
-                        PaymentView()
+                        PaymentView(placeName: $placeName)
                             .environmentObject(reservationStore)
                             .navigationBarBackButtonHidden()
                     }
@@ -74,13 +75,19 @@ struct ReservationView: View {
         .navigationBarTitleDisplayMode(.inline)
         .toolbarBackground(Color.myBackground, for: .navigationBar)
         .customBackbutton()
+        .onAppear {
+            if reservationStore.reservation.userEmail.isEmpty {
+                //reservationStore.reservation.userEmail = email
+                reservationStore.fetchReservationRoom(roomID: roomID)
+            }
+        }
     }
 }
 
 struct ReservationView_Previews: PreviewProvider {
     static var previews: some View {
         NavigationStack {
-            ReservationView()
+            ReservationView(roomID: .constant(""), placeName: .constant(""))
                 .environmentObject(ReservationStore())
         }
     }

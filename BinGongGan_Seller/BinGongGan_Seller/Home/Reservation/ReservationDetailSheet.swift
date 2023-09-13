@@ -9,10 +9,14 @@ import SwiftUI
 import BinGongGanCore
 
 struct ReservationDetailSheet: View {
-    static let uiViewWidth = UIScreen.main.bounds.width
+    
+    @EnvironmentObject private var rervationStore : RervationStore
     @State var isSelectedRefusalButton: Bool = false
     @State var isSelectedApprovalButton: Bool = false
     
+    static let uiViewWidth = UIScreen.main.bounds.width
+   
+    let data: SellerReservation
     var body: some View {
         VStack {
             HStack{
@@ -23,7 +27,7 @@ struct ReservationDetailSheet: View {
                 Spacer()
             }
             
-            ReservationCell(isHiddenRightButton: false)
+            ReservationCell(data: data, isHiddenRightButton: false)
                 .padding(.bottom, 12)
                 .padding(.horizontal, 20)
             
@@ -52,8 +56,13 @@ struct ReservationDetailSheet: View {
                     Alert(title: Text("예약 승인"),
                           message: Text("해당 예약 요청을 승인하시겠습니까?"),
                           primaryButton: .destructive(Text("취소"),
-                                                      action: {}),
-                          secondaryButton: .cancel(Text("승인")))
+                                                      action: {
+                     
+                    }),
+                          secondaryButton: .cancel(Text("승인"),action: {
+                        Task{  await rervationStore.updateRervation(id:data.id,isReserve:true )
+                        }
+                    }))
                 }
                 
                 Spacer(minLength: 1)
@@ -77,7 +86,10 @@ struct ReservationDetailSheet: View {
                           message: Text("해당 예약 요청을 거절하시겠습니까?"),
                           primaryButton: .destructive(Text("취소"),
                                                       action: {}),
-                          secondaryButton: .cancel(Text("거절")))
+                          secondaryButton: .cancel(Text("거절"),action: {
+                        Task{  await rervationStore.updateRervation(id:data.id,isReserve:false )
+                        }
+                    }))
                 }
             }
         }
@@ -87,6 +99,6 @@ struct ReservationDetailSheet: View {
 
 struct ReservationDetailSheet_Previews: PreviewProvider {
     static var previews: some View {
-        ReservationDetailSheet()
+        ReservationDetailSheet(data: SellerReservation(id: "", userEmail: "", roomID: "", reservationYear: "", reservationMonth: "", reservationDay: "", checkInYear: "", checkInMonth: "", checkInDay: "", checkOutYear: "", checkOutMonth: "", checkOutDay: "", placeID: "", hour: 0, personnel: 0, reservationName: "", reservationPhoneNumber: "", reservationRequest: "", reservationState: 0))
     }
 }

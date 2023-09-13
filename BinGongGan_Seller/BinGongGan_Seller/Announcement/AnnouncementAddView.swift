@@ -14,8 +14,9 @@ struct AnnouncementAddView: View {
     @State private var announcementTitle: String = ""
     @State private var announcementContent: String = ""
     @State private var isSelectedAllPlace: Bool = false
-    @State private var selectedPlace: String = ""
-    
+    @State private var isShowingAlert: Bool = false
+    @State private var selectedPlace: String = "공간을 선택해주세요"
+    @State private var selectedPlaces: [RoomAnnouncement] = []
     
     var body: some View {
         ZStack {
@@ -33,9 +34,10 @@ struct AnnouncementAddView: View {
                 .padding(.top, 10)
                 
                 HStack{
-                    Picker("공간 선택", selection: $selectedPlace) {
-                        ForEach(announcementStore.announcementList[0].places, id: \.id) { placeInfo in
-                            Text(placeInfo.name)
+                    Picker(selection: $selectedPlace, label: Text("")) {
+                        Text("공간을 선택해주세요").tag("")
+                        ForEach(announcementStore.roomInfoList, id: \.id) { roomInfoList in
+                            Text(roomInfoList.roomName)
                         }
                     }
                     .accentColor(Color.myBrown)
@@ -45,7 +47,7 @@ struct AnnouncementAddView: View {
                     Button {
                         isSelectedAllPlace.toggle()
                     } label: {
-                        Text("전체 공간 선택")
+                        Text("전체 공간 선택").tag("")
                         Image(systemName: isSelectedAllPlace ? "checkmark.square" : "square")
                     }
                     .buttonStyle(.plain)
@@ -81,8 +83,20 @@ struct AnnouncementAddView: View {
             VStack{
                 Spacer()
                 Button {
-                    let newAnnouncement = Announcement(title: announcementTitle, content: announcementContent, places: [])
-                    announcementStore.addAnnouncmentDummy(announcement: newAnnouncement)
+                    if isSelectedAllPlace {
+                        selectedPlaces = announcementStore.roomInfoList
+                        
+                    } else if selectedPlace == "공간을 선택해주세요" {
+                        isShowingAlert.toggle()
+                        
+                        return
+                        
+                    } else if let selectedRoomInfo = announcementStore.roomInfoList.first(where: { $0.id == selectedPlace }) {
+                        selectedPlaces = [selectedRoomInfo]
+                    }
+                    
+                    let newAnnouncement = Announcement(title: announcementTitle, content: announcementContent)
+                    announcementStore.addAnnouncement(announcement: newAnnouncement, selectedPlaces: selectedPlaces)
                     dismiss()
                     
                 } label: {
@@ -95,6 +109,12 @@ struct AnnouncementAddView: View {
                         .cornerRadius(15)
                 }
             }
+            .alert(isPresented: $isShowingAlert) {
+                Alert(
+                    title: Text("공간을 선택해주세요."),
+                    dismissButton: .default(Text("확인"))
+                )
+            }
             .padding(.horizontal, 20)
             .navigationTitle("공간 공지 등록")
             .navigationBarTitleDisplayMode(.inline)
@@ -104,8 +124,6 @@ struct AnnouncementAddView: View {
         }
     }
 }
-
-
 
 struct AnnouncementAddView_Previews: PreviewProvider {
     static var previews: some View {

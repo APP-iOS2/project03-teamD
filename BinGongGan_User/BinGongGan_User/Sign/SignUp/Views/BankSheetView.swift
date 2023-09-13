@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import BinGongGanCore
 
 struct BankSheetView: View {
     @Binding var isShowingSheet: Bool

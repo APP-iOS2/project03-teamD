@@ -10,6 +10,8 @@ import BinGongGanCore
 
 struct HomeView: View {
     
+    @EnvironmentObject private var rervationStore : RervationStore
+    
     var body: some View {
         ZStack {
             Color.myBackground
@@ -25,6 +27,7 @@ struct HomeView: View {
                 }
                 
                 CategoryButtonsView()
+                    .environmentObject(rervationStore)
                     .frame(maxWidth: .infinity, maxHeight: .infinity)
                     .padding(.horizontal, 20)
                     .padding(.bottom, 30)
@@ -36,11 +39,32 @@ struct HomeView: View {
                         .foregroundColor(Color.black)
                     Spacer()
                 }
+                if !rervationStore.isLoading {
+                    ProgressView()
+                    
+                } else {
+                    if rervationStore.recentData.count > 0{
+                        ForEach(0..<rervationStore.recentData.count, id: \.self) { index in
+                            ReservationCell(data:rervationStore.recentData[index], isHiddenRightButton: true)
+                                .environmentObject(rervationStore)
+                                .padding(.bottom, 12)
+                                .padding(.horizontal, 20)
+                        }
+                    } else {
+                        Text("신규 예약이 없습니다.")
+                            .font(.body1Regular)
+                            .padding(.vertical, 80)
+                    }
+                }
                 
-                ForEach(0..<5) { _ in
-                    ReservationCell(isHiddenRightButton: true)
-                        .padding(.bottom, 12)
-                        .padding(.horizontal, 20)
+            }
+            .refreshable {
+                Task{
+                    await rervationStore.fetchData() { success in
+                        if success {
+                            rervationStore.isLoading = true
+                        }
+                    }
                 }
             }
             .toolbar {
@@ -59,13 +83,16 @@ struct HomeView: View {
             }
             .background(Color.myBackground)
         }
+        .onAppear {
+            print(AuthStore.userUid)
+        }
     }
 }
 
 struct HomeView_Previews: PreviewProvider {
     static var previews: some View {
         NavigationStack {
-            HomeView()
+            HomeView().environmentObject(RervationStore())
         }
     }
 }

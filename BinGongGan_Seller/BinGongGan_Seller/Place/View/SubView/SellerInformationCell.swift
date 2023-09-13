@@ -6,14 +6,17 @@
 //
 
 import SwiftUI
+import BinGongGanCore
 
 struct SellerInformationCell: View {
+    var seller: Seller
+    
     var body: some View {
         VStack(alignment: .leading, spacing: 15) {
             HStack {
                 Spacer()
                 Text("대표")
-                Text("차은우")
+                Text("\(seller.name)")
                     .bold()
             } //: HStack
             
@@ -25,23 +28,23 @@ struct SellerInformationCell: View {
                 HStack {
                     Text("Mobile")
                     Spacer()
-                    Text("010-1111-1111")
+                    Text("\(seller.phoneNumber)")
                 }
                 HStack {
                     Text("E-mail")
                     Spacer()
-                    Text("test@test.com")
+                    Text("\(seller.email)")
                         .accentColor(.black)
                 }
                 HStack {
                     Text("Acc No.")
                     Spacer()
-                    Text("국민 46390204174780")
+                    Text("국민 \(seller.accountNumber)")
                 }
                 HStack {
                     Text("EID")
                     Spacer()
-                    Text("사업자 등록 번호")
+                    Text("사업자 등록 번호 \(seller.registrationNum)")
                 }
             }
         }
@@ -54,6 +57,20 @@ struct SellerInformationCell: View {
 
 struct SellerInformationCell_Previews: PreviewProvider {
     static var previews: some View {
-        SellerInformationCell()
+        SellerInformationCell(
+            seller:
+                Seller(
+                    id: "",
+                    name: "",
+                    birthDate: "",
+                    bankName: "",
+                    accountNumber: "",
+                    phoneNumber: "",
+                    email: "",
+                    nickname: "",
+                    password: "",
+                    registrationNum: "",
+                    registrationImage: "")
+        )
     }
 }

@@ -6,39 +6,74 @@
 //
 
 import Foundation
+import SwiftUI
 
-struct SignIn {
-    var id: String = UUID().uuidString
-    var email: String = "test"
-    var password: String = "test"
-}
 
 final class SignInStore: ObservableObject {
-    @Published var signIns: [SignIn] = [
-        SignIn(email: "test", password: "test")
-    ]
-    @Published var isSuccessSignIn: Bool = true
     
-    // 로그인 버튼
-    func checkSignIn(email: String, password: String) -> Bool {
-        if email == signIns[0].email && password == signIns[0].password {
-            print("성공")
-            isSuccessSignIn = true
-            return false
-        } else {
-            print("실패")
-            isSuccessSignIn = false
-            return true
+    @Published var emailText: String = ""
+    @Published var passwordText: String = ""
+    
+    @Published var isShowingAlert: Bool = false
+    @Published var isDisableSignInButton: Bool = false
+    
+    @Published var alertDescription: String = ""
+    
+    @Published var isSignedIn: Bool = false
+    
+    @MainActor
+    func checkSignIn() {
+        isDisableSignInButton = true
+        Task {
+            let result = try await AuthStore.signIn(email: emailText, password: passwordText)
+            self.alertDescription = result.description
+            
+            switch result {
+            case .signIn:
+                isSignedIn = true
+            default:
+                isShowingAlert = true
+            }
+            self.isDisableSignInButton = false
         }
     }
     
-    // 프리뷰를 위한 코드
-    var sampleSignIn: SignIn {
-        SignIn(email: "user@naver.com", password: "123456")
+    @MainActor
+    func signOut() {
+        Task {
+            let result = try AuthStore.signOut()
+            if result {
+                isSignedIn = false
+                emailText = ""
+                passwordText = ""
+            }
+        }
     }
     
-    //로그아웃
-    func logout() {
-        isSuccessSignIn = false
-    }
+//    // 파이어베이스에서 로그인
+//        @MainActor
+//        func signIn() async throws -> Bool {
+//            do {
+//                //파이어베이스 인증 결과값 가져오기
+//                let signInResult = try await Auth.auth().signIn(withEmail: signIns.email, password: signIns.password)
+//                //uid 값 담아서 User객체 생성하기
+//                let user = signIns.changeToUserModel(id: signInResult.user.uid)
+//                //UserStore에 가서 User값 fetch하기
+//                try await UserStore.saveUserData(user: user)
+//                return true
+//            } catch {
+//                print(error.localizedDescription)
+//                return false
+//            }
+//        }
+//
+//    // 프리뷰를 위한 코드
+//    var sampleSignIn: SignInData {
+//        SignInData(email: "user@naver.com", password: "123456")
+//    }
+//
+//    //로그아웃
+//    func logout() {
+//        isSuccessSignIn = false
+//    }
 }

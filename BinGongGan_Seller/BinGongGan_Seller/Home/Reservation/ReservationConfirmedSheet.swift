@@ -12,7 +12,7 @@ struct ReservationConfirmedSheet: View {
     private let uiViewWidth = UIScreen.main.bounds.width
     @State var isSelectedRefusalButton: Bool = false
     @State var isSelectedApprovalButton: Bool = false
-    
+    let data : SellerReservation
     var body: some View {
         VStack {
             HStack{
@@ -23,13 +23,12 @@ struct ReservationConfirmedSheet: View {
                 Spacer()
             }
             
-            ReservationCell(isHiddenRightButton: false)
-                .padding(.bottom, 12)
-                .padding(.horizontal, 20)
-            
-            Text("예약 취소시에 위약금이 발생할 수 있습니다.")
-                .foregroundColor(.red)
-                .bold()
+            ReservationCell(data: data, isHiddenRightButton: false)
+            .padding(.bottom, 12)
+            .padding(.horizontal, 20)
+//            Text("예약 취소시에 위약금이 발생할 수 있습니다.")
+//                .foregroundColor(.red)
+//                .bold()
             Spacer()
             
             HStack {
@@ -38,7 +37,7 @@ struct ReservationConfirmedSheet: View {
                 } label: {
                     HStack {
                         Spacer()
-                        Text("예약취소")
+                        Text("예약 확정")
                             .font(.body1Bold)
                             .foregroundColor(.white)
                         Spacer()
@@ -50,18 +49,18 @@ struct ReservationConfirmedSheet: View {
             }
         }
         .background(Color.myBackground)
-        .alert(isPresented: $isSelectedApprovalButton) {
-            Alert(title: Text("예약 취소"),
-                  message: Text("해당 확정 예약을 취소하시겠습니까?"),
-                  primaryButton: .destructive(Text("취소"),
-                                              action: {}),
-                  secondaryButton: .cancel(Text("돌아가기")))
-        }
+//        .alert(isPresented: $isSelectedApprovalButton) {
+//            Alert(title: Text("예약 취소"),
+//                  message: Text("해당 확정 예약을 취소하시겠습니까?"),
+//                  primaryButton: .destructive(Text("취소"),
+//                                              action: {}),
+//                  secondaryButton: .cancel(Text("돌아가기")))
+//        }
     }
 }
 
 struct ReservationConfirmedSheet_Previews: PreviewProvider {
     static var previews: some View {
-        ReservationConfirmedSheet()
+        ReservationConfirmedSheet(data: SellerReservation(id: "", userEmail: "", roomID: "", reservationYear: "", reservationMonth: "", reservationDay: "", checkInYear: "", checkInMonth: "", checkInDay: "", checkOutYear: "", checkOutMonth: "", checkOutDay: "", placeID: "", hour: 0, personnel: 0, reservationName: "", reservationPhoneNumber: "", reservationRequest: "", reservationState: 0))
     }
 }

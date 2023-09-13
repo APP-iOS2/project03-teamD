@@ -9,14 +9,18 @@ import SwiftUI
 import BinGongGanCore
 
 struct ReservationCell: View {
+    
+    @EnvironmentObject private var rervationStore : RervationStore
+    let data : SellerReservation
     @State private var isPresentedModal: Bool = false
     var reservationStateType: ReservationStateType = .waitReservation
     @State var isHiddenRightButton: Bool
-
+    
+    
     var body: some View {
         VStack(alignment: .leading) {
             HStack {
-                ReservationDeadlineCell()
+                ReservationDeadlineCell(date:data.calcDate ?? "")
                 Spacer()
                 
                 if isHiddenRightButton {
@@ -33,65 +37,65 @@ struct ReservationCell: View {
             .padding(.bottom, 5)
             
             HStack {
-                Text("ABCD키친")
-                    .font(.headline)
-                    .bold()
-                
-                Text("#132")
-                    .font(.headline)
-                    .bold()
-            }
-            .foregroundColor(Color.black)
-            .padding(.bottom, 5)
+                Text(data.reservationName)
+                .font(.headline)
+                .bold()
             
-            HStack {
-                Text("인원")
-                    .font(.subheadline)
-                    .foregroundColor(Color.myBrown)
-                Spacer()
-                Text("오영석 외 3명")
-                    .foregroundColor(Color.black)
-            }
-            .padding(.bottom, 5)
-            
-            HStack{
-                Text("일정")
-                    .font(.subheadline)
-                    .foregroundColor(Color.myBrown)
-                Spacer()
-                Text("09월 13일 11:00 - 12:00")
-                    .foregroundColor(Color.black)
-            }
-            .padding(.bottom, 5)
-            
-            HStack{
-                Text("번호")
-                    .font(.subheadline)
-                    .foregroundColor(Color.myBrown)
-                Spacer()
-                Image(systemName: "phone.fill")
-                    .foregroundColor(Color.black)
-                Text("010-7320-9330")
-                    .foregroundColor(Color.black)
-            }
+                Text(data.id)
+                .font(.headline)
+                .bold()
         }
+        .foregroundColor(Color.black)
+        .padding(.bottom, 5)
+        
+        HStack {
+            Text("인원")
+                .font(.subheadline)
+                .foregroundColor(Color.myBrown)
+            Spacer()
+            Text("\(data.reservationName) 외 \(data.personnel)명")
+                .foregroundColor(Color.black)
+        }
+        .padding(.bottom, 5)
+        
+        HStack{
+            Text("일정")
+                .font(.subheadline)
+                .foregroundColor(Color.myBrown)
+            Spacer()
+            Text(data.checkInDateString)
+                .foregroundColor(Color.black)
+        }
+        .padding(.bottom, 5)
+        
+        HStack{
+            Text("번호")
+                .font(.subheadline)
+                .foregroundColor(Color.myBrown)
+            Spacer()
+            Image(systemName: "phone.fill")
+                .foregroundColor(Color.black)
+            Text(data.reservationPhoneNumber)
+                .foregroundColor(Color.black)
+        }
+    }
         .padding(.horizontal, 20)
         .padding(.vertical, 15)
         .frame(maxWidth: .infinity)
         .background(Color.white)
         .cornerRadius(15)
         .sheet(isPresented: self.$isPresentedModal) {
-            switch reservationStateType {
+            switch  rervationStore.selectedType {
             case .waitReservation :
-                ReservationDetailSheet()
+                ReservationDetailSheet(data: data)
                     .presentationDetents([.medium])
                     .cornerRadius(15)
             case .cancelReservation :
-                ReservationCancelSheet()
+                ReservationCancelSheet(data: data)
                     .presentationDetents([.medium])
                     .cornerRadius(15)
             case .confirmedReservation:
-                ReservationConfirmedSheet()
+                ReservationConfirmedSheet(data: data)
                     .presentationDetents([.medium])
                     .cornerRadius(15)
             }
@@ -101,6 +105,6 @@ struct ReservationCell: View {
 
 struct ReservationCell_Previews: PreviewProvider {
     static var previews: some View {
-        ReservationCell(isHiddenRightButton: true)
+        ReservationCell(data: SellerReservation(id: "", userEmail: "", roomID: "", reservationYear: "", reservationMonth: "", reservationDay: "", checkInYear: "", checkInMonth: "", checkInDay: "", checkOutYear: "", checkOutMonth: "", checkOutDay: "", placeID: "", hour: 0, personnel: 0, reservationName: "", reservationPhoneNumber: "", reservationRequest: "", reservationState: 0), isHiddenRightButton: true)
     }
 }

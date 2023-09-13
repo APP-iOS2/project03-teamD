@@ -40,7 +40,7 @@ struct HomeEventTapView: View {
             }
         }// GeometryReader
         .tabViewStyle(PageTabViewStyle())
-        .frame(width: HomeNameSpace.screenWidth, height: HomeNameSpace.screenHeight * 0.3)
+        .frame(width: HomeNameSpace.screenWidth, height: HomeNameSpace.screenHeight * 0.5)
         .overlay(alignment: .bottomTrailing) {
             ZStack {
                 Rectangle()

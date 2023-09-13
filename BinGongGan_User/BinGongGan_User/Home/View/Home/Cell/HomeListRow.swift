@@ -10,7 +10,7 @@ import BinGongGanCore
 
 struct HomeListRow: View {
     
-    @State var place: GongGanPlace
+    @State var place: Place
     
     var body: some View {
         NavigationLink {
@@ -18,7 +18,7 @@ struct HomeListRow: View {
         } label: {
             VStack {
                 HStack {
-                    AsyncImage(url: URL(string: "\(place.placeImageStringList[0])"), content: { image in
+                    AsyncImage(url: URL(string: "\(place.placeImageString)"), content: { image in
                         image
                             .resizable()
                             .aspectRatio(contentMode: .fill)

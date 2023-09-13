@@ -5,30 +5,15 @@
 //  Created by 오영석 on 2023/09/12.
 //
 
-import Foundation
 import BinGongGanCore
 import FirebaseFirestore
+import SwiftUI
 
 class AnnouncementStore: ObservableObject {
-    @Published var announcementList: [Announcement] = [
-        Announcement(title: "hello", content: "hello", places: [PlaceInfo(id: "1", name: "Place 1")]),
-        Announcement(title: "hi", content: "hi", places: [PlaceInfo(id: "1", name: "Place 1")])
-    ]
-    @Published var placeInfoList: [PlaceInfo] = []
-    
+    @Published var roomInfoList: [RoomAnnouncement] = []
+    @Published var announcementList: [RoomAnnouncement] = []
+    let sellerUid = AuthStore.userUid
     let dataBase = Firestore.firestore()
-    
-    //    let dataBase = Firestore.firestore().collection("Place")
-    //
-    //    func addAnnouncement(announcement: Announcement) {
-    //        dataBase.document(announcement.id)
-    //            .setData(announcement.asDictionary())
-    //                print("공지 등록 완료")
-    //    }
-    
-    func addAnnouncmentDummy(announcement: Announcement) {
-        announcementList.append(announcement)
-    }
     
     func formattedDate(from date: Double) -> String {
         let dateFormatter = DateFormatter()
@@ -36,22 +21,94 @@ class AnnouncementStore: ObservableObject {
         return dateFormatter.string(from: Date(timeIntervalSince1970: date))
     }
     
-    func placeInfoFetch() {
-        dataBase.collection("Room").getDocuments { (querySnapshot, error) in
-            guard let querySnapshot = querySnapshot, error == nil else {
-                print("패치 에러")
-                
-                return
-            }
+    func fetchRoomInfo() async {
+        do {
+            let querySnapshot = try await dataBase.collection("Room").getDocuments()
             
-            for document in querySnapshot.documents {
-                let data = document.data()
-                
-                if let id = data["id"] as? String, let name = data["name"] as? String {
-                    let placeInfo = PlaceInfo(id: id, name: name)
-                    self.placeInfoList.append(placeInfo)
+            DispatchQueue.main.async {
+                let data = querySnapshot.documents.compactMap { document in
+                    let data = document.data()
+                    
+                    return RoomAnnouncement(
+                        id: data["id"] as? String ?? "",
+                        roomName: data["name"] as? String ?? "",
+                        placeId: data["placeId"] as? String ?? ""
+                    )
+                }
+                self.roomInfoList = data.filter{
+                    $0.placeId == self.sellerUid
+                }
+                print(self.roomInfoList)
+            }
+        } catch {
+            print("공지사항 공간정보 패치 에러")
+        }
+    }
+    
+    func fetchRoomAnnouncement() async {
+        do {
+            let querySnapshot = try await dataBase.collection("RoomAnnouncement").getDocuments()
+            
+            DispatchQueue.main.async {
+                self.announcementList = querySnapshot.documents.compactMap { document in
+                    let data = document.data()
+                    
+                    let id = data["id"] as? String ?? ""
+                    let roomName = data["roomName"] as? String ?? ""
+                    let announcementsData = data["announcements"] as? [[String: Any]] ?? []
+                    
+                    let announcements = announcementsData.compactMap { announcementData -> Announcement? in
+                        guard
+                            let title = announcementData["title"] as? String,
+                            let content = announcementData["content"] as? String,
+                            let date = announcementData["date"] as? Double
+                        else {
+                            return nil
+                        }
+                        
+                        return Announcement(title: title, content: content, date: date)
+                    }
+                    
+                    return RoomAnnouncement(id: id, roomName: roomName, placeId: "", announcements: announcements)
+                }
+            }
+        } catch {
+            print("공지사항 공간정보 패치 에러")
+        }
+    }
+    
+    func addAnnouncement(announcement: Announcement, selectedPlaces: [RoomAnnouncement]) {
+        for selectedPlace in selectedPlaces {
+            let documentRef = dataBase.collection("RoomAnnouncement").document(selectedPlace.id)
+            
+            documentRef.getDocument { (document, error) in
+                if let document = document, document.exists {
+                    documentRef.updateData([
+                        "announcements": FieldValue.arrayUnion([announcement.asDictionary()])
+                    ]) { error in
+                        if error != nil {
+                            print("공지(만) 추가 에러")
+                        } else {
+                            print("Announcement updated successfully for \(selectedPlace.roomName)")
+                        }
+                    }
+                } else {
+                    documentRef.setData([
+                        "id": selectedPlace.id,
+                        "roomName": selectedPlace.roomName,
+                        "announcements": [announcement.asDictionary()]
+                    ]) { error in
+                        if error != nil {
+                            print("공간 및 공지 추가 에러")
+                        } else {
+                            print("Announcement added successfully for \(selectedPlace.roomName)")
+                        }
+                    }
                 }
             }
         }
+    }
+    
+    func deleteAnnouncement(announcement: Announcement, from roomInfo: RoomAnnouncement) {
     }
 }

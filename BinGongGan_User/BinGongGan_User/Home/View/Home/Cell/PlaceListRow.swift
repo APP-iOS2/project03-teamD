@@ -10,7 +10,7 @@ import BinGongGanCore
 
 struct PlaceListRow: View {
     
-    @State var place: GongGanPlace
+    @State var place: Place
     @State private var backGroundWitdh: CGFloat = HomeNameSpace.screenWidth * 0.9
     @State private var backGroundHeight: CGFloat = HomeNameSpace.screenHeight * 0.75
     var body: some View {
@@ -20,7 +20,7 @@ struct PlaceListRow: View {
         } label: {
             VStack(alignment: .leading) {
                 
-                AsyncImage(url: URL(string: "\(place.placeImageStringList[0])") ) { image in
+                AsyncImage(url: URL(string: "\(place.placeImageString)") ) { image in
                     image
                         .resizable()
                         .aspectRatio(contentMode: .fill)
@@ -46,10 +46,6 @@ struct PlaceListRow: View {
                         .foregroundColor(.black)
                     
                     HStack {
-                        Text("\(place.price ?? 0) / 시간 당")
-                            .font(.body1Regular)
-                            .foregroundColor(.black)
-                        Spacer()
                         Text("최대 인원 00명")
                             .font(.body1Regular)
                         .foregroundColor(.black)

@@ -10,25 +10,21 @@ import FirebaseFirestoreSwift
 import FirebaseFirestore
 import Firebase
 import BinGongGanCore
+import FirebaseStorage
 
 @MainActor
 final class HomeStore: ObservableObject {
     
-
-    // MARK: - Published Properties
-    
-    @Published var places: [Place] = [] // 장소 목록
-    @Published var EventList: [Event] = [] // 이벤트 목록
-    @Published var hotPlace: [Place] = [] // 인기 장소 목록
-    @Published var recommendPlace: [Place] = [] // 추천 장소 목록
-    @Published var filteredArray: [Place] = [] // 필터링된 장소 목록
-    @Published var recentlyWords: [String] = [] // 최근 검색어 목록
-    @Published var cities: [City] = [] // 도시 목록
-    @Published var selectedCategory: String = "밴드룸" // 선택된 카테고리
-    @Published var selectSub: [String] = [] // 선택된 서브 카테고리 목록
-    
-    // MARK: - Other Properties
-    
+    @Published var places: [Place] = []
+    @Published var EventList: [Event] = []
+    @Published var hotPlace: [Place] = []
+    @Published var recommendPlace: [Place] = []
+    @Published var filteredArray: [Place] = []
+    @Published var recentlyWords: [String] = []
+    @Published var cities: [City] = []
+    @Published var selectedCategory: String = "밴드룸"
+    @Published var selectSub: [String] = []
+   
     var categories: [Category] = [
         Category(category: "쉐어오피스", categoryImageString:  "building.2"),
         Category(category: "밴드룸", categoryImageString:  "music.mic"),
@@ -37,8 +33,6 @@ final class HomeStore: ObservableObject {
     ]
     
     let dbRef = Firestore.firestore().collection("Place")
-    
-    // MARK: - Initializer
     
     init() {
         cities = cityArray
@@ -50,65 +44,65 @@ final class HomeStore: ObservableObject {
             settingRecommendPlace()
         }
     }
-  
-    // MARK: - Async Functions
+    
     func fetchPlaces() async {
         do {
-            var tempStore: [GongGanPlace] = []
+            var tempStore: [Place] = []
             let querySnapshot = try await dbRef.getDocuments()
-
+            
             for document in querySnapshot.documents {
-                let data = document.data()
-                let addressMap: [String: Any] = data["address"] as? [String: Any] ?? [:]
-
-
                 
+                let data = document.data()
+                let sellerId: String = data["sellerId"] as? String ?? "sellerId"
+                let placeName = data["placeName"] as? String ?? "placeName"
                 let placeCategoryString = data["placeCategory"] as? String ?? "Share"
                 let placeCategory = PlaceCategory.fromRawString(placeCategoryString)
-
+                let placeImageStringList: [String] = data["placeImageStringList"] as? [String] ?? [""]
+//                print("\(placeName) 의 사진 배열 \(placeImageStringList)")
+                let note = data["note"] as? [String] ?? [""]
+                let placeInfomationList =  data["placeInfomationList"] as? [String] ?? [""]
+                
+                let addressMap: [String: Any] = data["address"] as? [String: Any] ?? [:]
+                let addressAddress = addressMap["address_name"] as? String ?? "addressAddress"
+                let addressPlaceName = addressMap["placeName_name"] as? String ?? "placeName"
+                let addressLongiture = addressMap["x"] as? String ?? "x"
+                let addressLatitude = addressMap["y"] as? String ?? "y"
+                
                 let place = Place(
-                    sellerId: data["sellerId"] as? String ?? "sellerId",
-                    placeName: data["placeName"] as? String ?? "placeName",
-                    placeCategory: placeCategory, // 변환한 열거형을 사용
-                    placeImageStringList: data["placeImageStringList"] as? [String] ?? [""],
-                    note: data["note"] as? [String] ?? [""],
-                    placeInfomationList: data["placeInfomationList"] as? [String] ?? [""],
+                    sellerId: sellerId,
+                    placeName: placeName,
+                    placeCategory: placeCategory,
+                    placeImageStringList: placeImageStringList,
+                    note: note,
+                    placeInfomationList: placeInfomationList,
                     address: Address(
-                        address: addressMap["address_name"] as? String ?? "sellerId",
-                        placeName: addressMap["placeName_name"] as? String ?? "placeName",
-                        longitude: addressMap["x"] as? String ?? "x",
-                        latitude: addressMap["y"] as? String ?? "x")
-
+                        address: addressAddress,
+                        placeName: addressPlaceName,
+                        longitude: addressLongiture,
+                        latitude: addressLatitude
+                    )
                 )
-                print(place.placeCategory)
                 tempStore.append(place)
             }
             self.places = tempStore
         } catch {
-
             print("Error fetching Place: \(error)")
         }
     }
 
-    // MARK: - Filtering Functions
-
     var filteredCategoryCity: [Place] {
         return places.filter { place in
-            let placetest = place.address.address.components(separatedBy: " ") // 주소 정보를 사용합니다.
-            var testBoll: [Bool] = []
+            let address = place.address.address.components(separatedBy: " ")
+            var addressArray: [Bool] = []
 
-            for i in placetest {
+            for i in address {
                 if selectSub.contains(i) {
-                    testBoll.append(true)
+                    addressArray.append(true)
                 }
             }
-
-            return selectSub.isEmpty ? place.placeCategory.placeCategoryName == selectedCategory : place.placeCategory.placeCategoryName == selectedCategory && testBoll.contains(true)
-            
+            return selectSub.isEmpty ? place.placeCategory.placeCategoryName == selectedCategory : place.placeCategory.placeCategoryName == selectedCategory && addressArray.contains(true)
         }
     }
-
-    // MARK: - Search Function
 
     func searchPlaceName( keyWord: String) {
 
@@ -124,10 +118,6 @@ final class HomeStore: ObservableObject {
             }
         }
     }
-    
-
-    // MARK: - Event and Recommendation Functions
-
     
     func settingEventBanner() {
         for i in eventImageArray.shuffled() {
@@ -153,7 +143,7 @@ final class HomeStore: ObservableObject {
     }
     
     func settingRecommendPlace() {
-        var temp: [GongGanPlace] = places
+        var temp: [Place] = places
         var count: Int = 0
         temp.shuffle()
         recommendPlace.removeAll()
@@ -167,8 +157,6 @@ final class HomeStore: ObservableObject {
         }
     }
     
-    // MARK: - Recent Search Word Functions
-    
     func addRecentlyWord(word: String) {
         recentlyWords.append(word)
     }
@@ -179,14 +167,12 @@ final class HomeStore: ObservableObject {
         }
     }
     
-    // MARK: - Mung Functions
-    
     @Published var mungImageCount: Int = 0
     @Published var mungText: [String] = ["고마워요.", "놀랐죠?", "이스터에그에요", "눌러줘서"]
     @Published var mungImage: [String] = ["mungmoongE4", "mungmoongE1", "mungmoongE2", "mungmoongE3"]
     
     func addMungCount() {
-        if mungImageCount == 3 {
+        if mungImageCount == mungImage.count - 1 {
             mungImageCount = 0
         } else {
             mungImageCount += 1

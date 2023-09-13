@@ -9,8 +9,8 @@ import SwiftUI
 import BinGongGanCore
 
 struct CategoryButtonsView: View {
-    @StateObject private var myStore: MyStore = MyStore()
-
+    @StateObject private var myInfoStore: MyInfoStore = MyInfoStore()
+    @EnvironmentObject private var rervationStore : RervationStore
     let columns: [GridItem] = Array(repeating: .init(.flexible()), count: 4)
  
     var body: some View {
@@ -20,19 +20,18 @@ struct CategoryButtonsView: View {
                     switch category {
                     case .managementReservation:
                         ReservationDetailsView()
+                            .environmentObject(rervationStore)
                     case .managementReview:
                         ReviewManageView()
                     case .announcement:
                         AnnouncementView(announcementStore: AnnouncementStore())
-                    case .event:
-                        EmptyView()
                     case .myPlace:
                         MyPlaceView()
                     case .statistics:
                         ChartView()
                     case .myInformation:
                         MyInfoView()
-                            .environmentObject(myStore)
+                            .environmentObject(myInfoStore)
                     }
                     
                 } label: {

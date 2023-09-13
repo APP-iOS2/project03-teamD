@@ -9,6 +9,7 @@ import SwiftUI
 import BinGongGanCore
 
 struct MyPlaceView: View {
+    @StateObject private var myPlaceStore: MyPlaceStore = MyPlaceStore()
     @StateObject private var roomStore: RoomStore = RoomStore()
 
     var body: some View {
@@ -18,8 +19,10 @@ struct MyPlaceView: View {
             
             VStack {
                 Section {
-                    SellerInformationCell()
-                        .padding([.bottom, .leading, .trailing])
+                    if let seller = myPlaceStore.seller {
+                        SellerInformationCell(seller: seller)
+                            .padding([.bottom, .leading, .trailing])
+                    }
                 } header: {
                     HStack {
                         Text("내 정보")
@@ -41,7 +44,7 @@ struct MyPlaceView: View {
                                         
                                         if i != 3 {
                                             MySpaceCell()
-                                                .frame(width: cardSize.width - 20)
+                                                .frame(width: abs(cardSize.width - 20))
                                         } else {
                                             NavigationLink {
                                                 RoomAddView()
@@ -50,7 +53,7 @@ struct MyPlaceView: View {
                                                 ZStack {
                                                     RoundedRectangle(cornerRadius: 15)
                                                         .fill(.white)
-                                                        .frame(width: cardSize.width - 20)
+                                                        .frame(width: abs(cardSize.width - 20))
                                                     
                                                     VStack {
                                                         Image(systemName: "plus.square.fill.on.square.fill").font(.title)
@@ -63,7 +66,7 @@ struct MyPlaceView: View {
                                             }
                                         }
                                     }
-                                    .frame(width: size.width - 50, height: size.width - 10)
+                                    .frame(width: abs(size.width - 50), height: abs(size.width - 10))
                                 }
                             }
                             .padding(EdgeInsets(top: 0, leading: 20, bottom: 0, trailing: 10))
@@ -71,7 +74,7 @@ struct MyPlaceView: View {
                     }
                 } header: {
                     HStack {
-                        Text("내 공간")
+                        Text("내 방")
                             .padding([.top, .leading], 20)
                             .font(.head1Bold)
                         Spacer()
@@ -81,22 +84,9 @@ struct MyPlaceView: View {
         }
         .background(Color.myBackground)
         .navigationBarBackButtonHidden(true)
+        .navigationTitle("내 공간")
         .navigationBarTitleDisplayMode(.inline)
         .scrollContentBackground(.hidden)
-        .toolbar {
-            ToolbarItem(placement: .navigationBarLeading) {
-                HStack{
-                    Image("HomeLogo")
-                        .resizable()
-                        .aspectRatio(contentMode: .fit)
-                        .frame(width: 40, height: 40)
-                    Text("BinGongGan")
-                        .bold()
-                        .foregroundColor(Color.myBrown)
-                }
-                .padding(EdgeInsets(top: 10, leading: 10, bottom: 15, trailing: 0))
-            }
-        }
         .customBackbutton()
     }
 }

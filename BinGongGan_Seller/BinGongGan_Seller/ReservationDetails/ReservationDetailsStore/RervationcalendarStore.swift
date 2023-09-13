@@ -8,17 +8,17 @@
 import Foundation
 
 
-class RervationCalendarStore : ObservableObject{
+final class RervationCalendarStore : ObservableObject{
     
     @Published var reservationData = [ReservationCalendar]()
     
     init() {
         //더미데이터
-        reservationData.append(ReservationCalendar(reservationDetails: [ReservationCalendar.ReservationDetails(title: "공유 오피스")], reservationDate: self.stringtoDate(dateString: "2023-08-08 14:30:00")!))
-        reservationData.append(ReservationCalendar(reservationDetails: [ReservationCalendar.ReservationDetails(title: "공유 오피스")], reservationDate: Date()))
-        reservationData.append(ReservationCalendar(reservationDetails: [ReservationCalendar.ReservationDetails(title: "공유 오피스")], reservationDate: self.stringtoDate(dateString: "2023-09-10 14:30:00")!))
-        reservationData.append(ReservationCalendar(reservationDetails: [ReservationCalendar.ReservationDetails(title: "공유 오피스")], reservationDate: self.stringtoDate(dateString: "2023-09-13 14:30:00")!))
-        reservationData.append(ReservationCalendar(reservationDetails: [ReservationCalendar.ReservationDetails(title: "공유 오피스")], reservationDate: self.stringtoDate(dateString: "2023-10-13 14:30:00")!))
+//        reservationData.append(ReservationCalendar(reservationDetails: [ReservationCalendar.ReservationDetails(title: "공유 오피스")], reservationDate: self.stringtoDate(dateString: "2023-08-08 14:30:00")!))
+//        reservationData.append(ReservationCalendar(reservationDetails: [ReservationCalendar.ReservationDetails(title: "공유 오피스")], reservationDate: Date()))
+//        reservationData.append(ReservationCalendar(reservationDetails: [ReservationCalendar.ReservationDetails(title: "공유 오피스")], reservationDate: self.stringtoDate(dateString: "2023-09-10 14:30:00")!))
+//        reservationData.append(ReservationCalendar(reservationDetails: [ReservationCalendar.ReservationDetails(title: "공유 오피스")], reservationDate: self.stringtoDate(dateString: "2023-09-13 14:30:00")!))
+//        reservationData.append(ReservationCalendar(reservationDetails: [ReservationCalendar.ReservationDetails(title: "공유 오피스")], reservationDate: self.stringtoDate(dateString: "2023-10-13 14:30:00")!))
     }
     
     func isSameDay(date1: Date, date2: Date) -> Bool {

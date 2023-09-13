@@ -17,8 +17,8 @@ struct ChartView: View {
     @State private var pickedPlace: String = ""
     
     var places: [Place] = [
-        Place(sellerId: "", placeName: "공간1", placeCategory: .Share, placeImageStringList: [], note: [], placeInfomationList: [], address: .init(address: "", placeName: "", longitude: "", latitude: "")),
-        Place(sellerId: "", placeName: "공간2", placeCategory: .Share, placeImageStringList: [], note: [], placeInfomationList: [], address: .init(address: "", placeName: "", longitude: "", latitude: "")),
+        Place(sellerId: "", placeName: "공간1", placeCategory: .share, placeImageStringList: [], note: [], placeInfomationList: [], address: .init(address: "", placeName: "", longitude: "", latitude: "")),
+        Place(sellerId: "", placeName: "공간2", placeCategory: .share, placeImageStringList: [], note: [], placeInfomationList: [], address: .init(address: "", placeName: "", longitude: "", latitude: "")),
     ]
     
     var body: some View {
@@ -83,20 +83,6 @@ struct ChartView: View {
         .navigationBarBackButtonHidden(true)
         .navigationBarTitleDisplayMode(.inline)
         .scrollContentBackground(.hidden)
-        .toolbar {
-            ToolbarItem(placement: .navigationBarLeading) {
-                HStack{
-                    Image("HomeLogo")
-                        .resizable()
-                        .aspectRatio(contentMode: .fit)
-                        .frame(width: 40, height: 40)
-                    Text("BinGongGan")
-                        .bold()
-                        .foregroundColor(Color.myBrown)
-                }
-                .padding(EdgeInsets(top: 10, leading: 10, bottom: 15, trailing: 0))
-            }
-        }
         .customBackbutton()
     }
 }
