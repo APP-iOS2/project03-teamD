@@ -28,12 +28,23 @@ struct FavoriteView: View {
             }
             .padding(.top, 10)
         }
+        .refreshable {
+            Task {
+                await gongGan.fetchMyFavorite()
+            }
+        }
+        .onAppear {
+            Task {
+                await gongGan.fetchMyFavorite()
+            }
+        }
         .toolbar {
             ToolbarItem(placement: .navigationBarTrailing) {
                 Button {
                     isHeartButtonShowing.toggle()
                 } label: {
                     Text("Edit")
+                        .foregroundColor(.myBrown)
                 }
             }
         }

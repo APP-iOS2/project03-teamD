@@ -9,7 +9,7 @@ import SwiftUI
 
 struct DetailTabImageView: View {
     
-    @State var imageUrl: [String]
+    @Binding var imageUrl: [String]
     @State private var selectedTab = 0
     private let screenWidth = UIScreen.main.bounds.width
     private let timer = Timer.publish(every: 3, on: .main, in: .common).autoconnect()
@@ -36,6 +36,6 @@ struct DetailTabImageView: View {
 }
 struct DetailTabImageView_Previews: PreviewProvider {
     static var previews: some View {
-        DetailTabImageView(imageUrl: ["https://firebasestorage.googleapis.com/v0/b/bingongganapp.appspot.com/o/reviews%2F63554850-92B7-4D40-A1C1-E1FC10C06DDC%2F63554850-92B7-4D40-A1C1-E1FC10C06DDC0?alt=media&token=cde2a0a7-0642-4eb9-9ff7-de5202aa970a"])
+        DetailTabImageView(imageUrl: .constant( ["https://firebasestorage.googleapis.com:443/v0/b/bingongganapp.appspot.com/o/place%2F785TxPRCwAgeXG3NzHojdWyMGOs2%2FE6FCC596-0915-4492-A5A8-1A0A1244E140.jpeg?alt=media&token=eddd8978-434d-4156-882c-936d333271f8","https://firebasestorage.googleapis.com:443/v0/b/bingongganapp.appspot.com/o/place%2F785TxPRCwAgeXG3NzHojdWyMGOs2%2FE6FCC596-0915-4492-A5A8-1A0A1244E140.jpeg?alt=media&token=eddd8978-434d-4156-882c-936d333271f8"]))
     }
 }

@@ -115,7 +115,7 @@ struct MyReviewRowView: View {
             }
         }
         .navigationDestination(isPresented: $isShowingDetailView) {
-            GongGanDetailView()
+//            GongGanDetailView(placeId: )
         }
         .alert("리뷰 삭제", isPresented: $isShowingRemoveAlert) {
             Button("취소", role: .cancel) {}

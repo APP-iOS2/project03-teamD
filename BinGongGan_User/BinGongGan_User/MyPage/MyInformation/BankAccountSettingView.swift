@@ -9,17 +9,19 @@ import SwiftUI
 import BinGongGanCore
 
 struct BankAccountSettingView: View {
+    @State private var bank: Bank?
     @State private var isPresentedSelectBankSheet: Bool = false
     @State private var isPresentedNumberEditSheet: Bool = false
     @State private var isSelectedBank: Bool = false
     @State private var isClickedEditBankButton: Bool = false
-    @State private var bank: Bank = Bank(name: "카카오뱅크", imageString: "https://play-lh.googleusercontent.com/HTBCHqXZ01RhNVzIDwsA2ARURfzXeHxoWfsmgH92ieCgIG1CuPpJRWqCfJ9KgkwWStko")
+    
+    let currentUser: User
     
     var body: some View {
         Form {
             VStack(alignment: .leading) {
                 HStack(alignment: .center) {
-                    AsyncImage(url: URL(string: bank.imageString)) { image in
+                    AsyncImage(url: URL(string: currentUser.bank?.imageString ?? "")) { image in
                         image
                             .resizable()
                             .aspectRatio(contentMode: .fit)
@@ -30,7 +32,7 @@ struct BankAccountSettingView: View {
                         ProgressView()
                     }
                     
-                    Text("\(bank.name)")
+                    Text("\(currentUser.bank?.name ?? "")")
                         .font(.body1Bold)
                     
                     Spacer()
@@ -48,13 +50,13 @@ struct BankAccountSettingView: View {
                     }
                 }
                 HStack {
-                    Text("3333123456789")
+                    Text("\(currentUser.accountNumber ?? "")")
                         .font(.captionBold)
                         .foregroundColor(.myMediumGray)
                     Divider()
                         .frame(width: 1, height: 15)
                         .background(Color.myLightGray)
-                    Text("손윤호")
+                    Text("\(currentUser.accountHolder ?? "")")
                         .font(.captionRegular)
                         .foregroundColor(.myMediumGray)
                 }
@@ -66,6 +68,9 @@ struct BankAccountSettingView: View {
         .scrollContentBackground(.hidden)
         .background(Color.myBackground)
         .customBackbutton()
+        .onAppear {
+            bank = currentUser.bank
+        }
         .sheet(isPresented: $isPresentedSelectBankSheet) {
             if isSelectedBank {
                 isPresentedNumberEditSheet = true
@@ -95,7 +100,7 @@ struct BankAccountSettingView: View {
 struct BankAccountSettingView_Previews: PreviewProvider {
     static var previews: some View {
         NavigationStack {
-            BankAccountSettingView()
+            BankAccountSettingView(currentUser: User(id: "", email: "", name: "손윤호", nickname: "", phoneNumber: "", password: "", birthDate: "",accountNumber: "33331612345678", accountBank: "카카오뱅크", accountHolder: "손윤호"))
         }
     }
 }
