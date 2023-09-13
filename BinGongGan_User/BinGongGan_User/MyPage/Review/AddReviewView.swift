@@ -17,6 +17,13 @@ struct AddReviewView: View {
     @State var selectedImages: [UIImage] = []
     
     var reservation: BinGongGanCore.Reservation
+    var isDisable: Bool {
+        if reviewText.isEmpty || starRating == 0 {
+            return true
+        } else {
+            return false
+        }
+    }
     
     var body: some View {
         Form {
@@ -67,6 +74,7 @@ struct AddReviewView: View {
                     isShowingAlert.toggle()
                 }
                 .foregroundColor(.myBrown)
+                .disabled(isDisable)
             }
         }
         
