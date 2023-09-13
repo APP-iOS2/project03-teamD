@@ -33,10 +33,19 @@ public class FirestoreService {
         }
     }
     
-    func fetchDocument<T: Decodable>(collectionId: Collections, documentId: String) async throws -> T? {
+    func fetchDocument(collectionId: Collections, documentId: String) async throws -> Any? {
         do {
             let snapshot = try await dbRef.collection(collectionId.rawValue).document(documentId).getDocument()
-            return try snapshot.data(as: T.self)
+            switch collectionId {
+            case .users:
+                return try snapshot.data(as: User.self)
+            case .sellers:
+                return try snapshot.data(as: Seller.self)
+            case .place:
+                return try snapshot.data(as: Place.self)
+            case .room:
+                return try snapshot.data(as: Room.self)
+            }
         } catch {
             return nil
         }
