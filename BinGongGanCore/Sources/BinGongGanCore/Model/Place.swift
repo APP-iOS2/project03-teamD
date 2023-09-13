@@ -13,7 +13,6 @@ public struct Place:Identifiable, Codable {
     public var placeCategory: PlaceCategory //카테고리 -
     public var placeImageStringList: [String] // 이미지 링크 -
     public var placeImageString: String {
-        print("지금 여길 확인하고 있어요 \(placeImageStringList)")
         if !placeImageStringList.isEmpty {
             return placeImageStringList[0]
         } else {
