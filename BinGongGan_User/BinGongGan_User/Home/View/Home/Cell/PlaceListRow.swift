@@ -45,14 +45,20 @@ struct PlaceListRow: View {
                         .font(.body1Regular)
                         .foregroundColor(.black)
                     
-                    HStack {
-                        ForEach(place.placeInfomationString, id: \.self) { placeInformation in
-                            Text(placeInformation)
-                                .font(.captionBold)
-                            .foregroundColor(.myBrown)
-                        }
-                       
-                    }.padding(.top, 4)
+                    
+                    ScrollView(.horizontal, showsIndicators: false) {
+                            HStack {
+                                ForEach(place.placeInfomationString, id: \.self) { placeInformation in
+                                    
+                                    
+                                        Text(placeInformation)
+                                            .font(.captionBold)
+                                        .foregroundColor(.myBrown)
+                                    
+                                }
+                            }
+                        }.frame(height: backGroundHeight * 0.1)
+                    
                     
                 }
                 .frame(height: backGroundHeight * 0.32)

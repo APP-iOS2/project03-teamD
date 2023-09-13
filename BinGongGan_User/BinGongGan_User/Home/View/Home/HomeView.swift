@@ -136,6 +136,11 @@ struct HomeView: View {
                 
                 .padding(.bottom, HomeNameSpace.scrollViewBottomPadding)
             }// SCROLLVIEW
+            .refreshable {
+                await homeStore.fetchPlaces()
+                homeStore.settingRecommendPlace()
+                
+            }
             .navigationBarTitleDisplayMode(.inline)
             .onAppear{
                 homeStore.selectSub.removeAll()
@@ -155,10 +160,8 @@ struct HomeView: View {
                 }
                 ToolbarItem(placement: .navigationBarTrailing) {
                     HStack {
-                        
                         Text("\(myUserStore.currentUser.nickname)님 반가워요~")
                             .font(.captionRegular)
-                        
                     }
                 }
             }
