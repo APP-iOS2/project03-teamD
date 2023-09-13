@@ -42,8 +42,6 @@ struct ChartView: View {
                     HStack {
                         Text("영석키친")
                             .font(.head1Bold)
-                        Text("#132")
-                            .font(.head1Bold)
                         Spacer()
                     }
                     .padding(.bottom, 10)
