@@ -41,10 +41,11 @@ public struct Place:Identifiable, Codable {
 }
 
 public enum PlaceCategory: String, CaseIterable, Identifiable, Codable {
-    case share
-    case band
-    case studio
-    case kitchen
+    case share = "쉐어오피스"
+    case band = "밴드룸"
+    case studio = "스튜디오"
+    case kitchen = "키친룸"
+    case none
     public var id: Self { self }
     
     public var placeCategoryName: String {
@@ -57,6 +58,8 @@ public enum PlaceCategory: String, CaseIterable, Identifiable, Codable {
             return "스튜디오"
         case .kitchen:
             return "키친룸"
+        default:
+            return ""
         }
     }
     

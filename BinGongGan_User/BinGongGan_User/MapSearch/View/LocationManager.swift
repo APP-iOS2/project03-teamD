@@ -25,16 +25,16 @@ final class LocationManager: NSObject, ObservableObject {
     private let locationManager = CLLocationManager()
     @Published var mapView: MKMapView = .init()
     
-    @Published var selectedCategoty: CategoryCase = .none
+    @Published var selectedCategoty: PlaceCategory = .none
     @Published var isShowingList: Bool = false
     @Published var placeList: [Place] = []
     
     @Published var isChaging: Bool = false
-    @Published var isFocusUser: Bool = true
-
         
     private var userLocalcity: String = ""
     private var searchResult: [Place] = []
+    private var seletedPlace: MKAnnotation?
+    private var isSelectedAnnotation: Bool = false
     
     
     var filteredPlaces: [Place] {
@@ -88,6 +88,19 @@ final class LocationManager: NSObject, ObservableObject {
                     do {
                         let place = try snapshot.data(as: Place.self)
                         places.append(place)
+                    } catch let DecodingError.dataCorrupted(context) {
+                        print(context)
+                    } catch let DecodingError.keyNotFound(key, context) {
+                        print("Key '\(key)' not found:", context.debugDescription)
+                        print("codingPath:", context.codingPath)
+                    } catch let DecodingError.valueNotFound(value, context) {
+                        print("Value '\(value)' not found:", context.debugDescription)
+                        print("codingPath:", context.codingPath)
+                    } catch let DecodingError.typeMismatch(type, context)  {
+                        print("Type '\(type)' mismatch:", context.debugDescription)
+                        print("codingPath:", context.codingPath)
+                    } catch {
+                        print("error: ", error)
                     }
                 }
                 print(places)
@@ -101,14 +114,17 @@ final class LocationManager: NSObject, ObservableObject {
 
 extension LocationManager {
     func moveFocusOnUserLocation() {
-        isFocusUser = true
         mapView.showsUserLocation = true
         mapView.setUserTrackingMode(.follow, animated: true)
-        let annotation = mapView.annotations.filter { $0.title == placeList[0].placeName }
-        if annotation.isEmpty == false {
-            mapView.deselectAnnotation(annotation[0], animated: true)
+        if !mapView.annotations.isEmpty && !placeList.isEmpty {
+            print("place => \(placeList)")
+            let annotation = mapView.annotations.filter { $0.title == placeList[0].placeName }
+            if annotation.isEmpty == false {
+                mapView.deselectAnnotation(annotation[0], animated: true)
 
+            }
         }
+        
     }
     
     func moveFocusChange(location: CLLocationCoordinate2D) {
@@ -139,7 +155,6 @@ extension LocationManager {
     func setAnnotations() {
         mapView.removeAnnotations(mapView.annotations)
         
-        
         for place in filteredPlaces {
             let annotation = MKPointAnnotation()
             annotation.title = place.placeName
@@ -152,7 +167,7 @@ extension LocationManager {
         }
     }
     
-    func didSelectCategory(_ category: CategoryCase) {
+    func didSelectCategory(_ category: PlaceCategory) {
         if selectedCategoty == category {
             selectedCategoty = .none
         } else {
@@ -161,8 +176,8 @@ extension LocationManager {
         DispatchQueue.main.async {
             self.placeList = self.filteredPlaces
         }
+        
         setAnnotations()
-
     }
     
 }
@@ -177,21 +192,11 @@ extension LocationManager: CLLocationManagerDelegate {
     }
     
     func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
-        print("비상비상 에러에러 \(error.localizedDescription)")
+        print(error.localizedDescription)
     }
     
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-        if isFocusUser {
-            locationManager.stopUpdatingLocation()
-            locations.last.map { location in
-                DispatchQueue.main.async {
-//                    self.region = MKCoordinateRegion(
-//                        center: location.coordinate,
-//                        span: .init(latitudeDelta: 0.5, longitudeDelta: 0.5)
-//                    )
-                }
-            }
-        }
+       
     }
     
 }
@@ -202,7 +207,6 @@ extension LocationManager: MKMapViewDelegate {
         
         DispatchQueue.main.async {
             self.isShowingList = false
-            self.isFocusUser = false
             self.isChaging = true
         }
     }
@@ -218,17 +222,22 @@ extension LocationManager: MKMapViewDelegate {
     }
     
     func mapView(_ mapView: MKMapView, didSelect annotation: MKAnnotation) {
+        
+        seletedPlace = annotation
         moveFocusChange(location: annotation.coordinate)
-        let place = placeList.filter { $0.placeName == annotation.title }
+
+        let place = filteredPlaces.filter { $0.placeName == annotation.title }
         self.placeList = place
+       
+        isSelectedAnnotation = true
     }
     
     func mapView(_ mapView: MKMapView, didDeselect annotation: MKAnnotation) {
-        DispatchQueue.main.async {
-            self.placeList = self.filteredPlaces
-        }
+        if !isSelectedAnnotation {
+            DispatchQueue.main.async {
+                self.placeList = self.filteredPlaces
+            }
+        } else if selectedCategoty.placeCategoryName
     }
     
 }
-
-

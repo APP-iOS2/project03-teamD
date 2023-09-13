@@ -13,7 +13,7 @@ struct MapSearchView: View {
     @StateObject var locationManager = LocationManager()
     
     @ScaledMetric(wrappedValue: 12, relativeTo: .caption) var paddingWidth
-    @State private var categorys: [CategoryCase] = [.shareOffice, .studio, .shareKitchen, .bandRoom]
+    @State private var categorys: [PlaceCategory] = [.share, .studio, .kitchen, .band]
     @State private var searchText: String = ""
     
     @Binding var tabBarVisivility: Visibility
