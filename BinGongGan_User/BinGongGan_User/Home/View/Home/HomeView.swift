@@ -146,7 +146,7 @@ struct HomeView: View {
                         Image("HomeLogo" )
                             .resizable()
                             .aspectRatio(contentMode: .fit)
-                            .frame(width: 40, height: 40)
+                            .frame(width: 40, height: 35)
                         .padding([.bottom, .leading], 10)
                         Text(isMung ? "mungmoongE" : "BinGongGan")
                             .font(.body1Bold)
