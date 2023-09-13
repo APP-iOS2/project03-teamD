@@ -11,6 +11,7 @@
 		0CEF988C2AB16EAE00F88177 /* MyInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CEF988B2AB16EAE00F88177 /* MyInfo.swift */; };
 		2F143E122AB0574000CB9ED5 /* ReplyStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F143E112AB0574000CB9ED5 /* ReplyStore.swift */; };
 		2F43B7552AB1A1A800B801E4 /* MyPlaceStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F43B7542AB1A1A800B801E4 /* MyPlaceStore.swift */; };
+		3ACEBB022AB1EC4F008F4600 /* BankSheetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ACEBB012AB1EC4F008F4600 /* BankSheetView.swift */; };
 		4B76BBA52AB0526600E07878 /* AnnouncementStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B76BBA42AB0526600E07878 /* AnnouncementStore.swift */; };
 		4B76BBA72AB052EB00E07878 /* AnnouncementAddView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B76BBA62AB052EB00E07878 /* AnnouncementAddView.swift */; };
 		5406F8882AB03A42000A6441 /* CustomSecureField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FD06C9A2AAEE51900D116B9 /* CustomSecureField.swift */; };
@@ -81,6 +82,7 @@
 		543E21BD2AAEF54E00F12A06 /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = 543E21BC2AAEF54E00F12A06 /* FirebaseAuth */; };
 		543E21BF2AAEF54E00F12A06 /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = 543E21BE2AAEF54E00F12A06 /* FirebaseFirestore */; };
 		543E21C12AAEF54E00F12A06 /* FirebaseFirestoreSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 543E21C02AAEF54E00F12A06 /* FirebaseFirestoreSwift */; };
+		54693E802AB231FA003C2B2C /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 54693E7F2AB231FA003C2B2C /* GoogleService-Info.plist */; };
 		6A800A732AB08CDC00F1CE25 /* SignUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A800A722AB08CDC00F1CE25 /* SignUpView.swift */; };
 		6A800A752AB08CEC00F1CE25 /* FirstStepSignUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A800A742AB08CEC00F1CE25 /* FirstStepSignUpView.swift */; };
 		6A800A772AB08CFA00F1CE25 /* SecondStepSignUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A800A762AB08CFA00F1CE25 /* SecondStepSignUpView.swift */; };
@@ -145,6 +147,7 @@
 		2FF048312AAFFB37002A04C3 /* ReviewStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewStore.swift; sourceTree = "<group>"; };
 		2FF048332AAFFC04002A04C3 /* MyPlaceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPlaceView.swift; sourceTree = "<group>"; };
 		2FF048382AB02EDB002A04C3 /* ChartStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartStore.swift; sourceTree = "<group>"; };
+		3ACEBB012AB1EC4F008F4600 /* BankSheetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BankSheetView.swift; sourceTree = "<group>"; };
 		4B74203C2AA80ACC00818257 /* AnnouncementView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnnouncementView.swift; sourceTree = "<group>"; };
 		4B76BBA42AB0526600E07878 /* AnnouncementStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnnouncementStore.swift; sourceTree = "<group>"; };
 		4B76BBA62AB052EB00E07878 /* AnnouncementAddView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnnouncementAddView.swift; sourceTree = "<group>"; };
@@ -162,6 +165,7 @@
 		4BF4FAD42AAF0AEA007F6563 /* AnnouncementShareSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnnouncementShareSheet.swift; sourceTree = "<group>"; };
 		4BF4FB222AAFF1A9007F6563 /* CustomTextEditor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTextEditor.swift; sourceTree = "<group>"; };
 		545AA9C12AA83A8A00A281D0 /* PlaceInfomationModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceInfomationModel.swift; sourceTree = "<group>"; };
+		54693E7F2AB231FA003C2B2C /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		54A2BB932AB0E288001E90F9 /* RoomModifyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoomModifyView.swift; sourceTree = "<group>"; };
 		54D467792AA8A90C00054F12 /* ChartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartView.swift; sourceTree = "<group>"; };
 		54D4677B2AA8AA6200054F12 /* ChartModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartModel.swift; sourceTree = "<group>"; };
@@ -622,6 +626,7 @@
 				6A800A7A2AB08D1600F1CE25 /* FourthSignUpView.swift */,
 				6A800A7C2AB08D2100F1CE25 /* AgreementCheckButton.swift */,
 				6A800A7E2AB08D2B00F1CE25 /* ImagePickerView.swift */,
+				3ACEBB012AB1EC4F008F4600 /* BankSheetView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -742,6 +747,7 @@
 		B12A85012AA7A8DE00BDF8CA /* Config */ = {
 			isa = PBXGroup;
 			children = (
+				54693E7F2AB231FA003C2B2C /* GoogleService-Info.plist */,
 				B12A84722AA6EFE900BDF8CA /* Assets.xcassets */,
 			);
 			path = Config;
@@ -897,6 +903,7 @@
 			files = (
 				B1343A6F2AA901E900DC20EE /* Preview Assets.xcassets in Resources */,
 				B12A84732AA6EFE900BDF8CA /* Assets.xcassets in Resources */,
+				54693E802AB231FA003C2B2C /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -966,6 +973,7 @@
 				5406F8A82AB03A42000A6441 /* ReservationCell.swift in Sources */,
 				5406F8A92AB03A42000A6441 /* ReviewCell.swift in Sources */,
 				5406F8AA2AB03A42000A6441 /* ReviewWithCommentCell.swift in Sources */,
+				3ACEBB022AB1EC4F008F4600 /* BankSheetView.swift in Sources */,
 				5406F8AB2AB03A42000A6441 /* CarouselCell.swift in Sources */,
 				5406F8AC2AB03A42000A6441 /* MySpaceCell.swift in Sources */,
 				5406F8AD2AB03A42000A6441 /* ReservationDeadlineCell.swift in Sources */,
@@ -1171,6 +1179,7 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_CFBundleDisplayName = "빈공간_판매자";
+				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "갤러리 권한 확인";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -1201,6 +1210,7 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_CFBundleDisplayName = "빈공간_판매자";
+				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "갤러리 권한 확인";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;

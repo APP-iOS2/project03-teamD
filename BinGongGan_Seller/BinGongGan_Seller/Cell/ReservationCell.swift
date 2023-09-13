@@ -10,7 +10,7 @@ import BinGongGanCore
 
 struct ReservationCell: View {
     
-//    @EnvironmentObject private var rervationStore : RervationStore
+    @EnvironmentObject private var rervationStore : RervationStore
     let data : SellerReservation
     @State private var isPresentedModal: Bool = false
     var reservationStateType: ReservationStateType = .waitReservation
@@ -85,7 +85,7 @@ struct ReservationCell: View {
         .background(Color.white)
         .cornerRadius(15)
         .sheet(isPresented: self.$isPresentedModal) {
-            switch reservationStateType {
+            switch  rervationStore.selectedType {
             case .waitReservation :
                 ReservationDetailSheet(data: data)
                     .presentationDetents([.medium])

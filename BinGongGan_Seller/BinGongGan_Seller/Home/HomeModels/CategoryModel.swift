@@ -11,7 +11,6 @@ enum CategoryName: String, CaseIterable {
     case managementReservation
     case managementReview
     case announcement
-    case event
     case myPlace
     case statistics
     case myInformation
@@ -28,8 +27,6 @@ enum CategoryName: String, CaseIterable {
             return "리뷰관리"
         case .announcement:
             return "공지사항"
-        case .event:
-            return "이벤트"
         case .myPlace:
             return "내 공간"
         case .statistics:

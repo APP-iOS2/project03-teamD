@@ -8,8 +8,6 @@ import SwiftUI
 import BinGongGanCore
 
 struct AnnouncementOptionCell: View {
-    static var screenWidth = UIScreen.main.bounds.width
-    static var screenHeight = UIScreen.main.bounds.height
     
     var body: some View {
         Form {

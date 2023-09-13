@@ -106,13 +106,6 @@ struct MyInfoView: View {
                     Text("회원 탈퇴")
                         .foregroundColor(.red)
                 }
-                
-                NavigationLink {
-                    PlaceAddView()
-                        .environmentObject(placeStore)
-                } label: {
-                    Text("임시 공간 추가 버튼")
-                }
             }
         }
         .navigationTitle("내 정보")
@@ -141,6 +134,16 @@ struct MyInfoView: View {
             //네비게이션으로 쌓이는 부분 수정해야함
             ContentView() // 로그인뷰로 이동
                 .navigationBarBackButtonHidden()
+        }
+        .toolbar {
+            ToolbarItem(placement: .navigationBarTrailing) {
+                NavigationLink {
+                    PlaceAddView()
+                        .environmentObject(placeStore)
+                } label: {
+                    Image(systemName: "pencil")
+                }
+            }
         }
     }
 }

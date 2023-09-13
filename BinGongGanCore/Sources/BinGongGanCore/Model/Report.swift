@@ -6,14 +6,16 @@
 //
 
 import Foundation
-import FirebaseFirestoreSwift
 
 public struct Report: Identifiable, Codable {
-    public var id: String?
+    public var id: String = UUID().uuidString
+    public var reviewId: String
+    public var sellerId: String
     public var reason: String // 신고 사유
     
-    public init(id: String, reason: String) {
-        self.id = id
+    public init(reviewId: String, sellerId: String, reason: String) {
+        self.reviewId = reviewId
+        self.sellerId = sellerId
         self.reason = reason
     }
 }

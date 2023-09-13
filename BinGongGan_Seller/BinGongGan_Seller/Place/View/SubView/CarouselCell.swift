@@ -6,16 +6,19 @@
 //
 
 import SwiftUI
+import BinGongGanCore
 
 struct CarouselCell: View {
-    var urlStrings: [String] = [
-        "https://t2.daumcdn.net/thumb/R720x0.fpng/?fname=http://t1.daumcdn.net/brunch/service/user/6bWv/image/enpC-LVvOM4EI120_-QsMhntxUM.png",
-        "https://byline.network/wp-content/uploads/2020/01/kitchen1.jpg"
-    ]
+    
+    var room: Room
+//    var urlStrings: [String] = [
+//        "https://t2.daumcdn.net/thumb/R720x0.fpng/?fname=http://t1.daumcdn.net/brunch/service/user/6bWv/image/enpC-LVvOM4EI120_-QsMhntxUM.png",
+//        "https://byline.network/wp-content/uploads/2020/01/kitchen1.jpg"
+//    ]
     
     var body: some View {
         TabView {
-            ForEach(urlStrings, id: \.self) { urlString in
+            ForEach(room.imageNames, id: \.self) { urlString in
                 AsyncImage(url: URL(string: urlString)) { image in
                     image
                         .resizable()
@@ -32,6 +35,6 @@ struct CarouselCell: View {
 
 struct CarouselCell_Previews: PreviewProvider {
     static var previews: some View {
-        CarouselCell()
+        CarouselCell(room: Room())
     }
 }
