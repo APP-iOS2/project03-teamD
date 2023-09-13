@@ -9,37 +9,48 @@ import Foundation
 import BinGongGanCore
 import FirebaseFirestore
 
+
 class RoomStore: ObservableObject {
     @Published var room: Room = Room()
     @Published var rooms: [Room] = []
+    let fireStoreService = FirestoreService()
     let dataBase = Firestore.firestore().collection("Room")
     
-    func addRoom(placeId: String, roomName: String, roomPrice: String, roomNote: String, imageNames: [String]) {
-        room.placeId = placeId
+    func addRoom(room: Room, completion: @escaping () -> Void) async {
+        do {
+            try await fireStoreService.saveDocument(collectionId: .room, documentId: room.id, data: room)
+        } catch {
+            print("Error addRoom : \(error)")
+        }
+        completion()
+    
+        print("방 추가 완료")
+    }
+    
+    func updateRoom(roomId: String) async {
+        do {
+           try await dataBase.document(roomId)
+                .setData(room.asDictionary())
+        } catch {
+            print("Error addRoom : \(error)")
+        }
+    }
+    
+    func fetchRooms()  {
         
-        let newRoom: Room = Room(placeId: placeId, name: roomName, price: roomPrice, note: roomNote, imageNames: imageNames)    
-        dataBase.document(newRoom.id)
-            .setData(newRoom.asDictionary())
-        print("방 추가 완료")
-    }
-    
-    func updateRoom(roomId: String) {
-        dataBase.document(room.id)
-            .setData(room.asDictionary())
-        print("방 추가 완료")
-    }
-    
-    func fetchRooms() {
-        dataBase.whereField("placeId", isEqualTo: "heewkwon").getDocuments { (document, error) in
-            self.rooms = []
-            if let error = error {
-                print("Error fetching data: \(error)")
-            } else {
-                for document in document!.documents {
-                    if let rooms = try? document.data(as: Room.self) {
-                        self.rooms.append(rooms)
-                    } else {
-                        print("Error")
+       
+        do {
+            dataBase.whereField("placeId", isEqualTo: "heewkwon").getDocuments { (document, error) in
+                self.rooms = []
+                if let error = error {
+                    print("Error fetching data: \(error)")
+                } else {
+                    for document in document!.documents {
+                        if let rooms = try? document.data(as: Room.self) {
+                            self.rooms.append(rooms)
+                        } else {
+                            print("Error")
+                        }
                     }
                 }
             }

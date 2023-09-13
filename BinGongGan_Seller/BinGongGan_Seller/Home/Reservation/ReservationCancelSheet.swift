@@ -10,8 +10,9 @@ import BinGongGanCore
 
 struct ReservationCancelSheet: View {
     private let uiViewWidth = UIScreen.main.bounds.width
-    
+    let data : SellerReservation
     @State var isSelectedApprovalButton: Bool = false
+    
     
     var body: some View {
         VStack{
@@ -23,7 +24,7 @@ struct ReservationCancelSheet: View {
                 Spacer()
             }
             
-            ReservationCell(isHiddenRightButton: false)
+            ReservationCell(data:data,isHiddenRightButton: false)
                 .padding(.bottom, 12)
                 .padding(.horizontal, 20)
             
@@ -42,6 +43,6 @@ struct ReservationCancelSheet: View {
 
 struct ReservationCancelSheet_Previews: PreviewProvider {
     static var previews: some View {
-        ReservationCancelSheet()
+        ReservationCancelSheet(data: SellerReservation(id: "", userEmail: "", roomID: "", reservationYear: "", reservationMonth: "", reservationDay: "", checkInYear: "", checkInMonth: "", checkInDay: "", checkOutYear: "", checkOutMonth: "", checkOutDay: "", placeID: "", hour: 0, personnel: 0, reservationName: "", reservationPhoneNumber: "", reservationRequest: "", reservationState: 0))
     }
 }
