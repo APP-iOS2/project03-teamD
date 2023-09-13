@@ -32,6 +32,11 @@ struct MyReviewListView: View {
         .scrollContentBackground(.hidden)
         .background(Color.myBackground, ignoresSafeAreaEdges: .all)
         .navigationBarBackButtonHidden(true)
+        .onAppear {
+            Task {
+                try await myReviewStore.fetchReviews()
+            }
+        }
     }
 }
 

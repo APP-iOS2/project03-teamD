@@ -109,14 +109,15 @@ class MyReviewStore: ObservableObject {
         
     }
     
-    func removeReview(reviewId: String?) {
+    func removeReview(reviewId: String?) async throws {
         guard let id = reviewId else { return }
         
-        dbRef.collection(Collections.reviews.rawValue).document(id).delete()
+        try? await dbRef.collection(Collections.reviews.rawValue).document(id).delete()
         storage.child("reviews").child(id).delete { error in
             if let error = error {
                 print(error)
             }
         }
+        try await fetchReviews()
     }
 }
