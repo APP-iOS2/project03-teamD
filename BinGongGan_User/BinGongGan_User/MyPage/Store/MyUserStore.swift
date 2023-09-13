@@ -13,10 +13,6 @@ import FirebaseFirestoreSwift
 final class MyUserStore: ObservableObject {
     @Published var currentUser: User = User(id: "", email: "", name: "", nickname: "", phoneNumber: "", password: "", birthDate: "")
     
-    init() {
-        Task { try await fetchCurrentUser() }
-    }
-    
     @MainActor
     func fetchCurrentUser() async throws {
         do {
