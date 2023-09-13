@@ -28,12 +28,13 @@ struct ReviewManageView: View {
                     Section {
                         ForEach(reviewStore.reviewList) { review in
                             NavigationLink {
-                                ReviewManageDetailView(review: review)
+                                ReviewManageDetailView(replyStore: replyStore, reportStore: reportStore, review: review)
+
+                            } label: {
+                                ReviewCell(review: review)
                                     .environmentObject(reviewStore)
                                     .environmentObject(replyStore)
                                     .environmentObject(reportStore)
-                            } label: {
-                                ReviewCell(review: review)
                             }
                         }
                     } header: {
@@ -60,10 +61,10 @@ struct ReviewManageView: View {
     }
 }
 
-struct ReviewManageView_Previews: PreviewProvider {
-    static var previews: some View {
-        NavigationStack {
-            ReviewManageView()
-        }
-    }
-}
+//struct ReviewManageView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        NavigationStack {
+//            ReviewManageView()
+//        }
+//    }
+//}
