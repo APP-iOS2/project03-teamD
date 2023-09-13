@@ -11,20 +11,24 @@ import BinGongGanCore
 struct SubGongGanSelectView: View {
     @EnvironmentObject var gongGan: GongGanStore
     @Binding var isReservationActive: Int?
+    @Binding var roomId: String
     @State var selectedSpaceIndex: Int? = nil
     private let screenWidth = UIScreen.main.bounds.width
     
     var body: some View {
-        VStack {
+        NavigationStack {
             Group {
-                VStack(alignment: .leading, spacing: 10) {
-                    Text(gongGan.gongGanInfo.placeName)
-                        .font(.title2)
-                    Text(gongGan.gongGanInfo.placeLocation)
-                        .foregroundColor(Color.myDarkGray)
+                HStack {
+                    VStack(alignment: .leading, spacing: 10) {
+                        Text(gongGan.gongGanInfo.placeName)
+                            .font(.title2)
+                        Text(gongGan.gongGanInfo.placeLocation)
+                            .foregroundColor(Color.myDarkGray)
+                    }
+                    Spacer()
                 }
             }
-            .padding(EdgeInsets(top: 5, leading: 10, bottom: 0, trailing: 10))
+            .padding(EdgeInsets(top: 5, leading: 25, bottom: 0, trailing: 10))
             
             
             
@@ -73,6 +77,7 @@ struct SubGongGanSelectView: View {
                             } else {
                                 selectedSpaceIndex = index
                                 isReservationActive = index
+                                roomId = gongGan.gongGanInfo.detailGongGan[index].id
                             }
                         } label: {
                             VStack {
@@ -118,7 +123,7 @@ struct SubGongGanSelectView: View {
 
 struct SubGongGanSelectView_Previews: PreviewProvider {
     static var previews: some View {
-        SubGongGanSelectView(isReservationActive: .constant(nil))
+        SubGongGanSelectView(isReservationActive: .constant(nil), roomId: .constant(""))
             .environmentObject(GongGanStore())
     }
 }
