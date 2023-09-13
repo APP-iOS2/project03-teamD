@@ -17,8 +17,8 @@ struct ChartView: View {
     @State private var pickedPlace: String = ""
     
     var places: [Place] = [
-        Place(sellerId: "", placeName: "공간1", placeCategory: .Share, placeImageStringList: [], note: [], placeInfomationList: [], address: .init(address: "", placeName: "", longitude: "", latitude: "")),
-        Place(sellerId: "", placeName: "공간2", placeCategory: .Share, placeImageStringList: [], note: [], placeInfomationList: [], address: .init(address: "", placeName: "", longitude: "", latitude: "")),
+        Place(sellerId: "", placeName: "공간1", placeCategory: .share, placeImageStringList: [], note: [], placeInfomationList: [], address: .init(address: "", placeName: "", longitude: "", latitude: "")),
+        Place(sellerId: "", placeName: "공간2", placeCategory: .share, placeImageStringList: [], note: [], placeInfomationList: [], address: .init(address: "", placeName: "", longitude: "", latitude: "")),
     ]
     
     var body: some View {

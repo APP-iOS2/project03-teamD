@@ -16,7 +16,7 @@ struct ReservationDetailsCalendarView: View {
     
     var body: some View {
         VStack{
-            ReservationDatePickerView(currentDate: $currentDate).environmentObject(rervationCalendarStore)
+            ReservationDatePickerView(currentDate: $currentDate).environmentObject(rervationCalendarStore).padding(EdgeInsets(top: 0, leading: 15, bottom: 10, trailing: 15))
             ReservationDetailsSegmentView()
                 .padding(EdgeInsets(top: 20, leading: 20, bottom: 10, trailing: 20))
             
