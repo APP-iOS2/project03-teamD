@@ -166,6 +166,21 @@ final class ReservationStore: ObservableObject {
         
     }
     
+    func getUserEmail(userId: String) {
+        
+        let docRef = dataBase.collection("users").document(userId)
+        
+        docRef.getDocument() { (document, error) in
+            if let document = document {
+                let data = document.data()
+                let email = data?["email"] as? String ?? "none"
+                self.reservation.userEmail = email
+            } else {
+                print("Document does not exist in cache")
+            }
+        }
+    }
+    
     func getReservationPrice() -> Int {
         
         var allPrice: Int = 0

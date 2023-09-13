@@ -76,9 +76,8 @@ struct ReservationView: View {
         .customBackbutton()
         .onAppear {
             if reservationStore.reservation.userEmail.isEmpty {
-                //reservationStore.reservation.userEmail = email
                 reservationStore.fetchReservationRoom(roomID: roomID)
-                //reservationStore.reservation.userEmail = signUpStore.signUpData.emailId
+                reservationStore.getUserEmail(userId: AuthStore.$userUid.wrappedValue)
             }
         }
     }
