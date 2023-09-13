@@ -6,11 +6,13 @@
 //
 
 import Foundation
+import BinGongGanCore
 import FirebaseFirestore
 
- class FirestoreService {
-    private let dbRef = Firestore.firestore()
+ final class FirestoreService {
 
+    private let dbRef = Firestore.firestore()
+    
     func saveDocument<T: Codable>(collectionId: Collections, data: T) async throws {
         do {
             try dbRef.collection(collectionId.rawValue).addDocument(from: data.self)
@@ -22,7 +24,7 @@ import FirebaseFirestore
     }
     
     func saveDocument<T: Codable>(collectionId: Collections, documentId: String,
-        data: T) async throws {
+                                  data: T) async throws {
         do {
             try dbRef.collection(collectionId.rawValue).document(documentId).setData(from: data.self)
             print("Success to save new document at \(collectionId.rawValue) \(documentId)")
@@ -31,4 +33,19 @@ import FirebaseFirestore
             throw error
         }
     }
+    
+    func fetchDocument<T: Codable>(collectionId: Collections, documentId: String) async throws -> T? {
+        do {
+            let snapshot = try await dbRef.collection(collectionId.rawValue).document(documentId).getDocument()
+            switch collectionId {
+            case .users:
+                return try snapshot.data(as: User.self) as? T
+            case .sellers:
+                return try snapshot.data(as: Seller.self) as? T
+            }
+        } catch {
+            return nil
+        }
+    }
+    
 }

@@ -7,12 +7,14 @@
 
 import SwiftUI
 import FirebaseFirestoreSwift
+import BinGongGanCore
 
 enum CategoryCase: String {
-    case shareOffice = "공유오피스"
+    case shareOffice = "쉐어오피스"
     case bandRoom = "밴드룸"
     case studio = "스튜디오"
-    case shareKitchen = "공유주방"
+    case shareKitchen = "키친룸"
+    case none
 }
 
 struct Event: Identifiable {
@@ -32,27 +34,14 @@ struct Category : Identifiable {
     }
 }
 
-struct Place : Identifiable, Hashable {
-    var id = UUID().uuidString
-    var placeName: String
-    let category: String
-    let placeLocation: String
-    let placePrice: Int
-    let imageString: String
-    var imageURL: URL {
-        URL(string: imageString)!
-    }
-    var isFavorite: Bool
-}
-
 
 let eventImageArray: [String] = [
-    "https://media.discordapp.net/attachments/1148158635667632149/1149282476380934234/2023-09-07_6.58.09.png?width=1410&height=408",
-    "https://media.discordapp.net/attachments/1148158635667632149/1149282166413459536/2023-09-07_6.56.57.png?width=1410&height=402",
-    "https://media.discordapp.net/attachments/1148158635667632149/1149282573181276170/canva---------Gpco5qgYLmU.jpg?width=1410&height=352",
-    "https://media.discordapp.net/attachments/1148158635667632149/1149282573550362666/canva--------BGJr497I-OM.jpg?width=1410&height=352",
-    "https://media.discordapp.net/attachments/1148158635667632149/1149282573881724979/canva----------mp-LcAtJ4yQ.jpg?width=1410&height=528",
-    "https://media.discordapp.net/attachments/1148158635667632149/1149282575689469993/canva--------zIbSUFxMP-c.jpg?width=1410&height=470",
+    "https://www.wolyo.co.kr/news/photo/201904/81998_50222_4657.png",
+    "https://www.gvalley.co.kr/news/photo/202302/608488_79015_2725.jpg",
+    "https://t1.daumcdn.net/cfile/tistory/9914E63B5B34D7B53C",
+    "https://www.sisaweek.com/news/photo/201811/116056_99680_3841.png",
+    "https://cdn.mc-plus.net/news/photo/202206/12444_35508_3057.jpg",
+    "https://cdn.mc-plus.net/news/photo/202206/12444_35506_3056.jpg",
 ]
-
+let dummyImageArray: [String] = []
 

@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import BinGongGanCore
 
 struct PlaceListRow: View {
     
@@ -18,7 +19,8 @@ struct PlaceListRow: View {
             GongGanDetailView()
         } label: {
             VStack(alignment: .leading) {
-                AsyncImage(url: place.imageURL ) { image in
+                
+                AsyncImage(url: URL(string: "\(place.placeFirstImage)") ) { image in
                     image
                         .resizable()
                         .aspectRatio(contentMode: .fill)
@@ -39,15 +41,11 @@ struct PlaceListRow: View {
                             .foregroundColor(.black)
                             
                     }
-                    Text("\(place.placeLocation)")
+                    Text("\(place.address.address)")
                         .font(.body1Regular)
                         .foregroundColor(.black)
                     
                     HStack {
-                        Text("\(place.placePrice) / 시간 당")
-                            .font(.body1Regular)
-                            .foregroundColor(.black)
-                        Spacer()
                         Text("최대 인원 00명")
                             .font(.body1Regular)
                         .foregroundColor(.black)
@@ -70,10 +68,6 @@ struct PlaceListRow: View {
                     .shadow(radius: 1)
             )
         }
-        .onAppear{
-            print(place.placeLocation)
-        }
-        
     }
 }
 

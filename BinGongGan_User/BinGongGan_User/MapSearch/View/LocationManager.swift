@@ -10,6 +10,7 @@ import MapKit
 import Firebase
 import FirebaseFirestore
 import FirebaseFirestoreSwift
+import BinGongGanCore
 
 // 작동 방식
 // 1. 시작 시 자신의 gps위치로 고정 -> 자신 주변의 place들을 핀으로 찍음
@@ -24,26 +25,30 @@ final class LocationManager: NSObject, ObservableObject {
     private let locationManager = CLLocationManager()
     @Published var mapView: MKMapView = .init()
     
-    @Published var selectedCategoty: String = ""
+    @Published var selectedCategoty: CategoryCase = .none
     @Published var isShowingList: Bool = false
-    @Published var placeList: [SamplePlace] = []
+    @Published var placeList: [Place] = []
     
     @Published var isChaging: Bool = false
     @Published var isFocusUser: Bool = true
 
         
     private var userLocalcity: String = ""
-    private var searchResult: [SamplePlace] = []
+    private var searchResult: [Place] = []
     
-    var filteredPlaces: [SamplePlace] {
+    
+    var filteredPlaces: [Place] {
         return searchResult.filter { place in
             let placetest = place.address.address.components(separatedBy: " ")
             
             let isEqualLocalcity = placetest.filter { $0 == userLocalcity }.count > 0
-            let isEqualCategory = place.placeCategory == selectedCategoty
             
-            
-            return isEqualCategory && isEqualLocalcity
+            if selectedCategoty == .none {
+                return isEqualLocalcity
+            } else {
+                let isEqualCategory = place.placeCategory.rawValue == selectedCategoty.rawValue
+                return isEqualCategory && isEqualLocalcity
+            }
         }
     }
     
@@ -72,6 +77,26 @@ final class LocationManager: NSObject, ObservableObject {
         }
     }
     
+    func fetchAnotations() {
+        Task {
+            do {
+                let snapshots = try await Firestore.firestore().collection("Place").getDocuments()
+                
+                print(snapshots.documents.count)
+                var places: [Place] = []
+                try snapshots.documents.forEach { snapshot in
+                    do {
+                        let place = try snapshot.data(as: Place.self)
+                        places.append(place)
+                    }
+                }
+                print(places)
+                searchResult = places
+            } catch {
+                print(error.localizedDescription)
+            }
+        }
+    }
 }
 
 extension LocationManager {
@@ -79,10 +104,15 @@ extension LocationManager {
         isFocusUser = true
         mapView.showsUserLocation = true
         mapView.setUserTrackingMode(.follow, animated: true)
+        let annotation = mapView.annotations.filter { $0.title == placeList[0].placeName }
+        if annotation.isEmpty == false {
+            mapView.deselectAnnotation(annotation[0], animated: true)
+
+        }
     }
     
     func moveFocusChange(location: CLLocationCoordinate2D) {
-        let span = MKCoordinateSpan(latitudeDelta: 0.05, longitudeDelta: 0.05)
+        let span = MKCoordinateSpan(latitudeDelta: 0.02, longitudeDelta: 0.01)
         
         let region = MKCoordinateRegion(center: location, span: span)
         mapView.setRegion(region, animated: true)
@@ -100,66 +130,39 @@ extension LocationManager {
             
             if self.userLocalcity != placemark.subLocality ?? "주소없음" {
                 self.userLocalcity = placemark.subLocality ?? "주소없음"
-                
-                Task {
-                    await self.fetchAnotations()
-                }
+                self.setAnnotations()
             }
-            print(self.userLocalcity)
             return
         }
     }
     
-    func fetchAnotations() async {
-        do {
-            let snapshots = try await Firestore.firestore().collection("Place").getDocuments()
-            
-            var places: [SamplePlace] = []
-            try snapshots.documents.forEach { snapshot in
-                do {
-                    let place = try snapshot.data(as: SamplePlace.self)
-                    places.append(place)
-                    
-                }
-            }
-            print(places)
-            searchResult = places
-            placeList = filteredPlaces
-            setAnnotations()
-        } catch {
-            print(error.localizedDescription)
-        }
-
-    }
-    
     func setAnnotations() {
-        var resultPlace: [SamplePlace] = []
-        switch selectedCategoty {
-        case "":
-            resultPlace = searchResult
-        default:
-            resultPlace = searchResult.filter { $0.placeCategory == selectedCategoty }
-        }
+        mapView.removeAnnotations(mapView.annotations)
         
-        for place in resultPlace {
+        
+        for place in filteredPlaces {
             let annotation = MKPointAnnotation()
             annotation.title = place.placeName
-            annotation.coordinate = CLLocationCoordinate2D(latitude: place.address.latitude, longitude: place.address.longitude)
+            annotation.coordinate = CLLocationCoordinate2D(latitude: place.address.latitudeDouble, longitude: place.address.longitudeDouble)
             mapView.addAnnotation(annotation)
         }
-    }
-    
-    func didSelectCategory(_ category: String) {
-        if selectedCategoty == category {
-            selectedCategoty = ""
-        } else {
-            selectedCategoty = category
-            setAnnotations()
+        
+        DispatchQueue.main.async {
+            self.placeList = self.filteredPlaces
         }
     }
     
-    func selectAnnotation() {
-        
+    func didSelectCategory(_ category: CategoryCase) {
+        if selectedCategoty == category {
+            selectedCategoty = .none
+        } else {
+            selectedCategoty = category
+        }
+        DispatchQueue.main.async {
+            self.placeList = self.filteredPlaces
+        }
+        setAnnotations()
+
     }
     
 }
@@ -208,72 +211,24 @@ extension LocationManager: MKMapViewDelegate {
         let location: CLLocation = CLLocation(latitude: mapView.centerCoordinate.latitude, longitude: mapView.centerCoordinate.longitude)
         
         self.convertCLLocationToAddress(location: location)
-
+        
         DispatchQueue.main.async {
             self.isChaging = false
         }
     }
     
     func mapView(_ mapView: MKMapView, didSelect annotation: MKAnnotation) {
-//        if l
+        moveFocusChange(location: annotation.coordinate)
+        let place = placeList.filter { $0.placeName == annotation.title }
+        self.placeList = place
+    }
+    
+    func mapView(_ mapView: MKMapView, didDeselect annotation: MKAnnotation) {
+        DispatchQueue.main.async {
+            self.placeList = self.filteredPlaces
+        }
     }
     
 }
 
 
-struct SamplePlace:Identifiable, Codable {
-    public var id: String = UUID().uuidString //id
-    public var placeName: String //이름
-    public var placePrice: String //가격
-    public var placeCategory: String //카테고리
-    public var placeImageStringList: [String] // 이미지 링크
-    public var note: String //이용시 주의 사항
-    public var placeInfomationList: [String] //공간 정보
-    public var address: Address //주소
-    
-    public init(placeName: String, placePrice: String, placeCategory: String, placeImageStringList: [String], note: String, placeInfomationList: [String], address: Address) {
-        self.placeName = placeName
-        self.placePrice = placePrice
-        self.placeCategory = placeCategory
-        self.placeImageStringList = placeImageStringList
-        self.note = note
-        self.placeInfomationList = placeInfomationList
-        self.address = address
-    }
-    
-//    static let myRegion = Sam
-    
-    static let sample = SamplePlace(placeName: "돌초밥", placePrice: "1000", placeCategory: "공유오피스", placeImageStringList: [], note: "", placeInfomationList: [], address: Address(address: "봉천동", placeName: "돌초밥", x: "126.964", y: "37.4774"))
-    
-    static let sample2 = SamplePlace(placeName: "공차", placePrice: "11000", placeCategory: "스튜디오", placeImageStringList: [], note: "", placeInfomationList: [], address: Address(address: "사당동", placeName: "공차", x: "126.9615", y: "37.4781"))
-    
-    
-}
-
-public struct Address: Codable, Identifiable {
-    public var id: UUID = UUID()
-    public var address: String
-    public var placeName: String
-    public var x:String
-    public var y:String
-    public var longitude: Double {
-        return Double(x) ?? 0
-    }
-    public var latitude: Double {
-        return Double(y) ?? 0
-    }
-    
-    public enum CodingKeys: String, CodingKey {
-        case address = "address_name"
-        case placeName = "place_name"
-        case x = "x"
-        case y = "y"
-    }
-    
-    public init(address: String, placeName: String, x: String, y: String) {
-        self.address = address
-        self.placeName = placeName
-        self.x = x
-        self.y = y
-    }
-}

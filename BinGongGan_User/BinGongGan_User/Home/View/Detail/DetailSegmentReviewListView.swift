@@ -8,14 +8,18 @@
 import SwiftUI
 
 struct DetailSegmentReviewListView: View {
-    let tempText: [String] = ["맛있어요", "맛있어요맛있어요", "맛있어요맛있어요맛있어요맛있어요맛있어요", "맛있어요맛있어요맛있어요맛있어요맛있어요"]
+    @EnvironmentObject var gongGan: GongGanStore
     
     var body: some View {
         NavigationStack {
-            ForEach(Array(tempText.enumerated()), id: \.element) { (index, element) in
-                DetailReviewRowView(text: element)
+            VStack {
+                ForEach(gongGan.reviews) { review in
+                    DetailReviewRowView(review: review)
+                }
             }
+            .padding(.bottom, 50)
         }
+        .padding()
     }
 }
 
@@ -24,5 +28,6 @@ struct DetailSegmentReviewListView: View {
 struct DetailSegmentReviewListView_Previews: PreviewProvider {
     static var previews: some View {
         DetailSegmentReviewListView()
+            .environmentObject(GongGanStore())
     }
 }

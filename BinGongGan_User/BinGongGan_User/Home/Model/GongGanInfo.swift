@@ -88,9 +88,14 @@ struct GongGan: Identifiable {
                                         "비상주 서비스",
                                         "다양한 크기의 회의실 구비 (4인~10인) *1인실 ~ 4인실 구비"
                                        ], placeGuide: [
-                                        PlaceGuide(text: "와이파이", systemImage: "wifi"),
-                                        PlaceGuide(text: "주차 가능", systemImage: "car"),
-                                        PlaceGuide(text: "TV/프로젝터", systemImage: "tv.and.mediabox"),
+                                        PlaceGuide(labelTitle: "와이파이"),
+                                        PlaceGuide(labelTitle: "주차장"),
+                                        PlaceGuide(labelTitle: "반려동물"),
+                                        PlaceGuide(labelTitle: "냉난방시설"),
+                                        PlaceGuide(labelTitle: "화재경보기"),
+                                        PlaceGuide(labelTitle: "소화기"),
+                                        PlaceGuide(labelTitle: "엘리베이터"),
+                                        PlaceGuide(labelTitle: "흡연실"),
                                        ]
     )
 }
@@ -123,19 +128,28 @@ struct DetailGongGan: Identifiable {
 
 struct PlaceGuide: Identifiable {
     var id: String = UUID().uuidString
-    var text: String
-    var systemImage: String
+    var labelTitle: String
+    var systemImage: String {
+        switch labelTitle {
+        case "와이파이":
+            return "wifi"
+        case "주차장":
+            return "parkingsign"
+        case "반려동물":
+            return "pawprint.fill"
+        case "냉난방시설":
+            return "air.conditioner.horizontal.fill"
+        case "화재경보기":
+            return "flame"
+        case "소화기":
+            return "person"
+        case "엘리베이터":
+            return "door.sliding.left.hand.closed"
+        case "흡연실":
+            return "smoke.fill"
+            
+        default:
+            return "exclamationmark.circle.fill"
+        }
+    }
 }
-
-final class GongGanStore: ObservableObject {
-    @Published var gongGanInfo: GongGan = GongGan.sampleGongGan
-    
-}
-final class MyFavoriteStore: ObservableObject {
-    @Published var myFavoriteGongGan : [GongGan] = [
-        GongGan.sampleGongGan,
-        GongGan.sampleGongGan,
-    ]
-    
-}
-

@@ -6,11 +6,10 @@
 //
 
 import SwiftUI
-
-
+import BinGongGanCore
 
 struct SummaryPlaceView: View {
-    var place: SamplePlace
+    var place: Place
     
     var body: some View {
         RoundedRectangle(cornerRadius: 8)
@@ -23,7 +22,7 @@ struct SummaryPlaceView: View {
                         VStack(alignment: .leading) {
                             Text(place.placeName)
                                 .font(.headline)
-                            Text(place.note)
+                            Text(place.note[0])
                                 .font(.footnote)
                         }
                         Spacer()
@@ -41,7 +40,7 @@ struct SummaryPlaceView: View {
                     }
                     .padding()
                     
-                    Text(place.note)
+                    Text(place.note[0])
                         .padding([.leading, .trailing, .bottom])
                     Spacer()
                 }
