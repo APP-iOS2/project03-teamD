@@ -74,7 +74,7 @@ struct MyPlaceView: View {
                     }
                 } header: {
                     HStack {
-                        Text("내 공간")
+                        Text("내 방")
                             .padding([.top, .leading], 20)
                             .font(.head1Bold)
                         Spacer()
@@ -84,6 +84,7 @@ struct MyPlaceView: View {
         }
         .background(Color.myBackground)
         .navigationBarBackButtonHidden(true)
+        .navigationTitle("내 공간")
         .navigationBarTitleDisplayMode(.inline)
         .scrollContentBackground(.hidden)
         .customBackbutton()

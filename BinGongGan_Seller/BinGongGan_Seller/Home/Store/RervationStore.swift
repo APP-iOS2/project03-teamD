@@ -16,15 +16,20 @@ final class RervationStore : ObservableObject{
     @Published var canceldata = [SellerReservation]()
     @Published var waitldata = [SellerReservation]()
     @Published var confilmedldata = [SellerReservation]()
+    @Published var isLoading: Bool = false
     let dbRef = Firestore.firestore().collection("Reservation")
     let sellerUid = AuthStore.userUid
     init() {
         Task {
-            await fetchData()
+            await fetchData() { success in
+                if success {
+                    self.isLoading = true
+                }
+            }
         }
     }
     
-    @MainActor func fetchData() async {
+    @MainActor func fetchData(completion: @escaping (Bool) -> ()) async {
         do {
             let snapshot = try await dbRef.getDocuments()
             
@@ -32,7 +37,7 @@ final class RervationStore : ObservableObject{
                 try $0.data(as: SellerReservation.self)
             }
 //            print(data)
-            filterData()
+            filterData(completion: completion)
         } catch {
             print("Error fetching reviews: \(error)")
         }
@@ -40,7 +45,7 @@ final class RervationStore : ObservableObject{
 //    public var reservationDateString: String {
 //        return
 //    }
-    func filterData(){
+    func filterData(completion: @escaping (Bool) -> ()){
        let mydata = data.filter { data in
             data.placeID == sellerUid
         }
@@ -64,6 +69,7 @@ final class RervationStore : ObservableObject{
             $0.reservationState == 1 || $0.reservationState == 2
         }
         self.confilmedldata = confilmedldata
+        completion(true)
     }
     func updateRervation(id:String,isReserve:Bool) async {
         let dataBase = Firestore.firestore().collection("Reservation")
@@ -75,7 +81,11 @@ final class RervationStore : ObservableObject{
                     "reservationState": isReserve ? 1 : 3
                 ])
             
-                await fetchData()
+            await fetchData { success in
+                if success {
+                    self.isLoading = true
+                }
+            }
             
         } catch{
             debugPrint("updateData error")

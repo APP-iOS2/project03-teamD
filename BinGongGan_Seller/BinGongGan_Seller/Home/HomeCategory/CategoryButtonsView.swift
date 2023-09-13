@@ -25,8 +25,6 @@ struct CategoryButtonsView: View {
                         ReviewManageView()
                     case .announcement:
                         AnnouncementView(announcementStore: AnnouncementStore())
-                    case .event:
-                        EmptyView()
                     case .myPlace:
                         MyPlaceView()
                     case .statistics:
