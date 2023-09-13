@@ -10,13 +10,14 @@ import BinGongGanCore
 
 struct AnnouncementView: View {
     @Environment(\.dismiss) private var dismiss
+    @StateObject private var announcementStore: AnnouncementStore = AnnouncementStore()
     
     var body: some View {
-        List(Announcement.sampleAnnouncement) { announcement in
+        List(announcementStore.systemAnnouncementList) { announcement in
             NavigationLink {
-                Text("\(announcement.content)")
+                AnnouncementDetailView(announcement: announcement)
             } label: {
-                HStack {
+                HStack(alignment: .top) {
                     Text("\(announcement.announcementType.rawValue)")
                         .font(.captionBold)
                     Text("\(announcement.title)")
@@ -34,6 +35,11 @@ struct AnnouncementView: View {
         .navigationTitle("공지사항")
         .navigationBarTitleDisplayMode(.inline)
         .customBackbutton()
+        .onAppear {
+            Task {
+                try await announcementStore.fetchAnnouncement()
+            }
+        }
     }
 }
 
