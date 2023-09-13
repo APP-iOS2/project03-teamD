@@ -8,22 +8,9 @@
 import SwiftUI
 import BinGongGanCore
 
-struct MyInfo: Identifiable {
-    var id: String = UUID().uuidString
-    var name: String
-    var email: String
-    var phoneNumber: String
-    var accountNumber: String
-    var companyNumber: String
-}
-class MyStore: ObservableObject {
-    @Published var myStore: MyInfo = MyInfo(name: "윤경환", email: "test@gmail.com", phoneNumber: "010-1234-1234", accountNumber: "123456-02-123456", companyNumber: "111-11-12345")
-}
-
-
 struct MyInfoView: View {
     @StateObject private var placeStore: PlaceStore = PlaceStore()
-    @EnvironmentObject private var myStore: MyStore
+    @EnvironmentObject private var myInfoStore: MyInfoStore
 
     @State private var alertMessage = ""
     @State private var isShowAlert: Bool = false
@@ -36,39 +23,39 @@ struct MyInfoView: View {
                 VStack(alignment: .leading) {
                     Text("이름")
                         .font(.body1Regular)
-                    Text(myStore.myStore.name)
+                    Text(myInfoStore.myInfo.name)
                         .font(.body1Bold)
                         .foregroundColor(.myDarkGray)
                 }
-                
+
                 VStack(alignment: .leading) {
                     Text("이메일")
                         .font(.body1Regular)
-                    Text(myStore.myStore.email)
+                    Text(myInfoStore.myInfo.email)
                         .font(.body1Bold)
                         .foregroundColor(.myDarkGray)
                 }
-                
+
                 VStack(alignment: .leading) {
                     Text("연락처")
                         .font(.body1Regular)
-                    Text(myStore.myStore.phoneNumber)
+                    Text(myInfoStore.myInfo.phoneNumber)
                         .font(.body1Bold)
                         .foregroundColor(.myDarkGray)
                 }
-                
+
                 VStack(alignment: .leading) {
                     Text("계좌번호")
                         .font(.body1Regular)
-                    Text(myStore.myStore.accountNumber)
+                    Text(myInfoStore.myInfo.accountNumber)
                         .font(.body1Bold)
                         .foregroundColor(.myDarkGray)
                 }
-                
+
                 VStack(alignment: .leading) {
                     Text("사업자 등록번호")
                         .font(.body1Regular)
-                    Text(myStore.myStore.companyNumber)
+                    Text(myInfoStore.myInfo.companyNumber)
                         .font(.body1Bold)
                         .foregroundColor(.myDarkGray)
                 }
@@ -142,7 +129,7 @@ struct MyInfoView_Previews: PreviewProvider {
     static var previews: some View {
         NavigationStack {
             MyInfoView()
-                .environmentObject(MyStore())
+                .environmentObject(MyInfoStore())
         }
     }
 }

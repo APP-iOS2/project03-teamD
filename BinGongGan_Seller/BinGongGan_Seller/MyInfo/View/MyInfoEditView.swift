@@ -8,14 +8,15 @@
 import SwiftUI
 
 struct MyInfoEditView: View {
-    @EnvironmentObject private var myInfo: MyStore
+    @EnvironmentObject private var myInfo: MyInfoStore
     @State var email: String = ""
     @State var phoneNumber: String = ""
     @State var accountNumber: String = "인증 필요"
-    @State var companyNumber: String = ""
     @State private var showAlert = false
     @State private var alertMessage = ""
     @Binding var isShowingEditSheet: Bool
+    @StateObject private var placeStore: PlaceStore = PlaceStore()
+    @EnvironmentObject private var myInfoStore: MyInfoStore
     
     var body: some View {
         NavigationStack {
@@ -25,7 +26,8 @@ struct MyInfoEditView: View {
                         HStack {
                             Text("이메일")
                                 .frame(width: 120, alignment: .leading)
-                            TextField("", text: $email)
+                            Text(myInfoStore.myInfo.email)
+                            TextField(myInfoStore.myInfo.email, text: $email)
                                 .autocapitalization(.none) // 자동 대문자 변환 끄기
                         }
                     }
@@ -34,7 +36,8 @@ struct MyInfoEditView: View {
                         HStack {
                             Text("연락처")
                                 .frame(width: 120, alignment: .leading)
-                            TextField("", text: $phoneNumber)
+                            Text(myInfoStore.myInfo.phoneNumber)
+                            TextField(myInfoStore.myInfo.email, text: $phoneNumber)
                                 .autocapitalization(.none) // 자동 대문자 변환 끄기
                         }
                     }
@@ -65,8 +68,9 @@ struct MyInfoEditView: View {
                         } else if accountNumber.isEmpty {
                             showAlert = true
                             alertMessage = "계좌번호를 입력해주세요."
+                        } else {
+                            isShowingEditSheet.toggle()
                         }
-                        isShowingEditSheet.toggle()
                     } label: {
                         Text("저장")
                     }
