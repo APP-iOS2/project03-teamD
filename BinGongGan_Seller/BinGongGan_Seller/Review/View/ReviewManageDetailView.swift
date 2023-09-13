@@ -22,13 +22,13 @@ struct ReviewManageDetailView: View {
     var body: some View {
         VStack {
             ScrollView {
-                ReservationCell(isHiddenRightButton: false)
-                    .padding(EdgeInsets(top: 10, leading: 20, bottom: 10, trailing: 20))
-                
-                ReviewWithCommentCell(review: review)
-                    .padding(EdgeInsets(top: 0, leading: 20, bottom: 0, trailing: 20))
-                    .environmentObject(replyStore)
-            }
+//                    ReservationCell(isHiddenRightButton: false)
+//                        .padding(EdgeInsets(top: 10, leading: 20, bottom: 10, trailing: 20))
+                    
+                    ReviewWithCommentCell(review: review)
+                        .padding(EdgeInsets(top: 0, leading: 20, bottom: 0, trailing: 20))
+                        .environmentObject(replyStore)
+                }
             
             Button("리뷰 신고하기", role: .destructive) {
                 isShowingReviewReportSheet.toggle()
@@ -51,6 +51,7 @@ struct ReviewManageDetailView: View {
         .onAppear {
             Task {
                 await reportStore.fetchData(review: review)
+                await replyStore.fetchData(review: review)
             }
         }
     }

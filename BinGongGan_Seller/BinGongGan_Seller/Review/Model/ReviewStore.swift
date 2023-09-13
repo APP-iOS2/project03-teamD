@@ -15,9 +15,7 @@ final class ReviewStore: ObservableObject {
     var dbRef = Firestore.firestore().collection("reviews")
     
     init() {
-        Task {
-            await fetchData()
-        }
+        
     }
     
     @MainActor func fetchData() async {
