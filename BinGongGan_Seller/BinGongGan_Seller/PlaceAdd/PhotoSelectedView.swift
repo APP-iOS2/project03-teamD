@@ -1,20 +1,25 @@
 import SwiftUI
+import Photos
 import UIKit
 import BinGongGanCore
 
-// MARK: - 수정중
 struct PhotoSelectedView: View {
     @Binding var selectedImages: [UIImage]
     @Binding  var selectedImageNames: [String]
     @State private var isImagePickerPresented = false
+    @State private var isGalleryPermissionGranted = false
     
     var body: some View {
         VStack {
             ScrollView(.horizontal, showsIndicators: false) {
                 HStack(spacing: 15) {
-                    if selectedImages.count < 4 {
+                    if selectedImages.count < 5 {
                         Button {
-                            isImagePickerPresented.toggle()
+                            requestGalleryPermission()
+                            if isGalleryPermissionGranted {
+                                isImagePickerPresented.toggle()
+                            }
+                            
                         } label: {
                             Image(systemName: "camera")
                                 .resizable()
@@ -48,6 +53,19 @@ struct PhotoSelectedView: View {
         }
         .padding()
     }
+    
+    func requestGalleryPermission() {
+        PHPhotoLibrary.requestAuthorization { status in
+            DispatchQueue.main.async {
+                if status == .authorized {
+                    isGalleryPermissionGranted = true
+                } else {
+                    isGalleryPermissionGranted = false
+                }
+            }
+        }
+    }
+    
 }
 
 struct MultiPhotoPickerView: UIViewControllerRepresentable {
