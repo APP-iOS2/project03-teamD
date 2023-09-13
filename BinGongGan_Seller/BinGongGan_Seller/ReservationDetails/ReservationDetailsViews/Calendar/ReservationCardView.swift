@@ -40,7 +40,8 @@ struct ReservationCardView: View {
                     }
                     Spacer()
                     //TODO: store랑 연결해주기
-                    Text("\(2)")
+
+                    Text("\(reservation.reservationCount)")
                         .font(.body)
                         .foregroundColor(rervationCalendarStore.isSameDay(date1: reservation.reservationDate, date2: currentDate) ? .black : Color.gray )
                 } else {

@@ -10,7 +10,7 @@ import BinGongGanCore
 
 struct ReservationDetailsView: View {
     @Environment(\.dismiss) private var dismiss
-    
+    @StateObject private var rervationCalendarStore = RervationCalendarStore()
     @State private var selectedPicker: ReservationTapType = .list
     @Namespace private var animation
     
@@ -18,6 +18,7 @@ struct ReservationDetailsView: View {
         VStack {
             animate()
             ReservationTapBarView(reservationTapType: selectedPicker)
+                .environmentObject(rervationCalendarStore)
         }
         .navigationBarBackButtonHidden(true)
         .scrollContentBackground(.hidden)
