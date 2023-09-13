@@ -13,9 +13,12 @@ class RervationStore : ObservableObject{
     
     @Published var data = [SellerReservation]()
     @Published var recentData = [SellerReservation]()
-    
+    @Published var selectedType = ReservationStateType.waitReservation
+    @Published var canceldata = [SellerReservation]()
+    @Published var waitldata = [SellerReservation]()
+    @Published var confilmedldata = [SellerReservation]()
     let dbRef = Firestore.firestore().collection("Reservation")
-    
+    let sellerUid = AuthStore.userUid
     init() {
         Task {
             await fetchData()
@@ -52,23 +55,26 @@ class RervationStore : ObservableObject{
 //        print("필터된 데이터")
 //        print(mydata)
         
-        let canceldata = mydata.filter{
-            $0.reservationState == 0
+        let canceldata = data.filter{
+            $0.reservationState == 3
             //여기서 나온 값들 중에 최신값
         }
-        let waitldata = mydata.filter{
+        self.canceldata = canceldata
+        let waitldata = data.filter{
             $0.reservationState == 0
         }
-        let confilmedldata = mydata.filter{
-            $0.reservationState == 0
+        self.waitldata = waitldata
+        let confilmedldata = data.filter{
+            $0.reservationState == 1
         }
+        self.confilmedldata = confilmedldata
     }
-    func updateRervation(reservationId:String,isReserve:Bool) async {
+    func updateRervation(isReserve:Bool) async {
         let dataBase = Firestore.firestore().collection("Reservation")
         do {
         //TODO: 여기 값만 넣어주기
             try await dataBase
-                .document(reservationId)
+                .document(sellerUid)
                 .updateData([
                     "reservationState": isReserve ? 1 : 3
                 ])
