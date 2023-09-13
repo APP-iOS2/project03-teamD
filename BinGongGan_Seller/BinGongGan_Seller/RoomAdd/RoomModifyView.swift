@@ -65,7 +65,9 @@ struct RoomModifyView: View {
                             .cornerRadius(10)
                     }
                     PrimaryButton(title: "등록 하기") {
-                        roomStore.addRoom(placeId: "heekwon")
+                        Task {
+                            await roomStore.updateRoom(roomId: roomId)
+                        }
                     }
                 }
             }
