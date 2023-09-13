@@ -7,6 +7,10 @@
 
 import Foundation
 import MapKit
+import Firebase
+import FirebaseFirestore
+import FirebaseFirestoreSwift
+import BinGongGanCore
 
 // 작동 방식
 // 1. 시작 시 자신의 gps위치로 고정 -> 자신 주변의 place들을 핀으로 찍음
@@ -21,16 +25,32 @@ final class LocationManager: NSObject, ObservableObject {
     private let locationManager = CLLocationManager()
     @Published var mapView: MKMapView = .init()
     
-    @Published var region = MKCoordinateRegion(
-        center: .init(latitude: 37.334_900 , longitude: -122.009_020),
-        span: .init(latitudeDelta: 0.5 , longitudeDelta: 0.5)
-    )
-    
+    @Published var selectedCategoty: CategoryCase = .none
     @Published var isShowingList: Bool = false
+    @Published var placeList: [Place] = []
+    
     @Published var isChaging: Bool = false
     @Published var isFocusUser: Bool = true
+
+        
+    private var userLocalcity: String = ""
+    private var searchResult: [Place] = []
     
-    private var nowUserPoint: CLLocationCoordinate2D?
+    
+    var filteredPlaces: [Place] {
+        return searchResult.filter { place in
+            let placetest = place.address.address.components(separatedBy: " ")
+            
+            let isEqualLocalcity = placetest.filter { $0 == userLocalcity }.count > 0
+            
+            if selectedCategoty == .none {
+                return isEqualLocalcity
+            } else {
+                let isEqualCategory = place.placeCategory.rawValue == selectedCategoty.rawValue
+                return isEqualCategory && isEqualLocalcity
+            }
+        }
+    }
     
     
     override init() {
@@ -47,11 +67,9 @@ final class LocationManager: NSObject, ObservableObject {
     
     func requestAuthorizqtion() {
         
-        
         switch locationManager.authorizationStatus {
         case .authorizedWhenInUse, .authorizedAlways:
             moveFocusOnUserLocation()
-            mapView.showsUserLocation = true
         case .notDetermined:
             locationManager.startUpdatingLocation()
             locationManager.requestAlwaysAuthorization()
@@ -59,20 +77,96 @@ final class LocationManager: NSObject, ObservableObject {
         }
     }
     
+    func fetchAnotations() {
+        Task {
+            do {
+                let snapshots = try await Firestore.firestore().collection("Place").getDocuments()
+                
+                print(snapshots.documents.count)
+                var places: [Place] = []
+                try snapshots.documents.forEach { snapshot in
+                    do {
+                        let place = try snapshot.data(as: Place.self)
+                        places.append(place)
+                    }
+                }
+                print(places)
+                searchResult = places
+            } catch {
+                print(error.localizedDescription)
+            }
+        }
+    }
+}
+
+extension LocationManager {
     func moveFocusOnUserLocation() {
         isFocusUser = true
         mapView.showsUserLocation = true
         mapView.setUserTrackingMode(.follow, animated: true)
+        let annotation = mapView.annotations.filter { $0.title == placeList[0].placeName }
+        if annotation.isEmpty == false {
+            mapView.deselectAnnotation(annotation[0], animated: true)
+
+        }
     }
     
-    func moveFocusChange() {
-        let span = MKCoordinateSpan(latitudeDelta: 0.5, longitudeDelta: 0.5)
+    func moveFocusChange(location: CLLocationCoordinate2D) {
+        let span = MKCoordinateSpan(latitudeDelta: 0.02, longitudeDelta: 0.01)
         
-        let region = MKCoordinateRegion(center: nowUserPoint ?? .init(latitude: 37.334_900 , longitude: -122.009_020), span: span)
+        let region = MKCoordinateRegion(center: location, span: span)
         mapView.setRegion(region, animated: true)
     }
     
+    func convertCLLocationToAddress(location: CLLocation) {
+        let geocoder = CLGeocoder()
+        
+        geocoder.reverseGeocodeLocation(location) { placemark, error in
+            if error != nil {
+                return
+            }
+            
+            guard let placemark = placemark?.first else { return }
+            
+            if self.userLocalcity != placemark.subLocality ?? "주소없음" {
+                self.userLocalcity = placemark.subLocality ?? "주소없음"
+                self.setAnnotations()
+            }
+            return
+        }
+    }
+    
+    func setAnnotations() {
+        mapView.removeAnnotations(mapView.annotations)
+        
+        
+        for place in filteredPlaces {
+            let annotation = MKPointAnnotation()
+            annotation.title = place.placeName
+            annotation.coordinate = CLLocationCoordinate2D(latitude: place.address.latitudeDouble, longitude: place.address.longitudeDouble)
+            mapView.addAnnotation(annotation)
+        }
+        
+        DispatchQueue.main.async {
+            self.placeList = self.filteredPlaces
+        }
+    }
+    
+    func didSelectCategory(_ category: CategoryCase) {
+        if selectedCategoty == category {
+            selectedCategoty = .none
+        } else {
+            selectedCategoty = category
+        }
+        DispatchQueue.main.async {
+            self.placeList = self.filteredPlaces
+        }
+        setAnnotations()
+
+    }
+    
 }
+
 
 
 extension LocationManager: CLLocationManagerDelegate {
@@ -91,25 +185,12 @@ extension LocationManager: CLLocationManagerDelegate {
             locationManager.stopUpdatingLocation()
             locations.last.map { location in
                 DispatchQueue.main.async {
-                    self.region = MKCoordinateRegion(
-                        center: location.coordinate,
-                        span: .init(latitudeDelta: 0.5, longitudeDelta: 0.5)
-                    )
+//                    self.region = MKCoordinateRegion(
+//                        center: location.coordinate,
+//                        span: .init(latitudeDelta: 0.5, longitudeDelta: 0.5)
+//                    )
                 }
             }
-        }
-    }
-    
-    func convertCLLocationToAddress(location: CLLocation) {
-        let geocoder = CLGeocoder()
-        
-        geocoder.reverseGeocodeLocation(location) { placemark, error in
-            if error != nil {
-                return
-            }
-            
-            guard let placemark = placemark?.first else { return }
-            print("\(placemark.country ?? "") / \(placemark.locality ?? "") / \(placemark.name ?? "")")
         }
     }
     
@@ -118,6 +199,7 @@ extension LocationManager: CLLocationManagerDelegate {
 
 extension LocationManager: MKMapViewDelegate {
     func mapViewDidChangeVisibleRegion(_ mapView: MKMapView) {
+        
         DispatchQueue.main.async {
             self.isShowingList = false
             self.isFocusUser = false
@@ -134,4 +216,19 @@ extension LocationManager: MKMapViewDelegate {
             self.isChaging = false
         }
     }
+    
+    func mapView(_ mapView: MKMapView, didSelect annotation: MKAnnotation) {
+        moveFocusChange(location: annotation.coordinate)
+        let place = placeList.filter { $0.placeName == annotation.title }
+        self.placeList = place
+    }
+    
+    func mapView(_ mapView: MKMapView, didDeselect annotation: MKAnnotation) {
+        DispatchQueue.main.async {
+            self.placeList = self.filteredPlaces
+        }
+    }
+    
 }
+
+

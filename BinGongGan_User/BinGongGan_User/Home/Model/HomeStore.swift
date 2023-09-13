@@ -6,80 +6,123 @@
 //
 
 import SwiftUI
-//import FirebaseFirestoreSwift
-//import FirebaseFirestore
+import FirebaseFirestoreSwift
+import FirebaseFirestore
+import Firebase
+import BinGongGanCore
 
+@MainActor
 final class HomeStore: ObservableObject {
     
     @Published var places: [Place] = []
     @Published var EventList: [Event] = []
     @Published var hotPlace: [Place] = []
     @Published var recommendPlace: [Place] = []
-    @Published var filteredArray:[Place] = []
+    @Published var filteredArray: [Place] = []
     @Published var recentlyWords: [String] = []
     @Published var cities: [City] = []
-//    let dbRef = Firestore.firestore().collection("Incruitments")
-    
+    @Published var selectedCategory: String = "밴드룸"
+    @Published var selectSub: [String] = []
+   
     var categories: [Category] = [
-        Category(category: .shareOffice, categoryImageString:  "building.2"),
-        Category(category: .bandRoom, categoryImageString:  "music.mic"),
-        Category(category: .studio, categoryImageString:  "camera"),
-        Category(category: .shareKitchen, categoryImageString:  "fork.knife"),
+        Category(category: "쉐어오피스", categoryImageString:  "building.2"),
+        Category(category: "밴드룸", categoryImageString:  "music.mic"),
+        Category(category: "스튜디오", categoryImageString:  "camera"),
+        Category(category: "키친룸", categoryImageString:  "cooktop"),
     ]
     
-    init(){
-        fetchPlace()
-        settingEventBanner()
-        settingHotPlace()
-        settingRecommendPlace()
-    }
+    let dbRef = Firestore.firestore().collection("Place")
     
-//    @MainActor
-//    func fetchPlaces() async throws -> Void {
-//      let snapshot = try await dbRef.getDocuments()
-//
-//      let places = snapshot.documents.compactMap({try? $0.data(as: Place.self) })
-//      self.places = places
-//    }
-
-    func fetchPlace(){
-        places = placeArray
+    init() {
         cities = cityArray
+        
+        Task {
+            await fetchPlaces()
+            settingHotPlace()
+            settingEventBanner()
+            settingRecommendPlace()
+        }
     }
-    
-    
-    
-    func searchPlaceName(placess: [Place] , keyWord: String) {
+  
+    func fetchPlaces() async {
+        do {
+            var tempStore: [Place] = []
+            let querySnapshot = try await dbRef.getDocuments()
+
+            for document in querySnapshot.documents {
+                let data = document.data()
+                let addressMap: [String: Any] = data["address"] as? [String: Any] ?? [:]
+                let placeCategoryString = data["placeCategory"] as? String ?? "Share"
+                let placeCategory = PlaceCategory.fromRawString(placeCategoryString)
+
+                let place = Place(
+                    sellerId: data["sellerId"] as? String ?? "sellerId",
+                    placeName: data["placeName"] as? String ?? "placeName",
+                    placeCategory: placeCategory,
+                    placeImageStringList: data["placeImageStringList"] as? [String] ?? [""],
+                    note: data["note"] as? [String] ?? [""],
+                    placeInfomationList: data["placeInfomationList"] as? [String] ?? [""],
+                    address: Address(
+                        address: addressMap["address_name"] as? String ?? "sellerId",
+                        placeName: addressMap["placeName_name"] as? String ?? "placeName",
+                        longitude: addressMap["x"] as? String ?? "x",
+                        latitude: addressMap["y"] as? String ?? "y")
+                )
+                print(place.placeCategory)
+                tempStore.append(place)
+            }
+            self.places = tempStore
+        } catch {
+            print("Error fetching Place: \(error)")
+        }
+    }
+
+    var filteredCategoryCity: [Place] {
+        return places.filter { place in
+            let address = place.address.address.components(separatedBy: " ")
+            var addressArray: [Bool] = []
+
+            for i in address {
+                if selectSub.contains(i) {
+                    addressArray.append(true)
+                }
+            }
+            return selectSub.isEmpty ? place.placeCategory.placeCategoryName == selectedCategory : place.placeCategory.placeCategoryName == selectedCategory && addressArray.contains(true)
+        }
+    }
+
+    func searchPlaceName( keyWord: String) {
 
         filteredArray.removeAll()
-        for place in placess {
+        for place in places {
             let key = keyWord.lowercased()
-            let placeName = place.placeName.lowercased()
-            let placeLocation = place.placeLocation.lowercased()
-            if placeName.contains(key) || placeLocation.contains(key){
+            let placeName = place.placeName
+            
+            
+            let placeLocation = place.address.address.lowercased()
+            if placeName.contains(key) || placeLocation.contains(key) {
                 filteredArray.append(place)
             }
         }
     }
     
-    
-    
-    func settingEventBanner(){
+    func settingEventBanner() {
         for i in eventImageArray.shuffled() {
             EventList.append(Event(eventImage: i))
         }
     }
     
     func settingHotPlace() {
-        // 추후구현
+
         let temp: [Place] = places
+
         var count: Int = 0
         
         hotPlace.removeAll()
         for i in temp {
             if count == 4 {
                 return
-            }else{
+            } else {
                 hotPlace.append(i)
                 count += 1
             }
@@ -94,57 +137,32 @@ final class HomeStore: ObservableObject {
         for i in temp {
             if count == 4 {
                 return
-            }else{
+            } else {
                 recommendPlace.append(i)
                 count += 1
             }
         }
     }
     
-    func changeFavorite(place: Place){
-       if let index = places.firstIndex(where:{
-           $0.id == place.id }) {
-           places[index].isFavorite.toggle()
-       }
+    func addRecentlyWord(word: String) {
+        recentlyWords.append(word)
     }
     
     func deleteRecentlyWord(word: String) {
-        let index = recentlyWords.firstIndex {
-            $0 == word
-        }
-        if let index {
+        if let index = recentlyWords.firstIndex(where: { $0 == word }) {
             recentlyWords.remove(at: index)
         }
     }
     
-    func searchRecentlyWord(word: String) {
-        recentlyWords.append(word)
-    }
+    @Published var mungImageCount: Int = 0
+    @Published var mungText: [String] = ["고마워요.", "놀랐죠?", "이스터에그에요", "눌러줘서"]
+    @Published var mungImage: [String] = ["mungmoongE4", "mungmoongE1", "mungmoongE2", "mungmoongE3"]
     
-    func filteredPlaceList(category: String, cities: [String]) {
-        
-        filteredArray.removeAll()
-        var tempFilteredArray: [Place] = []
-        let all = "전체"
-        if cities.contains(all){
-            for filteredPlace in places {
-                if filteredPlace.category.rawValue == category {
-                    tempFilteredArray.append(filteredPlace)
-                }
-            }
-            filteredArray = tempFilteredArray
+    func addMungCount() {
+        if mungImageCount == 3 {
+            mungImageCount = 0
         } else {
-            for filteredPlace in places {
-                if filteredPlace.category.rawValue == category {
-                    for sub in cities {
-                        if filteredPlace.placeLocation.contains(sub){
-                            tempFilteredArray.append(filteredPlace)
-                        }
-                    }
-                }
-            }
-            filteredArray = tempFilteredArray
+            mungImageCount += 1
         }
     }
-    
 }

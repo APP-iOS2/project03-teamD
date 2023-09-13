@@ -5,22 +5,37 @@
 //  Created by 오영석 on 2023/09/06.
 //
 
-import Foundation
 import SwiftUI
 
-struct CategoryModel: Identifiable {
-    var id: UUID = UUID()
-    var imageString: String
-    var categories: String
-    var anyView: AnyView
+enum CategoryName: String, CaseIterable {
+    case managementReservation
+    case managementReview
+    case announcement
+    case event
+    case myPlace
+    case statistics
+    case myInformation
     
-    static let data = [
-       CategoryModel(imageString: "ManagementReservation", categories: "예약관리", anyView: AnyView(ReservationDetailsView())),
-       CategoryModel(imageString: "ManagementReview", categories: "리뷰관리", anyView: AnyView(ReviewManageView())),
-       CategoryModel(imageString: "Announcement", categories: "공지사항", anyView: AnyView(AnnouncementView())),
-       CategoryModel(imageString: "Event", categories: "이벤트", anyView: AnyView(EventView())),
-       CategoryModel(imageString: "MyPlace", categories: "내 공간", anyView: AnyView(MyPlaceManagementView())),
-       CategoryModel(imageString: "Statistics", categories: "통계", anyView: AnyView(ChartView())),
-       CategoryModel(imageString: "MyInformation", categories: "내 정보", anyView: AnyView(MyInfoView())),
-]
+    var imageString: String {
+        return self.rawValue.prefix(1).capitalized + self.rawValue.dropFirst()
+    }
+    
+    var nameString: String {
+        switch self {
+        case .managementReservation:
+            return "예약관리"
+        case .managementReview:
+            return "리뷰관리"
+        case .announcement:
+            return "공지사항"
+        case .event:
+            return "이벤트"
+        case .myPlace:
+            return "내 공간"
+        case .statistics:
+            return "통계"
+        case .myInformation:
+            return "내 정보"
+        }
+    }
 }

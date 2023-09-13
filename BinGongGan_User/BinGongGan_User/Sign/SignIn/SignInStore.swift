@@ -16,6 +16,7 @@ final class SignInStore: ObservableObject {
     @Published var isSuccessSignIn: Bool = false
 
     @Published var signIns: SignInData = SignInData(email: "test", password: "test")
+
     
     // 로그인 버튼
     func checkSignIn(email: String, password: String) -> Bool {

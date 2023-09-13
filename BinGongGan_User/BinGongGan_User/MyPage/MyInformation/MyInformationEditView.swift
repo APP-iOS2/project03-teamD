@@ -15,6 +15,7 @@ enum EditType {
 
 struct MyInformationEditView: View {
     @Environment(\.dismiss) private var dismiss
+    
     private var isButtonDisabled: Bool {
         if editType == .name {
             return newName.isEmpty || name == newName
@@ -32,7 +33,7 @@ struct MyInformationEditView: View {
     var body: some View {
         VStack {
             HStack {
-                Text("\(editType == .name ? "이름 정보는 호스트에게 보여집니다." : "연락처 정보는 호스트에게 보여집니다.")")
+                Text("\(editType == .name ? "닉네임 정보는 호스트에게 보여집니다." : "연락처 정보는 호스트에게 보여집니다.")")
                     .font(.captionRegular)
                     .foregroundColor(.myMediumGray)
                 Spacer()
@@ -72,7 +73,7 @@ struct MyInformationEditView: View {
             .disabled(isButtonDisabled)
         }
         .background(Color.myBackground)
-        .navigationTitle("\(editType == .name ? "이름 수정": "연락처 수정")")
+        .navigationTitle("\(editType == .name ? "닉네임 수정": "연락처 수정")")
         .navigationBarTitleDisplayMode(.inline)
         .customBackbutton()
         .onAppear {

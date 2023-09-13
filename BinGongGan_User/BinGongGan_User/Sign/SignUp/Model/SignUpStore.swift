@@ -11,10 +11,11 @@ import FirebaseFirestore
 import FirebaseFirestoreSwift
 
 final class SignUpStore: ObservableObject {
-    let dbRef = Firestore.firestore()
     @Published var signUpData = SignUpData()
     @State var certificateNumber: String = ""
     @Published var currentStep: SignUpStep = .first
+    @Published var isShowingSignUp: Bool = false
+    @Published var isnotAllAgree: Bool = false
     @Published var showAlert: Bool = false
     @Published var showToast: Bool = false
     @Published var toastMessage: String = ""
@@ -33,6 +34,16 @@ final class SignUpStore: ObservableObject {
         guard signUpData.phoneNumber.count == 11 else {
             showToast = true
             toastMessage = "휴대폰 번호 11자리를 입력하여 주세요."
+            return false
+        }
+        guard (signUpData.bankName != nil) else {
+            showToast = true
+            toastMessage = "은행을 선택하여 주세요."
+            return false
+        }
+        guard signUpData.accountNumber.count >= 6 else {
+            showToast = true
+            toastMessage = "계좌번호가 올바르지 않습니다."
             return false
         }
         return true
@@ -58,9 +69,9 @@ final class SignUpStore: ObservableObject {
             return false
         }
         
-        guard signUpData.password.count >= 4 else {
+        guard signUpData.password.count >= 6 else {
             showToast = true
-            toastMessage = "비밀번호 4자리 이상 입력하여 주세요."
+            toastMessage = "비밀번호 6자리 이상 입력하여 주세요."
             return false
         }
         
@@ -79,30 +90,34 @@ final class SignUpStore: ObservableObject {
         return true
     }
     
-    func isAllAgreed() -> Bool {
+    public func isAllAgreed() -> Bool {
         guard signUpData.isTermOfUseAgree else {
+            isnotAllAgree = true
             showToast = true
             toastMessage = "서비스 이용약관에 동의하여 주세요."
             return false
         }
 
         guard signUpData.isPrivacyAgree else {
+            isnotAllAgree = true
             showToast = true
             toastMessage = "개인정보 이용약관에 동의하여 주세요."
             return false
         }
 
         guard signUpData.isLocaitonAgree else {
+            isnotAllAgree = true
             showToast = true
             toastMessage = "위치 이용약관에 동의하여 주세요."
             return false
         }
         
+        isnotAllAgree = false
         return true
     }
     
     @MainActor
-    func postSignUp() async -> Bool {
+    public func postSignUp() async -> Bool {
         guard isAllAgreed() else {
             return false
         }

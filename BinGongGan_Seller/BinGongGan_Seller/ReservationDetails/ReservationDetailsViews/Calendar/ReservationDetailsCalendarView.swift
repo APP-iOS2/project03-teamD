@@ -21,7 +21,9 @@ struct ReservationDetailsCalendarView: View {
                 .padding(EdgeInsets(top: 20, leading: 20, bottom: 10, trailing: 20))
             
             ForEach(0..<5) { index in
-                ReservationDetailsCell(isPresentedModal: $isPresentedModal)
+                ReservationCell(isHiddenRightButton: true)
+                    .padding(.bottom, 12)
+                    .padding(.horizontal, 20)
             }
             Spacer()
         }.navigationTitle("예약관리")
