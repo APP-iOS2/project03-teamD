@@ -8,7 +8,7 @@
 import Foundation
 
 public struct Reservation: Identifiable {
-    public var id: String = UUID().uuidString
+    public var id: String
     public var userEmail: String
     public var roomID: String
     
@@ -42,9 +42,20 @@ public struct Reservation: Identifiable {
     public var reservationName: String
     public var reservationPhoneNumber: String
     public var reservationRequest: String
-    public var reservateState: ReservationHistoryType
+    public var reservateState: Int
+    public var reservateStringCase: ReservationHistoryType {
+        get {
+            switch reservateState {
+            case 0 : return .expect
+            case 1 : return .success
+            case 2 : return .cancel
+            default : return .expect
+            }
+            
+        }
+    }
     
-    public init(id: String, userEmail: String, roomID: String, reservationYear: String, reservationMonth: String, reservationDay: String, checkInYear: String, checkInMonth: String, checkInDay: String, checkOutYear: String, checkOutMonth: String, checkOutDay: String, hour: Int, personnel: Int, reservationName: String, reservationPhoneNumber: String, reservationRequest: String, reservateState: ReservationHistoryType) {
+    public init(id: String, userEmail: String, roomID: String, reservationYear: String, reservationMonth: String, reservationDay: String, checkInYear: String, checkInMonth: String, checkInDay: String, checkOutYear: String, checkOutMonth: String, checkOutDay: String, hour: Int, personnel: Int, reservationName: String, reservationPhoneNumber: String, reservationRequest: String, reservateState: Int) {
         self.id = id
         self.userEmail = userEmail
         self.roomID = roomID

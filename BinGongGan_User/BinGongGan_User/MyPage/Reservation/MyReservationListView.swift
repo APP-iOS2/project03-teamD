@@ -37,23 +37,29 @@ struct MyReservationListView: View {
             }
             .padding(.trailing)
 
-            List {
-                ForEach(myReservationStore.filteredReservations) { reservate in
-                    Button {
-                        isShowingGongGanDetailView = true
-                        myReservationStore.reservation = reservate
-                    } label: {
-                        MyReservationRowView(reservation: reservate)
-                            .background(
-                                RoundedRectangle(cornerRadius: 15)
-                                    .foregroundColor(.white)
-                                    .shadow(color: .gray, radius: 5, x: 3, y: 3)
-                            )
+            if myReservationStore.filteredReservations.count == 0 {
+                Spacer()
+                Text("예약 내역이 없습니다")
+                Spacer()
+            } else {
+                List {
+                    ForEach(myReservationStore.filteredReservations) { reservate in
+                        Button {
+                            isShowingGongGanDetailView = true
+                            myReservationStore.reservation = reservate
+                        } label: {
+                            MyReservationRowView(reservation: reservate)
+                                .background(
+                                    RoundedRectangle(cornerRadius: 15)
+                                        .foregroundColor(.white)
+                                        .shadow(color: .gray, radius: 5, x: 3, y: 3)
+                                )
+                        }
                     }
+                    .listRowSeparator(.hidden)
                 }
-                .listRowSeparator(.hidden)
+                .listStyle(.plain)
             }
-            .listStyle(.plain)
             Spacer()
         }
         .navigationTitle("예약 내역")
@@ -64,6 +70,9 @@ struct MyReservationListView: View {
         }
         .sheet(isPresented: $isShowingSheet) {
             CategorySheetView(isShowingSheet: $isShowingSheet)
+        }
+        .onAppear{
+            myReservationStore.selectedPicker = .all
         }
         
     }
