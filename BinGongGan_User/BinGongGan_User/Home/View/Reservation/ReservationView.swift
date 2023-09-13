@@ -9,8 +9,7 @@ import SwiftUI
 
 struct ReservationView: View {
     
-    //@AppStorage ("email") var email: String!
-    @EnvironmentObject var reservationStore: ReservationStore
+    @EnvironmentObject private var reservationStore: ReservationStore
     @Environment(\.dismiss) private var dismiss
     
     @Binding var roomID: String
@@ -79,6 +78,7 @@ struct ReservationView: View {
             if reservationStore.reservation.userEmail.isEmpty {
                 //reservationStore.reservation.userEmail = email
                 reservationStore.fetchReservationRoom(roomID: roomID)
+                //reservationStore.reservation.userEmail = signUpStore.signUpData.emailId
             }
         }
     }

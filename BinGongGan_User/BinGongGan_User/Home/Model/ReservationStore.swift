@@ -165,4 +165,18 @@ final class ReservationStore: ObservableObject {
         }
         
     }
+    
+    func getReservationPrice() -> Int {
+        
+        var allPrice: Int = 0
+        
+        if let room = reservationRoom {
+            
+            if let lastDay = Int(reservation.checkOutDay), let firstDay = Int(reservation.checkInDay), let price = Int(room.price) {
+                print("lastDay :\(lastDay),firstDay :\(firstDay),price :\(price),reservation.hour :\(reservation.hour), ,reservation.hour :\(reservation.personnel),")
+                allPrice = (lastDay - firstDay) * price * reservation.hour * reservation.personnel
+            }
+        }
+        return allPrice
+    }
 }
