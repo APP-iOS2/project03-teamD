@@ -9,6 +9,7 @@ import SwiftUI
 import BinGongGanCore
 
 struct MyPlaceView: View {
+    @StateObject private var myPlaceStore: MyPlaceStore = MyPlaceStore()
     @StateObject private var roomStore: RoomStore = RoomStore()
 
     var body: some View {
@@ -18,8 +19,10 @@ struct MyPlaceView: View {
             
             VStack {
                 Section {
-                    SellerInformationCell()
-                        .padding([.bottom, .leading, .trailing])
+                    if let seller = myPlaceStore.seller {
+                        SellerInformationCell(seller: seller)
+                            .padding([.bottom, .leading, .trailing])
+                    }
                 } header: {
                     HStack {
                         Text("내 정보")
@@ -83,20 +86,6 @@ struct MyPlaceView: View {
         .navigationBarBackButtonHidden(true)
         .navigationBarTitleDisplayMode(.inline)
         .scrollContentBackground(.hidden)
-        .toolbar {
-            ToolbarItem(placement: .navigationBarLeading) {
-                HStack{
-                    Image("HomeLogo")
-                        .resizable()
-                        .aspectRatio(contentMode: .fit)
-                        .frame(width: 40, height: 40)
-                    Text("BinGongGan")
-                        .bold()
-                        .foregroundColor(Color.myBrown)
-                }
-                .padding(EdgeInsets(top: 10, leading: 10, bottom: 15, trailing: 0))
-            }
-        }
         .customBackbutton()
     }
 }
