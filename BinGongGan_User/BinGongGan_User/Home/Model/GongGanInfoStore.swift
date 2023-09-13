@@ -34,52 +34,49 @@ final class GongGanStore: ObservableObject {
     @Published var placeId: String = ""
     
     let dbRef = Firestore.firestore().collection("Place")
-    
+    @MainActor
     func fetchGongGanInfo() async {
         isLoading = true
         do {
             let document = try await dbRef.document(placeId).getDocument()
-            if document.exists {
-                let docData: [String: Any] = document.data() ?? [:]
-                
-                let categoryName: String = docData["placeCategory"] as? String ?? ""
-                let placePhone: String = docData["placePhone"] as? String ?? "01050054004"
-                
-                let addressMap: [String: Any] = docData["address"] as? [String: Any] ?? [:]
-                let placeLocation: String = addressMap["address_name"] as? String ?? ""
-                let placeName: String = docData["placeName"] as? String ?? ""
-                
-                let detailGongGan: [DetailGongGan] = try await fetchSubGongGanInfo(placeId: placeId)
-                
-                let placeImageUrl: [String] = docData["placeImageStringList"] as? [String] ?? [""]
-                //                let placeImageUrl: [String] = getAllImagesFromStorage()
-                let placeInfo: [String] = docData["note"] as? [String] ?? [""]
-                
-                let placeGuideStrings: [String] = docData["placeInfomationList"] as? [String] ?? [""]
-                var placeGuide: [PlaceGuide] = []
-                for guideString in placeGuideStrings {
-                    let guide = PlaceGuide(labelTitle: guideString)
-                    placeGuide.append(guide)
-                }
-                
-                let isFavorite: Bool = docData["isFavorite"] as? Bool ?? false
-                
-                let info = GongGan(
-                    id: placeId,
-                    placeName: placeName,
-                    categoryName: categoryName,
-                    placePhone: placePhone,
-                    placeLocation: placeLocation,
-                    detailGongGan: detailGongGan,
-                    placeImageUrl: placeImageUrl,
-                    placeInfo: placeInfo,
-                    placeGuide: placeGuide,
-                    isFavorite: isFavorite
-                )
-                DispatchQueue.main.async {
-                    self.gongGanInfo = info
-                    self.isLoading = false
-                }
+            let docData: [String: Any] = document.data() ?? [:] // 문서 데이터 가져오기
+            
+            let categoryName: String = docData["placeCategory"] as? String ?? ""
+            let placePhone: String = docData["placePhone"] as? String ?? "01050054004"
+            
+            let addressMap: [String: Any] = docData["address"] as? [String: Any] ?? [:]
+            let placeLocation: String = addressMap["address_name"] as? String ?? ""
+            let placeName: String = docData["placeName"] as? String ?? ""
+            
+            let detailGongGan: [DetailGongGan] = try await fetchSubGongGanInfo(placeId: placeId)
+            
+            let placeImageUrl: [String] = docData["placeImageStringList"] as? [String] ?? [""]
+            let placeInfo: [String] = docData["note"] as? [String] ?? [""]
+            
+            let placeGuideStrings: [String] = docData["placeInfomationList"] as? [String] ?? [""]
+            var placeGuide: [PlaceGuide] = []
+            for guideString in placeGuideStrings {
+                let guide = PlaceGuide(labelTitle: guideString)
+                placeGuide.append(guide)
+            }
+            
+            let isFavorite: Bool = docData["isFavorite"] as? Bool ?? false
+            
+            let info = GongGan(
+                id: placeId,
+                placeName: placeName,
+                categoryName: categoryName,
+                placePhone: placePhone,
+                placeLocation: placeLocation,
+                detailGongGan: detailGongGan,
+                placeImageUrl: placeImageUrl,
+                placeInfo: placeInfo,
+                placeGuide: placeGuide,
+                isFavorite: isFavorite
+            )
+            DispatchQueue.main.async {
+                self.gongGanInfo = info
+                self.isLoading = false
             }
         } catch {
             print("Error fetchGongGanInfo: \(error)")
@@ -88,6 +85,7 @@ final class GongGanStore: ObservableObject {
             }
         }
     }
+
     
     func fetchSubGongGanInfo(placeId: String) async throws -> [DetailGongGan] {
         var subGongGan: [DetailGongGan] = [DetailGongGan.sample]
@@ -257,7 +255,7 @@ final class MyFavoriteStore: ObservableObject {
     //        }
     //    }
     
-    
+    @MainActor
     func fetchMyFavorite() async {
         do {
             
@@ -274,7 +272,7 @@ final class MyFavoriteStore: ObservableObject {
                 
                 let addressMap: [String: Any] = docData["address"] as? [String: Any] ?? [:]
                 let placeLocation: String = addressMap["address_name"] as? String ?? ""
-                let placeName: String = addressMap["place_name"] as? String ?? ""
+                let placeName: String = docData["placeName"] as? String ?? ""
                 
                 let detailGongGan: [DetailGongGan] = try await fetchMyFavoriteSubGongGanInfo(placeId: placeId)
                 

@@ -61,7 +61,7 @@ struct SegmentView: View {
 struct SegmentView_Previews: PreviewProvider {
     static var previews: some View {
         SegmentView(selectedSegment: .constant(.info), isReservationActive: .constant(nil), roomId: .constant(""), screenWidth: 375, animation: Namespace().wrappedValue)
-                .environmentObject(GongGanStore())
+            .environmentObject(GongGanStore())
     }
 }
 

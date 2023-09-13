@@ -50,7 +50,7 @@ struct GongGan: Identifiable {
                                                       MinimumReservationTimeInfo: "최소 4시간 부터",
                                                       capacity: "최소 1명 ~ 최대 13명"
                                                      ),
-                                        DetailGongGan(title: "203호 02년생 윤호",
+                                        DetailGongGan(title: "203호 뜨거운 감자",
                                                       price: 16000,
                                                       detailImageUrl: [
                                                         "https://res.klook.com/images/fl_lossy.progressive,q_65/c_fill,w_1295,h_971/w_80,x_15,y_15,g_south_west,l_Klook_water_br_trans_yhcmh3/activities/kuafyq7td56gof1rxpih/[%EB%B6%80%EC%82%B0%EC%84%9C%EB%A9%B4]%EC%8F%98%ED%94%8C%EA%B7%B8%EB%A0%88%EC%9D%B4%EC%8A%A4%ED%86%A4%ED%8C%8C%ED%8B%B0%EB%A3%B8(%EC%95%BC%EC%99%B8%ED%85%8C%EB%9D%BC%EC%8A%A4%EB%B0%94%EB%B2%A0%ED%81%90).webp",
@@ -62,7 +62,7 @@ struct GongGan: Identifiable {
                                                       MinimumReservationTimeInfo: "최소 4시간 부터",
                                                       capacity: "최소 1명 ~ 최대 13명"
                                                      ),
-                                        DetailGongGan(title: "204호 06년생 민근",
+                                        DetailGongGan(title: "204호 시계는 와치",
                                                       price: 16000,
                                                       detailImageUrl: [
                                                         "https://res.klook.com/images/fl_lossy.progressive,q_65/c_fill,w_1295,h_971/w_80,x_15,y_15,g_south_west,l_Klook_water_br_trans_yhcmh3/activities/kuafyq7td56gof1rxpih/[%EB%B6%80%EC%82%B0%EC%84%9C%EB%A9%B4]%EC%8F%98%ED%94%8C%EA%B7%B8%EB%A0%88%EC%9D%B4%EC%8A%A4%ED%86%A4%ED%8C%8C%ED%8B%B0%EB%A3%B8(%EC%95%BC%EC%99%B8%ED%85%8C%EB%9D%BC%EC%8A%A4%EB%B0%94%EB%B2%A0%ED%81%90).webp",

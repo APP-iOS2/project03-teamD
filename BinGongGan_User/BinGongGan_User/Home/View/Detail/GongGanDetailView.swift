@@ -40,110 +40,110 @@ struct GongGanDetailView: View {
     
     
     var body: some View {
-            ZStack {
-                if gongGan.isLoading {
-                    ProgressView()
-                }else {
-                    Spacer().background(Color.myBackground).edgesIgnoringSafeArea(.all)
-                    ScrollView(showsIndicators: false) {
-                        
-                        DetailTabImageView(imageUrl: $gongGan.gongGanInfo.placeImageUrl)
-                            .frame(height: screenheight * 0.25)
-                        
-                        
-                        Group { // 세그먼트
-                            SegmentView(selectedSegment: $selectedSegment, isReservationActive: $isReservationActive, roomId: $roomId, screenWidth: screenWidth, animation: animation)
+        ZStack {
+            if gongGan.isLoading {
+                ProgressView()
+            }else {
+                Spacer().background(Color.myBackground).edgesIgnoringSafeArea(.all)
+                ScrollView(showsIndicators: false) {
+                    
+                    DetailTabImageView(imageUrl: $gongGan.gongGanInfo.placeImageUrl)
+                        .frame(height: screenheight * 0.25)
+                    
+                    
+                    Group { // 세그먼트
+                        SegmentView(selectedSegment: $selectedSegment, isReservationActive: $isReservationActive, roomId: $roomId, screenWidth: screenWidth, animation: animation)
+                    }
+                }
+                
+                VStack{
+                    Spacer()
+                    HStack {
+                        Button {
+                            isActionSheetPresented = true
+                        } label: {
+                            Label("전화 문의", systemImage: "phone.fill")
+                                .frame(width: viewFrame.haltWidth)
+                                .foregroundColor(.white)
                         }
+                        
+                        Rectangle()
+                            .foregroundColor(.gray)
+                            .frame(width: 1)
+                            .padding(.vertical, 5)
+                        Button {
+                            //                            #if DEBUG
+                            //                            print(isReservationActive ?? 101010)
+                            //                            #endif
+                            if isReservationActive != nil {
+                                isShowingReservationView.toggle()
+                            } else {
+                                isShowingReservationAlert.toggle()
+                            }
+                        } label: {
+                            Text("예약 신청")
+                                .frame(width: viewFrame.haltWidth)
+                                .foregroundColor(.yellow)
+                        }
+                        
+                        
+                    }
+                    .frame(height: 50)
+                    .font(.body1Regular)
+                    .background(Color.myBrown)
+                    .padding(.bottom, 0.1)
+                }
+            }
+        }
+        
+        
+        .onAppear{
+            gongGan.placeId = self.placeId
+            Task{
+                await gongGan.fetchGongGanInfo()
+            }
+            heartButton = gongGan.gongGanInfo.isFavorite
+        }
+        
+        .navigationTitle("BinGongGan")
+        .navigationBarTitleDisplayMode(.inline)
+        .toast(isShowing: $isShowingReservationAlert, message: "세부 공간을 선택해 주세요.")
+        .actionSheet(isPresented: $isActionSheetPresented) {
+            ActionSheet(
+                title: Text("전화 문의"),
+                buttons: [
+                    .default(Text("전화 \(gongGan.gongGanInfo.placePhone)")) {
+                        if let phoneURL = URL(string: "tel://\(gongGan.gongGanInfo.placePhone)") {
+                            UIApplication.shared.open(phoneURL, options: [:], completionHandler: nil)
+                        }
+                    },
+                    .cancel() {
+                    }
+                ]
+            )
+        }
+        .toolbar{
+            ToolbarItem(placement: .navigationBarTrailing) {
+                Button {
+                    heartButton.toggle()
+                    Task {
+                        favoriteGongGan.updateMyInfo(placeId: placeId)
+                        await favoriteGongGan.fetchMyFavorite()
+                        await gongGan.fetchGongGanInfo()
                     }
                     
-                    VStack{
-                        Spacer()
-                        HStack {
-                            Button {
-                                isActionSheetPresented = true
-                            } label: {
-                                Label("전화 문의", systemImage: "phone.fill")
-                                    .frame(width: viewFrame.haltWidth)
-                                    .foregroundColor(.white)
-                            }
-                            
-                            Rectangle()
-                                .foregroundColor(.gray)
-                                .frame(width: 1)
-                                .padding(.vertical, 5)
-                            Button {
-                                //                            #if DEBUG
-                                //                            print(isReservationActive ?? 101010)
-                                //                            #endif
-                                if isReservationActive != nil {
-                                    isShowingReservationView.toggle()
-                                } else {
-                                    isShowingReservationAlert.toggle()
-                                }
-                            } label: {
-                                Text("예약 신청")
-                                    .frame(width: viewFrame.haltWidth)
-                                    .foregroundColor(.yellow)
-                            }
-                            
-                            
-                        }
-                        .frame(height: 50)
-                        .font(.body1Regular)
-                        .background(Color.myBrown)
-                        .padding(.bottom, 0.1)
-                    }
+                } label: {
+                    Image(systemName: heartButton ? "heart.fill" : "heart")
+                        .foregroundColor(Color.myBrown)
                 }
             }
-        
-        
-            .onAppear{
-                gongGan.placeId = self.placeId
-                Task{
-                    await gongGan.fetchGongGanInfo()
-                }
-                heartButton = gongGan.gongGanInfo.isFavorite
-            }
+        }
+        .navigationDestination(isPresented: $isShowingReservationView) {
             
-            .navigationTitle("BinGongGan")
-            .navigationBarTitleDisplayMode(.inline)
-            .toast(isShowing: $isShowingReservationAlert, message: "세부 공간을 선택해 주세요.")
-            .actionSheet(isPresented: $isActionSheetPresented) {
-                ActionSheet(
-                    title: Text("전화 문의"),
-                    buttons: [
-                        .default(Text("전화 \(gongGan.gongGanInfo.placePhone)")) {
-                            if let phoneURL = URL(string: "tel://\(gongGan.gongGanInfo.placePhone)") {
-                                UIApplication.shared.open(phoneURL, options: [:], completionHandler: nil)
-                            }
-                        },
-                        .cancel() {
-                        }
-                    ]
-                )
-            }
-            .toolbar{
-                ToolbarItem(placement: .navigationBarTrailing) {
-                    Button {
-                        heartButton.toggle()
-                        Task {
-                            favoriteGongGan.updateMyInfo(placeId: placeId)
-                            await favoriteGongGan.fetchMyFavorite()
-                            await gongGan.fetchGongGanInfo()
-                        }
-                        
-                    } label: {
-                        Image(systemName: heartButton ? "heart.fill" : "heart")
-                            .foregroundColor(Color.myBrown)
-                    }
-                }
-            }
-            .navigationDestination(isPresented: $isShowingReservationView) {
-                
-                ReservationView(roomID: $roomId, placeName: $gongGan.gongGanInfo.placeName)
-                        .environmentObject(reservationStore)
-                        .navigationBarBackButtonHidden()
-            }
+            ReservationView(roomID: $roomId, placeName: $gongGan.gongGanInfo.placeName)
+                .environmentObject(reservationStore)
+                .navigationBarBackButtonHidden()
+        }
     }
     
 }
@@ -154,10 +154,10 @@ struct GongGanDetailView_Previews: PreviewProvider {
             NavigationStack {
                 GongGanDetailView(placeId: "785TxPRCwAgeXG3NzHojdWyMGOs2")
             }
-                    .environmentObject(GongGanStore())
-                    .tabItem {
-                        Label("홈", systemImage: "house")
-                }
+            .environmentObject(GongGanStore())
+            .tabItem {
+                Label("홈", systemImage: "house")
+            }
         }
         .tint(.myBrown)
     }
