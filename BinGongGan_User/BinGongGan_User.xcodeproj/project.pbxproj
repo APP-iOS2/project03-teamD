@@ -28,7 +28,6 @@
 		6927255B2AA83ABD00A2441E /* ReservationPlusMinusButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6927255A2AA83ABD00A2441E /* ReservationPlusMinusButton.swift */; };
 		6927255D2AA85A0600A2441E /* PaymentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6927255C2AA85A0600A2441E /* PaymentView.swift */; };
 		6943D6602AB0235B00495CDB /* ReservationEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6943D65F2AB0235B00495CDB /* ReservationEnum.swift */; };
-		699A820C2AB1E60E00A91380 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 699A820B2AB1E60E00A91380 /* GoogleService-Info.plist */; };
 		B12A84A92AA6F01000BDF8CA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B12A84A82AA6F01000BDF8CA /* Assets.xcassets */; };
 		B12A84AC2AA6F01000BDF8CA /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B12A84AB2AA6F01000BDF8CA /* Preview Assets.xcassets */; };
 		B12A84B62AA6F01100BDF8CA /* BinGongGan_UserTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B12A84B52AA6F01100BDF8CA /* BinGongGan_UserTests.swift */; };
@@ -73,7 +72,6 @@
 		BCB5BBF42AB1A50B0014CCB6 /* ReservationTossAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCB5BBF12AB1A50B0014CCB6 /* ReservationTossAlert.swift */; };
 		BCB5BBF52AB1A50B0014CCB6 /* ReservationTossAlertModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCB5BBF22AB1A50B0014CCB6 /* ReservationTossAlertModifier.swift */; };
 		BCB5BBF62AB1A50B0014CCB6 /* CustomTransition.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCB5BBF32AB1A50B0014CCB6 /* CustomTransition.swift */; };
-		BCB5BBFC2AB1F9110014CCB6 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = BCB5BBFB2AB1F9110014CCB6 /* GoogleService-Info.plist */; };
 		BCDD34852AAF272000A68F4F /* View+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCDD34842AAF272000A68F4F /* View+Extension.swift */; };
 		BCDD34872AAF273600A68F4F /* DetailInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCDD34862AAF273600A68F4F /* DetailInfoView.swift */; };
 		BCDD34892AAF27AD00A68F4F /* FavoriteCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCDD34882AAF27AD00A68F4F /* FavoriteCellView.swift */; };
@@ -362,6 +360,7 @@
 				B12A84BE2AA6F01100BDF8CA /* BinGongGan_UserUITests */,
 				B12A84A22AA6F00D00BDF8CA /* Products */,
 				B12A84E32AA6F08F00BDF8CA /* Frameworks */,
+				BCB5BBFD2AB2018A0014CCB6 /* Recovered References */,
 			);
 			sourceTree = "<group>";
 		};
@@ -583,6 +582,15 @@
 				BC344EF92AA808FC00F8CEB3 /* MDPMonthYearPickerButton.swift */,
 			);
 			path = MultiDatePickerSoure;
+			sourceTree = "<group>";
+		};
+		BCB5BBFD2AB2018A0014CCB6 /* Recovered References */ = {
+			isa = PBXGroup;
+			children = (
+				699A820B2AB1E60E00A91380 /* GoogleService-Info.plist */,
+				BCB5BBFB2AB1F9110014CCB6 /* GoogleService-Info.plist */,
+			);
+			name = "Recovered References";
 			sourceTree = "<group>";
 		};
 		BCE658462AA8AD380009ECD1 /* SignIn */ = {
@@ -854,10 +862,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				ECBD87752AAB09F600ECEC7D /* Information1.md in Resources */,
-				699A820C2AB1E60E00A91380 /* GoogleService-Info.plist in Resources */,
 				B12A84AC2AA6F01000BDF8CA /* Preview Assets.xcassets in Resources */,
 				B12A84A92AA6F01000BDF8CA /* Assets.xcassets in Resources */,
-				BCB5BBFC2AB1F9110014CCB6 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
