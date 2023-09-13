@@ -24,7 +24,7 @@ struct Event: Identifiable {
         URL(string: eventImage)!
     }
 }
-//
+
 struct Category : Identifiable {
     let id = UUID().uuidString
     let category: String
@@ -43,8 +43,3 @@ let eventImageArray: [String] = [
     "https://media.discordapp.net/attachments/1148158635667632149/1149282573881724979/canva----------mp-LcAtJ4yQ.jpg?width=1410&height=528",
     "https://media.discordapp.net/attachments/1148158635667632149/1149282575689469993/canva--------zIbSUFxMP-c.jpg?width=1410&height=470",
 ]
-
-
-/*
-
-*/
