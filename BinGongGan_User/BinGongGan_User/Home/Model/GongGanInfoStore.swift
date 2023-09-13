@@ -47,7 +47,7 @@ final class GongGanStore: ObservableObject {
                 
                 let addressMap: [String: Any] = docData["address"] as? [String: Any] ?? [:]
                 let placeLocation: String = addressMap["address_name"] as? String ?? ""
-                let placeName: String = addressMap["place_name"] as? String ?? ""
+                let placeName: String = docData["placeName"] as? String ?? ""
                 
                 let detailGongGan: [DetailGongGan] = try await fetchSubGongGanInfo(placeId: placeId)
                 
