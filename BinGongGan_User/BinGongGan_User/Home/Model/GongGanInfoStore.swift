@@ -31,7 +31,7 @@ final class GongGanStore: ObservableObject {
     ]
     
     
-    @Published var placeId: String = "E0449968-A636-4024-B3A9-CB9362A7828F"
+    @Published var placeId: String = ""
     
     let dbRef = Firestore.firestore().collection("Place")
     
@@ -43,7 +43,7 @@ final class GongGanStore: ObservableObject {
                 let docData: [String: Any] = document.data() ?? [:]
                 
                 let categoryName: String = docData["placeCategory"] as? String ?? ""
-                let placePhone: String = docData["placePhone"] as? String ?? ""
+                let placePhone: String = docData["placePhone"] as? String ?? "01050054004"
                 
                 let addressMap: [String: Any] = docData["address"] as? [String: Any] ?? [:]
                 let placeLocation: String = addressMap["address_name"] as? String ?? ""
@@ -52,7 +52,7 @@ final class GongGanStore: ObservableObject {
                 let detailGongGan: [DetailGongGan] = try await fetchSubGongGanInfo(placeId: placeId)
                 
                 let placeImageUrl: [String] = docData["placeImageStringList"] as? [String] ?? [""]
-//                let placeImageUrl: [String] = getAllImagesFromStorage()
+                //                let placeImageUrl: [String] = getAllImagesFromStorage()
                 let placeInfo: [String] = docData["note"] as? [String] ?? [""]
                 
                 let placeGuideStrings: [String] = docData["placeInfomationList"] as? [String] ?? [""]
@@ -91,17 +91,16 @@ final class GongGanStore: ObservableObject {
         var subGongGan: [DetailGongGan] = [DetailGongGan.sample]
         
         do {
-            // Room 컬렉션에서 placeId 값이 "asd"인 문서만 가져오기
             let querySnapshot = try await Firestore.firestore().collection("Room").whereField("placeId", isEqualTo: placeId).getDocuments()
-            
+            var tempGongGan: [DetailGongGan] = []
             for document in querySnapshot.documents {
                 let docData: [String: Any] = document.data()
                 
                 let id: String = docData["id"] as? String ?? ""
-//                let isSelected: Bool = docData["place_name"] as? Bool ?? false
+                //                let isSelected: Bool = docData["place_name"] as? Bool ?? false
                 let title: String = docData["name"] as? String ?? ""
                 let price: String = docData["price"] as? String ?? "0"
-                let detailImageUrl: [String] = docData["imageUrl"] as? [String] ?? [""]
+                let detailImageUrl: [String] = docData["imageNames"] as? [String] ?? [""]
                 let info: String = docData["note"] as? String ?? ""
                 let categoryName: String = docData["categoryName"] as? String ?? ""
                 let MinimumReservationTimeInfo: String = docData["MinimumReservationTimeInfo"] as? String ?? ""
@@ -109,7 +108,7 @@ final class GongGanStore: ObservableObject {
                 
                 let result = DetailGongGan(
                     id: id,
-//                    isSelected: isSelected,
+                    //                    isSelected: isSelected,
                     title: title,
                     price: Int(price) ?? 0,
                     detailImageUrl: detailImageUrl,
@@ -119,17 +118,16 @@ final class GongGanStore: ObservableObject {
                     capacity: capacity
                 )
                 
-                subGongGan.removeAll()
-                subGongGan.append(result)
+                tempGongGan.append(result)
             }
-            
+            subGongGan = tempGongGan
             return subGongGan
         } catch {
             throw error
         }
     }
-
-   
+    
+    
     func fetchReViews(id: String) async {
         var reviews: [Review] = []
         
@@ -203,8 +201,8 @@ final class GongGanStore: ObservableObject {
         }
         return imageUrls
     }
-
-
+    
+    
 }
 
 final class MyFavoriteStore: ObservableObject {
@@ -239,33 +237,32 @@ final class MyFavoriteStore: ObservableObject {
             }
         }
     }
-
-
-
-//
-//    func updateMyInfo(placeId: String) {
-//        let docData: [String: Any] = [
-//            "isFavorite": true
-//        ]
-//
-//        dbRef.document(placeId).setData(docData, merge: true) { error in
-//            if let error = error {
-//                print("수정 실패 \(error)")
-//            } else {
-//                print("수정 완료")
-//            }
-//        }
-//    }
-
+    
+    
+    
+    //
+    //    func updateMyInfo(placeId: String) {
+    //        let docData: [String: Any] = [
+    //            "isFavorite": true
+    //        ]
+    //
+    //        dbRef.document(placeId).setData(docData, merge: true) { error in
+    //            if let error = error {
+    //                print("수정 실패 \(error)")
+    //            } else {
+    //                print("수정 완료")
+    //            }
+    //        }
+    //    }
+    
     
     func fetchMyFavorite() async {
         do {
-//            var fetchArray: [GongGan] = []
-//            self.myFavoriteGongGan = fetchArray
             
             let dbRef = Firestore.firestore().collection("Place")
             
             let querySnapshot = try await dbRef.whereField("isFavorite", isEqualTo: true).getDocuments()
+            var fetchArray: [GongGan] = []
             for document in querySnapshot.documents {
                 let docData: [String: Any] = document.data() // Get data from the document
                 
@@ -303,13 +300,16 @@ final class MyFavoriteStore: ObservableObject {
                     placeGuide: placeGuide,
                     isFavorite: isFavorite
                 )
-                myFavoriteGongGan.append(info)
+                
+                fetchArray.append(info)
             }
+                self.myFavoriteGongGan = fetchArray
+            
         } catch {
             print("Error fetching favorite places: \(error)")
         }
     }
-
+    
     //    func getGongGanId() async throws -> String {
     //        var gongGanId: String = ""
     //        let db = Firestore.firestore()
@@ -329,44 +329,44 @@ final class MyFavoriteStore: ObservableObject {
     //        return companyName
     //    }
     func fetchMyFavoriteSubGongGanInfo(placeId: String) async throws -> [DetailGongGan] {
-            var subGongGan: [DetailGongGan] = [DetailGongGan.sample]
+        var subGongGan: [DetailGongGan] = [DetailGongGan.sample]
+        
+        do {
+            // Room 컬렉션에서 placeId 값이 "placeId"인 문서만 가져오기
+            let querySnapshot = try await Firestore.firestore().collection("Room").whereField("placeId", isEqualTo: placeId).getDocuments()
             
-            do {
-                // Room 컬렉션에서 placeId 값이 "asd"인 문서만 가져오기
-                let querySnapshot = try await Firestore.firestore().collection("Room").whereField("placeId", isEqualTo: placeId).getDocuments()
+            for document in querySnapshot.documents {
+                let docData: [String: Any] = document.data()
                 
-                for document in querySnapshot.documents {
-                    let docData: [String: Any] = document.data()
-                    
-                    let id: String = docData["id"] as? String ?? ""
-    //                let isSelected: Bool = docData["place_name"] as? Bool ?? false
-                    let title: String = docData["name"] as? String ?? ""
-                    let price: String = docData["price"] as? String ?? "0"
-                    let detailImageUrl: [String] = docData["imageUrl"] as? [String] ?? [""]
-                    let info: String = docData["note"] as? String ?? ""
-                    let categoryName: String = docData["categoryName"] as? String ?? ""
-                    let MinimumReservationTimeInfo: String = docData["MinimumReservationTimeInfo"] as? String ?? ""
-                    let capacity: String = docData["capacity"] as? String ?? ""
-                    
-                    let result = DetailGongGan(
-                        id: id,
-    //                    isSelected: isSelected,
-                        title: title,
-                        price: Int(price) ?? 0,
-                        detailImageUrl: detailImageUrl,
-                        info: info,
-                        categoryName: categoryName,
-                        MinimumReservationTimeInfo: MinimumReservationTimeInfo,
-                        capacity: capacity
-                    )
-                    
-                    subGongGan.removeAll()
-                    subGongGan.append(result)
-                }
+                let id: String = docData["id"] as? String ?? ""
+                //                let isSelected: Bool = docData["place_name"] as? Bool ?? false
+                let title: String = docData["name"] as? String ?? ""
+                let price: String = docData["price"] as? String ?? "0"
+                let detailImageUrl: [String] = docData["imageNames"] as? [String] ?? [""]
+                let info: String = docData["note"] as? String ?? ""
+                let categoryName: String = docData["categoryName"] as? String ?? ""
+                let MinimumReservationTimeInfo: String = docData["MinimumReservationTimeInfo"] as? String ?? ""
+                let capacity: String = docData["capacity"] as? String ?? ""
                 
-                return subGongGan
-            } catch {
-                throw error
+                let result = DetailGongGan(
+                    id: id,
+                    //                    isSelected: isSelected,
+                    title: title,
+                    price: Int(price) ?? 0,
+                    detailImageUrl: detailImageUrl,
+                    info: info,
+                    categoryName: categoryName,
+                    MinimumReservationTimeInfo: MinimumReservationTimeInfo,
+                    capacity: capacity
+                )
+                
+                subGongGan.removeAll()
+                subGongGan.append(result)
             }
+            
+            return subGongGan
+        } catch {
+            throw error
         }
+    }
 }

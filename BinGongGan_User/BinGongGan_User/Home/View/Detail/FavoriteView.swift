@@ -28,6 +28,11 @@ struct FavoriteView: View {
             }
             .padding(.top, 10)
         }
+        .refreshable {
+            Task {
+                await gongGan.fetchMyFavorite()
+            }
+        }
         .onAppear {
             Task {
                 await gongGan.fetchMyFavorite()
@@ -37,7 +42,6 @@ struct FavoriteView: View {
             ToolbarItem(placement: .navigationBarTrailing) {
                 Button {
                     isHeartButtonShowing.toggle()
-                    print(gongGan.myFavoriteGongGan.count)
                 } label: {
                     Text("Edit")
                         .foregroundColor(.myBrown)

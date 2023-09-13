@@ -27,7 +27,7 @@ enum SignInCase {
 }
 
 public class AuthStore {
-    @AppStorage("seller") static var userUid: String = ""
+    @AppStorage("user") static var userUid: String = ""
     
     // 신규 사용자
     static func createUser(email: String, password: String) async throws -> AuthDataResult {
