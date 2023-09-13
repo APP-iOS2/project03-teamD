@@ -10,8 +10,8 @@ import FirebaseFirestore
 import FirebaseFirestoreSwift
 
 public struct Seller: Identifiable, Codable {
-    
-    @DocumentID public var id: String?
+
+    public var id: String
     public var name: String
     public var birthDate: String
     public var phoneNumber: String
@@ -21,9 +21,9 @@ public struct Seller: Identifiable, Codable {
     public var accountNumber: String
     ///사업자 등록번호
     public var registrationNum: String
-
-//   public var registrationImage : UIImage 사업자 등록증
-    public init(id: String, name: String, birthDate: String, phoneNumber: String, email: String, nickname: String, password: String, accountNumber: String,registrationNum:String ) {
+    ///사업자 등록증
+    public var registrationImage : String
+    public init(id: String, name: String, birthDate: String, phoneNumber: String, email: String, nickname: String, password: String, accountNumber: String,registrationNum:String,registrationImage:String ) {
         self.id = id
         self.email = email
         self.name = name
@@ -33,6 +33,7 @@ public struct Seller: Identifiable, Codable {
         self.birthDate = birthDate
         self.accountNumber = accountNumber
         self.registrationNum = registrationNum
+        self.registrationImage = registrationImage
     }
     
 }

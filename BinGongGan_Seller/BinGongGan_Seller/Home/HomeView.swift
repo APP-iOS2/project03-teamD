@@ -10,6 +10,7 @@ import BinGongGanCore
 
 struct HomeView: View {
     
+    
     var body: some View {
         ZStack {
             Color.myBackground
@@ -58,6 +59,9 @@ struct HomeView: View {
                 }
             }
             .background(Color.myBackground)
+        }
+        .onAppear {
+            print(AuthStore.userUid)
         }
     }
 }

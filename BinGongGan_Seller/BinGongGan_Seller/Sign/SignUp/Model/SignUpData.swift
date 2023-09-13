@@ -26,7 +26,7 @@ struct SignUpData {
     
     
     func changeToSellerModel(id: String) -> Seller {
-        return Seller(id: id, name: name, birthDate: birthDate, phoneNumber: phoneNumber, email: emailId, nickname: nickname, password: password, accountNumber: accountNumber, registrationNum: registrationNumber)
+        return Seller(id: id, name: name, birthDate: birthDate, phoneNumber: phoneNumber, email: emailId, nickname: nickname, password: password, accountNumber: accountNumber, registrationNum: registrationNumber, registrationImage: "")
     }
 }
 

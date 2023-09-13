@@ -11,8 +11,8 @@ import BinGongGanCore
 struct ReservationCardView: View {
     
     @EnvironmentObject var rervationCalendarStore : RervationCalendarStore
-    var value: DateValue
     @Binding var currentDate: Date
+    var value: DateValue
     
     var body: some View {
         VStack {
@@ -60,6 +60,6 @@ struct ReservationCardView: View {
 
 struct ReservationCardView_Previews: PreviewProvider {
     static var previews: some View {
-        ReservationCardView(value: DateValue(day: 1, date: Date()), currentDate: .constant(Date())).environmentObject(RervationCalendarStore())
+        ReservationCardView(currentDate: .constant(Date()), value: DateValue(day: 1, date: Date())).environmentObject(RervationCalendarStore())
     }
 }

@@ -9,12 +9,13 @@ import SwiftUI
 import BinGongGanCore
 
 struct FavoriteCellView: View {
+    
     @Binding var isHeartButtonShowing: Bool
-    var gongGanItem: GongGan
+    @State var gongGanItem: GongGan
     
     var body: some View {
         NavigationLink {
-            GongGanDetailView(gongGan: gongGanItem)
+            GongGanDetailView()
         } label: {
             VStack {
                 HStack {
