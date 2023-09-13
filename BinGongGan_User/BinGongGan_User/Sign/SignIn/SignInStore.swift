@@ -61,6 +61,13 @@ final class SignInStore: ObservableObject {
         }
     }
     
+    @MainActor
+    func deleteUser() {
+        Task {
+            try await AuthStore.deleteUser()
+        }
+    }
+    
 //    // 파이어베이스에서 로그인
 //        @MainActor
 //        func signIn() async throws -> Bool {

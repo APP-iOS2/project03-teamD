@@ -16,8 +16,9 @@ struct MyPageMainView: View {
     @State private var isShowingSetting: Bool = false
     @State private var isShowingLogoutAlert: Bool = false
     @State private var isShowingActionSheet: Bool = false
+    @State private var isLoading: Bool = true
 
-    var currentUser: User {
+    var currentUser: User? {
         return myUserStore.currentUser
     }
     
@@ -29,8 +30,8 @@ struct MyPageMainView: View {
                 } label: {
                     VStack(alignment: .leading) {
                         Spacer()
-                        Text("\(currentUser.nickname)")
-                        Text("\(currentUser.email)")
+                        Text("\(currentUser?.nickname ?? "이름정보없음")")
+                        Text("\(currentUser?.email ?? "test1234@test.com")")
                             .foregroundColor(.myMediumGray)
                             .font(.caption)
                         Spacer()
@@ -103,7 +104,6 @@ struct MyPageMainView: View {
         } message: {
             Text("로그아웃을 합니다.")
         }
-
         .confirmationDialog("", isPresented: $isShowingActionSheet) {
 
             Button("통화 02-0000-0000", role: .none) {}
@@ -112,10 +112,12 @@ struct MyPageMainView: View {
         }
         .onAppear{
             myReservationStore.selectedPicker = .all
-//            Task {
-//                try await myReservationStore.fetchMyReservations(currentUser: currentUser.email)
-//            }
+            Task {
+                try await myUserStore.fetchCurrentUser()
+                self.isLoading = false
+            }
         }
+        .redacted(reason: isLoading ? .placeholder : [])
     }
 }
 

@@ -25,7 +25,10 @@ public class UserStore {
     }
     
 
-    static func loadUserData(userId: String, user: User) async throws -> User {
+    static func loadUserData(userId: String, user: User) async throws -> User? {
+        if userId.isEmpty {
+            return nil
+        }
         do {
             let user = try await service.loadDocument(collectionId: .users, documentId: userId, data: user)
             return user
@@ -60,7 +63,12 @@ public class UserStore {
 //
 //    }
 //
-//    static func removeUserData() {
-//
-//    }
+    static func removeUserData(userId: String) async throws {
+        do {
+            try await service.deleteDocument(collectionId: .users, documentId: userId)
+            
+        } catch {
+            throw error
+        }
+    }
 }

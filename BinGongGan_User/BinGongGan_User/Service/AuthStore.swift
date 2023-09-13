@@ -65,4 +65,13 @@ public class AuthStore {
             return false
         }
     }
+    
+    static func deleteUser() async throws {
+        let user = Auth.auth().currentUser
+        do {
+            try await user?.delete()
+        } catch {
+            print("Error delete user: \(error)")
+        }
+    }
 }
