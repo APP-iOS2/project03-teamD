@@ -12,6 +12,8 @@ struct PaymentView: View {
     @Environment(\.dismiss) private var dismiss
     @EnvironmentObject var reservationStore: ReservationStore
     
+    @Binding var placeName: String
+    
     @State private var isAllPaymentInfoChecked: Bool = false
     @State private var isPaymentChecked: Bool = false
     
@@ -45,7 +47,7 @@ struct PaymentView: View {
                         
                         Divider()
                         
-                        Text("무통장 입금 seller/ 통장번호")
+                        Text(reservationStore.sellerAccount)
                             .font(.captionRegular)
                     }
                     .foregroundColor(.red)
@@ -84,9 +86,11 @@ struct PaymentView: View {
                         Divider()
                         
                         VStack(alignment: .leading) {
-                            Text("공간 이름:")
+                            Text("공간 이름: \(placeName)")
                                 .padding(.bottom, 0.2)
-                            Text("방 이름:")
+                            if let room = reservationStore.reservationRoom {
+                                Text("방 이름: \(room.name)")
+                            }
                         }
                         .font(.captionRegular)
                     }
@@ -169,7 +173,7 @@ struct PaymentView: View {
         }
         .modifier(
           TossAlertModifier(
-            isPresented: $isAllPaymentInfoChecked,
+            isPresented: .constant(true),
             title: "결제 확인",
             content: "계좌번호로 2일 내에 입금 부탁드립니다",
             primaryButtonTitle: "확인",
@@ -183,13 +187,18 @@ struct PaymentView: View {
         .navigationTitle("결제 정보")
         .navigationBarTitleDisplayMode(.inline)
         .customBackbutton()
+        .onAppear {
+            if let room = reservationStore.reservationRoom {
+                reservationStore.fetchReservationAccount(sellerID: room.placeId)
+            }
+        }
     }
 }
 
 struct PaymentView_Previews: PreviewProvider {
     static var previews: some View {
         NavigationStack {
-            PaymentView()
+            PaymentView(placeName: .constant(""))
                 .environmentObject(ReservationStore())
         }
     }
