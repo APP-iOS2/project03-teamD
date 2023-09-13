@@ -15,39 +15,42 @@ struct ReservationHeaderView: View {
     
     var body: some View {
         ZStack {
-            AsyncImage(
-                url: reservationStore.sampleSpace.imageUrl,
-                content: { image in
-                    image.resizable()
-                        .aspectRatio(contentMode: .fill)
-                        .frame(width: screenWidth, height: 110)
-                        .blur(radius: 3)
-                        .clipped()
-                },
-                placeholder: {
-                    ProgressView()
-                })
-            
-            Rectangle()
-                .frame(width: screenWidth, height: 110)
-                .background(.black)
-                .opacity(0.2)
-            
-            HStack {
-                VStack(alignment:.listRowSeparatorLeading) {
-                    Text(reservationStore.sampleSpace.spaceName)
-                        .font(.title2)
-                        .bold()
-                        .padding(5)
-                    Text("세부공간: ")
-                        .font(.subheadline) + Text("\(reservationStore.sampleSpace.roomName)")
-                        .bold()
+            if let room = reservationStore.reservationRoom {
+                AsyncImage(
+                    //url: URL(string: room.imageNames[0]),
+                    url: reservationStore.sampleSpace.imageUrl,
+                    content: { image in
+                        image.resizable()
+                            .aspectRatio(contentMode: .fill)
+                            .frame(width: screenWidth, height: 110)
+                            .blur(radius: 3)
+                            .clipped()
+                    },
+                    placeholder: {
+                        ProgressView()
+                    })
+                
+                Rectangle()
+                    .frame(width: screenWidth, height: 110)
+                    .background(.black)
+                    .opacity(0.2)
+                
+                HStack {
+                    VStack(alignment:.listRowSeparatorLeading) {
+                        Text(room.name)
+                            .font(.title2)
+                            .bold()
+                            .padding(5)
+                        Text("세부공간: ")
+                            .font(.subheadline) + Text("\(room.name)")
+                            .bold()
+                    }
+                    .foregroundColor(.white)
+                    
+                    Spacer()
                 }
-                .foregroundColor(.white)
-            
-                Spacer()
+                .padding()
             }
-            .padding()
             
         }
     }

@@ -19,7 +19,7 @@ struct FavoriteListView: View {
                     GongGanDetailView()
                 } label: {
                     ZStack {
-                        AsyncImage(url: URL(string: "\(place.placeImageStringList[0])") ) { image in
+                        AsyncImage(url: URL(string: "\(place.placeFirstImage)") ) { image in
                             image
                                 .renderingMode(.original)
                                 .resizable()

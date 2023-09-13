@@ -59,7 +59,6 @@ struct ReservationSellerInfoView: View {
         .sheet(isPresented: $isRefundPolicySheetOpened, content: {
             NavigationStack {
                 RefundPolicySheetView()
-                    .environmentObject(reservationStore)
             }
         })
     }

@@ -18,6 +18,16 @@ struct SampleSpace {
     }
 }
 
+struct ReservationRoom: Codable {
+    let id: String
+    let imageNames: [String]
+    let name: String
+    let price: String
+    let placeId: String
+    let note: String
+}
+
+
 struct Reservation: Codable {
     
     var userEmail: String
@@ -46,5 +56,7 @@ struct Reservation: Codable {
     var reservationName: String
     var reservationPhoneNumber: String
     var reservationRequest: String
+    
+    var reservationCancelReason: String
     
 }

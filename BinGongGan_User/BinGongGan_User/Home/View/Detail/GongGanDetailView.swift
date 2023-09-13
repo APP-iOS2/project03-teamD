@@ -19,6 +19,9 @@ struct GongGanDetailView: View {
     @State private var isShowingReservationView = false
     @State private var isShowingReservationAlert = false
     @State private var selectedSegment: segmentIndex = .info
+    
+    @State var placeId: String = "E0449968-A636-4024-B3A9-CB9362A7828F" // 디테일 보여줄 공간 아이디 받아서 넣는곳
+    
     @Namespace var animation
     private let screenWidth = UIScreen.main.bounds.width
     private let screenheight = UIScreen.main.bounds.height
@@ -89,9 +92,10 @@ struct GongGanDetailView: View {
             }
         
             .onAppear{
-//                Task{
-//                    await gongGan.fetchGongGanInfo()
-//                }
+                Task{
+                    gongGan.placeId = self.placeId
+                    await gongGan.fetchGongGanInfo()
+                }
             }
             
             .navigationTitle("BinGongGan")
@@ -123,7 +127,7 @@ struct GongGanDetailView: View {
             }
             .navigationDestination(isPresented: $isShowingReservationView) {
                 
-                    ReservationView()
+                ReservationView(placeName: $gongGan.gongGanInfo.placeName)
                         .environmentObject(reservationStore)
                         .navigationBarBackButtonHidden()
             }
@@ -135,7 +139,7 @@ struct GongGanDetailView_Previews: PreviewProvider {
     static var previews: some View {
         TabView {
             NavigationStack {
-                GongGanDetailView()
+                GongGanDetailView(placeId: "E0449968-A636-4024-B3A9-CB9362A7828F")
             }
                     .environmentObject(GongGanStore())
                     .tabItem {

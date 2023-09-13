@@ -12,15 +12,17 @@ import FirebaseFirestore
 final class ReservationStore: ObservableObject {
     
     @Published var reservation: Reservation
+    @Published var reservationRoom: ReservationRoom?
+    @Published var sellerAccount: String = ""
     
     @Published var isPolicyChecked: Bool = false
     
-    let sampleSpace: SampleSpace = SampleSpace(spaceName: "[서울역] 갬성 파티룸", roomName: "202호 불타는 애플", imageString: "https://cdn.e2news.com/news/photo/202301/249694_103455_5758.png")
-    
-    let dataBase = Firestore.firestore().collection("Reservation")
+     let sampleSpace: SampleSpace = SampleSpace(spaceName: "[서울역] 갬성 파티룸", roomName: "202호 불타는 애플", imageString: "https://cdn.e2news.com/news/photo/202301/249694_103455_5758.png")
+     
+    let dataBase = Firestore.firestore()
     
     init() {
-        reservation = Reservation(userEmail: "", placeID: "", roomID: "", reservationState: 0, reservationYear: "", reservationMonth: "", reservationDay: "", checkInYear: "", checkInMonth: "", checkInDay: "", checkOutYear: "", checkOutMonth: "", checkOutDay: "", hour: 1, personnel: 1, reservationName: "", reservationPhoneNumber: "", reservationRequest: "")
+        reservation = Reservation(userEmail: "", placeID: "", roomID: "", reservationState: 0, reservationYear: "", reservationMonth: "", reservationDay: "", checkInYear: "", checkInMonth: "", checkInDay: "", checkOutYear: "", checkOutMonth: "", checkOutDay: "", hour: 1, personnel: 1, reservationName: "", reservationPhoneNumber: "", reservationRequest: "", reservationCancelReason: "")
     }
     
     func changeDateString(_ date: Date) -> String {
@@ -93,7 +95,7 @@ final class ReservationStore: ObservableObject {
     func getReservation (type: ReservationCase) -> String {
         
         switch type {
-        
+            
         case .reservationID:
             return "\(reservation.id)"
             
@@ -125,12 +127,43 @@ final class ReservationStore: ObservableObject {
     }
     
     func addReservation() {
-        dataBase.document(reservation.id)
+        dataBase.collection("Reservation").document(reservation.id)
             .setData(reservation.asDictionary())
-                print("예약 추가 완료")
+        print("예약 추가 완료")
     }
     
-    func getUserEmail() {
+    func fetchReservationRoom(roomID: String) {
         
+        let docRef = dataBase.collection("Room").document(roomID)
+        
+        docRef.getDocument(as: ReservationRoom.self) { result in
+            switch result {
+            case .success(let room):
+                self.reservationRoom = room
+                
+                self.reservation.roomID = roomID
+                self.reservation.placeID = room.placeId
+            case .failure(let error):
+                print("Error decoding room: \(error)")
+            }
+        }
     }
+    
+    /*
+    func fetchReservationRoom(sellerID: String) {
+        
+        let docRef = dataBase.collection("sellers").document(sellerID)
+        
+        docRef.getDocument() { result in
+            switch result {
+            case .success(let seller):
+                self.sellerAccount = seller["accountNumber"]
+                
+            case .failure(let error):
+                print("Error decoding room: \(error)")
+            }
+        }
+    }
+     */
+    
 }
