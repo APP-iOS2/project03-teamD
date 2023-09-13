@@ -21,15 +21,14 @@ struct ReviewManageView: View {
     
     var body: some View {
         Group {
-            if isLoading {
-                ProgressView()
-            } else {
-                Form {
+            Form {
+                if isLoading {
+                    ProgressView()
+                } else {
                     Section {
                         ForEach(reviewStore.reviewList) { review in
                             NavigationLink {
                                 ReviewManageDetailView(replyStore: replyStore, reportStore: reportStore, review: review)
-
                             } label: {
                                 ReviewCell(review: review)
                                     .environmentObject(reviewStore)
@@ -41,13 +40,14 @@ struct ReviewManageView: View {
                         Text("공간 1")
                     }
                 }
-                .background(Color.myBackground)
-                .navigationTitle("리뷰 관리")
-                .navigationBarBackButtonHidden(true)
-                .navigationBarTitleDisplayMode(.inline)
-                .scrollContentBackground(.hidden)
-                .customBackbutton()
             }
+            .background(Color.myBackground)
+            .navigationTitle("리뷰 관리")
+            .navigationBarBackButtonHidden(true)
+            .navigationBarTitleDisplayMode(.inline)
+            .scrollContentBackground(.hidden)
+            .customBackbutton()
+            
         }
         .onAppear {
             Task {
