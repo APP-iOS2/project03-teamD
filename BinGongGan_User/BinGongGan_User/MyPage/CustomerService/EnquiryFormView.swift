@@ -9,12 +9,20 @@ import SwiftUI
 
 struct EnquiryFormView: View {
     @Environment(\.dismiss) private var dismiss
-    @State private var email: String = "email@email.com"
+    @State private var email: String  = "email@email.com"
     @State private var title: String = ""
     @State private var content: String = ""
     @State private var agreement: Bool = false
+    @State private var isShowingSubmitAlert: Bool = false
     @Binding var isShowingToast: Bool
     
+    var isDisable: Bool {
+        if email.isEmpty || title.isEmpty || content.isEmpty || !agreement {
+            return true
+        } else {
+            return false
+        }
+    }
     var body: some View {
         Form {
             Section("답변받으실 이메일") {
@@ -40,8 +48,7 @@ struct EnquiryFormView: View {
              .listRowSeparator(.hidden)
             
             Button {
-                isShowingToast.toggle()
-                dismiss()
+                isShowingSubmitAlert.toggle()
             } label: {
                 Text("보내기")
                     .font(.body1Bold)
@@ -51,10 +58,20 @@ struct EnquiryFormView: View {
             }
             .background(
              RoundedRectangle(cornerRadius: 15)
-                 .foregroundColor( .myBrown)
+                .foregroundColor(isDisable ? .myDarkGray : .myBrown)
             )
+            .disabled(isDisable)
             .buttonStyle(.plain)
             .listRowBackground(Color.myBackground)
+        }
+        .alert("문의 작성", isPresented: $isShowingSubmitAlert) {
+            Button("취소", role: .none) {}
+            Button("보내기", role: .none) {
+                isShowingToast.toggle()
+                dismiss()
+            }
+        }message: {
+            Text("작성한 문의를 보냅니다.")
         }
         .onTapGesture {
         self.endTextEditing()
