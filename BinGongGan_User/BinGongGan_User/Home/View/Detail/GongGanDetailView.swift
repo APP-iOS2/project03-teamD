@@ -20,7 +20,7 @@ struct GongGanDetailView: View {
     @State private var isShowingReservationView = false
     @State private var isShowingReservationAlert = false
     @State private var selectedSegment: segmentIndex = .info
-    
+    @State private var hasFetchedGongGanInfo = false
     @State var placeId: String
     @State var roomId: String = ""
     @Namespace var animation
@@ -93,16 +93,16 @@ struct GongGanDetailView: View {
                     .background(Color.myBrown)
                     .padding(.bottom, 0.1)
                 }
+                .onAppear {
+                    if !hasFetchedGongGanInfo {
+                        Task {
+                            await gongGan.fetchGongGanInfo(placeId: placeId)
+                            hasFetchedGongGanInfo = true
+                        }
+                    }
+                    heartButton = gongGan.gongGanInfo.isFavorite
+                }
             }
-        }
-        
-        
-        .onAppear{
-            gongGan.placeId = self.placeId
-            Task{
-                await gongGan.fetchGongGanInfo()
-            }
-            heartButton = gongGan.gongGanInfo.isFavorite
         }
         
         .navigationTitle("BinGongGan")
@@ -129,11 +129,11 @@ struct GongGanDetailView: View {
                     Task {
                         favoriteGongGan.updateMyInfo(placeId: placeId)
                         await favoriteGongGan.fetchMyFavorite()
-                        await gongGan.fetchGongGanInfo()
+                        await gongGan.fetchGongGanInfo(placeId: placeId)
                     }
                     
                 } label: {
-                    Image(systemName: heartButton ? "heart.fill" : "heart")
+                    Image(systemName: gongGan.gongGanInfo.isFavorite ? "heart.fill" : "heart")
                         .foregroundColor(Color.myBrown)
                 }
             }
@@ -152,7 +152,7 @@ struct GongGanDetailView_Previews: PreviewProvider {
     static var previews: some View {
         TabView {
             NavigationStack {
-                GongGanDetailView(placeId: "785TxPRCwAgeXG3NzHojdWyMGOs2")
+                GongGanDetailView(placeId: "63wML8jonncvAgn1O9xMtMk0WqM2")
             }
             .environmentObject(GongGanStore())
             .tabItem {

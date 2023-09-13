@@ -58,20 +58,26 @@ final class ReservationStore: ObservableObject {
         switch type {
             
         case .reservationDate:
-            reservation.reservationYear = getDateString(type: .year, value as! Date)
-            reservation.reservationMonth = getDateString(type: .month, value as! Date)
-            reservation.reservationDay = getDateString(type: .day, value as! Date)
+            if let dateValue = value as? Date {
+                reservation.reservationYear = getDateString(type: .year, dateValue)
+                reservation.reservationMonth = getDateString(type: .month, dateValue)
+                reservation.reservationDay = getDateString(type: .day, dateValue)
+            }
             
         case .checkInDate:
-            reservation.checkInYear = getDateString(type: .year, value as! Date)
-            reservation.checkInMonth = getDateString(type: .month, value as! Date)
-            reservation.checkInDay = getDateString(type: .day, value as! Date)
+            if let dateValue = value as? Date {
+                reservation.checkInYear = getDateString(type: .year, dateValue)
+                reservation.checkInMonth = getDateString(type: .month, dateValue)
+                reservation.checkInDay = getDateString(type: .day, dateValue)
+            }
             
         case .checkOutDate:
-            reservation.checkOutYear = getDateString(type: .year, value as! Date)
-            reservation.checkOutMonth = getDateString(type: .month, value as! Date)
-            reservation.checkOutDay = getDateString(type: .day, value as! Date)
-            
+            if let dateValue = value as? Date {
+                reservation.checkOutYear = getDateString(type: .year, dateValue)
+                reservation.checkOutMonth = getDateString(type: .month, dateValue)
+                reservation.checkOutDay = getDateString(type: .day, dateValue)
+            }
+
         case .hour:
             reservation.hour = value as! Int
             
