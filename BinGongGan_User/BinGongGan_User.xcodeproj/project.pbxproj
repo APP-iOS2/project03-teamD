@@ -37,6 +37,7 @@
 		B12A84D22AA6F04400BDF8CA /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = B12A84D12AA6F04400BDF8CA /* FirebaseFirestore */; };
 		B12A84D42AA6F04400BDF8CA /* FirebaseFirestoreSwift in Frameworks */ = {isa = PBXBuildFile; productRef = B12A84D32AA6F04400BDF8CA /* FirebaseFirestoreSwift */; };
 		B12A84FC2AA7A65900BDF8CA /* BinGongGanCore in Frameworks */ = {isa = PBXBuildFile; productRef = B12A84FB2AA7A65900BDF8CA /* BinGongGanCore */; };
+		B1CE60EC2AB1CDAE0006E94E /* FirebaseStorage in Frameworks */ = {isa = PBXBuildFile; productRef = B1CE60EB2AB1CDAE0006E94E /* FirebaseStorage */; };
 		BC344EC02AA806FF00F8CEB3 /* GongGanTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC344EBF2AA806FE00F8CEB3 /* GongGanTabView.swift */; };
 		BC344EC92AA8072000F8CEB3 /* GongGanInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC344EC52AA8072000F8CEB3 /* GongGanInfo.swift */; };
 		BC344ED12AA8073700F8CEB3 /* GongGanDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC344ECF2AA8073600F8CEB3 /* GongGanDetailView.swift */; };
@@ -258,6 +259,7 @@
 				B12A84D02AA6F04400BDF8CA /* FirebaseAuth in Frameworks */,
 				B12A84FC2AA7A65900BDF8CA /* BinGongGanCore in Frameworks */,
 				B12A84D22AA6F04400BDF8CA /* FirebaseFirestore in Frameworks */,
+				B1CE60EC2AB1CDAE0006E94E /* FirebaseStorage in Frameworks */,
 				B12A84D42AA6F04400BDF8CA /* FirebaseFirestoreSwift in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -736,6 +738,7 @@
 				B12A84D12AA6F04400BDF8CA /* FirebaseFirestore */,
 				B12A84D32AA6F04400BDF8CA /* FirebaseFirestoreSwift */,
 				B12A84FB2AA7A65900BDF8CA /* BinGongGanCore */,
+				B1CE60EB2AB1CDAE0006E94E /* FirebaseStorage */,
 			);
 			productName = BinGongGan_User;
 			productReference = B12A84A12AA6F00D00BDF8CA /* BinGongGan_User.app */;
@@ -1319,6 +1322,11 @@
 		B12A84FB2AA7A65900BDF8CA /* BinGongGanCore */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = BinGongGanCore;
+		};
+		B1CE60EB2AB1CDAE0006E94E /* FirebaseStorage */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = B12A84CE2AA6F04400BDF8CA /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseStorage;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
