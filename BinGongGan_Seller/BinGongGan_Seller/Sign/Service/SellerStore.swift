@@ -14,10 +14,6 @@ import SwiftUI
     static let service = FirestoreService()
 
     static func saveUserData(seller: Seller) async throws {
-        guard let sellerId = seller.id else {
-            return
-        }
-        
         do {
             try await service.saveDocument(collectionId: .sellers, documentId: seller.id, data: seller)
         } catch {
