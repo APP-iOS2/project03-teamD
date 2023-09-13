@@ -81,9 +81,8 @@ struct AddReviewView: View {
         .alert("리뷰 작성", isPresented: $isShowingAlert) {
             Button("취소", role: .none) {}
             Button("제출", role: .none) {
-                //TODO: 리뷰 저장 로직
                     Task {
-                        try await myReviewStore.addReview(placeId: "1B7F6970-EEC1-4244-8D4F-9F8F047F124F", rating: starRating, content: reviewText, images: selectedImages)
+                        try await myReviewStore.addReview(placeId: reservation.placeID, rating: starRating, content: reviewText, images: selectedImages)
                     }
                 dismiss()
             }
