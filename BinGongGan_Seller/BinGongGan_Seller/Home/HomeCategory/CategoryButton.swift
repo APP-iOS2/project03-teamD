@@ -15,13 +15,13 @@ struct CategoryButton: View {
     var body: some View {
         Rectangle()
             .fill(Color.white)
-            .frame(width: AnnouncementOptionCell.screenWidth * 0.19, height: AnnouncementOptionCell.screenWidth * 0.21)
+            .frame(width: UIScreen.screenWidth * 0.19, height: UIScreen.screenWidth * 0.21)
             .cornerRadius(15)
             .overlay(
                 VStack{
                     Image(imageString)
                         .aspectRatio(contentMode: .fit)
-                        .frame(width: AnnouncementOptionCell.screenWidth * 0.08, height: AnnouncementOptionCell.screenHeight * 0.05)
+                        .frame(width: UIScreen.screenWidth * 0.08, height: UIScreen.screenHeight * 0.05)
                         .scaleEffect(0.8)
                     Text(categoryName)
                         .font(.footnote)
