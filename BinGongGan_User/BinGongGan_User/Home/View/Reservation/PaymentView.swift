@@ -169,7 +169,7 @@ struct PaymentView: View {
         }
         .modifier(
           TossAlertModifier(
-            isPresented: .constant(true),
+            isPresented: $isAllPaymentInfoChecked,
             title: "결제 확인",
             content: "계좌번호로 2일 내에 입금 부탁드립니다",
             primaryButtonTitle: "확인",

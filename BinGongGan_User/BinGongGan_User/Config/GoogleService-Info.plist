@@ -2,6 +2,10 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+	<key>CLIENT_ID</key>
+	<string>187035313188-s91hmm9ih4g3f1tj4caaj9bq144eaqc4.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.187035313188-s91hmm9ih4g3f1tj4caaj9bq144eaqc4</string>
 	<key>API_KEY</key>
 	<string>AIzaSyCAp7U-jpvklOT_A3_h2BRvijlpz4i2BQ4</string>
 	<key>GCM_SENDER_ID</key>
@@ -9,7 +13,7 @@
 	<key>PLIST_VERSION</key>
 	<string>1</string>
 	<key>BUNDLE_ID</key>
-	<string>com.ZD.BinGongGan.User</string>
+	<string>com.ZD.BinGongGan-User</string>
 	<key>PROJECT_ID</key>
 	<string>bingongganapp</string>
 	<key>STORAGE_BUCKET</key>
@@ -25,6 +29,6 @@
 	<key>IS_SIGNIN_ENABLED</key>
 	<true></true>
 	<key>GOOGLE_APP_ID</key>
-	<string>1:187035313188:ios:9a2db2ccd1cce1629564b1</string>
+	<string>1:187035313188:ios:4f0fcc0f60dfee1b9564b1</string>
 </dict>
 </plist>

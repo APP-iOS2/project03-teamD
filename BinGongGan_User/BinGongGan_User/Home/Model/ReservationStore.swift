@@ -13,6 +13,7 @@ final class ReservationStore: ObservableObject {
     
     @Published var reservation: Reservation
     @Published var reservationRoom: ReservationRoom?
+    @Published var sellerAccount: String = ""
     
     @Published var isPolicyChecked: Bool = false
     
@@ -21,7 +22,7 @@ final class ReservationStore: ObservableObject {
     let dataBase = Firestore.firestore()
     
     init() {
-        reservation = Reservation(userEmail: "", placeID: "", roomID: "", reservationState: 0, reservationYear: "", reservationMonth: "", reservationDay: "", checkInYear: "", checkInMonth: "", checkInDay: "", checkOutYear: "", checkOutMonth: "", checkOutDay: "", hour: 0, personnel: 0, reservationName: "", reservationPhoneNumber: "", reservationRequest: "", reservationCancelReason: "")
+        reservation = Reservation(userEmail: "", placeID: "", roomID: "", reservationState: 0, reservationYear: "", reservationMonth: "", reservationDay: "", checkInYear: "", checkInMonth: "", checkInDay: "", checkOutYear: "", checkOutMonth: "", checkOutDay: "", hour: 1, personnel: 1, reservationName: "", reservationPhoneNumber: "", reservationRequest: "", reservationCancelReason: "")
     }
     
     func changeDateString(_ date: Date) -> String {
@@ -147,5 +148,22 @@ final class ReservationStore: ObservableObject {
             }
         }
     }
+    
+    /*
+    func fetchReservationRoom(sellerID: String) {
+        
+        let docRef = dataBase.collection("sellers").document(sellerID)
+        
+        docRef.getDocument() { result in
+            switch result {
+            case .success(let seller):
+                self.sellerAccount = seller["accountNumber"]
+                
+            case .failure(let error):
+                print("Error decoding room: \(error)")
+            }
+        }
+    }
+     */
     
 }
