@@ -9,8 +9,7 @@ import Foundation
 import Firebase
 import FirebaseFirestore
 
-class RervationStore : ObservableObject{
-    
+final class RervationStore : ObservableObject{
     @Published var data = [SellerReservation]()
     @Published var recentData = [SellerReservation]()
     @Published var selectedType = ReservationStateType.waitReservation
@@ -23,7 +22,6 @@ class RervationStore : ObservableObject{
         Task {
             await fetchData()
         }
-        
     }
     
     @MainActor func fetchData() async {
@@ -44,16 +42,12 @@ class RervationStore : ObservableObject{
 //    }
     func filterData(){
        let mydata = data.filter { data in
-            data.placeID == "46CE2DD8-C30A-4932-943B-EFCE0C7D2647"
+            data.placeID == sellerUid
         }
         
-        let data = data.sorted {
+        let data = mydata.sorted {
             $0.reservationDateString > $1.reservationDateString
         }
-        recentData = data
-//        print(data)
-//        print("필터된 데이터")
-//        print(mydata)
         
         let canceldata = data.filter{
             $0.reservationState == 3
@@ -63,9 +57,11 @@ class RervationStore : ObservableObject{
         let waitldata = data.filter{
             $0.reservationState == 0
         }
+        recentData = waitldata
+
         self.waitldata = waitldata
         let confilmedldata = data.filter{
-            $0.reservationState == 1
+            $0.reservationState == 1 || $0.reservationState == 2
         }
         self.confilmedldata = confilmedldata
     }
