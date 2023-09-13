@@ -35,8 +35,12 @@ struct ContentView: View {
                 SignInView()
                     .environmentObject(signInStore)
                     .environmentObject(signUpStore)
+                    .onAppear {
+                        signInStore.checkSignedIn()
+                    }
             }
         }
+            
     }
 }
 
