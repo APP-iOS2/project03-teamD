@@ -52,7 +52,7 @@ struct GongGanDetailView: View {
                     
                     
                     Group { // 세그먼트
-                        SegmentView(selectedSegment: $selectedSegment, isReservationActive: $isReservationActive, roomId: $roomId, screenWidth: screenWidth, animation: animation)
+                        SegmentView(selectedSegment: $selectedSegment, isReservationActive: $isReservationActive, roomId: $roomId, placeId: $placeId, screenWidth: screenWidth, animation: animation)
                     }
                 }
                 

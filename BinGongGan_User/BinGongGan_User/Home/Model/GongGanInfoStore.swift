@@ -70,8 +70,8 @@ final class GongGanStore: ObservableObject {
                 placeGuide: placeGuide,
                 isFavorite: isFavorite
             )
-                self.gongGanInfo = info
-                self.isLoading = false
+            self.gongGanInfo = info
+            self.isLoading = false
         } catch {
             print("Error fetchGongGanInfo: \(error)")
             DispatchQueue.main.async {
@@ -79,7 +79,7 @@ final class GongGanStore: ObservableObject {
             }
         }
     }
-
+    
     
     func fetchSubGongGanInfo(placeId: String) async throws -> [DetailGongGan] {
         var subGongGan: [DetailGongGan] = [DetailGongGan.sample]
@@ -122,6 +122,7 @@ final class GongGanStore: ObservableObject {
     }
     
     
+    @MainActor
     func fetchReViews(placeId: String) async {
         var reviews: [Review] = []
         
@@ -136,9 +137,15 @@ final class GongGanStore: ObservableObject {
                 let date: String = docData["date"] as? String ?? ""
                 let rating: Int = docData["rating"] as? Int ?? 0
                 let content: String = docData["content"] as? String ?? ""
-                let reviewImageStringList: [String] = docData["reviewImageStringList"] as? [String] ?? [""]
                 
-                let result: Review = Review(placeId: placeId, writerId: writerId, date: date, rating: rating, content: content, reviewImageStringList: reviewImageStringList)
+                var reviewImages: [String] = [""]
+                if let reviewImageStringList = docData["reviewImageStringList"] as? [String] {
+                    reviewImages = reviewImageStringList
+                }
+                
+                let username = await fetchUsername(writerId: writerId)
+                
+                let result: Review = Review(placeId: placeId, writerId: username, date: date, rating: rating, content: content, reviewImageStringList: reviewImages)
                 
                 reviews.append(result)
             }
@@ -147,6 +154,43 @@ final class GongGanStore: ObservableObject {
         } catch {
         }
     }
+    
+    func fetchUsername(writerId: String) async -> String {
+        do {
+            let document = try await Firestore.firestore().collection("users").document(writerId).getDocument()
+            
+            var temName: String = ""
+            
+            if document.exists {
+                let data = document.data()
+                let username = data?["name"] as? String ?? "unknown"
+                temName = username
+            }
+            return temName
+        } catch {
+            print("Error fetching username: \(error.localizedDescription)")
+            return "nil"
+        }
+    }
+    func getCompanyName(incruitmentId: String) async throws -> String {
+        var companyName: String = ""
+        let db = Firestore.firestore()
+        
+        do {
+            let document = try await db.collection("user").document(incruitmentId).getDocument()
+            
+            if document.exists {
+                let data = document.data()
+                companyName = data?["companyName"] as? String ?? ""
+            }
+        } catch {
+            print("Error getting document: \(error)")
+            throw error
+        }
+        
+        return companyName
+    }
+    
     //    func fetch(completion: @escaping (Bool) -> Void) {
     //
     //            userList.removeAll()
