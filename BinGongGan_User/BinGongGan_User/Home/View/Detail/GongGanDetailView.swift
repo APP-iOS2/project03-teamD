@@ -20,7 +20,7 @@ struct GongGanDetailView: View {
     @State private var isShowingReservationAlert = false
     @State private var selectedSegment: segmentIndex = .info
     
-    @State var placeId: String = "785TxPRCwAgeXG3NzHojdWyMGOs2" // 디테일 보여줄 공간 아이디 받아서 넣는곳
+    @State var placeId: String
     @State var roomId: String = ""
     @Namespace var animation
     private let screenWidth = UIScreen.main.bounds.width

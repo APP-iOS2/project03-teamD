@@ -16,7 +16,7 @@ struct FavoriteListView: View {
         TabView {
             ForEach(homeStore.hotPlace) { place in
                 NavigationLink {
-                    GongGanDetailView()
+                    GongGanDetailView(placeId: place.id)
                 } label: {
                     ZStack {
                         AsyncImage(url: URL(string: "\(place.placeFirstImage)") ) { image in

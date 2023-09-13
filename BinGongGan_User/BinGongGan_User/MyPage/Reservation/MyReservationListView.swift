@@ -66,7 +66,7 @@ struct MyReservationListView: View {
         .navigationBarTitleDisplayMode(.inline)
         .customBackbutton()
         .navigationDestination(isPresented: $isShowingGongGanDetailView) {
-            GongGanDetailView()
+            GongGanDetailView(placeId: myReservationStore.reservation.id)
         }
         .sheet(isPresented: $isShowingSheet) {
             CategorySheetView(isShowingSheet: $isShowingSheet)

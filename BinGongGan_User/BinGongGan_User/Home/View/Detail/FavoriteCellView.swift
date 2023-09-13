@@ -16,7 +16,7 @@ struct FavoriteCellView: View {
     
     var body: some View {
         NavigationLink {
-            GongGanDetailView()
+            GongGanDetailView(placeId: gongGanItem.id)
         } label: {
             VStack {
                 HStack {
