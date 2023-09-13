@@ -97,7 +97,7 @@ class MyReviewStore: ObservableObject {
     func findReply(reviewId: String?) async throws -> Reply?{
         guard let id = reviewId else { return nil }
         do {
-            let reply = try await dbRef.collection("reply").document(id).getDocument(as: Reply.self)
+            let reply = try await dbRef.collection("Replies").document(id).getDocument(as: Reply.self)
             
             return reply
         } catch {

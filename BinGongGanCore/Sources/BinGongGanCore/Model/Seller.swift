@@ -22,14 +22,14 @@ public struct Seller: Identifiable, Codable {
     public var registrationNum: String
     ///사업자 등록증
     public var registrationImage : String
-    public init(id: String, name: String, birthDate: String, phoneNumber: String, email: String, nickname: String, password: String, accountNumber: String,registrationNum:String,registrationImage:String ) {
+    public init(id: String? = nil, name: String, birthDate: String, phoneNumber: String, email: String, nickname: String, password: String, accountNumber: String, registrationNum: String, registrationImage: String) {
         self.id = id
-        self.email = email
         self.name = name
-        self.nickname = nickname
-        self.phoneNumber = phoneNumber
-        self.password = password
         self.birthDate = birthDate
+        self.phoneNumber = phoneNumber
+        self.email = email
+        self.nickname = nickname
+        self.password = password
         self.accountNumber = accountNumber
         self.registrationNum = registrationNum
         self.registrationImage = registrationImage

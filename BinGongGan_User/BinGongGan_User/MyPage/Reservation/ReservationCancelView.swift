@@ -32,7 +32,7 @@ struct ReservationCancelView: View {
                         Spacer().frame(height: UIScreen.main.bounds.height * 0.02)
                         HStack {
                             Image(systemName: "creditcard.fill")
-                            Text("국민 \(reservation.seller?.accountNumber ?? "") (\(reservation.seller?.name ?? ""))")
+                            Text("\(reservation.bankName ?? "") \(reservation.seller?.accountNumber ?? "") (\(reservation.seller?.name ?? ""))")
                                 .font(.captionRegular)
                         }
                     }
