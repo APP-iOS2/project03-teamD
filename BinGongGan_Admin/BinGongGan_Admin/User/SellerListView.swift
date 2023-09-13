@@ -8,13 +8,38 @@
 import SwiftUI
 
 struct SellerListView: View {
+    @StateObject private var sellerStore: SellerStore = SellerStore()
+    
     var body: some View {
-        Text("판매자 리스트")
+        List(sellerStore.sellerList) { seller in
+            NavigationLink {
+                SellerDetailView(seller: seller)
+            } label: {
+                VStack(alignment: .leading) {
+                    Text(seller.name)
+                        .font(.head1Bold)
+                    Text("\(seller.nickname)")
+                        .font(.captionRegular)
+                        .foregroundColor(.myDarkGray)
+                }
+            }
+            
+        }
+        .navigationTitle("판매자")
+        .scrollContentBackground(.hidden)
+        .background(Color.myBackground, ignoresSafeAreaEdges: .all)
+        .onAppear {
+            Task {
+                try await sellerStore.fetchUser()
+            }
+        }
     }
 }
 
 struct SellerListView_Previews: PreviewProvider {
     static var previews: some View {
-        SellerListView()
+        NavigationStack {
+            SellerListView()
+        }
     }
 }

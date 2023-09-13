@@ -6,3 +6,35 @@
 //
 
 import Foundation
+import BinGongGanCore
+import FirebaseFirestore
+import FirebaseFirestoreSwift
+
+@MainActor
+class SellerStore: ObservableObject {
+    @Published var sellerList: [Seller] = []
+    private let dbRef = Firestore.firestore()
+    
+    init() {}
+    
+    func fetchUser() async throws {
+        var tempList: [Seller] = []
+        
+        do {
+            let snapshot = try await dbRef.collection(Collections.seller.rawValue).getDocuments()
+            let documents = snapshot.documents
+            
+            for document in documents {
+                do {
+                    let seller = try document.data(as: Seller.self)
+                    tempList.append(seller)
+                }catch let err {
+                    print("error : \(err)")
+                }
+            }
+            self.sellerList = tempList
+        } catch {
+            print("Error getting document: \(error)")
+        }
+    }
+}
