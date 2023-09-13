@@ -22,7 +22,6 @@
 		3ACEBAF42AB055FA008F4600 /* BankSheetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ACEBAF32AB055FA008F4600 /* BankSheetView.swift */; };
 		53254A232AAE2F18002E7542 /* AddPhotoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53254A222AAE2F18002E7542 /* AddPhotoView.swift */; };
 		534F56A42AB008D700FA79B0 /* MyReviewStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 534F56A32AB008D700FA79B0 /* MyReviewStore.swift */; };
-		535E88052AB16D9C00FBA9B4 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 535E88042AB16D9C00FBA9B4 /* GoogleService-Info.plist */; };
 		535E880B2AB170E000FBA9B4 /* FirebaseStorage in Frameworks */ = {isa = PBXBuildFile; productRef = 535E880A2AB170E000FBA9B4 /* FirebaseStorage */; };
 		5398C2132AA8D9A0000BD361 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5398C2122AA8D9A0000BD361 /* ContentView.swift */; };
 		53AC17752AAEF6E10004D3E9 /* EnquiryFormView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53AC17742AAEF6E10004D3E9 /* EnquiryFormView.swift */; };
@@ -160,7 +159,6 @@
 		3ACEBAF32AB055FA008F4600 /* BankSheetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BankSheetView.swift; sourceTree = "<group>"; };
 		53254A222AAE2F18002E7542 /* AddPhotoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddPhotoView.swift; sourceTree = "<group>"; };
 		534F56A32AB008D700FA79B0 /* MyReviewStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyReviewStore.swift; sourceTree = "<group>"; };
-		535E88042AB16D9C00FBA9B4 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		5398C2122AA8D9A0000BD361 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		53AC17742AAEF6E10004D3E9 /* EnquiryFormView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnquiryFormView.swift; sourceTree = "<group>"; };
 		692725582AA81E5300A2441E /* RefundPolicySheetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RefundPolicySheetView.swift; sourceTree = "<group>"; };
@@ -432,7 +430,6 @@
 		B15806402AA89795006C772B /* Config */ = {
 			isa = PBXGroup;
 			children = (
-				535E88042AB16D9C00FBA9B4 /* GoogleService-Info.plist */,
 				B12A84A82AA6F01000BDF8CA /* Assets.xcassets */,
 			);
 			path = Config;
@@ -851,7 +848,6 @@
 			files = (
 				ECBD87752AAB09F600ECEC7D /* Information1.md in Resources */,
 				B12A84AC2AA6F01000BDF8CA /* Preview Assets.xcassets in Resources */,
-				535E88052AB16D9C00FBA9B4 /* GoogleService-Info.plist in Resources */,
 				B12A84A92AA6F01000BDF8CA /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
