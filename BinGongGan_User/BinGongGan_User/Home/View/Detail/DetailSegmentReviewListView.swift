@@ -16,13 +16,6 @@ struct DetailSegmentReviewListView: View {
                 ForEach(gongGan.reviews) { review in
                     DetailReviewRowView(review: review)
                 }
-                Button  {
-                    print(gongGan.reviews)
-                } label: {
-                    Text("asdasd")
-                }
-
-                
             }
             .padding(.bottom, 50)
         }
