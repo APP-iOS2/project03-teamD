@@ -77,8 +77,7 @@ struct GongGan: Identifiable {
                                        ],
                                        placeImageUrl: [
                                         "https://res.klook.com/images/fl_lossy.progressive,q_65/c_fill,w_1295,h_971/w_80,x_15,y_15,g_south_west,l_Klook_water_br_trans_yhcmh3/activities/kuafyq7td56gof1rxpih/[%EB%B6%80%EC%82%B0%EC%84%9C%EB%A9%B4]%EC%8F%98%ED%94%8C%EA%B7%B8%EB%A0%88%EC%9D%B4%EC%8A%A4%ED%86%A4%ED%8C%8C%ED%8B%B0%EB%A3%B8(%EC%95%BC%EC%99%B8%ED%85%8C%EB%9D%BC%EC%8A%A4%EB%B0%94%EB%B2%A0%ED%81%90).webp",
-                                        "https://a.cdn-hotels.com/gdcs/production183/d989/3af773fa-b822-4da0-85de-a4ebfa559f32.jpg",
-                                        "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSl78G1gSU5SWWFWadyjHfIEhz_yPmVqjIGmA&usqp=CAU"
+                                        "https://a.cdn-hotels.com/gdcs/production183/d989/3af773fa-b822-4da0-85de-a4ebfa559f32.jpg"
                                         
                                        ],
                                        placeInfo: [

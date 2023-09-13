@@ -17,7 +17,7 @@ struct SubGongGanDetailView: View {
     var body: some View {
         NavigationStack {
             VStack(spacing: 10) {
-                DetailTabImageView(imageUrl: gongGan.detailImageUrl)
+                DetailTabImageView(imageUrl: $gongGan.detailImageUrl)
                     .frame(height: screenheight * 0.25)
                 
                 VStack(alignment: .leading) {
@@ -26,6 +26,7 @@ struct SubGongGanDetailView: View {
                         .fixedSize(horizontal: false, vertical: true)
                         .font(.subheadline)
                         .foregroundColor(.myDarkGray)
+                        .padding(.bottom, 5)
                     VStack(alignment: .leading, spacing: 10) {
                         customSection("공간 정보")
                         

@@ -96,7 +96,7 @@ struct MapSearchView: View {
                     HStack {
                         ForEach(locationManager.placeList) { place in
                             NavigationLink {
-                                GongGanDetailView()
+                                GongGanDetailView(placeId: place.id)
                             } label: {
                                 SummaryPlaceView(place: place)
                                     .foregroundColor(.myDarkGray)
