@@ -8,11 +8,12 @@
 
 /* Begin PBXBuildFile section */
 		2F143E122AB0574000CB9ED5 /* ReplyStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F143E112AB0574000CB9ED5 /* ReplyStore.swift */; };
+		2F43B7552AB1A1A800B801E4 /* MyPlaceStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F43B7542AB1A1A800B801E4 /* MyPlaceStore.swift */; };
 		4B76BBA52AB0526600E07878 /* AnnouncementStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B76BBA42AB0526600E07878 /* AnnouncementStore.swift */; };
 		4B76BBA72AB052EB00E07878 /* AnnouncementAddView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B76BBA62AB052EB00E07878 /* AnnouncementAddView.swift */; };
 		5406F8882AB03A42000A6441 /* CustomSecureField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FD06C9A2AAEE51900D116B9 /* CustomSecureField.swift */; };
 		5406F8892AB03A42000A6441 /* CustomTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FD06C9D2AAEE51D00D116B9 /* CustomTextField.swift */; };
-		5406F88A2AB03A42000A6441 /* PrimaryButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FD06C9B2AAEE51B00D116B9 /* PrimaryButton.swift */; };
+		5406F88A2AB03A42000A6441 /* AbledPrimaryButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FD06C9B2AAEE51B00D116B9 /* AbledPrimaryButton.swift */; };
 		5406F88B2AB03A42000A6441 /* CustomTextEditor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BF4FB222AAFF1A9007F6563 /* CustomTextEditor.swift */; };
 		5406F88C2AB03A42000A6441 /* BinGongGan_SellerApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = B13465012AA910B900098E9B /* BinGongGan_SellerApp.swift */; };
 		5406F88D2AB03A42000A6441 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D250E0182AAEF8E000C1AD8E /* ContentView.swift */; };
@@ -91,6 +92,7 @@
 		6A800A882AB08DB200F1CE25 /* SellerStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A800A872AB08DB200F1CE25 /* SellerStore.swift */; };
 		6A800A8A2AB08DBF00F1CE25 /* FirestoreService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A800A892AB08DBF00F1CE25 /* FirestoreService.swift */; };
 		6A800A8C2AB08DCD00F1CE25 /* Collections.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A800A8B2AB08DCD00F1CE25 /* Collections.swift */; };
+		6A800A942AB1896A00F1CE25 /* RervationStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A800A932AB1896A00F1CE25 /* RervationStore.swift */; };
 		B12A84732AA6EFE900BDF8CA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B12A84722AA6EFE900BDF8CA /* Assets.xcassets */; };
 		B12A84802AA6EFEA00BDF8CA /* BinGongGan_SellerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B12A847F2AA6EFEA00BDF8CA /* BinGongGan_SellerTests.swift */; };
 		B12A848A2AA6EFEA00BDF8CA /* BinGongGan_SellerUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B12A84892AA6EFEA00BDF8CA /* BinGongGan_SellerUITests.swift */; };
@@ -127,11 +129,12 @@
 		2F36A56A2AA81EEC00578AEB /* ReviewWithCommentCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewWithCommentCell.swift; sourceTree = "<group>"; };
 		2F36A56C2AA83E2100578AEB /* ReviewReportSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewReportSheet.swift; sourceTree = "<group>"; };
 		2F36A5712AA83E9200578AEB /* ReportCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportCase.swift; sourceTree = "<group>"; };
+		2F43B7542AB1A1A800B801E4 /* MyPlaceStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPlaceStore.swift; sourceTree = "<group>"; };
 		2FAF0AC12AA8A9B500113F94 /* CarouselCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarouselCell.swift; sourceTree = "<group>"; };
 		2FD06C952AAEE4F800D116B9 /* SellerSignInStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SellerSignInStore.swift; sourceTree = "<group>"; };
 		2FD06C962AAEE4F800D116B9 /* SellerSignInView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SellerSignInView.swift; sourceTree = "<group>"; };
 		2FD06C9A2AAEE51900D116B9 /* CustomSecureField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomSecureField.swift; sourceTree = "<group>"; };
-		2FD06C9B2AAEE51B00D116B9 /* PrimaryButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PrimaryButton.swift; sourceTree = "<group>"; };
+		2FD06C9B2AAEE51B00D116B9 /* AbledPrimaryButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AbledPrimaryButton.swift; sourceTree = "<group>"; };
 		2FD06C9D2AAEE51D00D116B9 /* CustomTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomTextField.swift; sourceTree = "<group>"; };
 		2FECE3C52AADECFA00F04CFC /* ReportStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportStore.swift; sourceTree = "<group>"; };
 		2FF0482E2AAFF8F3002A04C3 /* PlaceDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceDetailView.swift; sourceTree = "<group>"; };
@@ -189,6 +192,7 @@
 		6A800A872AB08DB200F1CE25 /* SellerStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SellerStore.swift; sourceTree = "<group>"; };
 		6A800A892AB08DBF00F1CE25 /* FirestoreService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirestoreService.swift; sourceTree = "<group>"; };
 		6A800A8B2AB08DCD00F1CE25 /* Collections.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Collections.swift; sourceTree = "<group>"; };
+		6A800A932AB1896A00F1CE25 /* RervationStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RervationStore.swift; sourceTree = "<group>"; };
 		B12A846B2AA6EFE700BDF8CA /* BinGongGan_Seller.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BinGongGan_Seller.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B12A84722AA6EFE900BDF8CA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B12A847B2AA6EFEA00BDF8CA /* BinGongGan_SellerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BinGongGan_SellerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -292,13 +296,6 @@
 			path = View;
 			sourceTree = "<group>";
 		};
-		2F143E1E2AB0757700CB9ED5 /* Model */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Model;
-			sourceTree = "<group>";
-		};
 		2F36A56E2AA83E2600578AEB /* Sheet */ = {
 			isa = PBXGroup;
 			children = (
@@ -314,6 +311,14 @@
 				2F143E112AB0574000CB9ED5 /* ReplyStore.swift */,
 				2F36A5712AA83E9200578AEB /* ReportCase.swift */,
 				2FECE3C52AADECFA00F04CFC /* ReportStore.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		2F43B7532AB1A11D00B801E4 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				2F43B7542AB1A1A800B801E4 /* MyPlaceStore.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -364,7 +369,7 @@
 			children = (
 				2FD06C9A2AAEE51900D116B9 /* CustomSecureField.swift */,
 				2FD06C9D2AAEE51D00D116B9 /* CustomTextField.swift */,
-				2FD06C9B2AAEE51B00D116B9 /* PrimaryButton.swift */,
+				2FD06C9B2AAEE51B00D116B9 /* AbledPrimaryButton.swift */,
 				4BF4FB222AAFF1A9007F6563 /* CustomTextEditor.swift */,
 			);
 			path = Common;
@@ -373,7 +378,7 @@
 		2FF048302AAFF97D002A04C3 /* Place */ = {
 			isa = PBXGroup;
 			children = (
-				2F143E1E2AB0757700CB9ED5 /* Model */,
+				2F43B7532AB1A11D00B801E4 /* Model */,
 				2F143E1D2AB0756D00CB9ED5 /* View */,
 			);
 			path = Place;
@@ -420,6 +425,7 @@
 			isa = PBXGroup;
 			children = (
 				B13464F32AA90E6200098E9B /* HomeView.swift */,
+				6A800A922AB1895B00F1CE25 /* Store */,
 				B13465032AA9190900098E9B /* HomeModels */,
 				4B7420432AA80B3A00818257 /* Reservation */,
 				4B74203E2AA80AD800818257 /* HomeCategory */,
@@ -641,6 +647,14 @@
 				6A800A8B2AB08DCD00F1CE25 /* Collections.swift */,
 			);
 			path = Service;
+			sourceTree = "<group>";
+		};
+		6A800A922AB1895B00F1CE25 /* Store */ = {
+			isa = PBXGroup;
+			children = (
+				6A800A932AB1896A00F1CE25 /* RervationStore.swift */,
+			);
+			path = Store;
 			sourceTree = "<group>";
 		};
 		B12A84622AA6EFE700BDF8CA = {
@@ -906,7 +920,7 @@
 			files = (
 				5406F8882AB03A42000A6441 /* CustomSecureField.swift in Sources */,
 				5406F8892AB03A42000A6441 /* CustomTextField.swift in Sources */,
-				5406F88A2AB03A42000A6441 /* PrimaryButton.swift in Sources */,
+				5406F88A2AB03A42000A6441 /* AbledPrimaryButton.swift in Sources */,
 				4B76BBA52AB0526600E07878 /* AnnouncementStore.swift in Sources */,
 				5406F88B2AB03A42000A6441 /* CustomTextEditor.swift in Sources */,
 				5406F88C2AB03A42000A6441 /* BinGongGan_SellerApp.swift in Sources */,
@@ -939,6 +953,7 @@
 				5406F89F2AB03A42000A6441 /* AnnouncementShareSheet.swift in Sources */,
 				5406F8A02AB03A42000A6441 /* AnnouncementOption.swift in Sources */,
 				5406F8A12AB03A42000A6441 /* AnnouncementShareModel.swift in Sources */,
+				2F43B7552AB1A1A800B801E4 /* MyPlaceStore.swift in Sources */,
 				5406F8A22AB03A42000A6441 /* AnnouncementView.swift in Sources */,
 				5406F8A32AB03A42000A6441 /* AnnouncementTextRow.swift in Sources */,
 				5406F8A42AB03A42000A6441 /* AnnouncementDetailView.swift in Sources */,
@@ -970,6 +985,7 @@
 				6A800A812AB08D4E00F1CE25 /* SignUpData.swift in Sources */,
 				5406F8BE2AB03A42000A6441 /* MapView.swift in Sources */,
 				5406F8BF2AB03A42000A6441 /* AddressSearchView.swift in Sources */,
+				6A800A942AB1896A00F1CE25 /* RervationStore.swift in Sources */,
 				B171F4872AB1017800B8059B /* PlaceAddView.swift in Sources */,
 				5406F8C02AB03A42000A6441 /* PhotoSelectedView.swift in Sources */,
 				5406F8C12AB03A42000A6441 /* PlaceInfomationButtonView.swift in Sources */,
