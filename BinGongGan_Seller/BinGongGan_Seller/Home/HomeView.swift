@@ -10,6 +10,7 @@ import BinGongGanCore
 
 struct HomeView: View {
     
+    @EnvironmentObject private var rervationStore : RervationStore
     
     var body: some View {
         ZStack {
@@ -37,11 +38,16 @@ struct HomeView: View {
                         .foregroundColor(Color.black)
                     Spacer()
                 }
-                
-                ForEach(0..<5) { _ in
-                    ReservationCell(isHiddenRightButton: true)
-                        .padding(.bottom, 12)
-                        .padding(.horizontal, 20)
+                if rervationStore.recentData.count > 0{
+                    ForEach(0..<min(5, rervationStore.recentData.count), id: \.self) { index in
+                        ReservationCell(data:rervationStore.recentData[index],isHiddenRightButton: true)
+                            .environmentObject(rervationStore)
+                            .padding(.bottom, 12)
+                            .padding(.horizontal, 20)
+                    }
+                } else {
+                    Text("신규 예약이 없습니다.")
+                        .font(.title)
                 }
             }
             .toolbar {
@@ -69,7 +75,7 @@ struct HomeView: View {
 struct HomeView_Previews: PreviewProvider {
     static var previews: some View {
         NavigationStack {
-            HomeView()
+            HomeView().environmentObject(RervationStore())
         }
     }
 }

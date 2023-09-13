@@ -9,8 +9,7 @@ import Foundation
 import BinGongGanCore
 import FirebaseFirestore
 
- final class FirestoreService {
-
+public class FirestoreService {
     private let dbRef = Firestore.firestore()
     
     func saveDocument<T: Codable>(collectionId: Collections, data: T) async throws {

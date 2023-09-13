@@ -84,7 +84,7 @@ struct RoomAddView: View {
                                                              price: roomPrice,
                                                              note: roomNote,
                                                              imageNames: imageNames),completion: {
-                                isShowingToast = true
+                                      isShowingToast = true
                             })
                         }
                         dismiss()
