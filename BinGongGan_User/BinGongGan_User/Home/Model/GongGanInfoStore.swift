@@ -83,7 +83,9 @@ final class GongGanStore: ObservableObject {
             }
         } catch {
             print("Error fetchGongGanInfo: \(error)")
-            self.isLoading = false
+            DispatchQueue.main.async {
+                self.isLoading = false
+            }
         }
     }
     
@@ -303,7 +305,8 @@ final class MyFavoriteStore: ObservableObject {
                 
                 fetchArray.append(info)
             }
-                self.myFavoriteGongGan = fetchArray
+            
+            self.myFavoriteGongGan = fetchArray
             
         } catch {
             print("Error fetching favorite places: \(error)")
