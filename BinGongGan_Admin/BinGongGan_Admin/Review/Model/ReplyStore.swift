@@ -24,7 +24,7 @@ class ReplyStore: ObservableObject {
             for document in documents {
                 do {
                     let reply = try document.data(as: Reply.self)
-                    guard let reviewId = reply.reviewId else { return }
+                    guard let reviewId = reply.id else { return }
                     let review = try await dbRef.collection(Collections.review.rawValue).document(reviewId).getDocument().data(as: Review.self)
                     let writer = try await dbRef.collection(Collections.user.rawValue).document(review.writerId).getDocument().data(as: User.self)
                     let place = try await dbRef.collection(Collections.place.rawValue).document(review.placeId).getDocument().data(as: Place.self)
