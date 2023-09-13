@@ -51,8 +51,9 @@ public struct Reservation: Identifiable, Codable {
         get {
             switch reservationState {
             case 0 : return .expect
-            case 1 : return .success
-            case 2 : return .cancel
+            case 1 : return .expect
+            case 2 : return .success
+            case 3 : return .cancel
             default : return .expect
             }
             

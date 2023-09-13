@@ -14,7 +14,7 @@ struct MyReviewListView: View {
     var body: some View {
         List {
             NavigationLink {
-                AddReviewView()
+               
             } label: {
                 Text("임시 리뷰 추가 버튼")
             }

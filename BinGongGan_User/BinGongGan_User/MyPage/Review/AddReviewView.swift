@@ -16,10 +16,12 @@ struct AddReviewView: View {
     @State private var isShowingAlert: Bool = false
     @State var selectedImages: [UIImage] = []
     
+    var reservation: BinGongGanCore.Reservation
+    
     var body: some View {
         Form {
             Section("예약 정보") {
-                PlaceInfoView()
+                PlaceInfoView(reservation: reservation)
             }
             
             Section("별점") {
@@ -89,7 +91,7 @@ struct AddReviewView: View {
 struct AddReviewView_Previews: PreviewProvider {
     static var previews: some View {
         NavigationStack{
-            AddReviewView()
+            AddReviewView(reservation: MyReservationStore().reservation)
                 .environmentObject(MyReservationStore())
         }
     }
@@ -98,17 +100,52 @@ struct AddReviewView_Previews: PreviewProvider {
 struct PlaceInfoView: View {
     
     @EnvironmentObject private var myReservationStore: MyReservationStore
+    var reservation: BinGongGanCore.Reservation
+    
     var body: some View {
         VStack(alignment: .leading) {
-            Text("\(myReservationStore.reservation.roomID)")
-                .font(.head1Bold)
-            Text("예약번호: \(myReservationStore.reservation.id)")
-                .font(.body1Regular)
+            Text("예약 번호 : \(reservation.id)")
+                .font(.captionRegular)
                 .foregroundColor(.myDarkGray)
-                .padding(.bottom, 15)
-            Text("\(myReservationStore.reservation.checkInDateString) (\(myReservationStore.reservation.personnel)명)")
-                .font(.body1Regular)
-                .foregroundColor(.myDarkGray)
+            
+            Divider()
+            
+            
+            HStack {
+                Text(reservation.place?.placeName ?? "")
+                    .font(.head1Bold)
+            }
+            
+            
+            
+            Spacer().frame(height: UIScreen.main.bounds.height * 0.02)
+            
+            HStack {
+                Image(systemName: "wonsign.circle")
+                    .foregroundColor(.yellow)
+                Text("199,000원")
+                    .font(.captionRegular)
+                
+            }
+            Spacer().frame(height: UIScreen.main.bounds.height * 0.02)
+            
+            HStack {
+                Image(systemName: "calendar.badge.clock")  .foregroundColor(.blue)
+                Text("\(reservation.checkInDateString) ~ \(reservation.checkOutDateString) | \(reservation.hour)시간  (\(reservation.personnel)명)")
+                    .font(.captionRegular)
+                    .foregroundColor(.myBrown)
+                
+            }
+            
+            Spacer().frame(height: UIScreen.main.bounds.height * 0.02)
+            
+            HStack {
+                Image(systemName: "mappin")
+                    .foregroundColor(.red)
+                Text("\(reservation.place?.address.address ?? "")")
+                    .font(.captionRegular)
+                
+            }
         }
     }
 }
