@@ -105,6 +105,7 @@
 		B171F4832AB0FD3400B8059B /* RoomAddView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B171F4822AB0FD3400B8059B /* RoomAddView.swift */; };
 		B171F4852AB0FE3300B8059B /* RoomStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = B171F4842AB0FE3300B8059B /* RoomStore.swift */; };
 		B171F4872AB1017800B8059B /* PlaceAddView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B171F4862AB1017800B8059B /* PlaceAddView.swift */; };
+		B1CE60EA2AB1CDA00006E94E /* FirebaseStorage in Frameworks */ = {isa = PBXBuildFile; productRef = B1CE60E92AB1CDA00006E94E /* FirebaseStorage */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -233,6 +234,7 @@
 				B12A84FE2AA7A66000BDF8CA /* BinGongGanCore in Frameworks */,
 				543E21BD2AAEF54E00F12A06 /* FirebaseAuth in Frameworks */,
 				543E21BF2AAEF54E00F12A06 /* FirebaseFirestore in Frameworks */,
+				B1CE60EA2AB1CDA00006E94E /* FirebaseStorage in Frameworks */,
 				543E21C12AAEF54E00F12A06 /* FirebaseFirestoreSwift in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -803,6 +805,7 @@
 				543E21BC2AAEF54E00F12A06 /* FirebaseAuth */,
 				543E21BE2AAEF54E00F12A06 /* FirebaseFirestore */,
 				543E21C02AAEF54E00F12A06 /* FirebaseFirestoreSwift */,
+				B1CE60E92AB1CDA00006E94E /* FirebaseStorage */,
 			);
 			productName = BinGongGan_Seller;
 			productReference = B12A846B2AA6EFE700BDF8CA /* BinGongGan_Seller.app */;
@@ -1363,6 +1366,11 @@
 		B12A84FD2AA7A66000BDF8CA /* BinGongGanCore */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = BinGongGanCore;
+		};
+		B1CE60E92AB1CDA00006E94E /* FirebaseStorage */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 543E21BB2AAEF54E00F12A06 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseStorage;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
