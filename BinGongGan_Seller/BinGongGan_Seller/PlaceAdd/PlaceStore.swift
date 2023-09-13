@@ -11,8 +11,7 @@ import FirebaseFirestore
 import FirebaseStorage
 
 class PlaceStore: ObservableObject {
-    @Published var place = Place()
-    @Published var placeList: [Place] = []
+    @Published var place:Place? = Place()
     let dataBase = Firestore.firestore().collection("Place")
     
     func addPlace(place: Place, images: [UIImage]) async {
@@ -24,7 +23,7 @@ class PlaceStore: ObservableObject {
             print("장소 추가 완료")
         }
     }
-    
+
     func fetchPlace() {
         dataBase.whereField("sellerId", isEqualTo: AuthStore.userUid).getDocuments { (document, error) in
             if let error = error {
@@ -70,4 +69,3 @@ class PlaceStore: ObservableObject {
         }
     }
 }
-

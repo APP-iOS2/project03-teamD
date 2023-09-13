@@ -8,6 +8,7 @@
 import Foundation
 import BinGongGanCore
 import FirebaseFirestore
+import FirebaseStorage
 
 
 class RoomStore: ObservableObject {
@@ -16,13 +17,13 @@ class RoomStore: ObservableObject {
     let fireStoreService = FirestoreService()
     let dataBase = Firestore.firestore().collection("Room")
     
-    func addRoom(room: Room, completion: @escaping () -> Void) async {
-        do {
-            try await fireStoreService.saveDocument(collectionId: .room, documentId: room.id, data: room)
-        } catch {
-            print("Error addRoom : \(error)")
+    func addRoom(room: Room, images: [UIImage], completion: @escaping () -> Void) async {
+        var newRoom = room
+        await uploadImages(images, room: newRoom) { urls in
+            newRoom.imageNames = urls
+            self.dataBase.document(newRoom.id)
+                .setData(newRoom.asDictionary())
         }
-        completion()
     
         print("방 추가 완료")
     }
@@ -37,10 +38,8 @@ class RoomStore: ObservableObject {
     }
     
     func fetchRooms()  {
-        
-       
         do {
-            dataBase.whereField("placeId", isEqualTo: "heewkwon").getDocuments { (document, error) in
+            dataBase.whereField("placeId", isEqualTo: AuthStore.userUid).getDocuments { (document, error) in
                 self.rooms = []
                 if let error = error {
                     print("Error fetching data: \(error)")
@@ -58,7 +57,7 @@ class RoomStore: ObservableObject {
     }
     
     func fetchRoom() {
-        dataBase.whereField("placeId", isEqualTo: "heekwon").getDocuments { (document, error) in
+        dataBase.whereField("placeId", isEqualTo: AuthStore.userUid).getDocuments { (document, error) in
             if let error = error {
                 print("Error fetching data: \(error)")
             } else {
@@ -67,6 +66,45 @@ class RoomStore: ObservableObject {
                         self.room = room
                     } else {
                         print("Error")
+                    }
+                }
+            }
+        }
+    }
+    
+    func removeRoom(roomID: String) {
+        dataBase.document(roomID).delete() { err in
+            if let err = err {
+                print("Error removing document: \(err)")
+            } else {
+                print("Document successfully removed!")
+            }
+        }
+    }
+    
+    func uploadImages(_ images: [UIImage],room: Room, completion: @escaping ([String]) -> Void) async {
+        let storageRef = Storage.storage().reference()
+        var urlStringList: [String] = []
+        for (index, image) in images.enumerated() {
+            guard let imageData = image.jpegData(compressionQuality: 0.1) else {
+                continue
+            }
+            let imageRef = storageRef.child("Room/\(room.id)/\(room.imageNames[index])") //경로
+            
+            let _ = imageRef.putData(imageData, metadata: nil) { (_, error) in
+                if let error = error {
+                    print("Error uploading image \(index): \(error.localizedDescription)")
+                } else {
+                    imageRef.downloadURL { url, error in
+                        if let error = error {
+                            print(error.localizedDescription)
+                        } else {
+                            urlStringList.append(url?.absoluteString ?? "")
+                            if urlStringList.count == images.count {
+                                completion(urlStringList)
+                            }
+                        }
+                        print("Image \(index) uploaded successfully")
                     }
                 }
             }

@@ -47,19 +47,17 @@ struct SellerSignInView: View {
                 
                 Spacer()
                 
-                NavigationLink {
-                    SignUpView()
-                        .environmentObject(signInStore)
-                        .environmentObject(signUpStore)
-                } label: {
+                Button(action: {
+                    signUpStore.signUpData = SignUpData()
+                    signUpStore.isShowingSignUp = true
+                }, label: {
                     Text("Biz 회원가입")
-                }
-                .padding()
-                .font(.body1Bold)
-                .frame(width: 120, height: 40)
-                .foregroundColor(.white)
-                .background(Color.myMint)
-                .cornerRadius(50)
+                }).padding()
+                    .font(.body1Bold)
+                    .frame(width: 120, height: 40)
+                    .foregroundColor(.white)
+                    .background(Color.myMint)
+                    .cornerRadius(50)
                 
                 Text("@ZDCOMPANY")
                     .font(.caption)
@@ -73,11 +71,15 @@ struct SellerSignInView: View {
                     dismissButton: .default(Text("확인"))
                 )
             }
+            .fullScreenCover(isPresented: $signUpStore.isShowingSignUp, content: {
+                FirstStepSignUpView()
+                    .environmentObject(signUpStore)
+            })
         }
         .ignoresSafeArea()
-        //        .onAppear {
-        //            signUpStore.currentStep = .first
-        //        }
+        .onAppear {
+            signUpStore.currentStep = .first
+        }
     }
 }
 
