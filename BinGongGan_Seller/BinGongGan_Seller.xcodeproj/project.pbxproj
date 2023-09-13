@@ -82,6 +82,7 @@
 		543E21BD2AAEF54E00F12A06 /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = 543E21BC2AAEF54E00F12A06 /* FirebaseAuth */; };
 		543E21BF2AAEF54E00F12A06 /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = 543E21BE2AAEF54E00F12A06 /* FirebaseFirestore */; };
 		543E21C12AAEF54E00F12A06 /* FirebaseFirestoreSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 543E21C02AAEF54E00F12A06 /* FirebaseFirestoreSwift */; };
+		54693E802AB231FA003C2B2C /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 54693E7F2AB231FA003C2B2C /* GoogleService-Info.plist */; };
 		6A800A732AB08CDC00F1CE25 /* SignUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A800A722AB08CDC00F1CE25 /* SignUpView.swift */; };
 		6A800A752AB08CEC00F1CE25 /* FirstStepSignUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A800A742AB08CEC00F1CE25 /* FirstStepSignUpView.swift */; };
 		6A800A772AB08CFA00F1CE25 /* SecondStepSignUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A800A762AB08CFA00F1CE25 /* SecondStepSignUpView.swift */; };
@@ -166,6 +167,7 @@
 		4BF4FAD42AAF0AEA007F6563 /* AnnouncementShareSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnnouncementShareSheet.swift; sourceTree = "<group>"; };
 		4BF4FB222AAFF1A9007F6563 /* CustomTextEditor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTextEditor.swift; sourceTree = "<group>"; };
 		545AA9C12AA83A8A00A281D0 /* PlaceInfomationModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceInfomationModel.swift; sourceTree = "<group>"; };
+		54693E7F2AB231FA003C2B2C /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		54A2BB932AB0E288001E90F9 /* RoomModifyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoomModifyView.swift; sourceTree = "<group>"; };
 		54D467792AA8A90C00054F12 /* ChartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartView.swift; sourceTree = "<group>"; };
 		54D4677B2AA8AA6200054F12 /* ChartModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartModel.swift; sourceTree = "<group>"; };

@@ -29,7 +29,6 @@ struct ReviewManageView: View {
                         ForEach(reviewStore.reviewList) { review in
                             NavigationLink {
                                 ReviewManageDetailView(replyStore: replyStore, reportStore: reportStore, review: review)
-                                
                             } label: {
                                 ReviewCell(review: review)
                                     .environmentObject(reviewStore)
