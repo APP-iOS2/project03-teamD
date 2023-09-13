@@ -21,7 +21,6 @@ final class ReviewStore: ObservableObject {
     }
     
     @MainActor func fetchData() async {
-        print("fetchData 시작")
         do {
             let snapshot = try await dbRef.getDocuments()
             
@@ -31,6 +30,5 @@ final class ReviewStore: ObservableObject {
         } catch {
             print("Error fetching reviews: \(error)")
         }
-        print("fetchData: \(reviewList)")
     }
 }

@@ -22,7 +22,7 @@ struct ReservationDetailsSegmentView: View {
     var body: some View {
         Picker("대기", selection: $selectedType) {
             ForEach(ReservationStateType.allCases){
-                Text("\($0.rawValue) \(count) 건").tag($0.hashValue)
+                Text("\($0.rawValue) \(count) 건")
             }
         }
         .pickerStyle(.segmented)

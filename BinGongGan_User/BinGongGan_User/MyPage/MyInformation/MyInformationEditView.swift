@@ -15,6 +15,7 @@ enum EditType {
 
 struct MyInformationEditView: View {
     @Environment(\.dismiss) private var dismiss
+    
     private var isButtonDisabled: Bool {
         if editType == .name {
             return newName.isEmpty || name == newName

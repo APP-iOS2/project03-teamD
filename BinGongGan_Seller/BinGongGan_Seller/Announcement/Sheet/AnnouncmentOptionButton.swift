@@ -1,4 +1,3 @@
-//
 //  AnnouncmentOptionButton.swift
 //  BinGongGan_Seller
 //
@@ -11,6 +10,7 @@ import BinGongGanCore
 struct AnnouncementOptionButton: View {
     var announcementOption: AnnouncementOption
     @State var isSelectedShareButton: Bool = false
+    var announcement: Announcement
     
     var body: some View {
         Button {
@@ -41,7 +41,7 @@ struct AnnouncementOptionButton: View {
                 )
         }
         .sheet(isPresented: $isSelectedShareButton) {
-            ActivityView(text: "계절이 지나가는 하늘에는 가을로 가득 차 있습니다.\n나는 아무 걱정도 없이 가을 속의 별들을 다 헤일 듯합니다.\n가슴속에 하나둘 새겨지는 별을 이제 다 못 헤는 것은 쉬이 아침이 오는 까닭이요,\n내일 밤이 남은 까닭이요,\n아직 나의 청춘이 다하지 않은 까닭입니다.\n별 하나에 추억과\n별 하나에 사랑과\n별 하나에 쓸쓸함과\n별 하나에 동경과\n별 하나에 시와\n별 하나에 어머니, 어머니")
+            ActivityView(text: announcement.content)
                 .presentationDetents([.medium])
         }
         .buttonStyle(.plain)
@@ -50,6 +50,6 @@ struct AnnouncementOptionButton: View {
 
 struct AnnouncementOptionButton_Previews: PreviewProvider {
     static var previews: some View {
-        AnnouncementOptionButton(announcementOption: AnnouncementOption.data[0])
+        AnnouncementOptionButton(announcementOption: AnnouncementOption.data[0], announcement: Announcement(title: "테스트", content: "테스트", date: Date().timeIntervalSince1970, places: []))
     }
 }

@@ -9,11 +9,17 @@ import SwiftUI
 import BinGongGanCore
 
 struct BankAccountSettingView: View {
+    @State private var isPresentedSelectBankSheet: Bool = false
+    @State private var isPresentedNumberEditSheet: Bool = false
+    @State private var isSelectedBank: Bool = false
+    @State private var isClickedEditBankButton: Bool = false
+    @State private var bank: Bank = Bank(name: "카카오뱅크", imageString: "https://play-lh.googleusercontent.com/HTBCHqXZ01RhNVzIDwsA2ARURfzXeHxoWfsmgH92ieCgIG1CuPpJRWqCfJ9KgkwWStko")
+    
     var body: some View {
         Form {
             VStack(alignment: .leading) {
                 HStack(alignment: .center) {
-                    AsyncImage(url: URL(string: "https://play-lh.googleusercontent.com/HTBCHqXZ01RhNVzIDwsA2ARURfzXeHxoWfsmgH92ieCgIG1CuPpJRWqCfJ9KgkwWStko")) { image in
+                    AsyncImage(url: URL(string: bank.imageString)) { image in
                         image
                             .resizable()
                             .aspectRatio(contentMode: .fit)
@@ -24,14 +30,14 @@ struct BankAccountSettingView: View {
                         ProgressView()
                     }
                     
-                    Text("카카오뱅크")
+                    Text("\(bank.name)")
                         .font(.body1Bold)
                     
                     Spacer()
                     
                     HStack {
                         Button {
-                            //TODO: 수정 페이지로 이동
+                            isPresentedSelectBankSheet = true
                         } label: {
                             Text("수정")
                                 .font(.captionRegular)
@@ -60,6 +66,29 @@ struct BankAccountSettingView: View {
         .scrollContentBackground(.hidden)
         .background(Color.myBackground)
         .customBackbutton()
+        .sheet(isPresented: $isPresentedSelectBankSheet) {
+            if isSelectedBank {
+                isPresentedNumberEditSheet = true
+            }
+        } content: {
+            NavigationStack {
+                BankSelectView(isPresentedSelectBankSheet: $isPresentedSelectBankSheet, isSelectedBank: $isSelectedBank, selectedBank: $bank)
+            }
+            .presentationCornerRadius(20)
+            .presentationDetents([.fraction(0.5)])
+        }
+        .sheet(isPresented: $isPresentedNumberEditSheet) {
+            if isClickedEditBankButton {
+                isPresentedSelectBankSheet = true
+            }
+        } content: {
+            NavigationStack {
+                AccountEditView(bank: $bank, isClickedEditBankButton: $isClickedEditBankButton)
+            }
+            .presentationCornerRadius(20)
+            .presentationDetents([.fraction(0.7)])
+            .interactiveDismissDisabled()
+        }
     }
 }
 

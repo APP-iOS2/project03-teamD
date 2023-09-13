@@ -9,10 +9,10 @@ import MapKit
 import BinGongGanCore
 import FirebaseFirestore
 
-//여기 뷰가 너무 너무너눔넘누너눈너눔 길어여..
 struct PlaceAddView: View {
+    @Environment(\.dismiss) private var dismiss
     @EnvironmentObject var placeStore: PlaceStore
-    //희권님 혹시 여기 많은 @State 값들이 모델안에 있는 아이들이라면 이렇게 하는 거 보다 스토어에 넣어주는 것이 좋을 거 같다는 생각이 듭니다만 ..?
+    
     @State private var selectedPlace: PlaceCategory = .Share
     @State private var placeInfomations = PlaceInfomationModel.data
     @State private var address: Address?
@@ -47,7 +47,7 @@ struct PlaceAddView: View {
                         CustomTextField(maxLength: 20, placeholder: "공간 이름을 입력하세요", text: $placeNameText)
                     }
                     
-                    Group{
+                    Group {
                         Text("공간 카테고리")
                             .font(.body1Bold)
                         Picker("공간 카테고리", selection: $selectedPlace) {
@@ -90,10 +90,9 @@ struct PlaceAddView: View {
                         }
                     }
                     .padding(.top, 15)
-                    
-                    
+                
                     Group {
-                        Text("공간 사진 등록")
+                        Text("공간 사진 등록 (최소 1장 필수)")
                             .font(.body1Bold)
                         PhotoSelectedView(selectedImages: $selectedImage,selectedImageNames: $selectedImageNames)
                     }
@@ -157,9 +156,7 @@ struct PlaceAddView: View {
                     
                     Group {
                         PrimaryButton(title: "등록하기") {
-                            if let address,
-                               !placeNameText.isEmpty,
-                               !selectedImageNames.isEmpty{
+                            if let address, !placeNameText.isEmpty, !selectedImageNames.isEmpty {
                                 let place = Place(
                                     sellerId: "판매자",
                                     placeName: placeNameText,
@@ -170,7 +167,7 @@ struct PlaceAddView: View {
                                     address: address
                                 )
                                 placeStore.addPlace(place: place)
-                                
+                                dismiss()
                             } else {
                                 toastMessage = "빈칸을 모두 입력해주세요"
                                 isShowingToast = true
@@ -194,9 +191,7 @@ struct PlaceAddView: View {
                 })
             }
         }
-        .edgesIgnoringSafeArea(.all)
         .customBackbutton()
-        .padding(10)
     }
 }
 

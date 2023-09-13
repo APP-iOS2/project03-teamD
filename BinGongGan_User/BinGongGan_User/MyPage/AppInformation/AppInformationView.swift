@@ -9,8 +9,8 @@ import SwiftUI
 
 struct AppInfomationView: View {
     
-    let markdownFileName = "Information1"
-    var text: String {
+    private let markdownFileName = "Information1"
+    private var text: String {
         get {
             if let markdownFilePath = Bundle.main.path(forResource: markdownFileName, ofType: "md") {
                 do {

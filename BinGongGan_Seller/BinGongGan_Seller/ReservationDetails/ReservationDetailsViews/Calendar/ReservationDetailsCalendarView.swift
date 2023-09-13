@@ -16,12 +16,14 @@ struct ReservationDetailsCalendarView: View {
     
     var body: some View {
         VStack{
-            ReservationDatePickerView(currentDate: $currentDate).environmentObject(rervationCalendarStore)
+            ReservationDatePickerView(currentDate: $currentDate).environmentObject(rervationCalendarStore).padding(EdgeInsets(top: 0, leading: 15, bottom: 10, trailing: 15))
             ReservationDetailsSegmentView()
                 .padding(EdgeInsets(top: 20, leading: 20, bottom: 10, trailing: 20))
             
             ForEach(0..<5) { index in
-                ReservationDetailsCell(isPresentedModal: $isPresentedModal)
+                ReservationCell(isHiddenRightButton: true)
+                    .padding(.bottom, 12)
+                    .padding(.horizontal, 20)
             }
             Spacer()
         }.navigationTitle("예약관리")

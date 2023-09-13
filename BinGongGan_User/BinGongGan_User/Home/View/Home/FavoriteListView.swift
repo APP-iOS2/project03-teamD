@@ -19,7 +19,7 @@ struct FavoriteListView: View {
                     GongGanDetailView()
                 } label: {
                     ZStack {
-                        AsyncImage(url: place.imageURL ) { image in
+                        AsyncImage(url: URL(string: "\(place.placeImageStringList[0])") ) { image in
                             image
                                 .renderingMode(.original)
                                 .resizable()
@@ -39,7 +39,7 @@ struct FavoriteListView: View {
                                     Text("\(place.placeName)")
                                         .font(.head1Bold)
                                         .padding(.bottom, 0.5)
-                                    Text("\(place.placeLocation)")
+                                    Text("\(place.address.address)")
                                         .font(.body1Regular)
                                 }
                                 .foregroundColor(.white)
