@@ -11,6 +11,9 @@
 		5322C9452AB1D637009F30A9 /* ReviewDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5322C9442AB1D637009F30A9 /* ReviewDetailView.swift */; };
 		5322C9472AB1DD33009F30A9 /* SellerStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5322C9462AB1DD33009F30A9 /* SellerStore.swift */; };
 		5322C9492AB1E0B4009F30A9 /* SellerDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5322C9482AB1E0B4009F30A9 /* SellerDetailView.swift */; };
+		5322C94F2AB1EFD9009F30A9 /* AdminPosting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5322C94E2AB1EFD9009F30A9 /* AdminPosting.swift */; };
+		5322C9512AB1F12B009F30A9 /* PostingStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5322C9502AB1F12B009F30A9 /* PostingStore.swift */; };
+		5322C9532AB1F75B009F30A9 /* PostingDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5322C9522AB1F75B009F30A9 /* PostingDetailView.swift */; };
 		534F56AB2AB0B70C00FA79B0 /* CategoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 534F56AA2AB0B70C00FA79B0 /* CategoryView.swift */; };
 		534F56AD2AB0BD2600FA79B0 /* MainEmptyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 534F56AC2AB0BD2500FA79B0 /* MainEmptyView.swift */; };
 		534F56B02AB0BEA300FA79B0 /* AnnouncementListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 534F56AF2AB0BEA300FA79B0 /* AnnouncementListView.swift */; };
@@ -65,6 +68,9 @@
 		5322C9442AB1D637009F30A9 /* ReviewDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewDetailView.swift; sourceTree = "<group>"; };
 		5322C9462AB1DD33009F30A9 /* SellerStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SellerStore.swift; sourceTree = "<group>"; };
 		5322C9482AB1E0B4009F30A9 /* SellerDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SellerDetailView.swift; sourceTree = "<group>"; };
+		5322C94E2AB1EFD9009F30A9 /* AdminPosting.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AdminPosting.swift; sourceTree = "<group>"; };
+		5322C9502AB1F12B009F30A9 /* PostingStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostingStore.swift; sourceTree = "<group>"; };
+		5322C9522AB1F75B009F30A9 /* PostingDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostingDetailView.swift; sourceTree = "<group>"; };
 		534F56AA2AB0B70C00FA79B0 /* CategoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryView.swift; sourceTree = "<group>"; };
 		534F56AC2AB0BD2500FA79B0 /* MainEmptyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainEmptyView.swift; sourceTree = "<group>"; };
 		534F56AF2AB0BEA300FA79B0 /* AnnouncementListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnnouncementListView.swift; sourceTree = "<group>"; };
@@ -125,6 +131,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		5322C94D2AB1EFD9009F30A9 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				5322C94E2AB1EFD9009F30A9 /* AdminPosting.swift */,
+				5322C9502AB1F12B009F30A9 /* PostingStore.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		534F56AE2AB0BE5700FA79B0 /* Announcement */ = {
 			isa = PBXGroup;
 			children = (
@@ -162,7 +177,9 @@
 		534F56BD2AB0C04000FA79B0 /* Posting */ = {
 			isa = PBXGroup;
 			children = (
+				5322C94D2AB1EFD9009F30A9 /* Model */,
 				534F56BE2AB0C06300FA79B0 /* PostingListView.swift */,
+				5322C9522AB1F75B009F30A9 /* PostingDetailView.swift */,
 			);
 			path = Posting;
 			sourceTree = "<group>";
@@ -463,11 +480,14 @@
 				534F56BA2AB0BFF700FA79B0 /* ReviewListView.swift in Sources */,
 				5322C9432AB1B4D5009F30A9 /* AdminReview.swift in Sources */,
 				5322C9492AB1E0B4009F30A9 /* SellerDetailView.swift in Sources */,
+				5322C9532AB1F75B009F30A9 /* PostingDetailView.swift in Sources */,
 				534F56C82AB0CB2200FA79B0 /* Announcement.swift in Sources */,
 				534F56CD2AB0D53500FA79B0 /* FirestoreService.swift in Sources */,
 				534F56D22AB0E2C500FA79B0 /* UserStore.swift in Sources */,
+				5322C9512AB1F12B009F30A9 /* PostingStore.swift in Sources */,
 				534F56BF2AB0C06300FA79B0 /* PostingListView.swift in Sources */,
 				534F56B02AB0BEA300FA79B0 /* AnnouncementListView.swift in Sources */,
+				5322C94F2AB1EFD9009F30A9 /* AdminPosting.swift in Sources */,
 				534F56CF2AB0DD4500FA79B0 /* AnnouncementDetailView.swift in Sources */,
 				534F56D72AB0E9F200FA79B0 /* ReviewStore.swift in Sources */,
 				534F56AD2AB0BD2600FA79B0 /* MainEmptyView.swift in Sources */,

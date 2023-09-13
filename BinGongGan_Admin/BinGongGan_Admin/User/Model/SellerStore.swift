@@ -17,7 +17,7 @@ class SellerStore: ObservableObject {
     
     init() {}
     
-    func fetchUser() async throws {
+    func fetchSeller() async throws {
         var tempList: [Seller] = []
         
         do {

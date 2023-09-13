@@ -15,6 +15,8 @@ enum Collections: String {
     case review = "reviews"
     case seller = "sellers"
 //    case report = "Reprots"
+    case place = "Place"
+    case room = "Room"
 }
 
 class FirestoreService {
@@ -38,26 +40,6 @@ class FirestoreService {
         } catch {
             print("Error to save new document at \(collectionId.rawValue) \(documentId) \(error)")
             throw error
-        }
-    }
-    
-    func fetchDocument<T: Codable>(collectionId: Collections, documentId: String) async throws -> T? {
-        do {
-            let snapshot = try await dbRef.collection(collectionId.rawValue).document(documentId).getDocument()
-            switch collectionId {
-            case .user:
-                return try snapshot.data(as: User.self) as? T
-            case .review:
-                return try snapshot.data(as: Review.self) as? T
-            case .announcement:
-                return try snapshot.data(as: SystemAnnouncement.self) as? T
-            case .seller:
-                return try snapshot.data(as: Seller.self) as? T
-//            case .report:
-//                return try snapshot.data(as: Report.self) as? T
-            }
-        } catch {
-            return nil
         }
     }
 }

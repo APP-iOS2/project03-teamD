@@ -95,6 +95,8 @@ struct ReviewDetailView: View {
             }
         }
         .navigationTitle("댓글 정보")
+        .scrollContentBackground(.hidden)
+        .background(Color.myBackground, ignoresSafeAreaEdges: .all)
     }
 }
 

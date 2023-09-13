@@ -9,7 +9,7 @@ import SwiftUI
 
 struct ReviewListView: View {
     @StateObject private var reviewStore: ReviewStore = ReviewStore()
-    @State private var writerName: String = ""
+    
     var body: some View {
         List(reviewStore.reviewList) { review in
             NavigationLink {
@@ -22,6 +22,14 @@ struct ReviewListView: View {
                 }
             }
         }
+        .onAppear {
+            Task {
+                try await reviewStore.fetchReview()
+            }
+        }
+        .navigationTitle("리뷰")
+        .scrollContentBackground(.hidden)
+        .background(Color.myBackground, ignoresSafeAreaEdges: .all)
         .onAppear {
             Task {
                 try await reviewStore.fetchReview()

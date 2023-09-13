@@ -14,7 +14,6 @@ import FirebaseFirestoreSwift
 class ReviewStore: ObservableObject {
     @Published var reviewList: [AdminReview] = []
     private let dbRef = Firestore.firestore()
-    private let firestoreService = FirestoreService()
     
     init() {}
     
@@ -35,7 +34,6 @@ class ReviewStore: ObservableObject {
                 }
             }
             self.reviewList = tempList
-            print(reviewList)
         } catch {
             print("Error getting document: \(error)")
         }

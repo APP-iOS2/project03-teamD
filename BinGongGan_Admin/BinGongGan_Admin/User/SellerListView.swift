@@ -30,7 +30,7 @@ struct SellerListView: View {
         .background(Color.myBackground, ignoresSafeAreaEdges: .all)
         .onAppear {
             Task {
-                try await sellerStore.fetchUser()
+                try await sellerStore.fetchSeller()
             }
         }
     }
