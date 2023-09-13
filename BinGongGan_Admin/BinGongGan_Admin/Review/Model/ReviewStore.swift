@@ -14,6 +14,7 @@ import FirebaseFirestoreSwift
 class ReviewStore: ObservableObject {
     @Published var reviewList: [AdminReview] = []
     private let dbRef = Firestore.firestore()
+    private let firestoreService = FirestoreService()
     
     init() {}
     
@@ -26,24 +27,18 @@ class ReviewStore: ObservableObject {
             for document in documents {
                 do {
                     let review = try document.data(as: Review.self)
+                    let writer = try await dbRef.collection(Collections.user.rawValue).document(review.writerId).getDocument().data(as: User.self)
+                    let newReview = AdminReview(review: review, writer: writer)
+                    tempList.append(newReview)
                 }catch let err {
                     print("error : \(err)")
                 }
             }
             self.reviewList = tempList
+            print(reviewList)
         } catch {
             print("Error getting document: \(error)")
         }
     }
     
-    //MARK: - 수정 필요
-    func getWriterName(writerId: String) async throws -> String? {
-        do {
-            let writer = try await dbRef.collection("user").document(writerId).getDocument(as: User.self)
-            return writer.name
-        } catch {
-            print("Error getting document: \(error)")
-            return nil
-        }
-    }
 }

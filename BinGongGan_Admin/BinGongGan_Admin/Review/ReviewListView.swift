@@ -13,10 +13,12 @@ struct ReviewListView: View {
     var body: some View {
         List(reviewStore.reviewList) { review in
             NavigationLink {
-                
+                ReviewDetailView(review: review)
             } label: {
-                HStack {
-                    Text(review.content)
+                VStack(alignment: .leading) {
+                    Text(review.review.content)
+                    Text("작성자: \(review.writer.name)")
+                        .foregroundColor(.myDarkGray)
                 }
             }
         }

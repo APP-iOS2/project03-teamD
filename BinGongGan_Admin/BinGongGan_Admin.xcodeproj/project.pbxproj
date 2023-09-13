@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		5322C9432AB1B4D5009F30A9 /* AdminReview.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5322C9422AB1B4D5009F30A9 /* AdminReview.swift */; };
+		5322C9452AB1D637009F30A9 /* ReviewDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5322C9442AB1D637009F30A9 /* ReviewDetailView.swift */; };
 		534F56AB2AB0B70C00FA79B0 /* CategoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 534F56AA2AB0B70C00FA79B0 /* CategoryView.swift */; };
 		534F56AD2AB0BD2600FA79B0 /* MainEmptyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 534F56AC2AB0BD2500FA79B0 /* MainEmptyView.swift */; };
 		534F56B02AB0BEA300FA79B0 /* AnnouncementListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 534F56AF2AB0BEA300FA79B0 /* AnnouncementListView.swift */; };
@@ -59,6 +60,7 @@
 
 /* Begin PBXFileReference section */
 		5322C9422AB1B4D5009F30A9 /* AdminReview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdminReview.swift; sourceTree = "<group>"; };
+		5322C9442AB1D637009F30A9 /* ReviewDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewDetailView.swift; sourceTree = "<group>"; };
 		534F56AA2AB0B70C00FA79B0 /* CategoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryView.swift; sourceTree = "<group>"; };
 		534F56AC2AB0BD2500FA79B0 /* MainEmptyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainEmptyView.swift; sourceTree = "<group>"; };
 		534F56AF2AB0BEA300FA79B0 /* AnnouncementListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnnouncementListView.swift; sourceTree = "<group>"; };
@@ -147,6 +149,7 @@
 				534F56D52AB0E9E100FA79B0 /* Model */,
 				534F56B92AB0BFF700FA79B0 /* ReviewListView.swift */,
 				534F56BB2AB0C00500FA79B0 /* ReplyListView.swift */,
+				5322C9442AB1D637009F30A9 /* ReviewDetailView.swift */,
 			);
 			path = Review;
 			sourceTree = "<group>";
@@ -462,6 +465,7 @@
 				534F56D72AB0E9F200FA79B0 /* ReviewStore.swift in Sources */,
 				534F56AD2AB0BD2600FA79B0 /* MainEmptyView.swift in Sources */,
 				B12A84362AA6EF9500BDF8CA /* BinGongGan_AdminApp.swift in Sources */,
+				5322C9452AB1D637009F30A9 /* ReviewDetailView.swift in Sources */,
 				534F56B72AB0BF4900FA79B0 /* SellerListView.swift in Sources */,
 				534F56AB2AB0B70C00FA79B0 /* CategoryView.swift in Sources */,
 				534F56C22AB0C0CE00FA79B0 /* ReportListView.swift in Sources */,

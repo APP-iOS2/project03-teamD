@@ -11,4 +11,9 @@ import BinGongGanCore
 class AdminReview: Identifiable, Codable {
     let review: Review
     let writer: User
+    
+    init(review: Review, writer: User) {
+        self.review = review
+        self.writer = writer
+    }
 }
