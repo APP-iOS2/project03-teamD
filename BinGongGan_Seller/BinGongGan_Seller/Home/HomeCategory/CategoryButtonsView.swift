@@ -19,7 +19,7 @@ struct CategoryButtonsView: View {
                 NavigationLink {
                     switch category {
                     case .managementReservation:
-                        ReservationDetailsView()
+                        ReservationDetailsCalendarView()
                     case .managementReview:
                         ReviewManageView()
                     case .announcement:
