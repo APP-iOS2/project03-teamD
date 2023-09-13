@@ -74,6 +74,7 @@ struct MyReservationListView: View {
         .onAppear{
             myReservationStore.selectedPicker = .all
         }
+       
         
     }
 }

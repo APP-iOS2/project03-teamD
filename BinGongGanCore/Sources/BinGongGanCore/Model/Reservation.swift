@@ -10,7 +10,10 @@ import Foundation
 public struct Reservation: Identifiable {
     public var id: String
     public var userEmail: String
+    
     public var roomID: String
+    public var placeID: String
+    public var sellerID: String
     
     public var reservationYear: String
     public var reservationMonth: String
@@ -55,10 +58,12 @@ public struct Reservation: Identifiable {
         }
     }
     
-    public init(id: String, userEmail: String, roomID: String, reservationYear: String, reservationMonth: String, reservationDay: String, checkInYear: String, checkInMonth: String, checkInDay: String, checkOutYear: String, checkOutMonth: String, checkOutDay: String, hour: Int, personnel: Int, reservationName: String, reservationPhoneNumber: String, reservationRequest: String, reservateState: Int) {
+    public init(id: String, userEmail: String, roomID: String, placeID: String, sellerID: String, reservationYear: String, reservationMonth: String, reservationDay: String, checkInYear: String, checkInMonth: String, checkInDay: String, checkOutYear: String, checkOutMonth: String, checkOutDay: String, hour: Int, personnel: Int, reservationName: String, reservationPhoneNumber: String, reservationRequest: String, reservateState: Int) {
         self.id = id
         self.userEmail = userEmail
         self.roomID = roomID
+        self.placeID = placeID
+        self.sellerID = sellerID
         self.reservationYear = reservationYear
         self.reservationMonth = reservationMonth
         self.reservationDay = reservationDay
