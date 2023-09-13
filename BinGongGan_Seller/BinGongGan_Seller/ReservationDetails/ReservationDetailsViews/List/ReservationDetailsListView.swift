@@ -19,21 +19,21 @@ struct ReservationDetailsListView: View {
             switch rervationStore.selectedType{
             case .waitReservation :
                 ForEach(0..<rervationStore.waitldata.count, id: \.self) { index in
-                    ReservationCell(data:rervationStore.recentData[index],isHiddenRightButton: true)
+                    ReservationCell(data:rervationStore.waitldata[index],isHiddenRightButton: true)
                         .environmentObject(rervationStore)
                         .padding(.bottom, 12)
                         .padding(.horizontal, 20)
                 }
             case .cancelReservation :
                 ForEach(0..<rervationStore.canceldata.count, id: \.self) { index in
-                    ReservationCell(data:rervationStore.recentData[index],isHiddenRightButton: true)
+                    ReservationCell(data:rervationStore.canceldata[index],isHiddenRightButton: true)
                         .environmentObject(rervationStore)
                         .padding(.bottom, 12)
                         .padding(.horizontal, 20)
                 }
             case .confirmedReservation:
                 ForEach(0..<rervationStore.confilmedldata.count, id: \.self) { index in
-                    ReservationCell(data:rervationStore.recentData[index],isHiddenRightButton: true)
+                    ReservationCell(data:rervationStore.confilmedldata[index],isHiddenRightButton: true)
                         .environmentObject(rervationStore)
                         .padding(.bottom, 12)
                         .padding(.horizontal, 20)
