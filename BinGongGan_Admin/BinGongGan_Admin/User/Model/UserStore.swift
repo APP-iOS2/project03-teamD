@@ -26,8 +26,8 @@ class UserStore: ObservableObject {
             
             for document in documents {
                 do {
-                    let announcement = try document.data(as: User.self)
-                    tempList.append(announcement)
+                    let uesr = try document.data(as: User.self)
+                    tempList.append(user)
                 }catch let err {
                     print("error : \(err)")
                 }
