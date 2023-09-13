@@ -34,6 +34,7 @@ struct HomeCategoryView: View {
                                         .font(.system(size: 27))
                                         
                                 }
+                            
                                 Text(category.category)
                                     .font(.captionBold)
                                     .foregroundColor(.myBrown)

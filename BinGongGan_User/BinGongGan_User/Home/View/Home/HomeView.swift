@@ -48,6 +48,7 @@ struct RoundedCorner: Shape {
 
 struct HomeView: View {
     
+    @EnvironmentObject var myUserStore: MyUserStore
     @EnvironmentObject var homeStore: HomeStore
     @Binding var tabBarVisivility: Visibility
     @State var isMung: Bool = false
@@ -150,6 +151,14 @@ struct HomeView: View {
                         .padding([.bottom, .leading], 10)
                         Text(isMung ? "mungmoongE" : "BinGongGan")
                             .font(.body1Bold)
+                    }
+                }
+                ToolbarItem(placement: .navigationBarTrailing) {
+                    HStack {
+                        
+                        Text("\(myUserStore.currentUser.nickname)님 반가워요~")
+                            .font(.captionRegular)
+                        
                     }
                 }
             }

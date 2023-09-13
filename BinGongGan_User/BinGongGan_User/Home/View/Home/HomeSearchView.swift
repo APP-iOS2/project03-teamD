@@ -30,6 +30,7 @@ struct HomeSearchView: View {
                                 isChangeTextField = false
                             }
                         }
+                        
                     Button {
                         homeStore.searchPlaceName(keyWord: placeSearchTextField)
                         
@@ -101,7 +102,11 @@ struct HomeSearchView: View {
             .navigationTitle("장소 검색")
             .navigationBarTitleDisplayMode(.inline)
         }
+        .onTapGesture {
+            self.endTextEditing()
+        }
     }// Body
+    
 }
 
 struct HomeSearchView_Previews: PreviewProvider {
