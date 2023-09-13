@@ -122,8 +122,9 @@ struct MyReviewRowView: View {
         .alert("리뷰 삭제", isPresented: $isShowingRemoveAlert) {
             Button("취소", role: .cancel) {}
             Button("삭제", role: .destructive) {
-                //TODO: 리뷰 삭제 로직
-                
+                Task {
+                    try await myReviewStore.removeReview(reviewId: review.id)
+                }
             }
         }message: {
             Text("작성한 리뷰를 삭제합니다.")
