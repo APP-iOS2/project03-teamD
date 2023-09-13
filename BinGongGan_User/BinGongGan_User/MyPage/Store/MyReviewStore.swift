@@ -108,4 +108,15 @@ class MyReviewStore: ObservableObject {
     func downLoadImageUrl() async throws {
         
     }
+    
+    func removeReview(reviewId: String?) {
+        guard let id = reviewId else { return }
+        
+        dbRef.collection(Collections.reviews.rawValue).document(id).delete()
+        storage.child("reviews").child(id).delete { error in
+            if let error = error {
+                print(error)
+            }
+        }
+    }
 }
