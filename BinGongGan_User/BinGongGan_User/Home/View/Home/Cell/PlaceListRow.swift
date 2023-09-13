@@ -46,9 +46,12 @@ struct PlaceListRow: View {
                         .foregroundColor(.black)
                     
                     HStack {
-                        Text("최대 인원 00명")
-                            .font(.body1Regular)
-                        .foregroundColor(.black)
+                        ForEach(place.placeInfomationString, id: \.self) { placeInformation in
+                            Text(placeInformation)
+                                .font(.captionBold)
+                            .foregroundColor(.myBrown)
+                        }
+                       
                     }.padding(.top, 4)
                     
                 }

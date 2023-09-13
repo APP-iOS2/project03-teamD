@@ -54,17 +54,17 @@ struct HomeView: View {
     var body: some View {
         
         ZStack {
-            Spacer().background(Color.myBackground).edgesIgnoringSafeArea(.all)
+            Spacer().background(Color(hex: "#F5F5F5")).ignoresSafeArea(.all)
             
             ScrollView(showsIndicators: false) {
-                LazyVStack{
+                
                     NavigationLink {
                         MapSearchView(tabBarVisivility: $tabBarVisivility)
                             .toolbar(tabBarVisivility, for: .tabBar)
                     } label: {
                         RoundedRectangle(cornerRadius: 10)
                             .stroke(Color.myBrown, lineWidth: 1)
-                            .background()
+                            .background(.white)
                             .frame(height: 50)
                             .overlay(alignment: .leading) {
                                 HStack {
@@ -132,7 +132,7 @@ struct HomeView: View {
                                 .foregroundColor(.myLightGray)
                         }
                     }// GROUP
-                }// LazyVStack
+                
                 .padding(.bottom, HomeNameSpace.scrollViewBottomPadding)
             }// SCROLLVIEW
             .navigationBarTitleDisplayMode(.inline)
@@ -154,6 +154,9 @@ struct HomeView: View {
                 }
             }
         }// ZSTACK
+        .onAppear(){
+            
+        }
         .easterEgg(isPresented: $isMung, title: homeStore.mungText[homeStore.mungImageCount], primaryButtonTitle: "닫기") {}
     }// BODY
 }
