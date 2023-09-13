@@ -32,7 +32,6 @@ struct ThirdStepSignUpView: View {
                     .frame(height: 38)
                 Button {
                     isShowingPhotoSheet = true
-                    print("Tap")
                 } label: {
                     ZStack{
                         Rectangle()
