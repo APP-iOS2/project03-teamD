@@ -14,39 +14,41 @@ struct FavoriteView: View {
     @State var isHeartButtonShowing: Bool = false
     
     var body: some View {
-        ZStack {
-            Spacer().background(Color.myBackground).edgesIgnoringSafeArea(.all)
-            ScrollView {
-                ForEach(gongGan.myFavoriteGongGan) { gongGanItem in
-                    VStack {
-                        FavoriteCellView(isHeartButtonShowing: $isHeartButtonShowing, gongGanItem: gongGanItem)
+        NavigationStack {
+            ZStack {
+                Spacer().background(Color.myBackground).edgesIgnoringSafeArea(.all)
+                ScrollView {
+                    ForEach(gongGan.myFavoriteGongGan) { gongGanItem in
+                        VStack {
+                            FavoriteCellView(isHeartButtonShowing: $isHeartButtonShowing, gongGanItem: gongGanItem)
+                        }
+                    }
+                    .navigationTitle("나의 찜")
+                    .navigationBarTitleDisplayMode(.inline)
+                    Spacer()
+                }
+                .padding(.top, 10)
+            }
+            .refreshable {
+                Task {
+                    await gongGan.fetchMyFavorite()
+                }
+            }
+            .onAppear {
+                Task {
+                    await gongGan.fetchMyFavorite()
+                }
+            }
+            .toolbar {
+                ToolbarItem(placement: .navigationBarTrailing) {
+                    Button {
+                        isHeartButtonShowing.toggle()
+                    } label: {
+                        Text("Edit")
+                            .foregroundColor(.myBrown)
                     }
                 }
-                .navigationTitle("나의 찜")
-                .navigationBarTitleDisplayMode(.inline)
-                Spacer()
-            }
-            .padding(.top, 10)
         }
-        .refreshable {
-            Task {
-                await gongGan.fetchMyFavorite()
-            }
-        }
-        .onAppear {
-            Task {
-                await gongGan.fetchMyFavorite()
-            }
-        }
-        .toolbar {
-            ToolbarItem(placement: .navigationBarTrailing) {
-                Button {
-                    isHeartButtonShowing.toggle()
-                } label: {
-                    Text("Edit")
-                        .foregroundColor(.myBrown)
-                }
-            }
         }
     }
 }
