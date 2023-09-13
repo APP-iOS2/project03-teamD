@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		2739D4842AB20DA100F1A2BE /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2739D4832AB20DA100F1A2BE /* GoogleService-Info.plist */; };
 		3661ED052AA956750055AC97 /* FavoriteListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3661ED042AA956750055AC97 /* FavoriteListView.swift */; };
 		368394DD2AA84732004A3AC3 /* HomeStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 368394DC2AA84732004A3AC3 /* HomeStore.swift */; };
 		36B7A56A2AB0AC3100424B93 /* EasterEggAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36B7A5692AB0AC3100424B93 /* EasterEggAlert.swift */; };
@@ -881,7 +880,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2739D4842AB20DA100F1A2BE /* GoogleService-Info.plist in Resources */,
 				ECBD878D2AB233C900ECEC7D /* GoogleService-Info.plist in Resources */,
 				ECBD87752AAB09F600ECEC7D /* Information1.md in Resources */,
 				B12A84AC2AA6F01000BDF8CA /* Preview Assets.xcassets in Resources */,

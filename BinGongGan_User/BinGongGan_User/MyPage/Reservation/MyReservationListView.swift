@@ -71,11 +71,6 @@ struct MyReservationListView: View {
         .sheet(isPresented: $isShowingSheet) {
             CategorySheetView(isShowingSheet: $isShowingSheet)
         }
-        .onAppear{
-            Task {
-                try await myReservationStore.fetchMyReservations()
-            }
-        }
 //        .toast(isShowing: $isShowingToast, message: "이미지는 최대 5개까지 가능합니다.")
     }
 }

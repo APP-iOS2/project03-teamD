@@ -115,6 +115,7 @@ struct MyPageMainView: View {
             Task {
                 try await myUserStore.fetchCurrentUser()
                 self.isLoading = false
+                try await myReservationStore.fetchMyReservations(currentUser: currentUser?.email ?? "test1234@test.com")
             }
         }
         .redacted(reason: isLoading ? .placeholder : [])
