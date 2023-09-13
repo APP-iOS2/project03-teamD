@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import BinGongGanCore
 
 struct ReservationCancelView: View {
     
@@ -13,23 +14,25 @@ struct ReservationCancelView: View {
     @State private var cancelText: String = ""
     @State private var isShowingAlert: Bool = false
     
+    var reservation: BinGongGanCore.Reservation
+    
     var body: some View {
         VStack {
             Form {
                 Section("환불 계좌 및 환불 금액") {
                     VStack(alignment: .leading) {
-                        Text("방유빈")
-                            .font(.body1Bold)
+                        Text("\(reservation.seller?.name ?? "")")
+                            .font(.head1Bold)
                         Spacer().frame(height: UIScreen.main.bounds.height * 0.02)
                         HStack {
                             Image(systemName: "phone.fill")
-                            Text("010-1234-5678")
+                            Text("\(reservation.seller?.phoneNumber ?? "")")
                                 .font(.captionRegular)
                         }
                         Spacer().frame(height: UIScreen.main.bounds.height * 0.02)
                         HStack {
                             Image(systemName: "creditcard.fill")
-                            Text("국민 46390204174780 (방유빈)")
+                            Text("\(reservation.bankName ?? "") \(reservation.seller?.accountNumber ?? "") (\(reservation.seller?.name ?? ""))")
                                 .font(.captionRegular)
                         }
                     }
@@ -78,7 +81,6 @@ struct ReservationCancelView: View {
             Button("예약취소", role: .destructive) {
                 //TODO: 리뷰 저장 로직
                 dismiss()
-                
             }
         } message: {
             Text("취소하면 즉시 예약이 취소됩니다.")
@@ -88,6 +90,6 @@ struct ReservationCancelView: View {
 
 struct ReservationCancelView_Previews: PreviewProvider {
     static var previews: some View {
-        ReservationCancelView()
+        ReservationCancelView(reservation: MyReservationStore().reservation)
     }
 }

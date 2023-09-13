@@ -66,16 +66,12 @@ struct MyReservationListView: View {
         .navigationBarTitleDisplayMode(.inline)
         .customBackbutton()
         .navigationDestination(isPresented: $isShowingGongGanDetailView) {
-            GongGanDetailView()
+            GongGanDetailView(placeId: myReservationStore.reservation.placeID)
         }
         .sheet(isPresented: $isShowingSheet) {
             CategorySheetView(isShowingSheet: $isShowingSheet)
         }
-        .onAppear{
-            myReservationStore.selectedPicker = .all
-        }
-       
-        
+//        .toast(isShowing: $isShowingToast, message: "이미지는 최대 5개까지 가능합니다.")
     }
 }
 

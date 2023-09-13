@@ -15,21 +15,23 @@ enum EditType {
 
 struct MyInformationEditView: View {
     @Environment(\.dismiss) private var dismiss
+    @EnvironmentObject var myUserStore: MyUserStore
+    var currentUser: User
+    
+    @State var nickName: String = ""
+    @State var phoneNumber: String = ""
+    @State private var newNickName: String = ""
+    @State private var newPhoneNumber: String = ""
     
     private var isButtonDisabled: Bool {
         if editType == .name {
-            return newName.isEmpty || name == newName
+            return newNickName.isEmpty || nickName == newNickName
         } else {
             return newPhoneNumber.isEmpty || phoneNumber == newPhoneNumber
         }
     }
     var editType: EditType
-    
-    @Binding var name: String
-    @Binding var phoneNumber: String
-    @State private var newName: String = ""
-    @State private var newPhoneNumber: String = ""
-    
+
     var body: some View {
         VStack {
             HStack {
@@ -42,7 +44,7 @@ struct MyInformationEditView: View {
             .padding(.top, 10)
             
             if editType == .name {
-                CustomTextField(placeholder: name, text: $newName)
+                CustomTextField(placeholder: nickName, text: $newNickName)
                     .frame(height: 40)
                     .padding(.horizontal, 20)
             } else {
@@ -56,9 +58,17 @@ struct MyInformationEditView: View {
             
             Button {
                 if editType == .name {
-                    name = newName
+                    nickName = newNickName
+                    myUserStore.currentUser.nickname = nickName
+                    Task {
+                        try await myUserStore.editAccount(user: myUserStore.currentUser)
+                    }
                 } else {
                     phoneNumber = newPhoneNumber
+                    myUserStore.currentUser.phoneNumber = phoneNumber
+                    Task {
+                        try await myUserStore.editAccount(user: myUserStore.currentUser)
+                    }
                 }
                 dismiss()
             } label: {
@@ -77,7 +87,9 @@ struct MyInformationEditView: View {
         .navigationBarTitleDisplayMode(.inline)
         .customBackbutton()
         .onAppear {
-            newName = name
+            nickName = currentUser.nickname
+            phoneNumber = currentUser.phoneNumber
+            newNickName = nickName
             newPhoneNumber = phoneNumber
         }
     }
@@ -86,7 +98,8 @@ struct MyInformationEditView: View {
 struct MyInformationEditView_Previews: PreviewProvider {
     static var previews: some View {
         NavigationStack {
-            MyInformationEditView(editType: .phoneNumber, name: .constant("손윤호"), phoneNumber: .constant("01012345678"))
+            MyInformationEditView(currentUser: User(id: "", email: "", name: "", nickname: "", phoneNumber: "", password: "", birthDate: ""), editType: .phoneNumber)
+                .environmentObject(MyUserStore())
                 .navigationBarTitleDisplayMode(.inline)
         }
     }

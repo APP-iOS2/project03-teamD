@@ -15,6 +15,7 @@ struct MyReviewRowView: View {
     @State private var isShowingDetailView: Bool = false
     @State private var isShowingRemoveAlert: Bool = false
     @State private var reply: Reply?
+    @State var place: Place?
     
     var review: Review
     var limitTextLength: Int = 20
@@ -41,7 +42,7 @@ struct MyReviewRowView: View {
                     Button {
                         isShowingDetailView.toggle()
                     } label: {
-                        Text("공간 이름 >")
+                        Text((place?.placeName ?? "공간 이름") + " >")
                             .font(.body1Bold)
                             .foregroundColor(.black)
                     }
@@ -115,7 +116,7 @@ struct MyReviewRowView: View {
             }
         }
         .navigationDestination(isPresented: $isShowingDetailView) {
-            GongGanDetailView()
+            GongGanDetailView(placeId: review.placeId)
         }
         .alert("리뷰 삭제", isPresented: $isShowingRemoveAlert) {
             Button("취소", role: .cancel) {}
@@ -129,6 +130,7 @@ struct MyReviewRowView: View {
         }
         .task {
             self.reply = try? await myReviewStore.findReply(reviewId: review.id)
+            self.place = try? await myReviewStore.getPlaceInfo(placeId: review.placeId)
         }
     }
 }

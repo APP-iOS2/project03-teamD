@@ -8,14 +8,15 @@
 import Foundation
 import BinGongGanCore
 import FirebaseFirestore
+import Firebase
 
 @MainActor
 final class MyReservationStore: ObservableObject {
     
-    let dataBase = Firestore.firestore().collection("Reservation")
+    let db = Firestore.firestore()
     
     @Published var myReservations: [BinGongGanCore.Reservation] = []
-    @Published var reservation: BinGongGanCore.Reservation = BinGongGanCore.Reservation(id: "", userEmail: "", roomID: "", placeID: "" , sellerID: "" , reservationYear: "", reservationMonth: "", reservationDay: "", checkInYear: "", checkInMonth: "", checkInDay: "", checkOutYear: "", checkOutMonth: "", checkOutDay: "", hour: 0, personnel: 0, reservationName: "", reservationPhoneNumber: "", reservationRequest: "", reservateState: 0)
+    @Published var reservation: BinGongGanCore.Reservation = BinGongGanCore.Reservation(id: "", userEmail: "", roomID: "", placeID: ""  , reservationYear: "", reservationMonth: "", reservationDay: "", checkInYear: "", checkInMonth: "", checkInDay: "", checkOutYear: "", checkOutMonth: "", checkOutDay: "", hour: 0, personnel: 0, reservationName: "", reservationPhoneNumber: "", reservationRequest: "", reservationState: 0)
     
     @Published var selectedPicker: ReservationHistoryType = .all
     var filteredReservations: [BinGongGanCore.Reservation] {
@@ -27,53 +28,68 @@ final class MyReservationStore: ObservableObject {
         return myReservations
     }
     
-    init() {
-        Task {
-            await fetchMyReservations()
-        }
-    }
-    
-    func fetchMyReservations() async {
+    func fetchMyReservations(currentUser: String) async throws {
+        var tempStore: [BinGongGanCore.Reservation] = []
+        let query = db.collection("Reservation")
+            .whereField("userEmail", isEqualTo: currentUser)
+        
         do {
-            self.myReservations.removeAll()
-            var tempStore: [BinGongGanCore.Reservation] = []
-            let querySnapshot = try await dataBase.getDocuments()
+            let snapshot = try await query.getDocuments()
+            let documents = snapshot.documents
             
-            for document in querySnapshot.documents {
-                let id = document.documentID
-                let data = document.data()
-                let userEmail = data["userEmail"] as? String ?? "(userEmail 없음)"
-                let roomID = data["roomID"] as? String ?? "(roomID 없음)"
-                let placeID = data["placeID"] as? String ?? "(placeID 없음)"
-                let sellerID = data["sellerID"] as? String ?? "(sellerID 없음)"
-                let reservationYear = data["reservationYear"] as? String ?? "(reservationYear 없음)"
-                let reservationMonth = data["reservationMonth"] as? String ?? "(reservationMonth 없음)"
-                let reservationDay = data["reservationDay"] as? String ?? "(reservationDay 없음)"
-                let checkInYear = data["checkInYear"] as? String ?? "(checkInYear 없음)"
-                let checkInMonth = data["checkInMonth"] as? String ?? "(checkInMonth 없음)"
-                let checkInDay = data["checkInDay"] as? String ?? "(checkInDay 없음)"
-                let checkOutYear = data["checkOutYear"] as? String ?? "(checkOutYear 없음)"
-                let checkOutMonth = data["checkOutMonth"] as? String ?? "(checkOutMonth 없음)"
-                let checkOutDay = data["checkOutDay"] as? String ?? "(checkOutDay 없음)"
-                let hour = data["hour"] as? Int ?? 0
-                let personnel = data["personnel"] as? Int ?? 0
-                
-                
-                
-                let reservationName = data["reservationName"] as? String ?? "(reservationName 없음)"
-                let reservationPhoneNumber = data["reservationPhoneNumber"] as? String ?? "(reservationPhoneNumber 없음)"
-                let reservationRequest = data["reservationRequest"] as? String ?? "(reservationRequest 없음)"
-                let reservateState = data["reservationState"] as? Int ?? 0
-                
-                
-                let reservations = BinGongGanCore.Reservation(id: id, userEmail: userEmail, roomID: roomID, placeID: placeID , sellerID: sellerID , reservationYear: reservationYear, reservationMonth: reservationMonth, reservationDay: reservationDay, checkInYear: checkInYear, checkInMonth: checkInMonth, checkInDay: checkInDay, checkOutYear: checkOutYear, checkOutMonth: checkOutMonth, checkOutDay: checkOutDay, hour: hour, personnel: personnel, reservationName: reservationName, reservationPhoneNumber: reservationPhoneNumber, reservationRequest: reservationRequest, reservateState: reservateState)
-                
-                tempStore.append(reservations)
+            for document in documents {
+                do {
+                    var reservation = try document.data(as: BinGongGanCore.Reservation.self)
+                    
+                    let placeDocument = try await db.collection("Place").document(reservation.placeID).getDocument()
+                    if let placeData = placeDocument.data() {
+                        let addressMap: [String: Any] = placeData["address"] as? [String: Any] ?? [:]
+                        let placeCategoryString = placeData["placeCategory"] as? String ?? "Share"
+                        let placeCategory = PlaceCategory.fromRawString(placeCategoryString)
+                        let place = Place(
+                            sellerId: placeData["sellerId"] as? String ?? "sellerId",
+                            placeName: placeData["placeName"] as? String ?? "placeName",
+                            placeCategory: placeCategory,
+                            placeImageStringList: placeData["placeImageStringList"] as? [String] ?? [""],
+                            note: placeData["note"] as? [String] ?? [""],
+                            placeInfomationList: placeData["placeInfomationList"] as? [String] ?? [""],
+                            address: Address(
+                                address: addressMap["address_name"] as? String ?? "sellerId",
+                                placeName: addressMap["placeName_name"] as? String ?? "placeName",
+                                longitude: addressMap["x"] as? String ?? "x",
+                                latitude: addressMap["y"] as? String ?? "y")
+                        )
+                        reservation.place = place
+                        let sellerDocument = try await db.collection("sellers").document(place.sellerId).getDocument()
+                        if let sellerData = sellerDocument.data() {
+                            let seller = Seller(id: sellerData["id"] as? String ?? "",
+                                                name: sellerData["name"] as? String ?? "name",
+                                                birthDate: sellerData["birthDate"] as? String ?? "birthDate",
+                                                phoneNumber: sellerData["phoneNumber"] as? String ?? "phoneNumber",
+                                                email: sellerData["email"] as? String ?? "email",
+                                                nickname: sellerData["nickname"] as? String ?? "nickname",
+                                                password: sellerData["password"] as? String ?? "password",
+                                                accountNumber: sellerData["accountNumber"] as? String ?? "accountNumber",
+                                                registrationNum: sellerData["registrationNum"] as? String ?? "registrationNum",
+                                                registrationImage: sellerData["registrationImage"] as? String ?? "registrationImage")
+                            let bankName = sellerData["bankName"] as? String ?? "bankName"
+                            reservation.seller = seller
+                            reservation.bankName = bankName
+                        }
+                    }
+                    tempStore.append(reservation)
+                }catch let err {
+                    print("error : \(err)")
+                }
             }
             self.myReservations = tempStore
+            self.sortReservationDate()
         } catch {
-            print("Error fetching Place: (error)")
+            print("Error getting document: \(error)")
         }
     }
     
+    func sortReservationDate() {
+        myReservations = myReservations.sorted { $0.checkInDateString > $1.checkInDateString }
+    }
 }

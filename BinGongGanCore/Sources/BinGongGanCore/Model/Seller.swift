@@ -1,6 +1,6 @@
 //
 //  Seller.swift
-//  
+//
 //
 //  Created by 김민기 on 2023/09/12.
 //
