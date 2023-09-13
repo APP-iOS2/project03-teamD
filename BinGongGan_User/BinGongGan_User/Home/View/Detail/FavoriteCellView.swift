@@ -62,11 +62,13 @@ struct FavoriteCellView: View {
                         if isHeartButtonShowing {
                             Image(systemName: heartButtonImage ? "heart.fill" : "heart")
                                 .foregroundColor(.myMint)
+                                .frame(height: 20)
                         }
                     }
                     .padding(.trailing, 20)
                     .buttonStyle(.plain)
                 }
+                .frame(height: 80)
                 Rectangle()
                     .frame(height: 1)
                     .foregroundColor(.myLightGray)
