@@ -155,7 +155,7 @@ struct PlaceAddView: View {
                     .padding(.top, 15)
                     
                     Group {
-                        PrimaryButton(title: "등록하기") {
+                        AbledPrimaryButton(title: "등록하기") {
                             if let address, !placeNameText.isEmpty, !selectedImageNames.isEmpty {
                                 let place = Place(
                                     sellerId: "판매자",
