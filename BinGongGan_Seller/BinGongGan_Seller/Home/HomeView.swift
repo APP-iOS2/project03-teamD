@@ -58,6 +58,11 @@ struct HomeView: View {
                 }
                 
             }
+            .refreshable {
+                Task{
+                    await rervationStore.fetchData()
+                }
+            }
             .toolbar {
                 ToolbarItem(placement: .navigationBarLeading) {
                     HStack{

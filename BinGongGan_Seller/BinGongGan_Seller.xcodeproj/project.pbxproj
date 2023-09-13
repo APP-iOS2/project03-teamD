@@ -82,6 +82,7 @@
 		543E21BD2AAEF54E00F12A06 /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = 543E21BC2AAEF54E00F12A06 /* FirebaseAuth */; };
 		543E21BF2AAEF54E00F12A06 /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = 543E21BE2AAEF54E00F12A06 /* FirebaseFirestore */; };
 		543E21C12AAEF54E00F12A06 /* FirebaseFirestoreSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 543E21C02AAEF54E00F12A06 /* FirebaseFirestoreSwift */; };
+		6A7DCE492AB23CF90047F08A /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 6A7DCE482AB23CF90047F08A /* GoogleService-Info.plist */; };
 		6A800A732AB08CDC00F1CE25 /* SignUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A800A722AB08CDC00F1CE25 /* SignUpView.swift */; };
 		6A800A752AB08CEC00F1CE25 /* FirstStepSignUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A800A742AB08CEC00F1CE25 /* FirstStepSignUpView.swift */; };
 		6A800A772AB08CFA00F1CE25 /* SecondStepSignUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A800A762AB08CFA00F1CE25 /* SecondStepSignUpView.swift */; };
@@ -185,6 +186,7 @@
 		6A3B44452AA830D4008CC944 /* ReservationDetailsListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReservationDetailsListView.swift; sourceTree = "<group>"; };
 		6A3B44492AA830F4008CC944 /* ReservationDetailsCalendarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReservationDetailsCalendarView.swift; sourceTree = "<group>"; };
 		6A70AE892AA9A3BE00EF6AAE /* ReservationDetailsSegmentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReservationDetailsSegmentView.swift; sourceTree = "<group>"; };
+		6A7DCE482AB23CF90047F08A /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		6A800A722AB08CDC00F1CE25 /* SignUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpView.swift; sourceTree = "<group>"; };
 		6A800A742AB08CEC00F1CE25 /* FirstStepSignUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstStepSignUpView.swift; sourceTree = "<group>"; };
 		6A800A762AB08CFA00F1CE25 /* SecondStepSignUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondStepSignUpView.swift; sourceTree = "<group>"; };
