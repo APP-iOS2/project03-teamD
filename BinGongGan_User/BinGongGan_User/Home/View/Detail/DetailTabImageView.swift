@@ -34,9 +34,8 @@ struct DetailTabImageView: View {
         }
     }
 }
-
 struct DetailTabImageView_Previews: PreviewProvider {
     static var previews: some View {
-        DetailTabImageView(imageUrl: [""])
+        DetailTabImageView(imageUrl: ["https://firebasestorage.googleapis.com/v0/b/bingongganapp.appspot.com/o/reviews%2F63554850-92B7-4D40-A1C1-E1FC10C06DDC%2F63554850-92B7-4D40-A1C1-E1FC10C06DDC0?alt=media&token=cde2a0a7-0642-4eb9-9ff7-de5202aa970a"])
     }
 }
