@@ -20,7 +20,7 @@ struct PlaceListRow: View {
         } label: {
             VStack(alignment: .leading) {
                 
-                AsyncImage(url: URL(string: "\(place.placeImageStringList[0])") ) { image in
+                AsyncImage(url: URL(string: "\(place.placeFirstImage)") ) { image in
                     image
                         .resizable()
                         .aspectRatio(contentMode: .fill)
