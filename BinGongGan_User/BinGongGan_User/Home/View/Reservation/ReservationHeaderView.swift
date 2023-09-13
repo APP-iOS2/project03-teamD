@@ -10,7 +10,7 @@ import SwiftUI
 struct ReservationHeaderView: View {
     
     @EnvironmentObject var reservationStore: ReservationStore
-    
+    @Binding var placeName: String
     private let screenWidth = UIScreen.main.bounds.width
     
     var body: some View {
@@ -37,7 +37,7 @@ struct ReservationHeaderView: View {
                 
                 HStack {
                     VStack(alignment:.listRowSeparatorLeading) {
-                        Text(room.name)
+                        Text(placeName)
                             .font(.title2)
                             .bold()
                             .padding(5)
@@ -58,7 +58,7 @@ struct ReservationHeaderView: View {
 
 struct ReservationHeaderView_Previews: PreviewProvider {
     static var previews: some View {
-        ReservationHeaderView()
+        ReservationHeaderView(placeName: .constant(""))
             .environmentObject(ReservationStore())
     }
 }

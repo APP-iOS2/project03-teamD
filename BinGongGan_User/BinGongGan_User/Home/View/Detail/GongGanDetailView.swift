@@ -21,7 +21,7 @@ struct GongGanDetailView: View {
     @State private var selectedSegment: segmentIndex = .info
     
     @State var placeId: String = "E0449968-A636-4024-B3A9-CB9362A7828F" // 디테일 보여줄 공간 아이디 받아서 넣는곳
-    
+    @State var roomId: String = "21BFA709-A6CF-40FD-AB8D-2481B6B520C7" // 임시
     @Namespace var animation
     private let screenWidth = UIScreen.main.bounds.width
     private let screenheight = UIScreen.main.bounds.height
@@ -127,7 +127,7 @@ struct GongGanDetailView: View {
             }
             .navigationDestination(isPresented: $isShowingReservationView) {
                 
-                ReservationView(placeName: $gongGan.gongGanInfo.placeName)
+                ReservationView(roomID: $roomId, placeName: $gongGan.gongGanInfo.placeName)
                         .environmentObject(reservationStore)
                         .navigationBarBackButtonHidden()
             }
