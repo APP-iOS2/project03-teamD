@@ -12,21 +12,22 @@ struct SignUpData {
     var name: String = ""
     var birthDate: String = ""
     var phoneNumber: String = ""
+    var bankName: String?
+    var accountNumber: String = ""
     var nickname: String = ""
     var emailId: String = ""
     var password: String = ""
     var passwordCheck: String = ""
-    var accountNumber : String = ""
     var registrationImage : UIImage = UIImage()
     var registrationNumber : String = ""
     var isTermOfUseAgree: Bool = false
     var isPrivacyAgree: Bool = false
     var isLocaitonAgree: Bool = false
     var isAllAgree: Bool = false
-    
+    var isEmailDuplicateChecked = false
     
     func changeToSellerModel(id: String) -> Seller {
-        return Seller(id: id, name: name, birthDate: birthDate, phoneNumber: phoneNumber, email: emailId, nickname: nickname, password: password, accountNumber: accountNumber, registrationNum: registrationNumber, registrationImage: "")
+        return Seller(id: id, name: name, birthDate: birthDate, bankName: bankName ?? "", accountNumber: accountNumber, phoneNumber: phoneNumber, email: emailId, nickname: nickname, password: password, registrationNum: registrationNumber, registrationImage: "")
     }
 }
 
