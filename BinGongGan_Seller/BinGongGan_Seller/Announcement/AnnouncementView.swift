@@ -13,57 +13,64 @@ struct AnnouncementView: View {
     @StateObject var announcementStore: AnnouncementStore
     
     var body: some View {
-        VStack{
-            HStack {
-                Text("공지 관리")
-                    .font(.title2)
-                    .bold()
-                    .foregroundColor(Color.myBrown)
-                    .padding(.leading, 20)
-                Spacer()
-                NavigationLink {
-                    AnnouncementAddView()
-                        .environmentObject(announcementStore)
-                } label: {
-                    Image(systemName: "plus")
+        ZStack {
+            Color.myBackground
+                .ignoresSafeArea(.all)
+            VStack{
+                HStack {
+                    Text("공지 관리")
+                        .font(.title2)
+                        .bold()
                         .foregroundColor(Color.myBrown)
-                        .padding(.trailing, 20)
+                        .padding(.leading, 20)
+                    Spacer()
+                    NavigationLink {
+                        AnnouncementAddView()
+                            .environmentObject(announcementStore)
+                    } label: {
+                        Image(systemName: "plus")
+                            .foregroundColor(Color.myBrown)
+                            .padding(.trailing, 20)
+                    }
                 }
-            }
-            Form {
-                ForEach(announcementStore.placeInfoList) { placeInfo in
-                    Section(header: Text(placeInfo.name)
-                        .foregroundColor(Color.myBrown)
-                    ) {
-                        if announcementStore.announcementList.isEmpty {
-                            Text("공지를 등록해주세요.")
-                        } else {
-                            ForEach(announcementStore.announcementList.indices.reversed(), id: \.self) { index in
-                                NavigationLink {
-                                    AnnouncementDetailView(announcement: announcementStore.announcementList[index], placeInfo: placeInfo)
-                                } label: {
-                                    AnnouncementTextRow(index: index, announcement: announcementStore.announcementList[index])
-                                        .environmentObject(announcementStore)
-                                        .background(Color.clear)
+                Form {
+                    ForEach(announcementStore.placeInfoList) { placeInfo in
+                        Section(header: Text(placeInfo.name)
+                            .foregroundColor(Color.myBrown)
+                        ) {
+                            let matchingAnnouncements = announcementStore.announcementList.filter { announcement in
+                                announcement.places.contains { $0.name == placeInfo.name }
+                            }
+                            
+                            if matchingAnnouncements.isEmpty {
+                                Text("공지를 등록해주세요.")
+                            } else {
+                                ForEach(matchingAnnouncements.indices.reversed(), id: \.self) { index in
+                                    NavigationLink {
+                                        AnnouncementDetailView(announcement: matchingAnnouncements[index], placeInfo: placeInfo)
+                                    } label: {
+                                        AnnouncementTextRow(index: index, announcement: matchingAnnouncements[index])
+                                            .environmentObject(announcementStore)
+                                            .background(Color.clear)
+                                    }
                                 }
                             }
                         }
                     }
                 }
+                .onAppear {
+                    Task {
+                        await announcementStore.fetchPlaceInfo()
+                        await announcementStore.fetchRoomAnnouncement()
+                    }
+                }
+                .background(Color.myBackground)
+                .navigationBarBackButtonHidden(true)
+                .scrollContentBackground(.hidden)
+                .customBackbutton()
             }
         }
-        .onAppear {
-            Task {
-                await announcementStore.placeInfoFetch()
-            }
-        }
-        .background(Color.myBackground)
-        .navigationBarBackButtonHidden(true)
-        .scrollContentBackground(.hidden)
-        .customBackbutton()
-        
     }
-    
 }
 
 struct AnnouncementView_Previews: PreviewProvider {
