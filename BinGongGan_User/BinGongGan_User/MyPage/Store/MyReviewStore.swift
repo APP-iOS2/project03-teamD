@@ -48,7 +48,6 @@ class MyReviewStore: ObservableObject {
     }
     
     func fetchReviews() async throws {
-        //TODO: - User 로그인, 예약 내역 연결 후 해당 유저 및 공간 판매자 정보 가져와 보여줄 수 있도록 수정하기
         var tempList: [Review] = []
         let query = dbRef.collection(Collections.reviews.rawValue).whereField("writerId", isEqualTo: AuthStore.userUid)
         
@@ -69,6 +68,30 @@ class MyReviewStore: ObservableObject {
         } catch {
             print("Error getting document: \(error)")
         }
+    }
+    
+    func getPlaceInfo(placeId: String) async throws -> Place?{
+        let document = try await dbRef.collection("Place").document(placeId).getDocument()
+        if let placeData = document.data() {
+            let addressMap: [String: Any] = placeData["address"] as? [String: Any] ?? [:]
+            let placeCategoryString = placeData["placeCategory"] as? String ?? "Share"
+            let placeCategory = PlaceCategory.fromRawString(placeCategoryString)
+            let place = Place(
+                sellerId: placeData["sellerId"] as? String ?? "sellerId",
+                placeName: placeData["placeName"] as? String ?? "placeName",
+                placeCategory: placeCategory,
+                placeImageStringList: placeData["placeImageStringList"] as? [String] ?? [""],
+                note: placeData["note"] as? [String] ?? [""],
+                placeInfomationList: placeData["placeInfomationList"] as? [String] ?? [""],
+                address: Address(
+                    address: addressMap["address_name"] as? String ?? "sellerId",
+                    placeName: addressMap["placeName_name"] as? String ?? "placeName",
+                    longitude: addressMap["x"] as? String ?? "x",
+                    latitude: addressMap["y"] as? String ?? "y")
+            )
+            return place
+        }
+        return nil
     }
     
     func findReply(reviewId: String?) async throws -> Reply?{
@@ -95,10 +118,10 @@ class MyReviewStore: ObservableObject {
     func uploadImage(images: [UIImage], reviewId: String, completion: @escaping ([String]?) -> Void) {
         let path = storage.child("reviews").child(reviewId)
         var imageUrls: [String] = []
-
+        
         
         for (index, image) in images.enumerated() {
-
+            
             let metaData = StorageMetadata()
             metaData.contentType = "image/jpeg"
             let imageName = reviewId + String(index)

@@ -28,10 +28,10 @@ final class MyReservationStore: ObservableObject {
         return myReservations
     }
     
-    func fetchMyReservations() async throws {
+    func fetchMyReservations(currentUser: String) async throws {
         var tempStore: [BinGongGanCore.Reservation] = []
         let query = db.collection("Reservation")
-            .whereField("userEmail", isEqualTo: "test@test.test")
+            .whereField("userEmail", isEqualTo: currentUser)
         
         do {
             let snapshot = try await query.getDocuments()
