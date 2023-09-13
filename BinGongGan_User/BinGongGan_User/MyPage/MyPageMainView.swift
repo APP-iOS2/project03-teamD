@@ -11,6 +11,7 @@ import BinGongGanCore
 struct MyPageMainView: View {
     @EnvironmentObject var myUserStore: MyUserStore
     @EnvironmentObject var signInStore: SignInStore
+    @EnvironmentObject private var myReservationStore: MyReservationStore
     
     @State private var isShowingSetting: Bool = false
     @State private var isShowingLogoutAlert: Bool = false
@@ -108,6 +109,9 @@ struct MyPageMainView: View {
             Button("통화 02-0000-0000", role: .none) {}
             Button("취소", role: .cancel) {}
 
+        }
+        .onAppear{
+            myReservationStore.selectedPicker = .all
         }
     }
 }
