@@ -13,7 +13,7 @@ struct PostingListView: View {
     var body: some View {
         List(postingStore.postingList) { posting in
             NavigationLink {
-               
+               PostingDetailView(posting: posting)
             } label: {
                 VStack(alignment: .leading) {
                     Text(posting.place.placeName)

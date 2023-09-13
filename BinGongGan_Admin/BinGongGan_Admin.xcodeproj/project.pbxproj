@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		530F3B692AB222F3008AAFA4 /* Place.swift in Sources */ = {isa = PBXBuildFile; fileRef = 530F3B682AB222F3008AAFA4 /* Place.swift */; };
 		5322C9432AB1B4D5009F30A9 /* AdminReview.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5322C9422AB1B4D5009F30A9 /* AdminReview.swift */; };
 		5322C9452AB1D637009F30A9 /* ReviewDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5322C9442AB1D637009F30A9 /* ReviewDetailView.swift */; };
 		5322C9472AB1DD33009F30A9 /* SellerStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5322C9462AB1DD33009F30A9 /* SellerStore.swift */; };
@@ -64,6 +65,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		530F3B682AB222F3008AAFA4 /* Place.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Place.swift; sourceTree = "<group>"; };
 		5322C9422AB1B4D5009F30A9 /* AdminReview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdminReview.swift; sourceTree = "<group>"; };
 		5322C9442AB1D637009F30A9 /* ReviewDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewDetailView.swift; sourceTree = "<group>"; };
 		5322C9462AB1DD33009F30A9 /* SellerStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SellerStore.swift; sourceTree = "<group>"; };
@@ -136,6 +138,7 @@
 			children = (
 				5322C94E2AB1EFD9009F30A9 /* AdminPosting.swift */,
 				5322C9502AB1F12B009F30A9 /* PostingStore.swift */,
+				530F3B682AB222F3008AAFA4 /* Place.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -492,6 +495,7 @@
 				534F56D72AB0E9F200FA79B0 /* ReviewStore.swift in Sources */,
 				534F56AD2AB0BD2600FA79B0 /* MainEmptyView.swift in Sources */,
 				B12A84362AA6EF9500BDF8CA /* BinGongGan_AdminApp.swift in Sources */,
+				530F3B692AB222F3008AAFA4 /* Place.swift in Sources */,
 				5322C9452AB1D637009F30A9 /* ReviewDetailView.swift in Sources */,
 				534F56B72AB0BF4900FA79B0 /* SellerListView.swift in Sources */,
 				534F56AB2AB0B70C00FA79B0 /* CategoryView.swift in Sources */,
