@@ -204,11 +204,13 @@ extension LocationManager: CLLocationManagerDelegate {
 
 extension LocationManager: MKMapViewDelegate {
     func mapViewDidChangeVisibleRegion(_ mapView: MKMapView) {
-        
-        DispatchQueue.main.async {
-            self.isShowingList = false
-            self.isChaging = true
+        if !isChaging {
+            DispatchQueue.main.async {
+                self.isShowingList = false
+                self.isChaging = true
+            }
         }
+        
     }
     
     func mapView(_ mapView: MKMapView, regionDidChangeAnimated animated: Bool) {
@@ -223,21 +225,19 @@ extension LocationManager: MKMapViewDelegate {
     
     func mapView(_ mapView: MKMapView, didSelect annotation: MKAnnotation) {
         
+        guard let placeIndex = placeList.firstIndex(where: { $0.placeName == annotation.title }) else { return }
+        let place = placeList[placeIndex]
+        
+        self.placeList.remove(at: placeIndex)
+        self.placeList.insert(place, at: 0)
+        
         seletedPlace = annotation
         moveFocusChange(location: annotation.coordinate)
-
-        let place = filteredPlaces.filter { $0.placeName == annotation.title }
-        self.placeList = place
-       
-        isSelectedAnnotation = true
+        
     }
     
     func mapView(_ mapView: MKMapView, didDeselect annotation: MKAnnotation) {
-        if !isSelectedAnnotation {
-            DispatchQueue.main.async {
-                self.placeList = self.filteredPlaces
-            }
-        } else if selectedCategoty.placeCategoryName
+        
     }
     
 }
