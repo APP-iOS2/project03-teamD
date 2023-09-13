@@ -9,15 +9,11 @@ import Foundation
 import FirebaseFirestoreSwift
 
 public struct Report: Identifiable, Codable {
-    @DocumentID public var reviewId: String?
-    
+    public var id: String?
     public var reason: String // 신고 사유
-    public var id: String? {
-        return reviewId
-    }
     
-    public init(reviewId: String, reason: String) {
-        self.reviewId = reviewId
+    public init(id: String, reason: String) {
+        self.id = id
         self.reason = reason
     }
 }
