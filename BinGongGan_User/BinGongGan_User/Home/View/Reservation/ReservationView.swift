@@ -13,9 +13,8 @@ struct ReservationView: View {
     @EnvironmentObject var reservationStore: ReservationStore
     @Environment(\.dismiss) private var dismiss
     
-    //@Binding var roomID: String // 바인딩으로 받지 않고 detail 뷰에서 셋다 넣어버리는 건?
+    @Binding var roomID: String
     @Binding var placeName: String // 공간 이름
-    @State var roomID: String = "00B41F70-0576-4815-936F-C49F86E7C418"
     
     @State var isReservationFinished: Bool = false
     @State var isReservationEmpty: Bool = false
@@ -26,7 +25,7 @@ struct ReservationView: View {
         
         VStack {
             // 상단 바
-            ReservationHeaderView()
+            ReservationHeaderView(placeName: $placeName)
                 .padding(.top, 1)
             
             ScrollView {
@@ -44,7 +43,7 @@ struct ReservationView: View {
                     
                     Button {
                         // 데이터 저장
-                        if reservationStore.reservation.reservationName.isEmpty || reservationStore.reservation.reservationPhoneNumber.isEmpty {
+                        if reservationStore.reservation.reservationName.isEmpty || reservationStore.reservation.reservationPhoneNumber.isEmpty || reservationStore.reservation.checkOutYear.isEmpty {
                             isReservationEmpty = true
                         } else {
                             isReservationEmpty = false
@@ -62,7 +61,7 @@ struct ReservationView: View {
                     .buttonStyle(.plain)
                     .padding([.top, .bottom], 10)
                     .navigationDestination(isPresented: $isReservationFinished) {
-                        PaymentView()
+                        PaymentView(placeName: $placeName)
                             .environmentObject(reservationStore)
                             .navigationBarBackButtonHidden()
                     }
@@ -88,7 +87,7 @@ struct ReservationView: View {
 struct ReservationView_Previews: PreviewProvider {
     static var previews: some View {
         NavigationStack {
-            ReservationView(placeName: .constant(""))
+            ReservationView(roomID: .constant(""), placeName: .constant(""))
                 .environmentObject(ReservationStore())
         }
     }

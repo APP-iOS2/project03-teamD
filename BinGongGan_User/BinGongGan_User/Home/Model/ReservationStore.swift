@@ -149,21 +149,20 @@ final class ReservationStore: ObservableObject {
         }
     }
     
-    /*
-    func fetchReservationRoom(sellerID: String) {
+    
+    func fetchReservationAccount(sellerID: String) {
         
         let docRef = dataBase.collection("sellers").document(sellerID)
         
-        docRef.getDocument() { result in
-            switch result {
-            case .success(let seller):
-                self.sellerAccount = seller["accountNumber"]
-                
-            case .failure(let error):
-                print("Error decoding room: \(error)")
+        docRef.getDocument() { (document, error) in
+            if let document = document {
+                let data = document.data()
+                let account = data?["accountNumber"] as? String ?? "000000000"
+                self.sellerAccount = account
+            } else {
+                print("Document does not exist in cache")
             }
         }
+        
     }
-     */
-    
 }
