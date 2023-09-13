@@ -10,12 +10,9 @@ import BinGongGanCore
 import FirebaseFirestore
 
 final class MyInfoStore: ObservableObject {
-    let sellerId = UserDefaults.standard.string(forKey: "sellerId")
-    
-    @Published var myInfo: MyInfo = MyInfo(name: "", email: "", phoneNumber: "", accountNumber: "", companyNumber: "")
+    @Published var myInfo: Seller = Seller(id: "", name: "", birthDate: "", phoneNumber: "", email: "", nickname: "", password: "", accountNumber: "", registrationNum: "", registrationImage: "")
     
     init() {
-        print("Hello")
         Task {
             await fetchData()
         }
@@ -25,29 +22,24 @@ final class MyInfoStore: ObservableObject {
 //        guard let sellerId = sellerId else {return}
         
         let dbRef = Firestore.firestore().collection("sellers")
-            .document("0adudYbXvrVYB3Y81ePwJa9Qf603")
+            .document(AuthStore.userUid)
         do {
             let snapshot = try await dbRef.getDocument()
+
+            let data = try snapshot.data(as: Seller.self)
+            myInfo = data
             
-            guard let data = snapshot.data() else {return}
-            let docData: [String : Any] = data
-            print("마이페이지 데이터 시작")
-            print(docData)
-            let jsonData = try JSONSerialization.data(withJSONObject: docData, options: [])
-            let decoder = JSONDecoder()
-            let sellerData = try decoder.decode(Seller.self, from: jsonData)
-            addMyInfo(seller: sellerData)
-            print(sellerData)
         } catch {
             print("Error fetching reviews: \(error)")
         }
     }
     
-    private func addMyInfo(seller: Seller) {
-        print(seller)
-        myInfo = MyInfo(name: seller.name, email: seller.email, phoneNumber: seller.phoneNumber, accountNumber: seller.accountNumber, companyNumber: seller.registrationNum)
-    }
     
+    
+    private func addMyInfo(seller: Seller) {
+//        print(seller)
+//        myInfo = MyInfo(name: seller.name, email: seller.email, phoneNumber: seller.phoneNumber, accountNumber: seller.accountNumber, companyNumber: seller.registrationNum)
+    }
 }
 
 

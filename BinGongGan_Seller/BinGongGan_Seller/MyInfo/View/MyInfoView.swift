@@ -11,55 +11,81 @@ import BinGongGanCore
 struct MyInfoView: View {
     @StateObject private var placeStore: PlaceStore = PlaceStore()
     @EnvironmentObject private var myInfoStore: MyInfoStore
-
     @State private var alertMessage = ""
     @State private var isShowAlert: Bool = false
     @State private var logOutToggle: Bool = false
-    @State private var isShowingEditSheet: Bool = false
+    
     
     var body: some View {
         Form {
-            Section {
-                VStack(alignment: .leading) {
-                    Text("이름")
+            NavigationLink {
+                
+            } label: {
+                HStack {
+                    Text("닉네임")
                         .font(.body1Regular)
-                    Text(myInfoStore.myInfo.name)
-                        .font(.body1Bold)
-                        .foregroundColor(.myDarkGray)
-                }
-
-                VStack(alignment: .leading) {
-                    Text("이메일")
-                        .font(.body1Regular)
-                    Text(myInfoStore.myInfo.email)
-                        .font(.body1Bold)
-                        .foregroundColor(.myDarkGray)
-                }
-
-                VStack(alignment: .leading) {
-                    Text("연락처")
-                        .font(.body1Regular)
-                    Text(myInfoStore.myInfo.phoneNumber)
-                        .font(.body1Bold)
-                        .foregroundColor(.myDarkGray)
-                }
-
-                VStack(alignment: .leading) {
-                    Text("계좌번호")
-                        .font(.body1Regular)
-                    Text(myInfoStore.myInfo.accountNumber)
-                        .font(.body1Bold)
-                        .foregroundColor(.myDarkGray)
-                }
-
-                VStack(alignment: .leading) {
-                    Text("사업자 등록번호")
-                        .font(.body1Regular)
-                    Text(myInfoStore.myInfo.companyNumber)
-                        .font(.body1Bold)
+                    Spacer()
+                    Text("\(myInfoStore.myInfo.nickname)")
                         .foregroundColor(.myDarkGray)
                 }
             }
+            
+            NavigationLink {
+//                MyInfoEditView(editType: .phoneNumber, phoneNumber)
+            } label: {
+                HStack {
+                    Text("연락처")
+                        .font(.body1Regular)
+                    Spacer()
+                    Text("\(myInfoStore.myInfo.phoneNumber)")
+                        .foregroundColor(.myDarkGray)
+                }
+            }
+            
+            NavigationLink {
+                
+            } label: {
+                HStack {
+                    Text("계좌번호")
+                        .font(.body1Regular)
+                    Spacer()
+                    Text("\(myInfoStore.myInfo.accountNumber)")
+                        .foregroundColor(.myDarkGray)
+                }
+            }
+            
+            HStack {
+                Text("이름")
+                    .font(.body1Regular)
+                Spacer()
+                Text("\(myInfoStore.myInfo.name)")
+                    .foregroundColor(.myDarkGray)
+            }
+            
+            HStack {
+                Text("이메일")
+                    .font(.body1Regular)
+                Spacer()
+                Text("\(myInfoStore.myInfo.email)")
+                    .foregroundColor(.myDarkGray)
+            }
+            
+            HStack {
+                Text("생년월일")
+                    .font(.body1Regular)
+                Spacer()
+                Text("\(myInfoStore.myInfo.birthDate)")
+                    .foregroundColor(.myDarkGray)
+            }
+            
+            HStack {
+                Text("사업자 등록번호")
+                    .font(.body1Regular)
+                Spacer()
+                Text("\(myInfoStore.myInfo.registrationNum)")
+                    .foregroundColor(.myDarkGray)
+            }
+            
             Section {
                 Button {
                     isShowAlert.toggle()
@@ -84,7 +110,6 @@ struct MyInfoView: View {
                 } label: {
                     Text("임시 공간 추가 버튼")
                 }
-
             }
         }
         .navigationTitle("내 정보")
@@ -92,20 +117,6 @@ struct MyInfoView: View {
         .scrollContentBackground(.hidden)
         .customBackbutton()
         .background(Color.myBackground)
-        .navigationBarTitleDisplayMode(.inline)
-        .toolbar {
-            ToolbarItem {
-                Button {
-                    isShowingEditSheet.toggle()
-                } label: {
-                    Text("수정")
-                        .accentColor(.black)
-                }
-            }
-        }
-        .sheet(isPresented: $isShowingEditSheet, content: {
-            MyInfoEditView(isShowingEditSheet: $isShowingEditSheet)
-        })
         .alert(isPresented:$isShowAlert) {
             Alert(title: Text(""),
                   message: Text(alertMessage),
