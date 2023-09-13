@@ -22,6 +22,7 @@ class PlaceStore: ObservableObject {
                 .setData(newPlace.asDictionary())
             print("장소 추가 완료")
         }
+        fetchPlace()
     }
 
     func fetchPlace() {

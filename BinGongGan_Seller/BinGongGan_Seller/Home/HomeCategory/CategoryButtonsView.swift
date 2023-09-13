@@ -11,6 +11,9 @@ import BinGongGanCore
 struct CategoryButtonsView: View {
     @StateObject private var myInfoStore: MyInfoStore = MyInfoStore()
     @EnvironmentObject private var rervationStore : RervationStore
+    @EnvironmentObject private var roomStore: RoomStore
+    @EnvironmentObject private var placeStore: PlaceStore
+    
     let columns: [GridItem] = Array(repeating: .init(.flexible()), count: 4)
  
     var body: some View {

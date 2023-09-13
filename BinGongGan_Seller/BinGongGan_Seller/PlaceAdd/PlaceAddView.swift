@@ -11,7 +11,7 @@ import FirebaseFirestore
 
 struct PlaceAddView: View {
     @Environment(\.dismiss) private var dismiss
-    @EnvironmentObject var placeStore: PlaceStore
+    @StateObject var placeStore: PlaceStore = PlaceStore()
     @State private var selectedPlace: PlaceCategory = .share
     @State private var placeInfomations = PlaceInfomationModel.data
     @State private var address: Address?
@@ -174,6 +174,8 @@ struct PlaceAddView: View {
                                     await placeStore.addPlace(place: place, images: selectedImage)
                                     
                                 }
+                                toastMessage = "등록 완료!!"
+                                isShowingToast = true
                                 dismiss()
                             } else {
                                 toastMessage = "빈칸을 모두 입력해주세요"
