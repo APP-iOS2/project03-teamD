@@ -39,18 +39,24 @@ struct HomeView: View {
                         .foregroundColor(Color.black)
                     Spacer()
                 }
-                if rervationStore.recentData.count > 0{
-                    ForEach(0..<rervationStore.recentData.count, id: \.self) { index in
-                        ReservationCell(data:rervationStore.recentData[index], isHiddenRightButton: true)
-                            .environmentObject(rervationStore)
-                            .padding(.bottom, 12)
-                            .padding(.horizontal, 20)
-                    }
+                if !rervationStore.isLoading {
+                    ProgressView()
+                    
                 } else {
-                    Text("신규 예약이 없습니다.")
-                        .font(.body1Regular)
-                        .padding(.vertical, 80)
+                    if rervationStore.recentData.count > 0{
+                        ForEach(0..<rervationStore.recentData.count, id: \.self) { index in
+                            ReservationCell(data:rervationStore.recentData[index], isHiddenRightButton: true)
+                                .environmentObject(rervationStore)
+                                .padding(.bottom, 12)
+                                .padding(.horizontal, 20)
+                        }
+                    } else {
+                        Text("신규 예약이 없습니다.")
+                            .font(.body1Regular)
+                            .padding(.vertical, 80)
+                    }
                 }
+                
             }
             .toolbar {
                 ToolbarItem(placement: .navigationBarLeading) {
