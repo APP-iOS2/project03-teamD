@@ -44,7 +44,7 @@ struct MyPlaceView: View {
                                         
                                         if i != 3 {
                                             MySpaceCell()
-                                                .frame(width: cardSize.width - 20)
+                                                .frame(width: abs(cardSize.width - 20))
                                         } else {
                                             NavigationLink {
                                                 RoomAddView()
@@ -53,7 +53,7 @@ struct MyPlaceView: View {
                                                 ZStack {
                                                     RoundedRectangle(cornerRadius: 15)
                                                         .fill(.white)
-                                                        .frame(width: cardSize.width - 20)
+                                                        .frame(width: abs(cardSize.width - 20))
                                                     
                                                     VStack {
                                                         Image(systemName: "plus.square.fill.on.square.fill").font(.title)
@@ -66,7 +66,7 @@ struct MyPlaceView: View {
                                             }
                                         }
                                     }
-                                    .frame(width: size.width - 50, height: size.width - 10)
+                                    .frame(width: abs(size.width - 50), height: abs(size.width - 10))
                                 }
                             }
                             .padding(EdgeInsets(top: 0, leading: 20, bottom: 0, trailing: 10))
