@@ -10,8 +10,7 @@ import BinGongGanCore
 
 struct ReviewManageView: View {
     @Environment(\.dismiss) private var dismiss
-    
-    @StateObject var reviewStore: ReviewStore = ReviewStore()
+    @EnvironmentObject private var reviewStore: ReviewStore
     @StateObject var replyStore: ReplyStore = ReplyStore()
     @StateObject var reportStore: ReportStore = ReportStore()
     
@@ -26,9 +25,10 @@ struct ReviewManageView: View {
                     ProgressView()
                 } else {
                     Section {
-                        ForEach(reviewStore.reviewList) { review in
+                        ForEach(Array(reviewStore.reviewList.enumerated()), id: \.element.id) { index, review in
                             NavigationLink {
                                 ReviewManageDetailView(replyStore: replyStore, reportStore: reportStore, review: review)
+                                    .environmentObject(reviewStore)
                             } label: {
                                 ReviewCell(review: review)
                                     .environmentObject(reviewStore)
