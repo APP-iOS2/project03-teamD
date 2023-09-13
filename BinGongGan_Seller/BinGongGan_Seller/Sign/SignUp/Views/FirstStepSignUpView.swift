@@ -32,7 +32,7 @@ struct FirstStepSignUpView: View {
                     .disabled(true)
             }
             Spacer()
-            PrimaryButton(title: "다음", action: {
+            AbledPrimaryButton(title: "다음", action: {
                 if store.isValidAuthentication() {
                     withAnimation {
                         store.currentStep = .second

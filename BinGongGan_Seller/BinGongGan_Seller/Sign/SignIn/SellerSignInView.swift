@@ -39,16 +39,10 @@ struct SellerSignInView: View {
                 }
                 .padding(.horizontal, 20)
                 
-                PrimaryButton(title: "로그인") {
+                PrimaryButton(isDisabled: $signInStore.isDisableSignInButton, action: {
                     signInStore.checkSignIn()
-                }
+                }, title: "로그인")
                 .padding(.horizontal, 20)
-                .disabled(signInStore.isDisableSignInButton)
-                
-//                PrimaryButton(isDisabled: $signInStore.isDisableSignInButton, action: {
-//
-//                }, title: "로그인")
-//                .padding(.horizontal, 20)
 
                 
                 Spacer()
