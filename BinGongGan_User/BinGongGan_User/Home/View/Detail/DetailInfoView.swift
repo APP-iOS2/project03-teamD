@@ -42,16 +42,17 @@ struct DetailInfoView: View {
                     customSection("시설 안내")
                     //                    Text("시설 안내")
                         .padding(EdgeInsets(top: 5, leading: 0, bottom: 5, trailing: 0))
-                    HStack {
+                    HStack(spacing: 10) {
                         ForEach(gongGan.gongGanInfo.placeGuide.indices, id: \.self) { index in
                             if index < 4 {
                                 VStack {
                                     VStack {
                                         Image(systemName: gongGan.gongGanInfo.placeGuide[index].systemImage)
                                             .font(.system(size: 40))
+                                            .frame(width: 80, height: 40)
                                     }
-                                    .frame(width: 80, height: 40)
                                     Text(gongGan.gongGanInfo.placeGuide[index].labelTitle)
+                                        .frame(width: 80)
                                 }
                             }
                         }
@@ -59,7 +60,7 @@ struct DetailInfoView: View {
                         Spacer()
                     }
                     .padding(.leading, 5)
-                    HStack {
+                    HStack(spacing: 10) {
                         ForEach(gongGan.gongGanInfo.placeGuide.indices, id: \.self) { index in
                             if index > 3 {
                                 VStack {
@@ -69,6 +70,7 @@ struct DetailInfoView: View {
                                     }
                                     .frame(width: 80, height: 40)
                                     Text(gongGan.gongGanInfo.placeGuide[index].labelTitle)
+                                        .frame(width: 80)
                                 }
                             }
                         }

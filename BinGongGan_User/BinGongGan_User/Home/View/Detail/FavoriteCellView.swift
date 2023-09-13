@@ -13,7 +13,7 @@ struct FavoriteCellView: View {
     @EnvironmentObject var gongGan: MyFavoriteStore
     @Binding var isHeartButtonShowing: Bool
     @State var gongGanItem: GongGan
-    
+    @State var heartButtonImage: Bool = true
     var body: some View {
         NavigationLink {
             GongGanDetailView(placeId: gongGanItem.id)
@@ -57,16 +57,18 @@ struct FavoriteCellView: View {
                         Task {
                             await gongGan.fetchMyFavorite()
                         }
-                        
+                        heartButtonImage.toggle()
                     } label: {
                         if isHeartButtonShowing {
-                            Image(systemName: isHeartButtonShowing ? "heart.fill" : "heart")
+                            Image(systemName: heartButtonImage ? "heart.fill" : "heart")
                                 .foregroundColor(.myMint)
+                                .frame(height: 20)
                         }
                     }
                     .padding(.trailing, 20)
                     .buttonStyle(.plain)
                 }
+                .frame(height: 80)
                 Rectangle()
                     .frame(height: 1)
                     .foregroundColor(.myLightGray)

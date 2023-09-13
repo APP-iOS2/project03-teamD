@@ -11,7 +11,24 @@ import BinGongGanCore
 struct ReservationDetailView: View {
     
     var reservation: BinGongGanCore.Reservation
+    private var reservationStatus: String {
+        get {
+            switch reservation.reservationState {
+            case 0 :
+                return "입금확인중"
+            case 1 :
+                return "예약취소"
+            case 2 :
+                return "리뷰작성"
+            case 3 :
+                return ""
+            default :
+                return ""
+            }
+        }
+    }
     
+   
     var body: some View {
             Form {
                 Section("기본 정보") {
@@ -83,7 +100,34 @@ struct ReservationDetailView: View {
                 Section("공간 정보") {
                     HStack(spacing: 5) {
                         ForEach(reservation.place?.placeInfomationList ?? [] , id: \.self) { info in
-                            Text("\(info)")
+                            var systemImage: String {
+                                switch info {
+                                case "와이파이":
+                                    return "wifi"
+                                case "주차장":
+                                    return "parkingsign"
+                                case "반려동물":
+                                    return "pawprint.fill"
+                                case "냉난방시설":
+                                    return "air.conditioner.horizontal.fill"
+                                case "화재경보기":
+                                    return "flame"
+                                case "소화기":
+                                    return "fireplace"
+                                case "엘리베이터":
+                                    return "door.sliding.left.hand.closed"
+                                case "흡연실":
+                                    return "smoke.fill"
+                                default:
+                                    return "exclamationmark.circle.fill"
+                                }
+                            }
+                            
+                            VStack(spacing: 5){
+                                Image(systemName: systemImage)
+                                Text(info).font(.captionRegular)
+                            }
+                            .padding(10)
                             
                         }
                     }

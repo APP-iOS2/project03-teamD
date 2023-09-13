@@ -21,6 +21,9 @@ struct FavoriteView: View {
                     Text("찜 목록이 없어요")
                 } else {
                     ScrollView {
+                        Rectangle()
+                            .frame(height: 1)
+                            .foregroundColor(.myLightGray)
                         ForEach(gongGan.myFavoriteGongGan) { gongGanItem in
                             VStack {
                                 FavoriteCellView(isHeartButtonShowing: $isHeartButtonShowing, gongGanItem: gongGanItem)

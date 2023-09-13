@@ -25,9 +25,9 @@ struct DetailReviewRowView: View {
     var body: some View {
         VStack(alignment: .leading) {
             HStack(alignment: .bottom) {
-                VStack(alignment: .leading) {
+                VStack(alignment: .leading, spacing: 8) {
                     Text(review.writerId)
-                        .font(.body1Bold)
+                        .bold()
                         .foregroundColor(.black)
                     
                     HStack(alignment: .bottom) {
@@ -49,7 +49,6 @@ struct DetailReviewRowView: View {
                 if review.content.count <= 20 {
                     Text(review.content)
                         .foregroundColor(.myDarkGray)
-                        .font(.body1Regular)
                 } else {
                     Group {
                         Text(isFolded ? foldedText : review.content)
@@ -62,7 +61,7 @@ struct DetailReviewRowView: View {
                     }
                 }
             }
-            .padding(EdgeInsets(top: 5, leading: 0, bottom: 5, trailing: 0))
+            .padding(EdgeInsets(top: 3, leading: 0, bottom: 5, trailing: 0))
             
             ScrollView(.horizontal, showsIndicators: false) {
                 HStack {
@@ -70,15 +69,15 @@ struct DetailReviewRowView: View {
                         Image(image)
                             .resizable()
                             .scaledToFit()
-                            .frame(width: 100, height: 100)
+                            .frame(width: 150, height: 150)
                             .overlay {
-                                RoundedRectangle(cornerRadius: 15)
+                                RoundedRectangle(cornerRadius: 10)
                                     .stroke()
+                                    .opacity(0.1)
                             }
                     }
                 }
-                .frame(height: 110)
-                .padding(.leading, 5)
+                .frame(height: 160)
             }
             Divider()
         }
