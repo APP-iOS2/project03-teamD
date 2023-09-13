@@ -38,19 +38,17 @@ class AnnouncementStore: ObservableObject {
     
     func placeInfoFetch() async {
         do {
-            var temp: [PlaceInfo] = []
             let querySnapshot = try await dataBase.getDocuments()
             
-            for document in querySnapshot.documents {
-                let data = document.data()
-                
-                let placeInfo = PlaceInfo(
-                    id: data["id"] as? String ?? "",
-                    name: data["name"] as? String ?? ""
-                )
-                temp.append(placeInfo)
+            DispatchQueue.main.async {
+                self.placeInfoList = querySnapshot.documents.compactMap { document in
+                    let data = document.data()
+                    return PlaceInfo(
+                        id: data["id"] as? String ?? "",
+                        name: data["name"] as? String ?? ""
+                    )
+                }
             }
-            self.placeInfoList = temp
         } catch {
             print("Error fetching Place: \(error)")
         }
