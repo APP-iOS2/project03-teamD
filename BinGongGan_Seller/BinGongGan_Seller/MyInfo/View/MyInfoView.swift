@@ -11,15 +11,16 @@ import BinGongGanCore
 struct MyInfoView: View {
     @StateObject private var placeStore: PlaceStore = PlaceStore()
     @EnvironmentObject private var myInfoStore: MyInfoStore
+
     @State private var alertMessage = ""
     @State private var isShowAlert: Bool = false
     @State private var logOutToggle: Bool = false
     
-    
     var body: some View {
         Form {
             NavigationLink {
-                
+                MyInfoEditView(editType: .nickName)
+                    .environmentObject(myInfoStore)
             } label: {
                 HStack {
                     Text("닉네임")
@@ -31,7 +32,8 @@ struct MyInfoView: View {
             }
             
             NavigationLink {
-//                MyInfoEditView(editType: .phoneNumber, phoneNumber)
+                MyInfoEditView(editType: .phoneNumber)
+                    .environmentObject(myInfoStore)
             } label: {
                 HStack {
                     Text("연락처")
@@ -43,7 +45,8 @@ struct MyInfoView: View {
             }
             
             NavigationLink {
-                
+                MyInfoEditView(editType: .accountNumber)
+                    .environmentObject(myInfoStore)
             } label: {
                 HStack {
                     Text("계좌번호")
@@ -88,8 +91,8 @@ struct MyInfoView: View {
             
             Section {
                 Button {
-                    isShowAlert.toggle()
                     alertMessage = "로그아웃 하시겠습니까?"
+                    isShowAlert.toggle()
                 } label: {
                     Text("로그아웃")
                         .foregroundColor(.myDarkGray)
@@ -97,8 +100,8 @@ struct MyInfoView: View {
                 .buttonStyle(.plain)
                 
                 Button {
-                    isShowAlert.toggle()
                     alertMessage = "정말 탈퇴 하시겠습니까?"
+                    isShowAlert.toggle()
                 } label: {
                     Text("회원 탈퇴")
                         .foregroundColor(.red)
@@ -117,20 +120,26 @@ struct MyInfoView: View {
         .scrollContentBackground(.hidden)
         .customBackbutton()
         .background(Color.myBackground)
-        .alert(isPresented:$isShowAlert) {
+        .alert(isPresented: $isShowAlert) {
             Alert(title: Text(""),
                   message: Text(alertMessage),
-                  primaryButton: .default(Text("확인"),
+                  primaryButton: .destructive(Text("확인"),
                                           action: {
                 if alertMessage == "로그아웃 하시겠습니까?" {
-                    logOutToggle.toggle()
+                    Task {
+                        let success = try AuthStore.signOut()
+                        if success {
+                            logOutToggle.toggle()
+                        }
+                    }
+                    
                 } else if alertMessage == "정말 탈퇴 하시겠습니까?" {
                 }}),
                   secondaryButton: .cancel(Text("취소")))
         }
-        
         .navigationDestination(isPresented: $logOutToggle) {
-            HomeView() // 로그인뷰로 이동
+            //네비게이션으로 쌓이는 부분 수정해야함
+            ContentView() // 로그인뷰로 이동
                 .navigationBarBackButtonHidden()
         }
     }

@@ -8,48 +8,15 @@
 import SwiftUI
 import BinGongGanCore
 
-enum EditType: CaseIterable {
-    case nickName
-    case phoneNumber
-    case accountNumber
-    
-    var message: String {
-        switch self {
-        case .nickName:
-            return "닉네임"
-        case .phoneNumber:
-            return "연락처"
-        case .accountNumber:
-            return "계좌번호"
-        }
-    }
-}
-
 struct MyInfoEditView: View {
     @Environment(\.dismiss) private var dismiss
-    
-    private var isButtonDisabled: Bool {
-        if editType == .nickName {
-            return newName.isEmpty || nickName == newName
-        } else if editType == .phoneNumber {
-            return newPhoneNumber.isEmpty || phoneNumber == newPhoneNumber
-        } else {
-            return newAccountNumber.isEmpty || accountNumber == newAccountNumber
-        }
-    }
+    @EnvironmentObject private var myInfoStore: MyInfoStore
     var editType: EditType
-    
-    @Binding var nickName: String?
-    @Binding var phoneNumber: String?
-    @Binding var accountNumber: String?
-    @State private var newName: String = ""
-    @State private var newPhoneNumber: String = ""
-    @State private var newAccountNumber: String = ""
     
     var body: some View {
         VStack {
             HStack {
-                Text("\(editType.message)정보는 호스트에게 보여집니다.")
+                Text("\(myInfoStore.editType.name)정보는 호스트에게 보여집니다.")
                     .font(.captionRegular)
                     .foregroundColor(.myMediumGray)
                 Spacer()
@@ -57,17 +24,20 @@ struct MyInfoEditView: View {
             .padding(.leading, 20)
             .padding(.top, 10)
             
-            if editType == .nickName {
-                CustomTextField(placeholder: nickName, text: $newName)
+            switch myInfoStore.editType {
+            case .nickName:
+                CustomTextField(placeholder: myInfoStore.myInfo.nickname, text: $myInfoStore.myInfo.nickname)
                     .frame(height: 40)
                     .padding(.horizontal, 20)
-            } else if editType == .phoneNumber {
-                CustomTextField(placeholder: phoneNumber, text: $newPhoneNumber)
+                
+            case .phoneNumber:
+                CustomTextField(placeholder: myInfoStore.myInfo.phoneNumber, text: $myInfoStore.myInfo.phoneNumber)
                     .keyboardType(.numberPad)
                     .frame(height: 40)
                     .padding(.horizontal, 20)
-            } else {
-                CustomTextField(placeholder: accountNumber, text: $newAccountNumber)
+                
+            case .accountNumber:
+                CustomTextField(placeholder: myInfoStore.myInfo.accountNumber, text: $myInfoStore.myInfo.accountNumber)
                     .keyboardType(.numberPad)
                     .frame(height: 40)
                     .padding(.horizontal, 20)
@@ -76,39 +46,33 @@ struct MyInfoEditView: View {
             Spacer()
             
             Button {
-                if editType == .nickName {
-                    nickName = newName
-                } else if editType == .phoneNumber {
-                    phoneNumber = newPhoneNumber
-                } else {
-                    accountNumber = newAccountNumber
+                Task {
+                    await myInfoStore.updateData()
                 }
                 dismiss()
             } label: {
                 Text("완료")
                     .frame(maxWidth: .infinity, maxHeight: 50)
-                    .background(isButtonDisabled ? Color.myLightGray : Color.myBrown)
+                    .background(myInfoStore.isButtonDisabled ? Color.myLightGray : Color.myBrown)
                     .cornerRadius(15)
                     .padding(20)
                     .foregroundColor(.white)
             }
             .buttonStyle(.automatic)
-            .disabled(isButtonDisabled)
+            .disabled(myInfoStore.isButtonDisabled)
         }
         .background(Color.myBackground)
-        .navigationTitle("\(editType.message) 수정")
+        .navigationTitle("\(myInfoStore.editType.name) 수정")
         .navigationBarTitleDisplayMode(.inline)
         .customBackbutton()
         .onAppear {
-            newName = nickName
-            newPhoneNumber = phoneNumber
-            newAccountNumber = accountNumber
+            myInfoStore.editType = editType
         }
     }
 }
 
 struct MyInfoEditView_Previews: PreviewProvider {
     static var previews: some View {
-        MyInfoEditView(editType: .nickName, nickName: .constant("닉네임"), phoneNumber: .constant("010-1234-1234"), accountNumber: .constant("123456-12-123456"))
+        MyInfoEditView(editType: .nickName)
     }
 }

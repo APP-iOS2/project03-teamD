@@ -9,8 +9,7 @@ import Foundation
 import BinGongGanCore
 import FirebaseFirestore
 
- final class FirestoreService {
-
+public class FirestoreService {
     private let dbRef = Firestore.firestore()
     
     func saveDocument<T: Codable>(collectionId: Collections, data: T) async throws {
@@ -34,18 +33,17 @@ import FirebaseFirestore
         }
     }
     
-    func fetchDocument<T: Codable>(collectionId: Collections, documentId: String) async throws -> T? {
+    func fetchDocument(collectionId: Collections, documentId: String) async throws -> Any? {
         do {
             let snapshot = try await dbRef.collection(collectionId.rawValue).document(documentId).getDocument()
             switch collectionId {
             case .users:
-                return try snapshot.data(as: User.self) as? T
+                return try snapshot.data(as: User.self)
             case .sellers:
-                return try snapshot.data(as: Seller.self) as? T
+                return try snapshot.data(as: Seller.self)
             }
         } catch {
             return nil
         }
     }
-    
 }
