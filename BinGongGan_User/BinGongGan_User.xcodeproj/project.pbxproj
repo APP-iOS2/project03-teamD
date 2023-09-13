@@ -863,6 +863,8 @@
 				BCB5BBFC2AB1F9110014CCB6 /* GoogleService-Info.plist in Resources */,
 				B12A84AC2AA6F01000BDF8CA /* Preview Assets.xcassets in Resources */,
 				B12A84A92AA6F01000BDF8CA /* Assets.xcassets in Resources */,
+				B12A84AC2AA6F01000BDF8CA /* Preview Assets.xcassets in Resources */,
+				B12A84A92AA6F01000BDF8CA /* Assets.xcassets in Resources */,
 				36BFEB2E2AB1FC88001E2DD5 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
