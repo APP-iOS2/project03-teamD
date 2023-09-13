@@ -12,6 +12,7 @@
 		0CEF988C2AB16EAE00F88177 /* MyInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CEF988B2AB16EAE00F88177 /* MyInfo.swift */; };
 		2F143E122AB0574000CB9ED5 /* ReplyStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F143E112AB0574000CB9ED5 /* ReplyStore.swift */; };
 		2F43B7552AB1A1A800B801E4 /* MyPlaceStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F43B7542AB1A1A800B801E4 /* MyPlaceStore.swift */; };
+		3ACEBB022AB1EC4F008F4600 /* BankSheetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ACEBB012AB1EC4F008F4600 /* BankSheetView.swift */; };
 		4B76BBA52AB0526600E07878 /* AnnouncementStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B76BBA42AB0526600E07878 /* AnnouncementStore.swift */; };
 		4B76BBA72AB052EB00E07878 /* AnnouncementAddView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B76BBA62AB052EB00E07878 /* AnnouncementAddView.swift */; };
 		5406F8882AB03A42000A6441 /* CustomSecureField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FD06C9A2AAEE51900D116B9 /* CustomSecureField.swift */; };
@@ -147,6 +148,7 @@
 		2FF048312AAFFB37002A04C3 /* ReviewStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewStore.swift; sourceTree = "<group>"; };
 		2FF048332AAFFC04002A04C3 /* MyPlaceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPlaceView.swift; sourceTree = "<group>"; };
 		2FF048382AB02EDB002A04C3 /* ChartStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartStore.swift; sourceTree = "<group>"; };
+		3ACEBB012AB1EC4F008F4600 /* BankSheetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BankSheetView.swift; sourceTree = "<group>"; };
 		4B74203C2AA80ACC00818257 /* AnnouncementView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnnouncementView.swift; sourceTree = "<group>"; };
 		4B76BBA42AB0526600E07878 /* AnnouncementStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnnouncementStore.swift; sourceTree = "<group>"; };
 		4B76BBA62AB052EB00E07878 /* AnnouncementAddView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnnouncementAddView.swift; sourceTree = "<group>"; };
@@ -624,6 +626,7 @@
 				6A800A7A2AB08D1600F1CE25 /* FourthSignUpView.swift */,
 				6A800A7C2AB08D2100F1CE25 /* AgreementCheckButton.swift */,
 				6A800A7E2AB08D2B00F1CE25 /* ImagePickerView.swift */,
+				3ACEBB012AB1EC4F008F4600 /* BankSheetView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -970,6 +973,7 @@
 				5406F8A82AB03A42000A6441 /* ReservationCell.swift in Sources */,
 				5406F8A92AB03A42000A6441 /* ReviewCell.swift in Sources */,
 				5406F8AA2AB03A42000A6441 /* ReviewWithCommentCell.swift in Sources */,
+				3ACEBB022AB1EC4F008F4600 /* BankSheetView.swift in Sources */,
 				5406F8AB2AB03A42000A6441 /* CarouselCell.swift in Sources */,
 				5406F8AC2AB03A42000A6441 /* MySpaceCell.swift in Sources */,
 				5406F8AD2AB03A42000A6441 /* ReservationDeadlineCell.swift in Sources */,

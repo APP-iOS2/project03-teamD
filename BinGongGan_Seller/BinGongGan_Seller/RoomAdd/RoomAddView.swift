@@ -75,7 +75,6 @@ struct RoomAddView: View {
                             .frame(height: 300)
                             .cornerRadius(10)
                     }
-                    
                     Button("등록 하기") {
                         Task {
                             await roomStore.addRoom(

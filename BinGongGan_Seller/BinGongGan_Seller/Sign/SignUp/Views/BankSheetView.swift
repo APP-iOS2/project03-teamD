@@ -11,6 +11,7 @@ import BinGongGanCore
 struct BankSheetView: View {
     @Binding var isShowingSheet: Bool
     @Binding var selectedBank: String?
+
     var body: some View {
         List(Bank.banks) { bank in
             Button(action: {
