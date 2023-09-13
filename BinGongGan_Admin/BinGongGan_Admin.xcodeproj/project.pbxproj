@@ -8,6 +8,10 @@
 
 /* Begin PBXBuildFile section */
 		530F3B692AB222F3008AAFA4 /* Place.swift in Sources */ = {isa = PBXBuildFile; fileRef = 530F3B682AB222F3008AAFA4 /* Place.swift */; };
+		530F3B792AB249E0008AAFA4 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 530F3B782AB249E0008AAFA4 /* GoogleService-Info.plist */; };
+		530F3B7B2AB24B72008AAFA4 /* ReplyStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 530F3B7A2AB24B72008AAFA4 /* ReplyStore.swift */; };
+		530F3B7D2AB24C30008AAFA4 /* AdminReply.swift in Sources */ = {isa = PBXBuildFile; fileRef = 530F3B7C2AB24C30008AAFA4 /* AdminReply.swift */; };
+		530F3B7F2AB251E2008AAFA4 /* ReplyDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 530F3B7E2AB251E2008AAFA4 /* ReplyDetailView.swift */; };
 		5322C9432AB1B4D5009F30A9 /* AdminReview.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5322C9422AB1B4D5009F30A9 /* AdminReview.swift */; };
 		5322C9452AB1D637009F30A9 /* ReviewDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5322C9442AB1D637009F30A9 /* ReviewDetailView.swift */; };
 		5322C9472AB1DD33009F30A9 /* SellerStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5322C9462AB1DD33009F30A9 /* SellerStore.swift */; };
@@ -67,6 +71,10 @@
 
 /* Begin PBXFileReference section */
 		530F3B682AB222F3008AAFA4 /* Place.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Place.swift; sourceTree = "<group>"; };
+		530F3B782AB249E0008AAFA4 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		530F3B7A2AB24B72008AAFA4 /* ReplyStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReplyStore.swift; sourceTree = "<group>"; };
+		530F3B7C2AB24C30008AAFA4 /* AdminReply.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdminReply.swift; sourceTree = "<group>"; };
+		530F3B7E2AB251E2008AAFA4 /* ReplyDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReplyDetailView.swift; sourceTree = "<group>"; };
 		5322C9422AB1B4D5009F30A9 /* AdminReview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdminReview.swift; sourceTree = "<group>"; };
 		5322C9442AB1D637009F30A9 /* ReviewDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewDetailView.swift; sourceTree = "<group>"; };
 		5322C9462AB1DD33009F30A9 /* SellerStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SellerStore.swift; sourceTree = "<group>"; };
@@ -102,7 +110,6 @@
 		B12A84502AA6EF9900BDF8CA /* BinGongGan_AdminUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BinGongGan_AdminUITests.swift; sourceTree = "<group>"; };
 		B12A84522AA6EF9900BDF8CA /* BinGongGan_AdminUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BinGongGan_AdminUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		B12A85082AA7AAD700BDF8CA /* MainTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabView.swift; sourceTree = "<group>"; };
-		B171F48C2AB11DFD00B8059B /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -175,6 +182,7 @@
 				534F56B92AB0BFF700FA79B0 /* ReviewListView.swift */,
 				534F56BB2AB0C00500FA79B0 /* ReplyListView.swift */,
 				5322C9442AB1D637009F30A9 /* ReviewDetailView.swift */,
+				530F3B7E2AB251E2008AAFA4 /* ReplyDetailView.swift */,
 			);
 			path = Review;
 			sourceTree = "<group>";
@@ -236,6 +244,8 @@
 			children = (
 				534F56D62AB0E9F200FA79B0 /* ReviewStore.swift */,
 				5322C9422AB1B4D5009F30A9 /* AdminReview.swift */,
+				530F3B7A2AB24B72008AAFA4 /* ReplyStore.swift */,
+				530F3B7C2AB24C30008AAFA4 /* AdminReply.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -313,7 +323,7 @@
 		B12A85022AA7A92700BDF8CA /* Config */ = {
 			isa = PBXGroup;
 			children = (
-				B171F48C2AB11DFD00B8059B /* GoogleService-Info.plist */,
+				530F3B782AB249E0008AAFA4 /* GoogleService-Info.plist */,
 				B12A84392AA6EF9800BDF8CA /* Assets.xcassets */,
 			);
 			path = Config;
@@ -452,8 +462,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B171F48D2AB11DFD00B8059B /* GoogleService-Info.plist in Resources */,
 				B12A843D2AA6EF9800BDF8CA /* Preview Assets.xcassets in Resources */,
+				530F3B792AB249E0008AAFA4 /* GoogleService-Info.plist in Resources */,
 				B12A843A2AA6EF9800BDF8CA /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -483,13 +493,16 @@
 				534F56B52AB0BF3900FA79B0 /* UserListView.swift in Sources */,
 				B12A85092AA7AAD700BDF8CA /* MainTabView.swift in Sources */,
 				534F56BC2AB0C00500FA79B0 /* ReplyListView.swift in Sources */,
+				530F3B7D2AB24C30008AAFA4 /* AdminReply.swift in Sources */,
 				534F56BA2AB0BFF700FA79B0 /* ReviewListView.swift in Sources */,
 				5322C9432AB1B4D5009F30A9 /* AdminReview.swift in Sources */,
 				5322C9492AB1E0B4009F30A9 /* SellerDetailView.swift in Sources */,
 				5322C9532AB1F75B009F30A9 /* PostingDetailView.swift in Sources */,
 				534F56C82AB0CB2200FA79B0 /* Announcement.swift in Sources */,
 				534F56CD2AB0D53500FA79B0 /* FirestoreService.swift in Sources */,
+				530F3B7B2AB24B72008AAFA4 /* ReplyStore.swift in Sources */,
 				534F56D22AB0E2C500FA79B0 /* UserStore.swift in Sources */,
+				530F3B7F2AB251E2008AAFA4 /* ReplyDetailView.swift in Sources */,
 				5322C9512AB1F12B009F30A9 /* PostingStore.swift in Sources */,
 				534F56BF2AB0C06300FA79B0 /* PostingListView.swift in Sources */,
 				534F56B02AB0BEA300FA79B0 /* AnnouncementListView.swift in Sources */,

@@ -30,11 +30,6 @@ struct ReviewListView: View {
         .navigationTitle("리뷰")
         .scrollContentBackground(.hidden)
         .background(Color.myBackground, ignoresSafeAreaEdges: .all)
-        .onAppear {
-            Task {
-                try await reviewStore.fetchReview()
-            }
-        }
     }
 }
 
