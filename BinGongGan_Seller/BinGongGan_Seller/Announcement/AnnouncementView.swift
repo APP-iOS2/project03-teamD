@@ -34,22 +34,19 @@ struct AnnouncementView: View {
                     }
                 }
                 Form {
-                    ForEach(announcementStore.placeInfoList) { placeInfo in
-                        Section(header: Text(placeInfo.name)
+                    ForEach(announcementStore.roomInfoList, id: \.id) { roomAnnouncement in
+                        Section(header: Text(roomAnnouncement.roomName)
                             .foregroundColor(Color.myBrown)
                         ) {
-                            let matchingAnnouncements = announcementStore.announcementList.filter { announcement in
-                                announcement.places.contains { $0.name == placeInfo.name }
-                            }
-                            
-                            if matchingAnnouncements.isEmpty {
+                            let announcements = announcementStore.announcementList.filter { $0.id == roomAnnouncement.id }.first?.announcements ?? []
+                            if announcements.isEmpty {
                                 Text("공지를 등록해주세요.")
                             } else {
-                                ForEach(matchingAnnouncements.indices.reversed(), id: \.self) { index in
+                                ForEach(announcements.indices.reversed(), id: \.self) { index in
                                     NavigationLink {
-                                        AnnouncementDetailView(announcement: matchingAnnouncements[index], placeInfo: placeInfo)
+                                        AnnouncementDetailView(announcement: announcements[index], roomInfo: roomAnnouncement)
                                     } label: {
-                                        AnnouncementTextRow(index: index, announcement: matchingAnnouncements[index])
+                                        AnnouncementTextRow(index: index, announcement: announcements[index])
                                             .environmentObject(announcementStore)
                                             .background(Color.clear)
                                     }
@@ -60,7 +57,7 @@ struct AnnouncementView: View {
                 }
                 .onAppear {
                     Task {
-                        await announcementStore.fetchPlaceInfo()
+                        await announcementStore.fetchRoomInfo()
                         await announcementStore.fetchRoomAnnouncement()
                     }
                 }

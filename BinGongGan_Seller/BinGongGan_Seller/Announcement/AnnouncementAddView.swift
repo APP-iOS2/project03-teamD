@@ -16,7 +16,7 @@ struct AnnouncementAddView: View {
     @State private var isSelectedAllPlace: Bool = false
     @State private var isShowingAlert: Bool = false
     @State private var selectedPlace: String = "공간을 선택해주세요"
-    @State private var selectedPlaces: [PlaceInfo] = []
+    @State private var selectedPlaces: [RoomAnnouncement] = []
     
     var body: some View {
         ZStack {
@@ -35,9 +35,9 @@ struct AnnouncementAddView: View {
                 
                 HStack{
                     Picker(selection: $selectedPlace, label: Text("")) {
-                        Text("공간을 선택해주세요")
-                        ForEach(announcementStore.placeInfoList, id: \.id) { placeInfoList in
-                            Text(placeInfoList.name)
+                        Text("공간을 선택해주세요").tag("")
+                        ForEach(announcementStore.roomInfoList, id: \.id) { roomInfoList in
+                            Text(roomInfoList.roomName)
                         }
                     }
                     .accentColor(Color.myBrown)
@@ -47,7 +47,7 @@ struct AnnouncementAddView: View {
                     Button {
                         isSelectedAllPlace.toggle()
                     } label: {
-                        Text("전체 공간 선택")
+                        Text("전체 공간 선택").tag("")
                         Image(systemName: isSelectedAllPlace ? "checkmark.square" : "square")
                     }
                     .buttonStyle(.plain)
@@ -83,20 +83,20 @@ struct AnnouncementAddView: View {
             VStack{
                 Spacer()
                 Button {
-                    if selectedPlace == "공간을 선택해주세요" {
+                    if isSelectedAllPlace {
+                        selectedPlaces = announcementStore.roomInfoList
+                        
+                    } else if selectedPlace == "공간을 선택해주세요" {
                         isShowingAlert.toggle()
                         
                         return
+                        
+                    } else if let selectedRoomInfo = announcementStore.roomInfoList.first(where: { $0.id == selectedPlace }) {
+                        selectedPlaces = [selectedRoomInfo]
                     }
                     
-                    if isSelectedAllPlace {
-                        selectedPlaces = announcementStore.placeInfoList
-                    } else if let selectedPlaceInfo = announcementStore.placeInfoList.first(where: { $0.id == selectedPlace }) {
-                        selectedPlaces = [selectedPlaceInfo]
-                    }
-                    
-                    let newAnnouncement = Announcement(title: announcementTitle, content: announcementContent, places: selectedPlaces)
-                    announcementStore.addAnnouncement(announcement: newAnnouncement)
+                    let newAnnouncement = Announcement(title: announcementTitle, content: announcementContent)
+                    announcementStore.addAnnouncement(announcement: newAnnouncement, selectedPlaces: selectedPlaces)
                     dismiss()
                     
                 } label: {
