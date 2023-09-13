@@ -21,7 +21,6 @@ final class MyUserStore: ObservableObject {
     func fetchCurrentUser() async throws {
         do {
             let user = try await UserStore.loadUserData(userId: "whxJAA5YP5cPxY7MoZ5ZF0gX8au1", user: currentUser)
-            print("fetchCurrentUser\(String(describing: user))")
             self.currentUser = user
         } catch {
             print("Error fetchCurrentUser \(error)")

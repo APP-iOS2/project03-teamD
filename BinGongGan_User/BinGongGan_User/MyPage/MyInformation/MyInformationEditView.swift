@@ -15,7 +15,7 @@ enum EditType {
 
 struct MyInformationEditView: View {
     @Environment(\.dismiss) private var dismiss
-//    @EnvironmentObject var myUserStore: MyUserStore
+    @EnvironmentObject var myUserStore: MyUserStore
     var currentUser: User
     
     @State var nickName: String = ""
@@ -59,8 +59,16 @@ struct MyInformationEditView: View {
             Button {
                 if editType == .name {
                     nickName = newNickName
+                    myUserStore.currentUser.nickname = nickName
+                    Task {
+                        try await myUserStore.editAccount(user: myUserStore.currentUser)
+                    }
                 } else {
                     phoneNumber = newPhoneNumber
+                    myUserStore.currentUser.phoneNumber = phoneNumber
+                    Task {
+                        try await myUserStore.editAccount(user: myUserStore.currentUser)
+                    }
                 }
                 dismiss()
             } label: {

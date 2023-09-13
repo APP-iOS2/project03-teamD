@@ -39,7 +39,6 @@ public class UserStore {
         
         do {
             try await service.saveDocument(collectionId: .users, documentId: userId, data: user)
-            print("updateUserData: 성공")
         } catch {
             throw error
         }
