@@ -12,7 +12,6 @@ import FirebaseFirestore
 struct PlaceAddView: View {
     @Environment(\.dismiss) private var dismiss
     @EnvironmentObject var placeStore: PlaceStore
-    
     @State private var selectedPlace: PlaceCategory = .share
     @State private var placeInfomations = PlaceInfomationModel.data
     @State private var address: Address?
@@ -75,9 +74,8 @@ struct PlaceAddView: View {
                             .padding(5)
                             .frame(maxWidth: .infinity)
                             .foregroundColor(.black)
-                            .background(Color.myBackground)
-                            .border(.white, width: 2)
-                            .cornerRadius(5)
+                            .background(Color.white)
+                            .cornerRadius(10)
                         }
                         if !(address == nil) {
                             VStack(alignment: .leading) {
@@ -90,7 +88,7 @@ struct PlaceAddView: View {
                         }
                     }
                     .padding(.top, 15)
-                
+                    
                     Group {
                         Text("공간 사진 등록 (최소 1장 필수)")
                             .font(.body1Bold)
@@ -99,7 +97,7 @@ struct PlaceAddView: View {
                     .padding(.top, 15)
                     
                     Group {
-                        Text("공간 정보 선택")
+                        Text("공간 시설 선택")
                             .font(.body1Bold)
                         LazyVGrid(columns: columns, spacing: 8) {
                             ForEach($placeInfomations) { $infomation in
@@ -118,22 +116,28 @@ struct PlaceAddView: View {
                             Text("공간 정보")
                                 .font(.body1Bold)
                             Spacer()
-                            Button {
-                                if !(placeNoteText.isEmpty) {
-                                    withAnimation {
-                                        placeNotes.append(placeNoteText)
-                                        placeNoteText = ""
+                        }
+                        HStack {
+                            if placeNotes.count < 5 {
+                                TextField("정보를 입력하세요", text: $placeNoteText)
+                                    .textFieldStyle(.roundedBorder)
+                                
+                                Button {
+                                    if !(placeNoteText.isEmpty) {
+                                        withAnimation {
+                                            placeNotes.append(placeNoteText)
+                                            placeNoteText = ""
+                                        }
+                                    } else {
+                                        toastMessage = "정보를 입력하세요"
+                                        isShowingToast = true
                                     }
-                                } else {
-                                    toastMessage = "정보를 입력하세요"
-                                    isShowingToast = true
+                                } label: {
+                                    Image(systemName: "plus.app.fill")
+                                        .foregroundColor(Color.myMint)
                                 }
-                            } label: {
-                                Image(systemName: "plus.app")
                             }
                         }
-                        TextField("정보를 입력하세요", text: $placeNoteText)
-                            .textFieldStyle(.roundedBorder)
                         
                         ForEach(Array(zip(placeNotes,placeNotes.indices)), id:\.1) { note, index in
                             HStack {
@@ -158,7 +162,7 @@ struct PlaceAddView: View {
                         PrimaryButton(title: "등록하기") {
                             if let address, !placeNameText.isEmpty, !selectedImageNames.isEmpty {
                                 let place = Place(
-                                    sellerId: "판매자",
+                                    sellerId: AuthStore.userUid,
                                     placeName: placeNameText,
                                     placeCategory: selectedPlace,
                                     placeImageStringList: selectedImageNames,
@@ -166,7 +170,9 @@ struct PlaceAddView: View {
                                     placeInfomationList: placeInfomationString,
                                     address: address
                                 )
-                                placeStore.addPlace(place: place)
+                                Task{
+                                    await placeStore.addPlace(place: place, images: selectedImage)
+                                }
                                 dismiss()
                             } else {
                                 toastMessage = "빈칸을 모두 입력해주세요"

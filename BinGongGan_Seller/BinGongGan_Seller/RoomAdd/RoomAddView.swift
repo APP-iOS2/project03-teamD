@@ -17,6 +17,7 @@ struct RoomAddView: View {
     @State private var roomPrice: String = ""
     @State private var roomNote: String = ""
     @State private var imageNames: [String] = []
+    @State private var isShowingToast: Bool = false
     
     var body: some View {
         ZStack {
@@ -39,6 +40,11 @@ struct RoomAddView: View {
                             
                             TextField("가격을 입력하세요", text: $roomPrice)
                                 .keyboardType(.decimalPad)
+                                .onChange(of: roomPrice, perform: { newValue in
+                                    if newValue.count > 10 {
+                                        roomPrice = String(newValue.prefix(10))
+                                    }
+                                })
                                 .onReceive(Just(roomPrice)) { newValue in
                                     let filtered = newValue.filter { "0123456789".contains($0) }
                                     if filtered != newValue {
@@ -46,7 +52,7 @@ struct RoomAddView: View {
                                     }
                                 }
                                 .overlay(alignment:.trailing) {
-                                    Text("￦")
+                                    Text("원")
                                         .padding(.trailing, 1)
                                 }
                             
@@ -56,12 +62,12 @@ struct RoomAddView: View {
                         .cornerRadius(10)
                     }
                     .padding(.top, 15)
-                    //
-                    //                    Section {
-                    //                        Text("방 상세사진")
-                    //                        PhotoSelectedView(selectedImages: $selectedImage, selectedImageNames: imageNames)
-                    //                    }
-                    //
+                    
+                    Section {
+                        Text("방 상세사진")
+                        PhotoSelectedView(selectedImages: $selectedImage, selectedImageNames: $imageNames)
+                    }
+                    
                     Section{
                         Text("방 상세내용")
                         TextEditor(text: $roomNote)
@@ -71,13 +77,23 @@ struct RoomAddView: View {
                     }
                     
                     PrimaryButton(title: "등록 하기") {
-                        roomStore.addRoom(placeId: "heeheehee", roomName: roomName, roomPrice: roomPrice, roomNote: roomNote, imageNames: imageNames)
+                        Task {
+                            await roomStore.addRoom(room:
+                                                        Room(placeId: AuthStore.userUid,
+                                                             name: roomName,
+                                                             price: roomPrice,
+                                                             note: roomNote,
+                                                             imageNames: imageNames),completion: {
+                                isShowingToast = true
+                            })
+                        }
                         dismiss()
                     }
                 }
             }
             .padding(20)
         }
+        .toast(isShowing: $isShowingToast, message: "방 추가 완료")
         .customBackbutton()
         .navigationTitle("방 추가")
     }
