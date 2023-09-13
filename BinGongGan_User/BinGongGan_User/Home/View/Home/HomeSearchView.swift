@@ -31,7 +31,7 @@ struct HomeSearchView: View {
                             }
                         }
                     Button {
-                        homeStore.searchPlaceName(placess: homeStore.places, keyWord: placeSearchTextField)
+                        homeStore.searchPlaceName(keyWord: placeSearchTextField)
                         
                         if !homeStore.recentlyWords.contains(placeSearchTextField){
                             homeStore.addRecentlyWord(word: placeSearchTextField)

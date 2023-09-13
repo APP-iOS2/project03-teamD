@@ -7,6 +7,7 @@
 
 import SwiftUI
 import FirebaseFirestoreSwift
+import BinGongGanCore
 
 enum CategoryCase: String {
     case shareOffice = "쉐어오피스"
@@ -33,19 +34,6 @@ struct Category : Identifiable {
     }
 }
 
-struct GongGanPlace : Identifiable, Hashable {
-    var id = UUID().uuidString
-    var placeName: String
-    let category: String
-    let placeLocation: String
-    let placePrice: Int
-    let imageString: String
-    var imageURL: URL {
-        URL(string: imageString)!
-    }
-    var isFavorite: Bool
-}
-
 
 let eventImageArray: [String] = [
     "https://media.discordapp.net/attachments/1148158635667632149/1149282476380934234/2023-09-07_6.58.09.png?width=1410&height=408",
@@ -55,5 +43,3 @@ let eventImageArray: [String] = [
     "https://media.discordapp.net/attachments/1148158635667632149/1149282573881724979/canva----------mp-LcAtJ4yQ.jpg?width=1410&height=528",
     "https://media.discordapp.net/attachments/1148158635667632149/1149282575689469993/canva--------zIbSUFxMP-c.jpg?width=1410&height=470",
 ]
-
-

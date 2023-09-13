@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		279241972AB0F6FD0092155D /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 279241962AB0F6FD0092155D /* GoogleService-Info.plist */; };
 		3661ED052AA956750055AC97 /* FavoriteListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3661ED042AA956750055AC97 /* FavoriteListView.swift */; };
 		368394DD2AA84732004A3AC3 /* HomeStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 368394DC2AA84732004A3AC3 /* HomeStore.swift */; };
 		36B7A56A2AB0AC3100424B93 /* EasterEggAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36B7A5692AB0AC3100424B93 /* EasterEggAlert.swift */; };
@@ -108,7 +107,6 @@
 		D8741E612AAF09EE00F45C79 /* UserAccountSettingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8E0FA2A2AAB13C300B8C092 /* UserAccountSettingView.swift */; };
 		D8741E672AB02F8A00F45C79 /* Bank.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8741E662AB02F8A00F45C79 /* Bank.swift */; };
 		D8741E692AB0347300F45C79 /* BankSelectView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8741E682AB0347300F45C79 /* BankSelectView.swift */; };
-		D8741E6B2AB04F5A00F45C79 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = D8741E6A2AB04F5A00F45C79 /* GoogleService-Info.plist */; };
 		D8741E712AB0EE4B00F45C79 /* AccountEditView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8741E702AB0EE4B00F45C79 /* AccountEditView.swift */; };
 		D8741E732AB0F0E100F45C79 /* AccountTextFieldView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8741E722AB0F0E100F45C79 /* AccountTextFieldView.swift */; };
 		D8E0FA272AAAFAAD00B8C092 /* Announcement.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8E0FA262AAAFAAD00B8C092 /* Announcement.swift */; };
@@ -118,6 +116,8 @@
 		ECBD87772AAE097200ECEC7D /* AppInformationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECBD87762AAE097200ECEC7D /* AppInformationView.swift */; };
 		ECBD87792AAEF86F00ECEC7D /* CategorySheetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECBD87782AAEF86F00ECEC7D /* CategorySheetView.swift */; };
 		ECBD877D2AB01E3300ECEC7D /* MyReservationStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECBD877C2AB01E3300ECEC7D /* MyReservationStore.swift */; };
+		ECBD87832AB1561700ECEC7D /* SignInModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECBD87822AB1561700ECEC7D /* SignInModel.swift */; };
+		ECBD87852AB1565000ECEC7D /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = ECBD87842AB1565000ECEC7D /* GoogleService-Info.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -138,7 +138,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		279241962AB0F6FD0092155D /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		3661ED042AA956750055AC97 /* FavoriteListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteListView.swift; sourceTree = "<group>"; };
 		368394DC2AA84732004A3AC3 /* HomeStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeStore.swift; sourceTree = "<group>"; };
 		36B7A5692AB0AC3100424B93 /* EasterEggAlert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EasterEggAlert.swift; sourceTree = "<group>"; };
@@ -237,7 +236,6 @@
 		D8741E5D2AAEF64100F45C79 /* BankAccountSettingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BankAccountSettingView.swift; sourceTree = "<group>"; };
 		D8741E662AB02F8A00F45C79 /* Bank.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Bank.swift; sourceTree = "<group>"; };
 		D8741E682AB0347300F45C79 /* BankSelectView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BankSelectView.swift; sourceTree = "<group>"; };
-		D8741E6A2AB04F5A00F45C79 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../../GoogleService-Info.plist"; sourceTree = "<group>"; };
 		D8741E702AB0EE4B00F45C79 /* AccountEditView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AccountEditView.swift; sourceTree = "<group>"; };
 		D8741E722AB0F0E100F45C79 /* AccountTextFieldView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountTextFieldView.swift; sourceTree = "<group>"; };
 		D8E0FA262AAAFAAD00B8C092 /* Announcement.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Announcement.swift; sourceTree = "<group>"; };
@@ -248,6 +246,8 @@
 		ECBD87762AAE097200ECEC7D /* AppInformationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppInformationView.swift; sourceTree = "<group>"; };
 		ECBD87782AAEF86F00ECEC7D /* CategorySheetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategorySheetView.swift; sourceTree = "<group>"; };
 		ECBD877C2AB01E3300ECEC7D /* MyReservationStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyReservationStore.swift; sourceTree = "<group>"; };
+		ECBD87822AB1561700ECEC7D /* SignInModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignInModel.swift; sourceTree = "<group>"; };
+		ECBD87842AB1565000ECEC7D /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -418,8 +418,8 @@
 		B15806402AA89795006C772B /* Config */ = {
 			isa = PBXGroup;
 			children = (
+				ECBD87842AB1565000ECEC7D /* GoogleService-Info.plist */,
 				B12A84A82AA6F01000BDF8CA /* Assets.xcassets */,
-				D8741E6A2AB04F5A00F45C79 /* GoogleService-Info.plist */,
 			);
 			path = Config;
 			sourceTree = "<group>";
@@ -564,6 +564,7 @@
 		BCE658462AA8AD380009ECD1 /* SignIn */ = {
 			isa = PBXGroup;
 			children = (
+				ECBD87822AB1561700ECEC7D /* SignInModel.swift */,
 				BCE658482AA8AD380009ECD1 /* SignInStore.swift */,
 				BCE658472AA8AD380009ECD1 /* SignInView.swift */,
 			);
@@ -828,10 +829,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				ECBD87752AAB09F600ECEC7D /* Information1.md in Resources */,
-				D8741E6B2AB04F5A00F45C79 /* GoogleService-Info.plist in Resources */,
+				ECBD87852AB1565000ECEC7D /* GoogleService-Info.plist in Resources */,
 				B12A84AC2AA6F01000BDF8CA /* Preview Assets.xcassets in Resources */,
 				B12A84A92AA6F01000BDF8CA /* Assets.xcassets in Resources */,
-				279241972AB0F6FD0092155D /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -945,6 +945,7 @@
 				BC344F1F2AA86A8E00F8CEB3 /* Home.swift in Sources */,
 				D84824992AA8A3700067A065 /* FAQCategoryItemView.swift in Sources */,
 				BC344F0B2AA8092E00F8CEB3 /* HomeSearchView.swift in Sources */,
+				ECBD87832AB1561700ECEC7D /* SignInModel.swift in Sources */,
 				D84824A42AA8A3710067A065 /* MyInformationDetailView.swift in Sources */,
 				3A392E952AAECDB000D82221 /* UserStore.swift in Sources */,
 				D8741E5E2AAEF64100F45C79 /* BankAccountSettingView.swift in Sources */,
@@ -1132,7 +1133,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.ZD.BinGongGan-User";
+				PRODUCT_BUNDLE_IDENTIFIER = com.ZD.BinGongGan.User;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -1167,7 +1168,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.ZD.BinGongGan-User";
+				PRODUCT_BUNDLE_IDENTIFIER = com.ZD.BinGongGan.User;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;

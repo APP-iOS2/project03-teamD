@@ -91,7 +91,6 @@
 		6A800A882AB08DB200F1CE25 /* SellerStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A800A872AB08DB200F1CE25 /* SellerStore.swift */; };
 		6A800A8A2AB08DBF00F1CE25 /* FirestoreService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A800A892AB08DBF00F1CE25 /* FirestoreService.swift */; };
 		6A800A8C2AB08DCD00F1CE25 /* Collections.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A800A8B2AB08DCD00F1CE25 /* Collections.swift */; };
-		6A800A8E2AB08DF700F1CE25 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 6A800A8D2AB08DF700F1CE25 /* GoogleService-Info.plist */; };
 		B12A84732AA6EFE900BDF8CA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B12A84722AA6EFE900BDF8CA /* Assets.xcassets */; };
 		B12A84802AA6EFEA00BDF8CA /* BinGongGan_SellerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B12A847F2AA6EFEA00BDF8CA /* BinGongGan_SellerTests.swift */; };
 		B12A848A2AA6EFEA00BDF8CA /* BinGongGan_SellerUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B12A84892AA6EFEA00BDF8CA /* BinGongGan_SellerUITests.swift */; };
@@ -101,6 +100,7 @@
 		B171F4832AB0FD3400B8059B /* RoomAddView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B171F4822AB0FD3400B8059B /* RoomAddView.swift */; };
 		B171F4852AB0FE3300B8059B /* RoomStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = B171F4842AB0FE3300B8059B /* RoomStore.swift */; };
 		B171F4872AB1017800B8059B /* PlaceAddView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B171F4862AB1017800B8059B /* PlaceAddView.swift */; };
+		B171F48B2AB11DA600B8059B /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = B171F48A2AB11DA600B8059B /* GoogleService-Info.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -189,7 +189,6 @@
 		6A800A872AB08DB200F1CE25 /* SellerStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SellerStore.swift; sourceTree = "<group>"; };
 		6A800A892AB08DBF00F1CE25 /* FirestoreService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirestoreService.swift; sourceTree = "<group>"; };
 		6A800A8B2AB08DCD00F1CE25 /* Collections.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Collections.swift; sourceTree = "<group>"; };
-		6A800A8D2AB08DF700F1CE25 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		B12A846B2AA6EFE700BDF8CA /* BinGongGan_Seller.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BinGongGan_Seller.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B12A84722AA6EFE900BDF8CA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B12A847B2AA6EFEA00BDF8CA /* BinGongGan_SellerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BinGongGan_SellerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -215,6 +214,7 @@
 		B171F4822AB0FD3400B8059B /* RoomAddView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoomAddView.swift; sourceTree = "<group>"; };
 		B171F4842AB0FE3300B8059B /* RoomStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoomStore.swift; sourceTree = "<group>"; };
 		B171F4862AB1017800B8059B /* PlaceAddView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceAddView.swift; sourceTree = "<group>"; };
+		B171F48A2AB11DA600B8059B /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		D250E0182AAEF8E000C1AD8E /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -724,7 +724,7 @@
 		B12A85012AA7A8DE00BDF8CA /* Config */ = {
 			isa = PBXGroup;
 			children = (
-				6A800A8D2AB08DF700F1CE25 /* GoogleService-Info.plist */,
+				B171F48A2AB11DA600B8059B /* GoogleService-Info.plist */,
 				B12A84722AA6EFE900BDF8CA /* Assets.xcassets */,
 			);
 			path = Config;
@@ -878,8 +878,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				B1343A6F2AA901E900DC20EE /* Preview Assets.xcassets in Resources */,
+				B171F48B2AB11DA600B8059B /* GoogleService-Info.plist in Resources */,
 				B12A84732AA6EFE900BDF8CA /* Assets.xcassets in Resources */,
-				6A800A8E2AB08DF700F1CE25 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1146,7 +1146,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"BinGongGan_Seller/Preview Content\"";
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = 6R3M7VGRP2;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_CFBundleDisplayName = "빈공간_판매자";
@@ -1160,7 +1160,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.ZD.BinGongGan-Seller";
+				PRODUCT_BUNDLE_IDENTIFIER = com.ZD.BinGongGan.Seller;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -1176,7 +1176,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"BinGongGan_Seller/Preview Content\"";
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = 6R3M7VGRP2;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_CFBundleDisplayName = "빈공간_판매자";
@@ -1190,7 +1190,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.ZD.BinGongGan-Seller";
+				PRODUCT_BUNDLE_IDENTIFIER = com.ZD.BinGongGan.Seller;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
