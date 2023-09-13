@@ -11,7 +11,7 @@ struct EnquiryView: View {
     @Environment(\.dismiss) private var dismiss
     @State private var isShowingActionSheet = false
     @State private var isHiddenEmailInfo = false
-    
+    @State private var isShowingToast: Bool = false
     var body: some View {
         List {
             Section("문의 방법") {
@@ -31,7 +31,7 @@ struct EnquiryView: View {
                 }
                 ZStack {
                     NavigationLink {
-                        EnquiryFormView()
+                        EnquiryFormView(isShowingToast: $isShowingToast)
                     } label: {
                         EmptyView()
                     }
@@ -56,7 +56,7 @@ struct EnquiryView: View {
             Button("통화 02-0000-0000", role: .none) {}
             Button("취소", role: .cancel) {}
         }
-        
+        .toast(isShowing: $isShowingToast, message: "이메일을 전송했습니다.")
     }
 }
 
