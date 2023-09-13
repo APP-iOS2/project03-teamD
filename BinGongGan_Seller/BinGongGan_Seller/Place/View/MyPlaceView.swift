@@ -12,7 +12,7 @@ struct MyPlaceView: View {
     @StateObject private var myPlaceStore: MyPlaceStore = MyPlaceStore()
     @StateObject var placeStore: PlaceStore = PlaceStore()
     @StateObject private var roomStore: RoomStore = RoomStore()
-
+    
     var body: some View {
         ZStack {
             Color.myBackground
