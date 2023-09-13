@@ -17,7 +17,7 @@ struct ContentView: View {
     @StateObject private var myReviewStore: MyReviewStore = MyReviewStore()
   
     var body: some View {
-        if signInStore.isSuccessSignIn {
+        if signInStore.isSignedIn {
             GongGanTabView()
                 .environmentObject(signInStore)
                 .environmentObject(homeStore)
