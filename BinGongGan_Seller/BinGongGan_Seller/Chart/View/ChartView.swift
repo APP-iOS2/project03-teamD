@@ -13,14 +13,9 @@ struct ChartView: View {
     @Environment(\.dismiss) private var dismiss
     
     @StateObject private var chartStore: ChartStore = ChartStore()
-    
+    @StateObject private var roomStore: RoomStore = RoomStore()
     @State private var pickedPlace: String = ""
-    
-    var places: [Place] = [
-        Place(sellerId: "", placeName: "공간1", placeCategory: .share, placeImageStringList: [], note: [], placeInfomationList: [], address: .init(address: "", placeName: "", longitude: "", latitude: "")),
-        Place(sellerId: "", placeName: "공간2", placeCategory: .share, placeImageStringList: [], note: [], placeInfomationList: [], address: .init(address: "", placeName: "", longitude: "", latitude: "")),
-    ]
-    
+
     var body: some View {
         ZStack {
             Color.myBackground
@@ -33,8 +28,9 @@ struct ChartView: View {
                         .font(.head1Bold)
                     Spacer()
                     Picker("Place", selection: $pickedPlace) {
-                        ForEach(places) { place in
-                            Text("\(place.placeName)")
+                        ForEach(roomStore.rooms) { newRoom in
+                            Text("\(newRoom.name)")
+
                         }
                     }
                     .onChange(of: pickedPlace) { newValue in
@@ -78,25 +74,14 @@ struct ChartView: View {
                 }
                 .padding()
             }
+            .task {
+                roomStore.fetchRooms()
+            }
         }
         .background(Color.myBackground)
         .navigationBarBackButtonHidden(true)
         .navigationBarTitleDisplayMode(.inline)
         .scrollContentBackground(.hidden)
-        .toolbar {
-            ToolbarItem(placement: .navigationBarLeading) {
-                HStack{
-                    Image("HomeLogo")
-                        .resizable()
-                        .aspectRatio(contentMode: .fit)
-                        .frame(width: 40, height: 40)
-                    Text("BinGongGan")
-                        .bold()
-                        .foregroundColor(Color.myBrown)
-                }
-                .padding(EdgeInsets(top: 10, leading: 10, bottom: 15, trailing: 0))
-            }
-        }
         .customBackbutton()
     }
 }

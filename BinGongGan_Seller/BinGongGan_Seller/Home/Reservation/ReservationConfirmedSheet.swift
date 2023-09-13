@@ -23,10 +23,9 @@ struct ReservationConfirmedSheet: View {
                 Spacer()
             }
             
-//            ReservationCell(isHiddenRightButton: false)
-//                .padding(.bottom, 12)
-//                .padding(.horizontal, 20)
-            
+            ReservationCell(data: data, isHiddenRightButton: false)
+            .padding(.bottom, 12)
+            .padding(.horizontal, 20)
 //            Text("예약 취소시에 위약금이 발생할 수 있습니다.")
 //                .foregroundColor(.red)
 //                .bold()

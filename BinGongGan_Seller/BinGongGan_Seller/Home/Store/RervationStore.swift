@@ -9,21 +9,27 @@ import Foundation
 import Firebase
 import FirebaseFirestore
 
-class RervationStore : ObservableObject{
-    
+final class RervationStore : ObservableObject{
     @Published var data = [SellerReservation]()
     @Published var recentData = [SellerReservation]()
-    
+    @Published var selectedType = ReservationStateType.waitReservation
+    @Published var canceldata = [SellerReservation]()
+    @Published var waitldata = [SellerReservation]()
+    @Published var confilmedldata = [SellerReservation]()
+    @Published var isLoading: Bool = false
     let dbRef = Firestore.firestore().collection("Reservation")
-    
+    let sellerUid = AuthStore.userUid
     init() {
         Task {
-            await fetchData()
+            await fetchData() { success in
+                if success {
+                    self.isLoading = true
+                }
+            }
         }
-        
     }
     
-    @MainActor func fetchData() async {
+    @MainActor func fetchData(completion: @escaping (Bool) -> ()) async {
         do {
             let snapshot = try await dbRef.getDocuments()
             
@@ -31,7 +37,7 @@ class RervationStore : ObservableObject{
                 try $0.data(as: SellerReservation.self)
             }
 //            print(data)
-            filterData()
+            filterData(completion: completion)
         } catch {
             print("Error fetching reviews: \(error)")
         }
@@ -39,39 +45,47 @@ class RervationStore : ObservableObject{
 //    public var reservationDateString: String {
 //        return
 //    }
-    func filterData(){
+    func filterData(completion: @escaping (Bool) -> ()){
        let mydata = data.filter { data in
-            data.placeID == "46CE2DD8-C30A-4932-943B-EFCE0C7D2647"
+            data.placeID == sellerUid
         }
         
-        let data = data.sorted {
+        let data = mydata.sorted {
             $0.reservationDateString > $1.reservationDateString
         }
-        recentData = data
-//        print(data)
-//        print("필터된 데이터")
-//        print(mydata)
         
-        let canceldata = mydata.filter{
-            $0.reservationState == 0
+        let canceldata = data.filter{
+            $0.reservationState == 3
             //여기서 나온 값들 중에 최신값
         }
-        let waitldata = mydata.filter{
+        self.canceldata = canceldata
+        let waitldata = data.filter{
             $0.reservationState == 0
         }
-        let confilmedldata = mydata.filter{
-            $0.reservationState == 0
+        recentData = waitldata
+
+        self.waitldata = waitldata
+        let confilmedldata = data.filter{
+            $0.reservationState == 1 || $0.reservationState == 2
         }
+        self.confilmedldata = confilmedldata
+        completion(true)
     }
-    func updateRervation(reservationId:String,isReserve:Bool) async {
+    func updateRervation(id:String,isReserve:Bool) async {
         let dataBase = Firestore.firestore().collection("Reservation")
         do {
         //TODO: 여기 값만 넣어주기
             try await dataBase
-                .document(reservationId)
+                .document(id)
                 .updateData([
                     "reservationState": isReserve ? 1 : 3
                 ])
+            
+            await fetchData { success in
+                if success {
+                    self.isLoading = true
+                }
+            }
             
         } catch{
             debugPrint("updateData error")

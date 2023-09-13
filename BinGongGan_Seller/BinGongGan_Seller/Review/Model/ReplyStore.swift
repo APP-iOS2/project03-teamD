@@ -54,9 +54,8 @@ final class ReplyStore: ObservableObject {
     func loadData(reply: Reply) async {
         do {
             guard let reviewId = reply.id else { return }
-            try await dbRef.document(reviewId).setData([
-                "Replies": replies.map { $0.asDictionary() }
-            ])
+            try await dbRef.document(reviewId)
+                .setData(reply.asDictionary())
         } catch {
             print("Error loading replies: \(error)")
         }
