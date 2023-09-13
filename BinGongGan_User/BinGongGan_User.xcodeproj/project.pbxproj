@@ -86,7 +86,6 @@
 		BCFEA6162AB184480021DE48 /* GongGanInfoStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCFEA6152AB184480021DE48 /* GongGanInfoStore.swift */; };
 		BCFEA6182AB1848D0021DE48 /* SegmentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCFEA6172AB1848D0021DE48 /* SegmentView.swift */; };
 		BCFEA61A2AB184E50021DE48 /* DetailAnnouncementView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCFEA6192AB184E50021DE48 /* DetailAnnouncementView.swift */; };
-		BCFEA6202AB189370021DE48 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = BCFEA61F2AB189370021DE48 /* GoogleService-Info.plist */; };
 		D819F43F2AB0FB2200E1BAA1 /* AccountNumberEditView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D819F43E2AB0FB2200E1BAA1 /* AccountNumberEditView.swift */; };
 		D84824962AA8A3700067A065 /* MyPageMainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D84824802AA8A3700067A065 /* MyPageMainView.swift */; };
 		D84824972AA8A3700067A065 /* AppInformationList.swift in Sources */ = {isa = PBXBuildFile; fileRef = D84824822AA8A3700067A065 /* AppInformationList.swift */; };
@@ -219,7 +218,6 @@
 		BCFEA6152AB184480021DE48 /* GongGanInfoStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GongGanInfoStore.swift; sourceTree = "<group>"; };
 		BCFEA6172AB1848D0021DE48 /* SegmentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SegmentView.swift; sourceTree = "<group>"; };
 		BCFEA6192AB184E50021DE48 /* DetailAnnouncementView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailAnnouncementView.swift; sourceTree = "<group>"; };
-		BCFEA61F2AB189370021DE48 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		D819F43E2AB0FB2200E1BAA1 /* AccountNumberEditView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountNumberEditView.swift; sourceTree = "<group>"; };
 		D84824802AA8A3700067A065 /* MyPageMainView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyPageMainView.swift; sourceTree = "<group>"; };
 		D84824822AA8A3700067A065 /* AppInformationList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppInformationList.swift; sourceTree = "<group>"; };
@@ -424,7 +422,6 @@
 		B15806402AA89795006C772B /* Config */ = {
 			isa = PBXGroup;
 			children = (
-				BCFEA61F2AB189370021DE48 /* GoogleService-Info.plist */,
 				B12A84A82AA6F01000BDF8CA /* Assets.xcassets */,
 			);
 			path = Config;
@@ -840,7 +837,6 @@
 				ECBD87752AAB09F600ECEC7D /* Information1.md in Resources */,
 				B12A84AC2AA6F01000BDF8CA /* Preview Assets.xcassets in Resources */,
 				B12A84A92AA6F01000BDF8CA /* Assets.xcassets in Resources */,
-				BCFEA6202AB189370021DE48 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
