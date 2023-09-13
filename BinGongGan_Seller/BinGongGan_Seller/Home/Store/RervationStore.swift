@@ -44,7 +44,7 @@ class RervationStore : ObservableObject{
 //    }
     func filterData(){
        let mydata = data.filter { data in
-            data.placeID == "46CE2DD8-C30A-4932-943B-EFCE0C7D2647"
+           data.placeID == AuthStore.userUid
         }
         
         let data = data.sorted {
