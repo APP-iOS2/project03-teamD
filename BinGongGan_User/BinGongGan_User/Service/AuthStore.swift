@@ -7,8 +7,28 @@
 
 import Foundation
 import FirebaseAuth
+import SwiftUI
+
+enum SignInCase {
+    case signIn
+    case signInFalse
+    case fetchFalse
+    
+    var description: String {
+        switch self {
+        case .signIn:
+            return ""
+        case .signInFalse:
+            return "아이디와 비밀번호를 확인해주세요"
+        case .fetchFalse:
+            return "유저정보 불러오기에 실패하였습니다."
+        }
+    }
+}
 
 public class AuthStore {
+    @AppStorage("seller") static var userUid: String = ""
+    
     // 신규 사용자
     static func createUser(email: String, password: String) async throws -> AuthDataResult {
         do {
@@ -22,23 +42,27 @@ public class AuthStore {
     }
     
     // 기존 사용자
-    static func signIn(email: String, password: String) {
-        Auth.auth().signIn(withEmail: email, password: password) { authResult, error in
-            if let error = error {
-                print("Error occured when signIn: \(error)")
-            } else {
-                print("SignIn successful")
-            }
+    static func signIn(email: String, password: String) async throws -> SignInCase {
+        do {
+            let signInResult = try await Auth.auth().signIn(withEmail: email, password: password)
+            self.userUid = signInResult.user.uid
+            
+            return SignInCase.signIn
+        } catch {
+            return SignInCase.signInFalse
         }
     }
     
     
-    static func signOut() {
+    static func signOut() throws -> Bool {
         do {
             try Auth.auth().signOut()
+            userUid = ""
             print("Log out successful")
+            return true
         } catch {
             print("Error logging out: \(error.localizedDescription)")
+            return false
         }
     }
 }
