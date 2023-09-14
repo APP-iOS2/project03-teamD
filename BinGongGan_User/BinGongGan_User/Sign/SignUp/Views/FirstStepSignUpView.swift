@@ -1,5 +1,5 @@
 //
-//  FristStepSignUpView.swift
+//  FirstStepSignUpView.swift
 //  BinGongGan_User
 //
 //  Created by 마경미 on 06.09.23.
@@ -8,7 +8,7 @@
 import SwiftUI
 import BinGongGanCore
 
-struct FristStepSignUpView: View {
+struct FirstStepSignUpView: View {
     @EnvironmentObject var store: SignUpStore
     @State var isNext: Bool = false
     
@@ -101,9 +101,9 @@ struct FristStepSignUpView: View {
     }
 }
 
-struct FristStepSignUpView_Previews: PreviewProvider {
+struct FirstStepSignUpView_Previews: PreviewProvider {
     static var previews: some View {
-        FristStepSignUpView()
+        FirstStepSignUpView()
             .environmentObject(SignUpStore())
     }
 }

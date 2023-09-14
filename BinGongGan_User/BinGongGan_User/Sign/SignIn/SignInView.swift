@@ -69,7 +69,7 @@ struct SignInView: View {
                 )
             }
             .fullScreenCover(isPresented: $signUpStore.isShowingSignUp, content: {
-                FristStepSignUpView()
+                FirstStepSignUpView()
                     .environmentObject(signUpStore)
             })
         }
