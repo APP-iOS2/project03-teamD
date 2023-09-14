@@ -13,7 +13,7 @@ struct SellerListView: View {
     var body: some View {
         List(sellerStore.sellerList) { seller in
             NavigationLink {
-                SellerDetailView(seller: seller)
+                SellerDetailView(sellerStore: sellerStore, seller: seller)
             } label: {
                 VStack(alignment: .leading) {
                     Text(seller.name)
@@ -25,6 +25,7 @@ struct SellerListView: View {
             }
             
         }
+        .tint(.myMint)
         .navigationTitle("판매자")
         .scrollContentBackground(.hidden)
         .background(Color.myBackground, ignoresSafeAreaEdges: .all)
