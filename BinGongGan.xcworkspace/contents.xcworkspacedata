@@ -524,6 +524,9 @@
                   location = "group:Model"
                   name = "Model">
                   <FileRef
+                     location = "group:/Users/HANLE/Desktop/&#x1110;&#x1166;&#x110f;&#x1175;&#x11ba;&#x110b;&#x1162;&#x11b8;&#x1109;&#x1173;&#x110f;&#x116e;&#x11af;/&#x1109;&#x116e;&#x110b;&#x1165;&#x11b8;/&#x1112;&#x1161;&#x11b7;&#x1101;&#x1166;&#x1112;&#x1162;&#x110b;&#x116d;/project03-teamD/BinGongGan_Seller/BinGongGan_Seller/Sign/SignUp/Model/Bank.swift">
+                  </FileRef>
+                  <FileRef
                      location = "group:SignUpData.swift">
                   </FileRef>
                </Group>
