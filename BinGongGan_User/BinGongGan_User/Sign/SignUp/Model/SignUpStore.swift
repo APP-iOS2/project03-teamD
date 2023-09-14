@@ -12,10 +12,10 @@ import FirebaseFirestoreSwift
 
 final class SignUpStore: ObservableObject {
     @Published var signUpData = SignUpData()
-//    @State var certificateNumber: String = ""
+    @State var certificateNumber: String = ""
     @Published var currentStep: SignUpStep = .first
     @Published var isShowingSignUp: Bool = false
-    @Published var isnotAllAgree: Bool = true
+    @Published var isnotAllAgree: Bool = false
     @Published var showAlert: Bool = false
     @Published var showToast: Bool = false
     @Published var toastMessage: String = ""
@@ -133,9 +133,10 @@ final class SignUpStore: ObservableObject {
             if let error = error as? AuthErrorCode {
                 if error.errorCode == 17007 {
                     toastMessage = "이미 회원가입 되어있습니다."
+                } else {
+                    toastMessage = "회원가입을 할 수 없습니다."
                 }
             }
-            toastMessage = "회원가입을 할 수 없습니다."
             return false
         }
     }

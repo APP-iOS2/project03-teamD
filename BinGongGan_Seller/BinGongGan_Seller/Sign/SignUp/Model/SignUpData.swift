@@ -27,7 +27,7 @@ struct SignUpData {
     var isEmailDuplicateChecked = false
     
     func changeToSellerModel(id: String) -> Seller {
-        return Seller(id: id, name: name, birthDate: birthDate, bankName: bankName ?? "", accountNumber: accountNumber, phoneNumber: phoneNumber, email: emailId, nickname: nickname, password: password, registrationNum: registrationNumber, registrationImage: "")
+        return Seller(id: id, name: name, birthDate: birthDate, phoneNumber: accountNumber, email: phoneNumber, nickname: emailId, password: nickname, bankName: bankName ?? "", accountNumber: password, registrationNum: registrationNumber, registrationImage: "")
     }
 }
 
