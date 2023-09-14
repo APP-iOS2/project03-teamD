@@ -88,6 +88,13 @@ final class MyReservationStore: ObservableObject {
         }
     }
     
+    func reservationCancle(reservationId: String) {
+        db.collection("Reservation")
+            .document(reservationId)
+            .setData([
+                "reservationState": 4
+            ],merge: true)
+    }
     func sortReservationDate() {
         myReservations = myReservations.sorted { $0.checkInDateString > $1.checkInDateString }
     }

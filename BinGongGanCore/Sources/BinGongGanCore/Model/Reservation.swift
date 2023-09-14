@@ -53,7 +53,8 @@ public struct Reservation: Identifiable, Codable {
             case 0 : return .expect
             case 1 : return .expect
             case 2 : return .success
-            case 3 : return .cancel
+            case 3 : return .success
+            case 4 : return .cancel
             default : return .expect
             }
             
