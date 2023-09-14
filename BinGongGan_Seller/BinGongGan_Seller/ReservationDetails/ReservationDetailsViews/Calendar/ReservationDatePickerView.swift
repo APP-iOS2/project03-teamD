@@ -64,12 +64,17 @@ struct ReservationDatePickerView: View {
                         )
                         .onTapGesture {
                             currentDate = value.date
+                            rervationCalendarStore.reservationDate(currentDate: currentDate)
                         }
                 }
             }
         }
+        .onAppear{
+            rervationCalendarStore.reservationDate(currentDate: currentDate)
+        }
         .onChange(of: currentMonth) { newValue in
             currentDate = rervationCalendarStore.getCurrentMonth(currentMonth)
+            rervationCalendarStore.reservationDate(currentDate: currentDate)
         }
     }
 }
