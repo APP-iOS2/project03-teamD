@@ -6,27 +6,30 @@
 //
 
 import SwiftUI
+import BinGongGanCore
 
 struct MySpaceCell: View {
+    var room: Room
+    @StateObject var placeStore: PlaceStore = PlaceStore()
     var body: some View {
         VStack {
             VStack {
                 HStack {
-                    Text("영석키친")
-                        .font(.head1Bold)
-                    Text("#132")
+                    Text(room.name)
                         .font(.head1Bold)
                     Spacer()
                 }
                 .padding(.bottom, 10)
                 
                 HStack {
-                    Text("서울특별시 강남구 논현로 30 뉴진스")
+                    if let adress = placeStore.place?.address.address {
+                        Text(adress)
+                    }
                     Spacer()
                 }
                 
                 HStack {
-                    Text("12000원 / 시간당")
+                    Text("\(room.price)원 / 시간당")
                     Spacer()
                 }
                 
@@ -36,13 +39,17 @@ struct MySpaceCell: View {
                 }
                 .padding(.top, 10)
             }
-            .padding(EdgeInsets(top: 20, leading: 20, bottom: 0, trailing: 20))
+            .task {
+                placeStore.fetchPlace()
+            }
+            .padding([.top, .trailing, .leading], 20)
             
             Spacer()
             
-            CarouselCell()
+            CarouselCell(room: room)
                 .frame(height: 210)
         }
+       
         .background(Color.white)
         .cornerRadius(15)
     }
@@ -50,6 +57,7 @@ struct MySpaceCell: View {
 
 struct MySpaceCell_Previews: PreviewProvider {
     static var previews: some View {
-        MySpaceCell()
+        MySpaceCell(room: Room(placeId: "", name: "101호", price: "1200", note: "ㅁㄴㅁㄴㅇㅁㄴ", imageNames: [""]))
+            .environmentObject(PlaceStore())
     }
 }

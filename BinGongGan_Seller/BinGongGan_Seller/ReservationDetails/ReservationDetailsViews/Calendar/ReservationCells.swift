@@ -1,16 +1,17 @@
 //
-//  ReservationCell.swift
+//  ReservationCells.swift
 //  BinGongGan_Seller
 //
-//  Created by 박채영 on 2023/09/05.
+//  Created by 김민기 on 2023/09/14.
 //
+
 
 import SwiftUI
 import BinGongGanCore
 
-struct ReservationCell: View {
+struct ReservationCells: View {
     
-    @EnvironmentObject private var rervationStore : RervationStore
+    @EnvironmentObject private var rervationCalendarStore : RervationCalendarStore
     let data : SellerReservation
     @State private var isPresentedModal: Bool = false
     var reservationStateType: ReservationStateType = .waitReservation
@@ -85,7 +86,7 @@ struct ReservationCell: View {
         .background(Color.white)
         .cornerRadius(15)
         .sheet(isPresented: self.$isPresentedModal) {
-            switch  rervationStore.selectedType {
+            switch rervationCalendarStore.selectedType {
             case .waitReservation :
                 ReservationDetailSheet(data: data)
                     .presentationDetents([.medium])
@@ -103,8 +104,8 @@ struct ReservationCell: View {
     }
 }
 
-struct ReservationCell_Previews: PreviewProvider {
+struct ReservationCells_Previews: PreviewProvider {
     static var previews: some View {
-        ReservationCell(data: SellerReservation(id: "", userEmail: "", roomID: "", reservationYear: "", reservationMonth: "", reservationDay: "", checkInYear: "", checkInMonth: "", checkInDay: "", checkOutYear: "", checkOutMonth: "", checkOutDay: "", placeID: "", hour: 0, personnel: 0, reservationName: "", reservationPhoneNumber: "", reservationRequest: "", reservationState: 0), isHiddenRightButton: true)
+        ReservationCells(data: SellerReservation(id: "", userEmail: "", roomID: "", reservationYear: "", reservationMonth: "", reservationDay: "", checkInYear: "", checkInMonth: "", checkInDay: "", checkOutYear: "", checkOutMonth: "", checkOutDay: "", placeID: "", hour: 0, personnel: 0, reservationName: "", reservationPhoneNumber: "", reservationRequest: "", reservationState: 0), isHiddenRightButton: true)
     }
 }
