@@ -45,16 +45,9 @@ struct AnnouncementContentCell: View {
         .cornerRadius(15)
         .sheet(isPresented: $isShowingAnnouncementOptionSheet) {
             AnnouncementOptionSheet(announcement: announcement)
-                .presentationDetents([.height(AnnouncementOptionCell.screenHeight * 0.37)])
+                .presentationDetents([.height(UIScreen.screenHeight * 0.37)])
                 .presentationDragIndicator(.hidden)
         }
     }
 }
 
-struct AnnouncementContentCell_Previews: PreviewProvider {
-    static var previews: some View {
-        let testAnnouncement = Announcement(title: "프리뷰", content: "프리뷰", date: Date().timeIntervalSince1970, places: [])
-        
-        return AnnouncementContentCell(announcement: testAnnouncement)
-    }
-}

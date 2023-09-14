@@ -10,7 +10,11 @@ import BinGongGanCore
 
 struct CategoryButtonsView: View {
     @StateObject private var myInfoStore: MyInfoStore = MyInfoStore()
-
+    @StateObject private var reviewStore: ReviewStore = ReviewStore()
+    @EnvironmentObject private var rervationStore : RervationStore
+    @EnvironmentObject private var roomStore: RoomStore
+    @EnvironmentObject private var placeStore: PlaceStore
+    
     let columns: [GridItem] = Array(repeating: .init(.flexible()), count: 4)
  
     var body: some View {
@@ -19,13 +23,13 @@ struct CategoryButtonsView: View {
                 NavigationLink {
                     switch category {
                     case .managementReservation:
-                        ReservationDetailsCalendarView()
+                        ReservationDetailsView()
+                            .environmentObject(rervationStore)
                     case .managementReview:
                         ReviewManageView()
+                            .environmentObject(reviewStore)
                     case .announcement:
                         AnnouncementView(announcementStore: AnnouncementStore())
-                    case .event:
-                        EmptyView()
                     case .myPlace:
                         MyPlaceView()
                     case .statistics:

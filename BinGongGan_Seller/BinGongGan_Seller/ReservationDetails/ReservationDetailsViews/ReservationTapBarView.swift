@@ -12,13 +12,13 @@ struct ReservationTapBarView : View {
     var reservationTapType : ReservationTapType
     
     var body: some View {
-        ScrollView(.vertical, showsIndicators: false) {
+//        ScrollView(.vertical, showsIndicators: false) {
             switch reservationTapType {
             case .list:
                 ReservationDetailsListView()
             case .calendar:
                 ReservationDetailsCalendarView()
-            }
+//            }
         }
     }
 }

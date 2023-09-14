@@ -67,6 +67,7 @@ struct SellerInformationCell_Previews: PreviewProvider {
                     email: "",
                     nickname: "",
                     password: "",
+                    bankName: "",
                     accountNumber: "",
                     registrationNum: "",
                     registrationImage: "")

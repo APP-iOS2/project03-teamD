@@ -19,6 +19,14 @@ final class SignInStore: ObservableObject {
     
     @Published var isSignedIn: Bool = false
     
+    func checkSignedIn() {
+        if AuthStore.userUid.isEmpty {
+            isSignedIn = false
+        } else {
+            isSignedIn = true
+        }
+    }
+    
     // 로그인 버튼
     @MainActor
     func checkSignIn() {

@@ -70,10 +70,11 @@ struct ReviewReportSheet: View {
                     for index in 0..<ReportCase.allCases.count {
                         if selectedCase[index] {
                             let report = Report(
-                                id: reviewId,
-                                reason: ReportCase.allCases[index].rawValue
-                            )
-                            reportStore.reportReview(report: report)
+                                reviewId: reviewId,
+                                sellerId: AuthStore.userUid,
+                                reason: ReportCase.allCases[index].rawValue)
+                            
+//                            reportStore.reportReview(report: report)
                             break
                         }
                     }
