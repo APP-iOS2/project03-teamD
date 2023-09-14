@@ -27,7 +27,7 @@ struct ReservationSellerInfoView: View {
                 
                 if let room = reservationStore.reservationRoom {
                     Text(room.note)
-                        .frame(maxWidth: screenWidth * 0.9, minHeight: 40)
+                        .frame(maxWidth: screenWidth * 0.85, minHeight: 20)
                         .font(.captionRegular)
                 }
             }
