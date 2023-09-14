@@ -194,7 +194,7 @@ final class ReservationStore: ObservableObject {
         if let room = reservationRoom {
             
             if let lastDay = Int(reservation.checkOutDay), let firstDay = Int(reservation.checkInDay), let price = Int(room.price) {
-                allPrice = (lastDay - firstDay) * price * reservation.hour * reservation.personnel
+                allPrice = (lastDay - firstDay + 1) * price * reservation.hour * reservation.personnel
             }
         }
         return allPrice
