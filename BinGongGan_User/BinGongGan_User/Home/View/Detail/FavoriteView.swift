@@ -17,8 +17,13 @@ struct FavoriteView: View {
         NavigationStack {
             ZStack {
                 Spacer().background(Color.myBackground).edgesIgnoringSafeArea(.all)
+                
                 if gongGan.myFavoriteGongGan.isEmpty {
-                    Text("찜 목록이 없어요")
+                    if gongGan.isLoading {
+                        ProgressView()
+                    } else {
+                        Text("찜 목록이 없어요")
+                    }
                 } else {
                     ScrollView {
                         Rectangle()
