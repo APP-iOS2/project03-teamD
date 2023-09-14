@@ -41,6 +41,7 @@ struct PlaceListFilterView: View {
                     }// HSTACK
                     .padding(.horizontal, 20)
                     .padding(.top, 20)
+                
                     if !homeStore.selectSub.isEmpty {
                         ScrollView(.horizontal, showsIndicators: false) {
                             HStack {
@@ -60,6 +61,8 @@ struct PlaceListFilterView: View {
                         }// SCROLLVIEW
                         .frame(height: HomeNameSpace.screenHeight * 0.1)
                     }
+                 
+                     Divider()
                     HStack {
                         List {
                             ForEach(homeStore.cities) { city in
@@ -102,18 +105,22 @@ struct PlaceListSubFilterView: View {
     
     var body: some View {
         List {
-            ForEach(selectedCity.subCity.name, id: \.self) { sub in
-                Button {
-                    if !homeStore.selectSub.contains(sub){
-                        homeStore.selectSub.append(sub)
+            if selectedCity.name == "이거어캐없앨까" {
+                
+            }else {
+                ForEach(selectedCity.subCity.name, id: \.self) { sub in
+                    Button {
+                        if !homeStore.selectSub.contains(sub){
+                            homeStore.selectSub.append(sub)
+                        }
+                    } label: {
+                        Text("\(sub)")
+                        
+                            .foregroundColor(homeStore.selectSub.contains(sub) ? .black : .myLightGray)
+                            .font(homeStore.selectSub.contains(sub) ? .body1Bold : .body1Regular)
                     }
-                } label: {
-                    Text("\(sub)")
-
-                        .foregroundColor(homeStore.selectSub.contains(sub) ? .black : .myLightGray)
-                        .font(homeStore.selectSub.contains(sub) ? .body1Bold : .body1Regular)
+                    .listRowBackground(Color.white)
                 }
-                .listRowBackground(Color.white)
             }
         }
         .listStyle(.plain)

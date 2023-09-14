@@ -61,6 +61,7 @@ struct HomeSearchView: View {
                         }
                         Spacer()
                     }
+                    
                     ScrollView(.horizontal, showsIndicators: false) {
                         HStack(spacing: 5) {
                             ForEach(homeStore.recentlyWords.reversed(), id: \.self){ word in
@@ -88,6 +89,8 @@ struct HomeSearchView: View {
                             }
                         }// HSTACK
                     }// SCROLLVIEW
+                    .frame(height: 30)
+                    Divider()
                 }// VSTACK
                 .padding(.leading, 20)
                 ScrollView(showsIndicators: false) {
