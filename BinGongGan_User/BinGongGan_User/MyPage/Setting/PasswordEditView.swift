@@ -10,6 +10,7 @@ import BinGongGanCore
 
 struct PasswordEditView: View {
     @EnvironmentObject var myUserStore: MyUserStore
+    @EnvironmentObject var signinStore: SignInStore
     @Environment(\.dismiss) private var dismiss
     
     @State private var currentPassword: String = ""
@@ -94,7 +95,9 @@ struct PasswordEditView: View {
                 myUserStore.currentUser.password = newPasswordCheck
                 Task {
                     try await myUserStore.editAccount(user: currentUser)
+                    await signinStore.changePassword(password: newPasswordCheck)
                 }
+
                 isShowingAlert.toggle()
             }label: {
                 Text("변경")
