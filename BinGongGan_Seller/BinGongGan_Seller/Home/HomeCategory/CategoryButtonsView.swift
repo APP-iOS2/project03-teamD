@@ -10,6 +10,7 @@ import BinGongGanCore
 
 struct CategoryButtonsView: View {
     @StateObject private var myInfoStore: MyInfoStore = MyInfoStore()
+    @StateObject private var reviewStore: ReviewStore = ReviewStore()
     @EnvironmentObject private var rervationStore : RervationStore
     @EnvironmentObject private var roomStore: RoomStore
     @EnvironmentObject private var placeStore: PlaceStore
@@ -26,6 +27,7 @@ struct CategoryButtonsView: View {
                             .environmentObject(rervationStore)
                     case .managementReview:
                         ReviewManageView()
+                            .environmentObject(reviewStore)
                     case .announcement:
                         AnnouncementView(announcementStore: AnnouncementStore())
                     case .myPlace:

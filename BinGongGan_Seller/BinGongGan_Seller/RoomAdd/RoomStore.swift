@@ -16,12 +16,13 @@ class RoomStore: ObservableObject {
     @Published var rooms: [Room] = []
     private let dataBase = Firestore.firestore().collection("Room")
     
-    func addRoom(room: Room, images: [UIImage]) async {
+    func addRoom(room: Room, images: [UIImage], completion: @escaping (Bool) -> ()) async {
         var newRoom = room
         await uploadImages(images, room: newRoom) { urls in
             newRoom.imageNames = urls
             self.dataBase.document(newRoom.id)
                 .setData(newRoom.asDictionary())
+            completion(true)
         }
         fetchRooms()
         print("방 추가 완료")
