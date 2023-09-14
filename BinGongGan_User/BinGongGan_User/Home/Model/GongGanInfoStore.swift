@@ -243,10 +243,11 @@ final class GongGanStore: ObservableObject {
     
 }
 
+// MARK: - 찜스토어
 final class MyFavoriteStore: ObservableObject {
     @Published var myFavoriteGongGan : [GongGan] = []
     @Published var userId: String = ""
-    
+    @Published var isLoading: Bool = false
     let dbRef = Firestore.firestore().collection("Place")
     
     func updateMyInfo(placeId: String) {
@@ -295,8 +296,8 @@ final class MyFavoriteStore: ObservableObject {
     
     @MainActor
     func fetchMyFavorite() async {
+        self.isLoading = true
         do {
-            
             let dbRef = Firestore.firestore().collection("Place")
             
             let querySnapshot = try await dbRef.whereField("isFavorite", isEqualTo: true).getDocuments()
@@ -343,8 +344,10 @@ final class MyFavoriteStore: ObservableObject {
             }
             
             self.myFavoriteGongGan = fetchArray
+            self.isLoading = false
             
         } catch {
+            self.isLoading = false
             print("Error fetching favorite places: \(error)")
         }
     }

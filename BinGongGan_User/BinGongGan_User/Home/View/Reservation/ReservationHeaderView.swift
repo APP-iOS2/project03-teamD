@@ -17,8 +17,7 @@ struct ReservationHeaderView: View {
         ZStack {
             if let room = reservationStore.reservationRoom {
                 AsyncImage(
-                    //url: URL(string: room.imageNames[0]),
-                    url: reservationStore.sampleSpace.imageUrl,
+                    url: URL(string: room.imageNames[0]),
                     content: { image in
                         image.resizable()
                             .aspectRatio(contentMode: .fill)

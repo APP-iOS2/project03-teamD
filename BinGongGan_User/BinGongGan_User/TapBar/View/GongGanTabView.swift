@@ -29,7 +29,7 @@ struct GongGanTabView: View {
                 HomeSearchView()
             }
             .tabItem {
-                Image(systemName: selectedTab == 1 ? "location.circle.fill" : "location.circle")
+                Image(systemName: selectedTab == 1 ? "magnifyingglass.circle.fill" : "magnifyingglass.circle")
                     .environment(\.symbolVariants, selectedTab == 1 ? .fill : .none)
                 Text("검색")
             }
