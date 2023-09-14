@@ -16,18 +16,18 @@ import FirebaseFirestoreSwift
 class MyReviewStore: ObservableObject {
     @Published var myReviews: [Review] = []
     
-    static let service = FirestoreService()
+    let service = FirestoreService()
     private let dbRef = Firestore.firestore()
     private let storage = Storage.storage().reference()
     
     init(){}
     
-    func addReview(placeId: String, writerId: String, rating: Int, content: String, images: [UIImage]) async throws{
+    func addReview(placeId: String, rating: Int, content: String, images: [UIImage] , reservationId: String) async throws{
         let date = self.currentDateToString()
         let id = UUID().uuidString
-        let newReview = Review(placeId: placeId, writerId: writerId, date: date, rating: rating, content: content)
+        let newReview = Review(placeId: placeId, writerId: AuthStore.userUid, date: date, rating: rating, content: content)
         do {
-            try await MyReviewStore.service.saveDocument(collectionId: .reviews, documentId: id, data: newReview)
+            try await service.saveDocument(collectionId: .reviews, documentId: id, data: newReview)
             
             self.uploadImage(images: images, reviewId: id) { imageUrls in
                 if let imageUrls = imageUrls {
@@ -36,6 +36,11 @@ class MyReviewStore: ObservableObject {
                             print("Error updating document: \(error.localizedDescription)")
                         } else {
                             print("Document successfully updated with image URLs")
+                            self.dbRef.collection("Reservation")
+                                .document(reservationId)
+                                .setData([
+                                    "reservationState": 3
+                                ],merge: true)
                         }
                     }
                 }
@@ -48,9 +53,8 @@ class MyReviewStore: ObservableObject {
     }
     
     func fetchReviews() async throws {
-        //TODO: - User 로그인, 예약 내역 연결 후 해당 유저 및 공간 판매자 정보 가져와 보여줄 수 있도록 수정하기
         var tempList: [Review] = []
-        let query = dbRef.collection(Collections.reviews.rawValue).whereField("writerId", isEqualTo: "xll3TbjPUUZOtWVQx2tsetWlvpV2")
+        let query = dbRef.collection(Collections.reviews.rawValue).whereField("writerId", isEqualTo: AuthStore.userUid)
         
         do {
             let snapshot = try await query.getDocuments()
@@ -71,10 +75,34 @@ class MyReviewStore: ObservableObject {
         }
     }
     
+    func getPlaceInfo(placeId: String) async throws -> Place?{
+        let document = try await dbRef.collection("Place").document(placeId).getDocument()
+        if let placeData = document.data() {
+            let addressMap: [String: Any] = placeData["address"] as? [String: Any] ?? [:]
+            let placeCategoryString = placeData["placeCategory"] as? String ?? "Share"
+            let placeCategory = PlaceCategory.fromRawString(placeCategoryString)
+            let place = Place(
+                sellerId: placeData["sellerId"] as? String ?? "sellerId",
+                placeName: placeData["placeName"] as? String ?? "placeName",
+                placeCategory: placeCategory,
+                placeImageStringList: placeData["placeImageStringList"] as? [String] ?? [""],
+                note: placeData["note"] as? [String] ?? [""],
+                placeInfomationList: placeData["placeInfomationList"] as? [String] ?? [""],
+                address: Address(
+                    address: addressMap["address_name"] as? String ?? "sellerId",
+                    placeName: addressMap["placeName_name"] as? String ?? "placeName",
+                    longitude: addressMap["x"] as? String ?? "x",
+                    latitude: addressMap["y"] as? String ?? "y")
+            )
+            return place
+        }
+        return nil
+    }
+    
     func findReply(reviewId: String?) async throws -> Reply?{
         guard let id = reviewId else { return nil }
         do {
-            let reply = try await dbRef.collection("reply").document(id).getDocument(as: Reply.self)
+            let reply = try await dbRef.collection("Replies").document(id).getDocument(as: Reply.self)
             
             return reply
         } catch {
@@ -95,10 +123,10 @@ class MyReviewStore: ObservableObject {
     func uploadImage(images: [UIImage], reviewId: String, completion: @escaping ([String]?) -> Void) {
         let path = storage.child("reviews").child(reviewId)
         var imageUrls: [String] = []
-
+        
         
         for (index, image) in images.enumerated() {
-
+            
             let metaData = StorageMetadata()
             metaData.contentType = "image/jpeg"
             let imageName = reviewId + String(index)

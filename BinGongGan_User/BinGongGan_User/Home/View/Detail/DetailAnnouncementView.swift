@@ -31,14 +31,16 @@ enum AnnouncementType1: String {
 }
 struct DetailAnnouncementView: View {
     @Environment(\.dismiss) private var dismiss
+    @State var isShowingSheet: Bool = false
+    @State var sheetText: String = ""
     private let screenWidth = UIScreen.main.bounds.width
     private let screenheight = UIScreen.main.bounds.height
     var body: some View {
         VStack {
             ForEach(Announcement1.sampleAnnouncement) { announcement in
-                NavigationLink {
-                    Text("\(announcement.content)")
-                        .customBackbutton()
+                Button {
+                    isShowingSheet.toggle()
+                    sheetText = announcement.content
                 } label: {
                     VStack {
                         HStack {
@@ -58,8 +60,11 @@ struct DetailAnnouncementView: View {
             .background(Color.myBackground)
         }
         .frame(width: screenWidth * 0.95)
+        .sheet(isPresented: $isShowingSheet) {
+            Text(sheetText)
+        }
     }
-        
+    
 }
 
 struct DetailAnnouncementView_Previews: PreviewProvider {

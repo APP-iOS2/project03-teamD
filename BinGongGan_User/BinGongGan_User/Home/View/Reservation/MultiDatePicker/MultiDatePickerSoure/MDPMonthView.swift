@@ -32,6 +32,7 @@ struct MDPMonthView: View {
     var body: some View {
         VStack {
             HStack {
+                
                 MDPMonthYearPickerButton(isPresented: self.$showMonthYearPicker)
                 
                 Spacer()

@@ -11,13 +11,14 @@ import BinGongGanCore
 struct DetailInfoView: View {
     @EnvironmentObject var gongGan: GongGanStore
     @Binding var isReservationActive: Int?
+    @Binding var roomId: String
     private let screenWidth = UIScreen.main.bounds.width
     private let screenheight = UIScreen.main.bounds.height
     
     var body: some View {
         NavigationStack {
             Group {
-                SubGongGanSelectView(isReservationActive: $isReservationActive)
+                SubGongGanSelectView(isReservationActive: $isReservationActive, roomId: $roomId)
             }
             
             
@@ -41,19 +42,42 @@ struct DetailInfoView: View {
                     customSection("시설 안내")
                     //                    Text("시설 안내")
                         .padding(EdgeInsets(top: 5, leading: 0, bottom: 5, trailing: 0))
-                    LazyHGrid(rows: [GridItem(.flexible(), spacing: 80), GridItem(.flexible(), spacing: 10)], spacing: 20) {
-                        ForEach(gongGan.gongGanInfo.placeGuide) { item in
-                            VStack {
+                    HStack(spacing: 10) {
+                        ForEach(gongGan.gongGanInfo.placeGuide.indices, id: \.self) { index in
+                            if index < 4 {
                                 VStack {
-                                    Image(systemName: item.systemImage)
-                                        .font(.system(size: 40))
+                                    VStack {
+                                        Image(systemName: gongGan.gongGanInfo.placeGuide[index].systemImage)
+                                            .font(.system(size: 40))
+                                            .frame(width: 80, height: 40)
+                                    }
+                                    Text(gongGan.gongGanInfo.placeGuide[index].labelTitle)
+                                        .frame(width: 80)
                                 }
-                                .frame(height: 40)
-                                Text(item.labelTitle)
                             }
                         }
+                        .foregroundColor(Color.myBrown)
+                        Spacer()
                     }
-                    .foregroundColor(Color.myBrown)
+                    .padding(.leading, 5)
+                    HStack(spacing: 10) {
+                        ForEach(gongGan.gongGanInfo.placeGuide.indices, id: \.self) { index in
+                            if index > 3 {
+                                VStack {
+                                    VStack {
+                                        Image(systemName: gongGan.gongGanInfo.placeGuide[index].systemImage)
+                                            .font(.system(size: 40))
+                                    }
+                                    .frame(width: 80, height: 40)
+                                    Text(gongGan.gongGanInfo.placeGuide[index].labelTitle)
+                                        .frame(width: 80)
+                                }
+                            }
+                        }
+                        .foregroundColor(Color.myBrown)
+                        Spacer()
+                    }
+                    .padding(.leading, 5)
                 }
                 .padding(EdgeInsets(top: 0, leading: 5, bottom: 20, trailing: 0))
                 
@@ -66,7 +90,7 @@ struct DetailInfoView: View {
 
 struct DetailInfoView_Previews: PreviewProvider {
     static var previews: some View {
-        DetailInfoView(isReservationActive: .constant(nil))
+        DetailInfoView(isReservationActive: .constant(nil), roomId: .constant(""))
             .environmentObject(GongGanStore())
     }
 }
