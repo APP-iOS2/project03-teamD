@@ -94,8 +94,8 @@ struct PasswordEditView: View {
             Button{
                 myUserStore.currentUser.password = newPasswordCheck
                 Task {
-                    try await myUserStore.editAccount(user: currentUser)
                     await signinStore.changePassword(password: newPasswordCheck)
+                    try await myUserStore.editAccount(user: currentUser)
                 }
 
                 isShowingAlert.toggle()
