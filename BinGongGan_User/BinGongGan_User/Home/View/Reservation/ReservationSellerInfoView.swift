@@ -23,10 +23,11 @@ struct ReservationSellerInfoView: View {
                 
                 RoundedRectangle(cornerRadius: 8)
                     .fill(.white)
-                    .frame(maxWidth: screenWidth * 0.9, minHeight: 40)
+                    .frame(maxWidth: screenWidth * 0.9, minHeight: 80)
                 
                 if let room = reservationStore.reservationRoom {
                     Text(room.note)
+                        .frame(maxWidth: screenWidth * 0.85, minHeight: 20)
                         .font(.captionRegular)
                 }
             }

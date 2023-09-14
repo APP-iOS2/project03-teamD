@@ -25,10 +25,9 @@ struct PaymentView: View {
         VStack {
             
             List {
-                if reservationStore.reservationRoom != nil {
+                if let room = reservationStore.reservationRoom {
                     AsyncImage(
-                        //url: URL(string: room.imageNames[0]),
-                        url: reservationStore.sampleSpace.imageUrl,
+                        url: URL(string: room.imageNames[0]),
                         content: { image in
                             image.resizable()
                                 .aspectRatio(contentMode: .fill)
@@ -169,28 +168,28 @@ struct PaymentView: View {
                     
                 }
             }
-                    .listStyle(.plain)
+            .listStyle(.plain)
+            
+            Button {
+                isAllPaymentInfoChecked.toggle()
+            } label: {
+                Text("확인")
+                    .frame(width: screenWidth * 0.9, height: 50)
+                    .foregroundColor(Color.myBackground)
+                    .background(Color.myBrown )
                 
-                Button {
-                    isAllPaymentInfoChecked.toggle()
-                } label: {
-                    Text("확인")
-                        .frame(width: screenWidth * 0.9, height: 50)
-                        .foregroundColor(Color.myBackground)
-                        .background(Color.myBrown )
-                    
-                        .cornerRadius(8)
-                }
-                .buttonStyle(.plain)
-                .padding([.top, .bottom], 10)
+                    .cornerRadius(8)
+            }
+            .buttonStyle(.plain)
+            .padding([.top, .bottom], 10)
         }
         .modifier(
-          TossAlertModifier(
-            isPresented: $isAllPaymentInfoChecked,
-            title: "결제 확인",
-            content: "계좌번호로 2일 내에 입금 부탁드립니다",
-            primaryButtonTitle: "확인",
-            primaryAction: { isPaymentChecked.toggle() })
+            TossAlertModifier(
+                isPresented: $isAllPaymentInfoChecked,
+                title: "결제 확인",
+                content: "계좌번호로 2일 내에 입금 부탁드립니다",
+                primaryButtonTitle: "확인",
+                primaryAction: { isPaymentChecked.toggle() })
         )
         .navigationDestination(isPresented: $isPaymentChecked) {
             HomeView(tabBarVisivility: $tabBarVisivility)

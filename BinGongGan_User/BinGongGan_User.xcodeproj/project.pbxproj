@@ -30,6 +30,7 @@
 		6927255B2AA83ABD00A2441E /* ReservationPlusMinusButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6927255A2AA83ABD00A2441E /* ReservationPlusMinusButton.swift */; };
 		6927255D2AA85A0600A2441E /* PaymentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6927255C2AA85A0600A2441E /* PaymentView.swift */; };
 		6943D6602AB0235B00495CDB /* ReservationEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6943D65F2AB0235B00495CDB /* ReservationEnum.swift */; };
+		694D2B1C2AB29BB000D39848 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 694D2B1B2AB29BB000D39848 /* GoogleService-Info.plist */; };
 		B12A84B62AA6F01100BDF8CA /* BinGongGan_UserTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B12A84B52AA6F01100BDF8CA /* BinGongGan_UserTests.swift */; };
 		B12A84C02AA6F01100BDF8CA /* BinGongGan_UserUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B12A84BF2AA6F01100BDF8CA /* BinGongGan_UserUITests.swift */; };
 		B12A84C22AA6F01100BDF8CA /* BinGongGan_UserUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B12A84C12AA6F01100BDF8CA /* BinGongGan_UserUITestsLaunchTests.swift */; };
@@ -171,6 +172,7 @@
 		6927255A2AA83ABD00A2441E /* ReservationPlusMinusButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReservationPlusMinusButton.swift; sourceTree = "<group>"; };
 		6927255C2AA85A0600A2441E /* PaymentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentView.swift; sourceTree = "<group>"; };
 		6943D65F2AB0235B00495CDB /* ReservationEnum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReservationEnum.swift; sourceTree = "<group>"; };
+		694D2B1B2AB29BB000D39848 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../../../../../../Downloads/user/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		699A820B2AB1E60E00A91380 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		B12A84A12AA6F00D00BDF8CA /* BinGongGan_User.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BinGongGan_User.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B12A84A82AA6F01000BDF8CA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -268,7 +270,6 @@
 		ECBD87782AAEF86F00ECEC7D /* CategorySheetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategorySheetView.swift; sourceTree = "<group>"; };
 		ECBD877C2AB01E3300ECEC7D /* MyReservationStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyReservationStore.swift; sourceTree = "<group>"; };
 		ECBD87822AB1561700ECEC7D /* SignInModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignInModel.swift; sourceTree = "<group>"; };
-		ECBD879A2AB28E1500ECEC7D /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -453,7 +454,7 @@
 		B15806402AA89795006C772B /* Config */ = {
 			isa = PBXGroup;
 			children = (
-				ECBD879A2AB28E1500ECEC7D /* GoogleService-Info.plist */,
+				694D2B1B2AB29BB000D39848 /* GoogleService-Info.plist */,
 				B12A84A82AA6F01000BDF8CA /* Assets.xcassets */,
 			);
 			path = Config;
@@ -880,6 +881,7 @@
 			files = (
 				BC2D961F2AB2A9B6000EDB8C /* GoogleService-Info.plist in Resources */,
 				B15C39882AB28B7600704C82 /* Preview Assets.xcassets in Resources */,
+				694D2B1C2AB29BB000D39848 /* GoogleService-Info.plist in Resources */,
 				B15C39872AB28B7000704C82 /* Assets.xcassets in Resources */,
 				ECBD87752AAB09F600ECEC7D /* Information1.md in Resources */,
 			);
