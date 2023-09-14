@@ -9,40 +9,61 @@ import SwiftUI
 import BinGongGanCore
 
 struct PasswordEditView: View {
+    @EnvironmentObject var myUserStore: MyUserStore
     @Environment(\.dismiss) private var dismiss
     
     @State private var currentPassword: String = ""
     @State private var newPassword: String = ""
     @State private var newPasswordCheck: String = ""
     @State private var isShowingAlert: Bool = false
+    @State private var isDisabled: Bool = true
+    @State private var isCheckPassword: Bool = false
+    
+    private var currentUser: User {
+        myUserStore.currentUser
+    }
     
     var body: some View {
         VStack {
-            //Logo 자리
-            ZStack {
-                RoundedRectangle(cornerRadius: 15)
-                    .frame(width: min(250, UIScreen.main.bounds.width * 0.3), height: min(250, UIScreen.main.bounds.width * 0.3))
-                    .foregroundColor(.myBrown)
-                Text("Logo")
-                    .foregroundColor(.white)
-            }
-            .padding(.vertical, 70)
-            
             VStack(alignment: .leading) {
                 Text("현재 비밀번호")
                     .font(.captionRegular)
                     .foregroundColor(.myDarkGray)
+                
                 TextField("현재 비밀번호 입력", text: $currentPassword)
-                    .textFieldStyle(.roundedBorder)
+                    .frame(maxWidth: .infinity)
+                    .padding()
+                    .background(isDisabled ? .white : .myLightGray)
+                    .cornerRadius(10)
+                    .disabled(!isDisabled)
+                    .onChange(of: currentPassword) { newValue in
+                        if newValue == myUserStore.currentUser.password {
+                            isDisabled = false
+                        }
+                    }
             }
-            .padding(.bottom, 50)
             
             VStack(alignment: .leading) {
                 Text("새 비밀번호")
                     .font(.captionRegular)
                     .foregroundColor(.myDarkGray)
-                TextField("영문 8자리 이상", text: $newPassword)
-                    .textFieldStyle(.roundedBorder)
+                TextField("새 비밀번호 입력", text: $newPassword)
+                    .frame(maxWidth: .infinity)
+                    .padding()
+                    .disabled(isDisabled)
+                    .background(isDisabled ? Color.myLightGray : .white)
+                    .overlay(
+                        RoundedRectangle(cornerRadius: 10)
+                            .stroke(isCheckPassword ? Color.green : .myLightGray, lineWidth: 3)
+                    )
+                    .onChange(of: newPassword) { newValue in
+                        if !newValue.isEmpty && newValue == newPasswordCheck {
+                            isCheckPassword = true
+                        } else {
+                            isCheckPassword = false
+                        }
+                    }
+                    .cornerRadius(10)
             }
             .padding(.bottom, 20)
             
@@ -50,33 +71,51 @@ struct PasswordEditView: View {
                 Text("비밀번호 확인")
                     .font(.captionRegular)
                     .foregroundColor(.myDarkGray)
-                TextField("영문 8자리 이상", text: $newPasswordCheck)
-                    .textFieldStyle(.roundedBorder)
+                TextField("새 비밀번호 확인", text: $newPasswordCheck)
+                    .frame(maxWidth: .infinity)
+                    .disabled(isDisabled)
+                    .padding()
+                    .background(isDisabled ? Color.myLightGray : .white)
+                    .overlay(
+                        RoundedRectangle(cornerRadius: 10)
+                            .stroke(isCheckPassword ? Color.green : .myLightGray, lineWidth: 3)
+                    )
+                    .cornerRadius(10)
+                    .onChange(of: newPasswordCheck) { newValue in
+                        if !newValue.isEmpty && newValue == newPassword {
+                            isCheckPassword = true
+                        } else {
+                            isCheckPassword = false
+                        }
+                    }
             }
             Spacer()
             Button{
+                myUserStore.currentUser.password = newPasswordCheck
+                Task {
+                    try await myUserStore.editAccount(user: currentUser)
+                }
                 isShowingAlert.toggle()
             }label: {
                 Text("변경")
-                    .bold()
-                    .padding(.vertical, 5)
-                    .frame(width: UIScreen.main.bounds.width - 50)
+                    .frame(maxWidth: .infinity, maxHeight: 50)
+                    .background(isCheckPassword ? Color.myBrown : Color.myLightGray)
+                    .cornerRadius(15)
+                    .foregroundColor(.white)
+                    
             }
-            .buttonStyle(.borderedProminent)
+            .disabled(!isCheckPassword)
+            .buttonStyle(.automatic)
             .tint(.myBrown)
         }
-        .padding(.horizontal, 20)
+        .padding(20)
         .navigationTitle("비밀번호 변경")
         .navigationBarTitleDisplayMode(.inline)
         .customBackbutton()
         .scrollContentBackground(.hidden)
         .background(Color.myBackground, ignoresSafeAreaEdges: .all)
-        .alert("비밀번호 변경", isPresented: $isShowingAlert) {
-            Button("취소", role: .cancel) {}
-            Button("변경", role: .destructive) {
-                //TODO: 비밀번호 변경 로직
-                dismiss()
-            }
+        .alert("비밀번호가 변경되었습니다.", isPresented: $isShowingAlert) {
+            Button("확인", role: .none) { dismiss() }
         }
     }
 }

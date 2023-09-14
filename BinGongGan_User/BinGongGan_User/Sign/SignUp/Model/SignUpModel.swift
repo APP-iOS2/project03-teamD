@@ -22,6 +22,7 @@ struct SignUpData {
     var isPrivacyAgree: Bool = false
     var isLocaitonAgree: Bool = false
     var isAllAgree: Bool = false
+    var isEmailDuplicateChecked = false
     
     func changeToUserModel(id: String) -> User {
         return User(id: id, email: emailId, name: name, nickname: nickname, phoneNumber: phoneNumber, password: password, birthDate: birthDate, accountNumber: accountNumber, accountBank: bankName, accountHolder: name)

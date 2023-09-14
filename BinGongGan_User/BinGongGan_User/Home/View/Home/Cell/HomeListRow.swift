@@ -9,12 +9,12 @@ import SwiftUI
 import BinGongGanCore
 
 struct HomeListRow: View {
-    
+    @EnvironmentObject var homeStore: HomeStore
     @State var place: Place
-    
+    @State var isLoading: Bool = true
     var body: some View {
         NavigationLink {
-            GongGanDetailView()
+            GongGanDetailView(placeId: place.id)
         } label: {
             VStack {
                 HStack {
@@ -60,6 +60,14 @@ struct HomeListRow: View {
                     .frame(height: 1)
                     .foregroundColor(.myLightGray)
             }// VSTACK
+            .onAppear {
+                Task {
+                    await homeStore.fetchPlaces()
+                    self.isLoading = false
+                }
+            }
+            .redacted(reason: isLoading ? .placeholder :
+                        [])
         }
     }
 }

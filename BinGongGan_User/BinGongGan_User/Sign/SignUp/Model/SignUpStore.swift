@@ -15,7 +15,7 @@ final class SignUpStore: ObservableObject {
     @State var certificateNumber: String = ""
     @Published var currentStep: SignUpStep = .first
     @Published var isShowingSignUp: Bool = false
-    @Published var isnotAllAgree: Bool = false
+    @Published var isnotAllAgree: Bool = true
     @Published var showAlert: Bool = false
     @Published var showToast: Bool = false
     @Published var toastMessage: String = ""
@@ -63,9 +63,21 @@ final class SignUpStore: ObservableObject {
     }
     
     public func isValidIdAndPassword() -> Bool {
+        guard signUpData.nickname.count >= 2 else {
+            showToast = true
+            toastMessage = "닉네임을 2글자 이상 입력해주세요."
+            return false
+        }
+        
         guard isValidEmailId() else {
             showToast = true
             toastMessage = "이메일 형식이 올바르지 않습니다."
+            return false
+        }
+        
+        guard signUpData.isEmailDuplicateChecked else {
+            showToast = true
+            toastMessage = "이메일 중복 검사를 진행해주세요."
             return false
         }
         
@@ -114,6 +126,30 @@ final class SignUpStore: ObservableObject {
         
         isnotAllAgree = false
         return true
+    }
+    
+    @MainActor
+    func checkDuplicateEmail() async -> Bool {
+        guard isValidEmailId() else {
+            showToast = true
+            toastMessage = "올바른 이메일을 입력하여 주세요."
+            return false
+        }
+    
+        do {
+            if try await UserStore.checkDuplicateEmail(email: signUpData.emailId) {
+                showToast = true
+                toastMessage = "이미 가입한 이메일입니다."
+                return false
+            } else {
+                signUpData.isEmailDuplicateChecked = true
+                return true
+            }
+        } catch {
+            showToast = true
+            toastMessage = "이메일 중복검사를 할 수 없습니다."
+            return false
+        }
     }
     
     @MainActor

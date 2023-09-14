@@ -69,6 +69,16 @@ struct ThirdStepSignUpView: View {
                     store.isAllAgreed()
                 }
                 .customBackbutton()
+                .toolbar(content: {
+                    ToolbarItem(content: {
+                        Button(action: {
+                            store.isShowingSignUp = false
+                        }, label: {
+                            Image(systemName: "xmark")
+                                .foregroundColor(.black)
+                        })
+                    })
+                })
             }
         }.edgesIgnoringSafeArea(.all)
             .onTapGesture {

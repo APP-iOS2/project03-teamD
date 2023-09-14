@@ -10,12 +10,13 @@ import BinGongGanCore
 
 struct FavoriteCellView: View {
     
+    @EnvironmentObject var gongGan: MyFavoriteStore
     @Binding var isHeartButtonShowing: Bool
     @State var gongGanItem: GongGan
-    
+    @State var heartButtonImage: Bool = true
     var body: some View {
         NavigationLink {
-            GongGanDetailView()
+            GongGanDetailView(placeId: gongGanItem.id)
         } label: {
             VStack {
                 HStack {
@@ -42,26 +43,32 @@ struct FavoriteCellView: View {
                     .padding(EdgeInsets(top: 0, leading: 20, bottom: 0, trailing: 10))
                     
                     VStack(alignment: .leading) {
-                        Text("\(gongGanItem.placeLocation)")
+                        Text(gongGanItem.placeName)
                             .padding(.bottom , 3)
                             .foregroundColor(.black)
-                            .font(.captionRegular)
-                        Text("12,000원 / 시간당")
+                        Text("\(gongGanItem.placeLocation)")
                             .padding(.bottom , 17)
                             .foregroundColor(.black)
                             .font(.captionRegular)
                     }
                     Spacer()
                     Button {
+                        gongGan.updateMyInfo(placeId: gongGanItem.id)
+                        Task {
+                            await gongGan.fetchMyFavorite()
+                        }
+                        heartButtonImage.toggle()
                     } label: {
                         if isHeartButtonShowing {
-                            Image(systemName: gongGanItem.isFavorite ? "heart.fill" : "heart")
+                            Image(systemName: heartButtonImage ? "heart.fill" : "heart")
                                 .foregroundColor(.myMint)
+                                .frame(height: 20)
                         }
                     }
                     .padding(.trailing, 20)
                     .buttonStyle(.plain)
                 }
+                .frame(height: 80)
                 Rectangle()
                     .frame(height: 1)
                     .foregroundColor(.myLightGray)

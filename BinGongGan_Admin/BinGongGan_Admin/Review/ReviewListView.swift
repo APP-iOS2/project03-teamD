@@ -9,14 +9,16 @@ import SwiftUI
 
 struct ReviewListView: View {
     @StateObject private var reviewStore: ReviewStore = ReviewStore()
-    @State private var writerName: String = ""
+    
     var body: some View {
         List(reviewStore.reviewList) { review in
             NavigationLink {
-                
+                ReviewDetailView(review: review)
             } label: {
-                HStack {
-                    Text(review.content)
+                VStack(alignment: .leading) {
+                    Text(review.review.content)
+                    Text("작성자: \(review.writer.name)")
+                        .foregroundColor(.myDarkGray)
                 }
             }
         }
@@ -25,6 +27,9 @@ struct ReviewListView: View {
                 try await reviewStore.fetchReview()
             }
         }
+        .navigationTitle("리뷰")
+        .scrollContentBackground(.hidden)
+        .background(Color.myBackground, ignoresSafeAreaEdges: .all)
     }
 }
 
