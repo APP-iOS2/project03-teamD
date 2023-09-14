@@ -11,6 +11,8 @@ import BinGongGanCore
 struct CategoryButtonsView: View {
     @StateObject private var myInfoStore: MyInfoStore = MyInfoStore()
     @StateObject private var reviewStore: ReviewStore = ReviewStore()
+    @StateObject private var rervationCalendarStore = RervationCalendarStore()
+
     @EnvironmentObject private var rervationStore : RervationStore
     @EnvironmentObject private var roomStore: RoomStore
     @EnvironmentObject private var placeStore: PlaceStore
@@ -23,8 +25,11 @@ struct CategoryButtonsView: View {
                 NavigationLink {
                     switch category {
                     case .managementReservation:
-                        ReservationDetailsView()
+                        ReservationDetailsCalendarView()
+                            .environmentObject(rervationCalendarStore)
                             .environmentObject(rervationStore)
+//                        ReservationDetailsView()
+//                            .environmentObject(rervationStore)
                     case .managementReview:
                         ReviewManageView()
                             .environmentObject(reviewStore)
