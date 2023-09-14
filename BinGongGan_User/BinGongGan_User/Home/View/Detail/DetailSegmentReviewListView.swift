@@ -13,8 +13,12 @@ struct DetailSegmentReviewListView: View {
     var body: some View {
         NavigationStack {
             VStack {
-                ForEach(gongGan.reviews) { review in
-                    DetailReviewRowView(review: review)
+                if !gongGan.reviews.isEmpty {
+                    ForEach(gongGan.reviews) { review in
+                        DetailReviewRowView(review: review)
+                    }
+                } else {
+                    Text("등록된 리뷰가 없습니다.")
                 }
             }
             .padding(.bottom, 50)
