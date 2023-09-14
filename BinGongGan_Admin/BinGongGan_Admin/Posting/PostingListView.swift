@@ -8,8 +8,28 @@
 import SwiftUI
 
 struct PostingListView: View {
+    @StateObject private var postingStore: PostingStore = PostingStore()
+    
     var body: some View {
-        Text("게시글 리스트")
+        List(postingStore.postingList) { posting in
+            NavigationLink {
+               PostingDetailView(posting: posting)
+            } label: {
+                VStack(alignment: .leading) {
+                    Text(posting.place.placeName)
+                    Text(posting.seller.name)
+                        .foregroundColor(.myDarkGray)
+                }
+            }
+        }
+        .onAppear {
+            Task {
+                try await postingStore.fetchPosting()
+            }
+        }
+        .navigationTitle("공간 게시물")
+        .scrollContentBackground(.hidden)
+        .background(Color.myBackground, ignoresSafeAreaEdges: .all)
     }
 }
 

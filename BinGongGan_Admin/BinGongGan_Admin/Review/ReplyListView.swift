@@ -8,13 +8,42 @@
 import SwiftUI
 
 struct ReplyListView: View {
+    @StateObject private var replyStore: ReplyStore = ReplyStore()
+    
     var body: some View {
-        Text("판매자 답변 리스트")
+        List(replyStore.replyList) { reply in
+            NavigationLink {
+                ReplyDetailView(reply: reply)
+            } label: {
+                VStack(alignment: .leading) {
+                    Text(reply.reply.content)
+                        .font(.body1Bold)
+                    Text(reply.review.content)
+                        .padding()
+                        .font(.body1Regular)
+                        .background(
+                            RoundedRectangle(cornerRadius: 5)
+                                .foregroundColor(.myLightGray2)
+                        )
+                }
+            }
+        }
+
+        .navigationTitle("리뷰 답글")
+        .scrollContentBackground(.hidden)
+        .background(Color.myBackground, ignoresSafeAreaEdges: .all)
+        .onAppear {
+            Task {
+                try await replyStore.fetchReply()
+            }
+        }
     }
 }
 
 struct ReplyListView_Previews: PreviewProvider {
     static var previews: some View {
-        ReplyListView()
+        NavigationStack {
+            ReplyListView()
+        }
     }
 }
