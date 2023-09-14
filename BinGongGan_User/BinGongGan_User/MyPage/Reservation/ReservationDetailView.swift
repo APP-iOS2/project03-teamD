@@ -11,22 +11,7 @@ import BinGongGanCore
 struct ReservationDetailView: View {
     
     var reservation: BinGongGanCore.Reservation
-    private var reservationStatus: String {
-        get {
-            switch reservation.reservationState {
-            case 0 :
-                return "입금확인중"
-            case 1 :
-                return "예약취소"
-            case 2 :
-                return "리뷰작성"
-            case 3 :
-                return ""
-            default :
-                return ""
-            }
-        }
-    }
+    
     
     
     var body: some View {
