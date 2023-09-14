@@ -233,7 +233,7 @@ extension LocationManager: MKMapViewDelegate {
         
         seletedPlace = annotation
         moveFocusChange(location: annotation.coordinate)
-        
+        isShowingList = true
     }
     
     func mapView(_ mapView: MKMapView, didDeselect annotation: MKAnnotation) {
