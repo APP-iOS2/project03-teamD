@@ -68,6 +68,15 @@ final class SignInStore: ObservableObject {
         }
     }
     
+    @MainActor
+    func changePassword(password: String) async {
+        do {
+            try await AuthStore.changePassword(password: password)
+        } catch {
+            print(error)
+        }
+    }
+    
 //    // 파이어베이스에서 로그인
 //        @MainActor
 //        func signIn() async throws -> Bool {
