@@ -82,7 +82,7 @@ struct AddReviewView: View {
             Button("취소", role: .none) {}
             Button("제출", role: .none) {
                     Task {
-                        try await myReviewStore.addReview(placeId: reservation.placeID, rating: starRating, content: reviewText, images: selectedImages)
+                        try await myReviewStore.addReview(placeId: reservation.placeID, rating: starRating, content: reviewText, images: selectedImages , reservationId: reservation.id)
                     }
                 dismiss()
             }

@@ -15,7 +15,24 @@ struct MyReservationRowView: View {
     @State private var isShowingReservationDetatilView: Bool = false
 
     var reservation: BinGongGanCore.Reservation
-
+    private var reservationStatus: String {
+        get {
+            switch reservation.reservationState {
+            case 0 :
+                return "입금확인중"
+            case 1 :
+                return "예약취소"
+            case 2 :
+                return "리뷰작성"
+            case 3 :
+                return "이용완료"
+            case 4 :
+                return "취소완료"
+            default :
+                return ""
+            }
+        }
+    }
     var body: some View {
         VStack {
             HStack {
@@ -62,12 +79,20 @@ struct MyReservationRowView: View {
                 
                 Button {
                     if reservation.reservateStringCase == .success {
-                        isShowingAddReview = true
+                        if reservationStatus == "이용완료" {
+                            
+                        } else {
+                            isShowingAddReview = true
+                        }
                     } else {
-                        isShowingReservationCancelView = true
+                        if reservationStatus == "취소완료" {
+                            
+                        } else {
+                            isShowingReservationCancelView = true
+                        }
                     }
                 } label: {
-                    Text(reservation.reservateStringCase == .success ? "리뷰작성" : "예약취소")
+                    Text(reservationStatus)
                         .font(.captionRegular)
                         .foregroundColor(.white)
                 }

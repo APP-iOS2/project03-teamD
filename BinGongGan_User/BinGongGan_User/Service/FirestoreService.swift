@@ -66,4 +66,26 @@ public class FirestoreService {
             throw error
         }
     }
+    
+    
+    func searchDocumentWithEqualField<T: Codable>(collectionId: Collections, field: String, compareWith: Any) async throws -> [T]? {
+        do {
+            let querySnapshot = try await dbRef.collection(collectionId.rawValue).whereField(field, isEqualTo: compareWith).getDocuments()
+            
+            if querySnapshot.documents.isEmpty {
+                print("At \(collectionId.rawValue) document is Empty")
+                return nil
+            } else {
+                var result: [T] = []
+                for document in querySnapshot.documents {
+                    let temp = try await document.data(as: T.self)
+                    result.append(temp)
+                }
+                return result
+            }
+        } catch {
+            print("Error to search document at \(collectionId.rawValue) with Field \(field) : \(error)")
+            throw error
+        }
+    }
 }

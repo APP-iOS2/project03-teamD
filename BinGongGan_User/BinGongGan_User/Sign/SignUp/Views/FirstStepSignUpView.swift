@@ -10,8 +10,7 @@ import BinGongGanCore
 
 struct FirstStepSignUpView: View {
     @EnvironmentObject var store: SignUpStore
-    @State private var isShowingBankSheet: Bool = false
-    @State private var isNext: Bool = false
+    @State var isNext: Bool = false
     
     var body: some View {
         NavigationStack {
@@ -25,11 +24,42 @@ struct FirstStepSignUpView: View {
                     }
                     .frame(maxHeight: 150)
                     VStack(alignment: .leading) {
-                        identifyVerificationView
-                        accountView
+                        Group {
+                            Text("닉네임")
+                                .font(.body1Bold)
+                                .frame(height: 38)
+                            CustomTextField(placeholder: "닉네임", keyboardType: .default, text: $store.signUpData.nickname)
+                        }
+                        Group {
+                            Text("아이디(이메일)")
+                                .font(.body1Bold)
+                                .frame(height: 38)
+                            HStack {
+                                CustomTextField(placeholder: "이메일 주소", keyboardType: .emailAddress,text: $store.signUpData.emailId)
+                                MintButton(action: {
+                                    Task {
+                                        if await store.checkDuplicateEmail() {
+                                            store.showAlert = true
+                                        }
+                                    }
+                                }, title: "중복 검사")
+                            }
+                        }
+                        Group {
+                            Text("비밀번호")
+                                .font(.body1Bold)
+                                .frame(height: 38)
+                            CustomSecureField(placeholder: "영문, 숫자 포함 6-8자리",text: $store.signUpData.password)
+                        }
+                        Group {
+                            Text("비밀번호 확인")
+                                .font(.body1Bold)
+                                .frame(height: 38)
+                            CustomSecureField(placeholder: "", text: $store.signUpData.passwordCheck)
+                        }
                         Spacer()
                         PrimaryButton(isDisabled: .constant(false), action: {
-                            if store.isValidAuthentication() {
+                            if store.isValidIdAndPassword() {
                                 isNext = true
                             }
                         }, title: "다음")
@@ -39,10 +69,18 @@ struct FirstStepSignUpView: View {
                     .onAppear(perform: {
                         store.currentStep = .first
                     })
-                    .sheet(isPresented: $isShowingBankSheet, content: {
-                        BankSheetView(isShowingSheet: $isShowingBankSheet, selectedBank: $store.signUpData.bankName)
-                            .presentationDetents([.medium])
+                    .navigationDestination(isPresented: $isNext, destination: {
+                        SecondStepSignUpView()
+                            .environmentObject(store)
                     })
+                    .customBackbutton()
+                    .alert("회원가입", isPresented: $store.showAlert) {
+                        Button("완료", role: .cancel) {
+                            
+                        }
+                    } message: {
+                        Text("회원가입 가능한 이메일입니다.")
+                    }
                     .toolbar(content: {
                         ToolbarItem(content: {
                             Button(action: {
@@ -53,10 +91,6 @@ struct FirstStepSignUpView: View {
                             })
                         })
                     })
-                    .navigationDestination(isPresented: $isNext, destination: {
-                        SecondStepSignUpView()
-                            .environmentObject(store)
-                    })
                 }
             }.edgesIgnoringSafeArea(.all)
                 .onTapGesture {
@@ -64,48 +98,6 @@ struct FirstStepSignUpView: View {
                 }
                 .toast(isShowing: $store.showToast, message: store.toastMessage)
         }
-    }
-    
-    var identifyVerificationView: some View {
-        Group {
-            Group {
-                Text("본인인증")
-                    .font(.body1Bold)
-                    .frame(height: 38)
-                CustomTextField(maxLength: 5, placeholder: "이름", text: $store.signUpData.name)
-                CustomTextField(maxLength: 6, placeholder: "생년월일 6자리", keyboardType: .numberPad, text: $store.signUpData.birthDate)
-                HStack {
-                    CustomTextField(maxLength: 11, placeholder: "휴대폰 번호", keyboardType: .phonePad, text: $store.signUpData.phoneNumber)
-                    MintButton(action: {
-                        
-                    }, title: "인증")
-                }
-            }
-            Group {
-                Text("인증 번호")
-                    .font(.body1Bold)
-                    .frame(height: 38)
-                CustomTextField(maxLength: 4, backgroundColor: .myLightGray, placeholder: "인증번호 4자리", text: $store.certificateNumber)
-                    .disabled(true)
-            }
-        }
-    }
-    
-    var accountView: some View {
-        Group {
-            Text("환불 정보")
-                .font(.body1Bold)
-                .frame(height: 38)
-            HStack {
-                CustomTextField(backgroundColor: .myLightGray, placeholder: "예금주명(이름과 동일)", text: $store.signUpData.name)
-                    .disabled(true)
-                MintButton(action: {
-                    isShowingBankSheet = true
-                }, title: store.signUpData.bankName ?? "은행")
-            }
-            CustomTextField(placeholder: "환불 계좌 번호", keyboardType: .numberPad, text: $store.signUpData.accountNumber)
-        }
-        
     }
 }
 
@@ -115,4 +107,3 @@ struct FirstStepSignUpView_Previews: PreviewProvider {
             .environmentObject(SignUpStore())
     }
 }
-

@@ -47,7 +47,7 @@ struct SellerDetailView: View {
 struct SellerDetailView_Previews: PreviewProvider {
     static var previews: some View {
         NavigationStack {
-            SellerDetailView(seller: Seller(id: "aaa", name: "seller", birthDate: "2000.01.22", bankName: "01011111111", accountNumber: "email@email.com", phoneNumber: "IWantMoney", email: "112313", nickname: "111111111", password: "1234567890", registrationNum: "", registrationImage: "국민은행"))
+            SellerDetailView(seller: Seller(id: "aaa", name: "seller", birthDate: "2000.01.22", phoneNumber: "01011111111", email: "email@email.com", nickname: "IWantMoney", password: "112313", bankName: "111111111", accountNumber: "1234567890", registrationNum: "", registrationImage: "국민은행"))
         }
     }
 }
