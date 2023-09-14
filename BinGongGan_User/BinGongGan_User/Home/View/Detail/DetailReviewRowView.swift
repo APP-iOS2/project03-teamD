@@ -64,36 +64,25 @@ struct DetailReviewRowView: View {
             .padding(EdgeInsets(top: 3, leading: 0, bottom: 5, trailing: 0))
             
             ScrollView(.horizontal, showsIndicators: false) {
+                if review.reviewImageStringList != [""] {
                 HStack {
-                    ForEach(review.reviewImageStringList ?? [""], id:\.self) { image in
-                        if let imageUrl = URL(string: image), !image.isEmpty {
-                            AsyncImage(url: imageUrl) { phase in
-                                switch phase {
-                                case .success(let image):
-                                    image
-                                    
-                                        .resizable()
-                                        .clipped()
-                                        .cornerRadius(10)
-                                        .frame(width: 150, height: 150)
-                                        .padding(.trailing, 10)
-//                                        .overlay {
-//                                            RoundedRectangle(cornerRadius: 10)
-//                                                .stroke()
-//                                                .opacity(0.1)
-//                                        }
-                                case .empty:
-                                    ProgressView()
-                                case .failure(let error):
-                                    Text("Error: \(error.localizedDescription)")
-                                @unknown default:
-                                    Text("Unknown Error")
-                                }
+                        ForEach(review.reviewImageStringList ?? [""], id:\.self) { imageUrl in
+                            AsyncImage(url: URL(string: imageUrl)) { image in
+                                image
+                                    .resizable()
+                                    .clipped()
+                                    .cornerRadius(10)
+                                    .frame(width: 150, height: 150)
+                                    .padding(.trailing, 10)
+                            } placeholder: {
+                                ProgressView()
                             }
+                            
                         }
-                    }
                 }
                 .frame(height: 160)
+                    
+                }
             }
             Divider()
         }

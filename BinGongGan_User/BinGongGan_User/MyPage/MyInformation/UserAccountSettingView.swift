@@ -33,9 +33,9 @@ struct UserAccountSettingView: View {
                     Button("탈퇴", role: .destructive) {
                         Task {
                             try await myUserStore.deleteUser()
+                            signInStore.deleteUser()
+                            signInStore.signOut()
                         }
-                        signInStore.deleteUser()
-                        signInStore.signOut()
                     }
                 } message: {
                     Text("이 동작은 되돌릴 수 없습니다.")
