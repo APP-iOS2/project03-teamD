@@ -19,74 +19,77 @@ struct PlaceListFilterView: View {
     
     var body: some View {
         
+        ZStack {
+            Color.white.ignoresSafeArea()
             VStack {
-                HStack {
-                    Button {
-                        isShowingFilterSheet = false
-                    } label: {
-                        Text("취소")
-                            .font(.body1Bold)
-                            .foregroundColor(.myBrown)
-                    }
-                    Spacer()
-                    Button {
-                        isShowingFilterSheet = false
-                    } label: {
-                        Text("찾기")
-                            .font(.body1Bold)
-                            .foregroundColor(.myBrown)
-                    }
-                }// HSTACK
-                .padding(.horizontal, 20)
-                .padding(.top, 20)
-                if !homeStore.selectSub.isEmpty {
-                    ScrollView(.horizontal, showsIndicators: false) {
-                        HStack {
-                            ForEach(homeStore.selectSub, id: \.self) { sub in
-                                RoundedRectangle(cornerRadius: 13)
-                                    .frame(width: HomeNameSpace.screenHeight * 0.15, height: HomeNameSpace.screenHeight * 0.07)
-                                    .foregroundColor(.white)
-                                    .shadow(radius: 2, y: 1)
-                                    .overlay {
-                                        Text("\(sub)")
-                                            .foregroundColor(.myDarkGray)
-                                            .font(.captionRegular)
-                                    }
-                            }
-                        }// HSTACK
-                        .padding()
-                    }// SCROLLVIEW
-                    .frame(height: HomeNameSpace.screenHeight * 0.1)
-                }
-                HStack {
-                    List {
-                        ForEach(homeStore.cities) { city in
-                            Button {
-                                filteredCity = city
-                                selectCity = city.name
-                                homeStore.selectSub.removeAll()
-                            } label: {
-                                Text("\(city.name)")
-
-                                    .foregroundColor(city.name == selectCity ? . black : .myDarkGray)
-
-                                    .font(city.name == selectCity ? .body1Bold : .body1Regular)
-                                
-                            }
-                            .listRowBackground(Color.myBackground)
+                    HStack {
+                        Button {
+                            isShowingFilterSheet = false
+                        } label: {
+                            Text("취소")
+                                .font(.body1Bold)
+                                .foregroundColor(.myBrown)
                         }
+                        Spacer()
+                        Button {
+                            isShowingFilterSheet = false
+                        } label: {
+                            Text("찾기")
+                                .font(.body1Bold)
+                                .foregroundColor(.myBrown)
+                        }
+                    }// HSTACK
+                    .padding(.horizontal, 20)
+                    .padding(.top, 20)
+                    if !homeStore.selectSub.isEmpty {
+                        ScrollView(.horizontal, showsIndicators: false) {
+                            HStack {
+                                ForEach(homeStore.selectSub, id: \.self) { sub in
+                                    RoundedRectangle(cornerRadius: 13)
+                                        .frame(width: HomeNameSpace.screenHeight * 0.15, height: HomeNameSpace.screenHeight * 0.07)
+                                        .foregroundColor(.white)
+                                        .shadow(radius: 2, y: 1)
+                                        .overlay {
+                                            Text("\(sub)")
+                                                .foregroundColor(.myDarkGray)
+                                                .font(.captionRegular)
+                                        }
+                                }
+                            }// HSTACK
+                            .padding()
+                        }// SCROLLVIEW
+                        .frame(height: HomeNameSpace.screenHeight * 0.1)
                     }
-                    .listStyle(.plain)
-                    .scrollIndicators(.hidden)
-                    PlaceListSubFilterView(selectedCity: $filteredCity)
-                }// HSTACK
-                
-               
-            }// VSTACK
-            .presentationDetents(
-                [.large,.large])
-            .presentationDragIndicator(
-            .visible)
+                    HStack {
+                        List {
+                            ForEach(homeStore.cities) { city in
+                                Button {
+                                    filteredCity = city
+                                    selectCity = city.name
+                                    homeStore.selectSub.removeAll()
+                                } label: {
+                                    Text("\(city.name)")
+
+                                        .foregroundColor(city.name == selectCity ? . black : .myDarkGray)
+
+                                        .font(city.name == selectCity ? .body1Bold : .body1Regular)
+                                    
+                                }
+                                .listRowBackground(Color.white)
+                            }
+                        }
+                        .listStyle(.plain)
+                        .scrollIndicators(.hidden)
+                        PlaceListSubFilterView(selectedCity: $filteredCity)
+                    }// HSTACK
+                    
+                   
+                }// VSTACK
+                .presentationDetents(
+                    [.large,.large])
+                .presentationDragIndicator(
+                .visible)
+        }
             // 크게 작게
         //
     }

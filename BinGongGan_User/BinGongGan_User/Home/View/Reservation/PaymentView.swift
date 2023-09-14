@@ -54,6 +54,19 @@ struct PaymentView: View {
                     .listRowBackground(Color.clear)
                     
                     HStack {
+                        Text("총 금액")
+                            .font(.body1Regular)
+                            .frame(width: 80)
+                        
+                        Divider()
+                        
+                        Text("\(reservationStore.getReservationPrice())원")
+                            .font(.captionRegular)
+                    }
+                    .foregroundColor(.red)
+                    .listRowBackground(Color.clear)
+                    
+                    HStack {
                         Text("예약 번호")
                             .font(.body1Regular)
                             .frame(width: 80)
@@ -173,7 +186,7 @@ struct PaymentView: View {
         }
         .modifier(
           TossAlertModifier(
-            isPresented: .constant(true),
+            isPresented: $isAllPaymentInfoChecked,
             title: "결제 확인",
             content: "계좌번호로 2일 내에 입금 부탁드립니다",
             primaryButtonTitle: "확인",

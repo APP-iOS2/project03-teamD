@@ -9,30 +9,34 @@ import SwiftUI
 import BinGongGanCore
 
 struct MyInformationDetailView: View {
-    @State private var nickName: String = "유노"
-    @State private var phoneNumber: String = "01012345678"
-    @State private var isPresentedAlert: Bool = false
-    private let birthDate: String = "000508"
+    @EnvironmentObject var myUserStore: MyUserStore
+    
     private var formattedPhoneNumber: String {
-        phoneNumber.formatPhoneNumber()
+        currentUser.phoneNumber.formatPhoneNumber()
+    }
+    private var formattedBirthDate: String {
+        currentUser.birthDate.formatBirthDate()
+    }
+    var currentUser: User {
+        myUserStore.currentUser
     }
     
     var body: some View {
         Form {
             NavigationLink {
-                MyInformationEditView(editType: .name, name: $nickName, phoneNumber: $phoneNumber)
+                MyInformationEditView(currentUser: currentUser, editType: .name)
             } label: {
                 HStack {
                     Text("닉네임")
                         .font(.body1Regular)
                     Spacer()
-                    Text("\(nickName)")
+                    Text("\(currentUser.nickname)")
                         .foregroundColor(.myDarkGray)
                 }
             }
             
             NavigationLink {
-                MyInformationEditView(editType: .phoneNumber, name: $nickName, phoneNumber: $phoneNumber)
+                MyInformationEditView(currentUser: currentUser, editType: .phoneNumber)
             } label: {
                 HStack {
                     Text("연락처")
@@ -47,7 +51,7 @@ struct MyInformationDetailView: View {
                 Text("이름")
                     .font(.body1Regular)
                 Spacer()
-                Text("손윤호")
+                Text("\(currentUser.name)")
                     .foregroundColor(.myDarkGray)
             }
             
@@ -55,21 +59,21 @@ struct MyInformationDetailView: View {
                 Text("아이디")
                     .font(.body1Regular)
                 Spacer()
-                Text("test@test.com")
-                    .tint(.myDarkGray)
+                Text("\(currentUser.email)")
+                    .foregroundColor(.myDarkGray)
             }
             
             HStack {
                 Text("생년월일")
                     .font(.body1Regular)
                 Spacer()
-                Text(birthDate.formatBirthDate())
+                Text(formattedBirthDate)
                     .foregroundColor(.myDarkGray)
             }
             
             Section {
                 NavigationLink {
-                    BankAccountSettingView()
+                    BankAccountSettingView(currentUser: currentUser)
                 } label: {
                     Text("계좌 관리")
                 }
@@ -100,6 +104,7 @@ struct MyInformationDetailView_Previews: PreviewProvider {
     static var previews: some View {
         NavigationStack {
             MyInformationDetailView()
+                .environmentObject(MyUserStore())
         }
     }
 }

@@ -10,10 +10,10 @@ import BinGongGanCore
 
 struct HomeSearchView: View {
     
-    @State private var placeSearchTextField: String = ""
     @EnvironmentObject var homeStore: HomeStore
+    @State private var placeSearchTextField: String = ""
     @State private var isChangeTextField: Bool = true
-    
+    @State var isLoading: Bool = true
     var body: some View {
         ZStack {
             Spacer().background(Color.myBackground).edgesIgnoringSafeArea(.all)
@@ -30,6 +30,7 @@ struct HomeSearchView: View {
                                 isChangeTextField = false
                             }
                         }
+                        
                     Button {
                         homeStore.searchPlaceName(keyWord: placeSearchTextField)
                         
@@ -65,8 +66,9 @@ struct HomeSearchView: View {
                             ForEach(homeStore.recentlyWords.reversed(), id: \.self){ word in
                                 ZStack {
                                     RoundedRectangle(cornerRadius: 15)
-                                        .frame(width: HomeNameSpace.screenWidth * 0.25, height: HomeNameSpace.screenHeight * 0.1)
-                                        .foregroundColor(.myLightGray2)
+                                        .frame(width: HomeNameSpace.screenWidth * 0.20, height: HomeNameSpace.screenHeight * 0.08)
+                                        .foregroundColor(.myMint)
+                                        .opacity(0.2)
                                     HStack {
                                         Text("\(word)")
                                             .foregroundColor(.black)
@@ -96,14 +98,25 @@ struct HomeSearchView: View {
                         }
                     }// LazyVStack
                 }// SCROLLVIEW
+                .redacted(reason: isLoading ? .placeholder :
+                            [])
+                .onAppear {
+                    
+                    Task {
+                        await homeStore.fetchPlaces()
+                        self.isLoading = false
+                    }
+                }
                 .padding(.bottom, HomeNameSpace.scrollViewBottomPadding)
             }// VStack
             .navigationTitle("장소 검색")
             .navigationBarTitleDisplayMode(.inline)
-            .navigationBarBackButtonHidden(true)
-            .customBackbutton()
+        }
+        .onTapGesture {
+            self.endTextEditing()
         }
     }// Body
+    
 }
 
 struct HomeSearchView_Previews: PreviewProvider {

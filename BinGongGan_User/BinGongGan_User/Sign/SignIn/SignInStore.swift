@@ -21,21 +21,32 @@ final class SignInStore: ObservableObject {
     
     @Published var isSignedIn: Bool = false
     
-    @MainActor
-    func checkSignIn() {
-        isDisableSignInButton = true
-        Task {
-            let result = try await AuthStore.signIn(email: emailText, password: passwordText)
-            self.alertDescription = result.description
-            
-            switch result {
-            case .signIn:
-                isSignedIn = true
-            default:
-                isShowingAlert = true
-            }
-            self.isDisableSignInButton = false
+    func checkSignedIn() -> Bool {
+        if AuthStore.userUid.isEmpty {
+            isSignedIn = false
+            return false
+        } else {
+            isSignedIn = true
+            return true
         }
+    }
+    
+    @MainActor
+    func checkSignIn() async throws -> Bool {
+        isDisableSignInButton = true
+        
+        let result = try await AuthStore.signIn(email: emailText, password: passwordText)
+        self.alertDescription = result.description
+        
+        switch result {
+        case .signIn:
+            isSignedIn = true
+            return true
+        default:
+            isShowingAlert = true
+            return false
+        }
+        
     }
     
     @MainActor
@@ -47,6 +58,13 @@ final class SignInStore: ObservableObject {
                 emailText = ""
                 passwordText = ""
             }
+        }
+    }
+    
+    @MainActor
+    func deleteUser() {
+        Task {
+            try await AuthStore.deleteUser()
         }
     }
     

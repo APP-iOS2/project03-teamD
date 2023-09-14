@@ -11,13 +11,15 @@ import Combine
 
 struct RoomAddView: View {
     @Environment(\.dismiss) private var dismiss
-    @EnvironmentObject var roomStore: RoomStore
+    var roomStore: RoomStore
+    
     @State private var selectedImage: [UIImage] = []
     @State private var roomName: String = ""
     @State private var roomPrice: String = ""
     @State private var roomNote: String = ""
     @State private var imageNames: [String] = []
     @State private var isShowingToast: Bool = false
+    @State private var isDisabledButton: Bool = false
     
     var body: some View {
         ZStack {
@@ -76,18 +78,25 @@ struct RoomAddView: View {
                     }
                     
                     AbledPrimaryButton(title: "등록 하기") {
+                        isDisabledButton.toggle()
                         Task {
-                            await roomStore.addRoom(room:
-                                                        Room(placeId: AuthStore.userUid,
-                                                             name: roomName,
-                                                             price: roomPrice,
-                                                             note: roomNote,
-                                                             imageNames: imageNames), images: selectedImage,completion: {
-                                isShowingToast = true
-                            })
+                            await roomStore.addRoom(
+                                room:Room(placeId: AuthStore.userUid,
+                                          name: roomName,
+                                          price: roomPrice,
+                                          note: roomNote,
+                                          imageNames: imageNames),
+                                images: selectedImage) {
+                                    success in
+                                    if success {
+                                        isShowingToast = true
+                                        isDisabledButton.toggle()
+                                        dismiss()
+                                    }
+                                }
                         }
-                        dismiss()
                     }
+                    .disabled(isDisabledButton)
                 }
             }
             .padding(20)
@@ -101,8 +110,7 @@ struct RoomAddView: View {
 struct RoomAddView_Previews: PreviewProvider {
     static var previews: some View {
         NavigationStack {
-            RoomAddView()
-                .environmentObject(RoomStore())
+            RoomAddView(roomStore: RoomStore())
         }
     }
 }

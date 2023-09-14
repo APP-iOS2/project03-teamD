@@ -14,7 +14,7 @@ struct MDPMonthYearPickerButton: View {
     
     var body: some View {
         Button {
-            withAnimation { isPresented.toggle() }
+            //withAnimation { isPresented.toggle() }
             
         } label: {
             HStack {
@@ -22,10 +22,11 @@ struct MDPMonthYearPickerButton: View {
                     .font(.subheadline)
                     .fontWeight(.semibold)
                     .foregroundColor(self.isPresented ? .myBrown : .myDarkGray)
-                
+                /*
                 Image(systemName: "chevron.right")
                     .foregroundColor(self.isPresented ? .myBrown : .myDarkGray)
                     .rotationEffect(self.isPresented ? .degrees(90) : .degrees(0))
+                 */
             }
         }
     }
