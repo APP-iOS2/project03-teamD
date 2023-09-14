@@ -12,7 +12,7 @@ import FirebaseFirestoreSwift
 
 final class SignUpStore: ObservableObject {
     @Published var signUpData = SignUpData()
-//    @State var certificateNumber: String = ""
+    @State var certificateNumber: String = ""
     @Published var currentStep: SignUpStep = .first
     @Published var isShowingSignUp: Bool = false
     @Published var isnotAllAgree: Bool = true
@@ -69,6 +69,12 @@ final class SignUpStore: ObservableObject {
             return false
         }
         
+        guard signUpData.isEmailDuplicateChecked else {
+            showToast = true
+            toastMessage = "이메일 중복 검사를 진행해주세요."
+            return false
+        }
+        
         guard signUpData.password.count >= 6 else {
             showToast = true
             toastMessage = "비밀번호 6자리 이상 입력하여 주세요."
@@ -114,6 +120,30 @@ final class SignUpStore: ObservableObject {
         
         isnotAllAgree = false
         return true
+    }
+    
+    @MainActor
+    func checkDuplicateEmail() async -> Bool {
+        guard isValidEmailId() else {
+            showToast = true
+            toastMessage = "올바른 이메일을 입력하여 주세요."
+            return false
+        }
+    
+        do {
+            if try await UserStore.checkDuplicateEmail(email: signUpData.emailId) {
+                showToast = true
+                toastMessage = "이미 가입한 이메일입니다."
+                return false
+            } else {
+                signUpData.isEmailDuplicateChecked = true
+                return true
+            }
+        } catch {
+            showToast = true
+            toastMessage = "이메일 중복검사를 할 수 없습니다."
+            return false
+        }
     }
     
     @MainActor

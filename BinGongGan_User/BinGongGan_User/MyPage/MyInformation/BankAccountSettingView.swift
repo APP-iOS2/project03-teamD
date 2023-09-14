@@ -21,7 +21,7 @@ struct BankAccountSettingView: View {
         Form {
             VStack(alignment: .leading) {
                 HStack(alignment: .center) {
-                    AsyncImage(url: URL(string: currentUser.bank?.imageString ?? "")) { image in
+                    AsyncImage(url: URL(string:  "")) { image in
                         image
                             .resizable()
                             .aspectRatio(contentMode: .fit)
@@ -32,8 +32,8 @@ struct BankAccountSettingView: View {
                         ProgressView()
                     }
                     
-                    Text("\(currentUser.bank?.name ?? "")")
-                        .font(.body1Bold)
+//                    Text("\(currentUser.bank?.name ?? "")")
+//                        .font(.body1Bold)
                     
                     Spacer()
                     
@@ -69,7 +69,7 @@ struct BankAccountSettingView: View {
         .background(Color.myBackground)
         .customBackbutton()
         .onAppear {
-            bank = currentUser.bank
+//            bank = currentUser.bank
         }
         .sheet(isPresented: $isPresentedSelectBankSheet) {
             if isSelectedBank {

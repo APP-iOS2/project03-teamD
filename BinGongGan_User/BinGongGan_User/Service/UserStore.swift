@@ -12,6 +12,16 @@ import BinGongGanCore
 public class UserStore {
     static let service = FirestoreService()
 
+    // 이메일이 있으면 false, 없으면 true 반환
+    static func checkDuplicateEmail(email: String) async throws -> Bool {
+        do {
+            guard let _: [User] = try await service.searchDocumentWithEqualField(collectionId: .users, field: "email", compareWith: email) else {
+                return false
+            }
+            return true
+        }
+    }
+
     static func saveUserData(user: User) async throws {
         guard let userId = user.id else {
             return

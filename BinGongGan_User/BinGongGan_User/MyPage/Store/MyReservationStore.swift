@@ -65,11 +65,11 @@ final class MyReservationStore: ObservableObject {
                             let seller = Seller(id: sellerData["id"] as? String ?? "",
                                                 name: sellerData["name"] as? String ?? "name",
                                                 birthDate: sellerData["birthDate"] as? String ?? "birthDate",
-                                                phoneNumber: sellerData["phoneNumber"] as? String ?? "phoneNumber",
+                                                bankName: sellerData["bankName"] as? String ?? "bankName",
+                                                accountNumber: sellerData["accountNumber"] as? String ?? "accountNumber", phoneNumber: sellerData["phoneNumber"] as? String ?? "phoneNumber",
                                                 email: sellerData["email"] as? String ?? "email",
                                                 nickname: sellerData["nickname"] as? String ?? "nickname",
                                                 password: sellerData["password"] as? String ?? "password",
-                                                accountNumber: sellerData["accountNumber"] as? String ?? "accountNumber",
                                                 registrationNum: sellerData["registrationNum"] as? String ?? "registrationNum",
                                                 registrationImage: sellerData["registrationImage"] as? String ?? "registrationImage")
                             let bankName = sellerData["bankName"] as? String ?? "bankName"
