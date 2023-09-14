@@ -90,22 +90,13 @@ struct CategoryView: View {
                     ReportListView()
                 } label: {
                     Label {
-                        Text("신고된 ㅇㅇㅇ ?")
+                        Text("신고된 댓글 관리")
                     } icon: {
                         Image(systemName: "exclamationmark.square.fill")
                             .foregroundColor(.myBrown)
                     }
                 }
             }
-            
-            Button {
-                //TODO: - Logout
-                print("logout")
-            } label: {
-                Text("로그아웃")
-                    .foregroundColor(.red)
-            }
-
         }
         .navigationTitle("관리자 시스템")
         .scrollContentBackground(.hidden)

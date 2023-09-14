@@ -9,30 +9,33 @@ import SwiftUI
 import BinGongGanCore
 
 struct ReservationCancelView: View {
-    
+    @EnvironmentObject var myUserStore: MyUserStore
+    @EnvironmentObject private var myReservationStore: MyReservationStore
     @Environment(\.dismiss) private var dismiss
     @State private var cancelText: String = ""
     @State private var isShowingAlert: Bool = false
     
     var reservation: BinGongGanCore.Reservation
-    
+    var currentUser: User {
+        myUserStore.currentUser
+    }
     var body: some View {
         VStack {
             Form {
                 Section("환불 계좌 및 환불 금액") {
                     VStack(alignment: .leading) {
-                        Text("\(reservation.seller?.name ?? "")")
+                        Text("\(currentUser.name)")
                             .font(.head1Bold)
                         Spacer().frame(height: UIScreen.main.bounds.height * 0.02)
                         HStack {
                             Image(systemName: "phone.fill")
-                            Text("\(reservation.seller?.phoneNumber ?? "")")
+                            Text("\(currentUser.phoneNumber)")
                                 .font(.captionRegular)
                         }
                         Spacer().frame(height: UIScreen.main.bounds.height * 0.02)
                         HStack {
                             Image(systemName: "creditcard.fill")
-                            Text("\(reservation.bankName ?? "") \(reservation.seller?.accountNumber ?? "") (\(reservation.seller?.name ?? ""))")
+                            Text("\(currentUser.accountBank ?? "") \(currentUser.accountNumber ?? "") (\(currentUser.name))")
                                 .font(.captionRegular)
                         }
                     }
@@ -79,7 +82,7 @@ struct ReservationCancelView: View {
         .alert("예약을 취소하시겠습니까?", isPresented: $isShowingAlert) {
             Button("돌아가기", role: .cancel) {}
             Button("예약취소", role: .destructive) {
-                //TODO: 리뷰 저장 로직
+                myReservationStore.reservationCancle(reservationId : reservation.id)
                 dismiss()
             }
         } message: {
@@ -91,5 +94,7 @@ struct ReservationCancelView: View {
 struct ReservationCancelView_Previews: PreviewProvider {
     static var previews: some View {
         ReservationCancelView(reservation: MyReservationStore().reservation)
+            .environmentObject(MyUserStore())
+            .environmentObject(MyReservationStore())
     }
 }
