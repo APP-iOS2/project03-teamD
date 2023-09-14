@@ -19,9 +19,9 @@ struct Announcement1: Identifiable {
 
 extension Announcement1 {
     static let sampleAnnouncement: [Announcement1] = [
-        Announcement1(title: "빈공간 ver 1.0.2 업데이트", content: "새로운 버전이 업데이트 됐습니다.", announcementType: .update, createdAt: "2023-09-05"),
-        Announcement1(title: "빈공간 앱 출시!", content: "드디어 출시 됐습니다.", announcementType: .notice, createdAt: "2023-09-05"),
-        Announcement1(title: "결제 오류", content: "드디어 출시 됐습니다.", announcementType: .error, createdAt: "2023-09-04"),
+        Announcement1(title: "구형 룸 업데이트", content: "오래되었던 룸이 새롭게 재오픈 하였습니다.", announcementType: .update, createdAt: "2023-09-05"),
+        Announcement1(title: "강남 지점 오픈!", content: "드디어 오픈 됐습니다.", announcementType: .notice, createdAt: "2023-09-05"),
+        Announcement1(title: "강동 지점 키오스크 장애", content: "키오스크 고장으로 모바일 예약만 가능합니다.", announcementType: .error, createdAt: "2023-09-04"),
     ]
 }
 enum AnnouncementType1: String {
