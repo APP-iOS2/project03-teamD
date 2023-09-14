@@ -1,6 +1,8 @@
 # 빈공간
 ![페이지 아이콘](https://tin-slug-eb7.notion.site/image/https%3A%2F%2Fmedia.discordapp.net%2Fattachments%2F1145881976209948734%2F1148443641170362513%2Ffc.jpg?table=block&id=9b58f6dc-6f23-46ae-a801-13077b27312f&spaceId=2579cb2f-2b59-450e-ba2a-4bd4e5932e09&width=250&userId=&cache=v2)
 
+<br />
+
 ## 📌 프로젝트 소개
 - **프로젝트명**: 빈공간
 - **프로젝트 주제**: 쉐어 오피스 등 공유 공간을 등록하고 예약할 수 있는 서비스 플랫폼
@@ -9,10 +11,12 @@
 - **figma 주소** : https://www.figma.com/file/VnMrtBrUsG3W6tdOo8tmg3/D%ED%8C%80---%EA%B3%B5%EA%B0%84%EB%8C%80%EC%97%AC-APP?type=design&node-id=0-1&mode=design&t=ysR59nogBI6ScGaA-0
 - **notion 주소**: https://tin-slug-eb7.notion.site/BinGongGan-9b58f6dc6f2346aea80113077b27312f
 
+<br /><br />
 
 #### 활용 기술
 <img  src="https://img.shields.io/badge/Notion-000000?style=for-the-badge&logo=notion&logoColor=white"><img src="https://img.shields.io/badge/figma-F24E1E?style=for-the-badge&logo=figma&logoColor=white"><img src="https://img.shields.io/badge/xcode-147EFB?style=for-the-badge&logo=xcode&logoColor=white"><img src="https://img.shields.io/badge/github-181717?style=for-the-badge&logo=github&logoColor=white"><img src="https://img.shields.io/badge/firebase-FFCA28?style=for-the-badge&logo=firebase&logoColor=white"><img src="https://img.shields.io/badge/swift-F05138?style=for-the-badge&logo=swift&logoColor=white">
 
+<br />
 
 ####  🤙🏻 컨벤션 & 규칙
 ```
@@ -27,6 +31,7 @@
 ```
 
 -----
+<br />
 
 ### ⭐️ 빈공간 User 앱
 - 테스트 계정:
@@ -48,6 +53,8 @@
 
 
 ---
+<br />
+
 ### ⭐️ 빈공간 Biz 앱
 - 테스트 계정:
 
@@ -60,6 +67,8 @@
 
 
 ---
+<br />
+
 ### ⭐️ 빈공간 관리자 앱
 - 테스트 계정:
 - 
