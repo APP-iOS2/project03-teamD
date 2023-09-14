@@ -11,6 +11,8 @@ import BinGongGanCore
 struct ReviewManageView: View {
     @Environment(\.dismiss) private var dismiss
     @EnvironmentObject private var reviewStore: ReviewStore
+    
+    @StateObject var myPlaceStore: MyPlaceStore = MyPlaceStore()
     @StateObject var replyStore: ReplyStore = ReplyStore()
     @StateObject var reportStore: ReportStore = ReportStore()
     
@@ -24,20 +26,22 @@ struct ReviewManageView: View {
                 if isLoading {
                     ProgressView()
                 } else {
-                    Section {
-                        ForEach(Array(reviewStore.reviewList.enumerated()), id: \.element.id) { index, review in
-                            NavigationLink {
-                                ReviewManageDetailView(replyStore: replyStore, reportStore: reportStore, review: review)
-                                    .environmentObject(reviewStore)
-                            } label: {
-                                ReviewCell(review: review)
-                                    .environmentObject(reviewStore)
-                                    .environmentObject(replyStore)
-                                    .environmentObject(reportStore)
+                    ForEach(reviewStore.roomList) { room in
+                        Section {
+                            ForEach(Array(reviewStore.reviewList.enumerated()), id: \.element.id) { index, review in
+                                NavigationLink {
+                                    ReviewManageDetailView(replyStore: replyStore, reportStore: reportStore, review: review)
+                                        .environmentObject(reviewStore)
+                                } label: {
+                                    ReviewCell(review: review)
+                                        .environmentObject(reviewStore)
+                                        .environmentObject(replyStore)
+                                        .environmentObject(reportStore)
+                                }
                             }
+                        } header: {
+                            Text("\(room.name)")
                         }
-                    } header: {
-                        Text("공간 1")
                     }
                 }
             }
@@ -54,17 +58,9 @@ struct ReviewManageView: View {
                 await reviewStore.fetchData()
             }
             
-            DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
+            DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
                 isLoading = false
             }
         }
     }
 }
-
-//struct ReviewManageView_Previews: PreviewProvider {
-//    static var previews: some View {
-//        NavigationStack {
-//            ReviewManageView()
-//        }
-//    }
-//}
