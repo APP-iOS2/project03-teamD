@@ -14,7 +14,6 @@ struct SecondStepSignUpView: View {
     @State private var isNext: Bool = false
     
     var body: some View {
-        NavigationStack {
             ZStack {
                 Color.myBackground
                 VStack {
@@ -63,7 +62,6 @@ struct SecondStepSignUpView: View {
                     self.endTextEditing()
                 }
                 .toast(isShowing: $store.showToast, message: store.toastMessage)
-        }
     }
     
     var identifyVerificationView: some View {

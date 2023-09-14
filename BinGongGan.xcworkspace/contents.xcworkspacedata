@@ -7,9 +7,6 @@
    <FileRef
       location = "group:BinGongGan_User/BinGongGan_User.xcodeproj">
    </FileRef>
-   <FileRef
-      location = "group:BinGongGan_Seller/BinGongGan_Seller.xcodeproj">
-   </FileRef>
    <Group
       location = "group:BinGongGan_Seller"
       name = "BinGongGan_Seller">
@@ -100,6 +97,9 @@
          <Group
             location = "group:Config"
             name = "Config">
+            <FileRef
+               location = "group:GoogleService-Info.plist">
+            </FileRef>
             <Group
                location = "group:Assets.xcassets"
                name = "Assets.xcassets">

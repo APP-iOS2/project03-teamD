@@ -65,16 +65,15 @@ final class MyReservationStore: ObservableObject {
                             let seller = Seller(id: sellerData["id"] as? String ?? "",
                                                 name: sellerData["name"] as? String ?? "name",
                                                 birthDate: sellerData["birthDate"] as? String ?? "birthDate",
-                                                bankName: sellerData["bankName"] as? String ?? "bankName",
-                                                accountNumber: sellerData["accountNumber"] as? String ?? "accountNumber", phoneNumber: sellerData["phoneNumber"] as? String ?? "phoneNumber",
+                                                phoneNumber: sellerData["phoneNumber"] as? String ?? "phoneNumber",
                                                 email: sellerData["email"] as? String ?? "email",
                                                 nickname: sellerData["nickname"] as? String ?? "nickname",
-                                                password: sellerData["password"] as? String ?? "password",
+                                                password: sellerData["password"] as? String ?? "password", bankName: sellerData["bankName"] as? String ?? "bankName",
+                                                accountNumber: sellerData["accountNumber"] as? String ?? "accountNumber",
                                                 registrationNum: sellerData["registrationNum"] as? String ?? "registrationNum",
                                                 registrationImage: sellerData["registrationImage"] as? String ?? "registrationImage")
-                            let bankName = sellerData["bankName"] as? String ?? "bankName"
                             reservation.seller = seller
-                            reservation.bankName = bankName
+                            reservation.bankName = seller.bankName
                         }
                     }
                     tempStore.append(reservation)

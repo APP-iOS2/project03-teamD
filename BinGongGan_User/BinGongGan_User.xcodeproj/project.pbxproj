@@ -30,8 +30,6 @@
 		6927255B2AA83ABD00A2441E /* ReservationPlusMinusButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6927255A2AA83ABD00A2441E /* ReservationPlusMinusButton.swift */; };
 		6927255D2AA85A0600A2441E /* PaymentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6927255C2AA85A0600A2441E /* PaymentView.swift */; };
 		6943D6602AB0235B00495CDB /* ReservationEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6943D65F2AB0235B00495CDB /* ReservationEnum.swift */; };
-		B12A84A92AA6F01000BDF8CA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B12A84A82AA6F01000BDF8CA /* Assets.xcassets */; };
-		B12A84AC2AA6F01000BDF8CA /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B12A84AB2AA6F01000BDF8CA /* Preview Assets.xcassets */; };
 		B12A84B62AA6F01100BDF8CA /* BinGongGan_UserTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B12A84B52AA6F01100BDF8CA /* BinGongGan_UserTests.swift */; };
 		B12A84C02AA6F01100BDF8CA /* BinGongGan_UserUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B12A84BF2AA6F01100BDF8CA /* BinGongGan_UserUITests.swift */; };
 		B12A84C22AA6F01100BDF8CA /* BinGongGan_UserUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B12A84C12AA6F01100BDF8CA /* BinGongGan_UserUITestsLaunchTests.swift */; };
@@ -39,6 +37,8 @@
 		B12A84D22AA6F04400BDF8CA /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = B12A84D12AA6F04400BDF8CA /* FirebaseFirestore */; };
 		B12A84D42AA6F04400BDF8CA /* FirebaseFirestoreSwift in Frameworks */ = {isa = PBXBuildFile; productRef = B12A84D32AA6F04400BDF8CA /* FirebaseFirestoreSwift */; };
 		B12A84FC2AA7A65900BDF8CA /* BinGongGanCore in Frameworks */ = {isa = PBXBuildFile; productRef = B12A84FB2AA7A65900BDF8CA /* BinGongGanCore */; };
+		B15C39872AB28B7000704C82 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B12A84A82AA6F01000BDF8CA /* Assets.xcassets */; };
+		B15C39882AB28B7600704C82 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B12A84AB2AA6F01000BDF8CA /* Preview Assets.xcassets */; };
 		B1CE60EC2AB1CDAE0006E94E /* FirebaseStorage in Frameworks */ = {isa = PBXBuildFile; productRef = B1CE60EB2AB1CDAE0006E94E /* FirebaseStorage */; };
 		BC344EC02AA806FF00F8CEB3 /* GongGanTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC344EBF2AA806FE00F8CEB3 /* GongGanTabView.swift */; };
 		BC344EC92AA8072000F8CEB3 /* GongGanInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC344EC52AA8072000F8CEB3 /* GongGanInfo.swift */; };
@@ -116,6 +116,7 @@
 		D84824B32AA8F5970067A065 /* FAQItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = D84824B22AA8F5970067A065 /* FAQItem.swift */; };
 		D8741E5E2AAEF64100F45C79 /* BankAccountSettingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8741E5D2AAEF64100F45C79 /* BankAccountSettingView.swift */; };
 		D8741E612AAF09EE00F45C79 /* UserAccountSettingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8E0FA2A2AAB13C300B8C092 /* UserAccountSettingView.swift */; };
+		D8741E672AB02F8A00F45C79 /* Bank.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8741E662AB02F8A00F45C79 /* Bank.swift */; };
 		D8741E692AB0347300F45C79 /* BankSelectView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8741E682AB0347300F45C79 /* BankSelectView.swift */; };
 		D8741E712AB0EE4B00F45C79 /* AccountEditView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8741E702AB0EE4B00F45C79 /* AccountEditView.swift */; };
 		D8741E732AB0F0E100F45C79 /* AccountTextFieldView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8741E722AB0F0E100F45C79 /* AccountTextFieldView.swift */; };
@@ -256,6 +257,7 @@
 		D84824B02AA8A4450067A065 /* ReservationModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReservationModel.swift; sourceTree = "<group>"; };
 		D84824B22AA8F5970067A065 /* FAQItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FAQItem.swift; sourceTree = "<group>"; };
 		D8741E5D2AAEF64100F45C79 /* BankAccountSettingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BankAccountSettingView.swift; sourceTree = "<group>"; };
+		D8741E662AB02F8A00F45C79 /* Bank.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Bank.swift; sourceTree = "<group>"; };
 		D8741E682AB0347300F45C79 /* BankSelectView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BankSelectView.swift; sourceTree = "<group>"; };
 		D8741E702AB0EE4B00F45C79 /* AccountEditView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AccountEditView.swift; sourceTree = "<group>"; };
 		D8741E722AB0F0E100F45C79 /* AccountTextFieldView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountTextFieldView.swift; sourceTree = "<group>"; };
@@ -759,6 +761,7 @@
 				D84824B02AA8A4450067A065 /* ReservationModel.swift */,
 				D84824B22AA8F5970067A065 /* FAQItem.swift */,
 				D8E0FA262AAAFAAD00B8C092 /* Announcement.swift */,
+				D8741E662AB02F8A00F45C79 /* Bank.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -877,14 +880,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B15C39882AB28B7600704C82 /* Preview Assets.xcassets in Resources */,
+				B15C39872AB28B7000704C82 /* Assets.xcassets in Resources */,
 				ECBD87752AAB09F600ECEC7D /* Information1.md in Resources */,
-				B12A84AC2AA6F01000BDF8CA /* Preview Assets.xcassets in Resources */,
-				B12A84A92AA6F01000BDF8CA /* Assets.xcassets in Resources */,
-				B12A84AC2AA6F01000BDF8CA /* Preview Assets.xcassets in Resources */,
 				BCB5BC152AB252880014CCB6 /* GoogleService-Info.plist in Resources */,
-				B12A84A92AA6F01000BDF8CA /* Assets.xcassets in Resources */,
-				B12A84AC2AA6F01000BDF8CA /* Preview Assets.xcassets in Resources */,
-				B12A84A92AA6F01000BDF8CA /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -934,6 +933,7 @@
 				6943D6602AB0235B00495CDB /* ReservationEnum.swift in Sources */,
 				BC344EF02AA808DB00F8CEB3 /* Reservation.swift in Sources */,
 				D84824A32AA8A3710067A065 /* PasswordEditView.swift in Sources */,
+				D8741E672AB02F8A00F45C79 /* Bank.swift in Sources */,
 				BCE658542AA8AD420009ECD1 /* MapViewCoordinater.swift in Sources */,
 				BC344F232AA86AD500F8CEB3 /* HomeCategoryView.swift in Sources */,
 				BC8CFE6C2AA9510A00E8D8F2 /* FavoriteView.swift in Sources */,
@@ -1178,6 +1178,7 @@
 				DEVELOPMENT_TEAM = 6R3M7VGRP2;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "BinGongGan-User-Info.plist";
 				INFOPLIST_KEY_CFBundleDisplayName = "빈공간";
 				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "";
 				INFOPLIST_KEY_NSLocationAlwaysUsageDescription = "";
@@ -1214,6 +1215,7 @@
 				DEVELOPMENT_TEAM = 6R3M7VGRP2;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "BinGongGan-User-Info.plist";
 				INFOPLIST_KEY_CFBundleDisplayName = "빈공간";
 				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "";
 				INFOPLIST_KEY_NSLocationAlwaysUsageDescription = "";

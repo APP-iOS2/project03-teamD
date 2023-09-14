@@ -27,7 +27,7 @@ enum EditType: CaseIterable {
 }
 
 final class MyInfoStore: ObservableObject {
-    @Published var myInfo: Seller = Seller(id: "", name: "", birthDate: "", bankName: "", accountNumber: "", phoneNumber: "", email: "", nickname: "", password: "", registrationNum: "", registrationImage: "")
+    @Published var myInfo: Seller = Seller(id: "", name: "", birthDate: "", phoneNumber: "", email: "", nickname: "", password: "", bankName: "", accountNumber: "", registrationNum: "", registrationImage: "")
     
     @Published var editType: EditType = .nickName
     var isButtonDisabled: Bool {

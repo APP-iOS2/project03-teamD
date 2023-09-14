@@ -63,6 +63,12 @@ final class SignUpStore: ObservableObject {
     }
     
     public func isValidIdAndPassword() -> Bool {
+        guard signUpData.nickname.count >= 2 else {
+            showToast = true
+            toastMessage = "닉네임을 2글자 이상 입력해주세요."
+            return false
+        }
+        
         guard isValidEmailId() else {
             showToast = true
             toastMessage = "이메일 형식이 올바르지 않습니다."
@@ -163,9 +169,10 @@ final class SignUpStore: ObservableObject {
             if let error = error as? AuthErrorCode {
                 if error.errorCode == 17007 {
                     toastMessage = "이미 회원가입 되어있습니다."
+                } else {
+                    toastMessage = "회원가입을 할 수 없습니다."
                 }
             }
-            toastMessage = "회원가입을 할 수 없습니다."
             return false
         }
     }
