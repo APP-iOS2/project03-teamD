@@ -79,6 +79,7 @@ struct ReportDetailView: View {
                         .buttonStyle(backgroundColor: .myBrown)
                 }
             }
+            .listRowBackground(Color.myBackground)
             .buttonStyle(.plain)
         }
         .navigationTitle("신고 내용")

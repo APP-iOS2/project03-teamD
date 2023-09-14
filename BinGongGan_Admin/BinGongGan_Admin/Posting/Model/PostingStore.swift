@@ -49,4 +49,9 @@ class PostingStore: ObservableObject {
             print("Error getting document: \(error)")
         }
     }
+    
+    func removePosting(placeId: String) async throws{
+        try await dbRef.collection(Collections.place.rawValue).document(placeId).delete()
+        try await fetchPosting()
+    }
 }

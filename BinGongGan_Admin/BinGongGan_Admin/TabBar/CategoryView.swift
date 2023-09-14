@@ -98,6 +98,7 @@ struct CategoryView: View {
                 }
             }
         }
+        .tint(.myMint)
         .navigationTitle("관리자 시스템")
         .scrollContentBackground(.hidden)
         .background(Color.myBackground, ignoresSafeAreaEdges: .all)

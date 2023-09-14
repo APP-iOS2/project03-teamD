@@ -37,4 +37,9 @@ class UserStore: ObservableObject {
             print("Error getting document: \(error)")
         }
     }
+    
+    func removeUser(userId: String) async throws{
+        try await dbRef.collection(Collections.user.rawValue).document(userId).delete()
+        try await fetchUser()
+    }
 }
