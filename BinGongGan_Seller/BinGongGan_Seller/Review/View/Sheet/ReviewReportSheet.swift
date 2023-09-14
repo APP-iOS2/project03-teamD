@@ -74,7 +74,9 @@ struct ReviewReportSheet: View {
                                 sellerId: AuthStore.userUid,
                                 reason: ReportCase.allCases[index].rawValue)
                             
-//                            reportStore.reportReview(report: report)
+                            Task {
+                                await reportStore.loadData(report: report)
+                            }
                             break
                         }
                     }
