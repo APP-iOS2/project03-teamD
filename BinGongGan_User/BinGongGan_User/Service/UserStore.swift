@@ -76,7 +76,6 @@ public class UserStore {
     static func removeUserData(userId: String) async throws {
         do {
             try await service.deleteDocument(collectionId: .users, documentId: userId)
-            
         } catch {
             throw error
         }
