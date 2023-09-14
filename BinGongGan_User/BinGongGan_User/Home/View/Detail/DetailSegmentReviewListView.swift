@@ -9,7 +9,7 @@ import SwiftUI
 
 struct DetailSegmentReviewListView: View {
     @EnvironmentObject var gongGan: GongGanStore
-    
+    @State var placeId: String
     var body: some View {
         NavigationStack {
             VStack {
@@ -20,6 +20,11 @@ struct DetailSegmentReviewListView: View {
             .padding(.bottom, 50)
         }
         .padding()
+        .onAppear{
+            Task {
+                await gongGan.fetchReViews(placeId: placeId)
+            }
+        }
     }
 }
 
@@ -27,7 +32,7 @@ struct DetailSegmentReviewListView: View {
 
 struct DetailSegmentReviewListView_Previews: PreviewProvider {
     static var previews: some View {
-        DetailSegmentReviewListView()
+        DetailSegmentReviewListView(placeId: "")
             .environmentObject(GongGanStore())
     }
 }

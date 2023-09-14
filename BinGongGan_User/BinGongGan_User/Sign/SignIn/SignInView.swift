@@ -11,6 +11,7 @@ import BinGongGanCore
 struct SignInView: View {
     @EnvironmentObject private var signInStore: SignInStore
     @EnvironmentObject private var signUpStore: SignUpStore
+    @EnvironmentObject private var myUserStore: MyUserStore
     
     var body: some View {
         ZStack {
@@ -32,7 +33,13 @@ struct SignInView: View {
                 .padding(.horizontal, 20)
                 
                 PrimaryButton(isDisabled: $signInStore.isDisableSignInButton, action: {
-                    signInStore.checkSignIn()
+                    Task {
+                        let result = try await signInStore.checkSignIn()
+                        if result {
+                            try await myUserStore.fetchCurrentUser()
+                        }
+                        signInStore.isDisableSignInButton = false
+                    }
                 }, title: "로그인")
                 .padding(.horizontal, 20)
                 

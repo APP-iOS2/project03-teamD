@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import BinGongGanCore
 
 struct Bank: Identifiable {
     var id: UUID
@@ -28,4 +29,10 @@ extension Bank {
         Bank(name: "농협은행", imageString: "https://mblogthumb-phinf.pstatic.net/20160501_161/ppanppane_146206873822759cXx_PNG/%B8%F1%BF%EC%C3%CC_%B7%CE%B0%ED_%282%29.png?type=w800"),
         Bank(name: "하나은행", imageString: "https://pbs.twimg.com/profile_images/1223128080727691265/yp_bP9cU_400x400.jpg"),
     ]
+}
+
+extension User {
+    var bank: Bank? {
+        return Bank.banks.first { $0.name == accountBank }
+    }
 }

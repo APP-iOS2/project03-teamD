@@ -48,23 +48,24 @@ struct RoundedCorner: Shape {
 
 struct HomeView: View {
     
+    @EnvironmentObject var myUserStore: MyUserStore
     @EnvironmentObject var homeStore: HomeStore
     @Binding var tabBarVisivility: Visibility
     @State var isMung: Bool = false
     var body: some View {
         
         ZStack {
-            Spacer().background(Color.myBackground).edgesIgnoringSafeArea(.all)
+            Spacer().background(Color(hex: "#F5F5F5")).ignoresSafeArea(.all)
             
             ScrollView(showsIndicators: false) {
-                LazyVStack{
+                
                     NavigationLink {
                         MapSearchView(tabBarVisivility: $tabBarVisivility)
                             .toolbar(tabBarVisivility, for: .tabBar)
                     } label: {
                         RoundedRectangle(cornerRadius: 10)
                             .stroke(Color.myBrown, lineWidth: 1)
-                            .background()
+                            .background(.white)
                             .frame(height: 50)
                             .overlay(alignment: .leading) {
                                 HStack {
@@ -132,13 +133,19 @@ struct HomeView: View {
                                 .foregroundColor(.myLightGray)
                         }
                     }// GROUP
-                }// LazyVStack
+                
                 .padding(.bottom, HomeNameSpace.scrollViewBottomPadding)
             }// SCROLLVIEW
+            .refreshable {
+                await homeStore.fetchPlaces()
+                homeStore.settingRecommendPlace()
+                
+            }
             .navigationBarTitleDisplayMode(.inline)
             .onAppear{
                 homeStore.selectSub.removeAll()
                 homeStore.settingRecommendPlace()
+                
             }
             .toolbar {
                 ToolbarItem(placement: .navigationBarLeading) {
@@ -152,8 +159,19 @@ struct HomeView: View {
                             .font(.body1Bold)
                     }
                 }
+                ToolbarItem(placement: .navigationBarTrailing) {
+                    HStack {
+                        Text("\(myUserStore.currentUser.nickname)님")
+                            .font(.captionRegular)
+                    }
+                }
             }
         }// ZSTACK
+        .onAppear(){
+            Task{
+                try await myUserStore.fetchCurrentUser()
+            }
+        }
         .easterEgg(isPresented: $isMung, title: homeStore.mungText[homeStore.mungImageCount], primaryButtonTitle: "닫기") {}
     }// BODY
 }

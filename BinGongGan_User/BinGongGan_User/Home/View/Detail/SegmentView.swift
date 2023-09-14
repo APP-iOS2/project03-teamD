@@ -11,6 +11,8 @@ import BinGongGanCore
 struct SegmentView: View {
     @Binding var selectedSegment: GongGanDetailView.segmentIndex
     @Binding var isReservationActive: Int?
+    @Binding var roomId: String
+    @Binding var placeId: String
     let screenWidth: CGFloat
     let animation: Namespace.ID
     
@@ -47,9 +49,9 @@ struct SegmentView: View {
             }
             switch selectedSegment {
             case .info:
-                DetailInfoView(isReservationActive: $isReservationActive)
+                DetailInfoView(isReservationActive: $isReservationActive,roomId: $roomId)
             case .review:
-                DetailSegmentReviewListView()
+                DetailSegmentReviewListView(placeId: placeId)
             case .event:
                 DetailAnnouncementView()
             }
@@ -59,8 +61,8 @@ struct SegmentView: View {
 
 struct SegmentView_Previews: PreviewProvider {
     static var previews: some View {
-            SegmentView(selectedSegment: .constant(.info), isReservationActive: .constant(nil), screenWidth: 375, animation: Namespace().wrappedValue)
-                .environmentObject(GongGanStore())
+        SegmentView(selectedSegment: .constant(.info), isReservationActive: .constant(nil), roomId: .constant(""), placeId: .constant(""), screenWidth: 375, animation: Namespace().wrappedValue)
+            .environmentObject(GongGanStore())
     }
 }
 
