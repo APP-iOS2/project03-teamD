@@ -11,9 +11,9 @@ public struct Place:Identifiable, Codable {
     public var sellerId: String //판매자 id
     public var placeName: String //이름
     public var placeCategory: PlaceCategory //카테고리 -
+   
     public var placeImageStringList: [String] // 이미지 링크 -
     public var placeImageString: String {
-        print("지금 여길 확인하고 있어요 \(placeImageStringList)")
         if !placeImageStringList.isEmpty {
             return placeImageStringList[0]
         } else {
@@ -22,6 +22,13 @@ public struct Place:Identifiable, Codable {
     }
     public var note: [String] //공간 내용 -
     public var placeInfomationList: [String] //공간 정보
+    public var placeInfomationString: [String] {
+        if !placeInfomationList.isEmpty {
+            return placeInfomationList
+        } else {
+            return ["없는데요?"]
+        }
+    }
     public var address: Address //주소
   
     public var id: String {
@@ -54,30 +61,32 @@ public enum PlaceCategory: String, CaseIterable, Identifiable, Codable {
     case band
     case studio
     case kitchen
+    case none
     public var id: Self { self }
-    
     public var placeCategoryName: String {
         switch self {
         case .share:
-            return "쉐어오피스"
+            return "share"
         case .band:
-            return "밴드룸"
+            return "band"
         case .studio:
-            return "스튜디오"
+            return "studio"
         case .kitchen:
-            return "키친룸"
+            return "kitchen"
+        default:
+            return ""
         }
     }
     
     public static func fromRawString(_ rawString: String) -> PlaceCategory {
            switch rawString {
-           case "쉐어오피스":
+           case "share":
                return .share
-           case "밴드룸":
+           case "band":
                return .band
-           case "스튜디오":
+           case "studio":
                return .studio
-           case "키친룸":
+           case "kitchen":
                return .kitchen
            default:
                return .share

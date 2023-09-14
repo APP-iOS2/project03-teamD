@@ -7,12 +7,12 @@
 
 import Foundation
 
-struct Bank: Identifiable {
-    var id: UUID
-    var name: String
-    var imageString: String
+public struct Bank: Identifiable {
+    public var id: UUID
+    public var name: String
+    public var imageString: String
     
-    init(id: UUID = UUID(), name: String, imageString: String) {
+    public init(id: UUID = UUID(), name: String, imageString: String) {
         self.id = id
         self.name = name
         self.imageString = imageString
@@ -20,7 +20,7 @@ struct Bank: Identifiable {
 }
 
 extension Bank {
-    static let banks: [Bank] = [
+    public static let banks: [Bank] = [
         Bank(name: "국민은행", imageString: "https://apprecs.org/gp/images/app-icons/300/8b/com.kbstar.kbbank.jpg"),
         Bank(name: "카카오뱅크", imageString: "https://play-lh.googleusercontent.com/HTBCHqXZ01RhNVzIDwsA2ARURfzXeHxoWfsmgH92ieCgIG1CuPpJRWqCfJ9KgkwWStko"),
         Bank(name: "우리은행", imageString: "https://cdn.businessplus.kr/news/photo/201811/17999_10940_1715.jpg"),

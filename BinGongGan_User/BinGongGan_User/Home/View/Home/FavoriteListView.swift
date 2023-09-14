@@ -11,12 +11,12 @@ import SwiftUI
 struct FavoriteListView: View {
     
     @EnvironmentObject var homeStore: HomeStore
-    
+    @State var isLoading: Bool = true
     var body: some View {
         TabView {
             ForEach(homeStore.hotPlace) { place in
                 NavigationLink {
-                    GongGanDetailView()
+                    GongGanDetailView(placeId: place.id)
                 } label: {
                     ZStack {
                         AsyncImage(url: URL(string: "\(place.placeImageString)") ) { image in
@@ -49,6 +49,14 @@ struct FavoriteListView: View {
                         .cornerRadius(8, corners: .bottomLeft)
                         .cornerRadius(8, corners: .bottomRight)
                     }// ZSTACK
+                    .onAppear {
+                        Task {
+                            await homeStore.fetchPlaces()
+                            self.isLoading = false
+                        }
+                    }
+                    .redacted(reason: isLoading ? .placeholder :
+                                [])
                 }
             }.padding(.horizontal, 5)
         }// TABVIEW

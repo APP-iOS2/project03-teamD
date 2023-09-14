@@ -20,7 +20,7 @@ struct AnnouncementOptionButton: View {
         } label: {
             Rectangle()
                 .fill(Color.myLightGray2)
-                .frame(width: AnnouncementOptionCell.screenWidth * 0.4, height: AnnouncementOptionCell.screenHeight * 0.1)
+                .frame(width: UIScreen.screenWidth * 0.4, height: UIScreen.screenHeight * 0.1)
                 .cornerRadius(15)
                 .padding(.top, 20)
                 .overlay(
@@ -45,11 +45,5 @@ struct AnnouncementOptionButton: View {
                 .presentationDetents([.medium])
         }
         .buttonStyle(.plain)
-    }
-}
-
-struct AnnouncementOptionButton_Previews: PreviewProvider {
-    static var previews: some View {
-        AnnouncementOptionButton(announcementOption: AnnouncementOption.data[0], announcement: Announcement(title: "테스트", content: "테스트", date: Date().timeIntervalSince1970, places: []))
     }
 }

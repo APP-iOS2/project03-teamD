@@ -27,7 +27,7 @@ enum SignInCase {
 }
 
 public class AuthStore {
-    @AppStorage("seller") static var userUid: String = ""
+    @AppStorage("userId") static var userUid: String = ""
     
     // 신규 사용자
     static func createUser(email: String, password: String) async throws -> AuthDataResult {
@@ -63,6 +63,15 @@ public class AuthStore {
         } catch {
             print("Error logging out: \(error.localizedDescription)")
             return false
+        }
+    }
+    
+    static func deleteUser() async throws {
+        let user = Auth.auth().currentUser
+        do {
+            try await user?.delete()
+        } catch {
+            print("Error delete user: \(error)")
         }
     }
 }

@@ -11,7 +11,7 @@ import FirebaseFirestore
 
 struct PlaceAddView: View {
     @Environment(\.dismiss) private var dismiss
-    @EnvironmentObject var placeStore: PlaceStore
+    @StateObject var placeStore: PlaceStore = PlaceStore()
     @State private var selectedPlace: PlaceCategory = .share
     @State private var placeInfomations = PlaceInfomationModel.data
     @State private var address: Address?
@@ -51,7 +51,7 @@ struct PlaceAddView: View {
                             .font(.body1Bold)
                         Picker("공간 카테고리", selection: $selectedPlace) {
                             ForEach(PlaceCategory.allCases) { category in
-                                Text(category.rawValue)
+                                Text(category.placeCategoryName)
                             }
                         }
                         .frame(maxWidth: .infinity)
@@ -172,7 +172,10 @@ struct PlaceAddView: View {
                                 )
                                 Task{
                                     await placeStore.addPlace(place: place, images: selectedImage)
+                                    
                                 }
+                                toastMessage = "등록 완료!!"
+                                isShowingToast = true
                                 dismiss()
                             } else {
                                 toastMessage = "빈칸을 모두 입력해주세요"

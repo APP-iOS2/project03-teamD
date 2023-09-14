@@ -21,32 +21,33 @@ struct ReviewManageView: View {
     
     var body: some View {
         Group {
-            if isLoading {
-                ProgressView()
-            } else {
-                Form {
+            Form {
+                if isLoading {
+                    ProgressView()
+                } else {
                     Section {
                         ForEach(reviewStore.reviewList) { review in
                             NavigationLink {
-                                ReviewManageDetailView(review: review)
+                                ReviewManageDetailView(replyStore: replyStore, reportStore: reportStore, review: review)
+                            } label: {
+                                ReviewCell(review: review)
                                     .environmentObject(reviewStore)
                                     .environmentObject(replyStore)
                                     .environmentObject(reportStore)
-                            } label: {
-                                ReviewCell(review: review)
                             }
                         }
                     } header: {
                         Text("공간 1")
                     }
                 }
-                .background(Color.myBackground)
-                .navigationTitle("리뷰 관리")
-                .navigationBarBackButtonHidden(true)
-                .navigationBarTitleDisplayMode(.inline)
-                .scrollContentBackground(.hidden)
-                .customBackbutton()
             }
+            .background(Color.myBackground)
+            .navigationTitle("리뷰 관리")
+            .navigationBarBackButtonHidden(true)
+            .navigationBarTitleDisplayMode(.inline)
+            .scrollContentBackground(.hidden)
+            .customBackbutton()
+            
         }
         .onAppear {
             Task {
@@ -60,10 +61,10 @@ struct ReviewManageView: View {
     }
 }
 
-struct ReviewManageView_Previews: PreviewProvider {
-    static var previews: some View {
-        NavigationStack {
-            ReviewManageView()
-        }
-    }
-}
+//struct ReviewManageView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        NavigationStack {
+//            ReviewManageView()
+//        }
+//    }
+//}

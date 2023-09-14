@@ -23,7 +23,7 @@ struct SettingListView: View {
                     .tint(.myBrown)
             }
         }
-        .navigationTitle("Setting")
+        .navigationTitle("설정")
         .navigationBarTitleDisplayMode(.inline)
         .customBackbutton()
         .scrollContentBackground(.hidden)

@@ -10,6 +10,642 @@
    <FileRef
       location = "group:BinGongGan_Seller/BinGongGan_Seller.xcodeproj">
    </FileRef>
+   <Group
+      location = "group:BinGongGan_Seller"
+      name = "BinGongGan_Seller">
+      <Group
+         location = "group:BinGongGan_Seller"
+         name = "BinGongGan_Seller">
+         <Group
+            location = "group:RoomAdd"
+            name = "RoomAdd">
+            <FileRef
+               location = "group:RoomStore.swift">
+            </FileRef>
+            <FileRef
+               location = "group:RoomAddView.swift">
+            </FileRef>
+            <FileRef
+               location = "group:RoomModifyView.swift">
+            </FileRef>
+         </Group>
+         <Group
+            location = "group:Home"
+            name = "Home">
+            <Group
+               location = "group:HomeCategory"
+               name = "HomeCategory">
+               <FileRef
+                  location = "group:CategoryButtonsView.swift">
+               </FileRef>
+               <FileRef
+                  location = "group:CategoryButton.swift">
+               </FileRef>
+            </Group>
+            <FileRef
+               location = "group:HomeView.swift">
+            </FileRef>
+            <Group
+               location = "group:Reservation"
+               name = "Reservation">
+               <FileRef
+                  location = "group:ReservationCancelSheet.swift">
+               </FileRef>
+               <FileRef
+                  location = "group:ReservationDetailSheet.swift">
+               </FileRef>
+               <FileRef
+                  location = "group:ReservationConfirmedSheet.swift">
+               </FileRef>
+            </Group>
+            <Group
+               location = "group:HomeModels"
+               name = "HomeModels">
+               <FileRef
+                  location = "group:CategoryModel.swift">
+               </FileRef>
+            </Group>
+            <Group
+               location = "group:Store"
+               name = "Store">
+               <FileRef
+                  location = "group:RervationStore.swift">
+               </FileRef>
+            </Group>
+         </Group>
+         <Group
+            location = "group:MyInfo"
+            name = "MyInfo">
+            <Group
+               location = "group:View"
+               name = "View">
+               <FileRef
+                  location = "group:MyInfoView.swift">
+               </FileRef>
+               <FileRef
+                  location = "group:MyInfoEditView.swift">
+               </FileRef>
+            </Group>
+            <Group
+               location = "group:Store"
+               name = "Store">
+               <FileRef
+                  location = "group:MyInfoStore.swift">
+               </FileRef>
+               <FileRef
+                  location = "group:MyInfo.swift">
+               </FileRef>
+            </Group>
+         </Group>
+         <Group
+            location = "group:Config"
+            name = "Config">
+            <Group
+               location = "group:Assets.xcassets"
+               name = "Assets.xcassets">
+               <Group
+                  location = "group:AppIcon.appiconset"
+                  name = "AppIcon.appiconset">
+                  <FileRef
+                     location = "group:Contents.json">
+                  </FileRef>
+               </Group>
+               <Group
+                  location = "group:AccentColor.colorset"
+                  name = "AccentColor.colorset">
+                  <FileRef
+                     location = "group:Contents.json">
+                  </FileRef>
+               </Group>
+               <Group
+                  location = "group:Logo"
+                  name = "Logo">
+                  <FileRef
+                     location = "group:Contents.json">
+                  </FileRef>
+                  <Group
+                     location = "group:SignInLogo.imageset"
+                     name = "SignInLogo.imageset">
+                     <FileRef
+                        location = "group:LoginLogo.png">
+                     </FileRef>
+                     <FileRef
+                        location = "group:Contents.json">
+                     </FileRef>
+                  </Group>
+                  <Group
+                     location = "group:HomeLogo.imageset"
+                     name = "HomeLogo.imageset">
+                     <FileRef
+                        location = "group:Contents.json">
+                     </FileRef>
+                     <FileRef
+                        location = "group:Image.png">
+                     </FileRef>
+                  </Group>
+               </Group>
+               <Group
+                  location = "group:HomeCategoryIcon"
+                  name = "HomeCategoryIcon">
+                  <Group
+                     location = "group:Event.imageset"
+                     name = "Event.imageset">
+                     <FileRef
+                        location = "group:Event.png">
+                     </FileRef>
+                     <FileRef
+                        location = "group:Contents.json">
+                     </FileRef>
+                  </Group>
+                  <Group
+                     location = "group:MyPlace.imageset"
+                     name = "MyPlace.imageset">
+                     <FileRef
+                        location = "group:MyPlace.png">
+                     </FileRef>
+                     <FileRef
+                        location = "group:Contents.json">
+                     </FileRef>
+                  </Group>
+                  <Group
+                     location = "group:Statistics.imageset"
+                     name = "Statistics.imageset">
+                     <FileRef
+                        location = "group:Statistics.png">
+                     </FileRef>
+                     <FileRef
+                        location = "group:Contents.json">
+                     </FileRef>
+                  </Group>
+                  <Group
+                     location = "group:ManagementReservation.imageset"
+                     name = "ManagementReservation.imageset">
+                     <FileRef
+                        location = "group:ManagementReservation.png">
+                     </FileRef>
+                     <FileRef
+                        location = "group:Contents.json">
+                     </FileRef>
+                  </Group>
+                  <Group
+                     location = "group:MyInformation.imageset"
+                     name = "MyInformation.imageset">
+                     <FileRef
+                        location = "group:MyInformation.png">
+                     </FileRef>
+                     <FileRef
+                        location = "group:Contents.json">
+                     </FileRef>
+                  </Group>
+                  <Group
+                     location = "group:ManagementReview.imageset"
+                     name = "ManagementReview.imageset">
+                     <FileRef
+                        location = "group:ManagementReview.png">
+                     </FileRef>
+                     <FileRef
+                        location = "group:Contents.json">
+                     </FileRef>
+                  </Group>
+                  <FileRef
+                     location = "group:Contents.json">
+                  </FileRef>
+                  <Group
+                     location = "group:ApprovalDetails.imageset"
+                     name = "ApprovalDetails.imageset">
+                     <FileRef
+                        location = "group:ApprovalDetails.png">
+                     </FileRef>
+                     <FileRef
+                        location = "group:Contents.json">
+                     </FileRef>
+                  </Group>
+                  <Group
+                     location = "group:Announcement.imageset"
+                     name = "Announcement.imageset">
+                     <FileRef
+                        location = "group:Contents.json">
+                     </FileRef>
+                     <FileRef
+                        location = "group:Announcement.png">
+                     </FileRef>
+                  </Group>
+               </Group>
+               <FileRef
+                  location = "group:Contents.json">
+               </FileRef>
+            </Group>
+         </Group>
+         <Group
+            location = "group:Chart"
+            name = "Chart">
+            <Group
+               location = "group:Model"
+               name = "Model">
+               <FileRef
+                  location = "group:ChartModel.swift">
+               </FileRef>
+               <FileRef
+                  location = "group:ChartStore.swift">
+               </FileRef>
+            </Group>
+            <Group
+               location = "group:View"
+               name = "View">
+               <FileRef
+                  location = "group:ChartView.swift">
+               </FileRef>
+            </Group>
+         </Group>
+         <Group
+            location = "group:Content"
+            name = "Content">
+            <FileRef
+               location = "group:ContentView.swift">
+            </FileRef>
+         </Group>
+         <FileRef
+            location = "group:MyPlaceManagementView.swift">
+         </FileRef>
+         <Group
+            location = "group:Preview Content"
+            name = "Preview Content">
+            <Group
+               location = "group:Preview Assets.xcassets"
+               name = "Preview Assets.xcassets">
+               <FileRef
+                  location = "group:Contents.json">
+               </FileRef>
+            </Group>
+         </Group>
+         <Group
+            location = "group:ReservationDetails"
+            name = "ReservationDetails">
+            <Group
+               location = "group:ReservationDetailsViews"
+               name = "ReservationDetailsViews">
+               <Group
+                  location = "group:Calendar"
+                  name = "Calendar">
+                  <FileRef
+                     location = "group:ReservationCardView.swift">
+                  </FileRef>
+                  <FileRef
+                     location = "group:ReservationDetailsCalendarView.swift">
+                  </FileRef>
+                  <FileRef
+                     location = "group:ReservationDatePickerView.swift">
+                  </FileRef>
+               </Group>
+               <FileRef
+                  location = "group:ReservationDetailsView.swift">
+               </FileRef>
+               <Group
+                  location = "group:List"
+                  name = "List">
+                  <FileRef
+                     location = "group:ReservationDetailsListView.swift">
+                  </FileRef>
+               </Group>
+               <FileRef
+                  location = "group:ReservationDetailsSegmentView.swift">
+               </FileRef>
+               <FileRef
+                  location = "group:ReservationTapBarView.swift">
+               </FileRef>
+            </Group>
+            <Group
+               location = "group:ReservationDetailsStore"
+               name = "ReservationDetailsStore">
+               <FileRef
+                  location = "group:RervationDetailsStore.swift">
+               </FileRef>
+               <FileRef
+                  location = "group:RervationcalendarStore.swift">
+               </FileRef>
+            </Group>
+            <Group
+               location = "group:ReservationDetailsModels"
+               name = "ReservationDetailsModels">
+               <FileRef
+                  location = "group:DateValue.swift">
+               </FileRef>
+               <Group
+                  location = "group:Enums"
+                  name = "Enums">
+                  <FileRef
+                     location = "group:ReservationTapType.swift">
+                  </FileRef>
+               </Group>
+               <FileRef
+                  location = "group:ReservationCalendar.swift">
+               </FileRef>
+            </Group>
+         </Group>
+         <Group
+            location = "group:Cell"
+            name = "Cell">
+            <FileRef
+               location = "group:ReservationDeadlineCell.swift">
+            </FileRef>
+            <FileRef
+               location = "group:ReservationCell.swift">
+            </FileRef>
+         </Group>
+         <Group
+            location = "group:Common"
+            name = "Common">
+            <FileRef
+               location = "group:CustomSecureField.swift">
+            </FileRef>
+            <FileRef
+               location = "group:AbledPrimaryButton.swift">
+            </FileRef>
+            <FileRef
+               location = "group:CustomTextField.swift">
+            </FileRef>
+            <FileRef
+               location = "group:CustomTextEditor.swift">
+            </FileRef>
+         </Group>
+         <Group
+            location = "group:Review"
+            name = "Review">
+            <FileRef
+               location = "group:MyInfoView.swift">
+            </FileRef>
+            <Group
+               location = "group:Model"
+               name = "Model">
+               <FileRef
+                  location = "group:ReportStore.swift">
+               </FileRef>
+               <FileRef
+                  location = "group:ReportCase.swift">
+               </FileRef>
+               <FileRef
+                  location = "group:ReplyStore.swift">
+               </FileRef>
+               <FileRef
+                  location = "group:ReviewStore.swift">
+               </FileRef>
+            </Group>
+            <Group
+               location = "group:View"
+               name = "View">
+               <FileRef
+                  location = "group:ReviewManageDetailView.swift">
+               </FileRef>
+               <FileRef
+                  location = "group:ReviewManageView.swift">
+               </FileRef>
+               <Group
+                  location = "group:SubView"
+                  name = "SubView">
+                  <FileRef
+                     location = "group:ReviewCell.swift">
+                  </FileRef>
+                  <FileRef
+                     location = "group:ReviewWithCommentCell.swift">
+                  </FileRef>
+               </Group>
+               <Group
+                  location = "group:Sheet"
+                  name = "Sheet">
+                  <FileRef
+                     location = "group:ReviewReportSheet.swift">
+                  </FileRef>
+               </Group>
+            </Group>
+         </Group>
+         <Group
+            location = "group:Place"
+            name = "Place">
+            <Group
+               location = "group:Model"
+               name = "Model">
+               <FileRef
+                  location = "group:MyPlaceStore.swift">
+               </FileRef>
+            </Group>
+            <Group
+               location = "group:View"
+               name = "View">
+               <FileRef
+                  location = "group:MyPlaceView.swift">
+               </FileRef>
+               <FileRef
+                  location = "group:PlaceDetailView.swift">
+               </FileRef>
+               <Group
+                  location = "group:SubView"
+                  name = "SubView">
+                  <FileRef
+                     location = "group:MySpaceCell.swift">
+                  </FileRef>
+                  <FileRef
+                     location = "group:SellerInformationCell.swift">
+                  </FileRef>
+                  <FileRef
+                     location = "group:CarouselCell.swift">
+                  </FileRef>
+               </Group>
+            </Group>
+         </Group>
+         <Group
+            location = "group:Announcement"
+            name = "Announcement">
+            <FileRef
+               location = "group:AnnouncementAddView.swift">
+            </FileRef>
+            <FileRef
+               location = "group:AnnouncementView.swift">
+            </FileRef>
+            <FileRef
+               location = "group:AnnouncementTextRow.swift">
+            </FileRef>
+            <Group
+               location = "group:Cell"
+               name = "Cell">
+               <FileRef
+                  location = "group:AnnouncementOptionCell.swift">
+               </FileRef>
+               <FileRef
+                  location = "group:AnnouncementContentCell.swift">
+               </FileRef>
+               <FileRef
+                  location = "group:AnnouncementTitleCell.swift">
+               </FileRef>
+            </Group>
+            <FileRef
+               location = "group:AnnouncementDetailView.swift">
+            </FileRef>
+            <Group
+               location = "group:Sheet"
+               name = "Sheet">
+               <FileRef
+                  location = "group:AnnouncmentOptionButton.swift">
+               </FileRef>
+               <FileRef
+                  location = "group:AnnouncementShareSheet.swift">
+               </FileRef>
+               <FileRef
+                  location = "group:AnnouncementOptionSheet.swift">
+               </FileRef>
+            </Group>
+            <Group
+               location = "group:Store"
+               name = "Store">
+               <FileRef
+                  location = "group:AnnouncementShareModel.swift">
+               </FileRef>
+               <FileRef
+                  location = "group:AnnouncementStore.swift">
+               </FileRef>
+               <FileRef
+                  location = "group:AnnouncementOption.swift">
+               </FileRef>
+            </Group>
+         </Group>
+         <Group
+            location = "group:ApprovedPlace"
+            name = "ApprovedPlace">
+            <FileRef
+               location = "group:ApprovedPlaceListView.swift">
+            </FileRef>
+         </Group>
+         <Group
+            location = "group:Sign"
+            name = "Sign">
+            <Group
+               location = "group:SignUp"
+               name = "SignUp">
+               <Group
+                  location = "group:Model"
+                  name = "Model">
+                  <FileRef
+                     location = "group:SignUpData.swift">
+                  </FileRef>
+               </Group>
+               <Group
+                  location = "group:Views"
+                  name = "Views">
+                  <FileRef
+                     location = "group:FourthSignUpView.swift">
+                  </FileRef>
+                  <FileRef
+                     location = "group:AgreementCheckButton.swift">
+                  </FileRef>
+                  <FileRef
+                     location = "group:SecondStepSignUpView.swift">
+                  </FileRef>
+                  <FileRef
+                     location = "group:ImagePickerView.swift">
+                  </FileRef>
+                  <FileRef
+                     location = "group:ThirdStepSignUpView.swift">
+                  </FileRef>
+                  <FileRef
+                     location = "group:FirstStepSignUpView.swift">
+                  </FileRef>
+                  <FileRef
+                     location = "group:SignUpView.swift">
+                  </FileRef>
+                  <FileRef
+                     location = "group:BankSheetView.swift">
+                  </FileRef>
+               </Group>
+               <Group
+                  location = "group:Store"
+                  name = "Store">
+                  <FileRef
+                     location = "group:SignUpStore.swift">
+                  </FileRef>
+               </Group>
+            </Group>
+            <Group
+               location = "group:SignIn"
+               name = "SignIn">
+               <FileRef
+                  location = "group:SellerSignInView.swift">
+               </FileRef>
+               <FileRef
+                  location = "group:SellerSignInStore.swift">
+               </FileRef>
+            </Group>
+            <Group
+               location = "group:Service"
+               name = "Service">
+               <FileRef
+                  location = "group:Collections.swift">
+               </FileRef>
+               <FileRef
+                  location = "group:AuthStore.swift">
+               </FileRef>
+               <FileRef
+                  location = "group:SellerStore.swift">
+               </FileRef>
+               <FileRef
+                  location = "group:FirestoreService.swift">
+               </FileRef>
+            </Group>
+         </Group>
+         <Group
+            location = "group:PlaceAdd"
+            name = "PlaceAdd">
+            <FileRef
+               location = "group:PlaceInfomationModel.swift">
+            </FileRef>
+            <FileRef
+               location = "group:AddressSearchView.swift">
+            </FileRef>
+            <FileRef
+               location = "group:MapView.swift">
+            </FileRef>
+            <FileRef
+               location = "group:PhotoSelectedView.swift">
+            </FileRef>
+            <FileRef
+               location = "group:PlaceModel.swift">
+            </FileRef>
+            <FileRef
+               location = "group:PlaceInfomationButtonView.swift">
+            </FileRef>
+            <FileRef
+               location = "group:PlaceAddView.swift">
+            </FileRef>
+            <FileRef
+               location = "group:PlaceStore.swift">
+            </FileRef>
+         </Group>
+         <FileRef
+            location = "group:BinGongGan_SellerApp.swift">
+         </FileRef>
+      </Group>
+      <Group
+         location = "group:BinGongGan_SellerUITests"
+         name = "BinGongGan_SellerUITests">
+         <FileRef
+            location = "group:BinGongGan_SellerUITestsLaunchTests.swift">
+         </FileRef>
+         <FileRef
+            location = "group:BinGongGan_SellerUITests.swift">
+         </FileRef>
+      </Group>
+      <Group
+         location = "group:BinGongGan_SellerTests"
+         name = "BinGongGan_SellerTests">
+         <FileRef
+            location = "group:BinGongGan_SellerTests.swift">
+         </FileRef>
+      </Group>
+      <FileRef
+         location = "group:BinGongGan-Seller-Info.plist">
+      </FileRef>
+      <FileRef
+         location = "group:BinGongGan_Seller.xcodeproj">
+      </FileRef>
+   </Group>
    <FileRef
       location = "group:BinGongGan_Admin/BinGongGan_Admin.xcodeproj">
    </FileRef>

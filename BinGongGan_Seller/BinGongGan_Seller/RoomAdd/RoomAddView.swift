@@ -11,7 +11,8 @@ import Combine
 
 struct RoomAddView: View {
     @Environment(\.dismiss) private var dismiss
-    @EnvironmentObject var roomStore: RoomStore
+    var roomStore: RoomStore
+    
     @State private var selectedImage: [UIImage] = []
     @State private var roomName: String = ""
     @State private var roomPrice: String = ""
@@ -55,7 +56,6 @@ struct RoomAddView: View {
                                     Text("원")
                                         .padding(.trailing, 1)
                                 }
-                            
                         }
                         .padding()
                         .background(.white)
@@ -76,17 +76,17 @@ struct RoomAddView: View {
                             .cornerRadius(10)
                     }
                     
-                    PrimaryButton(title: "등록 하기") {
+                    AbledPrimaryButton(title: "등록 하기") {
                         Task {
-                            await roomStore.addRoom(room:
-                                                        Room(placeId: AuthStore.userUid,
-                                                             name: roomName,
-                                                             price: roomPrice,
-                                                             note: roomNote,
-                                                             imageNames: imageNames),completion: {
-                                      isShowingToast = true
-                            })
+                            await roomStore.addRoom(
+                                room:Room(placeId: AuthStore.userUid,
+                                          name: roomName,
+                                          price: roomPrice,
+                                          note: roomNote,
+                                          imageNames: imageNames),
+                                images: selectedImage)
                         }
+                        isShowingToast = true
                         dismiss()
                     }
                 }
@@ -102,8 +102,7 @@ struct RoomAddView: View {
 struct RoomAddView_Previews: PreviewProvider {
     static var previews: some View {
         NavigationStack {
-            RoomAddView()
-                .environmentObject(RoomStore())
+            RoomAddView(roomStore: RoomStore())
         }
     }
 }

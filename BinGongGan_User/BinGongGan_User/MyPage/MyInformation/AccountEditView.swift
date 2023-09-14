@@ -10,8 +10,8 @@ import BinGongGanCore
 
 struct AccountEditView: View {
     @Environment(\.dismiss) var dismiss
-    
-    @Binding var bank: Bank
+    @EnvironmentObject var myUserStore: MyUserStore
+    @Binding var bank: Bank?
     @Binding var isClickedEditBankButton: Bool
     @State private var accountNumber: String = ""
     
@@ -23,7 +23,7 @@ struct AccountEditView: View {
         //TODO: 계좌 번호 입력 폼
         VStack {
             HStack {
-                AsyncImage(url: URL(string: bank.imageString)) { image in
+                AsyncImage(url: URL(string: bank?.imageString ?? "")) { image in
                     image
                         .resizable()
                         .aspectRatio(contentMode: .fit)
@@ -32,10 +32,11 @@ struct AccountEditView: View {
                 } placeholder: {
                     ProgressView()
                 }
-                Text("\(bank.name)")
+                Text("\(bank?.name ?? "")")
                     .font(.body1Bold)
                 
                 Button {
+                    
                     dismiss()
                     isClickedEditBankButton = true
                 } label: {
@@ -52,6 +53,11 @@ struct AccountEditView: View {
             AccountNumberEditView(inputText: $accountNumber)
             
             Button {
+                myUserStore.currentUser.accountBank = bank?.name
+                myUserStore.currentUser.accountNumber = accountNumber
+                Task {
+                    try await myUserStore.editAccount(user: myUserStore.currentUser)
+                }
                 dismiss()
             } label: {
                 Text("확인")
@@ -84,6 +90,7 @@ struct AccountEditView_Previews: PreviewProvider {
     static var previews: some View {
         NavigationStack {
             AccountEditView(bank: .constant(Bank(name: "카카오뱅크", imageString: "https://play-lh.googleusercontent.com/HTBCHqXZ01RhNVzIDwsA2ARURfzXeHxoWfsmgH92ieCgIG1CuPpJRWqCfJ9KgkwWStko")), isClickedEditBankButton: .constant(false))
+                .environmentObject(MyUserStore())
         }
     }
 }

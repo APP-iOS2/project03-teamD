@@ -30,8 +30,8 @@ struct ReservationDetailsCalendarView: View {
             Spacer()
         }
         .navigationTitle("예약관리")
-        .navigationBarBackButtonHidden(true)
-        .customBackbutton()
+//        .navigationBarBackButtonHidden(true)
+//        .customBackbutton()
     }
         
 }

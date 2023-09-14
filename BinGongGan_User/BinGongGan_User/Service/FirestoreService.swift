@@ -33,6 +33,17 @@ public class FirestoreService {
         }
     }
     
+    func loadDocument<T: Codable>(collectionId: Collections, documentId: String, data: T) async throws -> T {
+        do {
+            let snapshot = try await dbRef.collection(collectionId.rawValue).document(documentId).getDocument()
+            let data = try snapshot.data(as: T.self)
+            print("Success to load new document at \(collectionId.rawValue) \(documentId)")
+            return data
+        } catch {
+            print("Error to load new document at \(collectionId.rawValue) \(documentId) \(error)")
+            throw error
+        }
+    }
     
     func fetchDocument<T: Codable>(collectionId: Collections, documentId: String) async throws -> T? {
         do {
@@ -45,6 +56,14 @@ public class FirestoreService {
             }
         } catch {
             return nil
+        }
+    }
+    
+    func deleteDocument(collectionId: Collections, documentId: String) async throws {
+        do {
+            try await dbRef.collection(collectionId.rawValue).document(documentId).delete()
+        } catch {
+            throw error
         }
     }
 }

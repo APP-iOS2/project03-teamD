@@ -27,6 +27,7 @@ struct HomeView: View {
                 }
                 
                 CategoryButtonsView()
+                    .environmentObject(rervationStore)
                     .frame(maxWidth: .infinity, maxHeight: .infinity)
                     .padding(.horizontal, 20)
                     .padding(.bottom, 30)
@@ -38,16 +39,32 @@ struct HomeView: View {
                         .foregroundColor(Color.black)
                     Spacer()
                 }
-                if rervationStore.recentData.count > 0{
-                    ForEach(0..<min(5, rervationStore.recentData.count), id: \.self) { index in
-                        ReservationCell(data:rervationStore.recentData[index],isHiddenRightButton: true)
-                            .environmentObject(rervationStore)
-                            .padding(.bottom, 12)
-                            .padding(.horizontal, 20)
-                    }
+                if !rervationStore.isLoading {
+                    ProgressView()
+                    
                 } else {
-                    Text("신규 예약이 없습니다.")
-                        .font(.title)
+                    if rervationStore.recentData.count > 0{
+                        ForEach(0..<rervationStore.recentData.count, id: \.self) { index in
+                            ReservationCell(data:rervationStore.recentData[index], isHiddenRightButton: true)
+                                .environmentObject(rervationStore)
+                                .padding(.bottom, 12)
+                                .padding(.horizontal, 20)
+                        }
+                    } else {
+                        Text("신규 예약이 없습니다.")
+                            .font(.body1Regular)
+                            .padding(.vertical, 80)
+                    }
+                }
+                
+            }
+            .refreshable {
+                Task{
+                    await rervationStore.fetchData() { success in
+                        if success {
+                            rervationStore.isLoading = true
+                        }
+                    }
                 }
             }
             .toolbar {
