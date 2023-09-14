@@ -80,7 +80,7 @@ struct ReportDetailView: View {
 struct ReportDetailView_Previews: PreviewProvider {
     static var previews: some View {
         NavigationStack {
-            ReportDetailView(reportStore: ReportStore(), report: AdminReport(report:Report(reviewId: "aaa", sellerId: "ass`", reason: "불쾌한 표현") , review: Review(placeId: "dd", writerId: "ss", date: "ss", rating: 1, content: "zzfzfzfzffz"), seller: Seller(id: "dd", name: "판매자", birthDate: "dd", bankName: "dd", accountNumber: "dd`", phoneNumber: "dd", email: "email", nickname: "돈많은백수", password: "ㄴㄴ", registrationNum: "ㅁㅁㅁㅁ", registrationImage: "")))
+            ReportDetailView(reportStore: ReportStore(), report: AdminReport(report:Report(reviewId: "aaa", sellerId: "ass`", reason: "불쾌한 표현") , review: Review(placeId: "dd", writerId: "ss", date: "ss", rating: 1, content: "zzfzfzfzffz"), seller: Seller(id: "dd", name: "판매자", birthDate: "dd", phoneNumber: "dd", email: "dd`", nickname: "dd", password: "email", bankName: "돈많은백수", accountNumber: "ㄴㄴ", registrationNum: "ㅁㅁㅁㅁ", registrationImage: "")))
         }
     }
 }
