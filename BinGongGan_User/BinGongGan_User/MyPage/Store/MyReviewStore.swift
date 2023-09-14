@@ -22,7 +22,7 @@ class MyReviewStore: ObservableObject {
     
     init(){}
     
-    func addReview(placeId: String, rating: Int, content: String, images: [UIImage]) async throws{
+    func addReview(placeId: String, rating: Int, content: String, images: [UIImage] , reservationId: String) async throws{
         let date = self.currentDateToString()
         let id = UUID().uuidString
         let newReview = Review(placeId: placeId, writerId: AuthStore.userUid, date: date, rating: rating, content: content)
@@ -36,6 +36,11 @@ class MyReviewStore: ObservableObject {
                             print("Error updating document: \(error.localizedDescription)")
                         } else {
                             print("Document successfully updated with image URLs")
+                            self.dbRef.collection("Reservation")
+                                .document(reservationId)
+                                .setData([
+                                    "reservationState": 3
+                                ],merge: true)
                         }
                     }
                 }
