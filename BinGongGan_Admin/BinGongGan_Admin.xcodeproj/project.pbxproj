@@ -39,7 +39,6 @@
 		534F56CF2AB0DD4500FA79B0 /* AnnouncementDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 534F56CE2AB0DD4500FA79B0 /* AnnouncementDetailView.swift */; };
 		534F56D22AB0E2C500FA79B0 /* UserStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 534F56D12AB0E2C500FA79B0 /* UserStore.swift */; };
 		534F56D42AB0E4E800FA79B0 /* UserDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 534F56D32AB0E4E800FA79B0 /* UserDetailView.swift */; };
-		534F56D72AB0E9F200FA79B0 /* ReviewStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 534F56D62AB0E9F200FA79B0 /* ReviewStore.swift */; };
 		B12A84362AA6EF9500BDF8CA /* BinGongGan_AdminApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = B12A84352AA6EF9500BDF8CA /* BinGongGan_AdminApp.swift */; };
 		B12A843A2AA6EF9800BDF8CA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B12A84392AA6EF9800BDF8CA /* Assets.xcassets */; };
 		B12A843D2AA6EF9800BDF8CA /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B12A843C2AA6EF9800BDF8CA /* Preview Assets.xcassets */; };
@@ -51,6 +50,7 @@
 		B12A84E02AA6F08100BDF8CA /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = B12A84DF2AA6F08100BDF8CA /* FirebaseFirestore */; };
 		B12A84E22AA6F08100BDF8CA /* FirebaseFirestoreSwift in Frameworks */ = {isa = PBXBuildFile; productRef = B12A84E12AA6F08100BDF8CA /* FirebaseFirestoreSwift */; };
 		B12A85092AA7AAD700BDF8CA /* MainTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B12A85082AA7AAD700BDF8CA /* MainTabView.swift */; };
+		B15C398A2AB2917600704C82 /* ReviewStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = B15C39892AB2917600704C82 /* ReviewStore.swift */; };
 		B1CE60EE2AB1CDB90006E94E /* FirebaseStorage in Frameworks */ = {isa = PBXBuildFile; productRef = B1CE60ED2AB1CDB90006E94E /* FirebaseStorage */; };
 /* End PBXBuildFile section */
 
@@ -104,7 +104,6 @@
 		534F56CE2AB0DD4500FA79B0 /* AnnouncementDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnnouncementDetailView.swift; sourceTree = "<group>"; };
 		534F56D12AB0E2C500FA79B0 /* UserStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserStore.swift; sourceTree = "<group>"; };
 		534F56D32AB0E4E800FA79B0 /* UserDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDetailView.swift; sourceTree = "<group>"; };
-		534F56D62AB0E9F200FA79B0 /* ReviewStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewStore.swift; sourceTree = "<group>"; };
 		B12A84322AA6EF9500BDF8CA /* BinGongGan_Admin.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BinGongGan_Admin.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B12A84352AA6EF9500BDF8CA /* BinGongGan_AdminApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BinGongGan_AdminApp.swift; sourceTree = "<group>"; };
 		B12A84392AA6EF9800BDF8CA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -115,6 +114,7 @@
 		B12A84502AA6EF9900BDF8CA /* BinGongGan_AdminUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BinGongGan_AdminUITests.swift; sourceTree = "<group>"; };
 		B12A84522AA6EF9900BDF8CA /* BinGongGan_AdminUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BinGongGan_AdminUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		B12A85082AA7AAD700BDF8CA /* MainTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabView.swift; sourceTree = "<group>"; };
+		B15C39892AB2917600704C82 /* ReviewStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewStore.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -258,10 +258,10 @@
 		534F56D52AB0E9E100FA79B0 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				534F56D62AB0E9F200FA79B0 /* ReviewStore.swift */,
 				5322C9422AB1B4D5009F30A9 /* AdminReview.swift */,
 				530F3B7A2AB24B72008AAFA4 /* ReplyStore.swift */,
 				530F3B7C2AB24C30008AAFA4 /* AdminReply.swift */,
+				B15C39892AB2917600704C82 /* ReviewStore.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -526,7 +526,6 @@
 				530F3B822AB25ADE008AAFA4 /* AdminReport.swift in Sources */,
 				5322C94F2AB1EFD9009F30A9 /* AdminPosting.swift in Sources */,
 				534F56CF2AB0DD4500FA79B0 /* AnnouncementDetailView.swift in Sources */,
-				534F56D72AB0E9F200FA79B0 /* ReviewStore.swift in Sources */,
 				534F56AD2AB0BD2600FA79B0 /* MainEmptyView.swift in Sources */,
 				B12A84362AA6EF9500BDF8CA /* BinGongGan_AdminApp.swift in Sources */,
 				530F3B692AB222F3008AAFA4 /* Place.swift in Sources */,
@@ -539,6 +538,7 @@
 				534F56B22AB0BEB400FA79B0 /* AddAnnouncementView.swift in Sources */,
 				534F56C52AB0C6CB00FA79B0 /* Text+Extension.swift in Sources */,
 				534F56CA2AB0CB9800FA79B0 /* AnnouncementStore.swift in Sources */,
+				B15C398A2AB2917600704C82 /* ReviewStore.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
