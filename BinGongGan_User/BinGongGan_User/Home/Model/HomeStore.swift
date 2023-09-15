@@ -26,10 +26,10 @@ final class HomeStore: ObservableObject {
     @Published var selectSub: [String] = []
    
     var categories: [Category] = [
-        Category(category: "share", categoryImageString:  "building.2"),
-        Category(category: "band", categoryImageString:  "music.mic"),
-        Category(category: "studio", categoryImageString:  "camera"),
-        Category(category: "kitchen", categoryImageString:  "cooktop"),
+        Category(category: "공유오피스", categoryImageString:  "building.2"),
+        Category(category: "밴드룸", categoryImageString:  "music.mic"),
+        Category(category: "스튜디오", categoryImageString:  "camera"),
+        Category(category: "공유주방", categoryImageString:  "cooktop"),
     ]
     
     let dbRef = Firestore.firestore().collection("Place")

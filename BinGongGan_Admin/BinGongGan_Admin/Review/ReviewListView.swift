@@ -27,6 +27,7 @@ struct ReviewListView: View {
                 try await reviewStore.fetchReview()
             }
         }
+        .tint(.myMint)
         .navigationTitle("리뷰")
         .scrollContentBackground(.hidden)
         .background(Color.myBackground, ignoresSafeAreaEdges: .all)

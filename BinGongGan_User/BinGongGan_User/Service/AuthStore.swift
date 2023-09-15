@@ -74,4 +74,12 @@ public class AuthStore {
             print("Error delete user: \(error)")
         }
     }
+    
+    static func changePassword(password: String) async throws {
+        do {
+            try await Auth.auth().currentUser?.updatePassword(to: password)
+        } catch {
+            print("Error changePassword: \(error)")
+        }
+    }
 }

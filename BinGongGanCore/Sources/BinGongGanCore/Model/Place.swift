@@ -66,13 +66,13 @@ public enum PlaceCategory: String, CaseIterable, Identifiable, Codable {
     public var placeCategoryName: String {
         switch self {
         case .share:
-            return "share"
+            return "공유오피스"
         case .band:
-            return "band"
+            return "밴드룸"
         case .studio:
-            return "studio"
+            return "스튜디오"
         case .kitchen:
-            return "kitchen"
+            return "공유주방"
         default:
             return ""
         }

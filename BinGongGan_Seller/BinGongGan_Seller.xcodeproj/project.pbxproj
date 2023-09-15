@@ -110,7 +110,6 @@
 		B171F4872AB1017800B8059B /* PlaceAddView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B171F4862AB1017800B8059B /* PlaceAddView.swift */; };
 		B1C601C02AB2A06A0075EA2D /* Bank.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1C601BF2AB2A06A0075EA2D /* Bank.swift */; };
 		B1CE60EA2AB1CDA00006E94E /* FirebaseStorage in Frameworks */ = {isa = PBXBuildFile; productRef = B1CE60E92AB1CDA00006E94E /* FirebaseStorage */; };
-		ECBD87972AB28C2900ECEC7D /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = ECBD87962AB28C2900ECEC7D /* GoogleService-Info.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -233,7 +232,6 @@
 		B171F4862AB1017800B8059B /* PlaceAddView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceAddView.swift; sourceTree = "<group>"; };
 		B1C601BF2AB2A06A0075EA2D /* Bank.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Bank.swift; sourceTree = "<group>"; };
 		D250E0182AAEF8E000C1AD8E /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
-		ECBD87962AB28C2900ECEC7D /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
