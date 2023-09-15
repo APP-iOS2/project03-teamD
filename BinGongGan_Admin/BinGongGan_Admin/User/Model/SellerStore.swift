@@ -37,4 +37,9 @@ class SellerStore: ObservableObject {
             print("Error getting document: \(error)")
         }
     }
+    
+    func removeSeller(sellerId: String) async throws{
+        try await dbRef.collection(Collections.seller.rawValue).document(sellerId).delete()
+        try await fetchSeller()
+    }
 }

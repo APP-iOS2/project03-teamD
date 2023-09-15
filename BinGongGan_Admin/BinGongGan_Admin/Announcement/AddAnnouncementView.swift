@@ -71,6 +71,7 @@ struct AddAnnouncementView: View {
             }
             .listRowBackground(Color.myBackground )
         }
+        .tint(.myMint)
         .navigationTitle("공지 작성")
         .scrollContentBackground(.hidden)
         .background(Color.myBackground, ignoresSafeAreaEdges: .all)

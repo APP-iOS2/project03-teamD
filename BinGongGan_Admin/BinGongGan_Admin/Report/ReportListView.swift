@@ -27,6 +27,7 @@ struct ReportListView: View {
                 }
             }
         }
+        .tint(.myMint)
         .onAppear {
             Task {
                 try await reportStore.fetchReport()

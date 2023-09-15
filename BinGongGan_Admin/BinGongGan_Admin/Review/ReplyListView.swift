@@ -28,7 +28,7 @@ struct ReplyListView: View {
                 }
             }
         }
-
+        .tint(.myMint)
         .navigationTitle("리뷰 답글")
         .scrollContentBackground(.hidden)
         .background(Color.myBackground, ignoresSafeAreaEdges: .all)
