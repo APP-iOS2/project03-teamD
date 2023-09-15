@@ -43,7 +43,7 @@ struct HomeView: View {
                     ProgressView()
                     
                 } else {
-                    if rervationStore.recentData.count > 0{
+                    if rervationStore.isLoading {
                         ForEach(0..<rervationStore.recentData.count, id: \.self) { index in
                             ReservationCell(data:rervationStore.recentData[index], isHiddenRightButton: true)
                                 .environmentObject(rervationStore)

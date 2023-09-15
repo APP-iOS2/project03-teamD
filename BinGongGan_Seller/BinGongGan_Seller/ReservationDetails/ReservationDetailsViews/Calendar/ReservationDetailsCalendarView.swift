@@ -51,6 +51,7 @@ struct ReservationDetailsCalendarView: View {
                 Spacer()
             }
         }
+        .customBackbutton()
         .refreshable {
             Task{
                 await rervationCalendarStore.fetchData()
