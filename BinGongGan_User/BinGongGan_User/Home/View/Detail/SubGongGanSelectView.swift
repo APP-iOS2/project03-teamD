@@ -13,7 +13,6 @@ struct SubGongGanSelectView: View {
     @Binding var isReservationActive: Int?
     @Binding var roomId: String
     @State var selectedSpaceIndex: Int? = nil
-    private let screenWidth = UIScreen.main.bounds.width
     
     var body: some View {
         NavigationStack {
@@ -30,8 +29,6 @@ struct SubGongGanSelectView: View {
             }
             .padding(EdgeInsets(top: 5, leading: 25, bottom: 0, trailing: 10))
             
-            
-            
             Divider()
             
             Group {
@@ -40,7 +37,7 @@ struct SubGongGanSelectView: View {
                     RoundedRectangle(cornerRadius: 10)
                         .fill(Color.myLightGray)
                         .opacity(0.5)
-                        .frame(width: screenWidth * 0.95, height: 50)
+                        .frame(width: UIScreen.screenWidth * 0.95, height: 50)
                         .overlay(
                             RoundedRectangle(cornerRadius: 10)
                                 .stroke(Color.clear, lineWidth: 1)
@@ -60,7 +57,6 @@ struct SubGongGanSelectView: View {
                 .frame(height: 5)
             
             Group {
-                //            customSection("세부공간 선택")
                 HStack {
                     Text("세부공간 선택")
                     Spacer()
@@ -94,7 +90,7 @@ struct SubGongGanSelectView: View {
                                     }
                                     .font(.body1Regular)
                                     .foregroundColor(selectedSpaceIndex == index ? .white : .myBrown)
-                                    .frame(width: screenWidth * 0.85)
+                                    .frame(width: UIScreen.screenWidth * 0.85)
                                     .padding(EdgeInsets(top: 10, leading: 20, bottom: 10, trailing: 20))
                                     .foregroundColor(.white)
                                     .background(
@@ -121,7 +117,7 @@ struct SubGongGanSelectView: View {
                 .padding(EdgeInsets(top: 5, leading: 0, bottom: 5, trailing: 0))
             }
             
-            .frame(width: screenWidth * 0.95)
+            .frame(width: UIScreen.screenWidth * 0.95)
         }
         .background(Color.myBackground)
     }

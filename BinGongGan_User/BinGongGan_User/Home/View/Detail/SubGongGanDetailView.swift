@@ -9,16 +9,13 @@ import SwiftUI
 import BinGongGanCore
 
 struct SubGongGanDetailView: View {
-    
     @State var gongGan: DetailGongGan
-    private let screenWidth = UIScreen.main.bounds.width
-    private let screenheight = UIScreen.main.bounds.height
     
     var body: some View {
         NavigationStack {
             VStack(spacing: 10) {
                 DetailTabImageView(imageUrl: $gongGan.detailImageUrl)
-                    .frame(height: screenheight * 0.25)
+                    .frame(height: UIScreen.screenHeight * 0.25)
                 
                 VStack(alignment: .leading) {
                     customSection("공간 소개")

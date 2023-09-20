@@ -12,8 +12,6 @@ struct DetailInfoView: View {
     @EnvironmentObject var gongGan: GongGanStore
     @Binding var isReservationActive: Int?
     @Binding var roomId: String
-    private let screenWidth = UIScreen.main.bounds.width
-    private let screenheight = UIScreen.main.bounds.height
     
     var body: some View {
         NavigationStack {
