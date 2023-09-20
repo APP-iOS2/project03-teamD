@@ -10,6 +10,7 @@ import SwiftUI
 struct DetailSegmentReviewListView: View {
     @EnvironmentObject var gongGan: GongGanStore
     @State var placeId: String
+    
     var body: some View {
         NavigationStack {
             VStack {
