@@ -9,7 +9,6 @@ import SwiftUI
 import BinGongGanCore
 
 struct FavoriteView: View {
-    
     @EnvironmentObject var gongGan: MyFavoriteStore
     @State var isHeartButtonShowing: Bool = false
     
@@ -51,7 +50,6 @@ struct FavoriteView: View {
                     }
                 }
             }
-            
             .toolbar {
                 ToolbarItem(placement: .navigationBarTrailing) {
                     Button {
