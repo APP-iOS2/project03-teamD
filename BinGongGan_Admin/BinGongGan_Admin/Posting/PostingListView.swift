@@ -13,7 +13,7 @@ struct PostingListView: View {
     var body: some View {
         List(postingStore.postingList) { posting in
             NavigationLink {
-               PostingDetailView(posting: posting)
+                PostingDetailView(postingStore: PostingStore(), posting: posting)
             } label: {
                 VStack(alignment: .leading) {
                     Text(posting.place.placeName)
@@ -22,6 +22,7 @@ struct PostingListView: View {
                 }
             }
         }
+        .tint(.myMint)
         .onAppear {
             Task {
                 try await postingStore.fetchPosting()

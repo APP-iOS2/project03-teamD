@@ -135,16 +135,6 @@ struct MyInfoView: View {
             ContentView() // 로그인뷰로 이동
                 .navigationBarBackButtonHidden()
         }
-        .toolbar {
-            ToolbarItem(placement: .navigationBarTrailing) {
-                NavigationLink {
-                    PlaceAddView()
-                        .environmentObject(placeStore)
-                } label: {
-                    Image(systemName: "pencil")
-                }
-            }
-        }
     }
 }
 

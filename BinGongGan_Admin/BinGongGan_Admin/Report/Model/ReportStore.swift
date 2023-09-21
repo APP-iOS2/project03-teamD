@@ -46,8 +46,9 @@ class ReportStore: ObservableObject {
         try await fetchReport()
     }
     
-    func removeReview(reviewId: String) async throws{
+    func removeReview(reviewId: String, reportId: String) async throws{
         try await dbRef.collection(Collections.review.rawValue).document(reviewId).delete()
+        try await dbRef.collection("Reports").document(reportId).delete()
         try await fetchReport()
     }
 }

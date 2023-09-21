@@ -81,7 +81,7 @@ final class RervationCalendarStore : ObservableObject{
         }
 
         let canceldata = temp.filter{
-            $0.reservationState == 3
+            $0.reservationState == 4
             //여기서 나온 값들 중에 최신값
         }
         self.canceldata = canceldata
@@ -90,7 +90,7 @@ final class RervationCalendarStore : ObservableObject{
         }
         self.waitldata = waitldata
         let confilmedldata = temp.filter{
-            $0.reservationState == 1 || $0.reservationState == 2
+            $0.reservationState == 1 || $0.reservationState == 2 || $0.reservationState == 3
         }
         self.confilmedldata = confilmedldata
 

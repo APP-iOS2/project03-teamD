@@ -13,7 +13,7 @@ struct UserListView: View {
     var body: some View {
         List(userStore.userList) { user in
             NavigationLink {
-                UserDetailView(user: user)
+                UserDetailView(userStore: userStore, user: user)
             } label: {
                 VStack(alignment: .leading) {
                     Text(user.name)
@@ -25,6 +25,7 @@ struct UserListView: View {
             }
 
         }
+        .tint(.myMint)
         .navigationTitle("일반 사용자")
         .scrollContentBackground(.hidden)
         .background(Color.myBackground, ignoresSafeAreaEdges: .all)

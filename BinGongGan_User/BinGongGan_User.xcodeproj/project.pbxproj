@@ -128,6 +128,7 @@
 		ECBD87792AAEF86F00ECEC7D /* CategorySheetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECBD87782AAEF86F00ECEC7D /* CategorySheetView.swift */; };
 		ECBD877D2AB01E3300ECEC7D /* MyReservationStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECBD877C2AB01E3300ECEC7D /* MyReservationStore.swift */; };
 		ECBD87832AB1561700ECEC7D /* SignInModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECBD87822AB1561700ECEC7D /* SignInModel.swift */; };
+		ECBD879F2AB2A8E400ECEC7D /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = ECBD879E2AB2A8E400ECEC7D /* GoogleService-Info.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -268,6 +269,7 @@
 		ECBD87782AAEF86F00ECEC7D /* CategorySheetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategorySheetView.swift; sourceTree = "<group>"; };
 		ECBD877C2AB01E3300ECEC7D /* MyReservationStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyReservationStore.swift; sourceTree = "<group>"; };
 		ECBD87822AB1561700ECEC7D /* SignInModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignInModel.swift; sourceTree = "<group>"; };
+		ECBD879E2AB2A8E400ECEC7D /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -881,6 +883,7 @@
 				B15C39872AB28B7000704C82 /* Assets.xcassets in Resources */,
 				ECBD87752AAB09F600ECEC7D /* Information1.md in Resources */,
 				ECBD87752AAB09F600ECEC7D /* Information1.md in Resources */,
+				ECBD879F2AB2A8E400ECEC7D /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

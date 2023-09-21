@@ -35,6 +35,7 @@ struct AnnouncementListView: View {
                 try await announcementStore.fetchAnnouncement()
             }
         }
+        .tint(.myMint)
         .ignoresSafeArea(.keyboard)
         .scrollContentBackground(.hidden)
         .background(Color.myBackground, ignoresSafeAreaEdges: .all)
