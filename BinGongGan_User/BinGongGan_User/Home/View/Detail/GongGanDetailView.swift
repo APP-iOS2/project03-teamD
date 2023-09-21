@@ -24,8 +24,6 @@ struct GongGanDetailView: View {
     @State var placeId: String
     @State var roomId: String = ""
     @Namespace var animation
-    private let screenWidth = UIScreen.main.bounds.width
-    private let screenheight = UIScreen.main.bounds.height
     
     enum viewFrame {
         static let haltWidth = (UIScreen.main.bounds.width / 2)
@@ -48,15 +46,15 @@ struct GongGanDetailView: View {
                 ScrollView(showsIndicators: false) {
                     
                     DetailTabImageView(imageUrl: $gongGan.gongGanInfo.placeImageUrl)
-                        .frame(height: screenheight * 0.25)
+                        .frame(height: UIScreen.screenHeight * 0.25)
                     
                     
-                    Group { // 세그먼트
-                        SegmentView(selectedSegment: $selectedSegment, isReservationActive: $isReservationActive, roomId: $roomId, placeId: $placeId, screenWidth: screenWidth, animation: animation)
+                    Group {
+                        SegmentView(selectedSegment: $selectedSegment, isReservationActive: $isReservationActive, roomId: $roomId, placeId: $placeId, animation: animation)
                     }
                 }
                 
-                VStack{
+                VStack {
                     Spacer()
                     HStack {
                         Button {
@@ -104,7 +102,6 @@ struct GongGanDetailView: View {
                 }
             }
         }
-        
         .navigationTitle("BinGongGan")
         .navigationBarTitleDisplayMode(.inline)
         .toast(isShowing: $isShowingReservationAlert, message: "세부 공간을 선택해 주세요.")

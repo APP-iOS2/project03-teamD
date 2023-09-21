@@ -9,10 +9,8 @@ import SwiftUI
 import BinGongGanCore
 
 struct DetailReviewRowView: View {
-    var review: Review
     @State private var isFolded: Bool = true
-    var imageList: [String] = ["SignInLogo", "SignInLogo", "SignInLogo"]
-    
+    var review: Review
     var foldedText: String {
         let endIndex = review.content.index(review.content.startIndex, offsetBy: 20)
         if review.content.count <= 20 {
@@ -45,7 +43,7 @@ struct DetailReviewRowView: View {
                 }
             }
             
-            VStack{
+            VStack {
                 if review.content.count <= 20 {
                     Text(review.content)
                         .foregroundColor(.myDarkGray)
@@ -65,7 +63,7 @@ struct DetailReviewRowView: View {
             
             ScrollView(.horizontal, showsIndicators: false) {
                 if review.reviewImageStringList != [""] {
-                HStack {
+                    HStack {
                         ForEach(review.reviewImageStringList ?? [""], id:\.self) { imageUrl in
                             AsyncImage(url: URL(string: imageUrl)) { image in
                                 image
@@ -79,8 +77,8 @@ struct DetailReviewRowView: View {
                             }
                             
                         }
-                }
-                .frame(height: 160)
+                    }
+                    .frame(height: 160)
                     
                 }
             }

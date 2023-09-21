@@ -13,7 +13,6 @@ struct SegmentView: View {
     @Binding var isReservationActive: Int?
     @Binding var roomId: String
     @Binding var placeId: String
-    let screenWidth: CGFloat
     let animation: Namespace.ID
     
     var body: some View {
@@ -27,12 +26,12 @@ struct SegmentView: View {
                         if selectedSegment == segment {
                             Rectangle()
                                 .foregroundColor(.myBrown)
-                                .frame(maxWidth: screenWidth * 0.45, maxHeight: 2)
+                                .frame(maxWidth: UIScreen.screenWidth * 0.45, maxHeight: 2)
                                 .matchedGeometryEffect(id: "item", in: animation)
                         } else {
                             Rectangle()
                                 .foregroundColor(.clear)
-                                .frame(maxWidth: screenWidth * 0.45, maxHeight: 2)
+                                .frame(maxWidth: UIScreen.screenWidth * 0.45, maxHeight: 2)
                         }
                     }
                     .frame(height: 50)
@@ -61,7 +60,7 @@ struct SegmentView: View {
 
 struct SegmentView_Previews: PreviewProvider {
     static var previews: some View {
-        SegmentView(selectedSegment: .constant(.info), isReservationActive: .constant(nil), roomId: .constant(""), placeId: .constant(""), screenWidth: 375, animation: Namespace().wrappedValue)
+        SegmentView(selectedSegment: .constant(.info), isReservationActive: .constant(nil), roomId: .constant(""), placeId: .constant(""), animation: Namespace().wrappedValue)
             .environmentObject(GongGanStore())
     }
 }

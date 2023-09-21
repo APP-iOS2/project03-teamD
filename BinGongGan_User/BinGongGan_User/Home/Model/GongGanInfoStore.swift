@@ -10,16 +10,7 @@ import SwiftUI
 import FirebaseFirestore
 import BinGongGanCore
 import FirebaseStorage
-//struct DetailGongGan: Identifiable {
-//    var id: String = UUID().uuidString
-//    var isSelected: Bool = false
-//    var title: String
-//    var price: Int
-//    var detailImageUrl: [String]
-//    var info: String // 세부공간 정보
-//    var categoryName: String // 공간유형
-//    var MinimumReservationTimeInfo: String // 최소예약시간정보
-//    var capacity: String // 수용인원 (최소1명~ 최대 12명)
+
 final class GongGanStore: ObservableObject {
     @Published var gongGanInfo: GongGan = GongGan.sampleGongGan
     @Published var isLoading: Bool = false
@@ -191,27 +182,6 @@ final class GongGanStore: ObservableObject {
         return companyName
     }
     
-    //    func fetch(completion: @escaping (Bool) -> Void) {
-    //
-    //            userList.removeAll()
-    //            db.collection("users").getDocuments { (querySnapshot, error) in
-    //
-    //                guard let querySnapshot = querySnapshot, error == nil else {
-    //                    print("Error fetching data: (error?.localizedDescription ?? ")
-    //                    return
-    //                }
-    //
-    //                for document in querySnapshot.documents {
-    //                    if let jsonData = try? JSONSerialization.data(withJSONObject: document.data(), options: []),
-    //                       let post = try? JSONDecoder().decode(User.self, from: jsonData) {
-    //                        self.userList.append(post)
-    //                    }
-    //                }
-    //                completion(true)
-    //                print("유저리스트 패치: (self.userList)")
-    //            }
-    //        }
-    //
     func getAllImagesFromStorage(placeId: String) async throws -> [String] {
         var imageUrls: [String] = [""]
         let storage = Storage.storage()
@@ -277,23 +247,6 @@ final class MyFavoriteStore: ObservableObject {
         }
     }
     
-    
-    
-    //
-    //    func updateMyInfo(placeId: String) {
-    //        let docData: [String: Any] = [
-    //            "isFavorite": true
-    //        ]
-    //
-    //        dbRef.document(placeId).setData(docData, merge: true) { error in
-    //            if let error = error {
-    //                print("수정 실패 \(error)")
-    //            } else {
-    //                print("수정 완료")
-    //            }
-    //        }
-    //    }
-    
     @MainActor
     func fetchMyFavorite() async {
         self.isLoading = true
@@ -352,29 +305,10 @@ final class MyFavoriteStore: ObservableObject {
         }
     }
     
-    //    func getGongGanId() async throws -> String {
-    //        var gongGanId: String = ""
-    //        let db = Firestore.firestore()
-    //
-    //        do {
-    //            let document = try await db.collection("Incruitments").document(incruitmentId).getDocument()
-    //
-    //            if document.exists {
-    //                let data = document.data()
-    //                companyName = data?["companyName"] as? String ?? ""
-    //            }
-    //        } catch {
-    //            print("Error getting document: \(error)")
-    //            throw error
-    //        }
-    //
-    //        return companyName
-    //    }
     func fetchMyFavoriteSubGongGanInfo(placeId: String) async throws -> [DetailGongGan] {
         var subGongGan: [DetailGongGan] = [DetailGongGan.sample]
         
         do {
-            // Room 컬렉션에서 placeId 값이 "placeId"인 문서만 가져오기
             let querySnapshot = try await Firestore.firestore().collection("Room").whereField("placeId", isEqualTo: placeId).getDocuments()
             
             for document in querySnapshot.documents {
@@ -392,7 +326,6 @@ final class MyFavoriteStore: ObservableObject {
                 
                 let result = DetailGongGan(
                     id: id,
-                    //                    isSelected: isSelected,
                     title: title,
                     price: Int(price) ?? 0,
                     detailImageUrl: detailImageUrl,

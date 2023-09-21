@@ -8,15 +8,12 @@
 import SwiftUI
 
 struct DetailTabImageView: View {
-    
     @Binding var imageUrl: [String]
     @State private var selectedTab = 0
-    private let screenWidth = UIScreen.main.bounds.width
     private let timer = Timer.publish(every: 3, on: .main, in: .common).autoconnect()
     
     var body: some View {
         NavigationStack {
-            
             TabView {
                 ForEach(imageUrl.indices, id: \.self) { index in
                     AsyncImage(url: URL(string: imageUrl[index])) { image in
@@ -30,7 +27,6 @@ struct DetailTabImageView: View {
                 }
             }
             .tabViewStyle(PageTabViewStyle())
-            
         }
     }
 }

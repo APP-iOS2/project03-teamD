@@ -9,11 +9,11 @@ import SwiftUI
 import BinGongGanCore
 
 struct FavoriteCellView: View {
-    
     @EnvironmentObject var gongGan: MyFavoriteStore
     @Binding var isHeartButtonShowing: Bool
     @State var gongGanItem: GongGan
     @State var heartButtonImage: Bool = true
+    
     var body: some View {
         NavigationLink {
             GongGanDetailView(placeId: gongGanItem.id)
