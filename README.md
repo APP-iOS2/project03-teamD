@@ -8,8 +8,23 @@
 - 쉐어 오피스 등 공유 공간을 등록하고 예약할 수 있는 서비스 플랫폼
 
 
+<br/><br/>
 
-<br /><br />
+## 📌 설치 / 실행방법
+- BinGongGan.xcworkspace 파일 실행
+- 아래 파일 필요
+```plain
+- GoogleService-Info.plist
+```
+- 테스트 아이디
+```plain
+- User: aaaa@aaaa.aaaa / asdf1234
+- Biz: haha@naver.com / asdf1234
+```
+
+
+
+<br/><br/>
 
 ## 📌 개발도구 및 기술스택
 <img src="https://img.shields.io/badge/Notion-000000?style=for-the-badge&logo=notion&logoColor=white"><img src="https://img.shields.io/badge/figma-F24E1E?style=for-the-badge&logo=figma&logoColor=white"><img src="https://img.shields.io/badge/xcode-147EFB?style=for-the-badge&logo=xcode&logoColor=white"><img src="https://img.shields.io/badge/github-181717?style=for-the-badge&logo=github&logoColor=white"><img src="https://img.shields.io/badge/firebase-FFCA28?style=for-the-badge&logo=firebase&logoColor=white"><img src="https://img.shields.io/badge/swift-F05138?style=for-the-badge&logo=swift&logoColor=white">
@@ -24,7 +39,7 @@
 
 
 
-<br /><br />
+<br/><br/>
 
 ## 📌 기능 소개
 ### ⭐️ 빈공간 User 앱
@@ -114,7 +129,7 @@
 
 </details>  
 
-
+<br/><br/>
 
 ### ⭐️ 빈공간 Biz 앱
 <details>
@@ -192,10 +207,12 @@
   
 </details>
 
+<br/><br/>
 
 ### ⭐️ 빈공간 Admin 앱
 <details>
 <summary>공지관리</summary>
+  
 - 앱에 대한 공지(공지, 업데이트, 장애, 기타)를 작성할 수 있다.
 - 사용자와 판매자 계정을 확인하고 관리할 수 있다.
 - 판매자가 등록한 공간을 확인하고 관리할 수 있다.
@@ -203,25 +220,13 @@
 - 신고된 댓글을 확인하고 관리할 수 있다.
 
 </details>
-![Resize](https://github.com/APPSCHOOL3-iOS/project03-teamD/assets/74815957/e454b13b-3f34-4cff-9e95-5e2cdae09fef)
+<img src="https://github.com/APPSCHOOL3-iOS/project03-teamD/assets/74815957/0c880ab5-c0ce-4374-9386-d3c1d85f0710" width="500">
 
 
-<br /><br />
-
-## 📌 설치 / 실행방법
-- BinGongGan.xcworkspace 파일 실행
-- 아래 파일 필요
-```plain
-- GoogleService-Info.plist
-```
-- 테스트 아이디
-```plain
-- User: aaaa@aaaa.aaaa / asdf1234
-- Biz: haha@naver.com / asdf1234
-```
 
 
-<br /><br />
+
+<br/><br/>
 
 ## 📌 팀소개
 #### PM: 최하늘
