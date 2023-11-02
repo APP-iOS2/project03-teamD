@@ -3,9 +3,9 @@
 
 
 ## 📌 프로젝트 소개
-- 개발인원 : 15명
-- 개발기간 : 2023.09.04 ~ 2023.09.14 (10일간)
+> 개발기간 : 2023.09.04 ~ 2023.09.14 (10일간)
 - 쉐어 오피스 등 공유 공간을 등록하고 예약할 수 있는 서비스 플랫폼
+- 판매자는 공간을 등록하여 판매할 수 있고 사용자는 등록된 공간을 검색하고 예약
 
 
 <br/><br/>
@@ -21,22 +21,6 @@
 - User: aaaa@aaaa.aaaa / asdf1234
 - Biz: haha@naver.com / asdf1234
 ```
-
-
-
-<br/><br/>
-
-## 📌 개발도구 및 기술스택
-<img src="https://img.shields.io/badge/Notion-000000?style=for-the-badge&logo=notion&logoColor=white"><img src="https://img.shields.io/badge/figma-F24E1E?style=for-the-badge&logo=figma&logoColor=white"><img src="https://img.shields.io/badge/xcode-147EFB?style=for-the-badge&logo=xcode&logoColor=white"><img src="https://img.shields.io/badge/github-181717?style=for-the-badge&logo=github&logoColor=white"><img src="https://img.shields.io/badge/firebase-FFCA28?style=for-the-badge&logo=firebase&logoColor=white"><img src="https://img.shields.io/badge/swift-F05138?style=for-the-badge&logo=swift&logoColor=white">
-#### 개발환경
-- Swift 5.9, Xcode 14.0, iOS 16.4 이상
-#### 협업도구 
-- Figma, Github, Notion
-#### 기술스택
-- SwiftUI
-- FiresStore, Firebase Storage
-- KakaoMapAPI, MapKit
-
 
 
 <br/><br/>
@@ -129,7 +113,23 @@
 
 </details>  
 
-<br/><br/>
+<table align="center">
+  <tr>
+    <th><code>홈/예약</code></th>
+    <th><code>검색/찜</code></th>
+    <th><code>지도</code></th>
+    <th><code>마이페이지</code></th>
+  </tr>
+  <tr>
+    <td><img src="https://github.com/APPSCHOOL3-iOS/project03-teamD/assets/74815957/752b10ff-90d7-4a59-8ee7-88ea9de9560f" alt="홈/예약">
+    <td><img src="https://github.com/APPSCHOOL3-iOS/project03-teamD/assets/74815957/56731881-1a6b-4cbb-bdcc-03fca565b27c" alt="검색/찜"></td>
+    <td><img src="https://github.com/APPSCHOOL3-iOS/project03-teamD/assets/74815957/64ad2c7a-23af-4d29-a64b-e1856231a16f" alt="지도"></td>
+    <td><img src="https://github.com/APPSCHOOL3-iOS/project03-teamD/assets/74815957/bf681958-b073-4379-8993-44cf783de8cd" alt="마이페이지"></td>
+  </tr>
+</table>
+
+
+<br/>
 
 ### ⭐️ 빈공간 Biz 앱
 <details>
@@ -207,7 +207,24 @@
   
 </details>
 
-<br/><br/>
+<table align="center">
+  <tr>
+    <th><code>예약관리/리뷰관리</code></th>
+    <th><code>공지사항</code></th>
+    <th><code>내 공간</code></th>
+    <th><code>내 정보</code></th>
+  </tr>
+  <tr>
+    <td><img src="https://github.com/APPSCHOOL3-iOS/project03-teamD/assets/74815957/f34c1ee7-3bba-436c-b8e4-d2ed137aded3" alt="예약관리/리뷰관리">
+    <td><img src="https://github.com/APPSCHOOL3-iOS/project03-teamD/assets/74815957/4711d4a9-b00d-479d-a0ab-b48852366239" alt="공지사항"></td>
+    <td><img src="https://github.com/APPSCHOOL3-iOS/project03-teamD/assets/74815957/1bdc61bb-8ded-4f01-842f-7db0bbc4ff25" alt="내 공간"></td>
+    <td><img src="https://github.com/APPSCHOOL3-iOS/project03-teamD/assets/74815957/48cd2b0b-feba-47bc-8daa-e210c20cd5ff" alt="내 정보"></td>
+</td>
+</table>
+
+
+
+<br/>
 
 ### ⭐️ 빈공간 Admin 앱
 <details>
@@ -225,10 +242,28 @@
 
 
 
+<br/><br/>
+
+## 📌 개발도구 및 기술스택
+<img src="https://img.shields.io/badge/Notion-000000?style=for-the-badge&logo=notion&logoColor=white"><img src="https://img.shields.io/badge/figma-F24E1E?style=for-the-badge&logo=figma&logoColor=white"><img src="https://img.shields.io/badge/xcode-147EFB?style=for-the-badge&logo=xcode&logoColor=white"><img src="https://img.shields.io/badge/github-181717?style=for-the-badge&logo=github&logoColor=white"><img src="https://img.shields.io/badge/firebase-FFCA28?style=for-the-badge&logo=firebase&logoColor=white"><img src="https://img.shields.io/badge/swift-F05138?style=for-the-badge&logo=swift&logoColor=white">
+#### 개발환경
+- Swift 5.9, Xcode 14.0, iOS 16.4 이상
+#### 협업도구 
+- Figma, Github, Notion
+#### 기술스택
+- SwiftUI
+- FiresStore, Firebase Storage
+- KakaoMapAPI, MapKit
+
+
+
+
+
+
 
 <br/><br/>
 
-## 📌 팀소개
+## 📌 팀원소개
 #### PM: 최하늘
 #### User Team: 임대진, 이제현, 양성혜 / 윤지호, 마경미, 박지현 / 방유빈, 손윤호, 조민근
 #### Biz Team: 박채영, 김민기, 신희권, 오영석, 윤경환
