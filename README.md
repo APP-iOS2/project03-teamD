@@ -195,9 +195,15 @@
 
 ### ⭐️ 빈공간 Admin 앱
 <details>
-<summary>회원가입/로그인</summary>
+<summary>공지관리</summary>
+- 앱에 대한 공지(공지, 업데이트, 장애, 기타)를 작성할 수 있다.
+- 사용자와 판매자 계정을 확인하고 관리할 수 있다.
+- 판매자가 등록한 공간을 확인하고 관리할 수 있다.
+- 사용자와 판매자가 작성한 댓글과 답글을 확인할 수 있다.
+- 신고된 댓글을 확인하고 관리할 수 있다.
 
 </details>
+![Resize](https://github.com/APPSCHOOL3-iOS/project03-teamD/assets/74815957/e454b13b-3f34-4cff-9e95-5e2cdae09fef)
 
 
 <br /><br />
