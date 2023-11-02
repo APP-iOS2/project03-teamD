@@ -1,54 +1,51 @@
 # 빈공간
-![페이지 아이콘](https://tin-slug-eb7.notion.site/image/https%3A%2F%2Fmedia.discordapp.net%2Fattachments%2F1145881976209948734%2F1148443641170362513%2Ffc.jpg?table=block&id=9b58f6dc-6f23-46ae-a801-13077b27312f&spaceId=2579cb2f-2b59-450e-ba2a-4bd4e5932e09&width=250&userId=&cache=v2)
+![BinGongGan Frame 55](https://github.com/APPSCHOOL3-iOS/project03-teamD/assets/74815957/5154e413-6e46-498a-b6e0-4507a627883f)
 
-<br />
 
 ## 📌 프로젝트 소개
-- **프로젝트명**: 빈공간
-- **프로젝트 주제**: 쉐어 오피스 등 공유 공간을 등록하고 예약할 수 있는 서비스 플랫폼
-- **프로젝트 참여인원**: 15명
-- **github 주소**: https://github.com/APPSCHOOL3-iOS/project03-teamD/
-- **figma 주소** : https://www.figma.com/file/VnMrtBrUsG3W6tdOo8tmg3/D%ED%8C%80---%EA%B3%B5%EA%B0%84%EB%8C%80%EC%97%AC-APP?type=design&node-id=0-1&mode=design&t=ysR59nogBI6ScGaA-0
-- **notion 주소**: https://tin-slug-eb7.notion.site/BinGongGan-9b58f6dc6f2346aea80113077b27312f
+- 개발인원 : 15명
+- 개발기간 : 2023.09.04 ~ 2023.09.14 (10일간)
+- 쉐어 오피스 등 공유 공간을 등록하고 예약할 수 있는 서비스 플랫폼
+
+
 
 <br /><br />
 
-#### 활용 기술
-<img  src="https://img.shields.io/badge/Notion-000000?style=for-the-badge&logo=notion&logoColor=white"><img src="https://img.shields.io/badge/figma-F24E1E?style=for-the-badge&logo=figma&logoColor=white"><img src="https://img.shields.io/badge/xcode-147EFB?style=for-the-badge&logo=xcode&logoColor=white"><img src="https://img.shields.io/badge/github-181717?style=for-the-badge&logo=github&logoColor=white"><img src="https://img.shields.io/badge/firebase-FFCA28?style=for-the-badge&logo=firebase&logoColor=white"><img src="https://img.shields.io/badge/swift-F05138?style=for-the-badge&logo=swift&logoColor=white">
+## 📌 개발도구 및 기술스택
+<img src="https://img.shields.io/badge/Notion-000000?style=for-the-badge&logo=notion&logoColor=white"><img src="https://img.shields.io/badge/figma-F24E1E?style=for-the-badge&logo=figma&logoColor=white"><img src="https://img.shields.io/badge/xcode-147EFB?style=for-the-badge&logo=xcode&logoColor=white"><img src="https://img.shields.io/badge/github-181717?style=for-the-badge&logo=github&logoColor=white"><img src="https://img.shields.io/badge/firebase-FFCA28?style=for-the-badge&logo=firebase&logoColor=white"><img src="https://img.shields.io/badge/swift-F05138?style=for-the-badge&logo=swift&logoColor=white">
+#### 개발환경
+- Swift 5.9, Xcode 14.0, iOS 16.4 이상
+#### 협업도구 
+- Figma, Github, Notion
+#### 기술스택
+- SwiftUI
+- FiresStore, Firebase Storage
+- KakaoMapAPI, MapKit
 
-<br />
 
-####  🤙🏻 컨벤션 & 규칙
-```
--   feat : 새로운 기능 추가
--   fix : 버그 수정
--   docs : 문서 수정
--   style : 코드 포맷팅, 세미콜론 누락, 코드 변경이 없는 경우
--   refactor : 코드 리펙토링
--   test : 테스트 코드, 리펙토링 테스트 코드 추가
--   chore : 빌드 업무 수정, 패키지 매니저 수정
--   rename : 이름 변경
-```
 
------
-<br />
+<br /><br />
 
+## 📌 기능 소개
 ### ⭐️ 빈공간 User 앱
-- 테스트 계정:
+<details>
+<summary>회원가입/로그인</summary>
+  
+  - 이메일과 비밀번호를 입력하고 로그인 버튼을 누르면 홈 뷰로 넘어간다.
+  - 데이터베이스에 없는 이메일 또는 비밀번호를 입력 하면 Alert로 로그인 실패 알림이 뜬다.
+  - 회원가입 버튼을 누르면 회원가입 뷰로 넘어간다.
+  - 회원가입 및 로그인은 Firebase Auth를 통해 인증할 수 있다.
+  - 회원가입에 필요한 항목은 유효성 검사를 진행한다.
+  - 이메일 중복검사를 통해 중복되지 않은 계정을 생성할 수 있다.
+  - 휴대폰 번호를 입력한 후 본인 인증을 진행한다.(구현예정)
+  - 로그인 정보는 앱 내에 저장되어 자동로그인을 할 수 있다.
+
+</details>  
 
 
+<details>
+<summary>홈</summary>
 
-##### 회원가입 & 로그인
-- 이메일과 비밀번호를 입력하고 로그인 버튼을 누르면 홈 뷰로 넘어간다.
-- 데이터베이스에 없는 이메일 또는 비밀번호를 입력 하면 Alert로 로그인 실패 알림이 뜬다.
-- 회원가입 버튼을 누르면 회원가입 뷰로 넘어간다.
-- 회원가입 및 로그인은 Firebase Auth를 통해 인증할 수 있다.
-- 회원가입에 필요한 항목은 유효성 검사를 진행한다.
-- 이메일 중복검사를 통해 중복되지 않은 계정을 생성할 수 있다.
-- 휴대폰 번호를 입력한 후 본인 인증을 진행한다.(구현예정)
-- 로그인 정보는 앱 내에 저장되어 자동로그인을 할 수 있다.
-
-##### 홈
 - 내 주변을 검색하는 버튼을 통해 지도에서 공간들을 검색하러 이동할 수 있다.
 - 공유오피스, 밴드룸, 스튜디오, 공유키친 4가지 카테로리를 선택해서 선택된 카테고리의 목록을 불러올 수 있다.
 - 카테고리별로 정리된 공간들에서 지역을 선택해 필터링 해서 찾아볼 수 있다.
@@ -66,9 +63,13 @@
 - 모든 필드를 채우지 않을 시 메세지창이 뜬다.
 - 환불 사항을 꼭 확인 후 결제창으로 넘어갈 수 있다.
 - 결제 확인 창에서 예약 내역을 확인할 수 있다.
+  
+</details>  
 
 
-##### 지도 검색
+<details>
+<summary>지도 검색</summary>
+
 - 빈공간 앱은 공간명을 검색할 수 있을 뿐만 아니라 지도로도 검색할 수 있다.
 - 오른 쪽 상단 < 뒤로 가기 버튼을 누르면 홈 뷰로 이동한다.
 - 도로명 주소로 원하는 위치를 검색할 수 있다.(구현예정)
@@ -77,13 +78,22 @@
 - 리스트 뿐만 아니라 지도 위에 핀을 누르게 되면 자세한 정보를 볼 수 있다.
 - 하단 왼쪽에 현재 내 위치로 이동할 수 있는 버튼이 있다. (내 주변 검색 가능)
 
+</details>  
 
-##### 찜
+
+<details>
+<summary>찜</summary>  
+
 - 공간들의 디테일 화면에서 하트 버튼을 토글하여 선택한 공간을 찜 하거나 취소 할 수 있다.
 - 찜 한 공간들은 찜 탭에서 보여지게 된다.
 - edit버튼으로 하트버튼을 토글하여 찜 목록에서 삭제 할 수 있다.
 
-##### 마이페이지
+</details>  
+
+
+<details>
+<summary>마이페이지</summary>  
+  
 - 내정보에 대해 관리 할 수 있다.
   - 회원 정보를 수정할 수 있다.(닉네임,연락처,이름)
   - 계좌를 수정할 수 있다.(은행,계좌번호)
@@ -101,13 +111,15 @@
   - 자주 묻는 FAQ로 볼 수 있다.
 - 관리자가 등록한 앱 공지사항, 앱 정보를 볼 수 있다.
 - 앱 설정(위치권한, 알림), 로그아웃을 할 수 있다.
----
-<br />
+
+</details>  
+
+
 
 ### ⭐️ 빈공간 Biz 앱
-- 테스트 계정:
-
-##### 회원가입 & 로그인
+<details>
+<summary>회원가입/로그인</summary>
+  
 - 이메일과 비밀번호를 입력하고 로그인 버튼을 누르면 홈 뷰로 넘어간다.
 - 데이터베이스에 없는 이메일 또는 비밀번호를 입력 하면 Alert로 로그인 실패 알림이 뜬다.
 - 회원가입 버튼을 누르면 회원가입 뷰로 넘어간다.
@@ -116,48 +128,99 @@
 - 이메일 중복검사를 통해 중복되지 않은 계정을 생성할 수 있다.
 - 휴대폰 번호를 입력한 후 본인 인증을 진행한다.(구현예정)
 - 로그인 정보는 앱 내에 저장되어 자동로그인을 할 수 있다.
+  
+</details>
 
 
-##### 홈
+<details>
+<summary>홈</summary>
+  
 - 전체 메뉴를 통해 판매자용 앱에서 제공하는 주요 기능 6가지에 접근할 수 있다.
 - 판매자가 소유한 대여 공간에 새롭게 들어온 예약을 바로 확인 및 승인할 수 있다.
+  
+</details>
 
-##### 예약 관리
+
+<details>
+<summary>예약 관리</summary>
+  
 - 달력을 통해 전체적인 예약 현황과 날짜별 예약 내역에 대해 확인할 수 있다.
 - 예약이 있는 날짜에는 날짜 위에 동그란 표시가 생기고, 날짜 아래에 예약 건수가 표시된다.
 - 대기, 취소, 확정 내역을 분리하여 확인 및 관리할 수 있다.
+  
+</details>
 
-##### 리뷰 관리
+
+<details>
+<summary>리뷰 관리</summary>
+  
 - 판매자가 소유한 대여 공간별 리뷰를 확인할 수 있다.
 - 리뷰에 최대 1개의 댓글을 작성할 수 있다.
 - 부적절한 리뷰에 대해서는 적절한 신고 사유를 선택하여 신고 가능하다.
+  
+</details>
 
-##### 공지사항
+
+<details>
+<summary>공지사항</summary>
+  
 - 판매자가 소유한 대여 공간별 공지사항을 관리할 수 있다.
 - 공지를 특정 공간에만 올릴지, 소유한 전체 공간에 올릴지 선택할 수 있다.
+  
+</details>
 
-##### 내 공간
+
+<details>
+<summary>내 공간</summary>
+  
 - 판매자의 정보가 명함 형식으로 나타난다.
 - 공간 등록을 하지 않은 경우, 공간 등록을 위한 버튼이 하단에 나타난다.
   - 공간 이름, 공간 카테고리(쉐어오피스, 밴드룸, 스튜디오, 키친룸)을 입력 및 선택할 수 있다.
   - 주소 검색이 가능하며 검색한 주소 결과를 지도에 표시한다.
   - 공간 사진 등록과 공간 시설 선택, 공간 정보 입력이 가능하다.
 - 공간 등록을 한 경우, 세부 공간을 등록 및 관리할 수 있는 스크롤 뷰가 나타난다.
+  
+</details>
 
-##### 통계 (구현 예정)
-##### 내 정보
+
+<details>
+<summary>내 정보</summary>
+  
 - 회원가입시 등록한 판매자의 정보를 확인할 수 있다.
 - 전화번호, 계좌번호를 수정할 수 있다.
 - 로그아웃과 회원탈퇴가 가능하다.
+  
+</details>
 
 
----
-<br />
+### ⭐️ 빈공간 Admin 앱
+<details>
+<summary>회원가입/로그인</summary>
 
-### ⭐️ 빈공간 관리자 앱
-- 테스트 계정:
-- 
+</details>
 
+
+<br /><br />
+
+## 📌 설치 / 실행방법
+- BinGongGan.xcworkspace 파일 실행
+- 아래 파일 필요
+```plain
+- GoogleService-Info.plist
+```
+- 테스트 아이디
+```plain
+- User: aaaa@aaaa.aaaa / asdf1234
+- Biz: haha@naver.com / asdf1234
+```
+
+
+<br /><br />
+
+## 📌 팀소개
+#### PM: 최하늘
+#### User Team: 임대진, 이제현, 양성혜 / 윤지호, 마경미, 박지현 / 방유빈, 손윤호, 조민근
+#### Biz Team: 박채영, 김민기, 신희권, 오영석, 윤경환
 
 
 
