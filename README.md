@@ -11,10 +11,11 @@
 <br/><br/>
 
 ## 📌 설치 / 실행방법
-- BinGongGan.xcworkspace 파일 실행
+- Xcode에서 BinGongGan.xcworkspace 파일 열기
 - 아래 파일 필요
 ```plain
 - GoogleService-Info.plist
+- Firebase 프로젝트 생성 후 Authentication, Firestore Database, Storage 를 추가합니다.
 ```
 - 테스트 아이디
 ```plain
@@ -258,16 +259,109 @@
 
 
 
+<br/><br/>
 
 
+## 📌 팀원소개
+#### PM
+<table>
+  <tr align="center">
+    <th>최하늘</th>
+  </tr>
+  <tr align="center">
+    <td><img src="https://avatars.githubusercontent.com/u/74815957?v=4" width="100"></td>
+  </tr>
+  <tr align="center">
+    <td><a href="https://github.com/HANLeeeee">@HANLeeeee</a></td>
+  </tr>
+</table>
+
+#### User Team
+<table>
+  <tr align="center">
+    <th>임대진</th>
+    <th>이제현</th>
+    <th>양성혜</th>
+  </tr>
+  <tr align="center">
+    <td><img src="https://avatars.githubusercontent.com/u/115560272?v=4" width="80"></td>
+    <td><img src="https://avatars.githubusercontent.com/u/104299722?v=4" width="80"></td>
+    <td><img src="https://avatars.githubusercontent.com/u/87599027?v=4" width="80"></td>
+  </tr>
+  <tr align="center">
+    <td><a href="https://github.com/DAEJINLIM">@DAEJINLIM</a></td>
+    <td><a href="https://github.com/LJH3904">@LJH3904</a></td>
+    <td><a href="https://github.com/seongzzang">@seongzzang</a></td>
+  </tr>
+</table>
+
+<table>
+  <tr align="center">
+    <th>윤지호</th>
+    <th>마경미</th>
+    <th>박지현</th>
+  </tr>
+  <tr align="center">
+    <td><img src="https://avatars.githubusercontent.com/u/109410688?v=4" width="80"></td>
+    <td><img src="https://avatars.githubusercontent.com/u/62610032?v=4" width="80"></td>
+    <td><img src="https://avatars.githubusercontent.com/u/134076497?v=4" width="80"></td>
+  </tr>
+  <tr align="center">
+    <td><a href="https://github.com/yoonjiho37">@yoonjiho37</a></td>
+    <td><a href="https://github.com/akrudal">@akrudal</a></td>
+    <td><a href="https://github.com/wowhyunnie">@wowhyunnie</a></td>
+  </tr>
+</table>
+
+<table>
+  <tr align="center">
+    <th>방유빈</th>
+    <th>손윤호</th>
+    <th>조민근</th>
+  </tr>
+  <tr align="center">
+    <td><img src="https://avatars.githubusercontent.com/u/58802345?v=4" width="80"></td>
+    <td><img src="https://avatars.githubusercontent.com/u/94930261?v=4" width="80"></td>
+    <td><img src="https://avatars.githubusercontent.com/u/127810279?v=4" width="80"></td>
+  </tr>
+  <tr align="center">
+    <td><a href="https://github.com/bangtori">@bangtori</a></td>
+    <td><a href="https://github.com/SonYoonho">@SonYoonho</a></td>
+    <td><a href="https://github.com/LutherCho">@LutherCho</a></td>
+  </tr>
+</table>
+
+
+#### Biz Team
+<table>
+  <tr align="center">
+    <th>박채영</th>
+    <th>김민기</th>
+    <th>신희권</th>
+    <th>오영석</th>
+    <th>윤경환</th>
+  </tr>
+  <tr align="center">
+    <td><img src="https://avatars.githubusercontent.com/u/72439620?v=4" width="80"></td>
+    <td><img src="https://avatars.githubusercontent.com/u/79855248?v=4" width="80"></td>
+    <td><img src="https://avatars.githubusercontent.com/u/55128158?v=4" width="80"></td>
+    <td><img src="https://avatars.githubusercontent.com/u/82360640?v=4" width="80"></td>
+    <td><img src="https://avatars.githubusercontent.com/u/133959724?v=4" width="80"></td>
+  </tr>
+  <tr align="center">
+    <td><a href="https://github.com/choala">@choala</a></td>
+    <td><a href="https://github.com/minki-kim-git">@minki-kim-git</a></td>
+    <td><a href="https://github.com/hhh131">@hhh131</a></td>
+    <td><a href="https://github.com/Youngs5">@Youngs5</a></td>
+    <td><a href="https://github.com/kempt007">@kempt007</a></td>
+  </tr>
+</table>
 
 
 <br/><br/>
 
-## 📌 팀원소개
-#### PM: 최하늘
-#### User Team: 임대진, 이제현, 양성혜 / 윤지호, 마경미, 박지현 / 방유빈, 손윤호, 조민근
-#### Biz Team: 박채영, 김민기, 신희권, 오영석, 윤경환
 
 
+## 📌 License
+"BinGongGan" is available under the MIT license. See the [LICENSE](https://github.com/APPSCHOOL3-iOS/project03-teamD/blob/main/LICENSE) file for more info.
 
