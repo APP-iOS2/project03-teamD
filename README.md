@@ -1,5 +1,7 @@
 # 빈공간
-![BinGongGan Frame 55](https://github.com/APPSCHOOL3-iOS/project03-teamD/assets/74815957/5154e413-6e46-498a-b6e0-4507a627883f)
+![BinGongGan Frame 55](https://github.com/APPSCHOOL3-iOS/project03-teamD/assets/74815957/ba0ced76-f7e5-4601-b811-5cbdc278cad7)
+
+
 
 
 ## 📌 프로젝트 소개
@@ -122,13 +124,12 @@
     <th><code>마이페이지</code></th>
   </tr>
   <tr>
-    <td><img src="https://github.com/APPSCHOOL3-iOS/project03-teamD/assets/74815957/752b10ff-90d7-4a59-8ee7-88ea9de9560f" alt="홈/예약">
-    <td><img src="https://github.com/APPSCHOOL3-iOS/project03-teamD/assets/74815957/56731881-1a6b-4cbb-bdcc-03fca565b27c" alt="검색/찜"></td>
-    <td><img src="https://github.com/APPSCHOOL3-iOS/project03-teamD/assets/74815957/64ad2c7a-23af-4d29-a64b-e1856231a16f" alt="지도"></td>
-    <td><img src="https://github.com/APPSCHOOL3-iOS/project03-teamD/assets/74815957/bf681958-b073-4379-8993-44cf783de8cd" alt="마이페이지"></td>
+    <td><img src="https://github.com/APPSCHOOL3-iOS/project03-teamD/assets/74815957/5c77a9cc-6fa2-4c9d-bf07-194025e3f984" alt="홈/예약">
+    <td><img src="https://github.com/APPSCHOOL3-iOS/project03-teamD/assets/74815957/19b12b98-2a7b-4612-a44d-ead62048231c" alt="검색/찜"></td>
+    <td><img src="https://github.com/APPSCHOOL3-iOS/project03-teamD/assets/74815957/a30e566c-6894-4b80-89f7-cfd6709f690f" alt="지도"></td>
+    <td><img src="https://github.com/APPSCHOOL3-iOS/project03-teamD/assets/74815957/23b6cd0e-80ef-408c-8a5d-02c185d92c7a" alt="마이페이지"></td>
   </tr>
 </table>
-
 
 <br/>
 
@@ -216,10 +217,10 @@
     <th><code>내 정보</code></th>
   </tr>
   <tr>
-    <td><img src="https://github.com/APPSCHOOL3-iOS/project03-teamD/assets/74815957/f34c1ee7-3bba-436c-b8e4-d2ed137aded3" alt="예약관리/리뷰관리">
-    <td><img src="https://github.com/APPSCHOOL3-iOS/project03-teamD/assets/74815957/4711d4a9-b00d-479d-a0ab-b48852366239" alt="공지사항"></td>
-    <td><img src="https://github.com/APPSCHOOL3-iOS/project03-teamD/assets/74815957/1bdc61bb-8ded-4f01-842f-7db0bbc4ff25" alt="내 공간"></td>
-    <td><img src="https://github.com/APPSCHOOL3-iOS/project03-teamD/assets/74815957/48cd2b0b-feba-47bc-8daa-e210c20cd5ff" alt="내 정보"></td>
+    <td><img src="https://github.com/APPSCHOOL3-iOS/project03-teamD/assets/74815957/7555bed9-d3b6-42af-bbfe-b8e2a7e23d36" alt="예약관리/리뷰관리">
+    <td><img src="https://github.com/APPSCHOOL3-iOS/project03-teamD/assets/74815957/07ca1c74-1e69-4ce1-bda5-3a7366429e1d" alt="공지사항"></td>
+    <td><img src="https://github.com/APPSCHOOL3-iOS/project03-teamD/assets/74815957/ab91c982-9089-45c8-8f4f-82b5115f9626" alt="내 공간"></td>
+    <td><img src="https://github.com/APPSCHOOL3-iOS/project03-teamD/assets/74815957/c2ffc1d2-a86d-4a85-b46f-4d75b939ec33" alt="내 정보"></td>
 </td>
 </table>
 
@@ -238,7 +239,7 @@
 - 신고된 댓글을 확인하고 관리할 수 있다.
 
 </details>
-<img src="https://github.com/APPSCHOOL3-iOS/project03-teamD/assets/74815957/0c880ab5-c0ce-4374-9386-d3c1d85f0710" width="500">
+<img src="https://github.com/APPSCHOOL3-iOS/project03-teamD/assets/74815957/c3cc60bc-9d5e-4a3e-8bbf-cc1c3971adef" width="500">
 
 
 
@@ -363,5 +364,5 @@
 
 
 ## 📌 License
-"BinGongGan" is available under the MIT license. See the [LICENSE](https://github.com/APPSCHOOL3-iOS/project03-teamD/blob/main/LICENSE) file for more info.
+"BinGongGan" is available under the MIT license. See the [LICENSE](LICENSE) file for more info.
 
